@@ -1,23 +1,24 @@
 {
-  "name": "parent-require",
-  "version": "1.0.0",
-  "description": "Require modules from parent modules.",
+  "name": "top-require",
+  "version": "0.1.0",
+  "description": "Require modules from highest module.",
   "keywords": [
     "require",
     "module",
-    "modules"
+    "modules",
+    "parent-require"
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/jaredhanson/node-parent-require.git"
+    "url": "git://github.com/sielay/node-top-require.git"
   },
   "bugs": {
-    "url": "http://github.com/jaredhanson/node-parent-require/issues"
+    "url": "http://github.com/sielay/node-top-require/issues"
   },
   "author": {
-    "name": "Jared Hanson",
-    "email": "jaredhanson@gmail.com",
-    "url": "http://www.jaredhanson.net/"
+    "name": "Lukasz Sielski",
+    "email": "lukaszsielski@gmail.com",
+    "url": "http://www.lukaszsielski.pl/"
   },
   "licenses": [
     {

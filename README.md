@@ -1,19 +1,25 @@
-# parent-require
+# top-require
 
-[![Build](https://travis-ci.org/jaredhanson/node-parent-require.png)](http://travis-ci.org/jaredhanson/node-parent-require)
-[![Coverage](https://coveralls.io/repos/jaredhanson/node-parent-require/badge.png)](https://coveralls.io/r/jaredhanson/node-parent-require)
-[![Dependencies](https://david-dm.org/jaredhanson/node-parent-require.png)](http://david-dm.org/jaredhanson/node-parent-require)
+[![Build](https://travis-ci.org/sielay/node-top-require.png)](http://travis-ci.org/sielay/node-top-require)
+[![Coverage](https://coveralls.io/repos/sielay/node-top-require/badge.png)](https://coveralls.io/r/sielay/node-top-require)
+[![Dependencies](https://david-dm.org/sielay/node-top-require.png)](http://david-dm.org/sielay/node-top-require)
 
 
-Require modules from parent (i.e. loading) module.
+Require modules from highest (i.e. loading) module.
+
+It is based hugely on [parent-require](https://github.com/jaredhanson/node-parent-require), but it loads declaration highest
+in the project hierarchy. That is useful when you have for instance module that require module that require module which populate
+Mongoose models you want to use in your project.
+
+Most of code/documentation is copy from parent-require.
 
 ## Install
 
-    $ npm install parent-require
+    $ npm install top-require
 
 ## Usage
 
-`parent-require` addresses an annoying error condition that arises when
+`top-require` addresses an annoying error condition that arises when
 developing plugins, which have [peer dependencies](http://blog.nodejs.org/2013/02/07/peer-dependencies/),
 that are `npm link`'d into an application.
 
@@ -72,7 +78,7 @@ itself, Node's typical resolution algorithm fails to find it.
 
 #### Fallback to Parent Require
 
-This is where `parent-require` comes into play.  It provides a fallback to
+This is where `top-require` comes into play.  It provides a fallback to
 `require` modules from the *loading* (aka parent) module.  Because the loading
 module exists within the application itself, Node's resolution algorithm will
 correctly find our peer dependency.
@@ -82,7 +88,7 @@ try {
   var mongoose = require('mongoose');
 } catch (_) {
   // workaround when `npm link`'ed for development
-  var prequire = require('parent-require')
+  var prequire = require('top-require')
     , mongoose = prequire('mongoose');
 }
 
@@ -101,10 +107,12 @@ plugin, correctly resolving peer dependencies in both cases.
 
 ## Credits
 
-  - [Jared Hanson](http://github.com/jaredhanson)
+  - Creator of original Parent Require [Jared Hanson](http://github.com/jaredhanson)
+  - [Lukasz Sielski](http://github.com/sielay)
 
 ## License
 
 [The MIT License](http://opensource.org/licenses/MIT)
 
+Copyright (c) 2014 Lukasz Sielski <[http://lukaszsielski.pl/](http://lukaszsielski.pl/)>
 Copyright (c) 2013 Jared Hanson <[http://jaredhanson.net/](http://jaredhanson.net/)>
