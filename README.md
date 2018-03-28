@@ -1,4 +1,6 @@
-## semver-utils
+## semver-utils.js
+
+| Sponsored by [ppl](https://ppl.family)
 
 Some utils that aren't provided by the mainstream `semver` module.
 
@@ -11,11 +13,10 @@ npm install --save semver-utils
 ```javascript
 'use strict';
 
-var semverUtils = require('semver-utils')
-  , version = require('./package.json').version
-  , semver = semverUtils.parse(version)
-  ;
-  
+var semverUtils = require('semver-utils');
+var version = require('./package.json').version;
+var semver = semverUtils.parse(version);
+
 console.log(semver);
 ```
 
@@ -30,8 +31,7 @@ console.log(semver);
 
 Turns a string such as `1.0.6-1+build-623` into the object
 
-    {
-      semver:   '1.0.6-1+build-623'
+    { semver:   '1.0.6-1+build-623'
     , version:  '1.0.6'
     , major:    '1'
     , minor:    '0'
@@ -46,8 +46,7 @@ returns `null` on **error**
 
 Creates a string such as `1.0.6-1+build-623` from the object
 
-    {
-      major:    '1'
+    { major:    '1'
     , minor:    '0'
     , patch:    '6'
     , release:  '1'
@@ -96,29 +95,25 @@ Creates a range string such as `>= 1.1.7 < 2.0.0 || 1.1.3`
 from an array of semver objects (and operators) such as
 
     [
-        {
-            "semver": ">= v1.1.7"
-          , "operator": ">="
-          , "major": 1
-          , "minor": 1
-          , "patch": 7
+        { "semver": ">= v1.1.7"
+        , "operator": ">="
+        , "major": 1
+        , "minor": 1
+        , "patch": 7
         }
-      , {
-            "semver": "< v2.0.0"
-          , "operator": "<"
-          , "major": 2
-          , "minor": 0
-          , "patch": 0
+      , { "semver": "< v2.0.0"
+        , "operator": "<"
+        , "major": 2
+        , "minor": 0
+        , "patch": 0
         }
-      , {
-            "operator": "||"
+      , { "operator": "||"
         }
-      , {
-            "semver": "v1.1.3"
-          , "operator": "="
-          , "major": 1
-          , "minor": 1
-          , "patch": 3
+      , { "semver": "v1.1.3"
+        , "operator": "="
+        , "major": 1
+        , "minor": 1
+        , "patch": 3
         }
 
     ]
