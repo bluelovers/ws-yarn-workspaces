@@ -21,6 +21,10 @@ like [`find-cache-dir`](https://github.com/avajs/find-cache-dir)
 
 ## demo
 
+[API](index.d.ts)
+
+there also has async version for `getCachePath` => `getCachePathAsync`
+
 ```ts
 import { normalizeName, getCachePath } from 'cache-path';
 
