@@ -92,7 +92,8 @@ function normalizeName(name, hash) {
     }
     return name
         .trim()
-        .replace(/[^\w]/g, '_')
+        .replace(/[^\w\-\.]/g, '_')
+        .replace(/\.+/g, '_')
         .replace(/_+/g, '_');
 }
 exports.normalizeName = normalizeName;

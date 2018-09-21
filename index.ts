@@ -197,7 +197,8 @@ export function normalizeName(name: string, hash?: IOptions["hash"]): string
 
 	return name
 		.trim()
-		.replace(/[^\w]/g, '_')
+		.replace(/[^\w\-\.]/g, '_')
+		.replace(/\.+/g, '_')
 		.replace(/_+/g, '_')
 		;
 }
