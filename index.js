@@ -122,8 +122,16 @@ function getCacheRoot(options) {
     if (!dir) {
         throw new Error(`can't found cache path`);
     }
-    else if (typeof dir != 'string' || !fs.existsSync(dir)) {
-        throw new Error(`path not exists '${dir}'`);
+    else if (typeof dir != 'string') {
+        throw new Error(`not a path '${dir}'`);
+    }
+    else if (!fs.existsSync(dir)) {
+        if (options.create) {
+            fs.ensureDirSync(dir);
+        }
+        else {
+            throw new Error(`path not exists '${dir}'`);
+        }
     }
     return path.resolve(dir);
 }
