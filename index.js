@@ -11,19 +11,20 @@ function requireFromTopParent(id, startModule) {
 }
 exports.requireFromTopParent = requireFromTopParent;
 /**
- * @alias requireFromTopParent
+ * get all module and parents by start module
  */
-function upRequire(id, startModule) {
-    return requireFromTopParent(id, startModule);
+function getAllModule(startModule = module.parent) {
+    if (!startModule || typeof startModule !== 'object') {
+        throw new TypeError(`startModule is not valid`);
+    }
+    let pm = startModule;
+    let ls = [];
+    do {
+        ls.push(pm);
+    } while (pm = pm.parent);
+    return ls;
 }
-exports.upRequire = upRequire;
-/**
- * @alias requireFromTopParent
- */
-function requireUp(id, startModule) {
-    return requireFromTopParent(id, startModule);
-}
-exports.requireUp = requireUp;
+exports.getAllModule = getAllModule;
 /**
  * Require module from module list
  * (order is desc, from last one to first one)
@@ -65,6 +66,20 @@ function requireFromModuleList(id, ls, startModule) {
 }
 exports.requireFromModuleList = requireFromModuleList;
 /**
+ * @alias requireFromTopParent
+ */
+function upRequire(id, startModule) {
+    return requireFromTopParent(id, startModule);
+}
+exports.upRequire = upRequire;
+/**
+ * @alias requireFromTopParent
+ */
+function requireUp(id, startModule) {
+    return requireFromTopParent(id, startModule);
+}
+exports.requireUp = requireUp;
+/**
  * Require package module by parent module require.
  */
 function requireParent(id, startModule) {
@@ -79,8 +94,8 @@ exports.requireParent = requireParent;
  */
 function requireFromParentUp(id, startModule) {
     let ls = getAllModule(startModule);
-    startModule = ls[0];
-    return requireFromModuleList(id, ls.slice(1).reverse(), ls[0]);
+    startModule = ls.shift();
+    return requireFromModuleList(id, ls.reverse(), startModule);
 }
 exports.requireFromParentUp = requireFromParentUp;
 /**
@@ -101,21 +116,6 @@ function _createError(err, data) {
     return err;
 }
 exports._createError = _createError;
-/**
- * get all module and parents by start module
- */
-function getAllModule(startModule = module.parent) {
-    if (!startModule || typeof startModule !== 'object') {
-        throw new TypeError(`startModule is not valid`);
-    }
-    let pm = startModule;
-    let ls = [];
-    do {
-        ls.push(pm);
-    } while (pm = pm.parent);
-    return ls;
-}
-exports.getAllModule = getAllModule;
 /**
  * find module by exports
  */

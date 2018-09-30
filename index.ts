@@ -24,19 +24,25 @@ export function requireFromTopParent<T = any>(id: string, startModule?: NodeModu
 }
 
 /**
- * @alias requireFromTopParent
+ * get all module and parents by start module
  */
-export function upRequire<T = any>(id: string, startModule?: NodeModule)
+export function getAllModule(startModule: NodeModule = module.parent): NodeModule[]
 {
-	return requireFromTopParent<T>(id, startModule);
-}
+	if (!startModule || typeof startModule !== 'object')
+	{
+		throw new TypeError(`startModule is not valid`);
+	}
 
-/**
- * @alias requireFromTopParent
- */
-export function requireUp<T = any>(id: string, startModule?: NodeModule)
-{
-	return requireFromTopParent<T>(id, startModule);
+	let pm = startModule;
+	let ls: NodeModule[] = [];
+
+	do
+	{
+		ls.push(pm);
+	}
+	while (pm = pm.parent);
+
+	return ls;
 }
 
 /**
@@ -93,6 +99,22 @@ export function requireFromModuleList<T = any>(id: string, ls: NodeModule[], sta
 }
 
 /**
+ * @alias requireFromTopParent
+ */
+export function upRequire<T = any>(id: string, startModule?: NodeModule)
+{
+	return requireFromTopParent<T>(id, startModule);
+}
+
+/**
+ * @alias requireFromTopParent
+ */
+export function requireUp<T = any>(id: string, startModule?: NodeModule)
+{
+	return requireFromTopParent<T>(id, startModule);
+}
+
+/**
  * Require package module by parent module require.
  */
 export function requireParent<T = any>(id: string, startModule: NodeModule): T
@@ -111,9 +133,9 @@ export function requireParent<T = any>(id: string, startModule: NodeModule): T
 export function requireFromParentUp<T = any>(id: string, startModule?: NodeModule)
 {
 	let ls = getAllModule(startModule);
-	startModule = ls[0];
+	startModule = ls.shift();
 
-	return requireFromModuleList<T>(id, ls.slice(1).reverse(), ls[0]);
+	return requireFromModuleList<T>(id, ls.reverse(), startModule);
 }
 
 /**
@@ -144,28 +166,6 @@ export function _createError(err: IErrnoException, data: {
 	err.list = data.list;
 
 	return err;
-}
-
-/**
- * get all module and parents by start module
- */
-export function getAllModule(startModule: NodeModule = module.parent): NodeModule[]
-{
-	if (!startModule || typeof startModule !== 'object')
-	{
-		throw new TypeError(`startModule is not valid`);
-	}
-
-	let pm = startModule;
-	let ls: NodeModule[] = [];
-
-	do
-	{
-		ls.push(pm);
-	}
-	while (pm = pm.parent);
-
-	return ls;
 }
 
 /**

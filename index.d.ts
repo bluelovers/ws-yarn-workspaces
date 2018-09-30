@@ -14,6 +14,15 @@ export interface IErrnoException extends NodeJS.ErrnoException, Error {
  */
 export declare function requireFromTopParent<T = any>(id: string, startModule?: NodeModule): T;
 /**
+ * get all module and parents by start module
+ */
+export declare function getAllModule(startModule?: NodeModule): NodeModule[];
+/**
+ * Require module from module list
+ * (order is desc, from last one to first one)
+ */
+export declare function requireFromModuleList<T = any>(id: string, ls: NodeModule[], startModule: NodeModule): T;
+/**
  * @alias requireFromTopParent
  */
 export declare function upRequire<T = any>(id: string, startModule?: NodeModule): T;
@@ -21,11 +30,6 @@ export declare function upRequire<T = any>(id: string, startModule?: NodeModule)
  * @alias requireFromTopParent
  */
 export declare function requireUp<T = any>(id: string, startModule?: NodeModule): T;
-/**
- * Require module from module list
- * (order is desc, from last one to first one)
- */
-export declare function requireFromModuleList<T = any>(id: string, ls: NodeModule[], startModule: NodeModule): T;
 /**
  * Require package module by parent module require.
  */
@@ -44,10 +48,6 @@ export declare function _createError(err: IErrnoException, data: {
     startModule?: NodeModule;
     list?: NodeModule[];
 }): IErrnoException;
-/**
- * get all module and parents by start module
- */
-export declare function getAllModule(startModule?: NodeModule): NodeModule[];
 /**
  * find module by exports
  */
