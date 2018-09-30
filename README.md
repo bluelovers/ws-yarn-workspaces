@@ -1,109 +1,93 @@
-# top-require
+# up-require
 
-[![Build](https://travis-ci.org/sielay/node-top-require.png)](http://travis-ci.org/sielay/node-top-require)
-[![Coverage](https://coveralls.io/repos/sielay/node-top-require/badge.png)](https://coveralls.io/r/sielay/node-top-require)
-[![Dependencies](https://david-dm.org/sielay/node-top-require.png)](http://david-dm.org/sielay/node-top-require)
+    Require package module from highest or list of module.
 
+## base on
 
-Require modules from highest (i.e. loading) module.
+for more desc see here
 
-It is based hugely on [parent-require](https://github.com/jaredhanson/node-parent-require), but it loads declaration highest
-in the project hierarchy. That is useful when you have for instance module that require module that require module which populate
-Mongoose models you want to use in your project.
+- `requireFromParentUp(id: string, startModule?: NodeModule)`{:.language-ts} => [parent-require](https://github.com/jaredhanson/node-parent-require)
+- `requireFromTopParent(id: string, startModule?: NodeModule)`{.ts} => [top-require](https://github.com/sielay/node-top-require)
+- `getModuleByExports(exports)` => [which-module](https://www.npmjs.com/package/which-module)
 
-Most of code/documentation is copy from parent-require.
+### diff
+
+- support NodeJS.ErrnoException, Error object will has `code='MODULE_NOT_FOUND'` .  
+  so we can know when error happen is can't found module or it has other error
+- split function, so u can custom it
+- other [api see here](index.d.ts)
 
 ## Install
 
-    $ npm install top-require
-
-## Usage
-
-`top-require` addresses an annoying error condition that arises when
-developing plugins, which have [peer dependencies](http://blog.nodejs.org/2013/02/07/peer-dependencies/),
-that are `npm link`'d into an application.
-
-The problem is best illustrated by example.  We'll use a shared package of [Mongoose](http://mongoosejs.com/)
-schemas, but the concept applies equally well to any module you plugin to a
-larger framework.
-
-#### Develop a Plugin for a Framework
-
-Let's develop a set of shared [Mongoose](http://mongoosejs.com/) schemas for a
-user database, packaged as `mongoose-schemas-users` for reuse by any application
-that needs to query the database.
-
-```javascript
-var mongoose = require('mongoose');
-
-var UserSchema = new mongoose.Schema(...);
-
-module.exports = UserSchema;
+```bash
+npm install up-require
 ```
 
-The important bit here is that `mongoose` is a *peer dependency* of this
-package.
+## demo
 
-#### Require a Plugin from an App
+### structure
 
-Now, let's install this package...
+* `root`
+  * index
+  * node_modules/
+    * `chai@3`
+  * packages/
+    * `sub1_pkg/`
+      * node_modules/
+        * `chai@1`
+      * index
+    * `sub2_pkg/`
+      * node_modules/
+        * `chai@2`
+      * index
+      * `sub3_of_sub2_pkg/`
+          * node_modules/
+            * `chai@1`
+          * index
 
-    npm install mongoose-schemas-users
+---
 
-..and require it within our application:
+- [API](index.d.ts)
 
-```javascript
-var mongoose = require('mongoose')
-  , schemas = require('mongoose-schemas-users')
-  
-mongoose.model('User', schemas.UserSchema);
+### base use
+
+- `requireFromTopParent<T = any>(id: string, startModule?: NodeModule)` => [top-require](https://github.com/sielay/node-top-require)
+- `requireFromParentUp<T = any>(id: string, startModule?: NodeModule)` => [parent-require](https://github.com/jaredhanson/node-parent-require)
+- `getModuleByExports` => [which-module](https://www.npmjs.com/package/which-module)
+
+alias name
+
+`upRequire` = `requireUp` = `requireFromTopParent`
+
+```ts
+import requireFromTopParent, { getModuleByID, requireFromParentUp } from 'up-require';
+import { requireFromTopParent, getModuleByID, requireFromParentUp } from 'up-require';
+const requireFromTopParent = require('up-require').requireFromTopParent;
 ```
 
-So far, so good.
+#### when use in `sub1_pkg/index`
 
-#### npm link Plugin for Development
-
-During the course of developing the application, we discover that we need to
-tweak the schemas we've defined.  This is usually easy:
-
-    npm link mongoose-schemas-users
-
-We've made some edits, and run the application:
-
-    Error: Cannot find module 'mongoose'
-
-WTF?!?  This issue arises because `mongoose` is a *peer dependency*.  Now that
-it has been `npm link`'d to a directory that resides outside of the application
-itself, Node's typical resolution algorithm fails to find it.
-
-#### Fallback to Parent Require
-
-This is where `top-require` comes into play.  It provides a fallback to
-`require` modules from the *loading* (aka parent) module.  Because the loading
-module exists within the application itself, Node's resolution algorithm will
-correctly find our peer dependency.
-
-```javascript
-try {
-  var mongoose = require('mongoose');
-} catch (_) {
-  // workaround when `npm link`'ed for development
-  var prequire = require('top-require')
-    , mongoose = prequire('mongoose');
-}
-
-var UserSchema = new mongoose.Schema(...);
-
-module.exports = UserSchema;
+```ts
+require('chai') => chai@1
+requireFromParentUp('chai', module) => chai@3
+requireFromTopParent('chai', module) => chai@3
 ```
 
-With the fallback in place, we can both `npm install` and `npm link` this
-plugin, correctly resolving peer dependencies in both cases.
+#### when use in `sub3_of_sub2_pkg/index`
 
-## Tests
+```ts
+require('chai') => chai@1
+requireFromParentUp('chai', module) => chai@2
+requireFromTopParent('chai', module) => chai@3
+```
 
-    $ npm install
-    $ npm test
+### `getModuleByID(id: string, requireIfNotExists?: boolean, req = require)`
+
+```ts
+console.log(`only return when chai is required`, getModuleByID('chai'));
+console.log(`when chai is not required , will require it`, getModuleByID('chai', true));
+```
+
 
 ## Credits
 

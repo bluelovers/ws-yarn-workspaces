@@ -1,43 +1,40 @@
 {
-  "name": "top-require",
-  "version": "0.1.0",
-  "description": "Require modules from highest module.",
+  "name": "up-require",
+  "version": "1.0.0",
+  "description": "Require package module from highest or list of module.",
   "keywords": [
-    "require",
+    "export",
+    "exports",
+    "highest",
     "module",
     "modules",
-    "parent-require"
+    "package",
+    "parent",
+    "parent-require",
+    "parents",
+    "pkg",
+    "require",
+    "resolve"
   ],
+  "homepage": "https://github.com/bluelovers/node-up-require#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/node-up-require/issues"
+  },
   "repository": {
     "type": "git",
-    "url": "git://github.com/sielay/node-top-require.git"
+    "url": "git+https://github.com/bluelovers/node-up-require.git"
   },
-  "bugs": {
-    "url": "http://github.com/sielay/node-top-require/issues"
-  },
-  "author": {
-    "name": "Lukasz Sielski",
-    "email": "lukaszsielski@gmail.com",
-    "url": "http://www.lukaszsielski.pl/"
-  },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://www.opensource.org/licenses/MIT"
-    }
-  ],
+  "license": "ISC",
+  "author": "",
   "main": "./index",
-  "dependencies": {
-    "@types/node": "^10"
-  },
-  "devDependencies": {
-    "chai": "^4.x.x",
-    "mocha": "^5.x.x"
-  },
-  "engines": {
-    "node": ">= 0.4.0"
+  "directories": {
+    "test": "test"
   },
   "scripts": {
     "test": "npx mocha --reporter spec --require test/bootstrap/node test/*.test.js test/**/*.test.js"
-  }
+  },
+  "dependencies": {
+    "@types/node": "^10"
+  },
+  "devDependencies": {}
 }

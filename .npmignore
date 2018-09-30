@@ -17,3 +17,76 @@ npm-debug.log
 
 # Git
 .git*
+
+### jsonly_bin template
+bin/*.ts
+bin/*.d.ts
+### tsonly_test template
+test/*.js
+test/*.d.ts
+
+tests/*.js
+tests/*.d.ts
+
+__test__/*.js
+__test__/*.d.ts
+
+__tests__/*.js
+__tests__/*.d.ts
+### temp template
+/~*
+~ci.list.txt
+~ci.log.txt
+~ci.errors.txt
+
+*.stackdump
+*.bak
+*.old
+
+/*.log
+/*.lock
+
+*.tmp
+### test template
+*.spec.ts
+*.spec.js
+*.spec.js.map
+*.test.ts
+*.test.js
+*.test.js.map
+### Example user template template
+
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+### jsonly template
+*.ts
+!*.d.ts
+### npm2 template
+
+
+
+tsconfig.json
+package-lock.json
+
+test
+
+.github
+.gitkeep
+
+/.*
+
+tests
+
+
+
+
+__test__
+__tests__
+
+/node_modules/
+**/node_modules/
