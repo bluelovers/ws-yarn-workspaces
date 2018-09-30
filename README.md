@@ -71,6 +71,7 @@ const requireFromTopParent = require('up-require').requireFromTopParent;
 require('chai') => chai@1
 requireFromParentUp('chai', module) => chai@3
 requireFromTopParent('chai', module) => chai@3
+requireFromTopParent('chai') => chai@3
 ```
 
 #### when use in `sub3_of_sub2_pkg/index`
@@ -79,6 +80,7 @@ requireFromTopParent('chai', module) => chai@3
 require('chai') => chai@1
 requireFromParentUp('chai', module) => chai@2
 requireFromTopParent('chai', module) => chai@3
+requireFromTopParent('chai') => chai@3
 ```
 
 ### `getModuleByID(id: string, requireIfNotExists?: boolean, req = require)`
