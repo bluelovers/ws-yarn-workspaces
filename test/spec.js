@@ -189,4 +189,14 @@ describe('parseRange', function() {
     }]);
   });
 
+  it('should parse ~> ranges', function() {
+    deepOwnEqual(semverutils.parseRange('~> 2.0.0'), [{
+      semver: '~> 2.0.0',
+      operator: '~>',
+      major: '2',
+      minor: '0',
+      patch: '0'
+    }]);
+  });
+
 });
