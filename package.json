@@ -1,0 +1,52 @@
+{
+  "name": "yarn-lock-diff",
+  "description": "given one or many old yarn.lock, and one or many new yarn.lock, compute the diff",
+  "version": "0.0.0",
+  "author": "TychoTa @tychota",
+  "bin": {
+    "yarn-lock-diff": "./bin/run"
+  },
+  "bugs": "https://github.com/tychota/yarn-lock-diff/issues",
+  "dependencies": {
+    "@oclif/command": "^1",
+    "@oclif/config": "^1",
+    "@oclif/plugin-help": "^2",
+    "tslib": "^1"
+  },
+  "devDependencies": {
+    "@oclif/test": "^1",
+    "@oclif/tslint": "^3",
+    "@types/chai": "^4",
+    "@types/mocha": "^5",
+    "@types/node": "^10",
+    "chai": "^4",
+    "mocha": "^5",
+    "nyc": "^13",
+    "ts-node": "^8",
+    "tslint": "^5",
+    "typescript": "^3.3"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/lib"
+  ],
+  "homepage": "https://github.com/tychota/yarn-lock-diff",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "oclif": {
+    "bin": "yarn-lock-diff"
+  },
+  "repository": "tychota/yarn-lock-diff",
+  "scripts": {
+    "posttest": "tslint -p test -t stylish",
+    "prepack": "rm -rf lib && tsc -b",
+    "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\""
+  },
+  "types": "lib/index.d.ts"
+}
