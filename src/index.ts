@@ -2,6 +2,9 @@ import { Command, flags } from "@oclif/command";
 import * as fs from "fs";
 import * as path from "path";
 
+import { DiffService } from "./diff-service";
+import { FormatterService } from "./formatter";
+
 class YarnLockDiff extends Command {
   static description =
     "Given one or more old yarn.lock files and one or more new yarn.lock files, compute the diff";
@@ -24,7 +27,7 @@ class YarnLockDiff extends Command {
   };
 
   checkIfExist = (filePathString: string) => {
-    const filePath = path.resolve(__dirname, filePathString);
+    const filePath = path.resolve(process.cwd(), filePathString);
     return fs.existsSync(filePath);
   };
 
@@ -37,12 +40,12 @@ class YarnLockDiff extends Command {
 
   checkIfLockFile = (filePathString: string) => {
     const fileExtension = path.extname(filePathString);
-    return fileExtension === "lock";
+    return fileExtension === ".lock";
   };
 
   reportNonLockFile = (filePathString: string) => {
     if (!this.checkIfLockFile(filePathString)) {
-      this.error(`File is not a log file "${filePathString}"`);
+      this.error(`File is not a lock file "${filePathString}"`);
     }
     return filePathString;
   };
@@ -56,6 +59,17 @@ class YarnLockDiff extends Command {
     [...oldYarnLockPaths, ...newYarnLockPaths]
       .map(this.reportNonExistantFiles)
       .map(this.reportNonLockFile);
+
+    const oldContents = oldYarnLockPaths.map(path =>
+      fs.readFileSync(path, "utf8")
+    );
+    const newContents = newYarnLockPaths.map(path =>
+      fs.readFileSync(path, "utf8")
+    );
+
+    DiffService.buildDiff(oldContents, newContents)
+      .map(FormatterService.buildDiffTable)
+      .map(this.log);
   }
 }
 
