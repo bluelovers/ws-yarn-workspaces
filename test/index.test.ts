@@ -12,7 +12,7 @@ describe("yarn-lock-diff", () => {
   test
     .stdout()
     .do(() =>
-      cmd.run(["-o", "fixture/a/yarn.lock", "-n", "fixture/b/yarn.lock"])
+      cmd.run(["-o", "fixtures/a/yarn.lock", "-n", "fixtures/b/yarn.lock"])
     )
     .it("display the diff", ctx => {
       expect(ctx.stdout).to.contain("");

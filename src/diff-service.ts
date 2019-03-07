@@ -20,8 +20,7 @@ export const DiffService = {
         regexResult && regexResult.groups && regexResult.groups.packageName;
 
       if (!packageNameWithoutVersion) return;
-
-      if (packageNameWithoutVersion in alreadyComputedPackage) {
+      if (newComputedPackage[packageNameWithoutVersion]) {
         newComputedPackage[packageNameWithoutVersion].push(packageData.version);
         newComputedPackage[packageNameWithoutVersion].sort();
       } else {
