@@ -22,6 +22,9 @@ export const DiffService = {
       if (!packageNameWithoutVersion) return;
       if (newComputedPackage[packageNameWithoutVersion]) {
         newComputedPackage[packageNameWithoutVersion].push(packageData.version);
+        newComputedPackage[packageNameWithoutVersion] = [
+          ...new Set(newComputedPackage[packageNameWithoutVersion])
+        ];
         newComputedPackage[packageNameWithoutVersion].sort();
       } else {
         newComputedPackage[packageNameWithoutVersion] = [packageData.version];
