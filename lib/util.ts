@@ -1,7 +1,7 @@
 import { SpawnSyncOptionsWithBufferEncoding } from "child_process";
 import CrossSpawn = require('cross-spawn');
 import pkgDir = require('pkg-dir');
-import stripAnsi = require('strip-ansi');
+import stripAnsi from 'strip-ansi';
 
 export function findPkgPath(cwd?: string): string
 {
@@ -35,11 +35,7 @@ export function ObjectFreezeAll<T>(obj: T)
 	return ret;
 }
 
-import * as _util from './util';
-
-// @ts-ignore
-const self = exports as typeof _util;
-export default self
+export default exports as typeof import('./util');
 
 // @ts-ignore
 exports = ObjectFreezeAll(exports);
