@@ -1,6 +1,6 @@
 {
   "name": "yarn-list-link",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "show list of yarn link",
   "homepage": "https://github.com/bluelovers/yarn-list-link#readme",
   "bugs": {
@@ -20,13 +20,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "cross-spawn": "^6.0.5",
-    "find-yarn-workspace-root": "^1.2.1",
-    "fs-extra": "^7.0.0",
-    "pkg-dir": "^3.0.0",
-    "strip-ansi": "^4.0.0",
-    "workspaces-config": "^1.0.1",
-    "yargs": "^12.0.2"
+    "fs-extra": "^7.0.1",
+    "pkg-dir": "^4.1.0",
+    "workspaces-config": "^1.0.1"
   },
   "devDependencies": {}
 }

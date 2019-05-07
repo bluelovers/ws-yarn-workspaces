@@ -1,4 +1,7 @@
 "use strict";
+/**
+ * Created by user on 2018/9/20/020.
+ */
 const path = require("path");
 const pkgDir = require("pkg-dir");
 const fs = require("fs-extra");
@@ -15,7 +18,9 @@ function yarnListLink(cwd) {
     return ls || null;
 }
 exports.default = yarnListLink;
+// @ts-ignore
 Object.assign(yarnListLink, exports, {
     yarnListLink,
 });
 module.exports = yarnListLink;
+//# sourceMappingURL=index.js.map

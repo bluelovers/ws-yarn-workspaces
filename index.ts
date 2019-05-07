@@ -2,12 +2,9 @@
  * Created by user on 2018/9/20/020.
  */
 
-import * as findYarnWorkspaceRoot from 'find-yarn-workspace-root';
-import * as path from 'path';
-import * as pkgDir from 'pkg-dir';
-import * as fs from 'fs-extra';
-import getConfig, { parseStaticPackagesPaths } from 'workspaces-config';
-import * as crossSpawn from 'cross-spawn';
+import path = require('path');
+import pkgDir = require('pkg-dir');
+import fs = require('fs-extra');
 
 export function yarnListLink(cwd: string)
 {

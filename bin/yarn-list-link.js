@@ -11,3 +11,4 @@ else {
     console.error(`not exists any yarn link in path '${cwd}'`);
     process.exit(1);
 }
+//# sourceMappingURL=yarn-list-link.js.map
