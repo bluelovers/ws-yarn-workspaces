@@ -1,0 +1,48 @@
+{
+  "name": "ws-create-yarn-workspaces",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "keywords": [],
+  "homepage": "https://github.com/bluelovers/ws-yarn-workspaces#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/ws-yarn-workspaces.git"
+  },
+  "license": "MIT",
+  "author": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "coverage": "npx nyc npm run test",
+    "lint": "eslint .",
+    "ncu": "npx npm-check-updates -u",
+    "oao:bootstrap": "oao bootstrap",
+    "prepublishOnly": "npm run ncu && npm run sort-package-json && npm run test",
+    "sort-package-json": "oao run-script \"sort-package-json2\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@bluelovers/tsconfig": "^1.0.3",
+    "@types/chai": "^4.1.7",
+    "@types/fs-extra": "^7.0.0",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^12.0.2",
+    "gitlog": "^3.1.2",
+    "lerna": "^3.14.1"
+  },
+  "resolutions": {
+    "@types/fs-extra": "*",
+    "pkg-dir": "*",
+    "string-width": "*"
+  }
+}
