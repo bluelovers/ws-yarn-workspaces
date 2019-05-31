@@ -46,9 +46,14 @@ export function findRoot(options: {
 	}
 }
 
+export function pathNormalize(input: string)
+{
+	return path.normalize(input)
+}
+
 export function pathEqual(a: string, b: string)
 {
-	return path.normalize(a) === path.normalize(b)
+	return pathNormalize(a) === pathNormalize(b)
 }
 
 export function listMatchedPatternByPath(ws: string, pkg: string)
