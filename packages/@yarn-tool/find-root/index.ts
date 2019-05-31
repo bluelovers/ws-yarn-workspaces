@@ -1,6 +1,5 @@
 import path = require('upath2');
-import findYarnWorkspaceRoot = require('find-yarn-workspace-root2');
-import { extractWorkspaces, isMatchWorkspaces, readPackageJSON } from 'find-yarn-workspace-root2/core';
+import { extractWorkspaces, isMatchWorkspaces, readPackageJSON, findWorkspaceRoot as findYarnWorkspaceRoot } from 'find-yarn-workspace-root2/core';
 import { readPackageJson } from '@ts-type/package-dts';
 
 import pkgDir = require('pkg-dir');
