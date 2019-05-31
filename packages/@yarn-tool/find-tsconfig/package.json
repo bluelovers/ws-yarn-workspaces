@@ -1,0 +1,24 @@
+{
+  "name": "@yarn-tool/find-tsconfig",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
+  "scripts": {
+    "coverage": "npx nyc npm run test",
+    "lint": "npx eslint **/*.ts",
+    "ncu": "npx yarn-tool ncu -u",
+    "prepublishOnly": "npm run ncu && npm run sort-package-json",
+    "postpublish": "git commit -m \"publish new version\" .",
+    "sort-package-json": "npx sort-package-json ./package.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@yarn-tool/find-root": "^1.0.2",
+    "tsconfig": "^7.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
