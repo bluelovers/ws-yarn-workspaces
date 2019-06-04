@@ -1,0 +1,28 @@
+{
+  "name": "@yarn-tool/pkg-git-info",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
+  "scripts": {
+    "coverage": "npx nyc npm run test",
+    "lint": "npx eslint **/*.ts",
+    "ncu": "npx yarn-tool ncu -u",
+    "prepublishOnly": "npm run ncu && npm run sort-package-json && npm run test",
+    "postpublish": "git commit -m \"publish new version\" ",
+    "sort-package-json": "npx sort-package-json package.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@git-lazy/info": "^1.0.0",
+    "@types/hosted-git-info": "^2.7.0",
+    "hosted-git-info": "^2.7.1"
+  },
+  "devDependencies": {
+    "@types/parse-git-config": "^3.0.0"
+  }
+}
