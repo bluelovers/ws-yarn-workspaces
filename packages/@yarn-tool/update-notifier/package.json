@@ -1,0 +1,23 @@
+{
+  "name": "@yarn-tool/update-notifier",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
+  "scripts": {
+    "coverage": "npx nyc npm run test",
+    "lint": "npx eslint **/*.ts",
+    "ncu": "npx yarn-tool ncu -u",
+    "prepublishOnly": "npm run ncu && npm run sort-package-json",
+    "postpublish": "git commit -m \\\"publish new version\\\" ",
+    "sort-package-json": "npx sort-package-json package.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "update-notifier": "^3.0.0"
+  }
+}
