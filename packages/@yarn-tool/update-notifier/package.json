@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/update-notifier",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "license": "ISC",
   "author": "",
@@ -15,7 +15,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "update-notifier": "^3.0.0"
+    "@yarn-tool/is-npx": "^1.0.0",
+    "update-notifier": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/update-notifier": "^2.5.0"
   },
   "publishConfig": {
     "access": "public"

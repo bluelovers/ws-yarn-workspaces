@@ -1,2 +1,2 @@
-export declare function updateNotifier(__dirname: string, force?: boolean): any;
+export declare function updateNotifier(__dirname: string, force?: boolean): void;
 export default updateNotifier;
