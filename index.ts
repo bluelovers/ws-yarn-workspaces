@@ -7,17 +7,12 @@ import findRoot from '@yarn-tool/find-root';
 import fs from 'fs-extra';
 import path from 'path';
 
-let cwd = `G:\\Users\\The Project\\nodejs-yarn\\ws-create-yarn-workspaces`;
-
-syncLockfile(cwd, {
-	print: true,
-})
-
 export function syncLockfile(cwd: string, options: {
-	print?: boolean
+	print?: boolean,
+	noThrowError?: boolean,
 } = {})
 {
-	const { print } = options;
+	const { print, noThrowError } = options;
 
 	const ws = findRoot({
 		cwd
@@ -25,7 +20,8 @@ export function syncLockfile(cwd: string, options: {
 
 	if (!ws.hasWorkspace)
 	{
-		throw new RangeError(`target dir not a yarn workspaces, ${ws.root}`)
+		noThrowError || throwError(`target dir not a yarn workspaces, ${ws.root}`);
+		return null;
 	}
 
 	const lockfile = `yarn.lock`;
@@ -33,7 +29,8 @@ export function syncLockfile(cwd: string, options: {
 
 	if (!fs.pathExistsSync(lockfile_root))
 	{
-		throw new RangeError(`yarn.lock not exists`)
+		noThrowError || throwError(`yarn.lock not exists`);
+		return null;
 	}
 
 	print && console.log(`workspaces:`, ws.root, '\n');
@@ -57,6 +54,13 @@ export function syncLockfile(cwd: string, options: {
 	;
 
 	print && console.timeEnd(label);
+
+	return true;
+}
+
+function throwError(message: string)
+{
+	throw new Error(message)
 }
 
 export default syncLockfile
