@@ -61,3 +61,4 @@ jest.config.js
 *.tsbuildinfo
 tsconfig.*.json
 tsconfig.esm.json.tpl
+/package.d.ts

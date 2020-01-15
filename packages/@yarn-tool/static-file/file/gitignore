@@ -73,3 +73,6 @@ tsconfig.esm.json.tpl
 
 .browserslistrc
 .nvmrc
+
+/.eslintignore
+/package.d.ts
