@@ -1,5 +1,5 @@
 {
-  "extends": "@bluelovers/tsconfig/esm/module.json",
+  "extends": "@bluelovers/tsconfig/esm/module",
   "compilerOptions": {
     "sourceRoot": "./lib",
     "outDir": "./esm",

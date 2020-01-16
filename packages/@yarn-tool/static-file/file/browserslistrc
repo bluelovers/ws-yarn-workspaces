@@ -1,4 +1,5 @@
+defaults
 > 1%
-last 2 versions
-not ie <= 8
+not dead
 Firefox >= 56
+maintained node versions

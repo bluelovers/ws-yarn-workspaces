@@ -1,3 +1,3 @@
 {
-  "extends": "@bluelovers/tsconfig/sourcemap/mapfile.json"
+  "extends": "@bluelovers/tsconfig/esm/esModuleInterop"
 }
