@@ -18,6 +18,8 @@ const _defaultCopyStaticFiles = [
 
 	['README.md', 'file/README.md'],
 
+	['.nycrc', 'file/nycrc'],
+
 ] as const;
 
 export type IStaticFilesID<T = typeof _defaultCopyStaticFiles> =

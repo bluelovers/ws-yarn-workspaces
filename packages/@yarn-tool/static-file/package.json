@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/static-file",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces#readme",
   "bugs": {
@@ -18,9 +18,9 @@
     "lint": "npx eslint **/*.ts",
     "ncu": "npx yarn-tool ncu -u",
     "npm:publish": "npm publish",
-    "prepublishOnly": "npm run ncu && npm run sort-package-json",
-    "postpublish": "git commit -m \"publish new version\" .",
-    "sort-package-json": "npx sort-package-json ./package.json",
+    "prepublishOnly": "yarn run ncu && npm run sort-package-json",
+    "postpublish": "git commit -m \"chore(release): publish\" .",
+    "sort-package-json": "npx yarn-tool sort",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

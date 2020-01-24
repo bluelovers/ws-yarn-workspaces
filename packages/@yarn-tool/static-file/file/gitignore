@@ -76,3 +76,4 @@ tsconfig.esm.json.tpl
 
 /.eslintignore
 /package.d.ts
+.nycrc
