@@ -62,3 +62,4 @@ jest.config.js
 tsconfig.*.json
 tsconfig.esm.json.tpl
 /package.d.ts
+.mocharc.yml
