@@ -20,6 +20,8 @@ const _defaultCopyStaticFiles = [
 
 	['.nycrc', 'file/nycrc'],
 
+	['.mocharc.yml', 'file/mocharc.yml'],
+
 ] as const;
 
 export type IStaticFilesID<T = typeof _defaultCopyStaticFiles> =
