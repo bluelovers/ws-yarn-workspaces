@@ -78,3 +78,6 @@ tsconfig.esm.json.tpl
 /package.d.ts
 .nycrc
 .mocharc.yml
+jest.config.js
+node_modules/.cache
+.yarn-integrity
