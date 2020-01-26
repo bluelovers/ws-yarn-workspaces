@@ -58,3 +58,4 @@ karma.conf.js
 /_config.yml
 intellij-style-guide.xml
 jest.config.js
+!/file/jest.config.js
