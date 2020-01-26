@@ -21,6 +21,7 @@ const _defaultCopyStaticFiles = [
 	['.nycrc', 'file/nycrc'],
 
 	['.mocharc.yml', 'file/mocharc.yml'],
+	['jest.config.js', 'file/jest.config.js'],
 
 ] as const;
 
