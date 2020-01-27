@@ -81,3 +81,5 @@ tsconfig.esm.json.tpl
 jest.config.js
 node_modules/.cache
 .yarn-integrity
+jest.config.d.ts
+jest.config.js.map
