@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/update-notifier",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "",
   "license": "ISC",
   "author": "",
@@ -9,6 +9,7 @@
     "coverage": "npx nyc npm run test",
     "lint": "npx eslint **/*.ts",
     "ncu": "npx yarn-tool ncu -u",
+    "npm:publish": "npx npm publish",
     "prepublishOnly": "yarn run ncu && yarn run sort-package-json && yarn run test",
     "postpublish": "git commit -m \"publish new version\" .",
     "sort-package-json": "npx yarn-tool sort",

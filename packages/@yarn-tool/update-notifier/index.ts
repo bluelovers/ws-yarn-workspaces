@@ -6,7 +6,12 @@ import { join } from 'path';
 
 export function notNpxMaybe(__dirname: string): boolean
 {
-	return __dirname && /node_modules/i.test(__dirname) || __dirname && /ypx_/i.test(__dirname) || !require('@yarn-tool/is-npx').isNpx({
+	if (__dirname && /ypx_|_npx/i.test(__dirname))
+	{
+		return false
+	}
+
+	return !require('@yarn-tool/is-npx').isNpx({
 		__dirname,
 	})
 }
