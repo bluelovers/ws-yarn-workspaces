@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/update-notifier",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "",
   "license": "ISC",
   "author": "",
@@ -16,7 +16,7 @@
     "test": "ts-node ./test/test.ts"
   },
   "dependencies": {
-    "@yarn-tool/is-npx": "^1.0.0",
+    "@yarn-tool/is-npx": "^1.0.1",
     "update-notifier": "^4.0.0"
   },
   "devDependencies": {
