@@ -48,16 +48,19 @@ export declare class YargsCommandModule<T, U> implements ICommandModuleOmit {
     static create<T, U>(config: ICommandModuleExports<T, U>): YargsCommandModule<T, U>;
     constructor(config: ICommandModuleExports<T, U>);
     /** string (or array of strings) that executes this command when given on the command line, first string may contain positional args */
-    command: ReadonlyArray<string> | string;
+    get command(): ReadonlyArray<string> | string;
+    set command(value: ReadonlyArray<string> | string);
     /** string used as the description for the command in help text, use `false` for a hidden command */
-    describe: string | false;
+    get describe(): string | false;
+    set describe(value: string | false);
     /** array of strings (or a single string) representing aliases of `exports.command`, positional args defined in an alias are ignored */
-    aliases: ReadonlyArray<string> | string;
+    get aliases(): ReadonlyArray<string> | string;
+    set aliases(value: ReadonlyArray<string> | string);
     /** object declaring the options the command accepts, or a function accepting and returning a yargs instance */
-    readonly builder: CommandModule<T, ITorU<T, U>>["builder"];
-    readonly yargs: Argv<ITorU<T, U>>;
+    get builder(): CommandModule<T, ITorU<T, U>>["builder"];
+    get yargs(): Argv<ITorU<T, U>>;
     /** a function which will be passed the parsed argv. */
-    readonly handler: <R extends any | void>(args: Arguments<ITorU<T, U>>) => R;
+    get handler(): <R extends any | void>(args: Arguments<ITorU<T, U>>) => R;
     setHandler<R extends any | void>(cb: (args: Arguments<ITorU<T, U>>, yargs?: Argv<ITorU<T, U>>, _self?: this) => R): this;
     newHandler<R extends any | void>(cb: (args: Arguments<ITorU<T, U>>, yargs?: Argv<ITorU<T, U>>, _self?: this) => R): (args: Arguments<ITorU<T, U>>) => R;
     toValue(): CommandModule<T, ITorU<T, U>>;

@@ -1,7 +1,7 @@
 /**
  * Created by user on 2019/6/4.
  */
-import HostedGitInfo = require('hosted-git-info');
+import HostedGitInfo from 'hosted-git-info';
 import { parseConfig } from '@git-lazy/info';
 export declare function getHostedGitInfo(o: ReturnType<typeof parseConfig>): HostedGitInfo;
 export declare function npmHostedGitInfo(cwd?: string): {

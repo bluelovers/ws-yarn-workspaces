@@ -1,8 +1,8 @@
-import path = require('upath2');
+import { relative, normalize as pathNormalize } from 'upath2';
 import { extractWorkspaces, isMatchWorkspaces, readPackageJSON, findWorkspaceRoot as findYarnWorkspaceRoot } from 'find-yarn-workspace-root2/core';
 import { readPackageJson } from '@ts-type/package-dts';
 
-import pkgDir = require('pkg-dir');
+import { sync as pkgDir } from 'pkg-dir';
 
 export function findRoot(options: {
 	cwd: string,
@@ -22,7 +22,7 @@ export function findRoot(options: {
 		ws = findYarnWorkspaceRoot(options.cwd);
 	}
 
-	let pkg = pkgDir.sync(options.cwd);
+	let pkg = pkgDir(options.cwd);
 
 	let { throwError = _throwError } = options;
 
@@ -45,10 +45,7 @@ export function findRoot(options: {
 	}
 }
 
-export function pathNormalize(input: string)
-{
-	return path.normalize(input)
-}
+export { pathNormalize }
 
 export function pathEqual(a: string, b: string)
 {
@@ -66,7 +63,7 @@ export function listMatchedPatternByPath(ws: string, pkg: string)
 
 	const workspaces = extractWorkspaces(manifest);
 
-	const relativePath = path.relative(ws, pkg);
+	const relativePath = relative(ws, pkg);
 
 	if (relativePath == '')
 	{

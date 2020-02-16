@@ -126,6 +126,7 @@ export function copyStaticFiles<K extends string>(options: ICopyStaticFilesOptio
 	}
 
 	return ls
+		// @ts-ignore
 		.filter(function ([a, b, c]: IStaticFilesRow<K>)
 		{
 			let fa = resolve(cwd, a);

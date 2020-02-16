@@ -2,7 +2,7 @@
  * Created by user on 2019/7/19.
  */
 
-import _isNpx = require("is-npx");
+import _isNpx from "is-npx";
 
 export function isNpx(data: {
 	__dirname?: string,

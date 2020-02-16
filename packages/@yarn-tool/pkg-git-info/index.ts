@@ -2,7 +2,7 @@
  * Created by user on 2019/6/4.
  */
 
-import HostedGitInfo = require('hosted-git-info');
+import HostedGitInfo from 'hosted-git-info';
 import { parseConfig, filterRemoteUrl, findConfigPathLocal } from '@git-lazy/info';
 
 export function getHostedGitInfo(o: ReturnType<typeof parseConfig>)

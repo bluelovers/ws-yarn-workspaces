@@ -130,6 +130,7 @@ export class YargsCommandModule<T, U> implements ICommandModuleOmit
 			{
 				self[SYM_YARGS].from = yargs;
 
+				// @ts-ignore
 				return self[SYM_YARGS].to = builder.call(this, yargs)
 			}
 		}

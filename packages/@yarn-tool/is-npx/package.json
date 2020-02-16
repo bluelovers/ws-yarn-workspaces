@@ -19,7 +19,7 @@
     "ncu": "npx yarn-tool ncu -u",
     "npm:publish": "npm publish",
     "prepublishOnly": "yarn run ncu && yarn run sort-package-json",
-    "postpublish": "git commit -m \"publish new version\" .",
+    "postpublish_": "git commit -m \"publish new version\" .",
     "sort-package-json": "npx sort-package-json ./package.json",
     "test": "echo \"Error: no test specified\" && exit 1",
     "tsc:default": "tsc -p tsconfig.json",
