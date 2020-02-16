@@ -9,6 +9,6 @@ export declare function processRunPathCore<P = ProcessEnv>(options?: IOptionsGet
     envPath: any;
     binPaths: string[];
     execPath: string;
-    delimiter: ";" | ":";
+    delimiter: string;
     processEnv: P;
 };
