@@ -8,13 +8,14 @@
   "scripts": {
     "coverage": "npx nyc npm run test",
     "lint": "eslint .",
-    "ncu": "npx npm-check-updates -u",
+    "ncu": "npx yarn-tool ncu -u",
     "prepublishOnly": "npm run ncu && npm run sort-package-json",
-    "sort-package-json": "npx sort-package-json ./package.json",
+    "sort-package-json": "npx yarn-tool sort",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "@types/yargs": "*",
     "core-decorators": "*"
-  }
+  },
+  "gitHead": "328ff729b860029dcda4e919f58e3ccb5e111d1f"
 }
