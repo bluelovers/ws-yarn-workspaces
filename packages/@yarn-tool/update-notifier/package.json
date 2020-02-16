@@ -11,7 +11,7 @@
     "ncu": "npx yarn-tool ncu -u",
     "npm:publish": "npx npm publish",
     "prepublishOnly": "yarn run ncu && yarn run sort-package-json && yarn run test",
-    "postpublish": "git commit -m \"publish new version\" .",
+    "postpublish_": "git commit -m \"publish new version\" .",
     "sort-package-json": "npx yarn-tool sort",
     "test": "ts-node ./test/test.ts"
   },
