@@ -2,6 +2,7 @@ import { IPackageJsonLike } from './util';
 export declare type IOptions = {
     pkgRoot?: string;
     usePathResolve?: boolean;
+    paths?: string[];
 } & ({
     name?: string;
     pkg: IPackageJsonLike;

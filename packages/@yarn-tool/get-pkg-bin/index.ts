@@ -6,6 +6,7 @@ import { handlePackageBins, getPackageBins, getPackageInfo, firstPackageBin, IPa
 export type IOptions = {
 	pkgRoot?: string,
 	usePathResolve?: boolean,
+	paths?: string[],
 } & ({
 	name?: string,
 	pkg: IPackageJsonLike,

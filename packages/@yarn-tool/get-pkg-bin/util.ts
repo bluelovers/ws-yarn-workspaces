@@ -5,7 +5,7 @@
 import type { IPackageJson } from '@ts-type/package-dts';
 import { sep, isAbsolute, normalize } from 'upath2';
 import type { IOptions } from './index';
-import resolvePackage from '@yarn-tool/resolve-package';
+import { resolvePackage } from '@yarn-tool/resolve-package';
 
 export type IPackageJsonLike = IPackageJson | Record<string, any>;
 
@@ -77,7 +77,9 @@ export function getPackageInfo(options: IOptions)
 	}
 	else if (name)
 	{
-		let data = resolvePackage(options.name);
+		let data = resolvePackage(options.name, {
+			paths: options.paths,
+		});
 		pkg = data.pkg;
 		pkgRoot = pkgRoot || data.pkgRoot;
 	}
