@@ -23,6 +23,12 @@ const _defaultCopyStaticFiles = [
 	['.mocharc.yml', 'file/mocharc.yml'],
 	['jest.config.js', 'file/jest.config.js'],
 
+	['.nowignore', 'file/nowignore'],
+
+	['now.json.tpl', 'file/now.json.tpl', 'now.json'],
+
+	['lerna.json.tpl', 'file/lerna.json.tpl', 'lerna.json'],
+
 ] as const;
 
 export type IStaticFilesID<T = typeof _defaultCopyStaticFiles> =
