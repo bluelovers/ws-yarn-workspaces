@@ -16,7 +16,7 @@ const core_decorators_1 = require("core-decorators");
 exports.SYM_CONFIG = Symbol.for('config');
 exports.SYM_YARGS = Symbol.for('yargs');
 exports.SYM_PROP = Symbol.for('fakeProp');
-let YargsCommandModule = /** @class */ (() => {
+const YargsCommandModule = /** @class */ (() => {
     var _a, _b;
     class YargsCommandModule {
         constructor(config) {
