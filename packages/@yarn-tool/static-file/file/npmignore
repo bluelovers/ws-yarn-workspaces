@@ -72,3 +72,7 @@ now.json
 *.spec.js
 *.spec.ts
 *.spec.tsx
+__mocks__
+__tests__
+__snapshots__
+*.snap
