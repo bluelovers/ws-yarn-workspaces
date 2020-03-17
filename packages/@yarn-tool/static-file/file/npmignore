@@ -67,3 +67,8 @@ jest.config.js
 jest.config.*
 /report.*.json
 now.json
+/Makefile
+*.spec.d.ts
+*.spec.js
+*.spec.ts
+*.spec.tsx

@@ -85,3 +85,9 @@ jest.config.d.ts
 jest.config.js.map
 /report.*.json
 *.js.map
+/now.json
+.nyc_output
+.coverage-cache
+.reify-cache
+*.spec.d.ts
+*.spec.js
