@@ -1,0 +1,34 @@
+{
+  "name": "find-pkg-ws",
+  "version": "1.0.4",
+  "description": "find yarn workspaces package.json",
+  "keywords": [
+    "init",
+    "lerna",
+    "npm",
+    "workspace",
+    "workspaces",
+    "yarn"
+  ],
+  "homepage": "https://github.com/bluelovers/find-pkg-ws#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/find-pkg-ws/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/find-pkg-ws.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
+  "scripts": {
+    "coverage": "npx nyc npm run test",
+    "ncu": "npx npm-check-updates -u",
+    "prepublishOnly": "npm run ncu && npm run sort-package-json",
+    "sort-package-json": "npx sort-package-json ./package.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "find-yarn-workspace-root2": "^1.2.1"
+  }
+}
