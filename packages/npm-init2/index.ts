@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-import findYarnWorkspaceRoot = require('find-yarn-workspace-root2');
-import yargs = require('yargs');
-import crossSpawn = require('cross-spawn-extra');
-import fs = require('fs-extra');
-import path = require('path');
+import findYarnWorkspaceRoot from 'find-yarn-workspace-root2';
+import yargs from 'yargs';
+import crossSpawn from 'cross-spawn-extra';
+import { ensureDirSync, CopyOptionsSync, copySync } from 'fs-extra';
+import { resolve, join, relative } from 'path';
 import getConfig, { parseStaticPackagesPaths } from 'workspaces-config';
 import PackageJsonLoader from 'npm-package-json-loader';
 import { updateNotifier } from '@yarn-tool/update-notifier';
@@ -13,6 +13,7 @@ import { copyStaticFiles, defaultCopyStaticFiles, getTargetDir } from './lib/ind
 import setupToYargs from './lib/yargs-setting';
 import { findRoot } from '@yarn-tool/find-root';
 import { npmHostedGitInfo } from '@yarn-tool/pkg-git-info';
+import { existsSync } from 'fs';
 
 //updateNotifier(__dirname);
 
@@ -22,7 +23,7 @@ let argv = cli.argv._;
 
 //console.dir(cli.argv);
 
-let cwd = path.resolve(cli.argv.cwd || process.cwd());
+let cwd = resolve(cli.argv.cwd || process.cwd());
 
 let rootData = findRoot({
 	cwd,
@@ -51,7 +52,7 @@ let { targetDir, targetName } = getTargetDir({
 	workspacePrefix,
 });
 
-fs.ensureDirSync(targetDir);
+ensureDirSync(targetDir);
 
 let flags = Object.keys(cli.argv)
 	.reduce(function (a, f)
@@ -80,13 +81,13 @@ let args = [
 //console.log(args);
 
 let old_pkg_name: string;
-let oldExists = fs.existsSync(path.join(targetDir, 'package.json'));
+let oldExists = existsSync(join(targetDir, 'package.json'));
 
 if (!targetName)
 {
 	try
 	{
-		let pkg = new PackageJsonLoader(path.join(targetDir, 'package.json'));
+		let pkg = new PackageJsonLoader(join(targetDir, 'package.json'));
 
 		old_pkg_name = pkg.data.name
 	}
@@ -103,7 +104,7 @@ let cp = crossSpawn.sync(cli.argv.npmClient, args, {
 
 if (!cp.error)
 {
-	let pkg = new PackageJsonLoader(path.join(targetDir, 'package.json'));
+	let pkg = new PackageJsonLoader(join(targetDir, 'package.json'));
 
 	if (pkg.exists())
 	{
@@ -149,7 +150,7 @@ if (!cp.error)
 				{
 					let u = new URL(pkg.data.homepage as string);
 
-					u.pathname += '/tree/master/' + path.relative(hasWorkspace, targetDir);
+					u.pathname += '/tree/master/' + relative(hasWorkspace, targetDir);
 
 					// @ts-ignore
 					pkg.data.homepage = u.toString();
@@ -220,13 +221,13 @@ if (!cp.error)
 
 		try
 		{
-			let copyOptions: fs.CopyOptionsSync = {
+			let copyOptions: CopyOptionsSync = {
 				overwrite: false,
 				preserveTimestamps: true,
 				errorOnExist: false,
 			};
 
-			fs.copySync(path.join(__dirname, 'lib/static'), targetDir, copyOptions);
+			copySync(join(__dirname, 'lib/static'), targetDir, copyOptions);
 		}
 		catch (e)
 		{

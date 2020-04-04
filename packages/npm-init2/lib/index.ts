@@ -2,12 +2,12 @@
  * Created by user on 2018/11/28/028.
  */
 
-import crossSpawn = require('cross-spawn-extra');
-import JSON5 = require('json5');
+import crossSpawn from 'cross-spawn-extra';
+import JSON5 from 'json5';
 
-import _validateNpmPackageName = require('validate-npm-package-name');
-import fs = require('fs-extra');
-import path = require('path');
+import _validateNpmPackageName from 'validate-npm-package-name';
+import { pathExistsSync } from 'fs-extra';
+import { join, resolve } from 'path';
 
 import _copyStaticFiles, { defaultCopyStaticFiles } from '@yarn-tool/static-file';
 
@@ -81,7 +81,7 @@ export function getTargetDir(options: {
 
 		if (hasWorkspace)
 		{
-			basePath = path.join(hasWorkspace, workspacePrefix);
+			basePath = join(hasWorkspace, workspacePrefix);
 		}
 		else
 		{
@@ -95,13 +95,13 @@ export function getTargetDir(options: {
 				.replace(/^@/g, '')
 			;
 
-			if (!fs.pathExistsSync(path.join(basePath, ret.subname)))
+			if (!pathExistsSync(join(basePath, ret.subname)))
 			{
 				name = ret.subname;
 			}
 		}
 
-		targetDir = path.resolve(basePath, name);
+		targetDir = resolve(basePath, name);
 
 	}
 	else
@@ -131,7 +131,7 @@ export function validateNpmPackageName(name: string, throwErr?: boolean)
 		user?: string,
 		subname?: string,
 
-	} = _validateNpmPackageName(name);
+	} = _validateNpmPackageName(name) as any;
 
 	ret.name = name;
 
