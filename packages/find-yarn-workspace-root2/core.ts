@@ -1,7 +1,7 @@
-import path = require('path');
-import pkgDir = require('pkg-dir');
-import fs = require('fs');
-import micromatch = require('micromatch');
+import path from 'path';
+import pkgDir from 'pkg-dir';
+import { existsSync, readFileSync } from 'fs';
+import micromatch from 'micromatch';
 
 /**
  * Adapted from:
@@ -107,9 +107,9 @@ export function readPackageJSON<T extends {
 }>(dir: string): T
 {
 	const file = path.join(dir, 'package.json');
-	if (fs.existsSync(file))
+	if (existsSync(file))
 	{
-		return JSON.parse(fs.readFileSync(file, 'utf8'));
+		return JSON.parse(readFileSync(file, 'utf8'));
 	}
 	return null;
 }
