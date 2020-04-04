@@ -2,18 +2,12 @@
  * Created by user on 2018/5/13/013.
  */
 
-import findYarnWorkspaceRoot = require('find-yarn-workspace-root2');
-import path = require('path');
-import pkgDir = require('pkg-dir');
-import fs = require('fs-extra');
-
-import { Console2 } from 'debug-color2';
+import findYarnWorkspaceRoot from 'find-yarn-workspace-root2';
+import { resolve, join, basename, relative } from 'path';
+import pkgDir from 'pkg-dir';
+import console from 'debug-color2/logger';
 import copyStaticFiles, { defaultCopyStaticFiles, IStaticFilesMapArray } from '@yarn-tool/static-file';
-
-export const console = new Console2(null, {
-	label: true,
-	time: true,
-});
+import { existsSync, readFileSync, mkdirSync, writeFileSync } from 'fs-extra';
 
 export interface IOptions
 {
@@ -40,7 +34,7 @@ export function createYarnWorkspaces(cwd?: string, options: IOptions = {})
 		cwd = process.cwd();
 	}
 
-	cwd = path.resolve(cwd);
+	cwd = resolve(cwd);
 
 	let root: string = pkgDir.sync(cwd);
 
@@ -58,7 +52,7 @@ export function createYarnWorkspaces(cwd?: string, options: IOptions = {})
 		ws = null;
 	}
 
-	let targetPath = path.resolve(root || cwd);
+	let targetPath = resolve(root || cwd);
 
 	options.debug && console.debug({
 		targetPath,
@@ -117,7 +111,7 @@ export function isSamePath(p1: string, p2: string)
 		return false;
 	}
 
-	let s = path.relative(p1, p2);
+	let s = relative(p1, p2);
 	return (s === '.' || s === '');
 }
 
@@ -130,11 +124,11 @@ export function _createYarnWorkspaces(targetPath: string, options: IOptions = {}
 	let lerna;
 
 	{
-		let file = path.join(targetPath, 'lerna.json');
+		let file = join(targetPath, 'lerna.json');
 
-		if (fs.existsSync(file))
+		if (existsSync(file))
 		{
-			let json = JSON.parse(fs.readFileSync(file).toString());
+			let json = JSON.parse(readFileSync(file).toString());
 
 			if (json.packages && !Object.keys(json.packages).length)
 			{
@@ -149,15 +143,15 @@ export function _createYarnWorkspaces(targetPath: string, options: IOptions = {}
 		"packages/*",
 	];
 
-	let file = path.join(targetPath, 'package.json');
+	let file = join(targetPath, 'package.json');
 
-	if (!fs.existsSync(file))
+	if (!existsSync(file))
 	{
-		let name = path.basename(targetPath);
+		let name = basename(targetPath);
 
-		if (!fs.existsSync(targetPath))
+		if (!existsSync(targetPath))
 		{
-			fs.mkdirSync(targetPath);
+			mkdirSync(targetPath);
 		}
 
 		pkg = Object.assign(getDefaultPackageJson(name), {
@@ -177,7 +171,7 @@ export function _createYarnWorkspaces(targetPath: string, options: IOptions = {}
 	}
 	else
 	{
-		let json = JSON.parse(fs.readFileSync(file).toString());
+		let json = JSON.parse(readFileSync(file).toString());
 
 		let workspaces;
 
@@ -202,26 +196,26 @@ export function _createYarnWorkspaces(targetPath: string, options: IOptions = {}
 	}
 
 	let s = JSON.stringify(pkg, null, 2);
-	fs.writeFileSync(file, s);
+	writeFileSync(file, s);
 
 	console.success(`create workspace package.json`);
 
 	if (lerna && (packages != lerna.packages || lerna.npmClient !== 'yarn' || lerna.useWorkspaces !== true))
 	{
-		let file = path.join(targetPath, 'lerna.json');
+		let file = join(targetPath, 'lerna.json');
 
 		lerna.packages = packages;
 		lerna.npmClient = 'yarn';
 		lerna.useWorkspaces = true;
 
 		let s = JSON.stringify(lerna, null, 2);
-		fs.writeFileSync(file, s);
+		writeFileSync(file, s);
 
 		console.info(`update lerna.json`);
 	}
 	else if (0 && !lerna)
 	{
-		let file = path.join(targetPath, 'lerna.json');
+		let file = join(targetPath, 'lerna.json');
 
 		lerna = {
 			"packages": packages,
@@ -237,7 +231,7 @@ export function _createYarnWorkspaces(targetPath: string, options: IOptions = {}
 		};
 
 		let s = JSON.stringify(lerna, null, 2);
-		fs.writeFileSync(file, s);
+		writeFileSync(file, s);
 
 		console.success(`create lerna.json`);
 	}
@@ -325,11 +319,11 @@ export function createDirByPackages(cwd: string, packages: string[])
 
 		if (!/[!?\*{}\[\]]/.test(s))
 		{
-			let dir = path.join(cwd, s);
+			let dir = join(cwd, s);
 
-			if (!fs.existsSync(dir))
+			if (!existsSync(dir))
 			{
-				fs.mkdirSync(dir);
+				mkdirSync(dir);
 			}
 
 			return true;

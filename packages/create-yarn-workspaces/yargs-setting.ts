@@ -2,7 +2,7 @@
  * Created by user on 2019/5/16.
  */
 
-import yargs = require('yargs');
+import yargs from 'yargs';
 import { Argv, Omit } from 'yargs';
 
 export function setupWorkspacesInitToYargs<T extends any>(yargs: Argv<T>)

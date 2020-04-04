@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-import createYarnWorkspaces, { console as debug } from '..';
-import * as yargs from 'yargs';
-import * as path from 'path';
+import createYarnWorkspaces from '..';
+import debug from 'debug-color2/logger';
+import yargs from 'yargs';
+import { join } from 'path';
 import setupWorkspacesInitToYargs from '../yargs-setting';
 
 const CWD = process.cwd();
@@ -15,7 +16,7 @@ let cli = setupWorkspacesInitToYargs(yargs)
 
 		if (name)
 		{
-			name = path.join(CWD, name);
+			name = join(CWD, name);
 		}
 		else
 		{
