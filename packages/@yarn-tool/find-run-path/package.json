@@ -25,13 +25,13 @@
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
-  "publishConfig": {
-    "access": "public"
-  },
   "dependencies": {
     "@yarn-tool/find-root": "^1.0.3",
-    "debug-color2": "^1.1.6",
+    "debug-color2": "^1.1.7",
     "path-key": "^3.1.1"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "gitHead": "328ff729b860029dcda4e919f58e3ccb5e111d1f"
 }

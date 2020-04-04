@@ -79,3 +79,5 @@ tsconfig.tsbuildinfo
 /.nycrc
 /jest.config.js
 /README.md
+*.map
+

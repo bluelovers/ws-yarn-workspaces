@@ -32,11 +32,10 @@
   },
   "dependencies": {
     "@git-lazy/info": "^1.0.3",
-    "@types/hosted-git-info": "^2.7.0",
-    "hosted-git-info": "^3.0.2"
+    "@types/hosted-git-info": "^3.0.0",
+    "hosted-git-info": "^3.0.4"
   },
   "devDependencies": {
-    "@bluelovers/tsconfig": "latest",
     "@types/parse-git-config": "^3.0.0"
   },
   "publishConfig": {

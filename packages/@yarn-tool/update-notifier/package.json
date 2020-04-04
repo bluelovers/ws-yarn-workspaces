@@ -10,8 +10,8 @@
     "lint": "npx eslint **/*.ts",
     "ncu": "npx yarn-tool ncu -u",
     "npm:publish": "npx npm publish",
-    "prepublishOnly": "yarn run ncu && yarn run sort-package-json && yarn run test",
     "postpublish_": "git commit -m \"publish new version\" .",
+    "prepublishOnly": "yarn run ncu && yarn run sort-package-json && yarn run test",
     "sort-package-json": "npx yarn-tool sort",
     "test": "ts-node ./test/test.ts"
   },
@@ -20,7 +20,7 @@
     "update-notifier": "^4.1.0"
   },
   "devDependencies": {
-    "@types/update-notifier": "^2.5.0"
+    "@types/update-notifier": "^4.1.0"
   },
   "publishConfig": {
     "access": "public"

@@ -12,22 +12,22 @@
   ],
   "scripts": {
     "lerna:publish": "npx lerna publish",
-    "lerna:publish:yes": "npx lerna publish --yes --cd-version patch",
-    "prepublish:lockfile": "npx sync-lockfile .",
+    "lerna:publish:yes": "yarn run prepublish:lockfile && npx lerna publish --yes --cd-version patch",
     "ncu": "npx yarn-tool ncu -u",
+    "prepublish:lockfile": "ynpx sync-lockfile",
     "sort-package-json": "npx yarn-tool sort",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "resolutions": {},
   "devDependencies": {
-    "@types/chai": "^4.2.9",
-    "@types/fs-extra": "^8.0.1",
-    "@types/mocha": "^7.0.1",
-    "gitlog": "^3.1.2",
-    "@types/node": "*",
-    "@bluelovers/tsconfig": "latest"
+    "@bluelovers/tsconfig": "^1.0.19",
+    "@types/chai": "^4.2.11",
+    "@types/fs-extra": "^8.1.0",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^13.11.0",
+    "gitlog": "^3.2.0"
   },
   "peerDependencies": {
     "lerna": "^3"
-  },
-  "resolutions": {}
+  }
 }

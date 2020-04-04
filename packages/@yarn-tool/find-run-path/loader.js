@@ -3,10 +3,11 @@
  * Created by user on 2019/12/25.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.processEnv = void 0;
 const index_1 = require("./index");
 exports.processEnv = index_1.processRunPathEnv({
     overwrite: true,
     appendExecPath: true,
 });
 exports.default = exports.processEnv;
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibG9hZGVyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsibG9hZGVyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQTs7R0FFRzs7QUFFSCxtQ0FBNEM7QUFFL0IsUUFBQSxVQUFVLEdBQUcseUJBQWlCLENBQUM7SUFDM0MsU0FBUyxFQUFFLElBQUk7SUFDZixjQUFjLEVBQUUsSUFBSTtDQUNwQixDQUFDLENBQUM7QUFFSCxrQkFBZSxrQkFBVSxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBDcmVhdGVkIGJ5IHVzZXIgb24gMjAxOS8xMi8yNS5cbiAqL1xuXG5pbXBvcnQgeyBwcm9jZXNzUnVuUGF0aEVudiB9IGZyb20gJy4vaW5kZXgnO1xuXG5leHBvcnQgY29uc3QgcHJvY2Vzc0VudiA9IHByb2Nlc3NSdW5QYXRoRW52KHtcblx0b3ZlcndyaXRlOiB0cnVlLFxuXHRhcHBlbmRFeGVjUGF0aDogdHJ1ZSxcbn0pO1xuXG5leHBvcnQgZGVmYXVsdCBwcm9jZXNzRW52O1xuIl19
+//# sourceMappingURL=loader.js.map
