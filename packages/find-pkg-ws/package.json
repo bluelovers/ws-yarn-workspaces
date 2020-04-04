@@ -23,12 +23,12 @@
   "main": "index.js",
   "scripts": {
     "coverage": "npx nyc npm run test",
-    "ncu": "npx npm-check-updates -u",
+    "ncu": "npx yarn-tool ncu -u",
     "prepublishOnly": "npm run ncu && npm run sort-package-json",
-    "sort-package-json": "npx sort-package-json ./package.json",
+    "sort-package-json": "npx yarn-tool sort",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "find-yarn-workspace-root2": "^1.2.1"
+    "find-yarn-workspace-root2": "^1.2.7"
   }
 }

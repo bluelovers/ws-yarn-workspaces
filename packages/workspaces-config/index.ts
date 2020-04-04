@@ -3,8 +3,8 @@
  */
 
 import findPkg from 'find-pkg-ws';
-import * as fs from 'fs-extra';
-import * as path from 'path';
+import { readJSONSync } from 'fs-extra';
+import { join } from 'path';
 
 export type WorkspacesConfig = {
 	packages?: WorkspacesConfigArray,
@@ -22,7 +22,7 @@ export function getConfig(cwd?: string)
 		throw new RangeError();
 	}
 
-	let pkg = fs.readJSONSync(file);
+	let pkg = readJSONSync(file);
 
 	return parseWorkspaces(pkg.workspaces);
 }
@@ -65,11 +65,11 @@ export function parseStaticPackagesPaths(workspaces: WorkspacesConfig | Workspac
 			{
 				if (b.length != ls.length)
 				{
-					a.prefix.push(path.join(...b));
+					a.prefix.push(join(...b));
 				}
 				else
 				{
-					a.static.push(path.join(...b));
+					a.static.push(join(...b));
 				}
 			}
 
