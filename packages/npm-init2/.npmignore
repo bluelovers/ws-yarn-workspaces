@@ -1,0 +1,36 @@
+# Created by .ignore support plugin (hsz.mobi)
+### npm template
+.idea
+
+~ci.list.txt
+~ci.log.txt
+~ci.errors.txt
+
+*.stackdump
+*.bak
+*.old
+*.log
+
+tsconfig.json
+#package-lock.json
+
+test
+
+.github
+.gitkeep
+
+*.ts
+!*.d.ts
+
+/.*
+/bin/*.d.ts
+!/lib/static/*
+!/lib/static/.npmignore
+*.tgz
+
+!lib/file/tsconfig.json.tpl
+/tsconfig.json.tpl
+!lib/static/tsconfig.json.tpl
+/yarn-error.log
+/package-lock.json
+/yarn.lock

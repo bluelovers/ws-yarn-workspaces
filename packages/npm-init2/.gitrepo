@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/bluelovers/npm-init2.git
+	branch = master
+	commit = 2f221560e9ba5c0c43dc6fd18a28b02c2114c33a
+	parent = 4fb7bef6029db333af14624e409cb30f837c063a
+	method = merge
+	cmdver = 0.4.1
