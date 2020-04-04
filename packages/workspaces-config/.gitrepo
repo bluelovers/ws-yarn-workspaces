@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/bluelovers/workspaces-config.git
+	branch = master
+	commit = a2eac1bebe58735258f1f82e6e730203a4ab281b
+	parent = ffd9983eeb20e6616c492c53fb6b30787bcb02d2
+	method = merge
+	cmdver = 0.4.1

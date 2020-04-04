@@ -1,0 +1,35 @@
+{
+  "name": "workspaces-config",
+  "version": "1.0.3",
+  "description": "```ts console.log(parseStaticPackagesPaths(getConfig())); // => { static: [], prefix: [ 'packages' ], all: [ 'packages/*' ] } ```",
+  "keywords": [
+    "init",
+    "npm",
+    "workspace",
+    "workspaces",
+    "yarn"
+  ],
+  "homepage": "https://github.com/bluelovers/workspaces-config#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/workspaces-config/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/workspaces-config.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
+  "scripts": {
+    "coverage": "npx nyc yarn run test",
+    "ncu": "npx npm-check-updates -u",
+    "prepublishOnly": "yarn run ncu && yarn run sort-package-json",
+    "sort-package-json": "npx sort-package-json ./package.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "find-pkg-ws": "^1.0.4",
+    "fs-extra": "^7.0.1"
+  },
+  "devDependencies": {}
+}
