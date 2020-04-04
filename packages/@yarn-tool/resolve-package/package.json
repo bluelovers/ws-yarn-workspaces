@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/resolve-package",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/resolve-package#readme",
   "bugs": {
@@ -31,7 +31,6 @@
     "@ts-type/package-dts": "^1.0.8",
     "upath2": "^2.1.3"
   },
-  "devDependencies": {},
   "publishConfig": {
     "access": "public"
   },
