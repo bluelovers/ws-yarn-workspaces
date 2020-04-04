@@ -35,9 +35,9 @@
   "scripts": {
     "ncu": "npx yarn-tool ncu -u",
     "npm:publish": "npm publish",
+    "postpublish_": "git commit -m \"chore(release): publish\" .",
     "prebuild:lockfile": "npx sync-lockfile .",
     "prepublishOnly": "yarn run ncu && yarn run sort-package-json",
-    "postpublish_": "git commit -m \"chore(release): publish\" .",
     "sort-package-json": "npx yarn-tool sort",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -66,5 +66,6 @@
   "bundleDependencies": [],
   "preferGlobal": true,
   "publishConfig": {},
+  "gitHead": "764afbf30c0505cf214354e8f7efe703ce30ae98",
   "licenses": []
 }

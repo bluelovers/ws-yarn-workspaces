@@ -12,10 +12,9 @@
   ],
   "scripts": {
     "lerna:publish": "npx lerna publish",
-    "lerna:publish:yes": "yarn run prepublish:lockfile && npx lerna publish --yes --cd-version patch",
+    "lerna:publish:yes": "yarn run prepublish:lockfile && npx lerna publish --yes --cd-version patch && yarn run postpublish:subrepo",
     "ncu": "npx yarn-tool ncu -u",
     "prepublish:lockfile": "ynpx sync-lockfile",
-    "postpublish": "yarn run postpublish:subrepo",
     "postpublish:subrepo": "git subrepo push --all",
     "sort-package-json": "npx yarn-tool sort",
     "test": "echo \"Error: no test specified\" && exit 1"
