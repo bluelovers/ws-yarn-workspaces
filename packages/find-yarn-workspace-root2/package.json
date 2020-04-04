@@ -1,0 +1,42 @@
+{
+  "name": "find-yarn-workspace-root2",
+  "version": "1.2.7",
+  "description": "Algorithm for finding the root of a yarn workspace, extracted from yarnpkg.com",
+  "homepage": "https://github.com/bluelovers/find-yarn-workspace-root/tree/dev#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/find-yarn-workspace-root/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/find-yarn-workspace-root.git"
+  },
+  "license": "Apache-2.0",
+  "author": "Square, Inc.",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "commitmsg": "commitlint -e $GIT_PARAMS",
+    "coverage": "npx nyc npm run test",
+    "ncu": "npx yarn-tool ncu -u",
+    "prepublishOnly": "npm run ncu && npm run sort-package-json && npm run test",
+    "postpublish": "git commit -m \"publish new version\" .",
+    "sort-package-json": "npx sort-package-json ./package.json",
+    "test": "npx mocha tests/**/*-test.js"
+  },
+  "dependencies": {
+    "micromatch": "^4.0.2",
+    "pkg-dir": "^4.2.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.4",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@types/micromatch": "^3.1.1",
+    "chai": "^4.2.0",
+    "husky": "^3.1.0",
+    "mocha": "^7.0.0",
+    "standard-version": "^7.0.1"
+  }
+}
