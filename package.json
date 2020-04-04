@@ -16,7 +16,7 @@
     "ncu": "npx yarn-tool ncu -u",
     "prepublish:lockfile": "ynpx sync-lockfile",
     "postpublish": "yarn run postpublish:subrepo",
-    "postpublish:subrepo": "git subrepo push packages/npm-init2",
+    "postpublish:subrepo": "git subrepo push --all",
     "sort-package-json": "npx yarn-tool sort",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
