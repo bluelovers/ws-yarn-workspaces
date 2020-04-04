@@ -1,0 +1,31 @@
+# Created by .ignore support plugin (hsz.mobi)
+### git2 template
+.idea
+
+~ci.list.txt
+~ci.log.txt
+~ci.errors.txt
+
+*.stackdump
+*.bak
+*.old
+
+package-lock.json
+
+test/**/*.js
+test/**/*.d.ts
+test/*.js
+test/*.d.ts
+test/temp*
+
+tests/**/*.js
+tests/**/*.d.ts
+tests/*.js
+tests/*.d.ts
+tests/temp*
+/bin/*.d.ts
+/yarn-error.log
+/.browserslistrc
+/.eslintrc.json.tpl
+/.nvmrc
+*.tsbuildinfo

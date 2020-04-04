@@ -1,0 +1,55 @@
+{
+  "name": "create-yarn-workspaces",
+  "version": "1.0.28",
+  "description": "yarn create yarn-workspaces     npx create-yarn-workspaces",
+  "keywords": [
+    "cli",
+    "init",
+    "npm",
+    "workspace",
+    "workspaces",
+    "ws",
+    "yarn",
+    "yarn-ws-init"
+  ],
+  "homepage": "https://github.com/bluelovers/create-yarn-workspaces#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/create-yarn-workspaces/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/create-yarn-workspaces.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
+  "bin": {
+    "create-yarn-workspaces": "./bin/yarn-ws-init.js",
+    "ws-init": "./bin/yarn-ws-init.js",
+    "yarn-ws-init": "./bin/yarn-ws-init.js"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "coverage": "npx nyc npm run test",
+    "lint": "npx eslint **/*.ts",
+    "ncu": "npx yarn-tool ncu -u",
+    "npm:publish": "npm publish",
+    "prepublishOnly": "npm run ncu && npm run sort-package-json",
+    "postpublish": "git commit -m \"chore(release): publish\" .",
+    "sort-package-json": "npx yarn-tool sort",
+    "test": "node ./bin/yarn-ws-init --debug --ignoreExistsPackage --ignoreParentWorkspaces ./test/temp",
+    "tsc:default": "tsc -p tsconfig.json",
+    "tsc:esm": "tsc -p tsconfig.esm.json"
+  },
+  "dependencies": {
+    "@yarn-tool/static-file": "^1.0.16",
+    "debug-color2": "^1.1.7",
+    "find-yarn-workspace-root2": "^1.2.7",
+    "fs-extra": "^9.0.0",
+    "pkg-dir": "^4.2.0",
+    "yargs": "^15.3.1"
+  },
+  "devDependencies": {}
+}

@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/bluelovers/create-yarn-workspaces.git
+	branch = master
+	commit = 76c67c1355fc631673d6a6e1d80c0820bc1c45b7
+	parent = 25c9c5c04224aab42042efa814f1c6d12fee4b13
+	method = merge
+	cmdver = 0.4.1
