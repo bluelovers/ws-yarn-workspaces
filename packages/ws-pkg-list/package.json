@@ -1,0 +1,48 @@
+{
+  "name": "ws-pkg-list",
+  "version": "1.0.6",
+  "description": "get Yarn Workspaces Packages List and can help create `paths` for `tsconfig.json`",
+  "keywords": [
+    "monorepos",
+    "package.json",
+    "packages",
+    "paths",
+    "tsconfig",
+    "workspaces",
+    "ws",
+    "yarn"
+  ],
+  "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/ws-pkg-list#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/ws-yarn-workspaces.git"
+  },
+  "license": "ISC",
+  "author": "bluelovers",
+  "main": "index.js",
+  "scripts": {
+    "coverage": "npx nyc npm run test",
+    "lint": "npx eslint **/*.ts",
+    "ncu": "npx yarn-tool ncu -u",
+    "npm:publish": "npm publish",
+    "postpublish_": "git commit -m \"chore(release): publish\" .",
+    "prepublish:lockfile": "npx sync-lockfile .",
+    "prepublishOnly": "npm run ncu && npm run sort-package-json",
+    "prepublishOnly_": "yarn run ncu && yarn run sort-package-json && yarn run test",
+    "sort-package-json": "npx yarn-tool sort",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
+    "tsc:default": "tsc -p tsconfig.json",
+    "tsc:esm": "tsc -p tsconfig.esm.json"
+  },
+  "dependencies": {
+    "@bluelovers/fast-glob": "^3.0.4",
+    "array-hyper-unique": "^1.1.0",
+    "find-yarn-workspace-root2": "^1.2.7",
+    "workspaces-config": "^1.0.3"
+  },
+  "devDependencies": {}
+}
