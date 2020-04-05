@@ -19,15 +19,17 @@ export declare class PackageJsonLoader<T extends IPackageJsonLike<IPackageJson> 
     setFilename(file: string): this;
     setJson(json: object | T): this;
     read(reload?: boolean): this;
-    readonly dir: string;
+    get dir(): string;
     /**
      * skip typescript type check
      */
+    get unsafeTypeData(): IPackageJsonLike<T>;
     /**
-    * skip typescript type check
-    */
-    unsafeTypeData: IPackageJsonLike<T>;
-    data: T;
+     * skip typescript type check
+     */
+    set unsafeTypeData(json: IPackageJsonLike<T>);
+    set data(json: T);
+    get data(): T;
     overwrite(json: object | T): this;
     autofix(): void;
     run(options?: {

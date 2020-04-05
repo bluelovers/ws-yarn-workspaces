@@ -1,14 +1,14 @@
-import fs = require('fs-extra');
-import path = require('path');
+import { existsSync } from 'fs-extra';
+import { join, posix } from 'path';
 
 export function fixBinPath(bin: string, root: string)
 {
 	if (
-		!fs.existsSync(path.join(root, bin))
-		&& fs.existsSync(path.join(root, 'bin', bin))
+		!existsSync(join(root, bin))
+		&& existsSync(join(root, 'bin', bin))
 	)
 	{
-		return path.posix.join('.', 'bin', bin);
+		return posix.join('.', 'bin', bin);
 	}
 
 	return null;

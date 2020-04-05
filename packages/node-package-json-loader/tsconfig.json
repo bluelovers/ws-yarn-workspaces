@@ -1,6 +1,0 @@
-{
-  "extends": "@bluelovers/tsconfig",
-  "compilerOptions": {
-    "esModuleInterop": true
-  }
-}
