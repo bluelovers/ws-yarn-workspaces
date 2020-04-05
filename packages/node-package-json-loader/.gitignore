@@ -69,3 +69,5 @@ coverage
 /.eslintignore
 /.browserslistrc
 /.nvmrc
+!jest.config.js
+/test/demo.json

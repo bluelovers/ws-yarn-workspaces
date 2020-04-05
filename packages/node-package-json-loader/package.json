@@ -38,7 +38,7 @@
     "prepublishOnly": "yarn run ncu && yarn run sort-package-json",
     "postpublish_": "git commit -m \"chore(release): publish\" .",
     "sort-package-json": "npx yarn-tool sort",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest -u"
   },
   "config": {},
   "dependencies": {

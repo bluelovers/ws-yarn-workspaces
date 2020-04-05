@@ -31,6 +31,10 @@ export const defaultNpmScriptsOrder = new Set([
 	'install',
 	'uninstall',
 
+	'build',
+
+	'link',
+
 	'npm',
 
 	'prepublish',

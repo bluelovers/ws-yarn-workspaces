@@ -25,6 +25,8 @@ exports.defaultNpmScriptsOrder = new Set([
     'test',
     'install',
     'uninstall',
+    'build',
+    'link',
     'npm',
     'prepublish',
     'prepare',
