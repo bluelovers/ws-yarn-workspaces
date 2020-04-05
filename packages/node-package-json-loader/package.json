@@ -1,0 +1,62 @@
+{
+  "name": "npm-package-json-loader",
+  "version": "1.0.7",
+  "private": false,
+  "description": "Find and load configuration from a package.json",
+  "keywords": [
+    "conf",
+    "config",
+    "find",
+    "json",
+    "loader",
+    "module",
+    "npm",
+    "package",
+    "pkg",
+    "sort",
+    "yarn"
+  ],
+  "homepage": "https://github.com/bluelovers/node-package-json-loader#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/node-package-json-loader/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/node-package-json-loader.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "contributors": [],
+  "main": "index.js",
+  "bin": {},
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "coverage": "npx nyc npm run test",
+    "lint": "eslint .",
+    "ncu": "npx npm-check-updates -u",
+    "prepublishOnly": "npm run ncu && npm run sort-package-json",
+    "postpublish": "git commit -m \"publish new version\" .",
+    "sort-package-json": "npx sort-package-json ./package.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "config": {},
+  "dependencies": {
+    "@ts-type/package-dts": "^1.0.4",
+    "bind-decorator": "^1.0.11",
+    "fs-extra": "^8.1.0",
+    "lodash-decorators": "^6.0.1",
+    "pkg-up": "^3.1.0",
+    "sort-package-json": "^1.22.1",
+    "ts-type": "^1.2.9"
+  },
+  "devDependencies": {},
+  "peerDependencies": {},
+  "bundleDependencies": [],
+  "optionalDependencies": {},
+  "resolutions": {},
+  "preferGlobal": true,
+  "publishConfig": {},
+  "licenses": []
+}

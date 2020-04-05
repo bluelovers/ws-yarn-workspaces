@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/bluelovers/node-package-json-loader.git
+	branch = master
+	commit = a091c06069ecbaf6383d6f6e1e37bdb75078f8ee
+	parent = 246e06bc9afabf5093eb2081a2118a9aeed43308
+	method = merge
+	cmdver = 0.4.1
