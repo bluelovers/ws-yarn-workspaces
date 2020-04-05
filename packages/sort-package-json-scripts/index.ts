@@ -1,7 +1,7 @@
 import sortObjectKeys from 'sort-object-keys2';
 import { omitKey, otherNpmScriptsOrder, defaultNpmScriptsOrder } from './lib/util';
 
-export function sortPackageJsonScript<T extends Record<string, string>>(scripts: T): T
+export function sortPackageJsonScript<T extends Record<string, any>>(scripts: T): T
 {
 	const names = Object.keys(scripts)
 	const prefixable = new Set<string>()
