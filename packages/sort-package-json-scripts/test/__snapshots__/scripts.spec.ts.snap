@@ -1,0 +1,249 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should defaultNpmScriptsOrder 1`] = `
+Object {
+  "coverage": "14",
+  "dev": "17",
+  "install": "11",
+  "lint": "13",
+  "pack": "5",
+  "postpack": "4",
+  "postpublish": "2",
+  "prepack": "6",
+  "prepare": "8",
+  "prepublish": "9",
+  "prepublishOnly": "7",
+  "publish": "3",
+  "restart": "16",
+  "shrinkwrap": "1",
+  "start": "18",
+  "stop": "15",
+  "test": "12",
+  "uninstall": "10",
+  "version": "0",
+}
+`;
+
+exports[`should defaultNpmScriptsOrder 2`] = `
+Array [
+  "start",
+  "dev",
+  "restart",
+  "stop",
+  "coverage",
+  "lint",
+  "test",
+  "install",
+  "uninstall",
+  "prepublish",
+  "prepare",
+  "prepublishOnly",
+  "prepack",
+  "pack",
+  "postpack",
+  "publish",
+  "postpublish",
+  "shrinkwrap",
+  "version",
+]
+`;
+
+exports[`should defaultNpmScriptsOrder 3`] = `"{\\"start\\":\\"18\\",\\"dev\\":\\"17\\",\\"restart\\":\\"16\\",\\"stop\\":\\"15\\",\\"coverage\\":\\"14\\",\\"lint\\":\\"13\\",\\"test\\":\\"12\\",\\"install\\":\\"11\\",\\"uninstall\\":\\"10\\",\\"prepublish\\":\\"9\\",\\"prepare\\":\\"8\\",\\"prepublishOnly\\":\\"7\\",\\"prepack\\":\\"6\\",\\"pack\\":\\"5\\",\\"postpack\\":\\"4\\",\\"publish\\":\\"3\\",\\"postpublish\\":\\"2\\",\\"shrinkwrap\\":\\"1\\",\\"version\\":\\"0\\"}"`;
+
+exports[`should defaultNpmScriptsOrder 4`] = `
+Object {
+  "coverage": "4",
+  "dev": "1",
+  "install": "7",
+  "lint": "5",
+  "pack": "13",
+  "postpack": "14",
+  "postpublish": "16",
+  "prepack": "12",
+  "prepare": "10",
+  "prepublish": "9",
+  "prepublishOnly": "11",
+  "publish": "15",
+  "restart": "2",
+  "shrinkwrap": "17",
+  "start": "0",
+  "stop": "3",
+  "test": "6",
+  "uninstall": "8",
+  "version": "18",
+}
+`;
+
+exports[`should defaultNpmScriptsOrder 5`] = `
+Array [
+  "start",
+  "dev",
+  "restart",
+  "stop",
+  "coverage",
+  "lint",
+  "test",
+  "install",
+  "uninstall",
+  "prepublish",
+  "prepare",
+  "prepublishOnly",
+  "prepack",
+  "pack",
+  "postpack",
+  "publish",
+  "postpublish",
+  "shrinkwrap",
+  "version",
+]
+`;
+
+exports[`should defaultNpmScriptsOrder 6`] = `"{\\"start\\":\\"0\\",\\"dev\\":\\"1\\",\\"restart\\":\\"2\\",\\"stop\\":\\"3\\",\\"coverage\\":\\"4\\",\\"lint\\":\\"5\\",\\"test\\":\\"6\\",\\"install\\":\\"7\\",\\"uninstall\\":\\"8\\",\\"prepublish\\":\\"9\\",\\"prepare\\":\\"10\\",\\"prepublishOnly\\":\\"11\\",\\"prepack\\":\\"12\\",\\"pack\\":\\"13\\",\\"postpack\\":\\"14\\",\\"publish\\":\\"15\\",\\"postpublish\\":\\"16\\",\\"shrinkwrap\\":\\"17\\",\\"version\\":\\"18\\"}"`;
+
+exports[`sort base 1`] = `
+Object {
+  "multiply": "2 * 3",
+  "postinstall": "echo \\"Installed\\"",
+  "postprettier": "echo \\"so pretty\\"",
+  "posttest": "abc",
+  "pre-fetch-info": "foo",
+  "prepare": "npm run build",
+  "preprettier": "echo \\"not pretty\\"",
+  "pretest": "xyz",
+  "prettier": "prettier -l \\"**/*.js\\"",
+  "prewatch": "echo \\"about to watch\\"",
+  "start": "node server.js",
+  "test": "node test.js",
+  "watch": "watch things",
+}
+`;
+
+exports[`sort base 2`] = `
+Array [
+  "start",
+  "pretest",
+  "test",
+  "posttest",
+  "postinstall",
+  "prepare",
+  "multiply",
+  "preprettier",
+  "prettier",
+  "postprettier",
+  "pre-fetch-info",
+  "prewatch",
+  "watch",
+]
+`;
+
+exports[`sort base 3`] = `"{\\"start\\":\\"node server.js\\",\\"pretest\\":\\"xyz\\",\\"test\\":\\"node test.js\\",\\"posttest\\":\\"abc\\",\\"postinstall\\":\\"echo \\\\\\"Installed\\\\\\"\\",\\"prepare\\":\\"npm run build\\",\\"multiply\\":\\"2 * 3\\",\\"preprettier\\":\\"echo \\\\\\"not pretty\\\\\\"\\",\\"prettier\\":\\"prettier -l \\\\\\"**/*.js\\\\\\"\\",\\"postprettier\\":\\"echo \\\\\\"so pretty\\\\\\"\\",\\"pre-fetch-info\\":\\"foo\\",\\"prewatch\\":\\"echo \\\\\\"about to watch\\\\\\"\\",\\"watch\\":\\"watch things\\"}"`;
+
+exports[`sort base v2 1`] = `
+Object {
+  "_postprettier": "echo \\"so pretty\\"",
+  "multiply": "2 * 3",
+  "postinstall": "echo \\"Installed\\"",
+  "posttest": "abc",
+  "pre-fetch-info": "foo",
+  "prepare": "npm run build",
+  "preprettier_": "echo \\"not pretty\\"",
+  "pretest": "xyz",
+  "prettier_": "prettier -l \\"**/*.js\\"",
+  "prewatch": "echo \\"about to watch\\"",
+  "start": "node server.js",
+  "test": "node test.js",
+  "watch": "watch things",
+}
+`;
+
+exports[`sort base v2 2`] = `
+Array [
+  "start",
+  "pretest",
+  "test",
+  "posttest",
+  "postinstall",
+  "prepare",
+  "preprettier_",
+  "prettier_",
+  "_postprettier",
+  "multiply",
+  "pre-fetch-info",
+  "prewatch",
+  "watch",
+]
+`;
+
+exports[`sort base v2 3`] = `"{\\"start\\":\\"node server.js\\",\\"pretest\\":\\"xyz\\",\\"test\\":\\"node test.js\\",\\"posttest\\":\\"abc\\",\\"postinstall\\":\\"echo \\\\\\"Installed\\\\\\"\\",\\"prepare\\":\\"npm run build\\",\\"preprettier_\\":\\"echo \\\\\\"not pretty\\\\\\"\\",\\"prettier_\\":\\"prettier -l \\\\\\"**/*.js\\\\\\"\\",\\"_postprettier\\":\\"echo \\\\\\"so pretty\\\\\\"\\",\\"multiply\\":\\"2 * 3\\",\\"pre-fetch-info\\":\\"foo\\",\\"prewatch\\":\\"echo \\\\\\"about to watch\\\\\\"\\",\\"watch\\":\\"watch things\\"}"`;
+
+exports[`sort yarn-tool scripts 1`] = `
+Object {
+  "coverage": "npx nyc yarn run test",
+  "lint": "npx eslint **/*.ts",
+  "ncu": "npx yarn-tool ncu -u",
+  "npm:publish": "npm publish",
+  "postpublish_": "git commit -m \\"chore(release): publish\\" .",
+  "prepublish:lockfile": "npx sync-lockfile .",
+  "prepublishOnly_": "yarn run ncu && yarn run sort-package-json && yarn run test",
+  "sort-package-json": "npx yarn-tool sort",
+  "test": "echo \\"Error: no test specified\\" && exit 1",
+  "test:mocha": "npx mocha --require ts-node/register \\"!(node_modules)/**/*.{test,spec}.{ts,tsx}\\"",
+  "tsc:default": "tsc -p tsconfig.json",
+  "tsc:esm": "tsc -p tsconfig.esm.json",
+}
+`;
+
+exports[`sort yarn-tool scripts 2`] = `
+Array [
+  "coverage",
+  "lint",
+  "test",
+  "test:mocha",
+  "prepublish:lockfile",
+  "prepublishOnly_",
+  "postpublish_",
+  "ncu",
+  "npm:publish",
+  "sort-package-json",
+  "tsc:default",
+  "tsc:esm",
+]
+`;
+
+exports[`sort yarn-tool scripts 3`] = `"{\\"coverage\\":\\"npx nyc yarn run test\\",\\"lint\\":\\"npx eslint **/*.ts\\",\\"test\\":\\"echo \\\\\\"Error: no test specified\\\\\\" && exit 1\\",\\"test:mocha\\":\\"npx mocha --require ts-node/register \\\\\\"!(node_modules)/**/*.{test,spec}.{ts,tsx}\\\\\\"\\",\\"prepublish:lockfile\\":\\"npx sync-lockfile .\\",\\"prepublishOnly_\\":\\"yarn run ncu && yarn run sort-package-json && yarn run test\\",\\"postpublish_\\":\\"git commit -m \\\\\\"chore(release): publish\\\\\\" .\\",\\"ncu\\":\\"npx yarn-tool ncu -u\\",\\"npm:publish\\":\\"npm publish\\",\\"sort-package-json\\":\\"npx yarn-tool sort\\",\\"tsc:default\\":\\"tsc -p tsconfig.json\\",\\"tsc:esm\\":\\"tsc -p tsconfig.esm.json\\"}"`;
+
+exports[`sort yarn-tool scripts 4`] = `
+Object {
+  "_postpublish_": "git commit -m \\"chore(release): publish\\" .",
+  "_prepublishOnly:": "yarn run ncu && yarn run sort-package-json && yarn run test",
+  "coverage": "npx nyc yarn run test",
+  "lint": "npx eslint **/*.ts",
+  "ncu": "npx yarn-tool ncu -u",
+  "npm:publish": "npm publish",
+  "prepublish:lockfile": "npx sync-lockfile .",
+  "sort-package-json": "npx yarn-tool sort",
+  "test-": "echo \\"Error: no test specified\\" && exit 1",
+  "test:mocha": "npx mocha --require ts-node/register \\"!(node_modules)/**/*.{test,spec}.{ts,tsx}\\"",
+  "tsc:default": "tsc -p tsconfig.json",
+  "tsc:esm": "tsc -p tsconfig.esm.json",
+}
+`;
+
+exports[`sort yarn-tool scripts 5`] = `
+Array [
+  "coverage",
+  "lint",
+  "test-",
+  "test:mocha",
+  "prepublish:lockfile",
+  "_prepublishOnly:",
+  "_postpublish_",
+  "ncu",
+  "npm:publish",
+  "sort-package-json",
+  "tsc:default",
+  "tsc:esm",
+]
+`;
+
+exports[`sort yarn-tool scripts 6`] = `"{\\"coverage\\":\\"npx nyc yarn run test\\",\\"lint\\":\\"npx eslint **/*.ts\\",\\"test-\\":\\"echo \\\\\\"Error: no test specified\\\\\\" && exit 1\\",\\"test:mocha\\":\\"npx mocha --require ts-node/register \\\\\\"!(node_modules)/**/*.{test,spec}.{ts,tsx}\\\\\\"\\",\\"prepublish:lockfile\\":\\"npx sync-lockfile .\\",\\"_prepublishOnly:\\":\\"yarn run ncu && yarn run sort-package-json && yarn run test\\",\\"_postpublish_\\":\\"git commit -m \\\\\\"chore(release): publish\\\\\\" .\\",\\"ncu\\":\\"npx yarn-tool ncu -u\\",\\"npm:publish\\":\\"npm publish\\",\\"sort-package-json\\":\\"npx yarn-tool sort\\",\\"tsc:default\\":\\"tsc -p tsconfig.json\\",\\"tsc:esm\\":\\"tsc -p tsconfig.esm.json\\"}"`;
