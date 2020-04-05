@@ -171,29 +171,53 @@ if (!cp.error)
 			}
 		}
 
-		Object
-			.entries({
-				"test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
-				"prepublish:lockfile": "npx sync-lockfile .",
-				"lint": "npx eslint **/*.ts",
-				"ncu": "npx yarn-tool ncu -u",
-				"npm:publish": "npm publish",
-				"tsc:default": "tsc -p tsconfig.json",
-				"tsc:esm": "tsc -p tsconfig.esm.json",
-				"sort-package-json": "npx yarn-tool sort",
-				"prepublishOnly_": "yarn run ncu && yarn run sort-package-json && yarn run test",
-				"postpublish_": `git commit -m "chore(release): publish" .`,
-				"coverage": "npx nyc yarn run test",
-				"test": `echo "Error: no test specified" && exit 1`,
-			})
-			.forEach(([k, v]) =>
-			{
-				if (pkg.data.scripts[k] == null)
+		if (!oldExists)
+		{
+			Object
+				.entries({
+					"test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
+					"test:jest": "jest --coverage",
+					"prepublish:lockfile": "npx sync-lockfile .",
+					"lint": "npx eslint **/*.ts",
+					"ncu": "npx yarn-tool ncu -u",
+					"npm:publish": "npm publish",
+					"tsc:default": "tsc -p tsconfig.json",
+					"tsc:esm": "tsc -p tsconfig.esm.json",
+					"sort-package-json": "npx yarn-tool sort",
+					"prepublishOnly_": "yarn run ncu && yarn run sort-package-json && yarn run test",
+					"postpublish_": `git commit -m "chore(release): publish" .`,
+					"coverage": "npx nyc yarn run test",
+					"test": `echo "Error: no test specified" && exit 1`,
+				})
+				.forEach(([k, v]) =>
 				{
-					pkg.data.scripts[k] = v;
-				}
-			})
-		;
+					if (pkg.data.scripts[k] == null)
+					{
+						pkg.data.scripts[k] = v;
+					}
+				})
+			;
+		}
+		else
+		{
+			Object
+				.entries({
+					"prepublish:lockfile": "npx sync-lockfile .",
+					"ncu": "npx yarn-tool ncu -u",
+					"npm:publish": "npm publish",
+					"sort-package-json": "npx yarn-tool sort",
+					"prepublishOnly_": "yarn run ncu && yarn run sort-package-json && yarn run test",
+					"postpublish_": `git commit -m "chore(release): publish" .`,
+				})
+				.forEach(([k, v]) =>
+				{
+					if (pkg.data.scripts[k] == null)
+					{
+						pkg.data.scripts[k] = v;
+					}
+				})
+			;
+		}
 
 		if (!oldExists)
 		{
@@ -201,7 +225,7 @@ if (!cp.error)
 
 			const findVersion = (name: string) =>
 			{
-				return cpkg.dependencies[name] || cpkg.devDependencies[name] || cpkg.peerDependencies[name] || "latest"
+				return cpkg.dependencies[name] || cpkg.devDependencies[name] || cpkg.peerDependencies[name] || "*"
 			};
 
 			pkg.data.devDependencies = pkg.data.devDependencies || {};
