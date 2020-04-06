@@ -2,10 +2,12 @@
 
 exports[`should defaultNpmScriptsOrder 1`] = `
 Object {
-  "coverage": "15",
-  "dev": "18",
-  "install": "12",
-  "lint": "14",
+  "build": "12",
+  "coverage": "17",
+  "dev": "20",
+  "install": "14",
+  "link": "11",
+  "lint": "16",
   "npm": "10",
   "pack": "5",
   "postpack": "4",
@@ -15,12 +17,12 @@ Object {
   "prepublish": "9",
   "prepublishOnly": "7",
   "publish": "3",
-  "restart": "17",
+  "restart": "19",
   "shrinkwrap": "1",
-  "start": "19",
-  "stop": "16",
-  "test": "13",
-  "uninstall": "11",
+  "start": "21",
+  "stop": "18",
+  "test": "15",
+  "uninstall": "13",
   "version": "0",
 }
 `;
@@ -36,6 +38,8 @@ Array [
   "test",
   "install",
   "uninstall",
+  "build",
+  "link",
   "npm",
   "prepublish",
   "prepare",
@@ -50,30 +54,32 @@ Array [
 ]
 `;
 
-exports[`should defaultNpmScriptsOrder 3`] = `"{\\"start\\":\\"19\\",\\"dev\\":\\"18\\",\\"restart\\":\\"17\\",\\"stop\\":\\"16\\",\\"coverage\\":\\"15\\",\\"lint\\":\\"14\\",\\"test\\":\\"13\\",\\"install\\":\\"12\\",\\"uninstall\\":\\"11\\",\\"npm\\":\\"10\\",\\"prepublish\\":\\"9\\",\\"prepare\\":\\"8\\",\\"prepublishOnly\\":\\"7\\",\\"prepack\\":\\"6\\",\\"pack\\":\\"5\\",\\"postpack\\":\\"4\\",\\"publish\\":\\"3\\",\\"postpublish\\":\\"2\\",\\"shrinkwrap\\":\\"1\\",\\"version\\":\\"0\\"}"`;
+exports[`should defaultNpmScriptsOrder 3`] = `"{\\"start\\":\\"21\\",\\"dev\\":\\"20\\",\\"restart\\":\\"19\\",\\"stop\\":\\"18\\",\\"coverage\\":\\"17\\",\\"lint\\":\\"16\\",\\"test\\":\\"15\\",\\"install\\":\\"14\\",\\"uninstall\\":\\"13\\",\\"build\\":\\"12\\",\\"link\\":\\"11\\",\\"npm\\":\\"10\\",\\"prepublish\\":\\"9\\",\\"prepare\\":\\"8\\",\\"prepublishOnly\\":\\"7\\",\\"prepack\\":\\"6\\",\\"pack\\":\\"5\\",\\"postpack\\":\\"4\\",\\"publish\\":\\"3\\",\\"postpublish\\":\\"2\\",\\"shrinkwrap\\":\\"1\\",\\"version\\":\\"0\\"}"`;
 
 exports[`should defaultNpmScriptsOrder 4`] = `
 Object {
+  "build": "9",
   "coverage": "4",
   "dev": "1",
   "install": "7",
+  "link": "10",
   "lint": "5",
-  "npm": "9",
-  "pack": "14",
-  "postpack": "15",
-  "postpublish": "17",
-  "prepack": "13",
-  "prepare": "11",
-  "prepublish": "10",
-  "prepublishOnly": "12",
-  "publish": "16",
+  "npm": "11",
+  "pack": "16",
+  "postpack": "17",
+  "postpublish": "19",
+  "prepack": "15",
+  "prepare": "13",
+  "prepublish": "12",
+  "prepublishOnly": "14",
+  "publish": "18",
   "restart": "2",
-  "shrinkwrap": "18",
+  "shrinkwrap": "20",
   "start": "0",
   "stop": "3",
   "test": "6",
   "uninstall": "8",
-  "version": "19",
+  "version": "21",
 }
 `;
 
@@ -88,6 +94,8 @@ Array [
   "test",
   "install",
   "uninstall",
+  "build",
+  "link",
   "npm",
   "prepublish",
   "prepare",
@@ -102,7 +110,7 @@ Array [
 ]
 `;
 
-exports[`should defaultNpmScriptsOrder 6`] = `"{\\"start\\":\\"0\\",\\"dev\\":\\"1\\",\\"restart\\":\\"2\\",\\"stop\\":\\"3\\",\\"coverage\\":\\"4\\",\\"lint\\":\\"5\\",\\"test\\":\\"6\\",\\"install\\":\\"7\\",\\"uninstall\\":\\"8\\",\\"npm\\":\\"9\\",\\"prepublish\\":\\"10\\",\\"prepare\\":\\"11\\",\\"prepublishOnly\\":\\"12\\",\\"prepack\\":\\"13\\",\\"pack\\":\\"14\\",\\"postpack\\":\\"15\\",\\"publish\\":\\"16\\",\\"postpublish\\":\\"17\\",\\"shrinkwrap\\":\\"18\\",\\"version\\":\\"19\\"}"`;
+exports[`should defaultNpmScriptsOrder 6`] = `"{\\"start\\":\\"0\\",\\"dev\\":\\"1\\",\\"restart\\":\\"2\\",\\"stop\\":\\"3\\",\\"coverage\\":\\"4\\",\\"lint\\":\\"5\\",\\"test\\":\\"6\\",\\"install\\":\\"7\\",\\"uninstall\\":\\"8\\",\\"build\\":\\"9\\",\\"link\\":\\"10\\",\\"npm\\":\\"11\\",\\"prepublish\\":\\"12\\",\\"prepare\\":\\"13\\",\\"prepublishOnly\\":\\"14\\",\\"prepack\\":\\"15\\",\\"pack\\":\\"16\\",\\"postpack\\":\\"17\\",\\"publish\\":\\"18\\",\\"postpublish\\":\\"19\\",\\"shrinkwrap\\":\\"20\\",\\"version\\":\\"21\\"}"`;
 
 exports[`sort base 1`] = `
 Object {
