@@ -1,6 +1,6 @@
 {
   "name": "sort-package-json-scripts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a better sort package.json scripts record",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/sort-package-json-scripts#readme",
   "bugs": {
