@@ -50,5 +50,6 @@
     "fs-extra": "^9.0.0",
     "pkg-dir": "^4.2.0",
     "yargs": "^15.3.1"
-  }
+  },
+  "gitHead": "f146cbdb51e90e3fa6163f85fb48f2a3b329ac4d"
 }

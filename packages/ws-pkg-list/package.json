@@ -43,5 +43,6 @@
     "array-hyper-unique": "^1.1.0",
     "find-yarn-workspace-root2": "^1.2.9",
     "workspaces-config": "^1.0.5"
-  }
+  },
+  "gitHead": "f146cbdb51e90e3fa6163f85fb48f2a3b329ac4d"
 }

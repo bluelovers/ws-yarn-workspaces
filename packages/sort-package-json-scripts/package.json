@@ -27,12 +27,13 @@
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
+  "dependencies": {
+    "sort-object-keys2": "^2.0.1"
+  },
   "devDependencies": {
     "@types/jest": "^25.2.1",
     "jest": "^25.2.7",
     "ts-jest": "^25.3.1"
   },
-  "dependencies": {
-    "sort-object-keys2": "^2.0.1"
-  }
+  "gitHead": "f146cbdb51e90e3fa6163f85fb48f2a3b329ac4d"
 }

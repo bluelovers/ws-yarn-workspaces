@@ -30,5 +30,6 @@
   },
   "dependencies": {
     "find-yarn-workspace-root2": "^1.2.9"
-  }
+  },
+  "gitHead": "f146cbdb51e90e3fa6163f85fb48f2a3b329ac4d"
 }
