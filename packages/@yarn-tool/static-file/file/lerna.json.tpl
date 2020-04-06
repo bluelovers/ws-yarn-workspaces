@@ -5,9 +5,23 @@
   "command": {
     "publish": {
       "ignoreChanges": [
-        "node_modules"
+        "**/node_modules/**",
+        "**/__snapshots__/**",
+        "**/__fixtures__/**",
+        "**/test/**",
+        "**/__tests__/**",
+        "*.map"
       ],
-      "message": "chore(release): publish"
+      "message": "chore(release): publish %s",
+      "bump": "patch",
+      "conventionalCommits": true,
+      "conventionalGraduate": true
+    },
+    "run": {
+      "stream": true
+    },
+    "exec": {
+      "stream": true
     }
   },
   "npmClient": "yarn",
