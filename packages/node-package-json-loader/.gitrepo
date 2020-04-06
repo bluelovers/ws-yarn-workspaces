@@ -6,7 +6,7 @@
 [subrepo]
 	remote = https://github.com/bluelovers/node-package-json-loader.git
 	branch = master
-	commit = a091c06069ecbaf6383d6f6e1e37bdb75078f8ee
-	parent = 246e06bc9afabf5093eb2081a2118a9aeed43308
+	commit = 3f3f6512d3352d109c7feaf1b39e4a4337a4ad8b
+	parent = 608125d5d7f381a465decd0f4a1534054011dbd8
 	method = merge
 	cmdver = 0.4.1
