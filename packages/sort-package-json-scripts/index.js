@@ -1,12 +1,32 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.sortPackageJsonScript = void 0;
+exports.sortPackageJsonScripts = void 0;
 const sort_object_keys2_1 = __importDefault(require("sort-object-keys2"));
-const util_1 = require("./lib/util");
-function sortPackageJsonScript(scripts) {
+const MyUtil = __importStar(require("./lib/util"));
+function sortPackageJsonScripts(scripts, opts) {
+    const { otherNpmScriptsOrder = MyUtil.otherNpmScriptsOrder, defaultNpmScriptsOrder = MyUtil.defaultNpmScriptsOrder, omitKey = MyUtil.omitKey, } = opts || {};
     const names = Object.keys(scripts);
     const prefixable = new Set();
     const keymap = {};
@@ -20,8 +40,8 @@ function sortPackageJsonScript(scripts) {
     const keys = names
         .sort()
         .reduce((a, name) => {
-        const { key, omitted } = util_1.omitKey(name);
-        if (util_1.defaultNpmScriptsOrder.has(name)) {
+        const { key, omitted } = omitKey(name);
+        if (defaultNpmScriptsOrder.has(name)) {
             addToPrefixable1(name, {
                 key,
                 omitted,
@@ -29,7 +49,7 @@ function sortPackageJsonScript(scripts) {
                 list: a.list2,
             });
         }
-        if (util_1.defaultNpmScriptsOrder.has(key)) {
+        if (defaultNpmScriptsOrder.has(key)) {
             addToPrefixable1(key, {
                 key,
                 omitted,
@@ -37,7 +57,7 @@ function sortPackageJsonScript(scripts) {
                 list: a.list2,
             });
         }
-        else if (util_1.defaultNpmScriptsOrder.has(omitted)) {
+        else if (defaultNpmScriptsOrder.has(omitted)) {
             addToPrefixable1(omitted, {
                 key,
                 omitted,
@@ -45,7 +65,7 @@ function sortPackageJsonScript(scripts) {
                 list: a.list2,
             });
         }
-        else if (util_1.otherNpmScriptsOrder.has(name)) {
+        else if (otherNpmScriptsOrder.has(name)) {
             addToPrefixable1(name, {
                 key,
                 omitted,
@@ -53,7 +73,7 @@ function sortPackageJsonScript(scripts) {
                 list: a.list1,
             });
         }
-        else if (util_1.otherNpmScriptsOrder.has(key)) {
+        else if (otherNpmScriptsOrder.has(key)) {
             addToPrefixable1(key, {
                 key,
                 omitted,
@@ -61,7 +81,7 @@ function sortPackageJsonScript(scripts) {
                 list: a.list1,
             });
         }
-        else if (util_1.otherNpmScriptsOrder.has(omitted) || key !== omitted) {
+        else if (otherNpmScriptsOrder.has(omitted) || key !== omitted) {
             addToPrefixable1(omitted, {
                 key,
                 omitted,
@@ -78,7 +98,7 @@ function sortPackageJsonScript(scripts) {
         list2: [],
     });
     const order = [
-        ...util_1.defaultNpmScriptsOrder.values(),
+        ...defaultNpmScriptsOrder.values(),
         ...keys.list2,
         ...keys.list1,
     ].reduce((order, key) => {
@@ -97,6 +117,6 @@ function sortPackageJsonScript(scripts) {
         keys: order,
     });
 }
-exports.sortPackageJsonScript = sortPackageJsonScript;
-exports.default = sortPackageJsonScript;
+exports.sortPackageJsonScripts = sortPackageJsonScripts;
+exports.default = sortPackageJsonScripts;
 //# sourceMappingURL=index.js.map

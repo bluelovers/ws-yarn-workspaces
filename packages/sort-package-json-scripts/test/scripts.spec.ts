@@ -1,6 +1,6 @@
 /// <reference types="jest" />
 
-import sortPackageJsonScript from '../index';
+import sortPackageJsonScripts from '../index';
 import { defaultNpmScriptsOrder } from '../lib/util';
 
 it('sort base', function ()
@@ -37,7 +37,7 @@ it('sort base', function ()
 		watch: 'watch things',
 	}
 
-	let actual = sortPackageJsonScript(fixture)
+	let actual = sortPackageJsonScripts(fixture)
 
 	expect(actual).toStrictEqual(expected);
 
@@ -78,7 +78,7 @@ it('sort base v2', function ()
 		watch: 'watch things',
 	}
 
-	let actual = sortPackageJsonScript(fixture)
+	let actual = sortPackageJsonScripts(fixture)
 
 	expect(actual).toStrictEqual(expected);
 
@@ -119,8 +119,8 @@ it('sort yarn-tool scripts', function ()
 
 	}
 
-	let actual = sortPackageJsonScript(fixture)
-	let actual2 = sortPackageJsonScript(fixture2)
+	let actual = sortPackageJsonScripts(fixture)
+	let actual2 = sortPackageJsonScripts(fixture2)
 
 	expectMatchSnapshot(actual);
 	expectMatchSnapshot(actual2);
@@ -136,7 +136,7 @@ it('should defaultNpmScriptsOrder', function ()
 			return a
 		}, {} as Record<string, string>);
 
-	let actual = sortPackageJsonScript(source)
+	let actual = sortPackageJsonScripts(source)
 
 	expect(Object.keys(actual)).toStrictEqual(keys)
 
@@ -148,7 +148,7 @@ it('should defaultNpmScriptsOrder', function ()
 			return a
 		}, {} as Record<string, string>);
 
-	actual = sortPackageJsonScript(source)
+	actual = sortPackageJsonScripts(source)
 
 	expect(Object.keys(actual)).toStrictEqual(keys)
 

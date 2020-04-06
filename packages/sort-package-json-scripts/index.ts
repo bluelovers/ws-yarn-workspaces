@@ -1,8 +1,19 @@
 import sortObjectKeys from 'sort-object-keys2';
 import { omitKey, otherNpmScriptsOrder, defaultNpmScriptsOrder } from './lib/util';
+import * as MyUtil from './lib/util';
 
-export function sortPackageJsonScript<T extends Record<string, any>>(scripts: T): T
+export function sortPackageJsonScripts<T extends Record<string, any>>(scripts: T, opts?: {
+	otherNpmScriptsOrder?: typeof MyUtil.otherNpmScriptsOrder,
+	defaultNpmScriptsOrder?: typeof MyUtil.defaultNpmScriptsOrder,
+	omitKey?: typeof MyUtil.omitKey,
+}): T
 {
+	const {
+		otherNpmScriptsOrder = MyUtil.otherNpmScriptsOrder,
+		defaultNpmScriptsOrder = MyUtil.defaultNpmScriptsOrder,
+		omitKey = MyUtil.omitKey,
+	} = opts || {}
+
 	const names = Object.keys(scripts)
 	const prefixable = new Set<string>()
 	const keymap = {} as Record<string, string[]>
@@ -123,4 +134,4 @@ export function sortPackageJsonScript<T extends Record<string, any>>(scripts: T)
 	}) as T
 }
 
-export default sortPackageJsonScript
+export default sortPackageJsonScripts

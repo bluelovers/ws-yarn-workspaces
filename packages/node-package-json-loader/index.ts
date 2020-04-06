@@ -6,7 +6,6 @@ import { fixBinPath } from './util';
 import path from 'path';
 import { IPackageJson } from '@ts-type/package-dts';
 import * as TsTypePackageDts from '@ts-type/package-dts';
-import { Once } from 'lodash-decorators/once';
 
 export { IPackageJson }
 
