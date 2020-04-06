@@ -22,19 +22,19 @@ it('sort base', function ()
 	}
 
 	const expected = {
-		postinstall: 'echo "Installed"',
-		multiply: '2 * 3',
-		'pre-fetch-info': 'foo',
-		prepare: 'npm run build',
-		preprettier: 'echo "not pretty"',
-		prettier: 'prettier -l "**/*.js"',
-		postprettier: 'echo "so pretty"',
 		start: 'node server.js',
 		pretest: 'xyz',
 		test: 'node test.js',
 		posttest: 'abc',
+		postinstall: 'echo "Installed"',
+		prepare: 'npm run build',
+		multiply: '2 * 3',
+		preprettier: 'echo "not pretty"',
+		prettier: 'prettier -l "**/*.js"',
+		postprettier: 'echo "so pretty"',
+		'pre-fetch-info': 'foo',
 		prewatch: 'echo "about to watch"',
-		watch: 'watch things',
+		watch: 'watch things'
 	}
 
 	let actual = sortPackageJsonScripts(fixture)
@@ -42,6 +42,7 @@ it('sort base', function ()
 	expect(actual).toStrictEqual(expected);
 
 	expectMatchSnapshot(actual);
+	expectStringify(actual, expected)
 });
 
 it('sort base v2', function ()
@@ -63,19 +64,19 @@ it('sort base v2', function ()
 	}
 
 	const expected = {
-		postinstall: 'echo "Installed"',
-		multiply: '2 * 3',
-		'pre-fetch-info': 'foo',
-		prepare: 'npm run build',
-		preprettier_: 'echo "not pretty"',
-		prettier_: 'prettier -l "**/*.js"',
-		_postprettier: 'echo "so pretty"',
 		start: 'node server.js',
 		pretest: 'xyz',
 		test: 'node test.js',
 		posttest: 'abc',
+		postinstall: 'echo "Installed"',
+		prepare: 'npm run build',
+		preprettier_: 'echo "not pretty"',
+		prettier_: 'prettier -l "**/*.js"',
+		_postprettier: 'echo "so pretty"',
+		multiply: '2 * 3',
+		'pre-fetch-info': 'foo',
 		prewatch: 'echo "about to watch"',
-		watch: 'watch things',
+		watch: 'watch things'
 	}
 
 	let actual = sortPackageJsonScripts(fixture)
@@ -83,6 +84,7 @@ it('sort base v2', function ()
 	expect(actual).toStrictEqual(expected);
 
 	expectMatchSnapshot(actual);
+	expectStringify(actual, expected)
 });
 
 it('sort yarn-tool scripts', function ()
@@ -155,9 +157,15 @@ it('should defaultNpmScriptsOrder', function ()
 	expectMatchSnapshot(actual)
 });
 
+function expectStringify(actual, expected)
+{
+	expect(actual).toStrictEqual(expected);
+	expect(JSON.stringify(actual, null, 2)).toStrictEqual(JSON.stringify(expected, null, 2));
+}
+
 function expectMatchSnapshot(actual)
 {
 	expect(actual).toMatchSnapshot();
 	expect(Object.keys(actual)).toMatchSnapshot();
-	expect(JSON.stringify(actual)).toMatchSnapshot();
+	expect(JSON.stringify(actual, null, 2)).toMatchSnapshot();
 }

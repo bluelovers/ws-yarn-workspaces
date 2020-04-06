@@ -7,13 +7,14 @@ exports.sortPackageJson = void 0;
 // @ts-ignore
 const sort_package_json_1 = require("sort-package-json");
 const sort_package_json_scripts_1 = __importDefault(require("sort-package-json-scripts"));
+const is_plain_obj_1 = __importDefault(require("is-plain-obj"));
 function sortPackageJson(pkg) {
     pkg = sort_package_json_1.sortPackageJson(pkg);
-    if (typeof pkg.scripts === 'object') {
+    if (is_plain_obj_1.default(pkg.scripts)) {
         // @ts-ignore
         pkg.scripts = sort_package_json_scripts_1.default(pkg.scripts);
     }
-    if (typeof pkg.betterScripts === 'object') {
+    if (is_plain_obj_1.default(pkg.betterScripts)) {
         // @ts-ignore
         pkg.betterScripts = sort_package_json_scripts_1.default(pkg.betterScripts);
     }

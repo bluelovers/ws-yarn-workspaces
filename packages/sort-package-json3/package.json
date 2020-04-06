@@ -28,6 +28,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
+    "is-plain-obj": "^2.1.0",
     "sort-package-json-scripts": "^1.0.3"
   },
   "peerDependencies": {

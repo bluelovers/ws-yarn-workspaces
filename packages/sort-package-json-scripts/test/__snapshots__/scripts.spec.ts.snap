@@ -54,7 +54,32 @@ Array [
 ]
 `;
 
-exports[`should defaultNpmScriptsOrder 3`] = `"{\\"start\\":\\"21\\",\\"dev\\":\\"20\\",\\"restart\\":\\"19\\",\\"stop\\":\\"18\\",\\"coverage\\":\\"17\\",\\"lint\\":\\"16\\",\\"test\\":\\"15\\",\\"install\\":\\"14\\",\\"uninstall\\":\\"13\\",\\"build\\":\\"12\\",\\"link\\":\\"11\\",\\"npm\\":\\"10\\",\\"prepublish\\":\\"9\\",\\"prepare\\":\\"8\\",\\"prepublishOnly\\":\\"7\\",\\"prepack\\":\\"6\\",\\"pack\\":\\"5\\",\\"postpack\\":\\"4\\",\\"publish\\":\\"3\\",\\"postpublish\\":\\"2\\",\\"shrinkwrap\\":\\"1\\",\\"version\\":\\"0\\"}"`;
+exports[`should defaultNpmScriptsOrder 3`] = `
+"{
+  \\"start\\": \\"21\\",
+  \\"dev\\": \\"20\\",
+  \\"restart\\": \\"19\\",
+  \\"stop\\": \\"18\\",
+  \\"coverage\\": \\"17\\",
+  \\"lint\\": \\"16\\",
+  \\"test\\": \\"15\\",
+  \\"install\\": \\"14\\",
+  \\"uninstall\\": \\"13\\",
+  \\"build\\": \\"12\\",
+  \\"link\\": \\"11\\",
+  \\"npm\\": \\"10\\",
+  \\"prepublish\\": \\"9\\",
+  \\"prepare\\": \\"8\\",
+  \\"prepublishOnly\\": \\"7\\",
+  \\"prepack\\": \\"6\\",
+  \\"pack\\": \\"5\\",
+  \\"postpack\\": \\"4\\",
+  \\"publish\\": \\"3\\",
+  \\"postpublish\\": \\"2\\",
+  \\"shrinkwrap\\": \\"1\\",
+  \\"version\\": \\"0\\"
+}"
+`;
 
 exports[`should defaultNpmScriptsOrder 4`] = `
 Object {
@@ -110,7 +135,32 @@ Array [
 ]
 `;
 
-exports[`should defaultNpmScriptsOrder 6`] = `"{\\"start\\":\\"0\\",\\"dev\\":\\"1\\",\\"restart\\":\\"2\\",\\"stop\\":\\"3\\",\\"coverage\\":\\"4\\",\\"lint\\":\\"5\\",\\"test\\":\\"6\\",\\"install\\":\\"7\\",\\"uninstall\\":\\"8\\",\\"build\\":\\"9\\",\\"link\\":\\"10\\",\\"npm\\":\\"11\\",\\"prepublish\\":\\"12\\",\\"prepare\\":\\"13\\",\\"prepublishOnly\\":\\"14\\",\\"prepack\\":\\"15\\",\\"pack\\":\\"16\\",\\"postpack\\":\\"17\\",\\"publish\\":\\"18\\",\\"postpublish\\":\\"19\\",\\"shrinkwrap\\":\\"20\\",\\"version\\":\\"21\\"}"`;
+exports[`should defaultNpmScriptsOrder 6`] = `
+"{
+  \\"start\\": \\"0\\",
+  \\"dev\\": \\"1\\",
+  \\"restart\\": \\"2\\",
+  \\"stop\\": \\"3\\",
+  \\"coverage\\": \\"4\\",
+  \\"lint\\": \\"5\\",
+  \\"test\\": \\"6\\",
+  \\"install\\": \\"7\\",
+  \\"uninstall\\": \\"8\\",
+  \\"build\\": \\"9\\",
+  \\"link\\": \\"10\\",
+  \\"npm\\": \\"11\\",
+  \\"prepublish\\": \\"12\\",
+  \\"prepare\\": \\"13\\",
+  \\"prepublishOnly\\": \\"14\\",
+  \\"prepack\\": \\"15\\",
+  \\"pack\\": \\"16\\",
+  \\"postpack\\": \\"17\\",
+  \\"publish\\": \\"18\\",
+  \\"postpublish\\": \\"19\\",
+  \\"shrinkwrap\\": \\"20\\",
+  \\"version\\": \\"21\\"
+}"
+`;
 
 exports[`sort base 1`] = `
 Object {
@@ -148,7 +198,23 @@ Array [
 ]
 `;
 
-exports[`sort base 3`] = `"{\\"start\\":\\"node server.js\\",\\"pretest\\":\\"xyz\\",\\"test\\":\\"node test.js\\",\\"posttest\\":\\"abc\\",\\"postinstall\\":\\"echo \\\\\\"Installed\\\\\\"\\",\\"prepare\\":\\"npm run build\\",\\"multiply\\":\\"2 * 3\\",\\"preprettier\\":\\"echo \\\\\\"not pretty\\\\\\"\\",\\"prettier\\":\\"prettier -l \\\\\\"**/*.js\\\\\\"\\",\\"postprettier\\":\\"echo \\\\\\"so pretty\\\\\\"\\",\\"pre-fetch-info\\":\\"foo\\",\\"prewatch\\":\\"echo \\\\\\"about to watch\\\\\\"\\",\\"watch\\":\\"watch things\\"}"`;
+exports[`sort base 3`] = `
+"{
+  \\"start\\": \\"node server.js\\",
+  \\"pretest\\": \\"xyz\\",
+  \\"test\\": \\"node test.js\\",
+  \\"posttest\\": \\"abc\\",
+  \\"postinstall\\": \\"echo \\\\\\"Installed\\\\\\"\\",
+  \\"prepare\\": \\"npm run build\\",
+  \\"multiply\\": \\"2 * 3\\",
+  \\"preprettier\\": \\"echo \\\\\\"not pretty\\\\\\"\\",
+  \\"prettier\\": \\"prettier -l \\\\\\"**/*.js\\\\\\"\\",
+  \\"postprettier\\": \\"echo \\\\\\"so pretty\\\\\\"\\",
+  \\"pre-fetch-info\\": \\"foo\\",
+  \\"prewatch\\": \\"echo \\\\\\"about to watch\\\\\\"\\",
+  \\"watch\\": \\"watch things\\"
+}"
+`;
 
 exports[`sort base v2 1`] = `
 Object {
@@ -186,7 +252,151 @@ Array [
 ]
 `;
 
-exports[`sort base v2 3`] = `"{\\"start\\":\\"node server.js\\",\\"pretest\\":\\"xyz\\",\\"test\\":\\"node test.js\\",\\"posttest\\":\\"abc\\",\\"postinstall\\":\\"echo \\\\\\"Installed\\\\\\"\\",\\"prepare\\":\\"npm run build\\",\\"preprettier_\\":\\"echo \\\\\\"not pretty\\\\\\"\\",\\"prettier_\\":\\"prettier -l \\\\\\"**/*.js\\\\\\"\\",\\"_postprettier\\":\\"echo \\\\\\"so pretty\\\\\\"\\",\\"multiply\\":\\"2 * 3\\",\\"pre-fetch-info\\":\\"foo\\",\\"prewatch\\":\\"echo \\\\\\"about to watch\\\\\\"\\",\\"watch\\":\\"watch things\\"}"`;
+exports[`sort base v2 3`] = `
+"{
+  \\"start\\": \\"node server.js\\",
+  \\"pretest\\": \\"xyz\\",
+  \\"test\\": \\"node test.js\\",
+  \\"posttest\\": \\"abc\\",
+  \\"postinstall\\": \\"echo \\\\\\"Installed\\\\\\"\\",
+  \\"prepare\\": \\"npm run build\\",
+  \\"preprettier_\\": \\"echo \\\\\\"not pretty\\\\\\"\\",
+  \\"prettier_\\": \\"prettier -l \\\\\\"**/*.js\\\\\\"\\",
+  \\"_postprettier\\": \\"echo \\\\\\"so pretty\\\\\\"\\",
+  \\"multiply\\": \\"2 * 3\\",
+  \\"pre-fetch-info\\": \\"foo\\",
+  \\"prewatch\\": \\"echo \\\\\\"about to watch\\\\\\"\\",
+  \\"watch\\": \\"watch things\\"
+}"
+`;
+
+exports[`sort base v2: {
+  "postinstall": "echo \\"Installed\\"",
+  "multiply": "2 * 3",
+  "pre-fetch-info": "foo",
+  "prepare": "npm run build",
+  "preprettier_": "echo \\"not pretty\\"",
+  "prettier_": "prettier -l \\"**/*.js\\"",
+  "_postprettier": "echo \\"so pretty\\"",
+  "start": "node server.js",
+  "pretest": "xyz",
+  "test": "node test.js",
+  "posttest": "abc",
+  "prewatch": "echo \\"about to watch\\"",
+  "watch": "watch things"
+} 1`] = `
+"{
+  \\"start\\": \\"node server.js\\",
+  \\"pretest\\": \\"xyz\\",
+  \\"test\\": \\"node test.js\\",
+  \\"posttest\\": \\"abc\\",
+  \\"postinstall\\": \\"echo \\\\\\"Installed\\\\\\"\\",
+  \\"prepare\\": \\"npm run build\\",
+  \\"preprettier_\\": \\"echo \\\\\\"not pretty\\\\\\"\\",
+  \\"prettier_\\": \\"prettier -l \\\\\\"**/*.js\\\\\\"\\",
+  \\"_postprettier\\": \\"echo \\\\\\"so pretty\\\\\\"\\",
+  \\"multiply\\": \\"2 * 3\\",
+  \\"pre-fetch-info\\": \\"foo\\",
+  \\"prewatch\\": \\"echo \\\\\\"about to watch\\\\\\"\\",
+  \\"watch\\": \\"watch things\\"
+}"
+`;
+
+exports[`sort base: {
+  "postinstall": "echo \\"Installed\\"",
+  "multiply": "2 * 3",
+  "pre-fetch-info": "foo",
+  "prepare": "npm run build",
+  "preprettier": "echo \\"not pretty\\"",
+  "prettier": "prettier -l \\"**/*.js\\"",
+  "postprettier": "echo \\"so pretty\\"",
+  "start": "node server.js",
+  "pretest": "xyz",
+  "test": "node test.js",
+  "posttest": "abc",
+  "prewatch": "echo \\"about to watch\\"",
+  "watch": "watch things"
+} 1`] = `
+"{
+  \\"start\\": \\"node server.js\\",
+  \\"pretest\\": \\"xyz\\",
+  \\"test\\": \\"node test.js\\",
+  \\"posttest\\": \\"abc\\",
+  \\"postinstall\\": \\"echo \\\\\\"Installed\\\\\\"\\",
+  \\"prepare\\": \\"npm run build\\",
+  \\"multiply\\": \\"2 * 3\\",
+  \\"preprettier\\": \\"echo \\\\\\"not pretty\\\\\\"\\",
+  \\"prettier\\": \\"prettier -l \\\\\\"**/*.js\\\\\\"\\",
+  \\"postprettier\\": \\"echo \\\\\\"so pretty\\\\\\"\\",
+  \\"pre-fetch-info\\": \\"foo\\",
+  \\"prewatch\\": \\"echo \\\\\\"about to watch\\\\\\"\\",
+  \\"watch\\": \\"watch things\\"
+}"
+`;
+
+exports[`sort base: {
+  "start": "node server.js",
+  "pretest": "xyz",
+  "test": "node test.js",
+  "posttest": "abc",
+  "postinstall": "echo \\"Installed\\"",
+  "prepare": "npm run build",
+  "multiply": "2 * 3",
+  "preprettier": "echo \\"not pretty\\"",
+  "prettier": "prettier -l \\"**/*.js\\"",
+  "postprettier": "echo \\"so pretty\\"",
+  "pre-fetch-info": "foo",
+  "prewatch": "echo \\"about to watch\\"",
+  "watch": "watch things"
+} 1`] = `
+"{
+  \\"start\\": \\"node server.js\\",
+  \\"pretest\\": \\"xyz\\",
+  \\"test\\": \\"node test.js\\",
+  \\"posttest\\": \\"abc\\",
+  \\"postinstall\\": \\"echo \\\\\\"Installed\\\\\\"\\",
+  \\"prepare\\": \\"npm run build\\",
+  \\"multiply\\": \\"2 * 3\\",
+  \\"preprettier\\": \\"echo \\\\\\"not pretty\\\\\\"\\",
+  \\"prettier\\": \\"prettier -l \\\\\\"**/*.js\\\\\\"\\",
+  \\"postprettier\\": \\"echo \\\\\\"so pretty\\\\\\"\\",
+  \\"pre-fetch-info\\": \\"foo\\",
+  \\"prewatch\\": \\"echo \\\\\\"about to watch\\\\\\"\\",
+  \\"watch\\": \\"watch things\\"
+}"
+`;
+
+exports[`sort base: {
+  "test": "node test.js",
+  "multiply": "2 * 3",
+  "watch": "watch things",
+  "prewatch": "echo \\"about to watch\\"",
+  "postinstall": "echo \\"Installed\\"",
+  "start": "node server.js",
+  "posttest": "abc",
+  "pretest": "xyz",
+  "postprettier": "echo \\"so pretty\\"",
+  "preprettier": "echo \\"not pretty\\"",
+  "prettier": "prettier -l \\"**/*.js\\"",
+  "prepare": "npm run build",
+  "pre-fetch-info": "foo"
+} 1`] = `
+"{
+  \\"start\\": \\"node server.js\\",
+  \\"pretest\\": \\"xyz\\",
+  \\"test\\": \\"node test.js\\",
+  \\"posttest\\": \\"abc\\",
+  \\"postinstall\\": \\"echo \\\\\\"Installed\\\\\\"\\",
+  \\"prepare\\": \\"npm run build\\",
+  \\"multiply\\": \\"2 * 3\\",
+  \\"preprettier\\": \\"echo \\\\\\"not pretty\\\\\\"\\",
+  \\"prettier\\": \\"prettier -l \\\\\\"**/*.js\\\\\\"\\",
+  \\"postprettier\\": \\"echo \\\\\\"so pretty\\\\\\"\\",
+  \\"pre-fetch-info\\": \\"foo\\",
+  \\"prewatch\\": \\"echo \\\\\\"about to watch\\\\\\"\\",
+  \\"watch\\": \\"watch things\\"
+}"
+`;
 
 exports[`sort yarn-tool scripts 1`] = `
 Object {
@@ -222,7 +432,22 @@ Array [
 ]
 `;
 
-exports[`sort yarn-tool scripts 3`] = `"{\\"coverage\\":\\"npx nyc yarn run test\\",\\"lint\\":\\"npx eslint **/*.ts\\",\\"test\\":\\"echo \\\\\\"Error: no test specified\\\\\\" && exit 1\\",\\"test:mocha\\":\\"npx mocha --require ts-node/register \\\\\\"!(node_modules)/**/*.{test,spec}.{ts,tsx}\\\\\\"\\",\\"npm:publish\\":\\"npm publish\\",\\"prepublish:lockfile\\":\\"npx sync-lockfile .\\",\\"prepublishOnly_\\":\\"yarn run ncu && yarn run sort-package-json && yarn run test\\",\\"postpublish_\\":\\"git commit -m \\\\\\"chore(release): publish\\\\\\" .\\",\\"ncu\\":\\"npx yarn-tool ncu -u\\",\\"sort-package-json\\":\\"npx yarn-tool sort\\",\\"tsc:default\\":\\"tsc -p tsconfig.json\\",\\"tsc:esm\\":\\"tsc -p tsconfig.esm.json\\"}"`;
+exports[`sort yarn-tool scripts 3`] = `
+"{
+  \\"coverage\\": \\"npx nyc yarn run test\\",
+  \\"lint\\": \\"npx eslint **/*.ts\\",
+  \\"test\\": \\"echo \\\\\\"Error: no test specified\\\\\\" && exit 1\\",
+  \\"test:mocha\\": \\"npx mocha --require ts-node/register \\\\\\"!(node_modules)/**/*.{test,spec}.{ts,tsx}\\\\\\"\\",
+  \\"npm:publish\\": \\"npm publish\\",
+  \\"prepublish:lockfile\\": \\"npx sync-lockfile .\\",
+  \\"prepublishOnly_\\": \\"yarn run ncu && yarn run sort-package-json && yarn run test\\",
+  \\"postpublish_\\": \\"git commit -m \\\\\\"chore(release): publish\\\\\\" .\\",
+  \\"ncu\\": \\"npx yarn-tool ncu -u\\",
+  \\"sort-package-json\\": \\"npx yarn-tool sort\\",
+  \\"tsc:default\\": \\"tsc -p tsconfig.json\\",
+  \\"tsc:esm\\": \\"tsc -p tsconfig.esm.json\\"
+}"
+`;
 
 exports[`sort yarn-tool scripts 4`] = `
 Object {
@@ -258,4 +483,19 @@ Array [
 ]
 `;
 
-exports[`sort yarn-tool scripts 6`] = `"{\\"coverage\\":\\"npx nyc yarn run test\\",\\"lint\\":\\"npx eslint **/*.ts\\",\\"test-\\":\\"echo \\\\\\"Error: no test specified\\\\\\" && exit 1\\",\\"test:mocha\\":\\"npx mocha --require ts-node/register \\\\\\"!(node_modules)/**/*.{test,spec}.{ts,tsx}\\\\\\"\\",\\"npm:publish\\":\\"npm publish\\",\\"prepublish:lockfile\\":\\"npx sync-lockfile .\\",\\"_prepublishOnly:\\":\\"yarn run ncu && yarn run sort-package-json && yarn run test\\",\\"_postpublish_\\":\\"git commit -m \\\\\\"chore(release): publish\\\\\\" .\\",\\"ncu\\":\\"npx yarn-tool ncu -u\\",\\"sort-package-json\\":\\"npx yarn-tool sort\\",\\"tsc:default\\":\\"tsc -p tsconfig.json\\",\\"tsc:esm\\":\\"tsc -p tsconfig.esm.json\\"}"`;
+exports[`sort yarn-tool scripts 6`] = `
+"{
+  \\"coverage\\": \\"npx nyc yarn run test\\",
+  \\"lint\\": \\"npx eslint **/*.ts\\",
+  \\"test-\\": \\"echo \\\\\\"Error: no test specified\\\\\\" && exit 1\\",
+  \\"test:mocha\\": \\"npx mocha --require ts-node/register \\\\\\"!(node_modules)/**/*.{test,spec}.{ts,tsx}\\\\\\"\\",
+  \\"npm:publish\\": \\"npm publish\\",
+  \\"prepublish:lockfile\\": \\"npx sync-lockfile .\\",
+  \\"_prepublishOnly:\\": \\"yarn run ncu && yarn run sort-package-json && yarn run test\\",
+  \\"_postpublish_\\": \\"git commit -m \\\\\\"chore(release): publish\\\\\\" .\\",
+  \\"ncu\\": \\"npx yarn-tool ncu -u\\",
+  \\"sort-package-json\\": \\"npx yarn-tool sort\\",
+  \\"tsc:default\\": \\"tsc -p tsconfig.json\\",
+  \\"tsc:esm\\": \\"tsc -p tsconfig.esm.json\\"
+}"
+`;
