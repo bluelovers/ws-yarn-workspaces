@@ -10,7 +10,8 @@
         "**/__fixtures__/**",
         "**/test/**",
         "**/__tests__/**",
-        "*.map"
+        "*.map",
+        ".gitrepo"
       ],
       "message": "chore(release): publish %s",
       "bump": "patch",
