@@ -6,7 +6,7 @@
 [subrepo]
 	remote = https://github.com/bluelovers/npm-init2.git
 	branch = master
-	commit = 7eb070aa3e9aa01f1156ceb80082873170c0a076
-	parent = d4a0ce0642569b68985aa3ce6727ef2fd816457d
+	commit = bf6216c89b06fe656473ef8827ee7e270d80f8bf
+	parent = d1077d649da86e8eaab7950f4842c2ed4dfe549c
 	method = merge
 	cmdver = 0.4.1
