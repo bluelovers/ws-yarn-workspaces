@@ -23,9 +23,9 @@
   "scripts": {
     "coverage": "npx nyc yarn run test",
     "ncu": "npx yarn-tool ncu -u",
-    "prepublishOnly": "yarn run ncu && yarn run sort-package-json",
+    "prepublishOnly": "yarn run ncu && yarn run sort-package-json && yarn run test",
     "sort-package-json": "npx yarn-tool sort",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "dependencies": {
     "find-pkg-ws": "^1.0.7",

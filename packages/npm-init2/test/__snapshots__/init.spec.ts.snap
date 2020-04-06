@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should searchWorkspacePrefixByName 1`] = `"packages/@yarn-tool"`;
+
+exports[`should searchWorkspacePrefixByName 2`] = `"packages"`;

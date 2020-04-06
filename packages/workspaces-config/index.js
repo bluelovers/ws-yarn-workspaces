@@ -35,7 +35,7 @@ function parseStaticPackagesPaths(workspaces) {
         let ls = row.split(/[\\\/]/);
         ls
             .every(function (v) {
-            let bool = /^\w+$/.test(v);
+            let bool = /^@?[\w\-]+$/.test(v);
             if (bool) {
                 b.push(v);
             }
@@ -43,17 +43,22 @@ function parseStaticPackagesPaths(workspaces) {
         });
         if (b.length) {
             if (b.length != ls.length) {
-                a.prefix.push(path_1.join(...b));
+                a.prefixRoot.push(b[0]);
+                a.prefix.push(path_1.posix.join(...b));
+                let p = path_1.posix.join(...b.slice(1));
+                a.prefixSub.push(p === '.' ? '' : p);
             }
             else {
-                a.static.push(path_1.join(...b));
+                a.static.push(path_1.posix.join(...b));
             }
         }
         a.all.push(row);
         return a;
     }, {
         static: [],
+        prefixRoot: [],
         prefix: [],
+        prefixSub: [],
         all: [],
     });
 }

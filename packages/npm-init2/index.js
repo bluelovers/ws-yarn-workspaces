@@ -29,7 +29,7 @@ const fs_extra_1 = require("fs-extra");
 const path_1 = require("path");
 const workspaces_config_1 = __importStar(require("workspaces-config"));
 const npm_package_json_loader_1 = __importDefault(require("npm-package-json-loader"));
-const index_1 = require("./lib/index");
+const lib_1 = require("./lib");
 const yargs_setting_1 = __importDefault(require("./lib/yargs-setting"));
 const find_root_1 = require("@yarn-tool/find-root");
 const pkg_git_info_1 = require("@yarn-tool/pkg-git-info");
@@ -45,18 +45,20 @@ let rootData = find_root_1.findRoot({
 });
 let hasWorkspace = rootData.ws;
 let workspacePrefix;
+let workspacesConfig;
 if (hasWorkspace) {
-    let ws = workspaces_config_1.parseStaticPackagesPaths(workspaces_config_1.default(hasWorkspace));
-    if (ws.prefix.length) {
-        workspacePrefix = ws.prefix[0];
+    workspacesConfig = workspaces_config_1.parseStaticPackagesPaths(workspaces_config_1.default(hasWorkspace));
+    if (workspacesConfig.prefix.length) {
+        workspacePrefix = workspacesConfig.prefix[0];
     }
 }
-let { targetDir, targetName } = index_1.getTargetDir({
+let { targetDir, targetName } = lib_1.getTargetDir({
     inputName: argv.length && argv[0],
     cwd,
     targetName: cli.argv.name || null,
     hasWorkspace,
     workspacePrefix,
+    workspacesConfig,
 });
 fs_extra_1.ensureDirSync(targetDir);
 let flags = Object.keys(cli.argv)
@@ -176,7 +178,8 @@ if (!cp.error) {
         if (!oldExists) {
             const cpkg = require('./package.json');
             const findVersion = (name) => {
-                return cpkg.dependencies[name] || cpkg.devDependencies[name] || cpkg.peerDependencies[name] || "*";
+                var _a, _b, _c;
+                return ((_a = cpkg.dependencies) === null || _a === void 0 ? void 0 : _a[name]) || ((_b = cpkg.devDependencies) === null || _b === void 0 ? void 0 : _b[name]) || ((_c = cpkg.peerDependencies) === null || _c === void 0 ? void 0 : _c[name]) || "*";
             };
             pkg.data.devDependencies = pkg.data.devDependencies || {};
             pkg.data.devDependencies['@bluelovers/tsconfig'] = findVersion('@bluelovers/tsconfig');
@@ -197,7 +200,7 @@ if (!cp.error) {
         }
         catch (e) {
         }
-        index_1.copyStaticFiles(index_1.defaultCopyStaticFiles, {
+        lib_1.copyStaticFiles(lib_1.defaultCopyStaticFiles, {
             cwd: targetDir,
         });
         /*

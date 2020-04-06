@@ -10,6 +10,8 @@ import { pathExistsSync } from 'fs-extra';
 import { join, resolve } from 'path';
 
 import _copyStaticFiles, { defaultCopyStaticFiles } from '@yarn-tool/static-file';
+import { parseStaticPackagesPaths } from 'workspaces-config';
+import searchWorkspacePrefixByName from './searchWorkspacePrefixByName';
 
 export function npmVersion(npmClient?: string, cwd?: string)
 {
@@ -54,13 +56,14 @@ export function getTargetDir(options: {
 	targetName?: string,
 	hasWorkspace?: string,
 	workspacePrefix?: string,
+	workspacesConfig?: ReturnType<typeof parseStaticPackagesPaths>
 })
 {
 	let targetDir: string;
 	let targetName: string = options.targetName || null;
-	let { inputName, cwd, hasWorkspace, workspacePrefix } = options;
+	let { inputName, cwd, hasWorkspace, workspacePrefix, workspacesConfig } = options;
 
-	if (hasWorkspace && !workspacePrefix)
+	if (hasWorkspace && !workspacesConfig?.prefix?.length)
 	{
 		throw new RangeError(`can't found workspace prefix`);
 	}
@@ -81,6 +84,11 @@ export function getTargetDir(options: {
 
 		if (hasWorkspace)
 		{
+			const workspacePrefix = searchWorkspacePrefixByName({
+				inputName,
+				workspacesConfig,
+			})
+
 			basePath = join(hasWorkspace, workspacePrefix);
 		}
 		else

@@ -9,7 +9,7 @@ import getConfig, { parseStaticPackagesPaths } from 'workspaces-config';
 import PackageJsonLoader from 'npm-package-json-loader';
 import { updateNotifier } from '@yarn-tool/update-notifier';
 import pkg = require( './package.json' );
-import { copyStaticFiles, defaultCopyStaticFiles, getTargetDir } from './lib/index';
+import { copyStaticFiles, defaultCopyStaticFiles, getTargetDir } from './lib';
 import setupToYargs from './lib/yargs-setting';
 import { findRoot } from '@yarn-tool/find-root';
 import { npmHostedGitInfo } from '@yarn-tool/pkg-git-info';
@@ -33,14 +33,15 @@ let rootData = findRoot({
 let hasWorkspace: string = rootData.ws;
 
 let workspacePrefix: string;
+let workspacesConfig: ReturnType<typeof parseStaticPackagesPaths>
 
 if (hasWorkspace)
 {
-	let ws = parseStaticPackagesPaths(getConfig(hasWorkspace));
+	workspacesConfig = parseStaticPackagesPaths(getConfig(hasWorkspace));
 
-	if (ws.prefix.length)
+	if (workspacesConfig.prefix.length)
 	{
-		workspacePrefix = ws.prefix[0];
+		workspacePrefix = workspacesConfig.prefix[0];
 	}
 }
 
@@ -50,6 +51,7 @@ let { targetDir, targetName } = getTargetDir({
 	targetName: cli.argv.name || null,
 	hasWorkspace,
 	workspacePrefix,
+	workspacesConfig,
 });
 
 ensureDirSync(targetDir);
@@ -225,7 +227,7 @@ if (!cp.error)
 
 			const findVersion = (name: string) =>
 			{
-				return cpkg.dependencies[name] || cpkg.devDependencies[name] || cpkg.peerDependencies[name] || "*"
+				return cpkg.dependencies?.[name] || cpkg.devDependencies?.[name] || cpkg.peerDependencies?.[name] || "*"
 			};
 
 			pkg.data.devDependencies = pkg.data.devDependencies || {};

@@ -33,6 +33,7 @@ const fs_extra_1 = require("fs-extra");
 const path_1 = require("path");
 const static_file_1 = __importStar(require("@yarn-tool/static-file"));
 Object.defineProperty(exports, "defaultCopyStaticFiles", { enumerable: true, get: function () { return static_file_1.defaultCopyStaticFiles; } });
+const searchWorkspacePrefixByName_1 = __importDefault(require("./searchWorkspacePrefixByName"));
 function npmVersion(npmClient, cwd) {
     let args = [
         'version',
@@ -59,10 +60,11 @@ function npmVersion(npmClient, cwd) {
 }
 exports.npmVersion = npmVersion;
 function getTargetDir(options) {
+    var _a;
     let targetDir;
     let targetName = options.targetName || null;
-    let { inputName, cwd, hasWorkspace, workspacePrefix } = options;
-    if (hasWorkspace && !workspacePrefix) {
+    let { inputName, cwd, hasWorkspace, workspacePrefix, workspacesConfig } = options;
+    if (hasWorkspace && !((_a = workspacesConfig === null || workspacesConfig === void 0 ? void 0 : workspacesConfig.prefix) === null || _a === void 0 ? void 0 : _a.length)) {
         throw new RangeError(`can't found workspace prefix`);
     }
     if (targetName) {
@@ -74,6 +76,10 @@ function getTargetDir(options) {
         let name = inputName;
         let basePath;
         if (hasWorkspace) {
+            const workspacePrefix = searchWorkspacePrefixByName_1.default({
+                inputName,
+                workspacesConfig,
+            });
             basePath = path_1.join(hasWorkspace, workspacePrefix);
         }
         else {

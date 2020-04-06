@@ -4,7 +4,7 @@
 
 import findPkg from 'find-pkg-ws';
 import { readJSONSync } from 'fs-extra';
-import { join } from 'path';
+import { join, posix } from 'path';
 
 export type WorkspacesConfig = {
 	packages?: WorkspacesConfigArray,
@@ -50,7 +50,7 @@ export function parseStaticPackagesPaths(workspaces: WorkspacesConfig | Workspac
 			ls
 				.every(function (v)
 				{
-					let bool = /^\w+$/.test(v);
+					let bool = /^@?[\w\-]+$/.test(v);
 
 					if (bool)
 					{
@@ -65,11 +65,16 @@ export function parseStaticPackagesPaths(workspaces: WorkspacesConfig | Workspac
 			{
 				if (b.length != ls.length)
 				{
-					a.prefix.push(join(...b));
+					a.prefixRoot.push(b[0]);
+					a.prefix.push(posix.join(...b));
+
+					let p = posix.join(...b.slice(1));
+
+					a.prefixSub.push(p === '.' ? '' : p);
 				}
 				else
 				{
-					a.static.push(join(...b));
+					a.static.push(posix.join(...b));
 				}
 			}
 
@@ -78,7 +83,9 @@ export function parseStaticPackagesPaths(workspaces: WorkspacesConfig | Workspac
 			return a;
 		}, {
 			static: [] as string[],
+			prefixRoot: [] as string[],
 			prefix: [] as string[],
+			prefixSub: [] as string[],
 
 			all: [] as string[],
 		})

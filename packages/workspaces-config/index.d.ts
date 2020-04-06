@@ -11,7 +11,9 @@ export declare function getConfig(cwd?: string): WorkspacesConfig;
 export declare function parseWorkspaces(workspaces: WorkspacesConfig | WorkspacesConfigArray): WorkspacesConfig;
 export declare function parseStaticPackagesPaths(workspaces: WorkspacesConfig | WorkspacesConfigArray): {
     static: string[];
+    prefixRoot: string[];
     prefix: string[];
+    prefixSub: string[];
     all: string[];
 };
 export { findPkg };

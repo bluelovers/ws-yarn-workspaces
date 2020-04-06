@@ -1,5 +1,6 @@
 {
   "packages": [
+    "packages/@yarn-tool/*",
     "packages/*"
   ],
   "command": {
