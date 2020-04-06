@@ -1,6 +1,6 @@
 {
   "name": "find-pkg-ws",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "find yarn workspaces package.json",
   "keywords": [
     "init",
@@ -29,7 +29,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "find-yarn-workspace-root2": "^1.2.9"
+    "find-yarn-workspace-root2": "^1.2.10"
   },
   "gitHead": "f146cbdb51e90e3fa6163f85fb48f2a3b329ac4d"
 }

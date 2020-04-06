@@ -1,6 +1,6 @@
 {
   "name": "workspaces-config",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "```ts console.log(parseStaticPackagesPaths(getConfig())); // => { static: [], prefix: [ 'packages' ], all: [ 'packages/*' ] } ```",
   "keywords": [
     "init",
@@ -28,7 +28,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "find-pkg-ws": "^1.0.6",
+    "find-pkg-ws": "^1.0.7",
     "fs-extra": "^9.0.0"
   },
   "gitHead": "f146cbdb51e90e3fa6163f85fb48f2a3b329ac4d"
