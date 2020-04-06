@@ -13,7 +13,7 @@
         "*.map",
         ".gitrepo"
       ],
-      "message": "chore(release): publish %s",
+      "message": "chore(release): publish",
       "bump": "patch",
       "conventionalCommits": true,
       "conventionalGraduate": true
