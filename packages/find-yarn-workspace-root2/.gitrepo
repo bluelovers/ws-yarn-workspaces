@@ -6,7 +6,7 @@
 [subrepo]
 	remote = https://github.com/bluelovers/find-yarn-workspace-root.git
 	branch = dev
-	commit = 348592392c72b53bfd8ff93347a78394a4dc8ec3
-	parent = 896de9714cc48e82d86a3f915f392cba3cedbab1
+	commit = a1e0fb6729c3f070b9a91ab9aefc20e3f8878129
+	parent = a2147cd6bee4c149b2b3831dc87ee901100b1d0a
 	method = merge
 	cmdver = 0.4.1
