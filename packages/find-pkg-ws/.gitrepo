@@ -6,7 +6,7 @@
 [subrepo]
 	remote = https://github.com/bluelovers/find-pkg-ws.git
 	branch = master
-	commit = c1193ff059c1c35927974833d281a86c108eca25
-	parent = f8958d083db8a6dd185845ccd3fe89197b0bb101
+	commit = bdbf6085af67a455a119cc73b027faf7da5f0c0f
+	parent = 2e2f2388d1205859d2cb77693c912a272fe53070
 	method = merge
 	cmdver = 0.4.1
