@@ -6,7 +6,7 @@
 [subrepo]
 	remote = https://github.com/bluelovers/workspaces-config.git
 	branch = master
-	commit = 7fb671db5fa84f1432dfd847d33897409ebf75a0
-	parent = f5cb7be4716fe957b72f8aa53c6fe9d6b1d99088
+	commit = eb7ffb551fe0e4bbd8811ec35abf972f54dc04e8
+	parent = ed3b953d42c01095d3cf0a77b0159115c1346031
 	method = merge
 	cmdver = 0.4.1
