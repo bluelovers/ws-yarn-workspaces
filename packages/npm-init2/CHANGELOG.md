@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.64](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.63...npm-init2@1.0.64) (2020-04-07)
+
+
+### Features
+
+* use lodash/template write README ([e0771d0](https://github.com/bluelovers/npm-init2/commit/e0771d002a2ea576f00a110213d4d2aede993633))
+
+
+
+
+
 ## [1.0.63](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.62...npm-init2@1.0.63) (2020-04-06)
 
 **Note:** Version bump only for package npm-init2

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.21](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.20...@yarn-tool/static-file@1.0.21) (2020-04-07)
+
+
+### Features
+
+* use lodash/template write README ([e0771d0](https://github.com/bluelovers/ws-yarn-workspaces/commit/e0771d002a2ea576f00a110213d4d2aede993633))
+
+
+
+
+
 ## [1.0.20](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.19...@yarn-tool/static-file@1.0.20) (2020-04-06)
 
 **Note:** Version bump only for package @yarn-tool/static-file
