@@ -11,6 +11,8 @@
         "**/test/**",
         "**/__tests__/**",
         "*.map",
+        "*.spec.*",
+        "*.test.*",
         ".gitrepo"
       ],
       "message": "chore(release): publish",

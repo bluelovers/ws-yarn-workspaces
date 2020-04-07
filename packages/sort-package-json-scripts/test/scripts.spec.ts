@@ -1,7 +1,7 @@
 /// <reference types="jest" />
 
 import sortPackageJsonScripts from '../index';
-import { defaultNpmScriptsOrder } from '../lib/util';
+import { defaultNpmScriptsOrder, omitKey } from '../lib/util';
 
 it('sort base', function ()
 {
@@ -153,6 +153,27 @@ it('should defaultNpmScriptsOrder', function ()
 	actual = sortPackageJsonScripts(source)
 
 	expect(Object.keys(actual)).toStrictEqual(keys)
+
+	expectMatchSnapshot(actual)
+});
+
+it('should defaultNpmScriptsOrder v2', function ()
+{
+	let keys = [...defaultNpmScriptsOrder.values()];
+
+	let source = keys.slice().reverse()
+		.reduce((a, k, i) => {
+
+			let { name, omitted, key } = omitKey(k);
+
+			(!key.startsWith('pre')) && (a['pre' + k] = i.toString());
+			(!key.startsWith('post')) && (a['post' + k] = i.toString());
+
+			a[k] = i.toString();
+			return a
+		}, {} as Record<string, string>);
+
+	let actual = sortPackageJsonScripts(source)
 
 	expectMatchSnapshot(actual)
 });
