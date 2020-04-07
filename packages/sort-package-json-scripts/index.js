@@ -8,6 +8,8 @@ const sort_object_keys2_1 = __importDefault(require("sort-object-keys2"));
 const handleKeyOrdersCore_1 = require("./lib/handleKeyOrdersCore");
 const handleOptions_1 = __importDefault(require("./lib/handleOptions"));
 /**
+ * a better sort package.json scripts, by default is follow npm lifecycle scripts
+ *
  * origin code fork from https://github.com/keithamus/sort-package-json
  */
 function sortPackageJsonScripts(scripts, opts) {

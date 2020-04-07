@@ -1,16 +1,4 @@
-# README.md
-
-    a better sort package.json scripts, by default is follow npm lifecycle scripts
-
-## install
-
-```bash
-yarn add sort-package-json-scripts
-yarn-tool add sort-package-json-scripts
-```
-
-```typescript
-import sortPackageJsonScripts from 'sort-package-json-scripts';
+import sortPackageJsonScripts from '../index';
 
 let ret = sortPackageJsonScripts({
 
@@ -36,7 +24,7 @@ console.log(ret)
 /*
 {
 	coverage: 'npx nyc yarn run test',
-	lint: 'npx eslint *.ts',
+		lint: 'npx eslint *.ts',
 	test: 'jest --coverage',
 	'test:mocha': 'npx mocha --require ts-node/register "!(node_modules)/*.{test,spec}.{ts,tsx}"',
 	'npm:publish': 'npm publish',
@@ -49,4 +37,3 @@ console.log(ret)
 	'tsc:esm': 'tsc -p tsconfig.esm.json'
 }
  */
-```
