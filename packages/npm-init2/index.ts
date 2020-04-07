@@ -13,7 +13,9 @@ import { copyStaticFiles, defaultCopyStaticFiles, getTargetDir } from './lib';
 import setupToYargs from './lib/yargs-setting';
 import { findRoot } from '@yarn-tool/find-root';
 import { npmHostedGitInfo } from '@yarn-tool/pkg-git-info';
-import { existsSync } from 'fs';
+import { existsSync, readFileSync, writeFileSync } from 'fs';
+import lodashTemplate from 'lodash/template';
+import { writeReadme } from './lib/writeReadme';
 
 //updateNotifier(__dirname);
 
@@ -263,6 +265,11 @@ if (!cp.error)
 		copyStaticFiles(defaultCopyStaticFiles, {
 			cwd: targetDir,
 		});
+
+		(!oldExists) && writeReadme({
+			file: join(targetDir, 'README.md'),
+			variable: pkg.data,
+		})
 
 		/*
 		fs.copySync(path.join(__dirname, 'lib/file/npmignore'), path.join(targetDir, '.npmignore'), copyOptions);

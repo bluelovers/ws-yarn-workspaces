@@ -1,12 +1,12 @@
 # README.md
 
-    <description>
+    <%= description %>
 
 ## install
 
 ```bash
-yarn add <name>
-yarn-tool add <name>
-yt add <name>
+yarn add <%= name %>
+yarn-tool add <%= name %>
+yt add <%= name %>
 ```
 

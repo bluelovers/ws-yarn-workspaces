@@ -34,6 +34,7 @@ const yargs_setting_1 = __importDefault(require("./lib/yargs-setting"));
 const find_root_1 = require("@yarn-tool/find-root");
 const pkg_git_info_1 = require("@yarn-tool/pkg-git-info");
 const fs_1 = require("fs");
+const writeReadme_1 = require("./lib/writeReadme");
 //updateNotifier(__dirname);
 let cli = yargs_setting_1.default(yargs_1.default);
 let argv = cli.argv._;
@@ -202,6 +203,10 @@ if (!cp.error) {
         }
         lib_1.copyStaticFiles(lib_1.defaultCopyStaticFiles, {
             cwd: targetDir,
+        });
+        (!oldExists) && writeReadme_1.writeReadme({
+            file: path_1.join(targetDir, 'README.md'),
+            variable: pkg.data,
         });
         /*
         fs.copySync(path.join(__dirname, 'lib/file/npmignore'), path.join(targetDir, '.npmignore'), copyOptions);
