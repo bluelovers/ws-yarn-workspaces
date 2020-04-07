@@ -1,4 +1,6 @@
-
+/**
+ * omit key logic
+ */
 export function omitKey(name: string)
 {
 	const key = name
@@ -11,12 +13,24 @@ export function omitKey(name: string)
 	;
 
 	return {
+		/**
+		 * input name
+		 */
 		name,
+		/**
+		 * omit name and only keep first part
+		 */
 		key,
+		/**
+		 * omit key with pre / post
+		 */
 		omitted,
 	}
 }
 
+/**
+ * group / sore scripts order, by default is follow npm lifecycle scripts
+ */
 export const defaultNpmScriptsOrder = new Set([
 
 	'start',
@@ -53,8 +67,12 @@ export const defaultNpmScriptsOrder = new Set([
 
 ])
 
-export const otherNpmScriptsOrder = new Set([
+/**
+ * avoid omitKey wrong parse script name (e.g. prettier
+ */
+export const otherScriptNames = new Set([
 
 	'prettier',
 
 ])
+

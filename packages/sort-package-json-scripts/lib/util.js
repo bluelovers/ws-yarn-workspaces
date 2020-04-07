@@ -1,6 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.otherNpmScriptsOrder = exports.defaultNpmScriptsOrder = exports.omitKey = void 0;
+exports.otherScriptNames = exports.defaultNpmScriptsOrder = exports.omitKey = void 0;
+/**
+ * omit key logic
+ */
 function omitKey(name) {
     const key = name
         .replace(/^[_:\-]+/, '')
@@ -9,12 +12,24 @@ function omitKey(name) {
     const omitted = key
         .replace(/^(?:pre|post)/, '');
     return {
+        /**
+         * input name
+         */
         name,
+        /**
+         * omit name and only keep first part
+         */
         key,
+        /**
+         * omit key with pre / post
+         */
         omitted,
     };
 }
 exports.omitKey = omitKey;
+/**
+ * group / sore scripts order, by default is follow npm lifecycle scripts
+ */
 exports.defaultNpmScriptsOrder = new Set([
     'start',
     'dev',
@@ -39,7 +54,10 @@ exports.defaultNpmScriptsOrder = new Set([
     'shrinkwrap',
     'version',
 ]);
-exports.otherNpmScriptsOrder = new Set([
+/**
+ * avoid omitKey wrong parse script name (e.g. prettier
+ */
+exports.otherScriptNames = new Set([
     'prettier',
 ]);
 //# sourceMappingURL=util.js.map
