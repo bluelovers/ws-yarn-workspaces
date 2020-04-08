@@ -1,3 +1,5 @@
+export declare function trimKey(name: string, skipNumber?: boolean): string;
+export declare function firstPartKey(name: string): string;
 /**
  * omit key logic
  */

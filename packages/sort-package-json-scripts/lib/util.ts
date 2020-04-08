@@ -1,13 +1,30 @@
+export function trimKey(name: string, skipNumber?: boolean)
+{
+	return name
+		.replace(/^[_:\-]+/, '')
+		.replace(skipNumber ? /[_:\-]+$/ : /[\d_:\-]+$/, '')
+}
+
+export function firstPartKey(name: string)
+{
+	let key = trimKey(name);
+	let first = key.split(/[_:\-]+/)[0];
+
+	if (first === '')
+	{
+		key = trimKey(name, true);
+		first = key.split(/[_:\-]+/)[0];
+	}
+
+	return first
+}
+
 /**
  * omit key logic
  */
 export function omitKey(name: string)
 {
-	const key = name
-		.replace(/^[_:\-]+/, '')
-		.split(/[_:\-]+/)[0]
-		.replace(/\d+$/, '')
-	;
+	const key = firstPartKey(name);
 	const omitted = key
 		.replace(/^(?:pre|post)/, '')
 	;

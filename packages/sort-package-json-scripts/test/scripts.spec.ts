@@ -2,6 +2,7 @@
 
 import sortPackageJsonScripts from '../index';
 import { defaultNpmScriptsOrder, omitKey } from '../lib/util';
+import { array_unique, array_unique_overwrite } from 'array-hyper-unique';
 
 it('sort base', function ()
 {
@@ -174,6 +175,66 @@ it('should defaultNpmScriptsOrder v2', function ()
 		}, {} as Record<string, string>);
 
 	let actual = sortPackageJsonScripts(source)
+
+	expectMatchSnapshot(actual)
+});
+
+it('should script lifecycle', function ()
+{
+	let keys = array_unique([
+		...defaultNpmScriptsOrder.values(),
+
+			"start",
+			"dev",
+			"restart",
+			"stop",
+			"coverage",
+			"lint",
+			"test",
+			"install",
+			"uninstall",
+			"build",
+			"link",
+			"npm",
+			"prepublish",
+			"prepare",
+			"prepublishOnly",
+			"prepack",
+			"pack",
+			"postpack",
+			"publish",
+			"postpublish",
+			"shrinkwrap",
+			"version",
+
+			"myscript",
+		"_myscript",
+		"_myscript_",
+		"myscript_",
+		"myscript:abc",
+	]);
+
+	let source = keys.slice()
+		.reduce((a, k, i) => {
+
+			let { name, omitted, key } = omitKey(k);
+
+			addPrefix(a, name, i);
+			addPrefix(a, omitted, i);
+			addPrefix(a, key, i);
+			addPrefix(a, k, i);
+
+			return a
+		}, {} as Record<string, string>);
+
+	let actual = sortPackageJsonScripts(source)
+
+	function addPrefix(scripts: Record<string, string>, key: string, index: number)
+	{
+		scripts[`pre${key}`] = `echo pre${key} ${index}.1`;
+		scripts[`${key}`] = `echo ${key} ${index}.2`;
+		scripts[`post${key}`] = `echo post${key} ${index}.3`;
+	}
 
 	expectMatchSnapshot(actual)
 });

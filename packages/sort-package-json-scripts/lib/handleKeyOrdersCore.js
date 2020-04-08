@@ -23,7 +23,7 @@ function handleKeyOrdersCore(names, { otherScriptNames, defaultNpmScriptsOrder, 
                 list: a.list2,
             });
         }
-        if (defaultNpmScriptsOrder.has(key)) {
+        else if (defaultNpmScriptsOrder.has(key)) {
             addToPrefixable1(key, {
                 key,
                 omitted,
@@ -63,6 +63,14 @@ function handleKeyOrdersCore(names, { otherScriptNames, defaultNpmScriptsOrder, 
                 list: a.list1,
             });
         }
+        else if (name !== key) {
+            addToPrefixable1(key, {
+                key,
+                omitted,
+                name,
+                list: a.list1,
+            });
+        }
         else {
             a.list1.push(name);
         }
@@ -78,8 +86,11 @@ function handleKeyOrdersCore(names, { otherScriptNames, defaultNpmScriptsOrder, 
     ].reduce((order, key) => {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j;
         if (prefixable.has(key)) {
+            order.push(`pre${key}`);
             order.push(...((_c = (_b = (_a = keymap[`pre${key}`]) === null || _a === void 0 ? void 0 : _a.sort) === null || _b === void 0 ? void 0 : _b.call(_a)) !== null && _c !== void 0 ? _c : []));
+            order.push(key);
             order.push(...((_f = (_e = (_d = keymap[key]) === null || _d === void 0 ? void 0 : _d.sort) === null || _e === void 0 ? void 0 : _e.call(_d)) !== null && _f !== void 0 ? _f : []));
+            order.push(`post${key}`);
             order.push(...((_j = (_h = (_g = keymap[`post${key}`]) === null || _g === void 0 ? void 0 : _g.sort) === null || _h === void 0 ? void 0 : _h.call(_g)) !== null && _j !== void 0 ? _j : []));
         }
         else {

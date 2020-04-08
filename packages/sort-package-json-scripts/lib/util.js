@@ -1,14 +1,27 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.otherScriptNames = exports.defaultNpmScriptsOrder = exports.omitKey = void 0;
+exports.otherScriptNames = exports.defaultNpmScriptsOrder = exports.omitKey = exports.firstPartKey = exports.trimKey = void 0;
+function trimKey(name, skipNumber) {
+    return name
+        .replace(/^[_:\-]+/, '')
+        .replace(skipNumber ? /[_:\-]+$/ : /[\d_:\-]+$/, '');
+}
+exports.trimKey = trimKey;
+function firstPartKey(name) {
+    let key = trimKey(name);
+    let first = key.split(/[_:\-]+/)[0];
+    if (first === '') {
+        key = trimKey(name, true);
+        first = key.split(/[_:\-]+/)[0];
+    }
+    return first;
+}
+exports.firstPartKey = firstPartKey;
 /**
  * omit key logic
  */
 function omitKey(name) {
-    const key = name
-        .replace(/^[_:\-]+/, '')
-        .split(/[_:\-]+/)[0]
-        .replace(/\d+$/, '');
+    const key = firstPartKey(name);
     const omitted = key
         .replace(/^(?:pre|post)/, '');
     return {

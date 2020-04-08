@@ -44,7 +44,7 @@ export function handleKeyOrdersCore(names: string[], {
 					list: a.list2,
 				})
 			}
-			if (defaultNpmScriptsOrder.has(key))
+			else if (defaultNpmScriptsOrder.has(key))
 			{
 				addToPrefixable1(key, {
 					key,
@@ -89,6 +89,15 @@ export function handleKeyOrdersCore(names: string[], {
 					list: a.list1,
 				})
 			}
+			else if (name !== key)
+			{
+				addToPrefixable1(key, {
+					key,
+					omitted,
+					name,
+					list: a.list1,
+				})
+			}
 			else
 			{
 				a.list1.push(name)
@@ -107,11 +116,13 @@ export function handleKeyOrdersCore(names: string[], {
 		...keys.list1,
 	].reduce((order, key) =>
 		{
-
 			if (prefixable.has(key))
 			{
+				order.push(`pre${key}`);
 				order.push(...(keymap[`pre${key}`]?.sort?.() ?? []));
+				order.push(key);
 				order.push(...(keymap[key]?.sort?.() ?? []));
+				order.push(`post${key}`);
 				order.push(...(keymap[`post${key}`]?.sort?.() ?? []));
 			}
 			else
