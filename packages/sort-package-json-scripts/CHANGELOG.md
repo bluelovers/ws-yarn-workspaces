@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.5](https://github.com/bluelovers/ws-yarn-workspaces/compare/sort-package-json-scripts@1.0.4...sort-package-json-scripts@1.0.5) (2020-04-08)
+
+
+### Bug Fixes
+
+* not defined key didn't follow script lifecycle, and put base key on first one ([3c2565c](https://github.com/bluelovers/ws-yarn-workspaces/commit/3c2565c9543423a7c66b4d71530b88af3a296af3))
+
+
+
+
+
 ## [1.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/sort-package-json-scripts@1.0.3...sort-package-json-scripts@1.0.4) (2020-04-07)
 
 
