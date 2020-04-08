@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`install 1`] = `
+Object {
+  "after": Array [
+    "postinstall",
+    "prepublish",
+    "prepare",
+    "preshrinkwrap",
+    "shrinkwrap",
+    "postshrinkwrap",
+  ],
+  "before": Array [
+    "preinstall",
+  ],
+  "ignoreSelf": false,
+  "name": "install",
+}
+`;
+
+exports[`install 2`] = `
+Array [
+  "preinstall",
+  "install",
+  "postinstall",
+  "prepublish",
+  "prepare",
+  "preshrinkwrap",
+  "shrinkwrap",
+  "postshrinkwrap",
+]
+`;
+
+exports[`pack 1`] = `
+Object {
+  "after": Array [
+    "postpack",
+  ],
+  "before": Array [
+    "prepublish",
+    "prepare",
+    "prepack",
+  ],
+  "ignoreSelf": true,
+  "name": "pack",
+}
+`;
+
+exports[`pack 2`] = `
+Array [
+  "prepublish",
+  "prepare",
+  "prepack",
+  "postpack",
+]
+`;
+
+exports[`pack 3`] = `
+Array [
+  "prepublish",
+  "prepare",
+  "prepack",
+  "pack",
+  "postpack",
+]
+`;
+
+exports[`publish 1`] = `
+Object {
+  "after": Array [
+    "postpublish",
+  ],
+  "before": Array [
+    "prepublish",
+    "prepare",
+    "prepublishOnly",
+    "prepack",
+    "postpack",
+  ],
+  "ignoreSelf": false,
+  "name": "publish",
+}
+`;
+
+exports[`publish 2`] = `
+Array [
+  "prepublish",
+  "prepare",
+  "prepublishOnly",
+  "prepack",
+  "postpack",
+  "publish",
+  "postpublish",
+]
+`;
+
+exports[`should lifecycle any script name pretitter 1`] = `
+Object {
+  "after": Array [
+    "postpretitter",
+  ],
+  "before": Array [
+    "prepretitter",
+  ],
+  "ignoreSelf": false,
+  "name": "pretitter",
+}
+`;
+
+exports[`should lifecycle any script name pretitter 2`] = `
+Array [
+  "prepretitter",
+  "pretitter",
+  "postpretitter",
+]
+`;
+
+exports[`should lifecycle any script name yy 1`] = `
+Object {
+  "after": Array [
+    "postyy",
+  ],
+  "before": Array [
+    "preyy",
+  ],
+  "ignoreSelf": false,
+  "name": "yy",
+}
+`;
+
+exports[`should lifecycle any script name yy 2`] = `
+Array [
+  "preyy",
+  "yy",
+  "postyy",
+]
+`;
