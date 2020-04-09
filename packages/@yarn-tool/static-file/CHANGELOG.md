@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.23](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.22...@yarn-tool/static-file@1.0.23) (2020-04-09)
+
+
+### Features
+
+* add match tests ([a65620b](https://github.com/bluelovers/ws-yarn-workspaces/commit/a65620b0f4edb986f997652cf123f0442ea7bfa8))
+
+
+
+
+
 ## [1.0.22](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.21...@yarn-tool/static-file@1.0.22) (2020-04-07)
 
 **Note:** Version bump only for package @yarn-tool/static-file
