@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "lerna:publish": "npx lerna publish",
-    "lerna:publish:yes": "yarn run prepublish:lockfile && npx lerna publish --yes --cd-version patch && yarn run postpublish:subrepo",
+    "lerna:publish:yes": "yarn run prepublish:lockfile && npx lerna publish --yes --cd-version patch",
     "ncu": "npx yarn-tool ncu -u",
     "prepublish:lockfile": "ynpx sync-lockfile",
     "postpublish:subrepo": "git subrepo push --all & git push",
