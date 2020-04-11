@@ -146,6 +146,7 @@ if (!cp.error) {
                 "lint": "npx eslint **/*.ts",
                 "ncu": "npx yarn-tool ncu -u",
                 "npm:publish": "npm publish",
+                "npm:publish:lerna": "lerna publish --yes",
                 "tsc:default": "tsc -p tsconfig.json",
                 "tsc:esm": "tsc -p tsconfig.esm.json",
                 "sort-package-json": "npx yarn-tool sort",

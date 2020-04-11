@@ -62,6 +62,7 @@
     "yargs": "^15.3.1"
   },
   "devDependencies": {
+    "@bluelovers/tsconfig": "^1.0.19",
     "@types/fs-extra": "^8.1.0",
     "@types/json5": "^0.0.30",
     "@types/lodash": "^4.14.149",

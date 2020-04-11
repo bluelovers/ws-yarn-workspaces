@@ -77,3 +77,4 @@ __tests__
 __snapshots__
 *.snap
 !npm-shrinkwrap.json
+/example/
