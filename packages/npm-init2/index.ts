@@ -216,6 +216,11 @@ if (!cp.error)
 				})
 				.forEach(([k, v]) =>
 				{
+					if (k.endsWith('_') && pkg.data.scripts[k.replace(/_+$/, '')] === v)
+					{
+						return;
+					}
+
 					if (pkg.data.scripts[k] == null)
 					{
 						pkg.data.scripts[k] = v;
