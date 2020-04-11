@@ -9,5 +9,11 @@ module.exports = {
 		'^.+\\.ts$': 'ts-jest',
 	},
 	verbose: true,
-	//collectCoverage: true,
+	/**
+	 * if didn't set `coverageProvider` to `v8`
+	 * with `collectCoverage` `true`, nodejs debug point maybe will fail
+	 */
+	coverageProvider: 'v8',
+	collectCoverage: true,
+
 }
