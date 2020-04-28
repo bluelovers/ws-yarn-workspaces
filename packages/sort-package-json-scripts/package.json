@@ -1,6 +1,6 @@
 {
   "name": "sort-package-json-scripts",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "a better sort package.json scripts, by default is follow npm lifecycle scripts",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/sort-package-json-scripts#readme",
   "bugs": {
