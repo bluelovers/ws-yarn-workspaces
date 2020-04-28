@@ -18,7 +18,7 @@
       "message": "chore(release): publish",
       "bump": "patch",
       "conventionalCommits": true,
-      "conventionalGraduate": true
+      "conventionalGraduate": false
     },
     "run": {
       "stream": true

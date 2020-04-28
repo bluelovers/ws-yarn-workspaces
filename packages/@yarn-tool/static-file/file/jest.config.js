@@ -14,6 +14,6 @@ module.exports = {
 	 * with `collectCoverage` `true`, nodejs debug point maybe will fail
 	 */
 	coverageProvider: 'v8',
-	collectCoverage: true,
+	collectCoverage: false,
 
 }
