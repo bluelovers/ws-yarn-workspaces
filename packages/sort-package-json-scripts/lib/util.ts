@@ -67,6 +67,8 @@ export const defaultNpmScriptsOrder = new Set([
 	'link',
 
 	'npm',
+	'yarn',
+	'lerna',
 
 	'prepublish',
 	'prepare',

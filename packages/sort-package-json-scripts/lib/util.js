@@ -56,6 +56,8 @@ exports.defaultNpmScriptsOrder = new Set([
     'build',
     'link',
     'npm',
+    'yarn',
+    'lerna',
     'prepublish',
     'prepare',
     'prepublishOnly',
