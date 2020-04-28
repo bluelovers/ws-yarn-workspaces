@@ -8,6 +8,7 @@ import pkgDir from 'pkg-dir';
 import console from 'debug-color2/logger';
 import copyStaticFiles, { defaultCopyStaticFiles, IStaticFilesMapArray } from '@yarn-tool/static-file';
 import { existsSync, readFileSync, mkdirSync, writeFileSync } from 'fs-extra';
+import sortPackageJson from 'sort-package-json3';
 
 export interface IOptions
 {
@@ -195,7 +196,7 @@ export function _createYarnWorkspaces(targetPath: string, options: IOptions = {}
 		pkg.resolutions = pkg.resolutions || {};
 	}
 
-	let s = JSON.stringify(pkg, null, 2);
+	let s = JSON.stringify(sortPackageJson(pkg), null, 2);
 	writeFileSync(file, s);
 
 	console.success(`create workspace package.json`);
@@ -208,7 +209,7 @@ export function _createYarnWorkspaces(targetPath: string, options: IOptions = {}
 		lerna.npmClient = 'yarn';
 		lerna.useWorkspaces = true;
 
-		let s = JSON.stringify(lerna, null, 2);
+		let s = JSON.stringify(sortPackageJson(lerna), null, 2);
 		writeFileSync(file, s);
 
 		console.info(`update lerna.json`);
@@ -230,7 +231,7 @@ export function _createYarnWorkspaces(targetPath: string, options: IOptions = {}
 			"version": "independent",
 		};
 
-		let s = JSON.stringify(lerna, null, 2);
+		let s = JSON.stringify(sortPackageJson(lerna), null, 2);
 		writeFileSync(file, s);
 
 		console.success(`create lerna.json`);

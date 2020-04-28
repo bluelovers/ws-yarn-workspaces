@@ -32,6 +32,7 @@ const pkg_dir_1 = __importDefault(require("pkg-dir"));
 const logger_1 = __importDefault(require("debug-color2/logger"));
 const static_file_1 = __importStar(require("@yarn-tool/static-file"));
 const fs_extra_1 = require("fs-extra");
+const sort_package_json3_1 = __importDefault(require("sort-package-json3"));
 function createYarnWorkspaces(cwd, options = {}) {
     if (cwd && typeof cwd != 'string') {
         options = cwd;
@@ -145,7 +146,7 @@ function _createYarnWorkspaces(targetPath, options = {}) {
         });
         pkg.resolutions = pkg.resolutions || {};
     }
-    let s = JSON.stringify(pkg, null, 2);
+    let s = JSON.stringify(sort_package_json3_1.default(pkg), null, 2);
     fs_extra_1.writeFileSync(file, s);
     logger_1.default.success(`create workspace package.json`);
     if (lerna && (packages != lerna.packages || lerna.npmClient !== 'yarn' || lerna.useWorkspaces !== true)) {
@@ -153,7 +154,7 @@ function _createYarnWorkspaces(targetPath, options = {}) {
         lerna.packages = packages;
         lerna.npmClient = 'yarn';
         lerna.useWorkspaces = true;
-        let s = JSON.stringify(lerna, null, 2);
+        let s = JSON.stringify(sort_package_json3_1.default(lerna), null, 2);
         fs_extra_1.writeFileSync(file, s);
         logger_1.default.info(`update lerna.json`);
     }
@@ -171,7 +172,7 @@ function _createYarnWorkspaces(targetPath, options = {}) {
             "useWorkspaces": true,
             "version": "independent",
         };
-        let s = JSON.stringify(lerna, null, 2);
+        let s = JSON.stringify(sort_package_json3_1.default(lerna), null, 2);
         fs_extra_1.writeFileSync(file, s);
         logger_1.default.success(`create lerna.json`);
     }
