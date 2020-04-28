@@ -16,14 +16,14 @@
   "scripts": {
     "coverage": "npx nyc yarn run test",
     "lint": "npx eslint **/*.ts",
-    "ncu": "npx yarn-tool ncu -u",
-    "npm:publish": "npm publish",
-    "postpublish_": "git commit -m \"chore(release): publish\" .",
-    "prepublish:lockfile": "npx sync-lockfile .",
-    "prepublishOnly": "yarn run ncu && yarn run sort-package-json && yarn run test",
-    "sort-package-json": "npx yarn-tool sort",
     "test": "jest --coverage",
     "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
+    "npm:publish": "npm publish",
+    "prepublish:lockfile": "npx sync-lockfile .",
+    "prepublishOnly": "yarn run ncu && yarn run sort-package-json && yarn run test",
+    "postpublish_": "git commit -m \"chore(release): publish\" .",
+    "ncu": "npx yarn-tool ncu -u",
+    "sort-package-json": "npx yarn-tool sort",
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
@@ -33,8 +33,8 @@
   "devDependencies": {
     "@types/jest": "^25.2.1",
     "array-hyper-unique": "^1.1.0",
-    "jest": "^25.2.7",
-    "ts-jest": "^25.3.1"
+    "jest": "^25.4.0",
+    "ts-jest": "^25.4.0"
   },
-  "gitHead": "f146cbdb51e90e3fa6163f85fb48f2a3b329ac4d"
+  "gitHead": "eca6d40ab200cc43ef2689a782fc803c89f6c01c"
 }
