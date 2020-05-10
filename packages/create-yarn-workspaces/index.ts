@@ -295,8 +295,12 @@ export function getDefaultPackageJson(name?: string): {
 			"lerna:publish": "npx lerna publish",
 			"lerna:publish:yes": "npx lerna publish --yes --cd-version patch",
 			"prepublish:lockfile": "npx sync-lockfile .",
-			"ncu": "npx yarn-tool ncu -u",
-			"sort-package-json": "npx yarn-tool sort",
+			"ncu": "yarn run ncu:root && yarn run ncu:ws",
+			"ncu:root": "npx yarn-tool ncu -u",
+			"ncu:ws": "npx yarn-tool ws exec yarn-tool ncu -- -u",
+			"sort-package-json": "yarn run sort-package-json:root && yarn run sort-package-json:ws",
+			"sort-package-json:root": "npx yarn-tool sort",
+			"sort-package-json:ws": "npx yarn-tool ws exec yarn-tool sort",
 			"test": "echo \"Error: no test specified\" && exit 1"
 		},
 		"devDependencies": {

@@ -65,7 +65,7 @@
     "@bluelovers/tsconfig": "^1.0.19",
     "@types/fs-extra": "^8.1.0",
     "@types/json5": "^0.0.30",
-    "@types/lodash": "^4.14.149",
+    "@types/lodash": "^4.14.150",
     "@types/micromatch": "^4.0.1",
     "@types/validate-npm-package-name": "^3.0.0",
     "@types/yargs": "^15.0.4"

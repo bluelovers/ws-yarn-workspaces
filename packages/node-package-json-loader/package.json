@@ -46,9 +46,9 @@
     "bind-decorator": "^1.0.11",
     "fs-extra": "^9.0.0",
     "pkg-up": "^3.1.0",
-    "sort-package-json": "^1.40.0",
+    "sort-package-json": "^1.42.2",
     "sort-package-json3": "^1.0.9",
-    "ts-type": "^1.2.15"
+    "ts-type": "^1.2.16"
   },
   "bundleDependencies": [],
   "resolutions": {},

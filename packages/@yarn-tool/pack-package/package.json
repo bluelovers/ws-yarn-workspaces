@@ -32,8 +32,8 @@
     "@lerna/get-packed": "^3.16.0",
     "@lerna/log-packed": "^3.16.0",
     "@ts-type/package-dts": "^1.0.8",
-    "npm-packlist": "^2.1.1",
-    "tar": "^6.0.1"
+    "npm-packlist": "^2.1.2",
+    "tar": "^6.0.2"
   },
   "devDependencies": {
     "@types/npm-packlist": "^1.1.1",

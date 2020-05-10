@@ -11,13 +11,17 @@
     "packages/*"
   ],
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "lerna:publish": "npx lerna publish",
     "lerna:publish:yes": "yarn run prepublish:lockfile && npx lerna publish --yes --cd-version patch",
-    "ncu": "npx yarn-tool ncu -u",
     "prepublish:lockfile": "ynpx sync-lockfile",
     "postpublish:subrepo": "git subrepo push --all & git push",
-    "sort-package-json": "npx yarn-tool sort",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "ncu": "yarn run ncu:root && yarn run ncu:ws",
+    "ncu:root": "npx yarn-tool ncu -u",
+    "ncu:ws": "npx yarn-tool ws exec yarn-tool ncu -- -u",
+    "sort-package-json": "yarn run sort-package-json:root && yarn run sort-package-json:ws",
+    "sort-package-json:root": "npx yarn-tool sort",
+    "sort-package-json:ws": "npx yarn-tool ws exec yarn-tool sort"
   },
   "resolutions": {},
   "devDependencies": {
@@ -25,8 +29,11 @@
     "@types/chai": "^4.2.11",
     "@types/fs-extra": "^8.1.0",
     "@types/mocha": "^7.0.2",
-    "@types/node": "^13.11.0",
-    "gitlog": "^3.2.0"
+    "@types/node": "^13.13.5",
+    "@types/jest": "^25.2.1",
+    "jest": "^26.0.1",
+    "ts-jest": "^25.5.1",
+    "gitlog": "^4.0.0"
   },
   "peerDependencies": {
     "lerna": "^3"
