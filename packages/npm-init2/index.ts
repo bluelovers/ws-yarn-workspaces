@@ -210,6 +210,7 @@ if (!cp.error)
 					"prepublish:lockfile": "npx sync-lockfile .",
 					"ncu": "npx yarn-tool ncu -u",
 					"npm:publish": "npm publish",
+					"npm:publish:lerna": "npx lerna publish --yes --cd-version patch",
 					"sort-package-json": "npx yarn-tool sort",
 					"prepublishOnly_": "yarn run ncu && yarn run sort-package-json && yarn run test",
 					"postpublish_": `git commit -m "chore(release): publish" .`,
