@@ -1,5 +1,18 @@
 # Change Log
 
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [1.2.12](https://github.com/bluelovers/find-yarn-workspace-root/compare/find-yarn-workspace-root2@1.2.11...find-yarn-workspace-root2@1.2.12) (2020-05-10)
+
+**Note:** Version bump only for package find-yarn-workspace-root2
+
+
+
+
+
+# Change Log
+
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 <a name="1.2.1"></a>
