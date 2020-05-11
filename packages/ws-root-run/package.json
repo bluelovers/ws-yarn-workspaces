@@ -1,6 +1,6 @@
 {
   "name": "ws-root-spawn",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "run/exec in workspaces root",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/ws-root-run#readme",
   "bugs": {
