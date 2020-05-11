@@ -28,12 +28,12 @@
     "@bluelovers/tsconfig": "^1.0.19",
     "@types/chai": "^4.2.11",
     "@types/fs-extra": "^8.1.0",
+    "@types/jest": "^25.2.1",
     "@types/mocha": "^7.0.2",
     "@types/node": "^13.13.5",
-    "@types/jest": "^25.2.1",
+    "gitlog": "^4.0.0",
     "jest": "^26.0.1",
-    "ts-jest": "^25.5.1",
-    "gitlog": "^4.0.0"
+    "ts-jest": "^25.5.1"
   },
   "peerDependencies": {
     "lerna": "^3"
