@@ -27,13 +27,13 @@
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.19",
     "@types/chai": "^4.2.11",
-    "@types/fs-extra": "^8.1.0",
-    "@types/jest": "^25.2.1",
+    "@types/fs-extra": "^9.0.1",
+    "@types/jest": "^25.2.3",
     "@types/mocha": "^7.0.2",
-    "@types/node": "^13.13.5",
+    "@types/node": "^14.0.5",
     "gitlog": "^4.0.0",
     "jest": "^26.0.1",
-    "ts-jest": "^25.5.1"
+    "ts-jest": "^26.0.0"
   },
   "peerDependencies": {
     "lerna": "^3"

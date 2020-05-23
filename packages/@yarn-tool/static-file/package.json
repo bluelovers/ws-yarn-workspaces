@@ -27,7 +27,7 @@
     "fs-extra": "^9.0.0"
   },
   "devDependencies": {
-    "@types/fs-extra": "^8.1.0"
+    "@types/fs-extra": "^9.0.1"
   },
   "publishConfig": {
     "access": "public"
