@@ -15,7 +15,7 @@ export function fixYarnWorkspaceLinks(cwd?: string, options?: {
 })
 {
 	let listable = wsPkgListable(cwd);
-	let links = yarnListLink(cwd);
+	let links = yarnListLink(cwd) || [];
 
 	let pkgs = listable
 		.reduce((a, b) => {

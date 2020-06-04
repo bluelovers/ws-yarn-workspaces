@@ -11,7 +11,7 @@ const fs_extra_1 = require("fs-extra");
 const cross_spawn_extra_1 = __importDefault(require("cross-spawn-extra"));
 function fixYarnWorkspaceLinks(cwd, options) {
     let listable = listable_1.wsPkgListable(cwd);
-    let links = core_1.default(cwd);
+    let links = core_1.default(cwd) || [];
     let pkgs = listable
         .reduce((a, b) => {
         a[b.name] = b;
