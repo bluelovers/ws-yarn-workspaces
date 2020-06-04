@@ -19,9 +19,11 @@ export function findModulesPackagePathsCore(cwd: string, dir?: string)
 		})
 		.map(name =>
 		{
+			let dir = resolve(root, name)
+
 			return {
 				name: dirname(name),
-				location: resolve(root, name),
+				location: dirname(dir),
 			}
 		})
 	;
