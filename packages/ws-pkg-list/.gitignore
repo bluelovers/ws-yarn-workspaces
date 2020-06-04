@@ -78,7 +78,7 @@ tsconfig.esm.json.tpl
 /package.d.ts
 .nycrc
 .mocharc.yml
-jest.config.js
+#jest.config.js
 node_modules/.cache
 .yarn-integrity
 jest.config.d.ts
@@ -92,3 +92,6 @@ jest.config.js.map
 *.spec.d.ts
 *.spec.js
 .nowignore
+*/**/.github
+!/.github
+!npm-shrinkwrap.json
