@@ -3,12 +3,13 @@
  */
 
 import pkgDir from 'pkg-dir';
-import { join, dirname, resolve } from 'upath2';
+import { dirname, resolve } from 'upath2';
 import fg from '@bluelovers/fast-glob';
+import { getModulesDir } from './util';
 
 export function findModulesPackagePathsCore(cwd: string, dir?: string)
 {
-	let root = join(cwd, dir ?? 'node_modules');
+	let root = getModulesDir(cwd, dir);
 
 	let modules = fg.sync<string>([
 			'@*/*/package.json',

@@ -10,8 +10,9 @@ exports.findModulesPackagePaths = exports.findModulesPackagePathsCore = void 0;
 const pkg_dir_1 = __importDefault(require("pkg-dir"));
 const upath2_1 = require("upath2");
 const fast_glob_1 = __importDefault(require("@bluelovers/fast-glob"));
+const util_1 = require("./util");
 function findModulesPackagePathsCore(cwd, dir) {
-    let root = upath2_1.join(cwd, dir !== null && dir !== void 0 ? dir : 'node_modules');
+    let root = util_1.getModulesDir(cwd, dir);
     let modules = fast_glob_1.default.sync([
         '@*/*/package.json',
         '*/package.json',
