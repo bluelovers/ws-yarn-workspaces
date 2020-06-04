@@ -29,8 +29,12 @@ function fixYarnWorkspaceLinks(cwd, options) {
                 let name = row.name;
                 let location = (_a = pkgs[name]) === null || _a === void 0 ? void 0 : _a.location;
                 if (location) {
-                    console.log(`create link`, row.name, `=>`, location);
-                    fs_extra_1.linkSync(location, row.location);
+                    let real01 = fs_extra_1.realpathSync(location);
+                    let real02 = fs_extra_1.realpathSync(row.location);
+                    if (real01 != real02) {
+                        console.log(`create link`, row.name, `=>`, location);
+                        fs_extra_1.linkSync(location, row.location);
+                    }
                 }
                 else if (links.includes(name)) {
                     add_links.push(name);

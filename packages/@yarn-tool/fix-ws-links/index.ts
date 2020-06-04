@@ -6,7 +6,7 @@ import { wsPkgListable } from 'ws-pkg-list/lib/listable';
 import { wsFindPackageHasModulesCore } from '@yarn-tool/node-modules/lib/ws-find-paths';
 import { IListableRow } from 'ws-pkg-list';
 import yarnListLink from 'yarn-list-link/core';
-import { linkSync } from 'fs-extra';
+import { linkSync, realpathSync } from 'fs-extra';
 import crossSpawn from 'cross-spawn-extra';
 
 export function fixYarnWorkspaceLinks(cwd?: string, options?: {
@@ -45,8 +45,14 @@ export function fixYarnWorkspaceLinks(cwd?: string, options?: {
 
 					if (location)
 					{
-						console.log(`create link`, row.name, `=>`, location)
-						linkSync(location, row.location)
+						let real01 = realpathSync(location);
+						let real02 = realpathSync(row.location);
+
+						if (real01 != real02)
+						{
+							console.log(`create link`, row.name, `=>`, location)
+							linkSync(location, row.location)
+						}
 					}
 					else if (links.includes(name))
 					{

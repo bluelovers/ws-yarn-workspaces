@@ -20,9 +20,10 @@ function findModulesPackagePathsCore(cwd, dir) {
         cwd: root,
     })
         .map(name => {
+        let dir = upath2_1.resolve(root, name);
         return {
             name: upath2_1.dirname(name),
-            location: upath2_1.resolve(root, name),
+            location: upath2_1.dirname(dir),
         };
     });
     return {
