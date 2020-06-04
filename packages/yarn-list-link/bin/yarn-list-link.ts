@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import yarnListLink from '..';
+import yarnListLink from '../core';
 
 let cwd = process.cwd();
 
