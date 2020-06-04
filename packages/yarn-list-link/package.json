@@ -1,0 +1,28 @@
+{
+  "name": "yarn-list-link",
+  "version": "1.0.1",
+  "description": "show list of yarn link",
+  "homepage": "https://github.com/bluelovers/yarn-list-link#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/yarn-list-link/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/yarn-list-link.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
+  "bin": {
+    "yarn-list-link": "bin/yarn-list-link.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "fs-extra": "^7.0.1",
+    "pkg-dir": "^4.1.0",
+    "workspaces-config": "^1.0.1"
+  },
+  "devDependencies": {}
+}
