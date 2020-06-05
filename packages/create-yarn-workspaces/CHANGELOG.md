@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.44](https://github.com/bluelovers/create-yarn-workspaces/compare/create-yarn-workspaces@1.0.43...create-yarn-workspaces@1.0.44) (2020-06-05)
+
+
+### Bug Fixes
+
+* avoid EPERM: operation not permitted ([e4ff4a8](https://github.com/bluelovers/create-yarn-workspaces/commit/e4ff4a81c5cecef881958d7f520d93a522430a6f))
+
+
+
+
+
 ## [1.0.43](https://github.com/bluelovers/create-yarn-workspaces/compare/create-yarn-workspaces@1.0.42...create-yarn-workspaces@1.0.43) (2020-05-23)
 
 **Note:** Version bump only for package create-yarn-workspaces

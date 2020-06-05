@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/fix-ws-links",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "",
   "keywords": [],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/fix-ws-links#readme",
