@@ -9,6 +9,7 @@ const ws_find_paths_1 = require("@yarn-tool/node-modules/lib/ws-find-paths");
 const core_1 = __importDefault(require("yarn-list-link/core"));
 const fs_extra_1 = require("fs-extra");
 const cross_spawn_extra_1 = __importDefault(require("cross-spawn-extra"));
+const util_1 = require("./lib/util");
 function fixYarnWorkspaceLinks(cwd, options) {
     let listable = listable_1.wsPkgListable(cwd);
     let links = core_1.default(cwd) || [];
@@ -22,22 +23,30 @@ function fixYarnWorkspaceLinks(cwd, options) {
     if (sublist.length) {
         sublist
             .forEach(data => {
+            let _error;
             verbose && console.debug(`check`, data.name, `=>`, data.location);
             let add_links = [];
             data.modules.forEach(row => {
                 var _a;
                 let name = row.name;
                 let location = (_a = pkgs[name]) === null || _a === void 0 ? void 0 : _a.location;
-                if (location) {
-                    let real01 = fs_extra_1.realpathSync(location);
-                    let real02 = fs_extra_1.realpathSync(row.location);
-                    if (real01 != real02) {
-                        console.log(`create link`, row.name, `=>`, location);
+                let is_same = util_1.sameRealpath(location, row.location);
+                if (location && is_same === false && !util_1.isSymbolicLink(row.location)) {
+                    console.log(`create link`, row.name, `=>`, location);
+                    try {
+                        fs_extra_1.removeSync(row.location);
                         fs_extra_1.linkSync(location, row.location);
+                    }
+                    catch (e) {
+                        verbose && console.error(e.toString());
+                        _error = true;
                     }
                 }
                 else if (links.includes(name)) {
                     add_links.push(name);
+                }
+                else if (typeof is_same === 'undefined') {
+                    _error = true;
                 }
             });
             if (add_links.length) {
@@ -45,6 +54,13 @@ function fixYarnWorkspaceLinks(cwd, options) {
                     `link`,
                     ...add_links,
                 ], {
+                    cwd: data.location,
+                    stdio: 'inherit',
+                });
+            }
+            if (_error) {
+                verbose && console.debug(`try use fallback`);
+                cross_spawn_extra_1.default.sync('yarn', [], {
                     cwd: data.location,
                     stdio: 'inherit',
                 });

@@ -6,8 +6,10 @@ import { wsPkgListable } from 'ws-pkg-list/lib/listable';
 import { wsFindPackageHasModulesCore } from '@yarn-tool/node-modules/lib/ws-find-paths';
 import { IListableRow } from 'ws-pkg-list';
 import yarnListLink from 'yarn-list-link/core';
-import { linkSync, realpathSync } from 'fs-extra';
+import { linkSync, realpathSync, removeSync } from 'fs-extra';
 import crossSpawn from 'cross-spawn-extra';
+import { unlinkSync } from 'fs';
+import { sameRealpath, isSymbolicLink } from './lib/util';
 
 export function fixYarnWorkspaceLinks(cwd?: string, options?: {
 	dir?: string,
@@ -18,7 +20,8 @@ export function fixYarnWorkspaceLinks(cwd?: string, options?: {
 	let links = yarnListLink(cwd) || [];
 
 	let pkgs = listable
-		.reduce((a, b) => {
+		.reduce((a, b) =>
+		{
 
 			a[b.name] = b;
 
@@ -32,31 +35,46 @@ export function fixYarnWorkspaceLinks(cwd?: string, options?: {
 
 	if (sublist.length)
 	{
+
 		sublist
-			.forEach(data => {
+			.forEach(data =>
+			{
+				let _error: boolean;
+
 				verbose && console.debug(`check`, data.name, `=>`, data.location);
 
 				let add_links = [] as string[];
 
-				data.modules.forEach(row => {
+				data.modules.forEach(row =>
+				{
 
 					let name = row.name;
 					let location = pkgs[name]?.location;
 
-					if (location)
-					{
-						let real01 = realpathSync(location);
-						let real02 = realpathSync(row.location);
+					let is_same = sameRealpath(location, row.location)
 
-						if (real01 != real02)
+					if (location && is_same === false && !isSymbolicLink(row.location))
+					{
+						console.log(`create link`, row.name, `=>`, location)
+
+						try
 						{
-							console.log(`create link`, row.name, `=>`, location)
-							linkSync(location, row.location)
+							removeSync(row.location);
+							linkSync(location, row.location);
+						}
+						catch (e)
+						{
+							verbose && console.error(e.toString());
+							_error = true;
 						}
 					}
 					else if (links.includes(name))
 					{
 						add_links.push(name)
+					}
+					else if (typeof is_same === 'undefined')
+					{
+						_error = true;
 					}
 
 				})
@@ -68,6 +86,16 @@ export function fixYarnWorkspaceLinks(cwd?: string, options?: {
 						`link`,
 						...add_links,
 					], {
+						cwd: data.location,
+						stdio: 'inherit',
+					})
+				}
+
+				if (_error)
+				{
+					verbose && console.debug(`try use fallback`);
+
+					crossSpawn.sync('yarn', [], {
 						cwd: data.location,
 						stdio: 'inherit',
 					})
