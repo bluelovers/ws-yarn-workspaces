@@ -59,13 +59,18 @@ export function fixYarnWorkspaceLinks(cwd?: string, options?: {
 
 						try
 						{
-							removeSync(row.location);
+							unlinkSync(row.location);
 							linkSync(location, row.location);
 						}
 						catch (e)
 						{
 							verbose && console.error(e.toString());
 							_error = true;
+
+							if (links.includes(name))
+							{
+								add_links.push(name)
+							}
 						}
 					}
 					else if (links.includes(name))

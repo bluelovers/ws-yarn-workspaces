@@ -9,6 +9,7 @@ const ws_find_paths_1 = require("@yarn-tool/node-modules/lib/ws-find-paths");
 const core_1 = __importDefault(require("yarn-list-link/core"));
 const fs_extra_1 = require("fs-extra");
 const cross_spawn_extra_1 = __importDefault(require("cross-spawn-extra"));
+const fs_1 = require("fs");
 const util_1 = require("./lib/util");
 function fixYarnWorkspaceLinks(cwd, options) {
     let listable = listable_1.wsPkgListable(cwd);
@@ -34,12 +35,15 @@ function fixYarnWorkspaceLinks(cwd, options) {
                 if (location && is_same === false && !util_1.isSymbolicLink(row.location)) {
                     console.log(`create link`, row.name, `=>`, location);
                     try {
-                        fs_extra_1.removeSync(row.location);
+                        fs_1.unlinkSync(row.location);
                         fs_extra_1.linkSync(location, row.location);
                     }
                     catch (e) {
                         verbose && console.error(e.toString());
                         _error = true;
+                        if (links.includes(name)) {
+                            add_links.push(name);
+                        }
                     }
                 }
                 else if (links.includes(name)) {
