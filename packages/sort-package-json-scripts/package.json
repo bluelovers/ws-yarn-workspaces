@@ -1,6 +1,6 @@
 {
   "name": "sort-package-json-scripts",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "a better sort package.json scripts, by default is follow npm lifecycle scripts",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/sort-package-json-scripts#readme",
   "bugs": {
@@ -30,6 +30,5 @@
   "dependencies": {
     "sort-object-keys2": "^2.0.3"
   },
-  "devDependencies": {},
   "gitHead": "eca6d40ab200cc43ef2689a782fc803c89f6c01c"
 }

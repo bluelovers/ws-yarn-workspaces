@@ -1,6 +1,6 @@
 {
   "name": "sort-package-json3",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/sort-package-json3#readme",
   "bugs": {
@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "is-plain-obj": "^2.1.0",
-    "sort-package-json-scripts": "^1.0.9"
+    "sort-package-json-scripts": "^1.0.10"
   },
   "peerDependencies": {
     "sort-package-json": "^1.44.0"

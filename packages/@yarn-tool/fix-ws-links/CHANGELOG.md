@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-ws-links@1.0.6...@yarn-tool/fix-ws-links@1.0.7) (2020-06-06)
+
+
+### Features
+
+* check if exists in global link ([3423a98](https://github.com/bluelovers/ws-yarn-workspaces/commit/3423a987151f024374749dcb393e6d5017787801))
+* options.runYarnAfter ([12db03a](https://github.com/bluelovers/ws-yarn-workspaces/commit/12db03a2c0904975971ad2e75b5f3209e58e9e1b))
+* options.runYarnAfter ([9bd6915](https://github.com/bluelovers/ws-yarn-workspaces/commit/9bd6915da5452af23cef832b95b15147cc2b172d))
+
+
+
+
+
 ## [1.0.6](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-ws-links@1.0.5...@yarn-tool/fix-ws-links@1.0.6) (2020-06-05)
 
 
