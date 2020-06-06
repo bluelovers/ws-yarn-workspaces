@@ -17,7 +17,8 @@ exports.getYarnIntegrityPath = getYarnIntegrityPath;
 function yarnListLinkCore(cwd) {
     const file = getYarnIntegrityPath(cwd);
     if (fs_extra_1.existsSync(file)) {
-        let { linkedModules = [] } = fs_extra_1.readJSONSync(file).linkedModules;
+        let json = fs_extra_1.readJSONSync(file);
+        let { linkedModules = [] } = json;
         return linkedModules
             .map(v => upath2_1.normalize(v));
     }

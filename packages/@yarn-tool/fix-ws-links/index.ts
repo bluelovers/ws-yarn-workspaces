@@ -37,6 +37,8 @@ export function fixYarnWorkspaceLinks(cwd?: string, options?: {
 
 	let verbose = options.verbose;
 
+	verbose && console.debug('[linkedModules]', links);
+
 	if (sublist.length)
 	{
 
@@ -57,27 +59,36 @@ export function fixYarnWorkspaceLinks(cwd?: string, options?: {
 
 					let is_same = sameRealpath(location, row.location)
 
-					if (location && is_same === false && !isSymbolicLink(row.location))
+					let is_symlink = isSymbolicLink(row.location);
+
+					if (location && is_same === false && !is_symlink)
 					{
-						try
+						if (links.includes(name))
 						{
-							unlinkSync(row.location);
-							linkSync(location, row.location);
-
-							console.success(`create link`, row.name, `=>`, location)
+							add_links.push(name)
 						}
-						catch (e)
+						else
 						{
-							verbose && console.error(e.toString());
-							_error = true;
-
-							if (links.includes(name))
+							try
 							{
-								add_links.push(name)
+								unlinkSync(row.location);
+								linkSync(location, row.location);
+
+								console.success(`create link`, row.name, `=>`, location)
+							}
+							catch (e)
+							{
+								verbose && console.error(e.toString());
+								_error = true;
+
+								if (links.includes(name))
+								{
+									add_links.push(name)
+								}
 							}
 						}
 					}
-					else if (links.includes(name))
+					else if (!is_symlink && links.includes(name))
 					{
 						add_links.push(name)
 					}
@@ -91,6 +102,9 @@ export function fixYarnWorkspaceLinks(cwd?: string, options?: {
 
 				if (add_links.length)
 				{
+					verbose && console.debug('link', [
+						...add_links,
+					]);
 					crossSpawn.sync('yarn', [
 						`link`,
 						...add_links,

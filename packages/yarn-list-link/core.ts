@@ -17,7 +17,9 @@ export function yarnListLinkCore(cwd: string): string[]
 
 	if (existsSync(file))
 	{
-		let { linkedModules = [] as string[] } = readJSONSync(file).linkedModules
+		let json = readJSONSync(file);
+		let { linkedModules = [] as string[] } = json
+
 		return linkedModules
 			.map(v => normalize(v))
 		;

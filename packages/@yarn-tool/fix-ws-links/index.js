@@ -23,6 +23,7 @@ function fixYarnWorkspaceLinks(cwd, options) {
     options = options || {};
     let sublist = ws_find_paths_1.wsFindPackageHasModulesCore(listable, options.dir);
     let verbose = options.verbose;
+    verbose && logger_1.default.debug('[linkedModules]', links);
     if (sublist.length) {
         sublist
             .forEach(data => {
@@ -34,21 +35,27 @@ function fixYarnWorkspaceLinks(cwd, options) {
                 let name = row.name;
                 let location = (_a = pkgs[name]) === null || _a === void 0 ? void 0 : _a.location;
                 let is_same = util_1.sameRealpath(location, row.location);
-                if (location && is_same === false && !util_1.isSymbolicLink(row.location)) {
-                    try {
-                        fs_1.unlinkSync(row.location);
-                        fs_extra_1.linkSync(location, row.location);
-                        logger_1.default.success(`create link`, row.name, `=>`, location);
+                let is_symlink = util_1.isSymbolicLink(row.location);
+                if (location && is_same === false && !is_symlink) {
+                    if (links.includes(name)) {
+                        add_links.push(name);
                     }
-                    catch (e) {
-                        verbose && logger_1.default.error(e.toString());
-                        _error = true;
-                        if (links.includes(name)) {
-                            add_links.push(name);
+                    else {
+                        try {
+                            fs_1.unlinkSync(row.location);
+                            fs_extra_1.linkSync(location, row.location);
+                            logger_1.default.success(`create link`, row.name, `=>`, location);
+                        }
+                        catch (e) {
+                            verbose && logger_1.default.error(e.toString());
+                            _error = true;
+                            if (links.includes(name)) {
+                                add_links.push(name);
+                            }
                         }
                     }
                 }
-                else if (links.includes(name)) {
+                else if (!is_symlink && links.includes(name)) {
                     add_links.push(name);
                 }
                 else if (typeof is_same === 'undefined') {
@@ -56,6 +63,9 @@ function fixYarnWorkspaceLinks(cwd, options) {
                 }
             });
             if (add_links.length) {
+                verbose && logger_1.default.debug('link', [
+                    ...add_links,
+                ]);
                 cross_spawn_extra_1.default.sync('yarn', [
                     `link`,
                     ...add_links,
