@@ -29,11 +29,7 @@
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
-  "devDependencies": {
-    "@bluelovers/fast-glob": "^3.0.4",
-    "@bluelovers/tsconfig": "*",
-    "@types/node": "*"
-  },
+  "devDependencies": {},
   "publishConfig": {
     "access": "public"
   }

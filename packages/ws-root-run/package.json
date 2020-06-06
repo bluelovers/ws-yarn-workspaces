@@ -36,9 +36,7 @@
     "cross-spawn-extra": "^2.0.0",
     "find-yarn-workspace-root2": "^1.2.13"
   },
-  "devDependencies": {
-    "@types/cross-spawn": "^6.0.2"
-  },
+  "devDependencies": {},
   "peerDependencies": {
     "yarn": "^1.22.4"
   }

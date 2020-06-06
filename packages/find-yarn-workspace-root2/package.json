@@ -18,21 +18,17 @@
     "test": "tests"
   },
   "scripts": {
-    "ncu": "npx yarn-tool ncu -u",
+    "test": "ynpx mocha -- tests/**/*-test.js",
     "prepublishOnly": "yarn run ncu && yarn run sort-package-json && yarn run test",
-    "sort-package-json": "npx yarn-tool sort",
-    "test": "ynpx mocha -- tests/**/*-test.js"
+    "ncu": "npx yarn-tool ncu -u",
+    "sort-package-json": "npx yarn-tool sort"
   },
   "dependencies": {
     "micromatch": "^4.0.2",
     "pkg-dir": "^4.2.0"
   },
   "devDependencies": {
-    "@types/chai": "^4.2.11",
-    "@types/micromatch": "^4.0.1",
-    "@types/mocha": "^7.0.2",
-    "chai": "^4.2.0",
-    "mocha": "^7.2.0"
+    "@types/micromatch": "^4.0.1"
   },
   "gitHead": "f146cbdb51e90e3fa6163f85fb48f2a3b329ac4d"
 }

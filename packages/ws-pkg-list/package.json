@@ -46,7 +46,7 @@
   "dependencies": {
     "@bluelovers/fast-glob": "^3.0.4",
     "@ts-type/package-dts": "^1.0.10",
-    "array-hyper-unique": "^1.1.0",
+    "array-hyper-unique": "^1.1.2",
     "find-yarn-workspace-root2": "^1.2.13",
     "upath2": "^2.1.3",
     "workspaces-config": "^1.0.9"

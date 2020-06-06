@@ -25,15 +25,21 @@
   },
   "resolutions": {},
   "devDependencies": {
+    "@bluelovers/fast-glob": "^3.0.4",
     "@bluelovers/tsconfig": "^1.0.19",
     "@types/chai": "^4.2.11",
+    "@types/cross-spawn": "^6.0.2",
     "@types/fs-extra": "^9.0.1",
     "@types/jest": "^25.2.3",
+    "@types/lodash": "^4.14.155",
     "@types/mocha": "^7.0.2",
-    "@types/node": "^14.0.5",
-    "gitlog": "^4.0.0",
+    "@types/node": "^14.0.11",
+    "@types/yargs": "^15.0.5",
+    "array-hyper-unique": "^1.1.2",
+    "chai": "^4.2.0",
     "jest": "^26.0.1",
-    "ts-jest": "^26.0.0"
+    "mocha": "^7.2.0",
+    "ts-jest": "^26.1.0"
   },
   "peerDependencies": {
     "lerna": "^3"

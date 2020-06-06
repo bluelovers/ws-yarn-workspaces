@@ -8,12 +8,12 @@
   "scripts": {
     "coverage": "npx nyc npm run test",
     "lint": "npx eslint **/*.ts",
-    "ncu": "npx yarn-tool ncu -u",
+    "test": "ts-node ./test/test.ts",
     "npm:publish": "npx npm publish",
-    "postpublish_": "git commit -m \"publish new version\" .",
     "prepublishOnly": "yarn run ncu && yarn run sort-package-json && yarn run test",
-    "sort-package-json": "npx yarn-tool sort",
-    "test": "ts-node ./test/test.ts"
+    "postpublish_": "git commit -m \"publish new version\" .",
+    "ncu": "npx yarn-tool ncu -u",
+    "sort-package-json": "npx yarn-tool sort"
   },
   "dependencies": {
     "@yarn-tool/is-npx": "^1.0.3",

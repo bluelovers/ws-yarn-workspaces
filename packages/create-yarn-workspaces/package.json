@@ -34,12 +34,12 @@
   "scripts": {
     "coverage": "npx nyc npm run test",
     "lint": "npx eslint **/*.ts",
-    "ncu": "npx yarn-tool ncu -u",
-    "npm:publish": "npm publish",
-    "postpublish_": "git commit -m \"chore(release): publish\" .",
-    "prepublishOnly": "npm run ncu && npm run sort-package-json",
-    "sort-package-json": "npx yarn-tool sort",
     "test": "node ./bin/yarn-ws-init --debug --ignoreExistsPackage --ignoreParentWorkspaces ./test/temp",
+    "npm:publish": "npm publish",
+    "prepublishOnly": "npm run ncu && npm run sort-package-json",
+    "postpublish_": "git commit -m \"chore(release): publish\" .",
+    "ncu": "npx yarn-tool ncu -u",
+    "sort-package-json": "npx yarn-tool sort",
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
@@ -47,7 +47,7 @@
     "@yarn-tool/static-file": "^1.0.28",
     "debug-color2": "^1.1.7",
     "find-yarn-workspace-root2": "^1.2.13",
-    "fs-extra": "^9.0.0",
+    "fs-extra": "^9.0.1",
     "pkg-dir": "^4.2.0",
     "sort-package-json3": "^1.0.11",
     "yargs": "^15.3.1"

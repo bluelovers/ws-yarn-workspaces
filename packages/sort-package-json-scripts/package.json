@@ -30,8 +30,6 @@
   "dependencies": {
     "sort-object-keys2": "^2.0.3"
   },
-  "devDependencies": {
-    "array-hyper-unique": "^1.1.0"
-  },
+  "devDependencies": {},
   "gitHead": "eca6d40ab200cc43ef2689a782fc803c89f6c01c"
 }

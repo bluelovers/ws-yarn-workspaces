@@ -8,10 +8,10 @@
   "scripts": {
     "coverage": "npx nyc npm run test",
     "lint": "eslint .",
-    "ncu": "npx yarn-tool ncu -u",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "prepublishOnly": "npm run ncu && npm run sort-package-json",
-    "sort-package-json": "npx yarn-tool sort",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "ncu": "npx yarn-tool ncu -u",
+    "sort-package-json": "npx yarn-tool sort"
   },
   "dependencies": {
     "@types/yargs": "*",

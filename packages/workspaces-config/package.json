@@ -22,14 +22,14 @@
   "main": "index.js",
   "scripts": {
     "coverage": "npx nyc yarn run test",
-    "ncu": "npx yarn-tool ncu -u",
+    "test": "jest",
     "prepublishOnly": "yarn run ncu && yarn run sort-package-json && yarn run test",
-    "sort-package-json": "npx yarn-tool sort",
-    "test": "jest"
+    "ncu": "npx yarn-tool ncu -u",
+    "sort-package-json": "npx yarn-tool sort"
   },
   "dependencies": {
     "find-pkg-ws": "^1.0.10",
-    "fs-extra": "^9.0.0"
+    "fs-extra": "^9.0.1"
   },
   "gitHead": "f146cbdb51e90e3fa6163f85fb48f2a3b329ac4d"
 }
