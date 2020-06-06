@@ -10,10 +10,12 @@ import { linkSync, realpathSync, removeSync } from 'fs-extra';
 import crossSpawn from 'cross-spawn-extra';
 import { unlinkSync } from 'fs';
 import { sameRealpath, isSymbolicLink } from './lib/util';
+import console from 'debug-color2/logger';
 
 export function fixYarnWorkspaceLinks(cwd?: string, options?: {
 	dir?: string,
 	verbose?: boolean,
+	runYarnAfter?: boolean,
 })
 {
 	let listable = wsPkgListable(cwd);
@@ -29,9 +31,11 @@ export function fixYarnWorkspaceLinks(cwd?: string, options?: {
 		}, {} as Record<string, IListableRow>)
 	;
 
-	let sublist = wsFindPackageHasModulesCore(listable, options?.dir)
+	options = options || {};
 
-	let verbose = options?.verbose;
+	let sublist = wsFindPackageHasModulesCore(listable, options.dir)
+
+	let verbose = options.verbose;
 
 	if (sublist.length)
 	{
@@ -96,9 +100,9 @@ export function fixYarnWorkspaceLinks(cwd?: string, options?: {
 					})
 				}
 
-				if (_error)
+				if (_error || options.runYarnAfter)
 				{
-					verbose && console.debug(`try use fallback`);
+					verbose && console.debug(`try use yarn install for fallback`);
 
 					crossSpawn.sync('yarn', [], {
 						cwd: data.location,

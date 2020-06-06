@@ -11,6 +11,7 @@ const fs_extra_1 = require("fs-extra");
 const cross_spawn_extra_1 = __importDefault(require("cross-spawn-extra"));
 const fs_1 = require("fs");
 const util_1 = require("./lib/util");
+const logger_1 = __importDefault(require("debug-color2/logger"));
 function fixYarnWorkspaceLinks(cwd, options) {
     let listable = listable_1.wsPkgListable(cwd);
     let links = core_1.default(cwd) || [];
@@ -19,13 +20,14 @@ function fixYarnWorkspaceLinks(cwd, options) {
         a[b.name] = b;
         return a;
     }, {});
-    let sublist = ws_find_paths_1.wsFindPackageHasModulesCore(listable, options === null || options === void 0 ? void 0 : options.dir);
-    let verbose = options === null || options === void 0 ? void 0 : options.verbose;
+    options = options || {};
+    let sublist = ws_find_paths_1.wsFindPackageHasModulesCore(listable, options.dir);
+    let verbose = options.verbose;
     if (sublist.length) {
         sublist
             .forEach(data => {
             let _error;
-            verbose && console.debug(`check`, data.name, `=>`, data.location);
+            verbose && logger_1.default.debug(`check`, data.name, `=>`, data.location);
             let add_links = [];
             data.modules.forEach(row => {
                 var _a;
@@ -33,13 +35,13 @@ function fixYarnWorkspaceLinks(cwd, options) {
                 let location = (_a = pkgs[name]) === null || _a === void 0 ? void 0 : _a.location;
                 let is_same = util_1.sameRealpath(location, row.location);
                 if (location && is_same === false && !util_1.isSymbolicLink(row.location)) {
-                    console.log(`create link`, row.name, `=>`, location);
+                    logger_1.default.log(`create link`, row.name, `=>`, location);
                     try {
                         fs_1.unlinkSync(row.location);
                         fs_extra_1.linkSync(location, row.location);
                     }
                     catch (e) {
-                        verbose && console.error(e.toString());
+                        verbose && logger_1.default.error(e.toString());
                         _error = true;
                         if (links.includes(name)) {
                             add_links.push(name);
@@ -62,8 +64,8 @@ function fixYarnWorkspaceLinks(cwd, options) {
                     stdio: 'inherit',
                 });
             }
-            if (_error) {
-                verbose && console.debug(`try use fallback`);
+            if (_error || options.runYarnAfter) {
+                verbose && logger_1.default.debug(`try use yarn install for fallback`);
                 cross_spawn_extra_1.default.sync('yarn', [], {
                     cwd: data.location,
                     stdio: 'inherit',
@@ -72,7 +74,7 @@ function fixYarnWorkspaceLinks(cwd, options) {
         });
     }
     else {
-        verbose && console.debug(`no exists sub package has modules with sub install`);
+        verbose && logger_1.default.debug(`no exists sub package has modules with sub install`);
     }
 }
 exports.fixYarnWorkspaceLinks = fixYarnWorkspaceLinks;
