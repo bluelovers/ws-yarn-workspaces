@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/find-root",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "",
   "license": "ISC",
   "author": "",
@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@ts-type/package-dts": "^1.0.10",
-    "find-yarn-workspace-root2": "^1.2.14",
+    "find-yarn-workspace-root2": "^1.2.15",
     "pkg-dir": "^4.2.0",
     "upath2": "^2.1.3"
   },
