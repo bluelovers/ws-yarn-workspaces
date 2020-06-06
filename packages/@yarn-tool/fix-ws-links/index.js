@@ -35,10 +35,10 @@ function fixYarnWorkspaceLinks(cwd, options) {
                 let location = (_a = pkgs[name]) === null || _a === void 0 ? void 0 : _a.location;
                 let is_same = util_1.sameRealpath(location, row.location);
                 if (location && is_same === false && !util_1.isSymbolicLink(row.location)) {
-                    logger_1.default.log(`create link`, row.name, `=>`, location);
                     try {
                         fs_1.unlinkSync(row.location);
                         fs_extra_1.linkSync(location, row.location);
+                        logger_1.default.success(`create link`, row.name, `=>`, location);
                     }
                     catch (e) {
                         verbose && logger_1.default.error(e.toString());

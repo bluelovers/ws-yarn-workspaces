@@ -59,12 +59,12 @@ export function fixYarnWorkspaceLinks(cwd?: string, options?: {
 
 					if (location && is_same === false && !isSymbolicLink(row.location))
 					{
-						console.log(`create link`, row.name, `=>`, location)
-
 						try
 						{
 							unlinkSync(row.location);
 							linkSync(location, row.location);
+
+							console.success(`create link`, row.name, `=>`, location)
 						}
 						catch (e)
 						{
