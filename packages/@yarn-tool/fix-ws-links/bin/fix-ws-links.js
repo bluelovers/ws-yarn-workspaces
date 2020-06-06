@@ -9,5 +9,6 @@ let cwd = process.cwd();
 console.log(`check and try fix links from: ${cwd}`);
 index_1.default(cwd, {
     verbose: true,
+    runYarnAfter: process.argv.includes('--runYarnAfter'),
 });
 //# sourceMappingURL=fix-ws-links.js.map

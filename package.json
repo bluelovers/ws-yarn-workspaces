@@ -15,6 +15,7 @@
     "lerna:publish": "npx lerna publish",
     "lerna:publish:yes": "yarn run prepublish:lockfile && npx lerna publish --yes --cd-version patch",
     "prepublish:lockfile": "ynpx sync-lockfile",
+    "prepare": "ynpx @yarn-tool/fix-ws-links",
     "postpublish:subrepo": "git subrepo push --all & git push",
     "ncu": "yarn run ncu:root && yarn run ncu:ws",
     "ncu:root": "npx yarn-tool ncu -u",
