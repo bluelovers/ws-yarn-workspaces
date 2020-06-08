@@ -32,6 +32,16 @@ export function findRoot(options: {
 		throw err;
 	}
 
+	if (typeof ws === 'string')
+	{
+		ws = pathNormalize(ws);
+	}
+
+	if (typeof pkg === 'string')
+	{
+		pkg = pathNormalize(pkg);
+	}
+
 	let hasWorkspace = ws && ws != null;
 	let isWorkspace = hasWorkspace && pathEqual(ws, pkg);
 	let root = hasWorkspace ? ws : pkg;

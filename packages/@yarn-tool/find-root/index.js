@@ -19,6 +19,12 @@ function findRoot(options, _throwError) {
         let err = new TypeError(`can't found package root from target directory '${options.cwd}'`);
         throw err;
     }
+    if (typeof ws === 'string') {
+        ws = upath2_1.normalize(ws);
+    }
+    if (typeof pkg === 'string') {
+        pkg = upath2_1.normalize(pkg);
+    }
     let hasWorkspace = ws && ws != null;
     let isWorkspace = hasWorkspace && pathEqual(ws, pkg);
     let root = hasWorkspace ? ws : pkg;

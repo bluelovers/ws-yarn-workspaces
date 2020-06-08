@@ -19,6 +19,9 @@ export interface IListableRow {
     "private": boolean;
     location: string;
 }
+export interface IListableRowExtra extends IListableRow {
+    prefix: string;
+}
 export interface IReadedPackages<T = IPackageJson> {
     [k: string]: IReadPackage<T>;
 }
