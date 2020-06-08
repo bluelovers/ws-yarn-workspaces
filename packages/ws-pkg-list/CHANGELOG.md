@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.16](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-pkg-list@1.0.15...ws-pkg-list@1.0.16) (2020-06-08)
+
+
+### Features
+
+* @yarn-tool/ws-changed ([2439784](https://github.com/bluelovers/ws-yarn-workspaces/commit/24397843de042b3c1d9009a0f139840ff87ed20b))
+
+
+
+
+
 ## [1.0.15](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-pkg-list@1.0.14...ws-pkg-list@1.0.15) (2020-06-06)
 
 **Note:** Version bump only for package ws-pkg-list

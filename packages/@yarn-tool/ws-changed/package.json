@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/ws-changed",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "get package changed list from lerna and git",
   "keywords": [
     "lerna",
@@ -44,7 +44,6 @@
     "glob-regex": "^0.3.2",
     "micromatch": "^4.0.2"
   },
-  "devDependencies": {},
   "publishConfig": {
     "access": "public"
   }
