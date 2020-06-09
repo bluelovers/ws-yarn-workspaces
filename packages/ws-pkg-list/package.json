@@ -48,7 +48,7 @@
     "@ts-type/package-dts": "^1.0.10",
     "array-hyper-unique": "^1.1.2",
     "find-yarn-workspace-root2": "^1.2.15",
-    "upath2": "^3.0.2",
+    "upath2": "^3.0.5",
     "workspaces-config": "^1.0.11"
   }
 }

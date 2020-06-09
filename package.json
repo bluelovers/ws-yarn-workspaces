@@ -37,7 +37,7 @@
     "@types/lodash": "^4.14.155",
     "@types/micromatch": "^4.0.1",
     "@types/mocha": "^7.0.2",
-    "@types/node": "^14.0.12",
+    "@types/node": "^14.0.13",
     "@types/validate-npm-package-name": "^3.0.0",
     "@types/yargs": "^15.0.5",
     "array-hyper-unique": "^1.1.2",

@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@ts-type/package-dts": "^1.0.10",
-    "upath2": "^3.0.2"
+    "upath2": "^3.0.5"
   },
   "publishConfig": {
     "access": "public"

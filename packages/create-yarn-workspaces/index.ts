@@ -295,6 +295,7 @@ export function getDefaultPackageJson(name?: string): {
 			"lerna:publish": "npx lerna publish",
 			"lerna:publish:yes": "npx lerna publish --yes --cd-version patch",
 			"prepublish:lockfile": "npx sync-lockfile .",
+			"prepare:fix-ws-links": "ynpx @yarn-tool/fix-ws-links",
 			"ncu": "yarn run ncu:root && yarn run ncu:ws",
 			"ncu:root": "npx yarn-tool ncu -u",
 			"ncu:ws": "npx yarn-tool ws exec yarn-tool ncu -- -u",
