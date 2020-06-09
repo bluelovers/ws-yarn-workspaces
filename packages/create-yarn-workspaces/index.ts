@@ -301,11 +301,11 @@ export function getDefaultPackageJson(name?: string): {
 			"sort-package-json": "yarn run sort-package-json:root && yarn run sort-package-json:ws",
 			"sort-package-json:root": "npx yarn-tool sort",
 			"sort-package-json:ws": "npx yarn-tool ws exec yarn-tool sort",
-			"test": "echo \"Error: no test specified\" && exit 1"
+			"test": "npx yarn-tool ws run test"
 		},
 		"devDependencies": {
+			"@bluelovers/tsconfig": "^1.0.19",
 			"@types/node": "*",
-			"@bluelovers/tsconfig": "*"
 		},
 		"peerDependencies": {
 			"lerna": "^3"
