@@ -1,6 +1,7 @@
 {
   "packages": [
     "packages/@yarn-tool/*",
+    "packages/@lazy-node/*",
     "packages/*"
   ],
   "command": {

@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`compare [ '3', '3' ] 1`] = `0`;
+
+exports[`compare [ '3', '4' ] 1`] = `-1`;
+
+exports[`compare [ '3-alpha', '3-alpha' ] 1`] = `0`;
+
+exports[`compare [ '3-alpha', '3-prealpha' ] 1`] = `-1`;
+
+exports[`compare [ '3-alpha', '4-prealpha' ] 1`] = `-1`;
+
+exports[`compare [ '4', '3' ] 1`] = `1`;
+
+exports[`compare [ '4-alpha', '3-prealpha' ] 1`] = `1`;
+
+exports[`compare [ '7.9.3-alpha', '7.9.3-alpha' ] 1`] = `0`;
+
+exports[`compare [ '7.9.3-alpha', '7.9.3-prealpha' ] 1`] = `-1`;
+
+exports[`compare [ '7.9.3-alpha', '7.9.4-prealpha' ] 1`] = `-1`;
+
+exports[`compare [ '7.9.4-alpha', '7.9.3-prealpha' ] 1`] = `1`;
+
+exports[`compare [ '9.3-alpha', '9.3-alpha' ] 1`] = `0`;
+
+exports[`compare [ '9.3-alpha', '9.3-prealpha' ] 1`] = `-1`;
+
+exports[`compare [ '9.3-alpha', '9.4-prealpha' ] 1`] = `-1`;
+
+exports[`compare [ '9.4-alpha', '9.3-prealpha' ] 1`] = `1`;
