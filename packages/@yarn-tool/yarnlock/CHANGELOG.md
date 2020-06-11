@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock@1.0.3...@yarn-tool/yarnlock@1.0.4) (2020-06-11)
+
+
+### Features
+
+* use @ts-type/package-dts ([d724524](https://github.com/bluelovers/ws-yarn-workspaces/commit/d7245243b6fbaa0e8f5404ef28b113e49db2d567))
+
+
+
+
+
 ## [1.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock@1.0.2...@yarn-tool/yarnlock@1.0.3) (2020-06-11)
 
 
