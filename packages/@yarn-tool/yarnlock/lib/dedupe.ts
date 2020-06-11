@@ -49,4 +49,9 @@ export function yarnDedupe(yarnlock_old: string, options?: IOptionsDedupe)
 	}
 }
 
+/**
+ * @deprecated
+ */
+export { yarnDedupe as Dedupe }
+
 export default yarnDedupe

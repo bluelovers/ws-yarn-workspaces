@@ -43,12 +43,15 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
+    "@yarn-tool/find-root": "^1.0.15",
     "@yarn-tool/table": "^1.0.1",
     "@yarnpkg/lockfile": "^1.1.0",
+    "debug-color2": "^1.2.2",
     "deep-diff": "^1.0.2",
     "fs-extra": "^9.0.1",
     "semver": "^7.3.2",
-    "ts-type": "^1.2.17",
+    "ts-type": "^1.2.23",
+    "upath2": "^3.0.5",
     "yarn-deduplicate": "^2.0.0",
     "yarn-lock-diff": "^0.0.0"
   },

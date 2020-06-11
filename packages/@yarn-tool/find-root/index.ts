@@ -4,11 +4,20 @@ import { readPackageJson } from '@ts-type/package-dts';
 
 import { sync as pkgDir } from 'pkg-dir';
 
+export interface IFindRootReturnType
+{
+	pkg: string;
+	ws: string;
+	hasWorkspace: boolean;
+	isWorkspace: boolean;
+	root: string;
+}
+
 export function findRoot(options: {
 	cwd: string,
 	skipCheckWorkspace?: boolean | string,
 	throwError?: boolean,
-}, _throwError?: boolean)
+}, _throwError?: boolean): IFindRootReturnType
 {
 	if (!options.cwd)
 	{

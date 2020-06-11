@@ -9,3 +9,9 @@ export declare function checkAndReadYarnLockfileUnsafe(file: string): Buffer;
 export declare function checkAndReadYarnLockfile(file: string): Record<string, IYarnLockfileParseObjectRow<string[]>>;
 export declare function readYarnLockfile(file: string): Record<string, IYarnLockfileParseObjectRow<string[]>>;
 export declare function writeYarnLockfile(file: string, data: IYarnLockfileParseObject): void;
+export interface IFsYarnLockReturnType {
+    yarnlock_file: string;
+    yarnlock_exists: boolean;
+    yarnlock_old: string;
+}
+export declare function fsYarnLock(root: string): IFsYarnLockReturnType;

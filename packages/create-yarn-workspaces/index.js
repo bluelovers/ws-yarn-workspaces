@@ -213,7 +213,7 @@ function getDefaultPackageJson(name) {
         ],
         "scripts": {
             "lerna:publish": "npx lerna publish",
-            "lerna:publish:yes": "npx lerna publish --yes --cd-version patch",
+            "lerna:publish:yes": "npx lerna publish --yes --bump patch",
             "prepublish:lockfile": "npx sync-lockfile .",
             "prepare:fix-ws-links": "ynpx @yarn-tool/fix-ws-links",
             "ncu": "yarn run ncu:root && yarn run ncu:ws",

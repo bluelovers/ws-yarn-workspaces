@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.yarnDedupe = exports.fixDuplicates = exports.listDuplicates = void 0;
+exports.Dedupe = exports.yarnDedupe = exports.fixDuplicates = exports.listDuplicates = void 0;
 const yarn_deduplicate_1 = require("yarn-deduplicate");
 const parse_1 = require("./parse");
 function listDuplicates(yarnlock_old, options) {
@@ -35,5 +35,6 @@ function yarnDedupe(yarnlock_old, options) {
     };
 }
 exports.yarnDedupe = yarnDedupe;
+exports.Dedupe = yarnDedupe;
 exports.default = yarnDedupe;
 //# sourceMappingURL=dedupe.js.map

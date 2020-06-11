@@ -20,4 +20,8 @@ export declare function yarnDedupe(yarnlock_old: string, options?: IOptionsDedup
      */
     yarnlock_changed: boolean;
 };
+/**
+ * @deprecated
+ */
+export { yarnDedupe as Dedupe };
 export default yarnDedupe;

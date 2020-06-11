@@ -3,7 +3,11 @@
  */
 
 import { ITSArrayListMaybeReadonly, ITSValueOfArray } from 'ts-type';
-import { IDependency as IDependency2, IDependency } from '@yarn-tool/table/lib/types';
+import { IDependency } from '@yarn-tool/table/lib/types';
+import { IFindRootReturnType } from '@yarn-tool/find-root';
+import { IFsYarnLockReturnType } from './fs';
+import { Console2 } from 'debug-color2';
+import { Argv, Arguments } from 'yargs';
 
 export type IVersionValue = 'latest' | '*' | string | EnumVersionValue | EnumVersionValue2;
 
@@ -130,4 +134,75 @@ export interface IRemoveResolutions<T extends ITSArrayListMaybeReadonly<string>>
 	 */
 	yarnlock_changed: boolean;
 	result: IFilterResolutions<T>;
+}
+
+export interface IWrapDedupeCache
+{
+	/**
+	 * 如果不存在則等於 argv.cwd
+	 */
+	readonly cwd?: string,
+
+	readonly rootData?: IFindRootReturnType,
+
+	/**
+	 * 目前的 yarn.lock 狀態(隨步驟更動狀態)
+	 */
+	yarnlock_cache?: IFsYarnLockReturnType
+
+	/**
+	 * 執行前的 yarn.lock
+	 */
+	readonly yarnlock_old?: string,
+	yarnlock_old2?: string,
+	/**
+	 * 執行前的 yarn.lock 是否存在
+	 */
+	readonly yarnlock_old_exists?: string,
+	/**
+	 * yarn.lock 是否有變動
+	 */
+	yarnlock_changed?: boolean,
+
+	/**
+	 * 最後一次的 yarn.lock diff 訊息
+	 */
+	yarnlock_msg?: string,
+
+	/**
+	 * 每個步驟的狀態 true 代表中斷所有步驟
+	 * null 代表此步驟不存在
+	 * void/undefined 代表此步驟未執行
+	 */
+	readonly ret: {
+		readonly init: boolean | void | null,
+		readonly before: boolean | void | null,
+		readonly main: boolean | void | null,
+		readonly after: boolean | void | null,
+	},
+
+	readonly consoleDebug?: Console2,
+	readonly console?: Console2,
+}
+
+export interface IWrapDedupeReturnType<T extends {
+	cwd?: string,
+	[k: string]: unknown,
+}, U extends T | {
+	cwd: string,
+	[k: string]: unknown,
+}, C extends IWrapDedupeCache>
+{
+	cwd: string;
+	rootData: IFindRootReturnType;
+	yarg: Argv<T>;
+	argv: Arguments<U>;
+	cache: C;
+}
+
+export type IInfoFromDedupeCacheReturnType = IFindRootReturnType & {
+	yarnlock_file: string;
+	yarnlock_old_exists: string;
+	yarnlock_exists: boolean;
+	yarnlock_changed: boolean;
 }
