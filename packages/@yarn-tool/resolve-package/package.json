@@ -28,7 +28,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^1.0.17",
+    "@ts-type/package-dts": "^1.0.19",
     "upath2": "^3.0.5"
   },
   "publishConfig": {
