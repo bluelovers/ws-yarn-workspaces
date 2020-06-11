@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.22](https://github.com/bluelovers/node-package-json-loader/compare/npm-package-json-loader@1.0.21...npm-package-json-loader@1.0.22) (2020-06-11)
+
+
+### Features
+
+* wrapDedupe ([d7e6ad8](https://github.com/bluelovers/node-package-json-loader/commit/d7e6ad8479e712d4e9b5fb284dc177ece16a46bc))
+
+
+
+
+
 ## [1.0.21](https://github.com/bluelovers/node-package-json-loader/compare/npm-package-json-loader@1.0.20...npm-package-json-loader@1.0.21) (2020-06-06)
 
 **Note:** Version bump only for package npm-package-json-loader

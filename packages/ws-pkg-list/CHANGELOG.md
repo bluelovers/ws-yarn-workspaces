@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-pkg-list@1.0.18...ws-pkg-list@1.0.19) (2020-06-11)
+
+
+### Features
+
+* wrapDedupe ([d7e6ad8](https://github.com/bluelovers/ws-yarn-workspaces/commit/d7e6ad8479e712d4e9b5fb284dc177ece16a46bc))
+
+
+
+
+
 ## [1.0.18](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-pkg-list@1.0.17...ws-pkg-list@1.0.18) (2020-06-09)
 
 **Note:** Version bump only for package ws-pkg-list
