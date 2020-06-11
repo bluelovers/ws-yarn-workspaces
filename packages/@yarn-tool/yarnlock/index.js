@@ -20,5 +20,6 @@ __exportStar(require("./lib/parse"), exports);
 __exportStar(require("./lib/util"), exports);
 __exportStar(require("./lib/diff"), exports);
 __exportStar(require("./lib/dedupe"), exports);
+__exportStar(require("./lib/wrap"), exports);
 exports.default = exports;
 //# sourceMappingURL=index.js.map

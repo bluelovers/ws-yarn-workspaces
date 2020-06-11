@@ -9,5 +9,6 @@ export * from './lib/parse';
 export * from './lib/util';
 export * from './lib/diff';
 export * from './lib/dedupe';
+export * from './lib/wrap';
 
 export default exports as typeof import('./index');
