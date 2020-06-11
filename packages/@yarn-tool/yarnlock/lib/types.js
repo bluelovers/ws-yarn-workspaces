@@ -2,26 +2,16 @@
 /**
  * Created by user on 2020/6/11.
  */
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.EnumVersionValue2 = exports.EnumPackageManagersNpmMethod = exports.EnumVersionValue = void 0;
-var EnumVersionValue;
-(function (EnumVersionValue) {
-    EnumVersionValue["major"] = "major";
-    EnumVersionValue["minor"] = "minor";
-    EnumVersionValue["latest"] = "latest";
-    EnumVersionValue["greatest"] = "greatest";
-    EnumVersionValue["newest"] = "newest";
-})(EnumVersionValue = exports.EnumVersionValue || (exports.EnumVersionValue = {}));
-var EnumPackageManagersNpmMethod;
-(function (EnumPackageManagersNpmMethod) {
-    EnumPackageManagersNpmMethod["major"] = "greatestMajor";
-    EnumPackageManagersNpmMethod["minor"] = "greatestMinor";
-    EnumPackageManagersNpmMethod["latest"] = "latest";
-    EnumPackageManagersNpmMethod["greatest"] = "greatest";
-    EnumPackageManagersNpmMethod["newest"] = "newest";
-})(EnumPackageManagersNpmMethod = exports.EnumPackageManagersNpmMethod || (exports.EnumPackageManagersNpmMethod = {}));
-var EnumVersionValue2;
-(function (EnumVersionValue2) {
-    EnumVersionValue2["any"] = "*";
-})(EnumVersionValue2 = exports.EnumVersionValue2 || (exports.EnumVersionValue2 = {}));
+__exportStar(require("@ts-type/package-dts/lib/package-json/types"), exports);
 //# sourceMappingURL=types.js.map

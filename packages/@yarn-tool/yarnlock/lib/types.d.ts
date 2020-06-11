@@ -2,36 +2,12 @@
  * Created by user on 2020/6/11.
  */
 import { ITSArrayListMaybeReadonly, ITSValueOfArray } from 'ts-type';
-import { IDependency } from '@yarn-tool/table/lib/types';
 import { IFindRootReturnType } from '@yarn-tool/find-root';
 import { IFsYarnLockReturnType } from './fs';
 import { Console2 } from 'debug-color2';
 import { Argv, Arguments } from 'yargs';
-export declare type IVersionValue = 'latest' | '*' | string | EnumVersionValue | EnumVersionValue2;
-export declare enum EnumVersionValue {
-    'major' = "major",
-    'minor' = "minor",
-    'latest' = "latest",
-    'greatest' = "greatest",
-    'newest' = "newest"
-}
-export declare enum EnumPackageManagersNpmMethod {
-    'major' = "greatestMajor",
-    'minor' = "greatestMinor",
-    'latest' = "latest",
-    'greatest' = "greatest",
-    'newest' = "newest"
-}
-export declare const enum EnumVersionValue2 {
-    any = "*"
-}
-declare module '@yarn-tool/table/lib/types' {
-    interface IDependency {
-        [name: string]: IVersionValue;
-    }
-}
-export type { IDependency };
-export type { IDependency as IPackageMap };
+export * from '@ts-type/package-dts/lib/package-json/types';
+import { IVersionValue } from '@ts-type/package-dts/lib/package-json/types';
 export interface IYarnLockfileParseFull<T extends ITSArrayListMaybeReadonly<string> = string[]> {
     type: string | 'success' | 'merge' | 'conflict';
     object: IYarnLockfileParseObject<T>;
