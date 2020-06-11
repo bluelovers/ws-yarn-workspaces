@@ -1,7 +1,4 @@
 "use strict";
-/**
- * Created by user on 2020/6/11.
- */
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
@@ -13,8 +10,12 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(require("./lib/_core"), exports);
-__exportStar(require("./lib/compare"), exports);
-__exportStar(require("./lib/parse"), exports);
-exports.default = exports;
+/**
+ * Created by user on 2020/6/11.
+ */
+const colorize_1 = require("./lib/colorize");
+__exportStar(require("./lib/types"), exports);
+__exportStar(require("./lib/colorize"), exports);
+__exportStar(require("./lib/core"), exports);
+exports.default = colorize_1.colorizeDiff;
 //# sourceMappingURL=index.js.map

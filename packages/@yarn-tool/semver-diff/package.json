@@ -1,0 +1,52 @@
+{
+  "name": "@yarn-tool/semver-diff",
+  "version": "1.0.0",
+  "description": "colorize semver diff",
+  "keywords": [
+    "semver",
+    "diff",
+    "color",
+    "colorize"
+  ],
+  "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/semver-diff#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/ws-yarn-workspaces.git"
+  },
+  "license": "ISC",
+  "author": "bluelovers",
+  "main": "index.js",
+  "scripts": {
+    "coverage": "npx nyc yarn run test",
+    "lint": "npx eslint **/*.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:jest": "jest --coverage",
+    "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
+    "npm:publish": "npm publish",
+    "npm:publish:lerna": "lerna publish --yes",
+    "prepublish:lockfile": "npx sync-lockfile .",
+    "prepublishOnly_": "yarn run ncu && yarn run sort-package-json && yarn run test",
+    "postpublish_": "git commit -m \"chore(release): publish\" .",
+    "ncu": "npx yarn-tool ncu -u",
+    "sort-package-json": "npx yarn-tool sort",
+    "tsc:default": "tsc -p tsconfig.json",
+    "tsc:esm": "tsc -p tsconfig.esm.json"
+  },
+  "dependencies": {
+    "@lazy-node/semver-part": "^1.0.0",
+    "ts-type": "^1.2.17"
+  },
+  "devDependencies": {
+    "debug-color2": "^1.2.0",
+    "chalk": "< 3 && >= 2"
+  },
+  "peerDependencies": {
+    "debug-color2": "^1.2.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

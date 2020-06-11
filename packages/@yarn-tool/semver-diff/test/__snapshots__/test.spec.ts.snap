@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parseVersionsDiffCore 1`] = `
+Object {
+  "_colors": Array [
+    "red",
+    "cyan",
+    "green",
+  ],
+  "color": "green",
+  "comp": 1,
+  "index": 2,
+  "leadingWildcard": "",
+  "middot": ".",
+  "partsNew": Array [
+    "42",
+    "6",
+    "7.9.3-prealpha",
+  ],
+  "partsOld": Array [
+    "42",
+    "6",
+    "7.9.3-alpha",
+  ],
+  "result": "42.6",
+  "resultAppend": "7.9.3-prealpha",
+  "versionNew": "42.6.7.9.3-prealpha",
+  "versionOld": "42.6.7.9.3-alpha",
+}
+`;

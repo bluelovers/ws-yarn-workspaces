@@ -8,4 +8,6 @@ export * from './lib/_core';
 
 export * from './lib/compare';
 
+export * from './lib/parse';
+
 export default exports as typeof import('./index');

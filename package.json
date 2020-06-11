@@ -26,6 +26,11 @@
     "sort-package-json:ws": "npx yarn-tool ws exec yarn-tool sort"
   },
   "resolutions": {},
+  "dependencies": {
+    "array-hyper-unique": "^1.1.2",
+    "chalk": "< 3 && >= 2",
+    "semver": "^7.3.2"
+  },
   "devDependencies": {
     "@bluelovers/fast-glob": "^3.0.4",
     "@bluelovers/tsconfig": "^1.0.19",
@@ -42,11 +47,9 @@
     "@types/semver": "^7.2.0",
     "@types/validate-npm-package-name": "^3.0.0",
     "@types/yargs": "^15.0.5",
-    "array-hyper-unique": "^1.1.2",
     "chai": "^4.2.0",
     "jest": "^26.0.1",
-    "mocha": "^7.2.0",
-    "semver": "^7.3.2",
+    "mocha": "^8.0.1",
     "ts-jest": "^26.1.0"
   },
   "peerDependencies": {

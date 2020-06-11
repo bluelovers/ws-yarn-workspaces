@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.cmp = exports.lte = exports.lt = exports.gte = exports.gt = exports.neq = exports.eq = exports.compare = void 0;
+exports.tryCompare = exports.cmp = exports.lte = exports.lt = exports.gte = exports.gt = exports.neq = exports.eq = exports.compare = void 0;
 /**
  * Created by user on 2020/6/11.
  */
@@ -43,4 +43,11 @@ function cmp(part1, operator, part2, optionsOrLoose) {
     return cmp_1.default(v1, operator, v2, optionsOrLoose);
 }
 exports.cmp = cmp;
+function tryCompare(v1, v2, optionsOrLoose) {
+    try {
+        return compare(v1, v2, optionsOrLoose);
+    }
+    catch (e) { }
+}
+exports.tryCompare = tryCompare;
 //# sourceMappingURL=compare.js.map
