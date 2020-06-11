@@ -35,8 +35,8 @@
   },
   "dependencies": {
     "@yarn-tool/node-modules": "^1.0.8",
-    "cross-spawn-extra": "^2.0.0",
-    "debug-color2": "^1.1.7",
+    "cross-spawn-extra": "^2.1.0",
+    "debug-color2": "^1.2.0",
     "fs-extra": "^9.0.1",
     "ws-pkg-list": "^1.0.18",
     "yarn-list-link": "^1.0.7"

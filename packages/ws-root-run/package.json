@@ -33,7 +33,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "cross-spawn-extra": "^2.0.0",
+    "cross-spawn-extra": "^2.1.0",
     "find-yarn-workspace-root2": "^1.2.15"
   },
   "peerDependencies": {

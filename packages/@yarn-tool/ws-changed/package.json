@@ -39,8 +39,8 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@git-lazy/diff-staged": "^1.0.17",
-    "git-root2": "^1.0.14",
+    "@git-lazy/diff-staged": "^1.0.19",
+    "git-root2": "^1.0.16",
     "glob-regex": "^0.3.2",
     "micromatch": "^4.0.2"
   },
