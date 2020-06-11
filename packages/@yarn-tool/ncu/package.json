@@ -2,6 +2,17 @@
   "name": "@yarn-tool/ncu",
   "version": "1.0.2",
   "description": "",
+  "keywords": [
+    "cli",
+    "install",
+    "npm",
+    "package",
+    "package manager",
+    "packages",
+    "tool",
+    "yarn",
+    "yarn-tool"
+  ],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/ncu#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"
@@ -30,12 +41,18 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^1.0.17",
+    "@ts-type/package-dts": "^1.0.19",
     "@yarn-tool/semver-diff": "^1.0.2",
+    "@yarn-tool/table": "^1.0.2",
+    "@yarn-tool/yarnlock": "^1.0.3",
     "bluebird": "^3.7.2",
     "npm-check-updates": "^7.0.1",
     "package-json": "^6.5.0",
     "semver": "^7.3.2"
+  },
+  "devDependencies": {},
+  "peerDependencies": {
+    "yargs": "^15.3.1"
   },
   "publishConfig": {
     "access": "public"
