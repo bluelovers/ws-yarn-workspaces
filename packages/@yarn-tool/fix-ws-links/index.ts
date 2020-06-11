@@ -6,7 +6,7 @@ import { wsPkgListable } from 'ws-pkg-list/lib/listable';
 import { wsFindPackageHasModulesCore } from '@yarn-tool/node-modules/lib/ws-find-paths';
 import { IListableRow } from 'ws-pkg-list';
 import yarnListLink from 'yarn-list-link/core';
-import { linkSync, realpathSync, removeSync } from 'fs-extra';
+import { linkSync, realpathSync, removeSync, pathExistsSync } from 'fs-extra';
 import crossSpawn from 'cross-spawn-extra';
 import { unlinkSync } from 'fs';
 import { sameRealpath, isSymbolicLink } from './lib/util';
@@ -58,6 +58,11 @@ export function fixYarnWorkspaceLinks(cwd?: string, options?: {
 					let location = pkgs[name]?.location;
 
 					let is_same = sameRealpath(location, row.location)
+
+					if (!pathExistsSync(row.location))
+					{
+						return;
+					}
 
 					let is_symlink = isSymbolicLink(row.location);
 

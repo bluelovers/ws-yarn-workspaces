@@ -35,6 +35,9 @@ function fixYarnWorkspaceLinks(cwd, options) {
                 let name = row.name;
                 let location = (_a = pkgs[name]) === null || _a === void 0 ? void 0 : _a.location;
                 let is_same = util_1.sameRealpath(location, row.location);
+                if (!fs_extra_1.pathExistsSync(row.location)) {
+                    return;
+                }
                 let is_symlink = util_1.isSymbolicLink(row.location);
                 if (location && is_same === false && !is_symlink) {
                     if (links.includes(name)) {
