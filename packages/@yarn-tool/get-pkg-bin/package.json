@@ -28,7 +28,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^1.0.19",
+    "@ts-type/package-dts": "^1.0.20",
     "@yarn-tool/resolve-package": "^1.0.9",
     "upath2": "^3.0.5"
   },

@@ -41,7 +41,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^1.0.19",
+    "@ts-type/package-dts": "^1.0.20",
     "@yarn-tool/semver-diff": "^1.0.2",
     "@yarn-tool/table": "^1.0.3",
     "@yarn-tool/yarnlock": "^1.0.4",
