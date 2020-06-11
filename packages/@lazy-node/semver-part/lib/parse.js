@@ -17,9 +17,9 @@ function parseVersions(versionOld, versionNew) {
     };
 }
 exports.parseVersions = parseVersions;
-function parseVersionsAndCompare(versionOld, versionNew) {
+function parseVersionsAndCompare(versionOld, versionNew, optionsOrLoose) {
     const data = parseVersions(versionOld, versionNew);
-    let comp = compare_1.tryCompare(data.partsNew[data.index], data.partsOld[data.index]);
+    let comp = compare_1.tryCompare(data.partsNew[data.index], data.partsOld[data.index], optionsOrLoose);
     return {
         ...data,
         comp,

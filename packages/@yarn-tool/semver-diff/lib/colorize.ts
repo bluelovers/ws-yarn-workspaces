@@ -3,16 +3,16 @@
  */
 
 import { ITSRequireAtLeastOne } from 'ts-type';
-import { chalkByConsole } from 'debug-color2';
+import { console, chalkByConsole } from 'debug-color2';
 import { colorizeDiffCore } from './core';
 import { IOptionsParseVersionsDiff, IOptionsParseVersionsDiffPlus } from './types';
 
 export function colorizeDiff(from: string,
 	to: string,
-	options: ITSRequireAtLeastOne<IOptionsParseVersionsDiff, keyof IOptionsParseVersionsDiffPlus>,
+	options?: ITSRequireAtLeastOne<IOptionsParseVersionsDiff, keyof IOptionsParseVersionsDiffPlus>,
 ): string
 {
-	if (options.chalk)
+	if (options?.chalk)
 	{
 		return colorizeDiffCore(from, to, options as any)
 	}
@@ -24,5 +24,5 @@ export function colorizeDiff(from: string,
 			// @ts-ignore
 			chalk,
 		})
-	}, options.console)
+	}, options?.console ?? console)
 }

@@ -3,4 +3,4 @@
  */
 import { ITSRequireAtLeastOne } from 'ts-type';
 import { IOptionsParseVersionsDiff, IOptionsParseVersionsDiffPlus } from './types';
-export declare function colorizeDiff(from: string, to: string, options: ITSRequireAtLeastOne<IOptionsParseVersionsDiff, keyof IOptionsParseVersionsDiffPlus>): string;
+export declare function colorizeDiff(from: string, to: string, options?: ITSRequireAtLeastOne<IOptionsParseVersionsDiff, keyof IOptionsParseVersionsDiffPlus>): string;

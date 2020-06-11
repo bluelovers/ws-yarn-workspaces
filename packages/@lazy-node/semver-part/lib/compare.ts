@@ -6,49 +6,49 @@ import { _part } from './_core';
 import _compare from 'semver/functions/compare';
 
 import _cmp from 'semver/functions/cmp';
-import { Operator, Options } from 'semver';
+import { Operator as ISemverOperator, Options as ISemverOptions } from 'semver';
 
-export type { Operator, Options } from 'semver';
+export type { ISemverOperator, ISemverOptions };
 
-export type IOptionsOrLoose = boolean | Options
+export type IOptionsOrLoose = boolean | ISemverOptions
 export type ICompareReturnType = 1 | 0 | -1
 
-export function compare(part1: string, part2: string, optionsOrLoose?: boolean | Options)
+export function compare(part1: string, part2: string, optionsOrLoose?: IOptionsOrLoose): ICompareReturnType
 {
 	return _compare(..._part(part1, part2), optionsOrLoose as any)
 }
 
-export function eq(part1: string, part2: string, optionsOrLoose?: boolean | Options)
+export function eq(part1: string, part2: string, optionsOrLoose?: IOptionsOrLoose)
 {
 	return compare(part1, part2, optionsOrLoose as any) === 0
 }
 
-export function neq(part1: string, part2: string, optionsOrLoose?: boolean | Options)
+export function neq(part1: string, part2: string, optionsOrLoose?: IOptionsOrLoose)
 {
 	return compare(part1, part2, optionsOrLoose as any) !== 0
 }
 
-export function gt(part1: string, part2: string, optionsOrLoose?: boolean | Options)
+export function gt(part1: string, part2: string, optionsOrLoose?: IOptionsOrLoose)
 {
 	return compare(part1, part2, optionsOrLoose as any) > 0
 }
 
-export function gte(part1: string, part2: string, optionsOrLoose?: boolean | Options)
+export function gte(part1: string, part2: string, optionsOrLoose?: IOptionsOrLoose)
 {
 	return compare(part1, part2, optionsOrLoose as any) >= 0
 }
 
-export function lt(part1: string, part2: string, optionsOrLoose?: boolean | Options)
+export function lt(part1: string, part2: string, optionsOrLoose?: IOptionsOrLoose)
 {
 	return compare(part1, part2, optionsOrLoose as any) < 0
 }
 
-export function lte(part1: string, part2: string, optionsOrLoose?: boolean | Options)
+export function lte(part1: string, part2: string, optionsOrLoose?: IOptionsOrLoose)
 {
 	return compare(part1, part2, optionsOrLoose as any) <= 0
 }
 
-export function cmp(part1: string, operator: Operator, part2: string, optionsOrLoose?: boolean | Options)
+export function cmp(part1: string, operator: ISemverOperator, part2: string, optionsOrLoose?: IOptionsOrLoose)
 {
 	const [v1, v2] = _part(part1, part2)
 

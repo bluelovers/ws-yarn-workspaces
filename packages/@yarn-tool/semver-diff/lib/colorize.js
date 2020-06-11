@@ -7,7 +7,8 @@ exports.colorizeDiff = void 0;
 const debug_color2_1 = require("debug-color2");
 const core_1 = require("./core");
 function colorizeDiff(from, to, options) {
-    if (options.chalk) {
+    var _a;
+    if (options === null || options === void 0 ? void 0 : options.chalk) {
         return core_1.colorizeDiffCore(from, to, options);
     }
     return debug_color2_1.chalkByConsole((chalk) => {
@@ -16,7 +17,7 @@ function colorizeDiff(from, to, options) {
             // @ts-ignore
             chalk,
         });
-    }, options.console);
+    }, (_a = options === null || options === void 0 ? void 0 : options.console) !== null && _a !== void 0 ? _a : debug_color2_1.console);
 }
 exports.colorizeDiff = colorizeDiff;
 //# sourceMappingURL=colorize.js.map
