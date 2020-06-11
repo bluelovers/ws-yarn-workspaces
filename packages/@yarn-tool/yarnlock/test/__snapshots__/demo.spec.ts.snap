@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`checkAndReadYarnLockfile empty.lock 1`] = `undefined`;
+exports[`yarn.lock empty.lock 1`] = `undefined`;
 
-exports[`checkAndReadYarnLockfile yarn.lock 1`] = `
+exports[`yarn.lock yarn.lock 1`] = `
 Object {
   "@babel/code-frame@^7.0.0": Object {
     "dependencies": Object {

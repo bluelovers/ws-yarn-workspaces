@@ -44,7 +44,7 @@ export type { IDependency as IPackageMap }
 
 export interface IYarnLockfileParseFull<T extends ITSArrayListMaybeReadonly<string> = string[]>
 {
-	type: string;
+	type: string | 'success' | 'merge' | 'conflict';
 	object: IYarnLockfileParseObject<T>
 }
 

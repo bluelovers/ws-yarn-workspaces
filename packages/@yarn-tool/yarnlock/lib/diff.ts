@@ -10,6 +10,7 @@ const { _formatVersion } = FormatterService;
 
 export function yarnLockDiff(yarnlock_old: string, yarnlock_new: string, options?: IOptionsParseVersionsDiff): string
 {
+	// @ts-ignore
 	let chalk: IChalk = options?.chalk ?? chalkByConsoleMaybe(options?.console);
 	let _ok = false;
 

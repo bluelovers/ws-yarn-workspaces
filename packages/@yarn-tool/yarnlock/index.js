@@ -13,11 +13,12 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+__exportStar(require("./lib/types"), exports);
 __exportStar(require("./lib/core"), exports);
 __exportStar(require("./lib/fs"), exports);
 __exportStar(require("./lib/parse"), exports);
-__exportStar(require("./lib/types"), exports);
 __exportStar(require("./lib/util"), exports);
 __exportStar(require("./lib/diff"), exports);
+__exportStar(require("./lib/dedupe"), exports);
 exports.default = exports;
 //# sourceMappingURL=index.js.map

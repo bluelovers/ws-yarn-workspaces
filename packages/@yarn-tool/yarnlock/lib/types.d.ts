@@ -29,7 +29,7 @@ declare module '@yarn-tool/table/lib/types' {
 export type { IDependency };
 export type { IDependency as IPackageMap };
 export interface IYarnLockfileParseFull<T extends ITSArrayListMaybeReadonly<string> = string[]> {
-    type: string;
+    type: string | 'success' | 'merge' | 'conflict';
     object: IYarnLockfileParseObject<T>;
 }
 export declare type IYarnLockfileParseObject<T extends ITSArrayListMaybeReadonly<string> = string[]> = Record<string, IYarnLockfileParseObjectRow<T>>;

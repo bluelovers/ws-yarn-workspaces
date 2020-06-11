@@ -9,6 +9,7 @@ const core_1 = require("@yarn-tool/table/lib/core");
 const { _formatVersion } = formatter_1.FormatterService;
 function yarnLockDiff(yarnlock_old, yarnlock_new, options) {
     var _a;
+    // @ts-ignore
     let chalk = (_a = options === null || options === void 0 ? void 0 : options.chalk) !== null && _a !== void 0 ? _a : debug_color2_1.chalkByConsoleMaybe(options === null || options === void 0 ? void 0 : options.console);
     let _ok = false;
     options = {

@@ -76,5 +76,5 @@ __mocks__
 __tests__
 __snapshots__
 *.snap
-!npm-shrinkwrap.json
+npm-shrinkwrap.json
 /example/

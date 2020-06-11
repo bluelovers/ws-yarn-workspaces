@@ -2,7 +2,7 @@ import { join } from "path";
 import FastGlob from '@bluelovers/fast-glob';
 import { checkAndReadYarnLockfile } from '..';
 
-describe(`checkAndReadYarnLockfile`, () =>
+describe(`yarn.lock`, () =>
 {
 	const __res = join(__dirname, 'res');
 
@@ -14,10 +14,10 @@ describe(`checkAndReadYarnLockfile`, () =>
 		})
 		.forEach(file =>
 		{
+			const _file = join(__res, file);
+
 			test(file, () =>
 			{
-				const _file = join(__res, file);
-
 				let actual = checkAndReadYarnLockfile(_file);
 				let expected;
 
