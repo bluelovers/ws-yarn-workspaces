@@ -16,6 +16,7 @@
     "sort-package-json": "npx yarn-tool sort"
   },
   "dependencies": {
+    "@npmcli/ci-detect": "^1.2.0",
     "@yarn-tool/is-npx": "^1.0.4",
     "update-notifier": "^4.1.0"
   },

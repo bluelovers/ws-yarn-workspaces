@@ -3,6 +3,7 @@ export type IUpdateNotifier = typeof import('update-notifier');
 export type IUpdateNotifierObject = ReturnType<IUpdateNotifier>;
 import { NotifyOptions, Settings } from 'update-notifier';
 import { join } from 'path';
+import ciDetect from '@npmcli/ci-detect';
 
 export function notNpxMaybe(__dirname: string): boolean
 {
@@ -13,7 +14,7 @@ export function notNpxMaybe(__dirname: string): boolean
 
 	return !require('@yarn-tool/is-npx').isNpx({
 		__dirname,
-	})
+	}) && !ciDetect()
 }
 
 export function updateNotifier(__dirname: string | string[], force?: boolean, inputNoticeOptions?: Settings & NotifyOptions): IUpdateNotifierObject

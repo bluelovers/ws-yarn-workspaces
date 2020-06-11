@@ -1,14 +1,18 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.updateNotifier = exports.notNpxMaybe = void 0;
 const path_1 = require("path");
+const ci_detect_1 = __importDefault(require("@npmcli/ci-detect"));
 function notNpxMaybe(__dirname) {
     if (__dirname && /ypx_|_npx/i.test(__dirname)) {
         return false;
     }
     return !require('@yarn-tool/is-npx').isNpx({
         __dirname,
-    });
+    }) && !ci_detect_1.default();
 }
 exports.notNpxMaybe = notNpxMaybe;
 function updateNotifier(__dirname, force, inputNoticeOptions) {
