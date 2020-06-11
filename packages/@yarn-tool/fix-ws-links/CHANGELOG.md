@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.18](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-ws-links@1.0.17...@yarn-tool/fix-ws-links@1.0.18) (2020-06-11)
+
+
+### Bug Fixes
+
+* Error: ENOENT: no such file or directory, lstat ([e6650f1](https://github.com/bluelovers/ws-yarn-workspaces/commit/e6650f14e8e30cc19d39311ddb06145515f2f72f))
+
+
+
+
+
 ## [1.0.17](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-ws-links@1.0.16...@yarn-tool/fix-ws-links@1.0.17) (2020-06-11)
 
 **Note:** Version bump only for package @yarn-tool/fix-ws-links
