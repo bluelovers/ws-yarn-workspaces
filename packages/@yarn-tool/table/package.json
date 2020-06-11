@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/table",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "shared cli table utils for yarn-tool",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/table#readme",
   "bugs": {
@@ -30,10 +30,9 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@yarn-tool/semver-diff": "^1.0.0",
+    "@yarn-tool/semver-diff": "^1.0.1",
     "cli-table3": "^0.6.0"
   },
-  "devDependencies": {},
   "publishConfig": {
     "access": "public"
   }

@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarnlock",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/yarnlock#readme",
   "bugs": {
@@ -30,7 +30,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@yarn-tool/table": "^1.0.0",
+    "@yarn-tool/table": "^1.0.1",
     "@yarnpkg/lockfile": "^1.1.0",
     "deep-diff": "^1.0.2",
     "fs-extra": "^9.0.1",

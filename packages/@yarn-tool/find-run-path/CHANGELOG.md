@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.17](https://github.com/bluelovers/ws-yarn-workspaces/compare/env-run-path@1.0.16...env-run-path@1.0.17) (2020-06-11)
+
+
+### Features
+
+* config able yarnLockDiff ([2544cc7](https://github.com/bluelovers/ws-yarn-workspaces/commit/2544cc7f3449ab79f665bdf801c99844f5b14edd))
+
+
+
+
+
 ## [1.0.16](https://github.com/bluelovers/ws-yarn-workspaces/compare/env-run-path@1.0.15...env-run-path@1.0.16) (2020-06-09)
 
 **Note:** Version bump only for package env-run-path

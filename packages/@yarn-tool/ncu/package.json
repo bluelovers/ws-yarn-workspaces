@@ -1,8 +1,8 @@
 {
-  "name": "ws-root-spawn",
-  "version": "1.0.5",
-  "description": "run/exec in workspaces root",
-  "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/ws-root-run#readme",
+  "name": "@yarn-tool/ncu",
+  "version": "1.0.1",
+  "description": "",
+  "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/ncu#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"
   },
@@ -13,9 +13,6 @@
   "license": "ISC",
   "author": "bluelovers",
   "main": "index.js",
-  "bin": {
-    "ws-root-spawn": "bin/ws-root.js"
-  },
   "scripts": {
     "coverage": "npx nyc yarn run test",
     "lint": "npx eslint **/*.ts",
@@ -33,10 +30,14 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "cross-spawn-extra": "^2.1.0",
-    "find-yarn-workspace-root2": "^1.2.15"
+    "@ts-type/package-dts": "^1.0.10",
+    "@yarn-tool/semver-diff": "^1.0.1",
+    "bluebird": "^3.7.2",
+    "npm-check-updates": "^7.0.1",
+    "package-json": "^6.5.0",
+    "semver": "^7.3.2"
   },
-  "peerDependencies": {
-    "yarn": "^1.22.4"
+  "publishConfig": {
+    "access": "public"
   }
 }

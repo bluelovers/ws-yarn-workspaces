@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.49](https://github.com/bluelovers/create-yarn-workspaces/compare/create-yarn-workspaces@1.0.48...create-yarn-workspaces@1.0.49) (2020-06-11)
+
+
+### Features
+
+* config able yarnLockDiff ([2544cc7](https://github.com/bluelovers/create-yarn-workspaces/commit/2544cc7f3449ab79f665bdf801c99844f5b14edd))
+
+
+
+
+
 ## [1.0.48](https://github.com/bluelovers/create-yarn-workspaces/compare/create-yarn-workspaces@1.0.47...create-yarn-workspaces@1.0.48) (2020-06-09)
 
 **Note:** Version bump only for package create-yarn-workspaces
