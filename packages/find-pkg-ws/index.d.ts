@@ -3,7 +3,8 @@
  */
 declare function findWorkspacePackageJson(cwd?: string): string;
 declare namespace findWorkspacePackageJson {
-    var findPkg: typeof findWorkspacePackageJson;
-    var default: typeof findWorkspacePackageJson;
+    export var findPkg: typeof findWorkspacePackageJson;
+    var _a: typeof findWorkspacePackageJson;
+    export { _a as default };
 }
 export = findWorkspacePackageJson;

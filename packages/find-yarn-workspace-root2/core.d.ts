@@ -6,11 +6,12 @@
  */
 export declare function findWorkspaceRoot(initial?: string): string;
 export declare namespace findWorkspaceRoot {
-    var findWorkspaceRoot: typeof import("./core").findWorkspaceRoot;
-    var readPackageJSON: typeof import("./core").readPackageJSON;
-    var extractWorkspaces: typeof import("./core").extractWorkspaces;
-    var isMatchWorkspaces: typeof import("./core").isMatchWorkspaces;
-    var default: typeof import("./core").findWorkspaceRoot;
+    export var findWorkspaceRoot: typeof import("./core").findWorkspaceRoot;
+    export var readPackageJSON: typeof import("./core").readPackageJSON;
+    export var extractWorkspaces: typeof import("./core").extractWorkspaces;
+    export var isMatchWorkspaces: typeof import("./core").isMatchWorkspaces;
+    var _a: typeof import("./core").findWorkspaceRoot;
+    export { _a as default };
 }
 export declare function checkWorkspaces(current: string, initial: string): {
     done: boolean;
