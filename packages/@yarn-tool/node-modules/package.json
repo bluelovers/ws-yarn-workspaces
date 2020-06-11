@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/node-modules",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/node-modules#readme",
   "bugs": {
@@ -33,7 +33,7 @@
     "@bluelovers/fast-glob": "^3.0.4",
     "pkg-dir": "^4.2.0",
     "upath2": "^3.0.5",
-    "ws-pkg-list": "^1.0.20"
+    "ws-pkg-list": "^1.0.21"
   },
   "publishConfig": {
     "access": "public"

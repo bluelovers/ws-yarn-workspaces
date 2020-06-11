@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.10](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/get-pkg-bin@1.0.9...@yarn-tool/get-pkg-bin@1.0.10) (2020-06-11)
+
+
+### Bug Fixes
+
+* update @ts-type/package-dts ([b44d2aa](https://github.com/bluelovers/ws-yarn-workspaces/commit/b44d2aa80755e66f91cd9add9a420216d000a30e))
+
+
+
+
+
 ## [1.0.9](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/get-pkg-bin@1.0.8...@yarn-tool/get-pkg-bin@1.0.9) (2020-06-11)
 
 **Note:** Version bump only for package @yarn-tool/get-pkg-bin

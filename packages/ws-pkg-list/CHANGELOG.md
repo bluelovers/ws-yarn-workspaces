@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.21](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-pkg-list@1.0.20...ws-pkg-list@1.0.21) (2020-06-11)
+
+
+### Bug Fixes
+
+* update @ts-type/package-dts ([b44d2aa](https://github.com/bluelovers/ws-yarn-workspaces/commit/b44d2aa80755e66f91cd9add9a420216d000a30e))
+
+
+
+
+
 ## [1.0.20](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-pkg-list@1.0.19...ws-pkg-list@1.0.20) (2020-06-11)
 
 **Note:** Version bump only for package ws-pkg-list

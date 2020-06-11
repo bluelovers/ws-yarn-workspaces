@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.24](https://github.com/bluelovers/node-package-json-loader/compare/npm-package-json-loader@1.0.23...npm-package-json-loader@1.0.24) (2020-06-11)
+
+
+### Bug Fixes
+
+* update @ts-type/package-dts ([b44d2aa](https://github.com/bluelovers/node-package-json-loader/commit/b44d2aa80755e66f91cd9add9a420216d000a30e))
+
+
+
+
+
 ## [1.0.23](https://github.com/bluelovers/node-package-json-loader/compare/npm-package-json-loader@1.0.22...npm-package-json-loader@1.0.23) (2020-06-11)
 
 **Note:** Version bump only for package npm-package-json-loader

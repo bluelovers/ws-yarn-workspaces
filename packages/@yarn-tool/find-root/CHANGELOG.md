@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.18](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-root@1.0.17...@yarn-tool/find-root@1.0.18) (2020-06-11)
+
+
+### Bug Fixes
+
+* update @ts-type/package-dts ([b44d2aa](https://github.com/bluelovers/ws-yarn-workspaces/commit/b44d2aa80755e66f91cd9add9a420216d000a30e))
+
+
+
+
+
 ## [1.0.17](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-root@1.0.16...@yarn-tool/find-root@1.0.17) (2020-06-11)
 
 **Note:** Version bump only for package @yarn-tool/find-root
