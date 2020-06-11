@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.31](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.30...@yarn-tool/static-file@1.0.31) (2020-06-11)
+
+
+### Features
+
+* deduplicate ([9cfc4cc](https://github.com/bluelovers/ws-yarn-workspaces/commit/9cfc4cc2fe1efbfe4902d533c4e16ac298d4b865))
+
+
+
+
+
 ## [1.0.30](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.29...@yarn-tool/static-file@1.0.30) (2020-06-09)
 
 **Note:** Version bump only for package @yarn-tool/static-file
