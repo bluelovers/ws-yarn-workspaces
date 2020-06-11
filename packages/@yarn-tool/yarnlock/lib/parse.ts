@@ -3,11 +3,11 @@
  */
 
 import { IYarnLockfileParseObject, IYarnLockfileParseFull, IYarnLockfileParseObjectRow } from './types';
-import lockfile from '@yarnpkg/lockfile';
+import { parse as _parse, stringify as _stringify } from '@yarnpkg/lockfile';
 
 export function parseFull(text: string | Buffer): IYarnLockfileParseFull
 {
-	return lockfile.parse(text.toString())
+	return _parse(text.toString())
 }
 
 export function parse(text: string | Buffer)
@@ -17,5 +17,5 @@ export function parse(text: string | Buffer)
 
 export function stringify(json: IYarnLockfileParseObject): string
 {
-	return lockfile.stringify(json)
+	return _stringify(json)
 }

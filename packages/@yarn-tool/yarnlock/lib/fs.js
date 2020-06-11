@@ -25,11 +25,12 @@ function checkAndReadYarnLockfileUnsafe(file) {
 exports.checkAndReadYarnLockfileUnsafe = checkAndReadYarnLockfileUnsafe;
 function checkAndReadYarnLockfile(file) {
     let buf = checkAndReadYarnLockfileUnsafe(file);
-    if (buf) {
+    if (buf === null || buf === void 0 ? void 0 : buf.length) {
         try {
             return parse_1.parse(buf);
         }
         catch (e) {
+            console.trace(e);
         }
     }
 }

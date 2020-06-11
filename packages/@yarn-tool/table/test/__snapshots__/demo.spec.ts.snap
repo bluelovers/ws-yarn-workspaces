@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createDependencyTable 1`] = `Table []`;
+
+exports[`createDependencyTable 2`] = `"[31m package name [39m[31m old version(s) [39m[31m  [39m[31m new version(s) [39m"`;

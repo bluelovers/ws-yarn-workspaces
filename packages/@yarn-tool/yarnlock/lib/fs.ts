@@ -32,7 +32,7 @@ export function checkAndReadYarnLockfileUnsafe(file: string)
 export function checkAndReadYarnLockfile(file: string)
 {
 	let buf = checkAndReadYarnLockfileUnsafe(file)
-	if (buf)
+	if (buf?.length)
 	{
 		try
 		{
@@ -40,7 +40,7 @@ export function checkAndReadYarnLockfile(file: string)
 		}
 		catch (e)
 		{
-
+			console.trace(e)
 		}
 	}
 }

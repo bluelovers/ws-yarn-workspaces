@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import { Operator as ISemverOperator, Options as ISemverOptions } from 'semver';
 export type { ISemverOperator, ISemverOptions };
 export declare type IOptionsOrLoose = boolean | ISemverOptions;
@@ -10,4 +11,4 @@ export declare function gte(part1: string, part2: string, optionsOrLoose?: IOpti
 export declare function lt(part1: string, part2: string, optionsOrLoose?: IOptionsOrLoose): boolean;
 export declare function lte(part1: string, part2: string, optionsOrLoose?: IOptionsOrLoose): boolean;
 export declare function cmp(part1: string, operator: ISemverOperator, part2: string, optionsOrLoose?: IOptionsOrLoose): boolean;
-export declare function tryCompare(v1: string, v2: string, optionsOrLoose?: IOptionsOrLoose): ICompareReturnType;
+export declare function tryCompare(v1: string, v2: string, optionsOrLoose?: IOptionsOrLoose): import("readline").Direction;
