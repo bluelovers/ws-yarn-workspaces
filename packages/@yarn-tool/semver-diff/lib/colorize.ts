@@ -9,7 +9,7 @@ import { IOptionsParseVersionsDiff, IOptionsParseVersionsDiffPlus } from './type
 
 export function colorizeDiff(from: string,
 	to: string,
-	options?: ITSRequireAtLeastOne<IOptionsParseVersionsDiff, keyof IOptionsParseVersionsDiffPlus>,
+	options?: IOptionsParseVersionsDiff,
 ): string
 {
 	if (options?.chalk)

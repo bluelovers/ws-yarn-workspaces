@@ -7,9 +7,14 @@ const debug_color2_1 = require("debug-color2");
 const semver_diff_1 = require("@yarn-tool/semver-diff");
 const core_1 = require("@yarn-tool/table/lib/core");
 const { _formatVersion } = formatter_1.FormatterService;
-function yarnLockDiff(yarnlock_old, yarnlock_new) {
-    let { chalk } = debug_color2_1.console;
+function yarnLockDiff(yarnlock_old, yarnlock_new, options) {
+    var _a;
+    let chalk = (_a = options === null || options === void 0 ? void 0 : options.chalk) !== null && _a !== void 0 ? _a : debug_color2_1.chalkByConsoleMaybe(options === null || options === void 0 ? void 0 : options.console);
     let _ok = false;
+    options = {
+        ...options,
+        chalk,
+    };
     const table = core_1.createDependencyTable();
     table.options.colAligns = ['left', 'center', 'center', 'center'];
     table.options.head = [
@@ -40,7 +45,7 @@ function yarnLockDiff(yarnlock_old, yarnlock_new) {
                     let lhs0 = _formatVersion(packageDiff.lhs);
                     let rhs0 = _formatVersion(packageDiff.rhs);
                     let lhs = chalk.yellow(lhs0);
-                    let rhs = chalk.yellow(semver_diff_1.colorizeDiff(lhs0, rhs0));
+                    let rhs = chalk.yellow(semver_diff_1.colorizeDiff(lhs0, rhs0, options));
                     _arr = [chalk.yellow(path), lhs, ARROW, rhs];
                     break;
                 case 'N':

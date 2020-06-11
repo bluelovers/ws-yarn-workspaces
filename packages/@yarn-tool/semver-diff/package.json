@@ -40,11 +40,11 @@
     "ts-type": "^1.2.17"
   },
   "devDependencies": {
-    "debug-color2": "^1.2.0",
+    "debug-color2": "^1.2.1",
     "chalk": "< 3 && >= 2"
   },
   "peerDependencies": {
-    "debug-color2": "^1.2.0"
+    "debug-color2": "^1.2.1"
   },
   "publishConfig": {
     "access": "public"

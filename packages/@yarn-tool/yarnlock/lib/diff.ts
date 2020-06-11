@@ -1,17 +1,22 @@
 import { DiffService } from 'yarn-lock-diff/lib/diff-service';
 import { FormatterService } from 'yarn-lock-diff/lib/formatter';
-import { console } from 'debug-color2';
-import { colorizeDiff } from '@yarn-tool/semver-diff';
+import { console, chalkByConsoleMaybe } from 'debug-color2';
+import { colorizeDiff, IOptionsParseVersionsDiff } from '@yarn-tool/semver-diff';
 import { IChalk } from 'debug-color2'
 import { DiffArray } from 'deep-diff';
 import { createDependencyTable } from '@yarn-tool/table/lib/core';
 
 const { _formatVersion } = FormatterService;
 
-export function yarnLockDiff(yarnlock_old: string, yarnlock_new: string): string
+export function yarnLockDiff(yarnlock_old: string, yarnlock_new: string, options?: IOptionsParseVersionsDiff): string
 {
-	let { chalk } = console;
+	let chalk: IChalk = options?.chalk ?? chalkByConsoleMaybe(options?.console);
 	let _ok = false;
+
+	options = {
+		...options,
+		chalk,
+	}
 
 	const table = createDependencyTable();
 
@@ -62,7 +67,7 @@ export function yarnLockDiff(yarnlock_old: string, yarnlock_new: string): string
 							let rhs0 = _formatVersion(packageDiff.rhs);
 
 							let lhs = chalk.yellow(lhs0);
-							let rhs = chalk.yellow(colorizeDiff(lhs0, rhs0));
+							let rhs = chalk.yellow(colorizeDiff(lhs0, rhs0, options));
 
 							_arr = [chalk.yellow(path), lhs, ARROW, rhs];
 

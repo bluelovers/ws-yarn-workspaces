@@ -2068,10 +2068,10 @@ data-urls@^2.0.0:
     whatwg-mimetype "^2.3.0"
     whatwg-url "^8.0.0"
 
-debug-color2@^1.1.7, debug-color2@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.npmjs.org/debug-color2/-/debug-color2-1.2.0.tgz#40d3ead133341b7699d406d29a9308a6ffcb1286"
-  integrity sha512-SgoKWTEXmtU7PA6A3ytzu1v9DWKS3XH2Q4Vzc9GlTZO+/cuQjzKRRRW3XFzflUbyKW1v5v/hW5CUJ3l35Wv42g==
+debug-color2@^1.1.7, debug-color2@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.npmjs.org/debug-color2/-/debug-color2-1.2.1.tgz#149c07ef45bcbee230743f716633cd6f79a221d2"
+  integrity sha512-n88PUrbicKGF7b6v96JtZ9nbq+6MamvWFLKRZetr4vjALEKTk08tB6bUcfYi/kDxhXa7jlrHUaFRd/EENcgYdg==
   dependencies:
     "@types/luxon" "*"
     chalk "< 3 && >= 2"
