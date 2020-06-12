@@ -1,19 +1,9 @@
 import { resolve } from 'upath2';
-import type { IPackageJson } from '@ts-type/package-dts';
-import resolvePackage from '@yarn-tool/resolve-package';
-import { handlePackageBins, getPackageBins, getPackageInfo, firstPackageBin, IPackageJsonLike } from './util';
+import { handlePackageBins, getPackageBins, getPackageInfo, firstPackageBin } from './util';
+import { IPackageJsonLike, IOptions } from './lib/types';
 
-export type IOptions = {
-	pkgRoot?: string,
-	usePathResolve?: boolean,
-	paths?: string[],
-} & ({
-	name?: string,
-	pkg: IPackageJsonLike,
-} | {
-	name: string,
-	pkg?: IPackageJsonLike,
-});
+export * from './lib/types';
+export * from './util';
 
 export function normalizePackageBins(options: IOptions)
 {

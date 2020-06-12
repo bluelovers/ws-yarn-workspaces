@@ -48,7 +48,7 @@ export function matchShebang(line: string): IMatchShebangReturnType
 		let i = 2;
 		let isExtra: boolean = false;
 
-		if (script === 'env')
+		if (script === 'env' && typeof matched[2] === 'undefined')
 		{
 			script = matched[2];
 			i = 3;

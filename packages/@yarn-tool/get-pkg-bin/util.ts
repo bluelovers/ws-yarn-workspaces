@@ -4,10 +4,10 @@
 
 import type { IPackageJson } from '@ts-type/package-dts';
 import { sep, isAbsolute, normalize } from 'upath2';
-import type { IOptions } from './index';
 import { resolvePackage } from '@yarn-tool/resolve-package';
 
-export type IPackageJsonLike = IPackageJson | Record<string, any>;
+export * from './lib/types';
+import { IPackageJsonLike, IOptions } from './lib/types';
 
 export function getPackageBins(pkg: IPackageJsonLike): Record<string, string>
 {
