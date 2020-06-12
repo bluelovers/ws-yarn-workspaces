@@ -1,7 +1,8 @@
 {
   "name": "@yarn-tool/check-pkg-bin",
   "version": "1.0.2",
-  "description": "",
+  "description": "check pkg bin has shebang",
+  "keywords": [],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/check-pkg-bin#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"
@@ -13,6 +14,13 @@
   "license": "ISC",
   "author": "bluelovers",
   "main": "index.js",
+  "bin": {
+    "check-pkg-bin": "bin/check-pkg-bin.js"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
   "scripts": {
     "coverage": "npx nyc yarn run test",
     "lint": "npx eslint **/*.ts",
@@ -33,12 +41,16 @@
     "@ts-type/package-dts": "^1.0.20",
     "@yarn-tool/get-pkg-bin": "^1.0.12",
     "@yarn-tool/shebang": "^1.0.3",
+    "cli-table3": "^0.6.0",
+    "debug-color2": "^1.2.2",
     "fs-extra": "^9.0.1",
+    "pkg-dir": "^4.2.0",
     "upath2": "^3.0.5",
-    "ws-pkg-list": "^1.0.22"
+    "ws-pkg-list": "^1.0.22",
+    "yargs": "^15.3.1"
   },
+  "devDependencies": {},
   "publishConfig": {
     "access": "public"
-  },
-  "gitHead": "e077fb60fdf2c7106ac66bd9fcc0f734c5db5313"
+  }
 }
