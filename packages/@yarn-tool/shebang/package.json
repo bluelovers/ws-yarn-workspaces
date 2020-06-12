@@ -1,0 +1,26 @@
+{
+  "author": "Alexandru Vladutu <alexandru.vladutu@gmail.com>",
+  "license": "MIT",
+  "name": "shebang",
+  "description": "Extract normalized shebang command token",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/alessioalex/shebang.git"
+  },
+  "main": "shebang.js",
+  "engines": {
+    "node": ">= 0.4.0"
+  },
+  "keywords": [
+    "shebang",
+    "lang",
+    "language",
+    "command"
+  ],
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "node test/shebang.js"
+  }
+}
