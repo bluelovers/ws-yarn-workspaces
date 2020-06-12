@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.12](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/get-pkg-bin@1.0.11...@yarn-tool/get-pkg-bin@1.0.12) (2020-06-12)
+
+
+### Bug Fixes
+
+* bug ([1bd20a9](https://github.com/bluelovers/ws-yarn-workspaces/commit/1bd20a9e5943182efbde5343c6d103fac5e1d99b))
+
+
+
+
+
 ## [1.0.11](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/get-pkg-bin@1.0.10...@yarn-tool/get-pkg-bin@1.0.11) (2020-06-12)
 
 
