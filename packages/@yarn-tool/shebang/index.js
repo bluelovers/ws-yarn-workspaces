@@ -32,7 +32,7 @@ function matchShebang(line) {
         let name = script;
         let i = 2;
         let isExtra = false;
-        if (script === 'env' && typeof matched[2] === 'undefined') {
+        if (script === 'env' && typeof matched[2] !== 'undefined') {
             script = matched[2];
             i = 3;
             isExtra = true;
