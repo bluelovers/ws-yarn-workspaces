@@ -5,6 +5,7 @@ import { checkWorkspaces, checkPkgJson, checkPkgDir } from '..';
 import { console, chalkByConsoleMaybe } from 'debug-color2';
 import Table from 'cli-table3';
 import pkgDir from 'pkg-dir';
+import stringNaturalCompare from '@bluelovers/string-natural-compare';
 
 const cli = yargs
 	.option('workspaces', {
@@ -52,17 +53,26 @@ let bool: boolean;
 if (cli.workspaces)
 {
 	checkWorkspaces(cli.cwd)
-		.forEach(data => {
+		.sort((a, b) => stringNaturalCompare(a.name, b.name))
+		.forEach(data =>
+		{
 			let valid = data.valid.toString()
+			let color = 'gray';
 
 			if (data.result.length)
 			{
 				bool = data.valid && (bool ?? true)
+
+				color = data.valid ? 'green' : 'red';
+			}
+			else
+			{
+				valid = 'none'
 			}
 
 			table.push([
 				data.name,
-				chalk[data.valid ? 'green' : 'red'](valid),
+				chalk[color](valid),
 			]);
 		})
 	;
@@ -72,10 +82,20 @@ else
 	let data = checkPkgDir(pkgDir.sync(cli.cwd))
 	bool = (!data.result.length || data.valid);
 	let valid = data.valid.toString()
+	let color = 'gray';
+
+	if (!data.result.length)
+	{
+		valid = 'none'
+	}
+	else
+	{
+		color = data.valid ? 'green' : 'red';
+	}
 
 	table.push([
 		chalk.blue(data.name),
-		chalk[data.valid ? 'green' : 'red'](valid),
+		chalk[color](valid),
 	]);
 }
 

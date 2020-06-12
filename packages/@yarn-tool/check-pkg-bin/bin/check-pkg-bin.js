@@ -9,6 +9,7 @@ const __1 = require("..");
 const debug_color2_1 = require("debug-color2");
 const cli_table3_1 = __importDefault(require("cli-table3"));
 const pkg_dir_1 = __importDefault(require("pkg-dir"));
+const string_natural_compare_1 = __importDefault(require("@bluelovers/string-natural-compare"));
 const cli = yargs_1.default
     .option('workspaces', {
     alias: ['w'],
@@ -48,14 +49,20 @@ table.options.head = [
 let bool;
 if (cli.workspaces) {
     __1.checkWorkspaces(cli.cwd)
+        .sort((a, b) => string_natural_compare_1.default(a.name, b.name))
         .forEach(data => {
         let valid = data.valid.toString();
+        let color = 'gray';
         if (data.result.length) {
             bool = data.valid && (bool !== null && bool !== void 0 ? bool : true);
+            color = data.valid ? 'green' : 'red';
+        }
+        else {
+            valid = 'none';
         }
         table.push([
             data.name,
-            chalk[data.valid ? 'green' : 'red'](valid),
+            chalk[color](valid),
         ]);
     });
 }
@@ -63,9 +70,16 @@ else {
     let data = __1.checkPkgDir(pkg_dir_1.default.sync(cli.cwd));
     bool = (!data.result.length || data.valid);
     let valid = data.valid.toString();
+    let color = 'gray';
+    if (!data.result.length) {
+        valid = 'none';
+    }
+    else {
+        color = data.valid ? 'green' : 'red';
+    }
     table.push([
         chalk.blue(data.name),
-        chalk[data.valid ? 'green' : 'red'](valid),
+        chalk[color](valid),
     ]);
 }
 debug_color2_1.console.log(table.toString());
