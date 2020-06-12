@@ -4,6 +4,8 @@ exports[`shebang '#! /bin/sed -f' => sed 1`] = `
 Object {
   "argv": "-f",
   "bin": "/bin/sed",
+  "isExtra": false,
+  "name": "sed",
   "script": "sed",
   "shebang": "#! /bin/sed -f",
 }
@@ -15,6 +17,8 @@ exports[`shebang '#! /bin/sed -f\\n\\n' => sed 1`] = `
 Object {
   "argv": "-f",
   "bin": "/bin/sed",
+  "isExtra": false,
+  "name": "sed",
   "script": "sed",
   "shebang": "#! /bin/sed -f",
 }
@@ -30,6 +34,8 @@ exports[`shebang '#! /bin/sh' => sh 1`] = `
 Object {
   "argv": "",
   "bin": "/bin/sh",
+  "isExtra": false,
+  "name": "sh",
   "script": "sh",
   "shebang": "#! /bin/sh",
 }
@@ -41,6 +47,8 @@ exports[`shebang '#! /bin/sh\\n\\n' => sh 1`] = `
 Object {
   "argv": "",
   "bin": "/bin/sh",
+  "isExtra": false,
+  "name": "sh",
   "script": "sh",
   "shebang": "#! /bin/sh",
 }
@@ -56,6 +64,8 @@ exports[`shebang '#! /usr/awk -f' => awk 1`] = `
 Object {
   "argv": "-f",
   "bin": "/usr/awk",
+  "isExtra": false,
+  "name": "awk",
   "script": "awk",
   "shebang": "#! /usr/awk -f",
 }
@@ -67,6 +77,8 @@ exports[`shebang '#! /usr/awk -f\\n\\n' => awk 1`] = `
 Object {
   "argv": "-f",
   "bin": "/usr/awk",
+  "isExtra": false,
+  "name": "awk",
   "script": "awk",
   "shebang": "#! /usr/awk -f",
 }
@@ -82,6 +94,8 @@ exports[`shebang '#! /usr/bin/env node' => node 1`] = `
 Object {
   "argv": "",
   "bin": "/usr/bin/env",
+  "isExtra": true,
+  "name": "env",
   "script": "node",
   "shebang": "#! /usr/bin/env node",
 }
@@ -93,6 +107,8 @@ exports[`shebang '#! /usr/bin/env node\\n\\n' => node 1`] = `
 Object {
   "argv": "",
   "bin": "/usr/bin/env",
+  "isExtra": true,
+  "name": "env",
   "script": "node",
   "shebang": "#! /usr/bin/env node",
 }
@@ -108,6 +124,8 @@ exports[`shebang '#! /usr/bin/env python -c' => python 1`] = `
 Object {
   "argv": "-c",
   "bin": "/usr/bin/env",
+  "isExtra": true,
+  "name": "env",
   "script": "python",
   "shebang": "#! /usr/bin/env python -c",
 }
@@ -119,6 +137,8 @@ exports[`shebang '#! /usr/bin/env python -c\\n\\n' => python 1`] = `
 Object {
   "argv": "-c",
   "bin": "/usr/bin/env",
+  "isExtra": true,
+  "name": "env",
   "script": "python",
   "shebang": "#! /usr/bin/env python -c",
 }
@@ -134,6 +154,8 @@ exports[`shebang '#! /usr/bin/php' => php 1`] = `
 Object {
   "argv": "",
   "bin": "/usr/bin/php",
+  "isExtra": false,
+  "name": "php",
   "script": "php",
   "shebang": "#! /usr/bin/php",
 }
@@ -145,6 +167,8 @@ exports[`shebang '#! /usr/bin/php\\n\\n' => php 1`] = `
 Object {
   "argv": "",
   "bin": "/usr/bin/php",
+  "isExtra": false,
+  "name": "php",
   "script": "php",
   "shebang": "#! /usr/bin/php",
 }
@@ -160,6 +184,8 @@ exports[`shebang '#! /usr/bin/php5' => php5 1`] = `
 Object {
   "argv": "",
   "bin": "/usr/bin/php5",
+  "isExtra": false,
+  "name": "php5",
   "script": "php5",
   "shebang": "#! /usr/bin/php5",
 }
@@ -171,6 +197,8 @@ exports[`shebang '#! /usr/bin/php5\\n\\n' => php5 1`] = `
 Object {
   "argv": "",
   "bin": "/usr/bin/php5",
+  "isExtra": false,
+  "name": "php5",
   "script": "php5",
   "shebang": "#! /usr/bin/php5",
 }
@@ -186,6 +214,8 @@ exports[`shebang '#! /usr/bin/ruby' => ruby 1`] = `
 Object {
   "argv": "",
   "bin": "/usr/bin/ruby",
+  "isExtra": false,
+  "name": "ruby",
   "script": "ruby",
   "shebang": "#! /usr/bin/ruby",
 }
@@ -197,6 +227,8 @@ exports[`shebang '#! /usr/bin/ruby\\n\\n' => ruby 1`] = `
 Object {
   "argv": "",
   "bin": "/usr/bin/ruby",
+  "isExtra": false,
+  "name": "ruby",
   "script": "ruby",
   "shebang": "#! /usr/bin/ruby",
 }
@@ -212,6 +244,8 @@ exports[`shebang '#!/bin/sed -f' => sed 1`] = `
 Object {
   "argv": "-f",
   "bin": "/bin/sed",
+  "isExtra": false,
+  "name": "sed",
   "script": "sed",
   "shebang": "#!/bin/sed -f",
 }
@@ -223,6 +257,8 @@ exports[`shebang '#!/bin/sed -f\\n\\n' => sed 1`] = `
 Object {
   "argv": "-f",
   "bin": "/bin/sed",
+  "isExtra": false,
+  "name": "sed",
   "script": "sed",
   "shebang": "#!/bin/sed -f",
 }
@@ -238,6 +274,8 @@ exports[`shebang '#!/bin/sh' => sh 1`] = `
 Object {
   "argv": "",
   "bin": "/bin/sh",
+  "isExtra": false,
+  "name": "sh",
   "script": "sh",
   "shebang": "#!/bin/sh",
 }
@@ -249,6 +287,8 @@ exports[`shebang '#!/bin/sh\\n\\n' => sh 1`] = `
 Object {
   "argv": "",
   "bin": "/bin/sh",
+  "isExtra": false,
+  "name": "sh",
   "script": "sh",
   "shebang": "#!/bin/sh",
 }
@@ -264,6 +304,8 @@ exports[`shebang '#!/usr/awk -f' => awk 1`] = `
 Object {
   "argv": "-f",
   "bin": "/usr/awk",
+  "isExtra": false,
+  "name": "awk",
   "script": "awk",
   "shebang": "#!/usr/awk -f",
 }
@@ -275,6 +317,8 @@ exports[`shebang '#!/usr/awk -f\\n\\n' => awk 1`] = `
 Object {
   "argv": "-f",
   "bin": "/usr/awk",
+  "isExtra": false,
+  "name": "awk",
   "script": "awk",
   "shebang": "#!/usr/awk -f",
 }
@@ -290,6 +334,8 @@ exports[`shebang '#!/usr/bin/env node' => node 1`] = `
 Object {
   "argv": "",
   "bin": "/usr/bin/env",
+  "isExtra": true,
+  "name": "env",
   "script": "node",
   "shebang": "#!/usr/bin/env node",
 }
@@ -301,6 +347,8 @@ exports[`shebang '#!/usr/bin/env node\\n\\n' => node 1`] = `
 Object {
   "argv": "",
   "bin": "/usr/bin/env",
+  "isExtra": true,
+  "name": "env",
   "script": "node",
   "shebang": "#!/usr/bin/env node",
 }
@@ -316,6 +364,8 @@ exports[`shebang '#!/usr/bin/env python -c' => python 1`] = `
 Object {
   "argv": "-c",
   "bin": "/usr/bin/env",
+  "isExtra": true,
+  "name": "env",
   "script": "python",
   "shebang": "#!/usr/bin/env python -c",
 }
@@ -327,6 +377,8 @@ exports[`shebang '#!/usr/bin/env python -c\\n\\n' => python 1`] = `
 Object {
   "argv": "-c",
   "bin": "/usr/bin/env",
+  "isExtra": true,
+  "name": "env",
   "script": "python",
   "shebang": "#!/usr/bin/env python -c",
 }
@@ -342,6 +394,8 @@ exports[`shebang '#!/usr/bin/php' => php 1`] = `
 Object {
   "argv": "",
   "bin": "/usr/bin/php",
+  "isExtra": false,
+  "name": "php",
   "script": "php",
   "shebang": "#!/usr/bin/php",
 }
@@ -353,6 +407,8 @@ exports[`shebang '#!/usr/bin/php\\n\\n' => php 1`] = `
 Object {
   "argv": "",
   "bin": "/usr/bin/php",
+  "isExtra": false,
+  "name": "php",
   "script": "php",
   "shebang": "#!/usr/bin/php",
 }
@@ -368,6 +424,8 @@ exports[`shebang '#!/usr/bin/php5' => php5 1`] = `
 Object {
   "argv": "",
   "bin": "/usr/bin/php5",
+  "isExtra": false,
+  "name": "php5",
   "script": "php5",
   "shebang": "#!/usr/bin/php5",
 }
@@ -379,6 +437,8 @@ exports[`shebang '#!/usr/bin/php5\\n\\n' => php5 1`] = `
 Object {
   "argv": "",
   "bin": "/usr/bin/php5",
+  "isExtra": false,
+  "name": "php5",
   "script": "php5",
   "shebang": "#!/usr/bin/php5",
 }
@@ -394,6 +454,8 @@ exports[`shebang '#!/usr/bin/ruby' => ruby 1`] = `
 Object {
   "argv": "",
   "bin": "/usr/bin/ruby",
+  "isExtra": false,
+  "name": "ruby",
   "script": "ruby",
   "shebang": "#!/usr/bin/ruby",
 }
@@ -405,6 +467,8 @@ exports[`shebang '#!/usr/bin/ruby\\n\\n' => ruby 1`] = `
 Object {
   "argv": "",
   "bin": "/usr/bin/ruby",
+  "isExtra": false,
+  "name": "ruby",
   "script": "ruby",
   "shebang": "#!/usr/bin/ruby",
 }
@@ -420,6 +484,8 @@ exports[`shebang '\\n\\n#! /bin/sed -f' => sed 1`] = `
 Object {
   "argv": "-f",
   "bin": "/bin/sed",
+  "isExtra": false,
+  "name": "sed",
   "script": "sed",
   "shebang": "
 
@@ -433,6 +499,8 @@ exports[`shebang '\\n\\n#! /bin/sed -f\\n\\n' => sed 1`] = `
 Object {
   "argv": "-f",
   "bin": "/bin/sed",
+  "isExtra": false,
+  "name": "sed",
   "script": "sed",
   "shebang": "
 
@@ -450,6 +518,8 @@ exports[`shebang '\\n\\n#! /bin/sh' => sh 1`] = `
 Object {
   "argv": "",
   "bin": "/bin/sh",
+  "isExtra": false,
+  "name": "sh",
   "script": "sh",
   "shebang": "
 
@@ -463,6 +533,8 @@ exports[`shebang '\\n\\n#! /bin/sh\\n\\n' => sh 1`] = `
 Object {
   "argv": "",
   "bin": "/bin/sh",
+  "isExtra": false,
+  "name": "sh",
   "script": "sh",
   "shebang": "
 
@@ -480,6 +552,8 @@ exports[`shebang '\\n\\n#! /usr/awk -f' => awk 1`] = `
 Object {
   "argv": "-f",
   "bin": "/usr/awk",
+  "isExtra": false,
+  "name": "awk",
   "script": "awk",
   "shebang": "
 
@@ -493,6 +567,8 @@ exports[`shebang '\\n\\n#! /usr/awk -f\\n\\n' => awk 1`] = `
 Object {
   "argv": "-f",
   "bin": "/usr/awk",
+  "isExtra": false,
+  "name": "awk",
   "script": "awk",
   "shebang": "
 
@@ -510,6 +586,8 @@ exports[`shebang '\\n\\n#! /usr/bin/env node' => node 1`] = `
 Object {
   "argv": "",
   "bin": "/usr/bin/env",
+  "isExtra": true,
+  "name": "env",
   "script": "node",
   "shebang": "
 
@@ -523,6 +601,8 @@ exports[`shebang '\\n\\n#! /usr/bin/env node\\n\\n' => node 1`] = `
 Object {
   "argv": "",
   "bin": "/usr/bin/env",
+  "isExtra": true,
+  "name": "env",
   "script": "node",
   "shebang": "
 
@@ -540,6 +620,8 @@ exports[`shebang '\\n\\n#! /usr/bin/env python -c' => python 1`] = `
 Object {
   "argv": "-c",
   "bin": "/usr/bin/env",
+  "isExtra": true,
+  "name": "env",
   "script": "python",
   "shebang": "
 
@@ -553,6 +635,8 @@ exports[`shebang '\\n\\n#! /usr/bin/env python -c\\n\\n' => python 1`] = `
 Object {
   "argv": "-c",
   "bin": "/usr/bin/env",
+  "isExtra": true,
+  "name": "env",
   "script": "python",
   "shebang": "
 
@@ -570,6 +654,8 @@ exports[`shebang '\\n\\n#! /usr/bin/php' => php 1`] = `
 Object {
   "argv": "",
   "bin": "/usr/bin/php",
+  "isExtra": false,
+  "name": "php",
   "script": "php",
   "shebang": "
 
@@ -583,6 +669,8 @@ exports[`shebang '\\n\\n#! /usr/bin/php\\n\\n' => php 1`] = `
 Object {
   "argv": "",
   "bin": "/usr/bin/php",
+  "isExtra": false,
+  "name": "php",
   "script": "php",
   "shebang": "
 
@@ -600,6 +688,8 @@ exports[`shebang '\\n\\n#! /usr/bin/php5' => php5 1`] = `
 Object {
   "argv": "",
   "bin": "/usr/bin/php5",
+  "isExtra": false,
+  "name": "php5",
   "script": "php5",
   "shebang": "
 
@@ -613,6 +703,8 @@ exports[`shebang '\\n\\n#! /usr/bin/php5\\n\\n' => php5 1`] = `
 Object {
   "argv": "",
   "bin": "/usr/bin/php5",
+  "isExtra": false,
+  "name": "php5",
   "script": "php5",
   "shebang": "
 
@@ -630,6 +722,8 @@ exports[`shebang '\\n\\n#! /usr/bin/ruby' => ruby 1`] = `
 Object {
   "argv": "",
   "bin": "/usr/bin/ruby",
+  "isExtra": false,
+  "name": "ruby",
   "script": "ruby",
   "shebang": "
 
@@ -643,6 +737,8 @@ exports[`shebang '\\n\\n#! /usr/bin/ruby\\n\\n' => ruby 1`] = `
 Object {
   "argv": "",
   "bin": "/usr/bin/ruby",
+  "isExtra": false,
+  "name": "ruby",
   "script": "ruby",
   "shebang": "
 
@@ -660,6 +756,8 @@ exports[`shebang '\\n\\n#!/bin/sed -f' => sed 1`] = `
 Object {
   "argv": "-f",
   "bin": "/bin/sed",
+  "isExtra": false,
+  "name": "sed",
   "script": "sed",
   "shebang": "
 
@@ -673,6 +771,8 @@ exports[`shebang '\\n\\n#!/bin/sed -f\\n\\n' => sed 1`] = `
 Object {
   "argv": "-f",
   "bin": "/bin/sed",
+  "isExtra": false,
+  "name": "sed",
   "script": "sed",
   "shebang": "
 
@@ -690,6 +790,8 @@ exports[`shebang '\\n\\n#!/bin/sh' => sh 1`] = `
 Object {
   "argv": "",
   "bin": "/bin/sh",
+  "isExtra": false,
+  "name": "sh",
   "script": "sh",
   "shebang": "
 
@@ -703,6 +805,8 @@ exports[`shebang '\\n\\n#!/bin/sh\\n\\n' => sh 1`] = `
 Object {
   "argv": "",
   "bin": "/bin/sh",
+  "isExtra": false,
+  "name": "sh",
   "script": "sh",
   "shebang": "
 
@@ -720,6 +824,8 @@ exports[`shebang '\\n\\n#!/usr/awk -f' => awk 1`] = `
 Object {
   "argv": "-f",
   "bin": "/usr/awk",
+  "isExtra": false,
+  "name": "awk",
   "script": "awk",
   "shebang": "
 
@@ -733,6 +839,8 @@ exports[`shebang '\\n\\n#!/usr/awk -f\\n\\n' => awk 1`] = `
 Object {
   "argv": "-f",
   "bin": "/usr/awk",
+  "isExtra": false,
+  "name": "awk",
   "script": "awk",
   "shebang": "
 
@@ -750,6 +858,8 @@ exports[`shebang '\\n\\n#!/usr/bin/env node' => node 1`] = `
 Object {
   "argv": "",
   "bin": "/usr/bin/env",
+  "isExtra": true,
+  "name": "env",
   "script": "node",
   "shebang": "
 
@@ -763,6 +873,8 @@ exports[`shebang '\\n\\n#!/usr/bin/env node\\n\\n' => node 1`] = `
 Object {
   "argv": "",
   "bin": "/usr/bin/env",
+  "isExtra": true,
+  "name": "env",
   "script": "node",
   "shebang": "
 
@@ -780,6 +892,8 @@ exports[`shebang '\\n\\n#!/usr/bin/env python -c' => python 1`] = `
 Object {
   "argv": "-c",
   "bin": "/usr/bin/env",
+  "isExtra": true,
+  "name": "env",
   "script": "python",
   "shebang": "
 
@@ -793,6 +907,8 @@ exports[`shebang '\\n\\n#!/usr/bin/env python -c\\n\\n' => python 1`] = `
 Object {
   "argv": "-c",
   "bin": "/usr/bin/env",
+  "isExtra": true,
+  "name": "env",
   "script": "python",
   "shebang": "
 
@@ -810,6 +926,8 @@ exports[`shebang '\\n\\n#!/usr/bin/php' => php 1`] = `
 Object {
   "argv": "",
   "bin": "/usr/bin/php",
+  "isExtra": false,
+  "name": "php",
   "script": "php",
   "shebang": "
 
@@ -823,6 +941,8 @@ exports[`shebang '\\n\\n#!/usr/bin/php\\n\\n' => php 1`] = `
 Object {
   "argv": "",
   "bin": "/usr/bin/php",
+  "isExtra": false,
+  "name": "php",
   "script": "php",
   "shebang": "
 
@@ -840,6 +960,8 @@ exports[`shebang '\\n\\n#!/usr/bin/php5' => php5 1`] = `
 Object {
   "argv": "",
   "bin": "/usr/bin/php5",
+  "isExtra": false,
+  "name": "php5",
   "script": "php5",
   "shebang": "
 
@@ -853,6 +975,8 @@ exports[`shebang '\\n\\n#!/usr/bin/php5\\n\\n' => php5 1`] = `
 Object {
   "argv": "",
   "bin": "/usr/bin/php5",
+  "isExtra": false,
+  "name": "php5",
   "script": "php5",
   "shebang": "
 
@@ -870,6 +994,8 @@ exports[`shebang '\\n\\n#!/usr/bin/ruby' => ruby 1`] = `
 Object {
   "argv": "",
   "bin": "/usr/bin/ruby",
+  "isExtra": false,
+  "name": "ruby",
   "script": "ruby",
   "shebang": "
 
@@ -883,6 +1009,8 @@ exports[`shebang '\\n\\n#!/usr/bin/ruby\\n\\n' => ruby 1`] = `
 Object {
   "argv": "",
   "bin": "/usr/bin/ruby",
+  "isExtra": false,
+  "name": "ruby",
   "script": "ruby",
   "shebang": "
 

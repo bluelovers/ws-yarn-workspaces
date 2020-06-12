@@ -43,5 +43,6 @@
     "postpublish_": "git commit -m \"chore(release): publish & git push & echo postpublish\" .",
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort"
-  }
+  },
+  "gitHead": "70f513c317d2494bf04dddee45f06fde0e1d19ba"
 }
