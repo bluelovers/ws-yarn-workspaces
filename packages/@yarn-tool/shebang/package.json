@@ -1,26 +1,49 @@
 {
-  "author": "Alexandru Vladutu <alexandru.vladutu@gmail.com>",
-  "license": "MIT",
-  "name": "shebang",
-  "description": "Extract normalized shebang command token",
+  "name": "@yarn-tool/shebang",
   "version": "0.0.1",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/alessioalex/shebang.git"
-  },
-  "main": "shebang.js",
-  "engines": {
-    "node": ">= 0.4.0"
-  },
+  "description": "Extract normalized shebang command token",
   "keywords": [
     "shebang",
     "lang",
     "language",
-    "command"
+    "command",
+    "regex",
+    "regexp",
+    "match",
+    "test",
+    "line",
+    "cli",
+    "bin",
+    "strip",
+    "remove",
+    "hasbang",
+    "hash",
+    "pound"
   ],
-  "dependencies": {},
-  "devDependencies": {},
+  "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/shebang#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/ws-yarn-workspaces.git"
+  },
+  "license": "MIT",
+  "author": "Alexandru Vladutu <alexandru.vladutu@gmail.com>",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
-    "test": "node test/shebang.js"
-  }
+    "test": "jest",
+    "npm:publish": "npm publish",
+    "npm:publish:lerna": "npx lerna publish --yes --bump patch",
+    "prepublish:lockfile": "npx sync-lockfile .",
+    "prepublishOnly": "yarn run test",
+    "postpublish_": "git commit -m \"chore(release): publish & git push & echo postpublish\" .",
+    "ncu": "npx yarn-tool ncu -u",
+    "sort-package-json": "npx yarn-tool sort"
+  },
+  "dependencies": {},
+  "devDependencies": {}
 }
