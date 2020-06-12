@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/check-pkg-bin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/check-pkg-bin#readme",
   "bugs": {
@@ -31,13 +31,12 @@
   },
   "dependencies": {
     "@ts-type/package-dts": "^1.0.20",
-    "@yarn-tool/get-pkg-bin": "^1.0.10",
-    "@yarn-tool/shebang": "^1.0.1",
+    "@yarn-tool/get-pkg-bin": "^1.0.11",
+    "@yarn-tool/shebang": "^1.0.2",
     "fs-extra": "^9.0.1",
     "upath2": "^3.0.5",
     "ws-pkg-list": "^1.0.22"
   },
-  "devDependencies": {},
   "publishConfig": {
     "access": "public"
   }
