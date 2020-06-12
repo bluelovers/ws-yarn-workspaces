@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/check-pkg-bin@1.0.3...@yarn-tool/check-pkg-bin@1.0.4) (2020-06-12)
+
+
+### Features
+
+* add cli support ([257be03](https://github.com/bluelovers/ws-yarn-workspaces/commit/257be03028d47dce4e64da200c71bda951bf9fa2))
+
+
+
+
+
 ## [1.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/check-pkg-bin@1.0.2...@yarn-tool/check-pkg-bin@1.0.3) (2020-06-12)
 
 

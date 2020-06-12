@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/check-pkg-bin",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "check pkg bin has shebang",
   "keywords": [],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/check-pkg-bin#readme",
@@ -38,6 +38,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
+    "@bluelovers/string-natural-compare": "^1.0.3",
     "@ts-type/package-dts": "^1.0.20",
     "@yarn-tool/get-pkg-bin": "^1.0.12",
     "@yarn-tool/shebang": "^1.0.3",
