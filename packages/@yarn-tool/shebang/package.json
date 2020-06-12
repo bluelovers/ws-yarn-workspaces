@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/shebang",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Extract normalized shebang command token",
   "keywords": [
     "shebang",
@@ -43,7 +43,5 @@
     "postpublish_": "git commit -m \"chore(release): publish & git push & echo postpublish\" .",
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort"
-  },
-  "dependencies": {},
-  "devDependencies": {}
+  }
 }
