@@ -78,3 +78,4 @@ __snapshots__
 *.snap
 npm-shrinkwrap.json
 /example/
+*.stat
