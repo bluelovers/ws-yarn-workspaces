@@ -4,7 +4,7 @@
 
 import IPackageJson from '@ts-type/package-dts';
 import { resolve, join } from "upath2";
-import { readFileSync } from "fs";
+import { readFileSync } from "fs-extra";
 import { IReadPackage, IReadedPackages } from './types';
 
 export function readPackages<T = IPackageJson>(ls: string[], cwd?: string)

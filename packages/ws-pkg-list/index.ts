@@ -4,11 +4,13 @@
 
 import { workspacesPackagesList } from './lib/listpkg';
 
+export * from './lib/types';
+
 export * from './lib/listpkg';
 export * from './lib/readpkg';
 export * from './lib/tsconfig';
-export { wsPkgListable } from './lib/listable';
-
-export * from './lib/types';
+export * from './lib/listable';
+export * from './lib/glob';
+export * from './lib/util';
 
 export default workspacesPackagesList;
