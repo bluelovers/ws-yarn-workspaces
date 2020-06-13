@@ -32,3 +32,5 @@ export interface IOptionsPkgListable<R extends IListableRow = IListableRow> {
 }
 export interface IListableRowWithDeps extends IListableRow, ITSPartialRecord<IPackageJsonDependenciesField, IDependency> {
 }
+export interface IListableRowExtraWithDeps extends IListableRowExtra<IListableRowWithDeps> {
+}

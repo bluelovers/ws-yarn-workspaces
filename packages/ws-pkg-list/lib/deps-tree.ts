@@ -2,13 +2,13 @@
  * Created by user on 2020/6/13.
  */
 
-import { IListableRowExtra, IOptionsPkgListable, IListableRowWithDeps } from './types';
+import { IListableRowExtra, IOptionsPkgListable, IListableRowWithDeps, IListableRowExtraWithDeps } from './types';
 import IPackageJson from '@ts-type/package-dts';
 import { normalizeListableRowExtra, listableToRecord } from './util';
 import { findRoot } from '@yarn-tool/find-root';
 import wsPkgListable from './listable';
 
-export function wsPkgDepsListable<R extends IListableRowExtra<IListableRowWithDeps>>(cwd?: string,
+export function wsPkgDepsListable<R extends IListableRowExtraWithDeps>(cwd?: string,
 	options?: IOptionsPkgListable<R>,
 ): R[]
 {
@@ -49,7 +49,7 @@ export function wsPkgDepsListable<R extends IListableRowExtra<IListableRowWithDe
 	}) as any
 }
 
-export function wsPkgDepsListableRecord<R extends IListableRowExtra<IListableRowWithDeps>>(cwd?: string,
+export function wsPkgDepsListableRecord<R extends IListableRowExtraWithDeps>(cwd?: string,
 	options?: IOptionsPkgListable<R>,
 )
 {

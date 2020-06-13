@@ -43,3 +43,8 @@ export interface IListableRowWithDeps extends IListableRow, ITSPartialRecord<IPa
 {
 
 }
+
+export interface IListableRowExtraWithDeps extends IListableRowExtra<IListableRowWithDeps>
+{
+
+}
