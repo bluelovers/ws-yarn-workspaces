@@ -183,9 +183,12 @@ if (!cp.error) {
                 }
             });
             if (old_pkg) {
-                if (old_pkg.gitHead) {
-                    pkg.data.gitHead = old_pkg.gitHead;
-                }
+                Object.keys(old_pkg)
+                    .forEach(key => {
+                    if (!(key in pkg.data)) {
+                        pkg.data[key] = old_pkg[key];
+                    }
+                });
             }
         }
         if (!oldExists) {
