@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.23](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-pkg-list@1.0.22...ws-pkg-list@1.0.23) (2020-06-13)
+
+
+### Features
+
+* globFilterListable ([da7e6ea](https://github.com/bluelovers/ws-yarn-workspaces/commit/da7e6ea335b2acd81e2d225827113c645f956766))
+
+
+
+
+
 ## [1.0.22](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-pkg-list@1.0.21...ws-pkg-list@1.0.22) (2020-06-11)
 
 **Note:** Version bump only for package ws-pkg-list
