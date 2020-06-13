@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/check-pkg-bin",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "check pkg bin has shebang",
   "keywords": [],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/check-pkg-bin#readme",
