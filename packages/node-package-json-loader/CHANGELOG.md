@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.25](https://github.com/bluelovers/node-package-json-loader/compare/npm-package-json-loader@1.0.24...npm-package-json-loader@1.0.25) (2020-06-13)
+
+
+### Bug Fixes
+
+* avoid lost gitHead when `npm init` ([3b132e4](https://github.com/bluelovers/node-package-json-loader/commit/3b132e41e648a6de2b3e069d73410feef6fb5c0a))
+
+
+
+
+
 ## [1.0.24](https://github.com/bluelovers/node-package-json-loader/compare/npm-package-json-loader@1.0.23...npm-package-json-loader@1.0.24) (2020-06-11)
 
 

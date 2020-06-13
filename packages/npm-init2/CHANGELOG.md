@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.92](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.91...npm-init2@1.0.92) (2020-06-13)
+
+
+### Bug Fixes
+
+* avoid lost any fields when `npm init` ([dcb6042](https://github.com/bluelovers/npm-init2/commit/dcb60422500ab307477fded0321560ad2c84a9b1))
+* avoid lost gitHead when `npm init` ([3b132e4](https://github.com/bluelovers/npm-init2/commit/3b132e41e648a6de2b3e069d73410feef6fb5c0a))
+
+
+
+
+
 ## [1.0.91](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.90...npm-init2@1.0.91) (2020-06-11)
 
 **Note:** Version bump only for package npm-init2

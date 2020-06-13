@@ -1,6 +1,6 @@
 {
   "name": "npm-package-json-loader",
-  "version": "1.0.24",
+  "version": "1.0.25",
   "private": false,
   "description": "Find and load configuration from a package.json",
   "keywords": [
