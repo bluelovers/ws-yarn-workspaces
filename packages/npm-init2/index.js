@@ -22,6 +22,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 const yargs_1 = __importDefault(require("yargs"));
 const cross_spawn_extra_1 = __importDefault(require("cross-spawn-extra"));
@@ -81,10 +82,11 @@ let args = [
 //console.log(args);
 let old_pkg_name;
 let oldExists = fs_1.existsSync(path_1.join(targetDir, 'package.json'));
+let old_pkg;
 if (!targetName) {
     try {
-        let pkg = new npm_package_json_loader_1.default(path_1.join(targetDir, 'package.json'));
-        old_pkg_name = pkg.data.name;
+        old_pkg = (_a = new npm_package_json_loader_1.default(path_1.join(targetDir, 'package.json'))) === null || _a === void 0 ? void 0 : _a.data;
+        old_pkg_name = old_pkg.name;
     }
     catch (e) {
     }
@@ -180,6 +182,11 @@ if (!cp.error) {
                     pkg.data.scripts[k] = v;
                 }
             });
+            if (old_pkg) {
+                if (old_pkg.gitHead) {
+                    pkg.data.gitHead = old_pkg.gitHead;
+                }
+            }
         }
         if (!oldExists) {
             const cpkg = require('./package.json');

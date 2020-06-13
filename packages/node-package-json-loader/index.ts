@@ -31,7 +31,7 @@ export class PackageJsonLoader<T extends IPackageJsonLike<IPackageJson> = IPacka
 
 	static createByJson<T = IPackageJson>(json: T, ...argv)
 	{
-		return new this<T>(json, ...argv)
+		return new this<T>(json as any, ...argv)
 	}
 
 	static findPackageJsonPath(name: string): string
@@ -177,6 +177,7 @@ export class PackageJsonLoader<T extends IPackageJsonLike<IPackageJson> = IPacka
 
 						if (bin_new)
 						{
+							// @ts-ignore
 							self.data.bin = bin_new;
 						}
 					}

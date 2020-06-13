@@ -7,6 +7,7 @@ import { ensureDirSync, CopyOptionsSync, copySync } from 'fs-extra';
 import { resolve, join, relative } from 'path';
 import getConfig, { parseStaticPackagesPaths } from 'workspaces-config';
 import PackageJsonLoader from 'npm-package-json-loader';
+import { IPackageJson } from '@ts-type/package-dts';
 import { updateNotifier } from '@yarn-tool/update-notifier';
 import pkg = require( './package.json' );
 import { copyStaticFiles, defaultCopyStaticFiles, getTargetDir } from './lib';
@@ -86,14 +87,15 @@ let args = [
 
 let old_pkg_name: string;
 let oldExists = existsSync(join(targetDir, 'package.json'));
+let old_pkg: IPackageJson;
 
 if (!targetName)
 {
 	try
 	{
-		let pkg = new PackageJsonLoader(join(targetDir, 'package.json'));
+		old_pkg = new PackageJsonLoader(join(targetDir, 'package.json'))?.data;
 
-		old_pkg_name = pkg.data.name
+		old_pkg_name = old_pkg.name
 	}
 	catch (e)
 	{
@@ -228,6 +230,14 @@ if (!cp.error)
 					}
 				})
 			;
+
+			if (old_pkg)
+			{
+				if (old_pkg.gitHead)
+				{
+					pkg.data.gitHead = old_pkg.gitHead;
+				}
+			}
 		}
 
 		if (!oldExists)

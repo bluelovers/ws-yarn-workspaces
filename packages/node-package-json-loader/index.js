@@ -117,6 +117,7 @@ class PackageJsonLoader {
                     if (typeof self.data.bin === 'string') {
                         let bin_new = util_1.fixBinPath(self.data.bin, dir);
                         if (bin_new) {
+                            // @ts-ignore
                             self.data.bin = bin_new;
                         }
                     }
