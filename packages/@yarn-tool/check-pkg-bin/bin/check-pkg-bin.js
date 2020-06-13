@@ -10,6 +10,7 @@ const debug_color2_1 = require("debug-color2");
 const cli_table3_1 = __importDefault(require("cli-table3"));
 const pkg_dir_1 = __importDefault(require("pkg-dir"));
 const string_natural_compare_1 = __importDefault(require("@bluelovers/string-natural-compare"));
+const table_1 = require("@yarn-tool/table");
 const cli = yargs_1.default
     .option('workspaces', {
     alias: ['w'],
@@ -23,24 +24,8 @@ const cli = yargs_1.default
     .argv;
 const table = new cli_table3_1.default({
     colAligns: ['left', 'right'],
-    chars: {
-        top: '',
-        'top-mid': '',
-        'top-left': '',
-        'top-right': '',
-        bottom: '',
-        'bottom-mid': '',
-        'bottom-left': '',
-        'bottom-right': '',
-        left: '',
-        'left-mid': '',
-        mid: '',
-        'mid-mid': '',
-        right: '',
-        'right-mid': '',
-        middle: '',
-    },
 });
+table_1.applyStyleBorderless(table);
 const chalk = debug_color2_1.chalkByConsoleMaybe(debug_color2_1.console);
 table.options.head = [
     chalk.bold.reset('package name'),

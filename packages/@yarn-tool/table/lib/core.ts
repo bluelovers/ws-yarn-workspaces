@@ -2,12 +2,13 @@
  * Created by user on 2020/6/11.
  */
 
-import Table from 'cli-table3';
+import Table, { TableConstructorOptions } from 'cli-table3';
 
-export function createDependencyTable()
+export function createDependencyTable(options?: TableConstructorOptions)
 {
 	return new Table({
 		colAligns: ['left', 'right', 'right', 'right'],
+		//colAligns: ['left', 'center', 'center', 'center'],
 		chars: {
 			top: '',
 			'top-mid': '',
@@ -25,5 +26,6 @@ export function createDependencyTable()
 			'right-mid': '',
 			middle: '',
 		},
+		...options,
 	});
 }

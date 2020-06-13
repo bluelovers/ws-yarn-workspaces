@@ -6,6 +6,7 @@ import { console, chalkByConsoleMaybe } from 'debug-color2';
 import Table from 'cli-table3';
 import pkgDir from 'pkg-dir';
 import stringNaturalCompare from '@bluelovers/string-natural-compare';
+import { applyStyleBorderless } from '@yarn-tool/table';
 
 const cli = yargs
 	.option('workspaces', {
@@ -22,24 +23,9 @@ const cli = yargs
 
 const table = new Table({
 	colAligns: ['left', 'right'],
-	chars: {
-		top: '',
-		'top-mid': '',
-		'top-left': '',
-		'top-right': '',
-		bottom: '',
-		'bottom-mid': '',
-		'bottom-left': '',
-		'bottom-right': '',
-		left: '',
-		'left-mid': '',
-		mid: '',
-		'mid-mid': '',
-		right: '',
-		'right-mid': '',
-		middle: '',
-	},
 });
+
+applyStyleBorderless(table);
 
 const chalk = chalkByConsoleMaybe(console);
 

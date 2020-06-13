@@ -19,15 +19,15 @@ export function yarnLockDiff(yarnlock_old: string, yarnlock_new: string, options
 		chalk,
 	}
 
-	const table = createDependencyTable();
-
-	table.options.colAligns = ['left', 'center', 'center', 'center'];
-	table.options.head = [
-		chalk.bold.reset('package name'),
-		chalk.bold.reset('old version(s)'),
-		'',
-		chalk.bold.reset('new version(s)'),
-	];
+	const table = createDependencyTable({
+		colAligns: ['left', 'center', 'center', 'center'],
+		head: [
+			chalk.bold.reset('package name'),
+			chalk.bold.reset('old version(s)'),
+			'',
+			chalk.bold.reset('new version(s)'),
+		]
+	});
 
 	DiffService.buildDiff([yarnlock_old], [yarnlock_new])
 		.map(function (diff)

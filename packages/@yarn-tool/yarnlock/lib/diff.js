@@ -16,14 +16,15 @@ function yarnLockDiff(yarnlock_old, yarnlock_new, options) {
         ...options,
         chalk,
     };
-    const table = core_1.createDependencyTable();
-    table.options.colAligns = ['left', 'center', 'center', 'center'];
-    table.options.head = [
-        chalk.bold.reset('package name'),
-        chalk.bold.reset('old version(s)'),
-        '',
-        chalk.bold.reset('new version(s)'),
-    ];
+    const table = core_1.createDependencyTable({
+        colAligns: ['left', 'center', 'center', 'center'],
+        head: [
+            chalk.bold.reset('package name'),
+            chalk.bold.reset('old version(s)'),
+            '',
+            chalk.bold.reset('new version(s)'),
+        ]
+    });
     diff_service_1.DiffService.buildDiff([yarnlock_old], [yarnlock_new])
         .map(function (diff) {
         let formatedDiff = {};

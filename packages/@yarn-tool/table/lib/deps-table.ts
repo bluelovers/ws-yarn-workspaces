@@ -12,7 +12,9 @@ export function toDependencyTable(args: {
 	options?: IOptionsParseVersionsDiff,
 })
 {
-	const table = createDependencyTable();
+	const table = createDependencyTable({
+		colAligns: ['left', 'right', 'right', 'right'],
+	});
 	const rows = Object.keys(args.to).map(dep =>
 	{
 		const from = args.from[dep] || '';
