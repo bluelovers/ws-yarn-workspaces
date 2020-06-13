@@ -5,7 +5,7 @@ import micromatch from 'micromatch';
 import globRegex from 'glob-regex';
 import { array_unique_overwrite } from 'array-hyper-unique/core';
 import { normalizeListableExtra } from 'ws-pkg-list/lib/util';
-import { IListableRowExtra } from 'ws-pkg-list';
+import { IListableRowExtra, IListableRow } from 'ws-pkg-list';
 
 export function wsGitChangedPrefix(cwd?: string, options?: {
 	gitBin?: string,

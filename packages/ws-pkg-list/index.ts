@@ -12,5 +12,6 @@ export * from './lib/tsconfig';
 export * from './lib/listable';
 export * from './lib/glob';
 export * from './lib/util';
+export * from './lib/deps-tree';
 
 export default workspacesPackagesList;

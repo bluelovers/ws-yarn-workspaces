@@ -4,7 +4,7 @@
 
 import { wsGitChanged } from './lib/git-changed';
 import { lernaChanged } from './lib/lerna-changed';
-import { IListableRowExtra } from 'ws-pkg-list';
+import { IListableRowExtra, IListableRow } from 'ws-pkg-list';
 
 export type { IListableRowExtra }
 

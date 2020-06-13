@@ -2,6 +2,8 @@
  * Created by user on 2020/6/5.
  */
 import IPackageJson from '@ts-type/package-dts';
+import { ITSPartialRecord } from 'ts-type';
+import { IPackageJsonDependenciesField, IDependency } from '@ts-type/package-dts/lib/package-json/types';
 export declare type IReadPackage<T = IPackageJson> = {
     name: string;
     path: string;
@@ -9,7 +11,7 @@ export declare type IReadPackage<T = IPackageJson> = {
     config: {
         name: string;
         version: string;
-        private: boolean;
+        private?: boolean;
         [k: string]: unknown;
     } & T;
 };
@@ -19,9 +21,14 @@ export interface IListableRow {
     "private": boolean;
     location: string;
 }
-export interface IListableRowExtra extends IListableRow {
+export declare type IListableRowExtra<T extends IListableRow = IListableRow> = T & {
     prefix: string;
-}
+};
 export interface IReadedPackages<T = IPackageJson> {
     [k: string]: IReadPackage<T>;
+}
+export interface IOptionsPkgListable<R extends IListableRow = IListableRow> {
+    handler?(row: IListableRow, pkg: IPackageJson): R;
+}
+export interface IListableRowWithDeps extends IListableRow, ITSPartialRecord<IPackageJsonDependenciesField, IDependency> {
 }

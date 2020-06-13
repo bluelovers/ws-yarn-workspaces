@@ -21,5 +21,6 @@ __exportStar(require("./lib/tsconfig"), exports);
 __exportStar(require("./lib/listable"), exports);
 __exportStar(require("./lib/glob"), exports);
 __exportStar(require("./lib/util"), exports);
+__exportStar(require("./lib/deps-tree"), exports);
 exports.default = listpkg_1.workspacesPackagesList;
 //# sourceMappingURL=index.js.map

@@ -1,8 +1,8 @@
-import { IListableRow, IReadPackage } from './types';
+import { IListableRow, IReadPackage, IOptionsPkgListable } from './types';
 import IPackageJson from '@ts-type/package-dts';
-export declare function wsPkgListableFromReaded<T = IPackageJson>(readed: {
+export declare function wsPkgListableFromReaded<R extends IListableRow = IListableRow, T = IPackageJson>(readed: {
     [k: string]: IReadPackage<T>;
-}): IListableRow[];
-export declare function wsPkgListableFromPaths(paths: string[], cwd?: string): IListableRow[];
-export declare function wsPkgListable(cwd?: string): IListableRow[];
+}, options?: IOptionsPkgListable<R>): R[];
+export declare function wsPkgListableFromPaths<R extends IListableRow = IListableRow>(paths: string[], cwd?: string, options?: IOptionsPkgListable<R>): IListableRow[];
+export declare function wsPkgListable<R extends IListableRow = IListableRow>(cwd?: string, options?: IOptionsPkgListable<R>): IListableRow[];
 export default wsPkgListable;
