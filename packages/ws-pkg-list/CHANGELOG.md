@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.24](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-pkg-list@1.0.23...ws-pkg-list@1.0.24) (2020-06-13)
+
+
+### Features
+
+* wsPkgDepsListableRecord ([2cc277a](https://github.com/bluelovers/ws-yarn-workspaces/commit/2cc277a298150b1eab038fee4703e5064170df52))
+
+
+
+
+
 ## [1.0.23](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-pkg-list@1.0.22...ws-pkg-list@1.0.23) (2020-06-13)
 
 
