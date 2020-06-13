@@ -2,7 +2,8 @@
   "name": "env-run-path",
   "version": "1.0.21",
   "description": "add locally installed binaries paths into process.env",
-  "homepage": "https://github.com/bluelovers/ws-yarn-workspaces#readme",
+  "keywords": [],
+  "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/env-run-path#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"
   },
@@ -11,27 +12,27 @@
     "url": "git+https://github.com/bluelovers/ws-yarn-workspaces.git"
   },
   "license": "ISC",
-  "author": "",
+  "author": "bluelovers",
   "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
-    "coverage": "npx nyc yarn run test",
-    "lint": "npx eslint **/*.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "npm:publish": "npm publish",
-    "prepublishOnly": "yarn run ncu && yarn run sort-package-json",
-    "postpublish_": "git commit -m \"publish new version\" .",
+    "npm:publish:lerna": "npx lerna publish --yes --bump patch",
+    "prepublish:lockfile": "npx sync-lockfile .",
+    "prepublishOnly_": "yarn run ncu && yarn run sort-package-json && yarn run test",
+    "postpublish_": "git commit -m \"chore(release): publish & git push & echo postpublish\" .",
     "ncu": "npx yarn-tool ncu -u",
-    "sort-package-json": "npx yarn-tool sort",
-    "tsc:default": "tsc -p tsconfig.json",
-    "tsc:esm": "tsc -p tsconfig.esm.json"
+    "sort-package-json": "npx yarn-tool sort"
   },
   "dependencies": {
     "@yarn-tool/find-root": "^1.0.19",
     "debug-color2": "^1.2.2",
     "path-key": "^3.1.1"
   },
+  "devDependencies": {},
   "publishConfig": {
     "access": "public"
-  },
-  "gitHead": "f146cbdb51e90e3fa6163f85fb48f2a3b329ac4d"
+  }
 }
