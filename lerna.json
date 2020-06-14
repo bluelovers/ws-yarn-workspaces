@@ -22,6 +22,10 @@
       "conventionalCommits": true,
       "conventionalGraduate": true
     },
+    "version": {
+      "conventionalCommits": true,
+      "changelogPreset": "emojis"
+    },
     "run": {
       "stream": true
     },

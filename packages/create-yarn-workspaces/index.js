@@ -229,7 +229,8 @@ function getDefaultPackageJson(name) {
             "@types/node": "*",
         },
         "peerDependencies": {
-            "lerna": "^3"
+            "lerna": "^3",
+            "conventional-changelog-emojis": "^3"
         },
         "resolutions": {}
     };
