@@ -27,7 +27,7 @@
     },
     "version": {
       "conventionalCommits": true,
-      "changelogPreset": "emojis"
+      "changelogPreset": "@bluelovers/conventional-changelog-bluelovers"
     },
     "run": {
       "stream": true

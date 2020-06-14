@@ -310,7 +310,7 @@ export function getDefaultPackageJson(name?: string): {
 		},
 		"peerDependencies": {
 			"lerna": "^3",
-			"conventional-changelog-emojis": "^3"
+			"@bluelovers/conventional-changelog-bluelovers": "^3"
 		},
 		"resolutions": {}
 	};
