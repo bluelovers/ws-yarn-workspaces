@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.54](https://github.com/bluelovers/create-yarn-workspaces/compare/create-yarn-workspaces@1.0.53...create-yarn-workspaces@1.0.54) (2020-06-14)
+
+
+### Miscellaneous
+
+- Feat: update lerna changelog style ([1378369](https://github.com/bluelovers/create-yarn-workspaces/commit/13783697d38a06333d493faaac2f5f9458c80702))
+
+**Note:** Version bump only for package create-yarn-workspaces
+
+
+
+
+
 ## [1.0.53](https://github.com/bluelovers/create-yarn-workspaces/compare/create-yarn-workspaces@1.0.52...create-yarn-workspaces@1.0.53) (2020-06-13)
 
 **Note:** Version bump only for package create-yarn-workspaces

@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.33](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.32...@yarn-tool/static-file@1.0.33) (2020-06-14)
+
+
+### Miscellaneous
+
+- Feat: update lerna changelog style ([1378369](https://github.com/bluelovers/ws-yarn-workspaces/commit/13783697d38a06333d493faaac2f5f9458c80702))
+
+**Note:** Version bump only for package @yarn-tool/static-file
+
+
+
+
+
 ## [1.0.32](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.31...@yarn-tool/static-file@1.0.32) (2020-06-13)
 
 
