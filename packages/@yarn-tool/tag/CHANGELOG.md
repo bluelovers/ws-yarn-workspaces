@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.5](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/tag@1.0.4...@yarn-tool/tag@1.0.5) (2020-06-15)
+
+
+### 🐛　Bug Fixes
+
+*  bug of options ([1a9f36d](https://github.com/bluelovers/ws-yarn-workspaces/commit/1a9f36de819584189545dcf7cee166f53b5f600c))
+
+
+
+
+
 ## [1.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/tag@1.0.3...@yarn-tool/tag@1.0.4) (2020-06-15)
 
 
