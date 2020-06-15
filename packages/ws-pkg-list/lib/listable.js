@@ -17,6 +17,7 @@ function wsPkgListableFromReaded(readed, options) {
             version,
             private: !!data.config.private,
             location,
+            manifestLocation: data.manifestLocation,
         };
         if (handler) {
             row = handler === null || handler === void 0 ? void 0 : handler(row, data.config);

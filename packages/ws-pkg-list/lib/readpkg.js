@@ -17,6 +17,7 @@ function readPackages(ls, cwd) {
             path: p,
             fullpath: pp,
             config: pkg,
+            manifestLocation: f,
         };
         return a;
     }, {});

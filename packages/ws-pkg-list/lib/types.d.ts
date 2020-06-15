@@ -8,6 +8,7 @@ export declare type IReadPackage<T = IPackageJson> = {
     name: string;
     path: string;
     fullpath: string;
+    manifestLocation: string;
     config: {
         name: string;
         version: string;
@@ -15,11 +16,20 @@ export declare type IReadPackage<T = IPackageJson> = {
         [k: string]: unknown;
     } & T;
 };
-export interface IListableRow {
+export interface IListableRowBase {
     name: string;
     version: string;
     "private": boolean;
+    /**
+     * location of package
+     */
     location: string;
+}
+export interface IListableRow extends IListableRowBase {
+    /**
+     * location of package.json
+     */
+    manifestLocation: string;
 }
 export declare type IListableRowExtra<T extends IListableRow = IListableRow> = T & {
     prefix: string;

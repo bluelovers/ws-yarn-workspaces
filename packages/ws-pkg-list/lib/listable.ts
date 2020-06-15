@@ -23,6 +23,7 @@ export function wsPkgListableFromReaded<R extends IListableRow = IListableRow, T
 				version,
 				private: !!data.config.private,
 				location,
+				manifestLocation: data.manifestLocation,
 			};
 
 			if (handler)

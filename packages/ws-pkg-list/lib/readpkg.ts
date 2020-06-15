@@ -23,6 +23,7 @@ export function readPackages<T = IPackageJson>(ls: string[], cwd?: string)
 			path: p,
 			fullpath: pp,
 			config: pkg,
+			manifestLocation: f,
 		};
 
 		return a;
