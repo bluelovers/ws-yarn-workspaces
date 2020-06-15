@@ -192,7 +192,7 @@ if (!cp.error)
 					"tsc:esm": "tsc -p tsconfig.esm.json",
 					"sort-package-json": "npx yarn-tool sort",
 					"prepublishOnly_": "yarn run ncu && yarn run sort-package-json && yarn run test",
-					"postpublish_": `git commit -m "chore(release): publish & git push & echo postpublish" .`,
+					"postpublish_": `git commit -m "chore(release): publish" . & git push & echo postpublish`,
 					"coverage": "npx nyc yarn run test",
 					"test": `echo "Error: no test specified" && exit 1`,
 				})
@@ -215,7 +215,7 @@ if (!cp.error)
 					"npm:publish:lerna": "npx lerna publish --yes --bump patch",
 					"sort-package-json": "npx yarn-tool sort",
 					"prepublishOnly_": "yarn run ncu && yarn run sort-package-json && yarn run test",
-					"postpublish_": `git commit -m "chore(release): publish & git push & echo postpublish" .`,
+					"postpublish_": `git commit -m "chore(release): publish" . & git push & echo postpublish`,
 				})
 				.forEach(([k, v]) =>
 				{
