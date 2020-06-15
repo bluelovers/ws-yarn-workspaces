@@ -178,16 +178,17 @@ if (!cp.error)
 		}
 
 		let sharedScript: IPackageJson['scripts'] = {
-			"prepublishOnly:lockfile": "ynpx sync-lockfile",
-			"prepublishOnly:check-bin": "ynpx @yarn-tool/check-pkg-bin",
+			"prepublishOnly:lockfile": "ynpx --quiet sync-lockfile",
+			"prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
 			"prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
-			"ncu": "ynpx yarn-tool -- ncu -u",
+			"ncu": "ynpx --quiet yarn-tool -- ncu -u",
 			"npm:publish": "npm publish",
 			"npm:publish:lerna": "npx lerna publish --yes --bump patch",
-			"sort-package-json": "ynpx yarn-tool -- sort",
+			"sort-package-json": "ynpx --quiet yarn-tool -- sort",
 			"prepublishOnly_": "yarn run prepublishOnly:update && yarn run prepublishOnly:check-bin && yarn run test",
 			"postpublish:git": `git commit -m "chore(release): publish" . & git push & echo postpublish:git`,
-			"postpublish:changelog": `ynpx @yarn-tool/changelog`,
+			"postpublish:tag": `ynpx --quiet @yarn-tool/tag`,
+			"postpublish:changelog": `ynpx --quiet @yarn-tool/changelog && git add ./CHANGELOG.md`,
 			"postpublish_": `yarn run postpublish:changelog && yarn run postpublish:git`,
 		}
 
