@@ -7,13 +7,13 @@
 import yargs from 'yargs';
 import syncLockfile from '../index';
 
-let argv = yargs.
-	option('cwd', {
+let argv = yargs
+	.option('cwd', {
 		alias: ['c'],
 		default: process.cwd(),
-	normalize: true,
-	string: true,
-})
+		normalize: true,
+		string: true,
+	})
 	.option('silent', {
 		boolean: true,
 	})
@@ -23,5 +23,5 @@ let argv = yargs.
 ;
 
 syncLockfile(argv.cwd, {
-	print: !argv.silent
+	print: !argv.silent,
 });
