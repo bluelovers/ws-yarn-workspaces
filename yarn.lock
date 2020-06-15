@@ -2298,10 +2298,10 @@ dateformat@^3.0.0:
   resolved "https://registry.npmjs.org/dateformat/-/dateformat-3.0.3.tgz#a6e37499a4d9a9cf85ef5872044d62901c9889ae"
   integrity sha512-jyCETtSl3VMZMWeRo7iY1FL19ges1t55hMo5yaam4Jrsm5EPL89UQkoQRyiI+Yf4k8r2ZpdngkV8hr1lIdjb3Q==
 
-debug-color2@^1.1.7, debug-color2@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.npmjs.org/debug-color2/-/debug-color2-1.2.2.tgz#61c0f8cc33fe19bb21d6154d1c1907194b8b4f5c"
-  integrity sha512-wntAbabOMCDwb4BssXvT3XCQ2dlgzsof4Zykai+WyEiydV31Qaf9clr+kNyhBxTRoJx7Xyn1EvPyd1DfpoSWng==
+debug-color2@^1.1.7, debug-color2@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.npmjs.org/debug-color2/-/debug-color2-1.2.3.tgz#bfe05adcd57e042a37c3eccc36de840f78a1f263"
+  integrity sha512-38TpLia2bzmW0TQl5+rOTuv3LQI3COX+Nbv5HKEMaoUzNrl8uHRfnzHtAt4gjEBJd4Oa8iP31VANeqRJ6MzUNw==
   dependencies:
     "@types/luxon" "*"
     chalk "< 3 && >= 2"
@@ -5441,10 +5441,12 @@ pascalcase@^0.1.1:
   resolved "https://registry.npmjs.org/pascalcase/-/pascalcase-0.1.1.tgz#b363e55e8006ca6fe21784d2db22bd15d7917f14"
   integrity sha1-s2PlXoAGym/iF4TS2yK9FdeRfxQ=
 
-path-dir-normalize@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.npmjs.org/path-dir-normalize/-/path-dir-normalize-1.0.7.tgz#647bee6c407a7c3d1f37639f4e5461c58c21c60c"
-  integrity sha512-7o4ep0A6PPK0c4I2akX+7UgHE8L327REAEM+GUOG2zw4EU7qvYl1f5RAK0J4i5r7ydHC7b+/STerV/0fjxSYsA==
+path-dir-normalize@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.npmjs.org/path-dir-normalize/-/path-dir-normalize-1.0.10.tgz#d917e0e14c46afa034ce07c4ed00e5ecc86cd5fb"
+  integrity sha512-xgSncejAvX3BUoDpFPkHXuNwPMyUKORNfgWkHDh3NZCQYr+n0yBfGgrR9BoGUovqFixqcM7JOOZPYnIXUJaeEg==
+  dependencies:
+    upath2 "^3.0.5"
 
 path-exists@^2.0.0:
   version "2.1.0"
@@ -7293,23 +7295,7 @@ yargs-unparser@1.6.0:
     lodash "^4.17.15"
     yargs "^13.3.0"
 
-yargs@13.3.2, yargs@^13.3.0:
-  version "13.3.2"
-  resolved "https://registry.npmjs.org/yargs/-/yargs-13.3.2.tgz#ad7ffefec1aa59565ac915f82dccb38a9c31a2dd"
-  integrity sha512-AX3Zw5iPruN5ie6xGRIDgqkT+ZhnRlZMLMHAs8tg7nRruy2Nb+i5o9bwghAogtM08q1dpr2LVoS8KSTMYpWXUw==
-  dependencies:
-    cliui "^5.0.0"
-    find-up "^3.0.0"
-    get-caller-file "^2.0.1"
-    require-directory "^2.1.1"
-    require-main-filename "^2.0.0"
-    set-blocking "^2.0.0"
-    string-width "^3.0.0"
-    which-module "^2.0.0"
-    y18n "^4.0.0"
-    yargs-parser "^13.1.2"
-
-yargs@^15.3.1:
+yargs@*, yargs@^15.3.1:
   version "15.3.1"
   resolved "https://registry.npmjs.org/yargs/-/yargs-15.3.1.tgz#9505b472763963e54afe60148ad27a330818e98b"
   integrity sha512-92O1HWEjw27sBfgmXiixJWT5hRBp2eobqXicLtPBIDBhYB+1HpwZlXmbW2luivBJHBzki+7VyCLRtAkScbTBQA==
@@ -7325,6 +7311,22 @@ yargs@^15.3.1:
     which-module "^2.0.0"
     y18n "^4.0.0"
     yargs-parser "^18.1.1"
+
+yargs@13.3.2, yargs@^13.3.0:
+  version "13.3.2"
+  resolved "https://registry.npmjs.org/yargs/-/yargs-13.3.2.tgz#ad7ffefec1aa59565ac915f82dccb38a9c31a2dd"
+  integrity sha512-AX3Zw5iPruN5ie6xGRIDgqkT+ZhnRlZMLMHAs8tg7nRruy2Nb+i5o9bwghAogtM08q1dpr2LVoS8KSTMYpWXUw==
+  dependencies:
+    cliui "^5.0.0"
+    find-up "^3.0.0"
+    get-caller-file "^2.0.1"
+    require-directory "^2.1.1"
+    require-main-filename "^2.0.0"
+    set-blocking "^2.0.0"
+    string-width "^3.0.0"
+    which-module "^2.0.0"
+    y18n "^4.0.0"
+    yargs-parser "^13.1.2"
 
 yarn-deduplicate@^2.0.0:
   version "2.0.0"

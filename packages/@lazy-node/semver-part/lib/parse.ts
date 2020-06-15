@@ -1,5 +1,5 @@
 import { versionToParts } from './_core';
-import { tryCompare, IOptionsOrLoose } from './compare';
+import { tryCompare, IOptionsOrLoose, ICompareReturnType } from './compare';
 
 export type IParseVersionsFindIndex = 0 | 1 | 2;
 
@@ -23,7 +23,14 @@ export function parseVersions(versionOld: string, versionNew: string)
 	}
 }
 
-export function parseVersionsAndCompare(versionOld: string, versionNew: string, optionsOrLoose?: IOptionsOrLoose)
+export function parseVersionsAndCompare(versionOld: string, versionNew: string, optionsOrLoose?: IOptionsOrLoose): {
+	comp: ICompareReturnType;
+	versionOld: string;
+	versionNew: string;
+	partsOld: string[];
+	partsNew: string[];
+	index: IParseVersionsFindIndex;
+}
 {
 	const data = parseVersions(versionOld, versionNew)
 

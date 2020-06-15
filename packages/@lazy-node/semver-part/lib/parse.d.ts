@@ -1,5 +1,4 @@
-/// <reference types="node" />
-import { IOptionsOrLoose } from './compare';
+import { IOptionsOrLoose, ICompareReturnType } from './compare';
 export declare type IParseVersionsFindIndex = 0 | 1 | 2;
 export declare function parseVersions(versionOld: string, versionNew: string): {
     versionOld: string;
@@ -9,7 +8,7 @@ export declare function parseVersions(versionOld: string, versionNew: string): {
     index: IParseVersionsFindIndex;
 };
 export declare function parseVersionsAndCompare(versionOld: string, versionNew: string, optionsOrLoose?: IOptionsOrLoose): {
-    comp: import("readline").Direction;
+    comp: ICompareReturnType;
     versionOld: string;
     versionNew: string;
     partsOld: string[];

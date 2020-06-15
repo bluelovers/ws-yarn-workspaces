@@ -47,7 +47,7 @@
     "@yarn-tool/find-root": "^1.0.20",
     "@yarn-tool/table": "^1.0.6",
     "@yarnpkg/lockfile": "^1.1.0",
-    "debug-color2": "^1.2.2",
+    "debug-color2": "^1.2.3",
     "deep-diff": "^1.0.2",
     "fs-extra": "^9.0.1",
     "semver": "^7.3.2",
