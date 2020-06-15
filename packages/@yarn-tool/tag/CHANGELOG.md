@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/tag@1.0.2...@yarn-tool/tag@1.0.3) (2020-06-15)
+
+
+### ✨　Features
+
+*  yarn run postpublish:tag ([f5bdef3](https://github.com/bluelovers/ws-yarn-workspaces/commit/f5bdef362f24d0204fbe71e14908202789a362a2))
+
+
+
+
+
 ## [1.0.2](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/tag@1.0.1...@yarn-tool/tag@1.0.2) (2020-06-15)
 
 
