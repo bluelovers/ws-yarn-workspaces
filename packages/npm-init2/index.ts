@@ -177,24 +177,29 @@ if (!cp.error)
 			}
 		}
 
+		let sharedScript: IPackageJson['scripts'] = {
+			"prepublishOnly:lockfile": "ynpx sync-lockfile",
+			"prepublishOnly:check-bin": "ynpx @yarn-tool/check-pkg-bin",
+			"prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
+			"ncu": "ynpx yarn-tool -- ncu -u",
+			"npm:publish": "npm publish",
+			"npm:publish:lerna": "npx lerna publish --yes --bump patch",
+			"sort-package-json": "ynpx yarn-tool -- sort",
+			"prepublishOnly_": "yarn run prepublishOnly:update && yarn run prepublishOnly:check-bin && yarn run test",
+			"postpublish_": `git commit -m "chore(release): publish" . & git push & echo postpublish`,
+		}
+
 		if (!oldExists)
 		{
 			Object
 				.entries({
 					"test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
 					"test:jest": "jest --coverage",
-					"prepublish:lockfile": "npx sync-lockfile .",
 					"lint": "npx eslint **/*.ts",
-					"ncu": "npx yarn-tool ncu -u",
-					"npm:publish": "npm publish",
-					"npm:publish:lerna": "lerna publish --yes --bump patch",
 					"tsc:default": "tsc -p tsconfig.json",
 					"tsc:esm": "tsc -p tsconfig.esm.json",
-					"sort-package-json": "npx yarn-tool sort",
-					"prepublishOnly_": "yarn run ncu && yarn run sort-package-json && yarn run test",
-					"postpublish_": `git commit -m "chore(release): publish" . & git push & echo postpublish`,
-					"coverage": "npx nyc yarn run test",
 					"test": `echo "Error: no test specified" && exit 1`,
+					...sharedScript,
 				})
 				.forEach(([k, v]) =>
 				{
@@ -208,15 +213,7 @@ if (!cp.error)
 		else
 		{
 			Object
-				.entries({
-					"prepublish:lockfile": "npx sync-lockfile .",
-					"ncu": "npx yarn-tool ncu -u",
-					"npm:publish": "npm publish",
-					"npm:publish:lerna": "npx lerna publish --yes --bump patch",
-					"sort-package-json": "npx yarn-tool sort",
-					"prepublishOnly_": "yarn run ncu && yarn run sort-package-json && yarn run test",
-					"postpublish_": `git commit -m "chore(release): publish" . & git push & echo postpublish`,
-				})
+				.entries(sharedScript)
 				.forEach(([k, v]) =>
 				{
 					if (k.endsWith('_') && pkg.data.scripts[k.replace(/_+$/, '')] === v)
