@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/changelog@1.0.2...@yarn-tool/changelog@1.0.4) (2020-06-15)
+
+
+### ✨　Features
+
+*  rtrim ([8de3b99](https://github.com/bluelovers/ws-yarn-workspaces/commit/8de3b999f897b9a6157d20374bffb0637ad98352))
+
+
+### Miscellaneous
+
+* . ([4436030](https://github.com/bluelovers/ws-yarn-workspaces/commit/44360309f5fe061f99ac7b65195d0cdece12a7d5))
+
+
+
+
+
 ## [1.0.2](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/changelog@1.0.1...@yarn-tool/changelog@1.0.2) (2020-06-15)
 
 
