@@ -15,5 +15,6 @@ export declare function updateChangelogByCwd(cwd?: string, options?: Partial<IOp
     pkg: IListableRow;
     logPath: string;
     newEntry: string;
+    version: string;
 }>;
 export default updateChangelogByCwd;
