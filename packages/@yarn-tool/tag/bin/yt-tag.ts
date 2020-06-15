@@ -1,0 +1,26 @@
+import setupToYargs from '../lib/yargs-setting';
+import yargs, { Argv, Omit } from 'yargs';
+import gitPackageTag from '../lib/git-tag';
+
+let argv = setupToYargs(yargs)
+	.option('cwd', {
+		default: process.cwd(),
+		normalize: true,
+	})
+	.showHelpOnFail(true)
+	.version()
+	.help()
+	.argv
+;
+
+gitPackageTag({
+	cwd: argv.cwd,
+	tagPrefix: argv['tag-prefix'],
+	excludeName: argv['exclude-name'],
+}, {
+	stdio: 'inherit',
+})
+	.then(result => {
+
+	})
+;

@@ -2,6 +2,7 @@
   "name": "@yarn-tool/tag",
   "version": "1.0.1",
   "description": "git tag a package",
+  "keywords": [],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/tag#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"
@@ -13,6 +14,13 @@
   "license": "ISC",
   "author": "bluelovers",
   "main": "index.js",
+  "bin": {
+    "yt-tag": "bin/yt-tag.js"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
   "scripts": {
     "coverage": "npx nyc yarn run test",
     "lint": "npx eslint **/*.ts",
@@ -22,7 +30,12 @@
     "npm:publish": "npm publish",
     "npm:publish:lerna": "lerna publish --yes --bump patch",
     "prepublish:lockfile": "npx sync-lockfile .",
+    "prepublishOnly:check-bin": "ynpx @yarn-tool/check-pkg-bin",
+    "prepublishOnly:lockfile": "ynpx sync-lockfile",
+    "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
     "prepublishOnly_": "yarn run ncu && yarn run sort-package-json && yarn run test",
+    "postpublish:changelog": "ynpx @yarn-tool/changelog",
+    "postpublish:git": "git commit -m \"chore(release): publish\" . & git push & echo postpublish:git",
     "postpublish_": "git commit -m \"chore(release): publish & git push & echo postpublish\" .",
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort",
@@ -32,9 +45,11 @@
   "dependencies": {
     "@git-lazy/spawn": "^1.0.20",
     "@git-lazy/tag": "^1.0.1",
+    "@yarn-tool/find-root": "^1.0.20",
     "path-dir-normalize": "^1.0.10",
     "path-is-same": "^1.0.2",
-    "pkg-dir": "^4.2.0"
+    "pkg-dir": "^4.2.0",
+    "yargs": "*"
   },
   "publishConfig": {
     "access": "public"

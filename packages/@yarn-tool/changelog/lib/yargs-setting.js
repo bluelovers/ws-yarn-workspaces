@@ -24,6 +24,10 @@ function setupToYargs(yargs) {
         desc: `Tag prefix to consider when reading the tags`,
         alias: 't',
         string: true,
+    })
+        .option('cwd', {
+        default: process.cwd(),
+        normalize: true,
     });
 }
 exports.setupToYargs = setupToYargs;

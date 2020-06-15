@@ -10,5 +10,7 @@ export declare function setupToYargs<T>(yargs: Argv<T>): Argv<T & {
     type: string;
 } & {
     "tag-prefix": string;
+} & {
+    cwd: string;
 }>;
 export default setupToYargs;

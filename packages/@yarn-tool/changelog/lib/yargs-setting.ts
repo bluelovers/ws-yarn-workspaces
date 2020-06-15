@@ -26,6 +26,10 @@ export function setupToYargs<T>(yargs: Argv<T>)
 			alias: 't',
 			string: true,
 		})
+		.option('cwd', {
+			default: process.cwd(),
+			normalize: true,
+		})
 	;
 }
 
