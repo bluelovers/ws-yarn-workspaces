@@ -189,7 +189,7 @@ if (!cp.error)
 			"postpublish:git": `git commit -m "chore(release): publish" . & git push & echo postpublish:git`,
 			"postpublish:tag": `ynpx --quiet @yarn-tool/tag`,
 			"postpublish:changelog": `ynpx --quiet @yarn-tool/changelog && git add ./CHANGELOG.md`,
-			"postpublish_": `yarn run postpublish:changelog && yarn run postpublish:git`,
+			"postpublish_": `yarn run postpublish:changelog && yarn run postpublish:git && yarn run postpublish:tag`,
 		}
 
 		if (!oldExists)
