@@ -18,6 +18,17 @@ export function setupToYargs<T>(yargs: Argv<T>)
 		.option('exclude-name', {
 			boolean: true,
 		})
+		.option('message', {
+			alias: 'm',
+			string: true,
+		})
+		.option('force-git-tag', {
+			alias: 'f',
+			boolean: true,
+		})
+		.option('sign-git-tag', {
+			boolean: true,
+		})
 	;
 }
 

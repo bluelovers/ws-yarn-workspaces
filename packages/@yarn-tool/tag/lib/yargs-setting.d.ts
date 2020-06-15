@@ -8,5 +8,11 @@ export declare function setupToYargs<T>(yargs: Argv<T>): yargs.Argv<T & {
     "tag-prefix": string;
 } & {
     "exclude-name": boolean;
+} & {
+    message: string;
+} & {
+    "force-git-tag": boolean;
+} & {
+    "sign-git-tag": boolean;
 }>;
 export default setupToYargs;

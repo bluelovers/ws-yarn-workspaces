@@ -17,6 +17,9 @@ gitPackageTag({
 	cwd: argv.cwd,
 	tagPrefix: argv['tag-prefix'],
 	excludeName: argv['exclude-name'],
+	message: argv.message,
+	forceGitTag: argv['force-git-tag'],
+	signGitTag: argv['sign-git-tag'],
 }, {
 	stdio: 'inherit',
 })
