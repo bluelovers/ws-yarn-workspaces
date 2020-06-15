@@ -2,16 +2,17 @@
   "name": "sync-lockfile",
   "version": "1.0.0",
   "description": "sync yarn.lock to each packages in yarn workspaces",
-  "homepage": "https://github.com/bluelovers/sync-lockfile#readme",
+  "keywords": [],
+  "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/sync-lockfile#readme",
   "bugs": {
-    "url": "https://github.com/bluelovers/sync-lockfile/issues"
+    "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bluelovers/sync-lockfile.git"
+    "url": "git+https://github.com/bluelovers/ws-yarn-workspaces.git"
   },
   "license": "ISC",
-  "author": "",
+  "author": "bluelovers",
   "main": "index.js",
   "bin": {
     "sync-lockfile": "bin/sync-lockfile.js"
@@ -19,24 +20,23 @@
   "scripts": {
     "coverage": "npx nyc yarn run test",
     "lint": "npx eslint **/*.ts",
-    "ncu": "npx yarn-tool ncu -u",
-    "npm:publish": "npm publish",
-    "prepublishOnly": "yarn run ncu && yarn run sort-package-json && yarn run test",
-    "postpublish": "git commit -m \"publish new version\" .",
-    "sort-package-json": "npx sort-package-json ./package.json",
     "test": "echo \"Error: no test specified\"",
+    "npm:publish": "npm publish",
+    "npm:publish:lerna": "npx lerna publish --yes --bump patch",
+    "prepublish:lockfile": "npx sync-lockfile .",
+    "prepublishOnly": "yarn run test",
+    "prepublishOnly_": "yarn run ncu && yarn run sort-package-json && yarn run test",
+    "postpublish_": "git commit -m \"publish new version\" .",
+    "ncu": "npx yarn-tool ncu -u",
+    "sort-package-json": "npx yarn-tool sort",
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@yarn-tool/find-root": "^1.0.2",
-    "fs-extra": "^8.1.0",
-    "ws-pkg-list": "^1.0.6",
-    "yargs": "^15.1.0"
+    "@yarn-tool/find-root": "^1.0.20",
+    "fs-extra": "^9.0.1",
+    "ws-pkg-list": "^1.0.25",
+    "yargs": "^15.3.1"
   },
-  "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.13",
-    "@types/fs-extra": "^8.0.1",
-    "@types/yargs": "^13.0.4"
-  }
+  "devDependencies": {}
 }
