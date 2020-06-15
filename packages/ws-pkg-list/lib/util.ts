@@ -2,12 +2,17 @@
  * Created by user on 2020/6/8.
  */
 
-import { normalize, relative } from 'upath2';
+import { normalize, relative, join } from 'upath2';
 import { IListableRow, IListableRowExtra } from './types';
 
 export function normalizeListableRow<T extends IListableRow>(row: T)
 {
 	row.location = normalize(row.location);
+
+	if (typeof row.manifestLocation === 'undefined')
+	{
+		row.manifestLocation = join(row.location, 'package.json');
+	}
 
 	return row
 }

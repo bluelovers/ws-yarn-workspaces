@@ -7,6 +7,9 @@ exports.listableToRecord = exports.normalizeListableExtra = exports.normalizeLis
 const upath2_1 = require("upath2");
 function normalizeListableRow(row) {
     row.location = upath2_1.normalize(row.location);
+    if (typeof row.manifestLocation === 'undefined') {
+        row.manifestLocation = upath2_1.join(row.location, 'package.json');
+    }
     return row;
 }
 exports.normalizeListableRow = normalizeListableRow;

@@ -4,6 +4,7 @@ export declare function wsFindPackageHasModulesCore(list: IListableRow[], cwd: s
         name: string;
         location: string;
     }[];
+    manifestLocation: string;
     name: string;
     version: string;
     private: boolean;
@@ -14,6 +15,7 @@ export declare function wsFindPackageHasModules(cwd?: string, dir?: string): {
         name: string;
         location: string;
     }[];
+    manifestLocation: string;
     name: string;
     version: string;
     private: boolean;

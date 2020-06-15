@@ -4,7 +4,7 @@
 
 import { findRoot, pathEqual } from '@yarn-tool/find-root';
 import { gitDiffStaged, gitDiffStagedDir } from '@git-lazy/diff-staged';
-import gitRoot from 'git-root2';
+import gitRoot from 'git-root2/core';
 
 export function wsRootWithGitRoot(cwd: string)
 {
