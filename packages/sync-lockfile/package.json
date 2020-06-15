@@ -1,0 +1,42 @@
+{
+  "name": "sync-lockfile",
+  "version": "1.0.0",
+  "description": "sync yarn.lock to each packages in yarn workspaces",
+  "homepage": "https://github.com/bluelovers/sync-lockfile#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/sync-lockfile/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/sync-lockfile.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
+  "bin": {
+    "sync-lockfile": "bin/sync-lockfile.js"
+  },
+  "scripts": {
+    "coverage": "npx nyc yarn run test",
+    "lint": "npx eslint **/*.ts",
+    "ncu": "npx yarn-tool ncu -u",
+    "npm:publish": "npm publish",
+    "prepublishOnly": "yarn run ncu && yarn run sort-package-json && yarn run test",
+    "postpublish": "git commit -m \"publish new version\" .",
+    "sort-package-json": "npx sort-package-json ./package.json",
+    "test": "echo \"Error: no test specified\"",
+    "tsc:default": "tsc -p tsconfig.json",
+    "tsc:esm": "tsc -p tsconfig.esm.json"
+  },
+  "dependencies": {
+    "@yarn-tool/find-root": "^1.0.2",
+    "fs-extra": "^8.1.0",
+    "ws-pkg-list": "^1.0.6",
+    "yargs": "^15.1.0"
+  },
+  "devDependencies": {
+    "@bluelovers/tsconfig": "^1.0.13",
+    "@types/fs-extra": "^8.0.1",
+    "@types/yargs": "^13.0.4"
+  }
+}
