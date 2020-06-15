@@ -148,7 +148,9 @@ if (!cp.error) {
             "npm:publish:lerna": "npx lerna publish --yes --bump patch",
             "sort-package-json": "ynpx yarn-tool -- sort",
             "prepublishOnly_": "yarn run prepublishOnly:update && yarn run prepublishOnly:check-bin && yarn run test",
-            "postpublish_": `git commit -m "chore(release): publish" . & git push & echo postpublish`,
+            "postpublish:git": `git commit -m "chore(release): publish" . & git push & echo postpublish:git`,
+            "postpublish:changelog": `ynpx @yarn-tool/changelog`,
+            "postpublish_": `yarn run postpublish:changelog && yarn run postpublish:git`,
         };
         if (!oldExists) {
             Object
