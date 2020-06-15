@@ -21,10 +21,10 @@ export async function gitPackageTag(options: IOptionsPackageTag, spawnOptions?: 
 	}
 	else if (!pathIsSame(rootData.pkg, cwd))
 	{
-		throw new Error(`cwd must be same as package dir`)
+		throw new Error(`cwd must be same as package dir\n${rootData.pkg}\n${cwd}`)
 	}
 
-	if (!rootData.pkg)
+	if (!options.pkg)
 	{
 		options.pkg = await import(join(rootData.pkg, 'package.json'))
 			.then(m => m.default || m)

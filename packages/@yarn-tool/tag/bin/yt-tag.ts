@@ -26,6 +26,6 @@ gitPackageTag({
 	stdio: 'inherit',
 })
 	.then(result => {
-
+		process.exit(result.exitCode);
 	})
 ;

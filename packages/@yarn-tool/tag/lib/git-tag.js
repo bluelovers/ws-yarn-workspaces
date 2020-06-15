@@ -38,9 +38,9 @@ async function gitPackageTag(options, spawnOptions) {
         throw new Error(`disallow create git tag for workspace root`);
     }
     else if (!path_is_same_1.default(rootData.pkg, cwd)) {
-        throw new Error(`cwd must be same as package dir`);
+        throw new Error(`cwd must be same as package dir\n${rootData.pkg}\n${cwd}`);
     }
-    if (!rootData.pkg) {
+    if (!options.pkg) {
         options.pkg = await Promise.resolve().then(() => __importStar(require(path_1.join(rootData.pkg, 'package.json')))).then(m => m.default || m);
     }
     cwd = options.cwd = rootData.pkg;
