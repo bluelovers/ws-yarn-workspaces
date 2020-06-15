@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.97](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.96...npm-init2@1.0.97) (2020-06-15)
+
+
+### ✨　Features
+
+*  add `--quiet` for ynpx ([eb848d9](https://github.com/bluelovers/npm-init2/commit/eb848d932bad6521610e773240dcc1c36f8c7b27))
+
+
+
+
+
 ## [1.0.96](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.95...npm-init2@1.0.96) (2020-06-15)
 
 

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/tag@1.0.1...@yarn-tool/tag@1.0.2) (2020-06-15)
+
+
+### ✨　Features
+
+*  add missed argv ([8bf2bf4](https://github.com/bluelovers/ws-yarn-workspaces/commit/8bf2bf4db965e36129859d21f3cc3234e74a31ab))
+*  add cli support ([5597c2d](https://github.com/bluelovers/ws-yarn-workspaces/commit/5597c2d03f631ba6a99f4436a34ab0666081a9fa))
+
+
+
+
+
 ## 1.0.1 (2020-06-15)
 
 

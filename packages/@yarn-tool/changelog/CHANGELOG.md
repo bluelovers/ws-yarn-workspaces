@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.5](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/changelog@1.0.4...@yarn-tool/changelog@1.0.5) (2020-06-15)
+
+
+### ✨　Features
+
+*  add cli support ([5597c2d](https://github.com/bluelovers/ws-yarn-workspaces/commit/5597c2d03f631ba6a99f4436a34ab0666081a9fa))
+
+
+
+
+
 ## [1.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/changelog@1.0.2...@yarn-tool/changelog@1.0.4) (2020-06-15)
 
 
