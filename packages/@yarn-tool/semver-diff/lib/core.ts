@@ -8,7 +8,7 @@ import { IStylesColorNames } from 'debug-color2/lib/styles';
 import { ITSRequireAtLeastOne } from 'ts-type';
 import { colorizeDiff } from './colorize';
 import { IOptionsParseVersionsDiff, IParseVersionsDiffCore } from './types';
-import { console } from 'debug-color2'
+import { console, chalkByConsoleMaybe } from 'debug-color2'
 
 export function parseVersionsDiffCore(from: string, to: string, options?: IOptionsParseVersionsDiff,
 ): IParseVersionsDiffCore
@@ -55,6 +55,7 @@ export function colorizeDiffCore(from: string, to: string, options?: ITSRequireA
 		middot,
 		resultAppend,
 		color,
+		comp,
 	} = parseVersionsDiffCore(from, to, options)
 
 	const { chalk } = options;
@@ -62,6 +63,7 @@ export function colorizeDiffCore(from: string, to: string, options?: ITSRequireA
 	return leadingWildcard +
 		result +
 		middot +
-		chalk[color](resultAppend)
+		// @ts-ignore
+		(comp ? chalk[color](resultAppend) : chalk(resultAppend))
 }
 

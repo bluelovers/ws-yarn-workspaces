@@ -32,12 +32,13 @@ function parseVersionsDiffCore(from, to, options) {
 }
 exports.parseVersionsDiffCore = parseVersionsDiffCore;
 function colorizeDiffCore(from, to, options) {
-    const { leadingWildcard, result, middot, resultAppend, color, } = parseVersionsDiffCore(from, to, options);
+    const { leadingWildcard, result, middot, resultAppend, color, comp, } = parseVersionsDiffCore(from, to, options);
     const { chalk } = options;
     return leadingWildcard +
         result +
         middot +
-        chalk[color](resultAppend);
+        // @ts-ignore
+        (comp ? chalk[color](resultAppend) : chalk(resultAppend));
 }
 exports.colorizeDiffCore = colorizeDiffCore;
 //# sourceMappingURL=core.js.map
