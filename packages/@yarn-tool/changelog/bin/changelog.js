@@ -40,6 +40,6 @@ from_list_1.default(argv.cwd, options)
     table.push([`package`, data.pkg.name]);
     table.push([`version`, version]);
     table.push([`file`, data.logPath]);
-    console.log(table.toString());
+    console.log(table.toString().replace(/ +$/g, ''));
 });
 //# sourceMappingURL=changelog.js.map
