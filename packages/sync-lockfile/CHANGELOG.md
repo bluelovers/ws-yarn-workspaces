@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/sync-lockfile@1.0.3...sync-lockfile@1.0.4) (2020-06-15)
+
+
+### 💎　Styles
+
+*  code format ([8ab2d36](https://github.com/bluelovers/ws-yarn-workspaces/commit/8ab2d36d0d6459dc89b585d3b9bbdb4b1585936a))
+
+
+
+
+
 ## [1.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/sync-lockfile@1.0.1...sync-lockfile@1.0.3) (2020-06-15)
 
 

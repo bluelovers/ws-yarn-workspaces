@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/bluelovers/ws-yarn-workspaces/compare/@lazy-node/semver-part@1.0.1...@lazy-node/semver-part@1.0.2) (2020-06-15)
+
+
+### ♻️　Chores
+
+*  update deps ([cbeffe8](https://github.com/bluelovers/ws-yarn-workspaces/commit/cbeffe8cc104bcc5662b9af1771dc985e3635eea))
+
+
+
+
+
 ## 1.0.1 (2020-06-11)
 
 

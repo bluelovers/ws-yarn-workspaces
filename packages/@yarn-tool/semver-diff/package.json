@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/semver-diff",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "colorize semver diff",
   "keywords": [
     "semver",
@@ -36,7 +36,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@lazy-node/semver-part": "^1.0.1",
+    "@lazy-node/semver-part": "^1.0.2",
     "ts-type": "^1.2.23"
   },
   "devDependencies": {

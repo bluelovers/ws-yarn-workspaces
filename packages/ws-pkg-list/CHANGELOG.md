@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.26](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-pkg-list@1.0.25...ws-pkg-list@1.0.26) (2020-06-15)
+
+
+### ✨　Features
+
+*  update data type for @yarn-tool/changelog ([5bdcfd2](https://github.com/bluelovers/ws-yarn-workspaces/commit/5bdcfd286cfd836b8f5a1b8744512bd4fd2cc5c4))
+*  add return manifestLocation ([331d224](https://github.com/bluelovers/ws-yarn-workspaces/commit/331d2240ada71fd378ef75ac7a7ba52bda3e4b23))
+
+
+
+
+
 ## [1.0.25](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-pkg-list@1.0.24...ws-pkg-list@1.0.25) (2020-06-13)
 
 

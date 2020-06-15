@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.96](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.95...npm-init2@1.0.96) (2020-06-15)
+
+
+### ✨　Features
+
+*  update sharedScript ([eab87fb](https://github.com/bluelovers/npm-init2/commit/eab87fbbce41c40d88555225fa2ab7544c259ff5))
+*  update sharedScript ([054e22d](https://github.com/bluelovers/npm-init2/commit/054e22dfb055176b6062c5531d8ee1a2f1c4a489))
+
+
+### 🐛　Bug Fixes
+
+*  error at postpublish ([db124af](https://github.com/bluelovers/npm-init2/commit/db124af509f869141b97035863aa7428af5d1cd4))
+
+
+
+
+
 ## [1.0.95](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.94...npm-init2@1.0.95) (2020-06-14)
 
 **Note:** Version bump only for package npm-init2
