@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.103](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.102...npm-init2@1.0.103) (2020-06-16)
+
+
+### 🐛　Bug Fixes
+
+*  avoid can't overwrite test script ([f843cf0](https://github.com/bluelovers/npm-init2/commit/f843cf0d372e3c7056eda4821cdde0dd2e6a248e))
+
+
+
+
+
 ## [1.0.102](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.101...npm-init2@1.0.102) (2020-06-16)
 
 
