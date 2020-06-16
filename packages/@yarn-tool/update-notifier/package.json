@@ -20,9 +20,7 @@
     "@yarn-tool/is-npx": "^1.0.4",
     "update-notifier": "^4.1.0"
   },
-  "devDependencies": {
-    "@types/update-notifier": "^4.1.0"
-  },
+  "devDependencies": {},
   "publishConfig": {
     "access": "public"
   },

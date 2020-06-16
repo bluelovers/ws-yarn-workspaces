@@ -35,10 +35,7 @@
     "npm-packlist": "^2.1.2",
     "tar": "^6.0.2"
   },
-  "devDependencies": {
-    "@types/npm-packlist": "^1.1.1",
-    "@types/tar": "^4.0.3"
-  },
+  "devDependencies": {},
   "publishConfig": {
     "access": "public"
   }

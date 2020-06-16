@@ -57,13 +57,12 @@
     "lodash": "^4.17.15",
     "micromatch": "^4.0.2",
     "npm-package-json-loader": "^1.0.25",
+    "sort-package-json-scripts": "^1.0.10",
     "validate-npm-package-name": "^3.0.0",
     "workspaces-config": "^1.0.12",
     "yargs": "^15.3.1"
   },
-  "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.19"
-  },
+  "devDependencies": {},
   "bundleDependencies": [],
   "preferGlobal": true,
   "publishConfig": {},

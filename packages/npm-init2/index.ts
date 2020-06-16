@@ -17,6 +17,8 @@ import { npmHostedGitInfo } from '@yarn-tool/pkg-git-info';
 import { existsSync, readFileSync, writeFileSync } from 'fs';
 import lodashTemplate from 'lodash/template';
 import { writeReadme } from './lib/writeReadme';
+import sortPackageJsonScripts from 'sort-package-json-scripts';
+
 
 //updateNotifier(__dirname);
 
@@ -300,6 +302,8 @@ if (!cp.error)
 			pkg.data.devDependencies['@bluelovers/tsconfig'] = findVersion('@bluelovers/tsconfig');
 			pkg.data.devDependencies['@types/node'] = findVersion('@types/node');
 		}
+
+		pkg.data.scripts = sortPackageJsonScripts(pkg.data.scripts);
 
 		pkg.autofix();
 

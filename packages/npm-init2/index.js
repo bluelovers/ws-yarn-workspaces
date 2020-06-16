@@ -36,6 +36,7 @@ const find_root_1 = require("@yarn-tool/find-root");
 const pkg_git_info_1 = require("@yarn-tool/pkg-git-info");
 const fs_1 = require("fs");
 const writeReadme_1 = require("./lib/writeReadme");
+const sort_package_json_scripts_1 = __importDefault(require("sort-package-json-scripts"));
 //updateNotifier(__dirname);
 let cli = yargs_setting_1.default(yargs_1.default);
 let argv = cli.argv._;
@@ -226,6 +227,7 @@ if (!cp.error) {
             pkg.data.devDependencies['@bluelovers/tsconfig'] = findVersion('@bluelovers/tsconfig');
             pkg.data.devDependencies['@types/node'] = findVersion('@types/node');
         }
+        pkg.data.scripts = sort_package_json_scripts_1.default(pkg.data.scripts);
         pkg.autofix();
         if (cli.argv.sort) {
             pkg.sort();

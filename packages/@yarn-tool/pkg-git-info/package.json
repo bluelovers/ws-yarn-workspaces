@@ -31,13 +31,11 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@git-lazy/info": "^1.0.19",
+    "@git-lazy/info": "^1.0.20",
     "@types/hosted-git-info": "^3.0.0",
     "hosted-git-info": "^3.0.4"
   },
-  "devDependencies": {
-    "@types/parse-git-config": "^3.0.0"
-  },
+  "devDependencies": {},
   "publishConfig": {
     "access": "public"
   }
