@@ -229,9 +229,9 @@ function getDefaultPackageJson(name) {
             "@types/node": "*",
         },
         "peerDependencies": {
-            "lerna": "^3",
+            "lerna": "*",
             "yarn": "*",
-            "@bluelovers/conventional-changelog-bluelovers": "^3"
+            "@bluelovers/conventional-changelog-bluelovers": "*"
         },
         "resolutions": {}
     };

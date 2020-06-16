@@ -49,7 +49,7 @@
     "yargs": "*"
   },
   "peerDependencies": {
-    "@bluelovers/conventional-changelog-bluelovers": "^5.0.16"
+    "@bluelovers/conventional-changelog-bluelovers": "*"
   },
   "publishConfig": {
     "access": "public"
