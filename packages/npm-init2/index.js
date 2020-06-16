@@ -158,7 +158,7 @@ if (!cp.error) {
                 ...sharedScript,
                 "npm:publish": "npm publish",
                 "npm:publish:lerna": "ynpx --quiet lerna -- publish --yes --bump patch",
-                "postpublish:git": `git commit -m "chore(release): publish" . & git push & echo postpublish:git`,
+                "postpublish:git": `git commit -m "chore(release): publish" . & git push --follow-tags & echo postpublish:git`,
                 "postpublish:tag": `ynpx --quiet @yarn-tool/tag`,
                 "postpublish:changelog": `ynpx --quiet @yarn-tool/changelog && git add ./CHANGELOG.md`,
                 "postpublish_": `yarn run postpublish:changelog && yarn run postpublish:git && yarn run postpublish:tag`,
