@@ -158,10 +158,11 @@ if (!cp.error) {
                 ...sharedScript,
                 "npm:publish": "npm publish",
                 "npm:publish:lerna": "ynpx --quiet lerna -- publish --yes --bump patch",
-                "postpublish:git": `git commit -m "chore(release): publish" . & git push --follow-tags & echo postpublish:git`,
-                "postpublish:tag": `ynpx --quiet @yarn-tool/tag && git push --follow-tags`,
+                "postpublish:git:commit": `git commit -m "chore(release): publish" . & echo postpublish:git:commit`,
+                "postpublish:git:tag": `ynpx --quiet @yarn-tool/tag`,
                 "postpublish:changelog": `ynpx --quiet @yarn-tool/changelog && git add ./CHANGELOG.md`,
-                "postpublish_": `yarn run postpublish:changelog && yarn run postpublish:git && yarn run postpublish:tag`,
+                "postpublish:git:push": `git push --follow-tags`,
+                "postpublish_": `yarn run postpublish:changelog && yarn run postpublish:git:commit && yarn run postpublish:git:tag && yarn run postpublish:git:push`,
             };
             if (!oldExists) {
                 sharedScript = {
