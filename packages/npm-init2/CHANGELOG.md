@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.99](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.98...npm-init2@1.0.99) (2020-06-16)
+
+
+### ✨　Features
+
+*  update script and all use ynpx ([114b977](https://github.com/bluelovers/npm-init2/commit/114b9778a6a7a4d0e3a6767394cdec722cdfa194))
+
+
+### Miscellaneous
+
+* . ([dd7c2a1](https://github.com/bluelovers/npm-init2/commit/dd7c2a17754d876bc24b261a78c57343bfd12652))
+
+
+
+
+
 ## [1.0.98](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.97...npm-init2@1.0.98) (2020-06-15)
 
 
