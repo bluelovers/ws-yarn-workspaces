@@ -178,30 +178,63 @@ if (!cp.error)
 		}
 
 		let sharedScript: IPackageJson['scripts'] = {
-			"prepublishOnly:lockfile": "ynpx --quiet sync-lockfile",
 			"prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
 			"prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
 			"ncu": "ynpx --quiet yarn-tool -- ncu -u",
-			"npm:publish": "npm publish",
-			"npm:publish:lerna": "npx lerna publish --yes --bump patch",
+
 			"sort-package-json": "ynpx --quiet yarn-tool -- sort",
-			"prepublishOnly_": "yarn run prepublishOnly:update && yarn run prepublishOnly:check-bin && yarn run test",
-			"postpublish:git": `git commit -m "chore(release): publish" . & git push & echo postpublish:git`,
-			"postpublish:tag": `ynpx --quiet @yarn-tool/tag`,
-			"postpublish:changelog": `ynpx --quiet @yarn-tool/changelog && git add ./CHANGELOG.md`,
-			"postpublish_": `yarn run postpublish:changelog && yarn run postpublish:git && yarn run postpublish:tag`,
+			"test": `echo "Error: no test specified"`,
+		}
+
+		let prepublishOnly = "yarn run prepublishOnly:check-bin && yarn run prepublishOnly:update && yarn run test";
+
+		if (hasWorkspace)
+		{
+			prepublishOnly = "yarn run prepublishOnly:check-bin && yarn run test";
+
+				sharedScript = {
+				...sharedScript,
+			}
+		}
+		else
+		{
+			sharedScript = {
+				...sharedScript,
+				"npm:publish": "npm publish",
+				"npm:publish:lerna": "ynpx --quiet lerna -- publish --yes --bump patch",
+				"postpublish:git": `git commit -m "chore(release): publish" . & git push & echo postpublish:git`,
+				"postpublish:tag": `ynpx --quiet @yarn-tool/tag`,
+				"postpublish:changelog": `ynpx --quiet @yarn-tool/changelog && git add ./CHANGELOG.md`,
+				"postpublish_": `yarn run postpublish:changelog && yarn run postpublish:git && yarn run postpublish:tag`,
+			}
+
+			if (!oldExists)
+			{
+				sharedScript = {
+					...sharedScript,
+					"tsc:default": "tsc -p tsconfig.json",
+					"tsc:esm": "tsc -p tsconfig.esm.json",
+				}
+			}
+		}
+
+		if (oldExists)
+		{
+			sharedScript.prepublishOnly_ = prepublishOnly
+		}
+		else
+		{
+			sharedScript.prepublishOnly = prepublishOnly
 		}
 
 		if (!oldExists)
 		{
 			Object
 				.entries({
-					"test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
-					"test:jest": "jest --coverage",
-					"lint": "npx eslint **/*.ts",
-					"tsc:default": "tsc -p tsconfig.json",
-					"tsc:esm": "tsc -p tsconfig.esm.json",
-					"test": `echo "Error: no test specified" && exit 1`,
+					"test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
+					"test:jest": "ynpx --quiet jest -- --coverage",
+					"lint": "ynpx --quiet eslint -- **/*.ts",
+
 					...sharedScript,
 				})
 				.forEach(([k, v]) =>

@@ -292,17 +292,17 @@ export function getDefaultPackageJson(name?: string): {
 			"packages/*"
 		],
 		"scripts": {
-			"lerna:publish": "npx lerna publish",
-			"lerna:publish:yes": "npx lerna publish --yes --bump patch",
-			"prepublish:lockfile": "npx sync-lockfile .",
-			"prepare:fix-ws-links": "ynpx @yarn-tool/fix-ws-links",
+			"lerna:publish": "ynpx --quiet lerna -- publish",
+			"lerna:publish:yes": "ynpx --quiet lerna -- publish --yes --bump patch",
+			"prepublishOnly:lockfile": "ynpx --quiet sync-lockfile",
+			"prepare:fix-ws-links": "ynpx --quiet @yarn-tool/fix-ws-links",
 			"ncu": "yarn run ncu:root && yarn run ncu:ws",
-			"ncu:root": "npx yarn-tool ncu -u",
-			"ncu:ws": "npx yarn-tool ws exec yarn-tool ncu -- -u",
+			"ncu:root": "ynpx --quiet yarn-tool -- ncu -u",
+			"ncu:ws": "ynpx --quiet yarn-tool -- ws exec yarn-tool ncu -- -u",
 			"sort-package-json": "yarn run sort-package-json:root && yarn run sort-package-json:ws",
-			"sort-package-json:root": "npx yarn-tool sort",
-			"sort-package-json:ws": "npx yarn-tool ws exec yarn-tool sort",
-			"test": "npx yarn-tool ws run test"
+			"sort-package-json:root": "ynpx --quiet yarn-tool -- sort",
+			"sort-package-json:ws": "ynpx --quiet yarn-tool -- ws exec yarn-tool sort",
+			"test": "ynpx --quiet yarn-tool -- ws run test"
 		},
 		"devDependencies": {
 			"@bluelovers/tsconfig": "^1.0.19",
@@ -310,6 +310,7 @@ export function getDefaultPackageJson(name?: string): {
 		},
 		"peerDependencies": {
 			"lerna": "^3",
+			"yarn": "*",
 			"@bluelovers/conventional-changelog-bluelovers": "^3"
 		},
 		"resolutions": {}
