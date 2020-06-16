@@ -47,6 +47,7 @@ let rootData = find_root_1.findRoot({
     skipCheckWorkspace: cli.argv.skipCheckWorkspace,
 });
 let hasWorkspace = rootData.ws;
+let isWorkspace = rootData.isWorkspace;
 let workspacePrefix;
 let workspacesConfig;
 if (hasWorkspace) {
@@ -223,9 +224,12 @@ if (!cp.error) {
                 var _a, _b, _c;
                 return ((_a = cpkg.dependencies) === null || _a === void 0 ? void 0 : _a[name]) || ((_b = cpkg.devDependencies) === null || _b === void 0 ? void 0 : _b[name]) || ((_c = cpkg.peerDependencies) === null || _c === void 0 ? void 0 : _c[name]) || "*";
             };
+            pkg.data.dependencies = pkg.data.dependencies || {};
             pkg.data.devDependencies = pkg.data.devDependencies || {};
-            pkg.data.devDependencies['@bluelovers/tsconfig'] = findVersion('@bluelovers/tsconfig');
-            pkg.data.devDependencies['@types/node'] = findVersion('@types/node');
+            if (!hasWorkspace || hasWorkspace && isWorkspace) {
+                pkg.data.devDependencies['@bluelovers/tsconfig'] = findVersion('@bluelovers/tsconfig');
+                pkg.data.devDependencies['@types/node'] = findVersion('@types/node');
+            }
         }
         pkg.data.scripts = sort_package_json_scripts_1.default(pkg.data.scripts);
         pkg.autofix();

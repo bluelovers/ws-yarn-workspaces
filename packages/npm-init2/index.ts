@@ -36,6 +36,7 @@ let rootData = findRoot({
 });
 
 let hasWorkspace: string = rootData.ws;
+let isWorkspace = rootData.isWorkspace;
 
 let workspacePrefix: string;
 let workspacesConfig: ReturnType<typeof parseStaticPackagesPaths>
@@ -297,10 +298,14 @@ if (!cp.error)
 				return cpkg.dependencies?.[name] || cpkg.devDependencies?.[name] || cpkg.peerDependencies?.[name] || "*"
 			};
 
+			pkg.data.dependencies = pkg.data.dependencies || {};
 			pkg.data.devDependencies = pkg.data.devDependencies || {};
 
-			pkg.data.devDependencies['@bluelovers/tsconfig'] = findVersion('@bluelovers/tsconfig');
-			pkg.data.devDependencies['@types/node'] = findVersion('@types/node');
+			if (!hasWorkspace || hasWorkspace && isWorkspace)
+			{
+				pkg.data.devDependencies['@bluelovers/tsconfig'] = findVersion('@bluelovers/tsconfig');
+				pkg.data.devDependencies['@types/node'] = findVersion('@types/node');
+			}
 		}
 
 		pkg.data.scripts = sortPackageJsonScripts(pkg.data.scripts);
