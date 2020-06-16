@@ -166,6 +166,7 @@ if (!cp.error) {
             if (!oldExists) {
                 sharedScript = {
                     ...sharedScript,
+                    "coverage": "ynpx --quiet nyc -- npm run test",
                     "tsc:default": "tsc -p tsconfig.json",
                     "tsc:esm": "tsc -p tsconfig.esm.json",
                 };
