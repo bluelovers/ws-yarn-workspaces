@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.8](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-git-info@1.0.7...@yarn-tool/pkg-git-info@1.0.8) (2020-06-16)
+
+
+### ♻️　Chores
+
+*  update deps ([9d48581](https://github.com/bluelovers/ws-yarn-workspaces/commit/9d48581eac943917ce1b88b35ce62ee45da4249c))
+
+
+
+
+
 ## [1.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-git-info@1.0.6...@yarn-tool/pkg-git-info@1.0.7) (2020-06-15)
 
 

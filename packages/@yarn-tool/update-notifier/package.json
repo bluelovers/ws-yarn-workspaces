@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/update-notifier",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "",
   "license": "ISC",
   "author": "",
@@ -20,7 +20,6 @@
     "@yarn-tool/is-npx": "^1.0.4",
     "update-notifier": "^4.1.0"
   },
-  "devDependencies": {},
   "publishConfig": {
     "access": "public"
   },

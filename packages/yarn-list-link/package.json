@@ -1,6 +1,6 @@
 {
   "name": "yarn-list-link",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "show list of yarn link",
   "keywords": [],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/yarn-list-link#readme",
@@ -30,6 +30,6 @@
   "dependencies": {
     "find-yarn-workspace-root2": "^1.2.16",
     "fs-extra": "^9.0.1",
-    "upath2": "^3.0.5"
+    "upath2": "^3.0.6"
   }
 }
