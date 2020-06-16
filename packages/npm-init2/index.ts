@@ -231,6 +231,11 @@ if (!cp.error)
 
 		if (!oldExists)
 		{
+			if (pkg.data.scripts?.test === "echo \"Error: no test specified\" && exit 1" && sharedScript.test?.length > 0)
+			{
+				delete pkg.data.scripts.test
+			}
+
 			Object
 				.entries({
 					"test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",

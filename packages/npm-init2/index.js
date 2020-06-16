@@ -22,7 +22,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-var _a;
+var _a, _b, _c;
 Object.defineProperty(exports, "__esModule", { value: true });
 const yargs_1 = __importDefault(require("yargs"));
 const cross_spawn_extra_1 = __importDefault(require("cross-spawn-extra"));
@@ -180,6 +180,9 @@ if (!cp.error) {
             sharedScript.prepublishOnly = prepublishOnly;
         }
         if (!oldExists) {
+            if (((_b = pkg.data.scripts) === null || _b === void 0 ? void 0 : _b.test) === "echo \"Error: no test specified\" && exit 1" && ((_c = sharedScript.test) === null || _c === void 0 ? void 0 : _c.length) > 0) {
+                delete pkg.data.scripts.test;
+            }
             Object
                 .entries({
                 "test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
