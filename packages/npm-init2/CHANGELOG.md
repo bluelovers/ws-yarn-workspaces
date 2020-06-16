@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.105](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.104...npm-init2@1.0.105) (2020-06-16)
+
+
+### ✨　Features
+
+* skip add devDependencies when is sub of workspace ([f45eece](https://github.com/bluelovers/npm-init2/commit/f45eece8678b2a1005a991d2a85996ec855aa10e))
+
+
+
+
+
 ## [1.0.104](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.103...npm-init2@1.0.104) (2020-06-16)
 
 
