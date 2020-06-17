@@ -1,3 +1,3 @@
 {
-  "extends": "@bluelovers/tsconfig/esm/mapfile"
+  "extends": "@bluelovers/tsconfig/esm/mapfile.json"
 }
