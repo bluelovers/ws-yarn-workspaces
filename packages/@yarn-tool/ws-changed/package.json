@@ -41,7 +41,7 @@
   "dependencies": {
     "@git-lazy/diff-staged": "^1.0.22",
     "@yarn-tool/find-root": "^1.0.21",
-    "array-hyper-unique": "^1.1.6",
+    "array-hyper-unique": "^1.1.7",
     "cross-spawn-extra": "^2.1.0",
     "git-root2": "^1.0.18",
     "glob-regex": "^0.3.2",

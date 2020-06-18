@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@ts-type/package-dts": "^1.0.21",
-    "array-hyper-unique": "^1.1.6",
+    "array-hyper-unique": "^1.1.7",
     "ws-pkg-list": "^1.0.27"
   },
   "publishConfig": {

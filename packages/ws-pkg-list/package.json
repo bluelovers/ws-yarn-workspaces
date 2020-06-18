@@ -47,7 +47,7 @@
     "@bluelovers/fast-glob": "^3.0.4",
     "@ts-type/package-dts": "^1.0.21",
     "@yarn-tool/find-root": "^1.0.21",
-    "array-hyper-unique": "^1.1.6",
+    "array-hyper-unique": "^1.1.7",
     "find-yarn-workspace-root2": "^1.2.16",
     "fs-extra": "^9.0.1",
     "micromatch": "^4.0.2",
