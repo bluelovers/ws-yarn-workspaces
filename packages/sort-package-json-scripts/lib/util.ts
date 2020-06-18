@@ -66,6 +66,7 @@ export const defaultNpmScriptsOrder = new Set([
 
 	'link',
 
+	'ci',
 	'npm',
 	'yarn',
 	'lerna',
