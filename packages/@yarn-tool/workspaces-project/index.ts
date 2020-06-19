@@ -2,7 +2,6 @@ import LernaProject from '@lerna/project';
 import { resolve, normalize } from 'upath2';
 import { IWorkspacesProjectInternal, EnumWorkspacesProject, IPackedManifest } from './lib/types';
 import findWorkspaceRoot from 'find-yarn-workspace-root2/core';
-import pathDirNormalize from 'path-dir-normalize';
 import { checkPaths, EnumCheckPaths } from './lib/util';
 import type { ILernaJson, IReleaseType } from '@ts-type/package-dts/lerna-json';
 import type { IChangelogPreset } from '@yarn-tool/changelog';
