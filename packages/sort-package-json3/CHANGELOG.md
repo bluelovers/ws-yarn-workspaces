@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.13](https://github.com/bluelovers/ws-yarn-workspaces/compare/sort-package-json3@1.0.12...sort-package-json3@1.0.13) (2020-06-19)
+
+**Note:** Version bump only for package sort-package-json3
+
+
+
+
+
 ## [1.0.12](https://github.com/bluelovers/ws-yarn-workspaces/compare/sort-package-json3@1.0.11...sort-package-json3@1.0.12) (2020-06-06)
 
 **Note:** Version bump only for package sort-package-json3

@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.11](https://github.com/bluelovers/ws-yarn-workspaces/compare/sort-package-json-scripts@1.0.10...sort-package-json-scripts@1.0.11) (2020-06-19)
+
+
+### ✨　Features
+
+* add `postpublishOnly` ([1d05d99](https://github.com/bluelovers/ws-yarn-workspaces/commit/1d05d99fa5b0dea8d63ddd700024a197eb1614be))
+* update sort order ([9a37830](https://github.com/bluelovers/ws-yarn-workspaces/commit/9a378307eff9079b625cf2cf0e28a7c8f333cf44))
+
+
+### 🚨　Tests
+
+* remove index number ([6321bec](https://github.com/bluelovers/ws-yarn-workspaces/commit/6321bec39a5b66df0869dbadd23550eed3983e0f))
+* add sub level test ([78acc8f](https://github.com/bluelovers/ws-yarn-workspaces/commit/78acc8f4f4e62081160849d2a9f0d52291f2915a))
+* **snapshot:** add `ci` ([7739018](https://github.com/bluelovers/ws-yarn-workspaces/commit/7739018704a9f741c02218f406748f7ed8a30e2d))
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([9006155](https://github.com/bluelovers/ws-yarn-workspaces/commit/9006155c9ff4fb5367da3567456ae3b92bd3de30))
+
+
+### 🔖　Miscellaneous
+
+* . ([3ae60ac](https://github.com/bluelovers/ws-yarn-workspaces/commit/3ae60acf819fa7a96392dd2f3a1fabe3bbda856e))
+
+
+
+
+
 ## [1.0.10](https://github.com/bluelovers/ws-yarn-workspaces/compare/sort-package-json-scripts@1.0.9...sort-package-json-scripts@1.0.10) (2020-06-06)
 
 **Note:** Version bump only for package sort-package-json-scripts

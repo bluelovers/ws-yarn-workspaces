@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.12](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/check-pkg-bin@1.0.11...@yarn-tool/check-pkg-bin@1.0.12) (2020-06-19)
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([9006155](https://github.com/bluelovers/ws-yarn-workspaces/commit/9006155c9ff4fb5367da3567456ae3b92bd3de30))
+
+
+
+
+
 ## [1.0.11](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/check-pkg-bin@1.0.10...@yarn-tool/check-pkg-bin@1.0.11) (2020-06-16)
 
 **Note:** Version bump only for package @yarn-tool/check-pkg-bin
