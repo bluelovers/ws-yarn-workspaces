@@ -10,7 +10,6 @@ exports.sortPackageJsonScripts = exports.sortPackageJsonScriptsOld = exports._co
 const handleOptions_1 = __importDefault(require("./handleOptions"));
 const handleKeyOrdersCore_1 = require("./handleKeyOrdersCore");
 const sort_object_keys2_1 = __importDefault(require("sort-object-keys2"));
-const core_1 = require("array-hyper-unique/core");
 const util_1 = require("./util");
 /**
  * a better sort package.json scripts, by default is follow npm lifecycle scripts
@@ -76,7 +75,7 @@ function sortPackageJsonScripts(scripts, opts) {
         }
         return a;
     }, []);
-    keys = core_1.array_unique(keys);
+    //keys = array_unique(keys)
     return sort_object_keys2_1.default(scripts, {
         keys,
         sort: opts.sortKeyFn,

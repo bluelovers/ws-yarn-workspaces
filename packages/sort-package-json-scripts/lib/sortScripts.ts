@@ -106,7 +106,7 @@ export function sortPackageJsonScripts<T extends Record<string, any>>(scripts: T
 			return a
 		}, []);
 
-	keys = array_unique(keys)
+	//keys = array_unique(keys)
 
 	return sortObjectKeys(scripts, {
 		keys,
