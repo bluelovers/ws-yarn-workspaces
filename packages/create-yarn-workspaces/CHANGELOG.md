@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.60](https://github.com/bluelovers/create-yarn-workspaces/compare/create-yarn-workspaces@1.0.59...create-yarn-workspaces@1.0.60) (2020-06-19)
+
+
+### 🐛　Bug Fixes
+
+* avoid bug of typescript ([e454c0f](https://github.com/bluelovers/create-yarn-workspaces/commit/e454c0f604677ecea6b1a199dc53e07697f4fb96))
+
+
+
+
+
 ## [1.0.59](https://github.com/bluelovers/create-yarn-workspaces/compare/create-yarn-workspaces@1.0.58...create-yarn-workspaces@1.0.59) (2020-06-19)
 
 
