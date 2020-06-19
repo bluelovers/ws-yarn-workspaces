@@ -81,6 +81,9 @@ export const defaultNpmScriptsOrder = new Set([
 
 	'postpublish',
 
+	// yarn-tool
+	'postpublishOnly',
+
 	'shrinkwrap',
 
 	'version',
