@@ -42,7 +42,7 @@ it('sort base', function ()
 
 	expect(actual).toStrictEqual(expected);
 
-	expectMatchSnapshot(actual);
+	expectMatchSnapshot(actual, fixture);
 	expectStringify(actual, expected)
 });
 
@@ -84,7 +84,7 @@ it('sort base v2', function ()
 
 	expect(actual).toStrictEqual(expected);
 
-	expectMatchSnapshot(actual);
+	expectMatchSnapshot(actual, fixture);
 	expectStringify(actual, expected)
 });
 
@@ -125,8 +125,8 @@ it('sort yarn-tool scripts', function ()
 	let actual = sortPackageJsonScripts(fixture)
 	let actual2 = sortPackageJsonScripts(fixture2)
 
-	expectMatchSnapshot(actual);
-	expectMatchSnapshot(actual2);
+	expectMatchSnapshot(actual, fixture);
+	expectMatchSnapshot(actual2, fixture2);
 });
 
 it('should defaultNpmScriptsOrder', function ()
@@ -143,7 +143,7 @@ it('should defaultNpmScriptsOrder', function ()
 
 	expect(Object.keys(actual)).toStrictEqual(keys)
 
-	expectMatchSnapshot(actual)
+	expectMatchSnapshot(actual, source)
 
 	source = keys.slice()
 		.reduce((a, k, i) => {
@@ -155,7 +155,7 @@ it('should defaultNpmScriptsOrder', function ()
 
 	expect(Object.keys(actual)).toStrictEqual(keys)
 
-	expectMatchSnapshot(actual)
+	expectMatchSnapshot(actual, source)
 });
 
 it('should defaultNpmScriptsOrder v2', function ()
@@ -176,7 +176,7 @@ it('should defaultNpmScriptsOrder v2', function ()
 
 	let actual = sortPackageJsonScripts(source)
 
-	expectMatchSnapshot(actual)
+	expectMatchSnapshot(actual, source)
 });
 
 it('should script lifecycle', function ()
@@ -236,7 +236,7 @@ it('should script lifecycle', function ()
 		scripts[`post${key}`] = `echo post${key} ${index}.3`;
 	}
 
-	expectMatchSnapshot(actual)
+	expectMatchSnapshot(actual, source)
 });
 
 function expectStringify(actual, expected)
@@ -245,8 +245,10 @@ function expectStringify(actual, expected)
 	expect(JSON.stringify(actual, null, 2)).toStrictEqual(JSON.stringify(expected, null, 2));
 }
 
-function expectMatchSnapshot(actual)
+function expectMatchSnapshot(actual, fixture)
 {
+	expect(actual).toStrictEqual(fixture);
+
 	expect(actual).toMatchSnapshot();
 	expect(Object.keys(actual)).toMatchSnapshot();
 	expect(JSON.stringify(actual, null, 2)).toMatchSnapshot();
