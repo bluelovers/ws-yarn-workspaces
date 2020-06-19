@@ -1,4 +1,4 @@
-import path from 'path';
+import path from 'upath2';
 import pkgDir from 'pkg-dir';
 import { existsSync, readFileSync } from 'fs';
 import micromatch from 'micromatch';

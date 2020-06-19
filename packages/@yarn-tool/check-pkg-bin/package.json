@@ -38,8 +38,8 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@bluelovers/string-natural-compare": "^1.0.7",
-    "@ts-type/package-dts": "^1.0.21",
+    "@bluelovers/string-natural-compare": "^1.1.1",
+    "@ts-type/package-dts": "^1.0.26",
     "@yarn-tool/get-pkg-bin": "^1.0.14",
     "@yarn-tool/shebang": "^1.0.3",
     "@yarn-tool/table": "^1.0.9",

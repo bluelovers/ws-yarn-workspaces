@@ -30,7 +30,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^1.0.21",
+    "@ts-type/package-dts": "^1.0.26",
     "array-hyper-unique": "^1.1.7",
     "ws-pkg-list": "^1.0.27"
   },

@@ -2,13 +2,14 @@
   "name": "find-yarn-workspace-root2",
   "version": "1.2.16",
   "description": "Algorithm for finding the root of a yarn workspace, extracted from yarnpkg.com",
-  "homepage": "https://github.com/bluelovers/find-yarn-workspace-root/#readme",
+  "keywords": [],
+  "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/find-yarn-workspace-root2#readme",
   "bugs": {
-    "url": "https://github.com/bluelovers/find-yarn-workspace-root/issues"
+    "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bluelovers/find-yarn-workspace-root.git"
+    "url": "git+https://github.com/bluelovers/ws-yarn-workspaces.git"
   },
   "license": "Apache-2.0",
   "author": "Square, Inc.",
@@ -20,12 +21,17 @@
   "scripts": {
     "test": "ynpx mocha -- tests/**/*-test.js",
     "prepublishOnly": "yarn run ncu && yarn run sort-package-json && yarn run test",
+    "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
+    "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
+    "prepublishOnly_": "yarn run prepublishOnly:check-bin && yarn run test",
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort"
   },
   "dependencies": {
     "micromatch": "^4.0.2",
-    "pkg-dir": "^4.2.0"
+    "pkg-dir": "^4.2.0",
+    "upath2": "^3.0.6"
   },
+  "devDependencies": {},
   "gitHead": "f146cbdb51e90e3fa6163f85fb48f2a3b329ac4d"
 }

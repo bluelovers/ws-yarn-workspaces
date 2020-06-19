@@ -2,24 +2,37 @@
   "name": "@yarn-tool/find-root",
   "version": "1.0.21",
   "description": "",
+  "keywords": [],
+  "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/find-root#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/ws-yarn-workspaces.git"
+  },
   "license": "ISC",
-  "author": "",
+  "author": "bluelovers",
   "main": "index.js",
   "scripts": {
     "coverage": "npx nyc npm run test",
     "lint": "npx eslint **/*.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublishOnly": "npm run ncu && npm run sort-package-json",
+    "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
+    "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
+    "prepublishOnly_": "yarn run prepublishOnly:check-bin && yarn run test",
     "postpublish_": "git commit -m \"publish new version\" .",
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^1.0.21",
+    "@ts-type/package-dts": "^1.0.26",
     "find-yarn-workspace-root2": "^1.2.16",
     "pkg-dir": "^4.2.0",
     "upath2": "^3.0.6"
   },
+  "devDependencies": {},
   "publishConfig": {
     "access": "public"
   },

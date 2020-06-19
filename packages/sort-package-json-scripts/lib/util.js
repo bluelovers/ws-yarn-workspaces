@@ -55,6 +55,7 @@ exports.defaultNpmScriptsOrder = new Set([
     'uninstall',
     'build',
     'link',
+    'ci',
     'npm',
     'yarn',
     'lerna',
