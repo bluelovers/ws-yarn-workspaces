@@ -1,0 +1,43 @@
+{
+  "name": "@yarn-tool/workspaces-project",
+  "version": "1.0.0",
+  "description": "mixin yarn/lerna workspaces",
+  "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/workspaces-project#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/ws-yarn-workspaces.git"
+  },
+  "license": "ISC",
+  "author": "bluelovers",
+  "main": "index.js",
+  "scripts": {
+    "lint": "ynpx --quiet eslint -- **/*.ts",
+    "test": "echo \"Error: no test specified\"",
+    "test:jest": "ynpx --quiet jest -- --coverage",
+    "test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
+    "prepublishOnly": "yarn run prepublishOnly:check-bin && yarn run test",
+    "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
+    "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
+    "ncu": "ynpx --quiet yarn-tool -- ncu -u",
+    "sort-package-json": "ynpx --quiet yarn-tool -- sort"
+  },
+  "dependencies": {
+    "@lerna/project": "^3.21.0",
+    "@ts-type/package-dts": "^1.0.26",
+    "@types/npm-package-arg": "^6.1.0",
+    "@yarn-tool/changelog": "^1.0.7",
+    "find-yarn-workspace-root2": "^1.2.16",
+    "lodash": "^4.17.15",
+    "npm-package-arg": "^8.0.1",
+    "path-dir-normalize": "^1.0.11",
+    "sort-object-keys2": "^2.0.3",
+    "upath2": "^3.0.6"
+  },
+  "devDependencies": {},
+  "publishConfig": {
+    "access": "public"
+  }
+}
