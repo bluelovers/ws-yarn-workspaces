@@ -26,7 +26,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createDirByPackages = exports.getDefaultPackageJson = exports.getDefaultTsconfig = exports._createYarnWorkspaces = exports.isSamePath = exports.createYarnWorkspaces = void 0;
-const find_yarn_workspace_root2_1 = __importDefault(require("find-yarn-workspace-root2"));
+const core_1 = __importDefault(require("find-yarn-workspace-root2/core"));
 const path_1 = require("path");
 const pkg_dir_1 = __importDefault(require("pkg-dir"));
 const logger_1 = __importDefault(require("debug-color2/logger"));
@@ -46,7 +46,7 @@ function createYarnWorkspaces(cwd, options = {}) {
     let ws;
     try {
         // @FIXME 一個奇怪的BUG 不使用 try 的話 在 NPX 底下就會出現無訊息的停止
-        ws = find_yarn_workspace_root2_1.default(root);
+        ws = core_1.default(root);
     }
     catch (e) {
         logger_1.default.log(e.toString());

@@ -2,7 +2,7 @@
  * Created by user on 2018/5/13/013.
  */
 
-import findYarnWorkspaceRoot from 'find-yarn-workspace-root2';
+import findYarnWorkspaceRoot from 'find-yarn-workspace-root2/core';
 import { resolve, join, basename, relative } from 'path';
 import pkgDir from 'pkg-dir';
 import console from 'debug-color2/logger';
