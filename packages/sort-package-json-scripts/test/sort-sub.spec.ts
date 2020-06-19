@@ -69,9 +69,9 @@ test(`sort sub level`, () =>
 
 	function addPrefix(scripts: Record<string, string>, key: string, index: number)
 	{
-		scripts[`pre${key}`] = `echo pre${key} ${index}.1`;
-		scripts[`${key}`] = `echo ${key} ${index}.2`;
-		scripts[`post${key}`] = `echo post${key} ${index}.3`;
+		scripts[`pre${key}`] = `echo pre${key}`;
+		scripts[`${key}`] = `echo ${key}`;
+		scripts[`post${key}`] = `echo post${key}`;
 	}
 
 });
