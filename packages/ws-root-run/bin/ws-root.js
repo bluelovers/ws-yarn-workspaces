@@ -9,7 +9,7 @@ let cp;
 if (argv[0] === 'run') {
     index_1.spawnWsRootRunSync(argv.slice(1));
 }
-else if (argv[0] === 'run') {
+else if (argv[0] === 'exec') {
     index_1.spawnWsRootExecSync(argv.slice(1));
 }
 else {

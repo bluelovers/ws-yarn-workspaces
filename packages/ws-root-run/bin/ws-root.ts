@@ -11,7 +11,7 @@ if (argv[0] === 'run')
 {
 	spawnWsRootRunSync(argv.slice(1))
 }
-else if (argv[0] === 'run')
+else if (argv[0] === 'exec')
 {
 	spawnWsRootExecSync(argv.slice(1))
 }
