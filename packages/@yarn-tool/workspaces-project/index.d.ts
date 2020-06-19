@@ -55,5 +55,6 @@ export declare class WorkspacesProject {
         conventionalGraduate: boolean;
         bump: IReleaseType;
     }>;
+    existsLernaConfigFile(): boolean;
 }
 export default WorkspacesProject;

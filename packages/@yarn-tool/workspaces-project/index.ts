@@ -1,4 +1,3 @@
-
 import LernaProject from '@lerna/project';
 import { resolve, normalize } from 'upath2';
 import { IWorkspacesProjectInternal, EnumWorkspacesProject, IPackedManifest } from './lib/types';
@@ -9,6 +8,7 @@ import type { ILernaJson, IReleaseType } from '@ts-type/package-dts/lerna-json';
 import type { IChangelogPreset } from '@yarn-tool/changelog';
 import { merge } from 'lodash';
 import sortObjectKeys from 'sort-object-keys2';
+import { pathExistsSync } from 'fs-extra';
 
 export class WorkspacesProject
 {
@@ -44,6 +44,15 @@ export class WorkspacesProject
 			case EnumCheckPaths.failed:
 				throw new Error(`lerna root is not match yarn workspaces root.\ncwd: ${cwd}\nyarn: ${root}\nlerna: ${rootPath}`);
 				break;
+		}
+
+		if (root?.length)
+		{
+			if (typeof this.config.npmClient === 'undefined' && this.config.useWorkspaces !== false)
+			{
+				this.npmClient = 'yarn';
+				this.config.useWorkspaces = true;
+			}
 		}
 
 		this._project.rootPath = normalize(this._project.rootPath);
@@ -222,8 +231,12 @@ export class WorkspacesProject
 
 		this.#internal.releaseConfig = sortObjectKeys(this.#internal.releaseConfig) as any
 
-
 		return this.#internal.releaseConfig
+	}
+
+	existsLernaConfigFile()
+	{
+		return pathExistsSync(this.lernaConfigLocation)
 	}
 
 }

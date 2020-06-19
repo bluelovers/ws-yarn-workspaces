@@ -17,6 +17,7 @@ const core_1 = __importDefault(require("find-yarn-workspace-root2/core"));
 const util_1 = require("./lib/util");
 const lodash_1 = require("lodash");
 const sort_object_keys2_1 = __importDefault(require("sort-object-keys2"));
+const fs_extra_1 = require("fs-extra");
 class WorkspacesProject {
     constructor(cwd, options) {
         _internal.set(this, {});
@@ -34,6 +35,12 @@ class WorkspacesProject {
             case -1 /* failed */:
                 throw new Error(`lerna root is not match yarn workspaces root.\ncwd: ${cwd}\nyarn: ${root}\nlerna: ${rootPath}`);
                 break;
+        }
+        if (root === null || root === void 0 ? void 0 : root.length) {
+            if (typeof this.config.npmClient === 'undefined' && this.config.useWorkspaces !== false) {
+                this.npmClient = 'yarn';
+                this.config.useWorkspaces = true;
+            }
         }
         this._project.rootPath = upath2_1.normalize(this._project.rootPath);
         this._project.rootConfigLocation = upath2_1.normalize(this._project.rootConfigLocation);
@@ -147,6 +154,9 @@ class WorkspacesProject {
         });
         __classPrivateFieldGet(this, _internal).releaseConfig = sort_object_keys2_1.default(__classPrivateFieldGet(this, _internal).releaseConfig);
         return __classPrivateFieldGet(this, _internal).releaseConfig;
+    }
+    existsLernaConfigFile() {
+        return fs_extra_1.pathExistsSync(this.lernaConfigLocation);
     }
 }
 exports.WorkspacesProject = WorkspacesProject;
