@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.15](https://github.com/bluelovers/find-pkg-ws/compare/find-pkg-ws@1.0.14...find-pkg-ws@1.0.15) (2020-06-19)
+
+
+### 🔖　Miscellaneous
+
+* . ([ea4320a](https://github.com/bluelovers/find-pkg-ws/commit/ea4320a8885ccaa448e343856818d08cfc2f1992))
+
+
+
+
+
 ## [1.0.14](https://github.com/bluelovers/find-pkg-ws/compare/find-pkg-ws@1.0.13...find-pkg-ws@1.0.14) (2020-06-19)
 
 **Note:** Version bump only for package find-pkg-ws

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.18](https://github.com/bluelovers/ws-yarn-workspaces/compare/find-yarn-workspace-root2@1.2.17...find-yarn-workspace-root2@1.2.18) (2020-06-19)
+
+
+### 🐛　Bug Fixes
+
+* **test:** update test and use jest replace mocha ([815abde](https://github.com/bluelovers/ws-yarn-workspaces/commit/815abdea0cc852229649c563a14bbbceb9973c08))
+
+
+### 🚨　Tests
+
+* update test ([5697351](https://github.com/bluelovers/ws-yarn-workspaces/commit/5697351c9a2d9850563ed1ed171e33755fd8d516))
+
+
+
+
+
 ## [1.2.17](https://github.com/bluelovers/ws-yarn-workspaces/compare/find-yarn-workspace-root2@1.2.16...find-yarn-workspace-root2@1.2.17) (2020-06-19)
 
 
