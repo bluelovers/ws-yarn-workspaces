@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/bluelovers/ws-yarn-workspaces/compare/sort-package-json-scripts@1.1.1...sort-package-json-scripts@1.1.2) (2020-06-20)
+
+
+### ✨　Features
+
+* add preinstallOnly postinstallOnly preuninstallOnly postuninstallOnly prepareOnly ([01c1354](https://github.com/bluelovers/ws-yarn-workspaces/commit/01c1354debb16a56755c9264e0da1aba55e8d9d1))
+
+
+
+
+
 ## [1.1.1](https://github.com/bluelovers/ws-yarn-workspaces/compare/sort-package-json-scripts@1.0.12...sort-package-json-scripts@1.1.1) (2020-06-19)
 
 

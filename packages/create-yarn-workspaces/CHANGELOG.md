@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.63](https://github.com/bluelovers/create-yarn-workspaces/compare/create-yarn-workspaces@1.0.62...create-yarn-workspaces@1.0.63) (2020-06-20)
+
+
+### ♻️　Chores
+
+* update deps and code splitting ([66451d0](https://github.com/bluelovers/create-yarn-workspaces/commit/66451d0ae232e6ad771fe134a7a9d4b06049c60b))
+
+
+
+
+
 ## [1.0.62](https://github.com/bluelovers/create-yarn-workspaces/compare/create-yarn-workspaces@1.0.61...create-yarn-workspaces@1.0.62) (2020-06-20)
 
 **Note:** Version bump only for package create-yarn-workspaces
