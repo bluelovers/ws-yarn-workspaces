@@ -1429,10 +1429,10 @@ array-find-index@^1.0.1:
   resolved "https://registry.npmjs.org/array-find-index/-/array-find-index-1.0.2.tgz#df010aa1287e164bbda6f9723b0a96a1ec4187a1"
   integrity sha1-3wEKoSh+Fku9pvlyOwqWoexBh6E=
 
-array-hyper-unique@^1.1.2, array-hyper-unique@^1.1.7:
-  version "1.1.7"
-  resolved "https://registry.npmjs.org/array-hyper-unique/-/array-hyper-unique-1.1.7.tgz#27d91e7894f0cda76f4867afaefbd2a39e797e38"
-  integrity sha512-iM42Wz86cEIp/zjlZWHaslt9/2ozQJWgmNZsHQbiwRl5oBRnc+BjGtO440mN4M4c8EcM2jOzuDckPL8G0sqXcw==
+array-hyper-unique@^1.1.2, array-hyper-unique@^1.1.8:
+  version "1.1.8"
+  resolved "https://registry.npmjs.org/array-hyper-unique/-/array-hyper-unique-1.1.8.tgz#9881c3968bc01a8c778364d29cbfd963044acc57"
+  integrity sha512-O7kYzXG8IQghhQfFOU8/7DC9wfXWGQLgBD9tEEhMI9gDJtKUKSGAwCnNMgfRpi5PVgi0mOgZbnYfrDoJSw54fg==
   dependencies:
     deep-eql "^4.0.0"
     lodash "^4.17.15"

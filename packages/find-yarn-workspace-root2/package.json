@@ -21,9 +21,9 @@
   "scripts": {
     "test": "jest",
     "prepublishOnly": "yarn run test",
+    "prepublishOnly_": "yarn run prepublishOnly:check-bin && yarn run test",
     "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
     "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
-    "prepublishOnly_": "yarn run prepublishOnly:check-bin && yarn run test",
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort"
   },
