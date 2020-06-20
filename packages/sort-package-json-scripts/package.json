@@ -16,7 +16,8 @@
   "scripts": {
     "coverage": "npx nyc yarn run test",
     "lint": "npx eslint **/*.ts",
-    "test": "jest --coverage",
+    "test": "jest",
+    "test:update-snapshots": "jest -u",
     "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
     "npm:publish": "npm publish",
     "prepublish:lockfile": "npx sync-lockfile .",
@@ -30,5 +31,5 @@
   "dependencies": {
     "sort-object-keys2": "^2.0.3"
   },
-  "gitHead": "40676553ac196265d354e537459d4c78d67f0a8c"
+  "gitHead": "445ff249d9e89ede8c67a41af7f967bdc9dd50aa"
 }
