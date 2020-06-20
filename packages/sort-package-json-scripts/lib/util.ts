@@ -59,8 +59,13 @@ export const defaultNpmScriptsOrder = new Set([
 	'lint',
 	'test',
 
+	'preinstallOnly',
 	'install',
+	'postinstallOnly',
+
+	'preuninstallOnly',
 	'uninstall',
+	'postuninstallOnly',
 
 	'build',
 
@@ -71,6 +76,7 @@ export const defaultNpmScriptsOrder = new Set([
 	'yarn',
 	'lerna',
 
+	'prepareOnly',
 	'prepublish',
 	'prepare',
 	'prepublishOnly',
