@@ -3,12 +3,17 @@
  */
 
 import findYarnWorkspaceRoot from 'find-yarn-workspace-root2/core';
-import { resolve, join, basename, relative } from 'path';
+import { resolve, join, basename } from 'path';
 import pkgDir from 'pkg-dir';
 import console from 'debug-color2/logger';
 import copyStaticFiles, { defaultCopyStaticFiles, IStaticFilesMapArray } from '@yarn-tool/static-file';
 import { existsSync, readFileSync, mkdirSync, writeFileSync } from 'fs-extra';
 import sortPackageJson from 'sort-package-json3';
+import { getDefaultPackageJson } from './lib';
+import { isSamePath } from './lib/util';
+
+export * from './lib/index';
+export * from './lib/util';
 
 export interface IOptions
 {
@@ -99,21 +104,6 @@ export function createYarnWorkspaces(cwd?: string, options: IOptions = {})
 	}
 
 	return _createYarnWorkspaces(targetPath);
-}
-
-export function isSamePath(p1: string, p2: string)
-{
-	if (p1 === p2)
-	{
-		return true;
-	}
-	else if (!p1 || !p2)
-	{
-		return false;
-	}
-
-	let s = relative(p1, p2);
-	return (s === '.' || s === '');
 }
 
 export function _createYarnWorkspaces(targetPath: string, options: IOptions = {})
@@ -214,28 +204,6 @@ export function _createYarnWorkspaces(targetPath: string, options: IOptions = {}
 
 		console.info(`update lerna.json`);
 	}
-	else if (0 && !lerna)
-	{
-		let file = join(targetPath, 'lerna.json');
-
-		lerna = {
-			"packages": packages,
-			"command": {
-				"publish": {
-					"ignoreChanges": ["node_modules"],
-					"message": "chore(release): publish"
-				}
-			},
-			"npmClient": "yarn",
-			"useWorkspaces": true,
-			"version": "independent",
-		};
-
-		let s = JSON.stringify(sortPackageJson(lerna), null, 2);
-		writeFileSync(file, s);
-
-		console.success(`create lerna.json`);
-	}
 
 	/*
 	if (!fs.existsSync(path.join(targetPath, 'tsconfig.json')))
@@ -260,61 +228,6 @@ export function _createYarnWorkspaces(targetPath: string, options: IOptions = {}
 	createDirByPackages(targetPath, packages);
 
 	return true;
-}
-
-export function getDefaultTsconfig()
-{
-	return {
-		extends: "@bluelovers/tsconfig/esm/esModuleInterop"
-	}
-}
-
-export function getDefaultPackageJson(name?: string): {
-	name: string;
-	version: string;
-	private: boolean;
-	workspaces: string[];
-	scripts: {
-		[k: string]: string;
-		test?: string;
-	};
-	resolutions: {
-		[k: string]: string;
-	};
-	[k: string]: any;
-}
-{
-	return {
-		"name": name,
-		"version": "1.0.0",
-		"private": true,
-		"workspaces": [
-			"packages/*"
-		],
-		"scripts": {
-			"lerna:publish": "ynpx --quiet lerna -- publish",
-			"lerna:publish:yes": "ynpx --quiet lerna -- publish --yes --bump patch",
-			"prepublishOnly:lockfile": "ynpx --quiet sync-lockfile",
-			"prepare:fix-ws-links": "ynpx --quiet @yarn-tool/fix-ws-links",
-			"ncu": "yarn run ncu:root && yarn run ncu:ws",
-			"ncu:root": "ynpx --quiet yarn-tool -- ncu -u",
-			"ncu:ws": "ynpx --quiet yarn-tool -- ws exec yarn-tool ncu -- -u",
-			"sort-package-json": "yarn run sort-package-json:root && yarn run sort-package-json:ws",
-			"sort-package-json:root": "ynpx --quiet yarn-tool -- sort",
-			"sort-package-json:ws": "ynpx --quiet yarn-tool -- ws exec yarn-tool sort",
-			"test": "ynpx --quiet yarn-tool -- ws run test"
-		},
-		"devDependencies": {
-			"@bluelovers/tsconfig": "^1.0.19",
-			"@types/node": "*",
-		},
-		"peerDependencies": {
-			"lerna": "*",
-			"yarn": "*",
-			"@bluelovers/conventional-changelog-bluelovers": "*"
-		},
-		"resolutions": {}
-	};
 }
 
 export function createDirByPackages(cwd: string, packages: string[])

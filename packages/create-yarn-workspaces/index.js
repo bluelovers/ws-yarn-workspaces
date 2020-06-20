@@ -21,11 +21,14 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createDirByPackages = exports.getDefaultPackageJson = exports.getDefaultTsconfig = exports._createYarnWorkspaces = exports.isSamePath = exports.createYarnWorkspaces = void 0;
+exports.createDirByPackages = exports._createYarnWorkspaces = exports.createYarnWorkspaces = void 0;
 const core_1 = __importDefault(require("find-yarn-workspace-root2/core"));
 const path_1 = require("path");
 const pkg_dir_1 = __importDefault(require("pkg-dir"));
@@ -33,6 +36,10 @@ const logger_1 = __importDefault(require("debug-color2/logger"));
 const static_file_1 = __importStar(require("@yarn-tool/static-file"));
 const fs_extra_1 = require("fs-extra");
 const sort_package_json3_1 = __importDefault(require("sort-package-json3"));
+const lib_1 = require("./lib");
+const util_1 = require("./lib/util");
+__exportStar(require("./lib/index"), exports);
+__exportStar(require("./lib/util"), exports);
 function createYarnWorkspaces(cwd, options = {}) {
     if (cwd && typeof cwd != 'string') {
         options = cwd;
@@ -69,7 +76,7 @@ function createYarnWorkspaces(cwd, options = {}) {
         let bool = true;
         logger_1.default.warn(`detect exists workspace "${ws}"`);
         if (options.ignoreParentWorkspaces) {
-            bool = isSamePath(targetPath, ws);
+            bool = util_1.isSamePath(targetPath, ws);
             if (!bool) {
                 logger_1.default.warn(`ignoreParentWorkspaces = true`);
             }
@@ -84,17 +91,6 @@ function createYarnWorkspaces(cwd, options = {}) {
     return _createYarnWorkspaces(targetPath);
 }
 exports.createYarnWorkspaces = createYarnWorkspaces;
-function isSamePath(p1, p2) {
-    if (p1 === p2) {
-        return true;
-    }
-    else if (!p1 || !p2) {
-        return false;
-    }
-    let s = path_1.relative(p1, p2);
-    return (s === '.' || s === '');
-}
-exports.isSamePath = isSamePath;
 function _createYarnWorkspaces(targetPath, options = {}) {
     logger_1.default.info(`create in target path "${targetPath}"`);
     let pkg;
@@ -118,7 +114,7 @@ function _createYarnWorkspaces(targetPath, options = {}) {
         if (!fs_extra_1.existsSync(targetPath)) {
             fs_extra_1.mkdirSync(targetPath);
         }
-        pkg = Object.assign(getDefaultPackageJson(name), {
+        pkg = Object.assign(lib_1.getDefaultPackageJson(name), {
             name,
             workspaces: packages,
         });
@@ -158,24 +154,6 @@ function _createYarnWorkspaces(targetPath, options = {}) {
         fs_extra_1.writeFileSync(file, s);
         logger_1.default.info(`update lerna.json`);
     }
-    else if (0 && !lerna) {
-        let file = path_1.join(targetPath, 'lerna.json');
-        lerna = {
-            "packages": packages,
-            "command": {
-                "publish": {
-                    "ignoreChanges": ["node_modules"],
-                    "message": "chore(release): publish"
-                }
-            },
-            "npmClient": "yarn",
-            "useWorkspaces": true,
-            "version": "independent",
-        };
-        let s = JSON.stringify(sort_package_json3_1.default(lerna), null, 2);
-        fs_extra_1.writeFileSync(file, s);
-        logger_1.default.success(`create lerna.json`);
-    }
     /*
     if (!fs.existsSync(path.join(targetPath, 'tsconfig.json')))
     {
@@ -197,46 +175,6 @@ function _createYarnWorkspaces(targetPath, options = {}) {
     return true;
 }
 exports._createYarnWorkspaces = _createYarnWorkspaces;
-function getDefaultTsconfig() {
-    return {
-        extends: "@bluelovers/tsconfig/esm/esModuleInterop"
-    };
-}
-exports.getDefaultTsconfig = getDefaultTsconfig;
-function getDefaultPackageJson(name) {
-    return {
-        "name": name,
-        "version": "1.0.0",
-        "private": true,
-        "workspaces": [
-            "packages/*"
-        ],
-        "scripts": {
-            "lerna:publish": "ynpx --quiet lerna -- publish",
-            "lerna:publish:yes": "ynpx --quiet lerna -- publish --yes --bump patch",
-            "prepublishOnly:lockfile": "ynpx --quiet sync-lockfile",
-            "prepare:fix-ws-links": "ynpx --quiet @yarn-tool/fix-ws-links",
-            "ncu": "yarn run ncu:root && yarn run ncu:ws",
-            "ncu:root": "ynpx --quiet yarn-tool -- ncu -u",
-            "ncu:ws": "ynpx --quiet yarn-tool -- ws exec yarn-tool ncu -- -u",
-            "sort-package-json": "yarn run sort-package-json:root && yarn run sort-package-json:ws",
-            "sort-package-json:root": "ynpx --quiet yarn-tool -- sort",
-            "sort-package-json:ws": "ynpx --quiet yarn-tool -- ws exec yarn-tool sort",
-            "test": "ynpx --quiet yarn-tool -- ws run test"
-        },
-        "devDependencies": {
-            "@bluelovers/tsconfig": "^1.0.19",
-            "@types/node": "*",
-        },
-        "peerDependencies": {
-            "lerna": "*",
-            "yarn": "*",
-            "@bluelovers/conventional-changelog-bluelovers": "*"
-        },
-        "resolutions": {}
-    };
-}
-exports.getDefaultPackageJson = getDefaultPackageJson;
 function createDirByPackages(cwd, packages) {
     return packages.some(function (value) {
         let bool;
