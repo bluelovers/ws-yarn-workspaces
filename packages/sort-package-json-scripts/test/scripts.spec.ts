@@ -135,7 +135,7 @@ it('should defaultNpmScriptsOrder', function ()
 
 	let source = keys.slice().reverse()
 		.reduce((a, k, i) => {
-			a[k] = i.toString();
+			a[k] = `echo ${k}`;
 			return a
 		}, {} as Record<string, string>);
 
@@ -167,10 +167,10 @@ it('should defaultNpmScriptsOrder v2', function ()
 
 			let { name, omitted, key } = omitKey(k);
 
-			(!key.startsWith('pre')) && (a['pre' + k] = i.toString());
-			(!key.startsWith('post')) && (a['post' + k] = i.toString());
+			(!key.startsWith('pre')) && (a['pre' + k] = `echo pre${k}`);
+			(!key.startsWith('post')) && (a['post' + k] = `echo post${k}`);
 
-			a[k] = i.toString();
+			a[k] = `echo ${k}`;
 			return a
 		}, {} as Record<string, string>);
 
