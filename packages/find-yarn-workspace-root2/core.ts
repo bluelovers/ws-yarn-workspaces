@@ -1,4 +1,4 @@
-import path from 'upath2';
+import { normalize, dirname, relative, join } from 'upath2';
 import pkgDir from 'pkg-dir';
 import { existsSync, readFileSync } from 'fs';
 import micromatch from 'micromatch';
@@ -23,7 +23,7 @@ export function findWorkspaceRoot(initial?: string): string
 		return null;
 	}
 
-	initial = path.normalize(_pkg);
+	initial = normalize(_pkg);
 
 	let previous: string = null;
 	let current: string = initial;
@@ -41,7 +41,7 @@ export function findWorkspaceRoot(initial?: string): string
 		}
 
 		previous = current;
-		current = path.dirname(current);
+		current = dirname(current);
 	}
 	while (current !== previous);
 
@@ -61,7 +61,7 @@ export function checkWorkspaces(current: string, initial: string)
 	{
 		done = true;
 
-		relativePath = path.relative(current, initial);
+		relativePath = relative(current, initial);
 		if (relativePath === '' || isMatchWorkspaces(relativePath, workspaces))
 		{
 			found = current;
@@ -106,7 +106,7 @@ export function readPackageJSON<T extends {
 	workspaces?: any
 }>(dir: string): T
 {
-	const file = path.join(dir, 'package.json');
+	const file = join(dir, 'package.json');
 	if (existsSync(file))
 	{
 		return JSON.parse(readFileSync(file, 'utf8'));

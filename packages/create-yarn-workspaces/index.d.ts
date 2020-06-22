@@ -8,7 +8,7 @@ export interface IOptions {
     cwd?: string;
     ignoreParentWorkspaces?: boolean;
     ignoreExistsPackage?: boolean;
-    initPackageJson?<T = any>(current: ReturnType<typeof getDefaultPackageJson>): ReturnType<typeof getDefaultPackageJson> | (ReturnType<typeof getDefaultPackageJson> & T);
+    initPackageJson?<T = any>(current: ReturnType<typeof getDefaultPackageJson>): ReturnType<typeof getDefaultPackageJson> | ReturnType<typeof getDefaultPackageJson> & T;
     debug?: boolean;
 }
 export declare function createYarnWorkspaces(cwd?: string, options?: IOptions): boolean;

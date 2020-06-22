@@ -13,6 +13,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.wsFindPackageHasModules = void 0;
 const find_paths_1 = require("./lib/find-paths");
 var ws_find_paths_1 = require("./lib/ws-find-paths");
 Object.defineProperty(exports, "wsFindPackageHasModules", { enumerable: true, get: function () { return ws_find_paths_1.wsFindPackageHasModules; } });

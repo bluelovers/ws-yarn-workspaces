@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.readPackageJSON = exports.extractWorkspaces = exports.isMatchWorkspaces = exports.checkWorkspaces = exports.findWorkspaceRoot = void 0;
-const upath2_1 = __importDefault(require("upath2"));
+const upath2_1 = require("upath2");
 const pkg_dir_1 = __importDefault(require("pkg-dir"));
 const fs_1 = require("fs");
 const micromatch_1 = __importDefault(require("micromatch"));
@@ -22,7 +22,7 @@ function findWorkspaceRoot(initial) {
     if (!_pkg) {
         return null;
     }
-    initial = upath2_1.default.normalize(_pkg);
+    initial = upath2_1.normalize(_pkg);
     let previous = null;
     let current = initial;
     do {
@@ -33,7 +33,7 @@ function findWorkspaceRoot(initial) {
             return found;
         }
         previous = current;
-        current = upath2_1.default.dirname(current);
+        current = upath2_1.dirname(current);
     } while (current !== previous);
     return null;
 }
@@ -46,7 +46,7 @@ function checkWorkspaces(current, initial) {
     let relativePath;
     if (workspaces) {
         done = true;
-        relativePath = upath2_1.default.relative(current, initial);
+        relativePath = upath2_1.relative(current, initial);
         if (relativePath === '' || isMatchWorkspaces(relativePath, workspaces)) {
             found = current;
         }
@@ -72,7 +72,7 @@ function extractWorkspaces(manifest) {
 }
 exports.extractWorkspaces = extractWorkspaces;
 function readPackageJSON(dir) {
-    const file = upath2_1.default.join(dir, 'package.json');
+    const file = upath2_1.join(dir, 'package.json');
     if (fs_1.existsSync(file)) {
         return JSON.parse(fs_1.readFileSync(file, 'utf8'));
     }

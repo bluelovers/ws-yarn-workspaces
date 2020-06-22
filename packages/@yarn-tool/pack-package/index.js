@@ -3,10 +3,13 @@
  * Created by user on 2020/4/9.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.packPackage = void 0;
+exports.packPackage = exports.getPackedTarballInfo = exports.printPackedTarballInfo = exports.packTargetPackage = void 0;
 const pack_1 = require("./lib/pack");
+Object.defineProperty(exports, "packTargetPackage", { enumerable: true, get: function () { return pack_1.packTargetPackage; } });
 const info_1 = require("./lib/info");
+Object.defineProperty(exports, "getPackedTarballInfo", { enumerable: true, get: function () { return info_1.getPackedTarballInfo; } });
 const print_1 = require("./lib/print");
+Object.defineProperty(exports, "printPackedTarballInfo", { enumerable: true, get: function () { return print_1.printPackedTarballInfo; } });
 var pack_2 = require("./lib/pack");
 Object.defineProperty(exports, "packTargetPackage", { enumerable: true, get: function () { return pack_2.packTargetPackage; } });
 var print_2 = require("./lib/print");
