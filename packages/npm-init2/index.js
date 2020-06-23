@@ -22,7 +22,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-var _a, _b, _c;
+var _a, _b, _c, _d, _e, _f;
 Object.defineProperty(exports, "__esModule", { value: true });
 const yargs_1 = __importDefault(require("yargs"));
 const cross_spawn_extra_1 = __importDefault(require("cross-spawn-extra"));
@@ -37,6 +37,7 @@ const pkg_git_info_1 = require("@yarn-tool/pkg-git-info");
 const fs_1 = require("fs");
 const writeReadme_1 = require("./lib/writeReadme");
 const sort_package_json_scripts_1 = __importDefault(require("sort-package-json-scripts"));
+const workspaces_project_1 = __importDefault(require("@yarn-tool/workspaces-project"));
 //updateNotifier(__dirname);
 let cli = yargs_setting_1.default(yargs_1.default);
 let argv = cli.argv._;
@@ -50,11 +51,13 @@ let hasWorkspace = rootData.ws;
 let isWorkspace = rootData.isWorkspace;
 let workspacePrefix;
 let workspacesConfig;
+let wsProject;
 if (hasWorkspace) {
     workspacesConfig = workspaces_config_1.parseStaticPackagesPaths(workspaces_config_1.default(hasWorkspace));
     if (workspacesConfig.prefix.length) {
         workspacePrefix = workspacesConfig.prefix[0];
     }
+    wsProject = new workspaces_project_1.default(hasWorkspace);
 }
 let { targetDir, targetName } = lib_1.getTargetDir({
     inputName: argv.length && argv[0],
@@ -100,17 +103,17 @@ let cp = cross_spawn_extra_1.default.sync(cli.argv.npmClient, args, {
 if (!cp.error) {
     let pkg = new npm_package_json_loader_1.default(path_1.join(targetDir, 'package.json'));
     if (pkg.exists()) {
-        if (cli.argv.p && cli.argv.npmClient != 'yarn') {
+        if (cli.argv.p && cli.argv.npmClient !== 'yarn') {
             pkg.data.private = true;
         }
         // 防止 node- 被 npm 移除
         if (!cli.argv.yes && old_pkg_name && /^node-/.test(old_pkg_name) && ('node-' + pkg.data.name) === old_pkg_name) {
             pkg.data.name = old_pkg_name;
         }
-        else if (cli.argv.yes && old_pkg_name && pkg.data.name != old_pkg_name) {
+        else if (cli.argv.yes && old_pkg_name && pkg.data.name !== old_pkg_name) {
             pkg.data.name = old_pkg_name;
         }
-        else if (targetName && pkg.data.name != targetName) {
+        else if (targetName && pkg.data.name !== targetName) {
             pkg.data.name = targetName;
         }
         if (pkg.data.name && /^@/.test(pkg.data.name) && !pkg.data.publishConfig) {
@@ -226,9 +229,15 @@ if (!cp.error) {
             };
             pkg.data.dependencies = pkg.data.dependencies || {};
             pkg.data.devDependencies = pkg.data.devDependencies || {};
+            pkg.data.peerDependencies = pkg.data.peerDependencies || {};
             if (!hasWorkspace || hasWorkspace && isWorkspace) {
                 pkg.data.devDependencies['@bluelovers/tsconfig'] = findVersion('@bluelovers/tsconfig');
                 pkg.data.devDependencies['@types/node'] = findVersion('@types/node');
+            }
+        }
+        if (wsProject && !isWorkspace) {
+            if (!((_d = pkg.data.keywords) === null || _d === void 0 ? void 0 : _d.length) && ((_f = (_e = wsProject.manifest) === null || _e === void 0 ? void 0 : _e.keywords) === null || _f === void 0 ? void 0 : _f.length)) {
+                pkg.data.keywords = wsProject.manifest.keywords.slice();
             }
         }
         pkg.data.scripts = sort_package_json_scripts_1.default(pkg.data.scripts);

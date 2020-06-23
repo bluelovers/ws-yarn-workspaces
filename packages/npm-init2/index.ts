@@ -18,6 +18,7 @@ import { existsSync, readFileSync, writeFileSync } from 'fs';
 import lodashTemplate from 'lodash/template';
 import { writeReadme } from './lib/writeReadme';
 import sortPackageJsonScripts from 'sort-package-json-scripts';
+import WorkspacesProject from '@yarn-tool/workspaces-project';
 
 
 //updateNotifier(__dirname);
@@ -41,6 +42,8 @@ let isWorkspace = rootData.isWorkspace;
 let workspacePrefix: string;
 let workspacesConfig: ReturnType<typeof parseStaticPackagesPaths>
 
+let wsProject: WorkspacesProject;
+
 if (hasWorkspace)
 {
 	workspacesConfig = parseStaticPackagesPaths(getConfig(hasWorkspace));
@@ -49,6 +52,8 @@ if (hasWorkspace)
 	{
 		workspacePrefix = workspacesConfig.prefix[0];
 	}
+
+	wsProject = new WorkspacesProject(hasWorkspace)
 }
 
 let { targetDir, targetName } = getTargetDir({
@@ -117,7 +122,7 @@ if (!cp.error)
 
 	if (pkg.exists())
 	{
-		if (cli.argv.p && cli.argv.npmClient != 'yarn')
+		if (cli.argv.p && cli.argv.npmClient !== 'yarn')
 		{
 			pkg.data.private = true;
 		}
@@ -127,11 +132,11 @@ if (!cp.error)
 		{
 			pkg.data.name = old_pkg_name;
 		}
-		else if (cli.argv.yes && old_pkg_name && pkg.data.name != old_pkg_name)
+		else if (cli.argv.yes && old_pkg_name && pkg.data.name !== old_pkg_name)
 		{
 			pkg.data.name = old_pkg_name;
 		}
-		else if (targetName && pkg.data.name != targetName)
+		else if (targetName && pkg.data.name !== targetName)
 		{
 			pkg.data.name = targetName;
 		}
@@ -300,11 +305,20 @@ if (!cp.error)
 
 			pkg.data.dependencies = pkg.data.dependencies || {};
 			pkg.data.devDependencies = pkg.data.devDependencies || {};
+			pkg.data.peerDependencies = pkg.data.peerDependencies || {};
 
 			if (!hasWorkspace || hasWorkspace && isWorkspace)
 			{
 				pkg.data.devDependencies['@bluelovers/tsconfig'] = findVersion('@bluelovers/tsconfig');
 				pkg.data.devDependencies['@types/node'] = findVersion('@types/node');
+			}
+		}
+
+		if (wsProject && !isWorkspace)
+		{
+			if (!pkg.data.keywords?.length && wsProject.manifest?.keywords?.length)
+			{
+				pkg.data.keywords = wsProject.manifest.keywords.slice()
 			}
 		}
 

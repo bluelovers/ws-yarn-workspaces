@@ -50,6 +50,7 @@
     "@yarn-tool/pkg-git-info": "^1.0.8",
     "@yarn-tool/static-file": "^1.0.37",
     "@yarn-tool/update-notifier": "^1.0.13",
+    "@yarn-tool/workspaces-project": "^1.0.4",
     "cross-spawn-extra": "^2.1.0",
     "find-yarn-workspace-root2": "^1.2.20",
     "fs-extra": "^9.0.1",
