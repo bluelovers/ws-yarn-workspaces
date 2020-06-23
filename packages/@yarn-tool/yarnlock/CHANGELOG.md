@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.16](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock@1.0.15...@yarn-tool/yarnlock@1.0.16) (2020-06-23)
+
+
+### 🔖　Miscellaneous
+
+* . ([d1cfa0f](https://github.com/bluelovers/ws-yarn-workspaces/commit/d1cfa0f017ca42d1026d8bd834475f8440b94351))
+
+
+
+
+
 ## [1.0.15](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock@1.0.14...@yarn-tool/yarnlock@1.0.15) (2020-06-23)
 
 **Note:** Version bump only for package @yarn-tool/yarnlock

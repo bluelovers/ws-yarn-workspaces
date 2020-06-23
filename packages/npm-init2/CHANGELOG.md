@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.114](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.113...npm-init2@1.0.114) (2020-06-23)
+
+
+### ✨　Features
+
+* support inherit keywords from ws root ([831a7a4](https://github.com/bluelovers/npm-init2/commit/831a7a4a234c782a32665b02ff19ad0b04221ff2))
+
+
+
+
+
 ## [1.0.113](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.112...npm-init2@1.0.113) (2020-06-23)
 
 **Note:** Version bump only for package npm-init2
