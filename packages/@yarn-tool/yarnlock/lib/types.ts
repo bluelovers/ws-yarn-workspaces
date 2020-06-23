@@ -11,6 +11,7 @@ import { Argv, Arguments } from 'yargs';
 export * from '@ts-type/package-dts/lib/package-json/types';
 
 import { IVersionValue } from '@ts-type/package-dts/lib/package-json/types';
+import { IYarnLockfileParseObjectRowBase } from './base/types';
 
 export interface IYarnLockfileParseFull<T extends ITSArrayListMaybeReadonly<string> = string[]>
 {
@@ -23,9 +24,8 @@ export type IYarnLockfileParseObject<T extends ITSArrayListMaybeReadonly<string>
 /**
  * yarn.lock 資料
  */
-export interface IYarnLockfileParseObjectRow<T extends ITSArrayListMaybeReadonly<string> = string[]>
+export interface IYarnLockfileParseObjectRow<T extends ITSArrayListMaybeReadonly<string> = string[]> extends IYarnLockfileParseObjectRowBase<T>
 {
-	version: string;
 	/**
 	 * 安裝來源網址
 	 */
@@ -34,10 +34,6 @@ export interface IYarnLockfileParseObjectRow<T extends ITSArrayListMaybeReadonly
 	 * hash key
 	 */
 	integrity: string;
-	/**
-	 * 依賴列表
-	 */
-	dependencies?: IDependencies<T>;
 }
 
 export type IDependencies<T extends ITSArrayListMaybeReadonly<string> = string[]> = Record<ITSValueOfArray<T>, string>;

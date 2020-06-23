@@ -6,7 +6,6 @@ import { readFileSync, writeFileSync, pathExistsSync } from "fs-extra";
 import { parse, stringify } from './parse';
 import { IYarnLockfileParseObject, IYarnLockfileParseObjectRow } from './types';
 import { join } from "path";
-import { existsSync } from 'fs';
 
 export function existsYarnLockfile(file: string)
 {
@@ -70,7 +69,7 @@ export function fsYarnLock(root: string): IFsYarnLockReturnType
 {
 	let yarnlock_file = join(root, 'yarn.lock');
 
-	let yarnlock_exists = existsSync(yarnlock_file);
+	let yarnlock_exists = pathExistsSync(yarnlock_file);
 
 	let yarnlock_old = yarnlock_exists && readFileSync(yarnlock_file, 'utf8') || null;
 
