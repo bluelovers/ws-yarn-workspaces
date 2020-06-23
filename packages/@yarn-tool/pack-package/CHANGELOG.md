@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.11](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pack-package@1.0.10...@yarn-tool/pack-package@1.0.11) (2020-06-23)
+
+
+### 🔖　Miscellaneous
+
+* . ([a916454](https://github.com/bluelovers/ws-yarn-workspaces/commit/a9164548d95ff356e2d475bc289beff393651172))
+
+
+
+
+
 ## [1.0.10](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pack-package@1.0.9...@yarn-tool/pack-package@1.0.10) (2020-06-19)
 
 
