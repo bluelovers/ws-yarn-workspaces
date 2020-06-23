@@ -183,9 +183,9 @@ if (!cp.error)
 		let sharedScript: IPackageJson['scripts'] = {
 			"prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
 			"prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
-			"ncu": "ynpx --quiet yarn-tool -- ncu -u",
+			"ncu": "yarn-tool ncu -u",
 
-			"sort-package-json": "ynpx --quiet yarn-tool -- sort",
+			"sort-package-json": "yarn-tool sort",
 			"test": `echo "Error: no test specified"`,
 		}
 
@@ -204,7 +204,7 @@ if (!cp.error)
 			sharedScript = {
 				...sharedScript,
 				"npm:publish": "npm publish",
-				"npm:publish:lerna": "ynpx --quiet lerna -- publish --yes --bump patch",
+				"npm:publish:lerna": "lerna publish --yes --bump patch",
 				"postpublish:git:commit": `git commit -m "chore(release): publish" . & echo postpublish:git:commit`,
 				"postpublish:git:tag": `ynpx --quiet @yarn-tool/tag`,
 				"postpublish:changelog": `ynpx --quiet @yarn-tool/changelog && git add ./CHANGELOG.md`,
@@ -216,7 +216,7 @@ if (!cp.error)
 			{
 				sharedScript = {
 					...sharedScript,
-					"coverage": "ynpx --quiet nyc -- npm run test",
+					"coverage": "nyc npm run test",
 					"tsc:default": "tsc -p tsconfig.json",
 					"tsc:esm": "tsc -p tsconfig.esm.json",
 				}

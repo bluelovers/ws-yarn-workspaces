@@ -21,8 +21,8 @@ export function getDefaultPackageJson(name?: string): {
 			"packages/*",
 		],
 		"scripts": {
-			"lerna:publish": "ynpx --quiet lerna -- publish",
-			"lerna:publish:yes": "ynpx --quiet lerna -- publish --yes --bump patch",
+			"lerna:publish": "lerna publish",
+			"lerna:publish:yes": "lerna publish --yes --bump patch",
 			"prepublishOnly:lockfile": "ynpx --quiet sync-lockfile",
 			"prepare:fix-ws-links": "ynpx --quiet @yarn-tool/fix-ws-links",
 			"ncu": "yarn run ncu:root && yarn run ncu:ws",
