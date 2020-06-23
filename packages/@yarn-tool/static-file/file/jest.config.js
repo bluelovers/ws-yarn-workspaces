@@ -5,6 +5,12 @@ module.exports = {
 	//testMatch: ['**/*.test.ts', '**/*.spec.ts'],
 	testRegex: ['\\.(tests?|spec)\\.(ts|tsx)$'],
 	//testRunner: 'jest-circus/runner',
+	setupFilesAfterEnv: [
+		//"jest-chain",
+		//"jest-extended",
+		//"jest-extended-extra",
+		//"jest-num-close-with",
+	],
 	transform: {
 		'^.+\\.ts$': 'ts-jest',
 	},
@@ -15,5 +21,4 @@ module.exports = {
 	 */
 	coverageProvider: 'v8',
 	collectCoverage: false,
-
 }
