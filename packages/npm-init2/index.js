@@ -27,7 +27,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const yargs_1 = __importDefault(require("yargs"));
 const cross_spawn_extra_1 = __importDefault(require("cross-spawn-extra"));
 const fs_extra_1 = require("fs-extra");
-const path_1 = require("path");
+const upath2_1 = require("upath2");
 const workspaces_config_1 = __importStar(require("workspaces-config"));
 const npm_package_json_loader_1 = __importDefault(require("npm-package-json-loader"));
 const lib_1 = require("./lib");
@@ -38,11 +38,13 @@ const fs_1 = require("fs");
 const writeReadme_1 = require("./lib/writeReadme");
 const sort_package_json_scripts_1 = __importDefault(require("sort-package-json-scripts"));
 const workspaces_project_1 = __importDefault(require("@yarn-tool/workspaces-project"));
+const upath2_2 = require("upath2");
+const path_is_same_1 = __importDefault(require("path-is-same"));
 //updateNotifier(__dirname);
 let cli = yargs_setting_1.default(yargs_1.default);
 let argv = cli.argv._;
 //console.dir(cli.argv);
-let cwd = path_1.resolve(cli.argv.cwd || process.cwd());
+let cwd = upath2_1.resolve(cli.argv.cwd || process.cwd());
 let rootData = find_root_1.findRoot({
     cwd,
     skipCheckWorkspace: cli.argv.skipCheckWorkspace,
@@ -86,11 +88,11 @@ let args = [
 ].filter(v => v);
 //console.log(args);
 let old_pkg_name;
-let oldExists = fs_1.existsSync(path_1.join(targetDir, 'package.json'));
+let oldExists = fs_1.existsSync(upath2_1.join(targetDir, 'package.json'));
 let old_pkg;
 if (!targetName) {
     try {
-        old_pkg = (_a = new npm_package_json_loader_1.default(path_1.join(targetDir, 'package.json'))) === null || _a === void 0 ? void 0 : _a.data;
+        old_pkg = (_a = new npm_package_json_loader_1.default(upath2_1.join(targetDir, 'package.json'))) === null || _a === void 0 ? void 0 : _a.data;
         old_pkg_name = old_pkg.name;
     }
     catch (e) {
@@ -101,7 +103,7 @@ let cp = cross_spawn_extra_1.default.sync(cli.argv.npmClient, args, {
     cwd: targetDir,
 });
 if (!cp.error) {
-    let pkg = new npm_package_json_loader_1.default(path_1.join(targetDir, 'package.json'));
+    let pkg = new npm_package_json_loader_1.default(upath2_1.join(targetDir, 'package.json'));
     if (pkg.exists()) {
         if (cli.argv.p && cli.argv.npmClient !== 'yarn') {
             pkg.data.private = true;
@@ -129,7 +131,7 @@ if (!cp.error) {
                 pkg.data.homepage = pkg.data.homepage || info.homepage;
                 if (hasWorkspace) {
                     let u = new URL(pkg.data.homepage);
-                    u.pathname += '/tree/master/' + path_1.relative(hasWorkspace, targetDir);
+                    u.pathname += '/tree/master/' + upath2_1.relative(hasWorkspace, targetDir);
                     // @ts-ignore
                     pkg.data.homepage = u.toString();
                 }
@@ -212,6 +214,17 @@ if (!cp.error) {
                     pkg.data.scripts[k] = v;
                 }
             });
+            if (!pkg.data.types || !pkg.data.typeings) {
+                pkg.data.types = pkg.data.types || pkg.data.typeings;
+                if (pkg.data.main && !pkg.data.types) {
+                    let file = upath2_1.join(targetDir, pkg.data.main);
+                    let parsed = upath2_2.parse(file);
+                    if (!path_is_same_1.default(targetDir, parsed.dir) && fs_extra_1.pathExistsSync(upath2_1.join(parsed.dir, parsed.name + '.d.ts'))) {
+                        pkg.data.types = upath2_1.relative(targetDir, parsed.dir).replace(/^\.\//, '') + '/' + parsed.name + '.d.ts';
+                    }
+                }
+                pkg.data.typeings = pkg.data.types;
+            }
             if (old_pkg) {
                 Object.keys(old_pkg)
                     .forEach(key => {
@@ -252,7 +265,7 @@ if (!cp.error) {
                 preserveTimestamps: true,
                 errorOnExist: false,
             };
-            fs_extra_1.copySync(path_1.join(__dirname, 'lib/static'), targetDir, copyOptions);
+            fs_extra_1.copySync(upath2_1.join(__dirname, 'lib/static'), targetDir, copyOptions);
         }
         catch (e) {
         }
@@ -260,7 +273,7 @@ if (!cp.error) {
             cwd: targetDir,
         });
         (!oldExists) && writeReadme_1.writeReadme({
-            file: path_1.join(targetDir, 'README.md'),
+            file: upath2_1.join(targetDir, 'README.md'),
             variable: pkg.data,
         });
         /*

@@ -3,8 +3,8 @@
 import findYarnWorkspaceRoot from 'find-yarn-workspace-root2';
 import yargs from 'yargs';
 import crossSpawn from 'cross-spawn-extra';
-import { ensureDirSync, CopyOptionsSync, copySync } from 'fs-extra';
-import { resolve, join, relative } from 'path';
+import { ensureDirSync, CopyOptionsSync, copySync, pathExistsSync } from 'fs-extra';
+import { resolve, join, relative } from 'upath2';
 import getConfig, { parseStaticPackagesPaths } from 'workspaces-config';
 import PackageJsonLoader from 'npm-package-json-loader';
 import { IPackageJson } from '@ts-type/package-dts';
@@ -19,6 +19,8 @@ import lodashTemplate from 'lodash/template';
 import { writeReadme } from './lib/writeReadme';
 import sortPackageJsonScripts from 'sort-package-json-scripts';
 import WorkspacesProject from '@yarn-tool/workspaces-project';
+import { parse } from 'upath2';
+import pathIsSame from 'path-is-same';
 
 
 //updateNotifier(__dirname);
@@ -278,6 +280,24 @@ if (!cp.error)
 					}
 				})
 			;
+
+			if (!pkg.data.types || !pkg.data.typeings)
+			{
+				pkg.data.types = pkg.data.types || pkg.data.typeings;
+
+				if (pkg.data.main && !pkg.data.types)
+				{
+					let file = join(targetDir, pkg.data.main)
+					let parsed = parse(file);
+
+					if (!pathIsSame(targetDir, parsed.dir) && pathExistsSync(join(parsed.dir, parsed.name + '.d.ts')))
+					{
+						pkg.data.types = relative(targetDir, parsed.dir).replace(/^\.\//, '') + '/' + parsed.name + '.d.ts'
+					}
+				}
+
+				pkg.data.typeings = pkg.data.types;
+			}
 
 			if (old_pkg)
 			{
