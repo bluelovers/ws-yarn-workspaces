@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.115](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.114...npm-init2@1.0.115) (2020-06-26)
+
+
+### ✨　Features
+
+* support auto fix `types` field ([706a399](https://github.com/bluelovers/npm-init2/commit/706a39931167db50feb1947dff1d00cf56d1f729))
+
+
+
+
+
 ## [1.0.114](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.113...npm-init2@1.0.114) (2020-06-23)
 
 
