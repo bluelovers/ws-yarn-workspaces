@@ -30,7 +30,7 @@
   "dependencies": {
     "micromatch": "^4.0.2",
     "pkg-dir": "^4.2.0",
-    "upath2": "^3.0.6"
+    "upath2": "^3.1.4"
   },
   "gitHead": "40676553ac196265d354e537459d4c78d67f0a8c"
 }
