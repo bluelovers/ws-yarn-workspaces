@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.116](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.115...npm-init2@1.0.116) (2020-06-27)
+
+
+### 🐛　Bug Fixes
+
+* write README.md when file is not exists ([9611e6e](https://github.com/bluelovers/npm-init2/commit/9611e6ed65a238716553613f24aec2b3501b4bfc))
+
+
+
+
+
 ## [1.0.115](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.114...npm-init2@1.0.115) (2020-06-26)
 
 

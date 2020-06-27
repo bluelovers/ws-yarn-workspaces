@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.22](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/node-modules@1.0.21...@yarn-tool/node-modules@1.0.22) (2020-06-27)
+
+
+### ♻️　Chores
+
+* update deps ([e92cdb4](https://github.com/bluelovers/ws-yarn-workspaces/commit/e92cdb46b84fdf718a87731f4186e86cce78e216))
+
+
+
+
+
 ## [1.0.21](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/node-modules@1.0.20...@yarn-tool/node-modules@1.0.21) (2020-06-23)
 
 
