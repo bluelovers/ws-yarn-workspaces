@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.9](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-deps@1.0.8...@yarn-tool/find-deps@1.0.9) (2020-06-27)
+
+
+### 🐛　Bug Fixes
+
+* 修正無限迴圈 ([c80f7fe](https://github.com/bluelovers/ws-yarn-workspaces/commit/c80f7fe4db28eba80287a99d5db0b843c82ef524))
+
+
+
+
+
 ## [1.0.8](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-deps@1.0.7...@yarn-tool/find-deps@1.0.8) (2020-06-27)
 
 **Note:** Version bump only for package @yarn-tool/find-deps
