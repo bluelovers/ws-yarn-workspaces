@@ -259,22 +259,31 @@ if (!cp.error) {
             pkg.sort();
         }
         pkg.writeOnlyWhenLoaded();
-        try {
-            let copyOptions = {
+        /*
+        try
+        {
+            let copyOptions: CopyOptionsSync = {
                 overwrite: false,
                 preserveTimestamps: true,
                 errorOnExist: false,
             };
-            fs_extra_1.copySync(upath2_1.join(__dirname, 'lib/static'), targetDir, copyOptions);
+
+            copySync(join(__dirname, 'lib/static'), targetDir, copyOptions);
         }
-        catch (e) {
+        catch (e)
+        {
+
+        }
+         */
+        let mdFile = upath2_1.join(targetDir, 'README.md');
+        if (!oldExists || !fs_1.existsSync(mdFile)) {
+            writeReadme_1.writeReadme({
+                file: upath2_1.join(targetDir, 'README.md'),
+                variable: pkg.data,
+            });
         }
         lib_1.copyStaticFiles(lib_1.defaultCopyStaticFiles, {
             cwd: targetDir,
-        });
-        (!oldExists) && writeReadme_1.writeReadme({
-            file: upath2_1.join(targetDir, 'README.md'),
-            variable: pkg.data,
         });
         /*
         fs.copySync(path.join(__dirname, 'lib/file/npmignore'), path.join(targetDir, '.npmignore'), copyOptions);

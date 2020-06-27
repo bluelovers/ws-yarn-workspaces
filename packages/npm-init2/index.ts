@@ -353,6 +353,7 @@ if (!cp.error)
 
 		pkg.writeOnlyWhenLoaded();
 
+		/*
 		try
 		{
 			let copyOptions: CopyOptionsSync = {
@@ -367,15 +368,21 @@ if (!cp.error)
 		{
 
 		}
+		 */
+
+		let mdFile = join(targetDir, 'README.md');
+
+		if (!oldExists || !existsSync(mdFile))
+		{
+			writeReadme({
+				file: join(targetDir, 'README.md'),
+				variable: pkg.data,
+			})
+		}
 
 		copyStaticFiles(defaultCopyStaticFiles, {
 			cwd: targetDir,
 		});
-
-		(!oldExists) && writeReadme({
-			file: join(targetDir, 'README.md'),
-			variable: pkg.data,
-		})
 
 		/*
 		fs.copySync(path.join(__dirname, 'lib/file/npmignore'), path.join(targetDir, '.npmignore'), copyOptions);
