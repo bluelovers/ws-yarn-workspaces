@@ -11,11 +11,7 @@ export declare function wsChanged(cwd?: string, options?: {
     lernaBin?: string;
 }): {
     cwd: string;
-    changed: (IListableRow & {
-        prefix: string;
-    })[];
-    staged: (IListableRow & {
-        prefix: string;
-    })[];
+    changed: IListableRowExtra<IListableRow>[];
+    staged: IListableRowExtra<IListableRow>[];
 };
 export default wsChanged;

@@ -1,10 +1,8 @@
-import { IListableRow } from 'ws-pkg-list';
+import { IListableRow, IListableRowExtra } from 'ws-pkg-list';
 export declare function lernaChanged(cwd?: string, options?: {
     lernaBin?: string;
 }): {
     cwd: string;
-    list: (IListableRow & {
-        prefix: string;
-    })[];
+    list: IListableRowExtra<IListableRow>[];
 };
 export default lernaChanged;
