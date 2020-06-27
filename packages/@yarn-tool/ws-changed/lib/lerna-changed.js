@@ -21,7 +21,8 @@ function lernaChanged(cwd, options) {
         cwd,
         stripAnsi: true,
     });
-    let list = JSON.parse(cp.stdout.toString());
+    let out = cp.stdout.toString().trim();
+    let list = (out.length ? JSON.parse(out) : []);
     list = util_1.normalizeListableExtra(list, cwd);
     return {
         cwd,

@@ -23,7 +23,9 @@ export function lernaChanged(cwd?: string, options?: {
 		stripAnsi: true,
 	})
 
-	let list = JSON.parse(cp.stdout.toString()) as IListableRowExtra[];
+	let out = cp.stdout.toString().trim();
+
+	let list = (out.length ? JSON.parse(out) : []) as IListableRowExtra[];
 
 	list = normalizeListableExtra(list, cwd)
 
