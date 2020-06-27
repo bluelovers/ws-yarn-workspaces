@@ -10,10 +10,10 @@ function findDepsAllDeepRecordCore(names, record, map = {}) {
             return map;
         }
         let list = findDepsDeep(name, record);
+        map[name] = (_a = map[name]) !== null && _a !== void 0 ? _a : [];
         if (list === null || list === void 0 ? void 0 : list.length) {
             findDepsAllDeepRecordCore(list, record, map);
         }
-        map[name] = (_a = map[name]) !== null && _a !== void 0 ? _a : [];
         map[name].push(...list);
         return map;
     }, map);
@@ -40,10 +40,10 @@ function findDepsDeep(name, record, list = []) {
             .forEach(field => {
             var _a;
             Object.keys((_a = row[field]) !== null && _a !== void 0 ? _a : {})
-                .forEach(name => {
-                if ((name in record) && !list.includes(name)) {
-                    list.push(name);
-                    findDepsDeep(name, record, list);
+                .forEach(name2 => {
+                if ((name2 in record) && !list.includes(name2) && name2 !== name) {
+                    list.push(name2);
+                    findDepsDeep(name2, record, list);
                 }
             });
         });

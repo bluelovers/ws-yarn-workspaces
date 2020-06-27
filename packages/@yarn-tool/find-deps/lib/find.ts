@@ -15,12 +15,13 @@ export function findDepsAllDeepRecordCore<R extends IListableRowExtraWithDeps>(n
 
 			let list = findDepsDeep(name, record);
 
+			map[name] = map[name] ?? [];
+
 			if (list?.length)
 			{
 				findDepsAllDeepRecordCore(list, record, map)
 			}
 
-			map[name] = map[name] ?? [];
 			map[name].push(...list);
 
 			return map
@@ -64,14 +65,14 @@ export function findDepsDeep<R extends IListableRowExtraWithDeps>(name: string,
 			{
 
 				Object.keys(row[field] ?? {})
-					.forEach(name =>
+					.forEach(name2 =>
 					{
 
-						if ((name in record) && !list.includes(name))
+						if ((name2 in record) && !list.includes(name2) && name2 !== name)
 						{
-							list.push(name)
+							list.push(name2)
 
-							findDepsDeep(name, record, list);
+							findDepsDeep(name2, record, list);
 						}
 
 					})
