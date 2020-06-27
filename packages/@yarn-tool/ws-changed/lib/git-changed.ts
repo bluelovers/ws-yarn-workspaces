@@ -26,9 +26,9 @@ export function wsGitChangedPrefix(cwd?: string, options?: {
 
 	let list = data.list
 		.map(p => {
-		return re.exec(p)[0]
+		return re.exec(p)?.[0]
 	})
-		.filter(r => r.length)
+		.filter(r => r?.length)
 	;
 
 	array_unique_overwrite(list)

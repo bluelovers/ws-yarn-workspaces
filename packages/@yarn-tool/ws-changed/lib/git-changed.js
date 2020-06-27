@@ -21,9 +21,10 @@ function wsGitChangedPrefix(cwd, options) {
     let re = new RegExp(`(${source})`, 'i');
     let list = data.list
         .map(p => {
-        return re.exec(p)[0];
+        var _a;
+        return (_a = re.exec(p)) === null || _a === void 0 ? void 0 : _a[0];
     })
-        .filter(r => r.length);
+        .filter(r => r === null || r === void 0 ? void 0 : r.length);
     core_1.array_unique_overwrite(list);
     return {
         cwd: data.cwd,
