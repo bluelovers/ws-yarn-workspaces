@@ -31,7 +31,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@git-lazy/info": "^1.0.20",
+    "@git-lazy/info": "^1.0.21",
     "@types/hosted-git-info": "^3.0.0",
     "hosted-git-info": "^3.0.4"
   },

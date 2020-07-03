@@ -152,6 +152,7 @@ if (!cp.error) {
             "ncu": "yarn-tool ncu -u",
             "sort-package-json": "yarn-tool sort",
             "test": `echo "Error: no test specified"`,
+            "preversion": `echo preversion`,
         };
         let prepublishOnly = "yarn run prepublishOnly:check-bin && yarn run prepublishOnly:update && yarn run test";
         if (hasWorkspace) {

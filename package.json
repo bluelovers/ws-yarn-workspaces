@@ -27,7 +27,7 @@
   },
   "resolutions": {},
   "dependencies": {
-    "array-hyper-unique": "^1.1.8",
+    "array-hyper-unique": "^1.1.9",
     "chalk": "< 3 && >= 2",
     "debug-color2": "^1.2.3",
     "semver": "^7.3.2"
