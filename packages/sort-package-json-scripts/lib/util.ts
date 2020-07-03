@@ -76,6 +76,8 @@ export const defaultNpmScriptsOrder = new Set([
 	'yarn',
 	'lerna',
 
+	'version',
+
 	'prepareOnly',
 	'prepublish',
 	'prepare',
@@ -91,8 +93,6 @@ export const defaultNpmScriptsOrder = new Set([
 	'postpublishOnly',
 
 	'shrinkwrap',
-
-	'version',
 
 ])
 

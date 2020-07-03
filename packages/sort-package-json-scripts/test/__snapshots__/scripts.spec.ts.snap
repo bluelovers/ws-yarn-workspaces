@@ -57,6 +57,7 @@ Array [
   "npm",
   "yarn",
   "lerna",
+  "version",
   "prepareOnly",
   "prepublish",
   "prepare",
@@ -68,7 +69,6 @@ Array [
   "postpublish",
   "postpublishOnly",
   "shrinkwrap",
-  "version",
 ]
 `;
 
@@ -93,6 +93,7 @@ exports[`should defaultNpmScriptsOrder 3`] = `
   \\"npm\\": \\"echo npm\\",
   \\"yarn\\": \\"echo yarn\\",
   \\"lerna\\": \\"echo lerna\\",
+  \\"version\\": \\"echo version\\",
   \\"prepareOnly\\": \\"echo prepareOnly\\",
   \\"prepublish\\": \\"echo prepublish\\",
   \\"prepare\\": \\"echo prepare\\",
@@ -103,8 +104,7 @@ exports[`should defaultNpmScriptsOrder 3`] = `
   \\"publish\\": \\"echo publish\\",
   \\"postpublish\\": \\"echo postpublish\\",
   \\"postpublishOnly\\": \\"echo postpublishOnly\\",
-  \\"shrinkwrap\\": \\"echo shrinkwrap\\",
-  \\"version\\": \\"echo version\\"
+  \\"shrinkwrap\\": \\"echo shrinkwrap\\"
 }"
 `;
 
@@ -119,27 +119,27 @@ Object {
   "link": "14",
   "lint": "5",
   "npm": "16",
-  "pack": "24",
+  "pack": "25",
   "postinstallOnly": "9",
-  "postpack": "25",
-  "postpublish": "27",
-  "postpublishOnly": "28",
+  "postpack": "26",
+  "postpublish": "28",
+  "postpublishOnly": "29",
   "postuninstallOnly": "12",
   "preinstallOnly": "7",
-  "prepack": "23",
-  "prepare": "21",
-  "prepareOnly": "19",
-  "prepublish": "20",
-  "prepublishOnly": "22",
+  "prepack": "24",
+  "prepare": "22",
+  "prepareOnly": "20",
+  "prepublish": "21",
+  "prepublishOnly": "23",
   "preuninstallOnly": "10",
-  "publish": "26",
+  "publish": "27",
   "restart": "2",
-  "shrinkwrap": "29",
+  "shrinkwrap": "30",
   "start": "0",
   "stop": "3",
   "test": "6",
   "uninstall": "11",
-  "version": "30",
+  "version": "19",
   "yarn": "17",
 }
 `;
@@ -165,6 +165,7 @@ Array [
   "npm",
   "yarn",
   "lerna",
+  "version",
   "prepareOnly",
   "prepublish",
   "prepare",
@@ -176,7 +177,6 @@ Array [
   "postpublish",
   "postpublishOnly",
   "shrinkwrap",
-  "version",
 ]
 `;
 
@@ -201,18 +201,18 @@ exports[`should defaultNpmScriptsOrder 6`] = `
   \\"npm\\": \\"16\\",
   \\"yarn\\": \\"17\\",
   \\"lerna\\": \\"18\\",
-  \\"prepareOnly\\": \\"19\\",
-  \\"prepublish\\": \\"20\\",
-  \\"prepare\\": \\"21\\",
-  \\"prepublishOnly\\": \\"22\\",
-  \\"prepack\\": \\"23\\",
-  \\"pack\\": \\"24\\",
-  \\"postpack\\": \\"25\\",
-  \\"publish\\": \\"26\\",
-  \\"postpublish\\": \\"27\\",
-  \\"postpublishOnly\\": \\"28\\",
-  \\"shrinkwrap\\": \\"29\\",
-  \\"version\\": \\"30\\"
+  \\"version\\": \\"19\\",
+  \\"prepareOnly\\": \\"20\\",
+  \\"prepublish\\": \\"21\\",
+  \\"prepare\\": \\"22\\",
+  \\"prepublishOnly\\": \\"23\\",
+  \\"prepack\\": \\"24\\",
+  \\"pack\\": \\"25\\",
+  \\"postpack\\": \\"26\\",
+  \\"publish\\": \\"27\\",
+  \\"postpublish\\": \\"28\\",
+  \\"postpublishOnly\\": \\"29\\",
+  \\"shrinkwrap\\": \\"30\\"
 }"
 `;
 
@@ -353,6 +353,9 @@ Array [
   "prelerna",
   "lerna",
   "postlerna",
+  "preversion",
+  "version",
+  "postversion",
   "prepareOnly",
   "postprepareOnly",
   "prepublish",
@@ -374,9 +377,6 @@ Array [
   "preshrinkwrap",
   "shrinkwrap",
   "postshrinkwrap",
-  "preversion",
-  "version",
-  "postversion",
 ]
 `;
 
@@ -435,6 +435,9 @@ exports[`should defaultNpmScriptsOrder v2 3`] = `
   \\"prelerna\\": \\"echo prelerna\\",
   \\"lerna\\": \\"echo lerna\\",
   \\"postlerna\\": \\"echo postlerna\\",
+  \\"preversion\\": \\"echo preversion\\",
+  \\"version\\": \\"echo version\\",
+  \\"postversion\\": \\"echo postversion\\",
   \\"prepareOnly\\": \\"echo prepareOnly\\",
   \\"postprepareOnly\\": \\"echo postprepareOnly\\",
   \\"prepublish\\": \\"echo prepublish\\",
@@ -455,10 +458,7 @@ exports[`should defaultNpmScriptsOrder v2 3`] = `
   \\"postpublishOnly\\": \\"echo postpublishOnly\\",
   \\"preshrinkwrap\\": \\"echo preshrinkwrap\\",
   \\"shrinkwrap\\": \\"echo shrinkwrap\\",
-  \\"postshrinkwrap\\": \\"echo postshrinkwrap\\",
-  \\"preversion\\": \\"echo preversion\\",
-  \\"version\\": \\"echo version\\",
-  \\"postversion\\": \\"echo postversion\\"
+  \\"postshrinkwrap\\": \\"echo postshrinkwrap\\"
 }"
 `;
 
@@ -637,6 +637,9 @@ Array [
   "prelerna",
   "lerna",
   "postlerna",
+  "preversion",
+  "version",
+  "postversion",
   "preprepareOnly",
   "prepareOnly",
   "postprepareOnly",
@@ -666,9 +669,6 @@ Array [
   "preshrinkwrap",
   "shrinkwrap",
   "postshrinkwrap",
-  "preversion",
-  "version",
-  "postversion",
   "premyscript",
   "premyscript_",
   "premyscript:abc",
@@ -753,6 +753,9 @@ exports[`should script lifecycle 3`] = `
   \\"prelerna\\": \\"echo prelerna\\",
   \\"lerna\\": \\"echo lerna\\",
   \\"postlerna\\": \\"echo postlerna\\",
+  \\"preversion\\": \\"echo preversion\\",
+  \\"version\\": \\"echo version\\",
+  \\"postversion\\": \\"echo postversion\\",
   \\"preprepareOnly\\": \\"echo preprepareOnly\\",
   \\"prepareOnly\\": \\"echo prepareOnly\\",
   \\"postprepareOnly\\": \\"echo postprepareOnly\\",
@@ -782,9 +785,6 @@ exports[`should script lifecycle 3`] = `
   \\"preshrinkwrap\\": \\"echo preshrinkwrap\\",
   \\"shrinkwrap\\": \\"echo shrinkwrap\\",
   \\"postshrinkwrap\\": \\"echo postshrinkwrap\\",
-  \\"preversion\\": \\"echo preversion\\",
-  \\"version\\": \\"echo version\\",
-  \\"postversion\\": \\"echo postversion\\",
   \\"premyscript\\": \\"echo premyscript\\",
   \\"premyscript_\\": \\"echo premyscript_\\",
   \\"premyscript:abc\\": \\"echo premyscript:abc\\",
