@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/sort-package-json-scripts@1.1.3...sort-package-json-scripts@1.1.4) (2020-07-03)
+
+
+### ✨　Features
+
+* 調整 version 的順序 來配合 lerna 的執行順序 ([ecc6e7f](https://github.com/bluelovers/ws-yarn-workspaces/commit/ecc6e7f872b925152fba34796b38116a4943c1af))
+
+
+
+
+
 ## [1.1.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/sort-package-json-scripts@1.1.2...sort-package-json-scripts@1.1.3) (2020-06-20)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "ws-pkg-list",
-  "version": "1.0.32",
+  "version": "1.0.33",
   "description": "get Yarn Workspaces Packages List and can help create `paths` for `tsconfig.json`",
   "keywords": [
     "monorepos",

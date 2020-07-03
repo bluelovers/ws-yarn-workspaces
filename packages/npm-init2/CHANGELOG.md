@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.118](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.117...npm-init2@1.0.118) (2020-07-03)
+
+
+### ✨　Features
+
+* add `preversion` for `lerna` ([f7d07cf](https://github.com/bluelovers/npm-init2/commit/f7d07cfe350420afbf87930990111a5b2b3b332f))
+
+
+### ♻️　Chores
+
+* update deps ([e41e1e2](https://github.com/bluelovers/npm-init2/commit/e41e1e2ebbb21600debe2f5ab0dc49c710a5be64))
+
+
+
+
+
 ## [1.0.117](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.116...npm-init2@1.0.117) (2020-06-27)
 
 **Note:** Version bump only for package npm-init2

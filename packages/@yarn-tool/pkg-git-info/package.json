@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/pkg-git-info",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/pkg-git-info#readme",
   "bugs": {
