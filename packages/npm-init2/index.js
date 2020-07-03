@@ -158,6 +158,7 @@ if (!cp.error) {
             prepublishOnly = "yarn run prepublishOnly:check-bin && yarn run test";
             sharedScript = {
                 ...sharedScript,
+                "preversion": "yarn run prepublishOnly",
             };
         }
         else {

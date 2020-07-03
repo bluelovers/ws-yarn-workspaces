@@ -204,6 +204,7 @@ if (!cp.error)
 
 				sharedScript = {
 				...sharedScript,
+					"preversion": "yarn run prepublishOnly",
 			}
 		}
 		else
