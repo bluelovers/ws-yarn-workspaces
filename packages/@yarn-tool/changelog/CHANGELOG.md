@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.16](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/changelog@1.0.15...@yarn-tool/changelog@1.0.16) (2020-07-04)
+
+
+### ✨　Features
+
+* update workspace default setting ([721dec0](https://github.com/bluelovers/ws-yarn-workspaces/commit/721dec038ae6c0b8b3020292f8939787f31b2a0e))
+
+
+
+
+
 ## [1.0.15](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/changelog@1.0.14...@yarn-tool/changelog@1.0.15) (2020-07-03)
 
 **Note:** Version bump only for package @yarn-tool/changelog
