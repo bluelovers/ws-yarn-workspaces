@@ -4,6 +4,8 @@
   ],
   "command": {
     "publish": {
+      "concurrency": 1,
+      "loglevel": "silly",
       "ignoreChanges": [
         "**/node_modules/**",
         "**/__snapshots__/**",

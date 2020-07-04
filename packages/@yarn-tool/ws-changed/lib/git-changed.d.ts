@@ -1,4 +1,4 @@
-import { IListableRow } from 'ws-pkg-list';
+import { IListableRowExtra, IListableRow } from 'ws-pkg-list';
 export declare function wsGitChangedPrefix(cwd?: string, options?: {
     gitBin?: string;
 }): {
@@ -9,8 +9,6 @@ export declare function wsGitChanged(cwd: string, options?: {
     gitBin?: string;
 }): {
     cwd: string;
-    list: (IListableRow & {
-        prefix: string;
-    })[];
+    list: IListableRowExtra<IListableRow>[];
 };
 export default wsGitChanged;
