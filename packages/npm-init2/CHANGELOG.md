@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.120](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.119...npm-init2@1.0.120) (2020-07-05)
+
+
+### 🐛　Bug Fixes
+
+* isWorkspace fall when target not yet created ([c56b313](https://github.com/bluelovers/npm-init2/commit/c56b3139c96338e8ee4dceb3a9319d82f16f302a))
+
+
+### ♻️　Chores
+
+* update deps ([cacabee](https://github.com/bluelovers/npm-init2/commit/cacabee52ec251987290f5c7c53cf474ceaae5b7))
+
+
+
+
+
 ## [1.0.119](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.118...npm-init2@1.0.119) (2020-07-04)
 
 **Note:** Version bump only for package npm-init2

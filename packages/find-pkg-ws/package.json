@@ -1,6 +1,6 @@
 {
   "name": "find-pkg-ws",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "description": "find yarn workspaces package.json",
   "keywords": [
     "init",
@@ -29,7 +29,7 @@
     "sort-package-json": "npx yarn-tool sort"
   },
   "dependencies": {
-    "find-yarn-workspace-root2": "^1.2.21"
+    "find-yarn-workspace-root2": "^1.2.22"
   },
   "gitHead": "40676553ac196265d354e537459d4c78d67f0a8c"
 }

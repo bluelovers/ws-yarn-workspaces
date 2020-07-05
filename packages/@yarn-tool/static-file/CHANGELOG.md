@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.41](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.40...@yarn-tool/static-file@1.0.41) (2020-07-05)
+
+
+### ♻️　Chores
+
+* update deps ([cacabee](https://github.com/bluelovers/ws-yarn-workspaces/commit/cacabee52ec251987290f5c7c53cf474ceaae5b7))
+
+
+
+
+
 ## [1.0.40](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.39...@yarn-tool/static-file@1.0.40) (2020-07-04)
 
 
