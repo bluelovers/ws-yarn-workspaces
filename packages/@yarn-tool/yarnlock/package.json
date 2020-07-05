@@ -54,7 +54,7 @@
     "fs-extra": "^9.0.1",
     "semver": "^7.3.2",
     "ts-type": "^1.2.23",
-    "upath2": "^3.1.4",
+    "upath2": "^3.1.5",
     "yarn-berry-deduplicate": "^2.0.0",
     "yarn-deduplicate": "^2.0.0",
     "yarn-lock-diff": "^0.0.0"

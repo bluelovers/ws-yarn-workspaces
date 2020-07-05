@@ -30,7 +30,7 @@
   "dependencies": {
     "@ts-type/package-dts": "^1.0.26",
     "@yarn-tool/resolve-package": "^1.0.15",
-    "upath2": "^3.1.4"
+    "upath2": "^3.1.5"
   },
   "publishConfig": {
     "access": "public"

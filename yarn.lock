@@ -5682,12 +5682,12 @@ pascalcase@^0.1.1:
   resolved "https://registry.npmjs.org/pascalcase/-/pascalcase-0.1.1.tgz#b363e55e8006ca6fe21784d2db22bd15d7917f14"
   integrity sha1-s2PlXoAGym/iF4TS2yK9FdeRfxQ=
 
-path-dir-normalize@^1.0.15:
-  version "1.0.15"
-  resolved "https://registry.npmjs.org/path-dir-normalize/-/path-dir-normalize-1.0.15.tgz#f6d1ed7d8d5d6edc9f8f8693f1fa3a9c116c7286"
-  integrity sha512-RU0fVrF6PdKWpQ4S0WqETgt0GuTBHtPv82RlAh+2Wk7O8CBfbGGbBamduxKIi1tPyJRAYQRJ2FAORPRhIhcRTA==
+path-dir-normalize@^1.0.16:
+  version "1.0.16"
+  resolved "https://registry.npmjs.org/path-dir-normalize/-/path-dir-normalize-1.0.16.tgz#d4bd7c214168cca484cb1c0da7d39feadb4f76de"
+  integrity sha512-e8/sqPi14tfWkWd7yWMFVvQjg3uCPwVXYEAo1N/Cv7ctSvxsfrHf1LB8m5wG3oC4aX3ng+fdk7x/D1ZlMj+0yw==
   dependencies:
-    upath2 "^3.1.4"
+    upath2 "^3.1.5"
 
 path-dirname@^1.0.0:
   version "1.0.2"
@@ -5716,15 +5716,15 @@ path-is-absolute@^1.0.0:
   resolved "https://registry.npmjs.org/path-is-absolute/-/path-is-absolute-1.0.1.tgz#174b9268735534ffbc7ace6bf53a5a9e1b5c5f5f"
   integrity sha1-F0uSaHNVNP+8es5r9TpanhtcX18=
 
-path-is-network-drive@^1.0.0:
+path-is-network-drive@^1.0.4:
   version "1.0.4"
   resolved "https://registry.npmjs.org/path-is-network-drive/-/path-is-network-drive-1.0.4.tgz#d61af60d5f03e821d7e304f5d3717c7bd5f562c7"
   integrity sha512-fhiOCcDSSl+cE/a5dhDX55IxYRWoP38roOK3z6/VOiYYLO1s6SqHMqy4jX7/3IJlsvoM6YpILhGhcMiqx7KvoQ==
 
-path-is-same@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.npmjs.org/path-is-same/-/path-is-same-1.0.4.tgz#23cecba1d6a8012b1ff68432c04a55f5e76cbe8e"
-  integrity sha512-hQBIWmAJ9jvjI7LF1wCP6lSYZ0Pb9RpMkO7CjzvSssYwptXR2KakmBF9hCTCXyCVzjPnDu/9em0Rp2d9YF4+sg==
+path-is-same@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.npmjs.org/path-is-same/-/path-is-same-1.0.5.tgz#37e33410822bbd0fbb09ceeaedd40751fbd2330c"
+  integrity sha512-6M+iopGgPB/Qodg4vMIDp854A1vFrfl0qSusHF2xCGuiCd4tbPUcLc7vxXc0wVpaJpWnaZzdbvG8neDsyumhuA==
 
 path-key@^2.0.0, path-key@^2.0.1:
   version "2.0.1"
@@ -7266,13 +7266,13 @@ unset-value@^1.0.0:
     has-value "^0.3.1"
     isobject "^3.0.0"
 
-upath2@^3, upath2@^3.0.5, upath2@^3.1.4:
-  version "3.1.4"
-  resolved "https://registry.npmjs.org/upath2/-/upath2-3.1.4.tgz#99b77517e53a1a251a90500e341b121eb8f4742c"
-  integrity sha512-aihMPOk4oCYth2OdSf3G2ajvyr3/xag/ojcLnl4HuUjFUOW6Tr0tFANYHRyXDy6UPf+ARcUsQfCzByza741h/A==
+upath2@^3, upath2@^3.0.5, upath2@^3.1.4, upath2@^3.1.5:
+  version "3.1.5"
+  resolved "https://registry.npmjs.org/upath2/-/upath2-3.1.5.tgz#5e964f2b6794d735601a0b868790ae9a0b8448b6"
+  integrity sha512-vNcjhJHKdmcX8SgGQ/Ey3iZE8MQKc+OwhSCbsw/qAtW0wO99Arl02xKFE+ipnVaG0Zakt1ZCLaQGSWUTqSNQ+Q==
   dependencies:
     lodash "^4.17.15"
-    path-is-network-drive "^1.0.0"
+    path-is-network-drive "^1.0.4"
     path-strip-sep "^1.0.1"
 
 update-notifier@^4.1.0:
