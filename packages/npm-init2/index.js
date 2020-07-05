@@ -70,6 +70,7 @@ let { targetDir, targetName } = lib_1.getTargetDir({
     workspacesConfig,
 });
 fs_extra_1.ensureDirSync(targetDir);
+isWorkspace = path_is_same_1.default(targetDir, rootData.root);
 let flags = Object.keys(cli.argv)
     .reduce(function (a, f) {
     if (f === 'silent' || f === 'y' || f === 'yes') {
@@ -278,15 +279,16 @@ if (!cp.error) {
         }
          */
         let mdFile = upath2_1.join(targetDir, 'README.md');
-        if (!oldExists || !fs_1.existsSync(mdFile)) {
+        let existsReadme = !oldExists || !fs_1.existsSync(mdFile);
+        lib_1.copyStaticFiles(lib_1.defaultCopyStaticFiles, {
+            cwd: targetDir,
+        });
+        if (existsReadme) {
             writeReadme_1.writeReadme({
                 file: upath2_1.join(targetDir, 'README.md'),
                 variable: pkg.data,
             });
         }
-        lib_1.copyStaticFiles(lib_1.defaultCopyStaticFiles, {
-            cwd: targetDir,
-        });
         /*
         fs.copySync(path.join(__dirname, 'lib/file/npmignore'), path.join(targetDir, '.npmignore'), copyOptions);
 

@@ -69,6 +69,8 @@ let { targetDir, targetName } = getTargetDir({
 
 ensureDirSync(targetDir);
 
+isWorkspace = pathIsSame(targetDir, rootData.root);
+
 let flags = Object.keys(cli.argv)
 	.reduce(function (a, f)
 	{
@@ -375,17 +377,19 @@ if (!cp.error)
 
 		let mdFile = join(targetDir, 'README.md');
 
-		if (!oldExists || !existsSync(mdFile))
+		let existsReadme = !oldExists || !existsSync(mdFile);
+
+		copyStaticFiles(defaultCopyStaticFiles, {
+			cwd: targetDir,
+		});
+
+		if (existsReadme)
 		{
 			writeReadme({
 				file: join(targetDir, 'README.md'),
 				variable: pkg.data,
 			})
 		}
-
-		copyStaticFiles(defaultCopyStaticFiles, {
-			cwd: targetDir,
-		});
 
 		/*
 		fs.copySync(path.join(__dirname, 'lib/file/npmignore'), path.join(targetDir, '.npmignore'), copyOptions);
