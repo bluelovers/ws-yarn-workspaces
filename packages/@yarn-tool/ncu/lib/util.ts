@@ -59,3 +59,8 @@ export function keyObjectToPackageMap(obj: IVersionCacheMapKey[] | IVersionCache
 		// @ts-ignore
 	}, {})
 }
+
+export function allowUpdateVersion(version: string)
+{
+	return version?.length && version !== EnumVersionValue2.any && version !== EnumVersionValue.latest && !/^\s*(?:[><])|&|=|\|/.test(version)
+}

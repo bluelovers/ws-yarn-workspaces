@@ -8,7 +8,6 @@ exports.npmCheckUpdates = exports.checkResolutionsUpdate = void 0;
  * Created by user on 2020/6/12.
  */
 const npm_check_updates_1 = require("npm-check-updates");
-const types_1 = require("./types");
 const yarnlock_1 = require("@yarn-tool/yarnlock");
 const bluebird_1 = __importDefault(require("bluebird"));
 const util_1 = require("./util");
@@ -90,30 +89,36 @@ async function npmCheckUpdates(cache, ncuOptions) {
     ncuOptions.cwd = cache.cwd;
     ncuOptions.json_new = JSON.parse(ncuOptions.packageData);
     ncuOptions.list_updated = await npm_check_updates_1.run(ncuOptions);
-    let ks = Object.keys(ncuOptions.list_updated);
-    ncuOptions.json_changed = !!ks.length;
-    let current = {};
+    const ks = Object.keys(ncuOptions.list_updated);
+    let json_changed = false;
+    const current = {};
+    const list_updated = {};
     if (ks.length) {
         ks.forEach(name => {
+            const version_new = ncuOptions.list_updated[name];
             [
                 'dependencies',
                 'devDependencies',
                 'peerDependencies',
                 'optionalDependencies',
             ].forEach(key => {
-                let data = ncuOptions.json_new[key];
-                if (data) {
-                    let value = data[name];
-                    if (value && value != "*" /* any */ && value != types_1.EnumVersionValue.latest) {
-                        current[name] = value;
-                        data[name] = ncuOptions.list_updated[name];
+                const deps = ncuOptions.json_new[key];
+                if (deps) {
+                    const version_old = deps[name];
+                    if (version_old !== version_new && util_1.allowUpdateVersion(version_old)) {
+                        list_updated[name] = version_new;
+                        current[name] = version_old;
+                        deps[name] = version_new;
+                        json_changed = true;
                     }
                 }
             });
         });
     }
+    ncuOptions.json_changed = json_changed;
+    ncuOptions.list_updated = list_updated;
     ncuOptions.current = current;
-    let table = table_1.toDependencyTable({
+    const table = table_1.toDependencyTable({
         from: ncuOptions.current,
         to: ncuOptions.list_updated,
     }).toString();

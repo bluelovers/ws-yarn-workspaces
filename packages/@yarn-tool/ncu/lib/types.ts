@@ -35,7 +35,7 @@ export interface IVersionCacheMapValue extends IVersionCacheMapKey
 
 export type ISetupNcuToYargsReturnType = ReturnType<typeof setupNcuToYargs>;
 
-export type IOptionsNpmCheckUpdates = IUnpackYargsArgv<ISetupNcuToYargsReturnType> & {
+export type IOptionsNpmCheckUpdates = Partial<IUnpackYargsArgv<ISetupNcuToYargsReturnType>> & {
 	json_old: IPackageJson;
 	cwd?: string;
 	packageData?: string;

@@ -17,12 +17,13 @@ import {
 	IWrapDedupeCache,
 } from '@yarn-tool/yarnlock';
 import Bluebird from 'bluebird';
-import { keyObjectToPackageMap } from './util';
+import { keyObjectToPackageMap, allowUpdateVersion } from './util';
 import semver from 'semver';
 import { queryRemoteVersions } from './remote';
 import { npmCheckUpdatesOptions } from './options';
 import { IPackageJsonDependenciesField } from '@ts-type/package-dts/package-json';
 import { toDependencyTable } from '@yarn-tool/table';
+import { ITSRequireAtLeastOne } from 'ts-type';
 
 export function checkResolutionsUpdate(resolutions: IPackageMap,
 	yarnlock_old_obj: IYarnLockfileParseObject | string,
@@ -124,7 +125,7 @@ export function checkResolutionsUpdate(resolutions: IPackageMap,
 		;
 }
 
-export async function npmCheckUpdates<C extends IWrapDedupeCache>(cache: Partial<C>, ncuOptions: IOptionsNpmCheckUpdates)
+export async function npmCheckUpdates<C extends IWrapDedupeCache>(cache: Partial<C>, ncuOptions: ITSRequireAtLeastOne<IOptionsNpmCheckUpdates, 'json_old' | 'packageData'>)
 {
 	//ncuOptions.silent = false;
 
@@ -143,16 +144,18 @@ export async function npmCheckUpdates<C extends IWrapDedupeCache>(cache: Partial
 
 	ncuOptions.list_updated = await _npmCheckUpdates(ncuOptions) as Record<string, string>;
 
-	let ks = Object.keys(ncuOptions.list_updated);
+	const ks = Object.keys(ncuOptions.list_updated);
 
-	ncuOptions.json_changed = !!ks.length;
+	let json_changed = false;
 
-	let current: IDependency = {};
+	const current: IDependency = {};
+	const list_updated: IDependency = {};
 
 	if (ks.length)
 	{
 		ks.forEach(name =>
 		{
+			const version_new = ncuOptions.list_updated[name];
 
 			([
 				'dependencies',
@@ -162,17 +165,20 @@ export async function npmCheckUpdates<C extends IWrapDedupeCache>(cache: Partial
 			] as IPackageJsonDependenciesField[]).forEach(key =>
 			{
 
-				let data = ncuOptions.json_new[key];
+				const deps = ncuOptions.json_new[key];
 
-				if (data)
+				if (deps)
 				{
-					let value = data[name];
+					const version_old = deps[name];
 
-					if (value && value != EnumVersionValue2.any && value != EnumVersionValue.latest)
+					if (version_old !== version_new && allowUpdateVersion(version_old))
 					{
-						current[name] = value;
+						list_updated[name] = version_new;
+						current[name] = version_old;
 
-						data[name] = ncuOptions.list_updated[name];
+						deps[name] = version_new;
+
+						json_changed = true;
 					}
 				}
 
@@ -182,9 +188,11 @@ export async function npmCheckUpdates<C extends IWrapDedupeCache>(cache: Partial
 
 	}
 
+	ncuOptions.json_changed = json_changed;
+	ncuOptions.list_updated = list_updated;
 	ncuOptions.current = current;
 
-	let table = toDependencyTable({
+	const table = toDependencyTable({
 		from: ncuOptions.current,
 		to: ncuOptions.list_updated,
 	}).toString();
