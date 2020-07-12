@@ -7,6 +7,7 @@ function listDuplicates(yarnlock_old, options) {
     if (typeof yarnlock_old !== 'string') {
         yarnlock_old = parse_1.stringify(yarnlock_old);
     }
+    // @ts-ignore
     return yarn_deduplicate_1.listDuplicates(yarnlock_old);
 }
 exports.listDuplicates = listDuplicates;

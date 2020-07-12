@@ -27,13 +27,14 @@
   "scripts": {
     "coverage": "npx nyc yarn run test",
     "lint": "npx eslint **/*.ts",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "test:jest": "jest --coverage",
     "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
     "npm:publish": "npm publish",
     "npm:publish:lerna": "lerna publish --yes",
+    "preversion": "yarn run prepublishOnly",
     "prepublish:lockfile": "npx sync-lockfile .",
-    "prepublishOnly_": "yarn run ncu && yarn run sort-package-json && yarn run test",
+    "prepublishOnly": "yarn run test",
     "postpublish_": "git commit -m \"chore(release): publish\" .",
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort",
@@ -48,7 +49,8 @@
     "bluebird": "^3.7.2",
     "npm-check-updates": "^7.0.1",
     "package-json": "^6.5.0",
-    "semver": "^7.3.2"
+    "semver": "^7.3.2",
+    "ts-type": "^1.2.25"
   },
   "peerDependencies": {
     "yargs": "^15.4.1"

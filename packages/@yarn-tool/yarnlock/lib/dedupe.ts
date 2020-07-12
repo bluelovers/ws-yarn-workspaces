@@ -16,6 +16,7 @@ export function listDuplicates(yarnlock_old: IYarnLockfileParseObject | string, 
 		yarnlock_old = stringify(yarnlock_old)
 	}
 
+	// @ts-ignore
 	return _listDuplicates(yarnlock_old)
 }
 
