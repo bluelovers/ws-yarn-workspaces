@@ -321,7 +321,7 @@ if (!cp.error)
 
 		if (!oldExists)
 		{
-			const cpkg = require('./package.json');
+			const cpkg = require('./package.json') as IPackageJson;
 
 			const findVersion = (name: string) =>
 			{
