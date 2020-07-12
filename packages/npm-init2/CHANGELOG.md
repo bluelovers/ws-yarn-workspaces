@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.121](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.120...npm-init2@1.0.121) (2020-07-12)
+
+
+### ♻️　Chores
+
+* update deps ([c0c96dc](https://github.com/bluelovers/npm-init2/commit/c0c96dcc7f9d6adc6cfd0b51e3cdcc03d75cf830))
+
+
+
+
+
 ## [1.0.120](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.119...npm-init2@1.0.120) (2020-07-05)
 
 

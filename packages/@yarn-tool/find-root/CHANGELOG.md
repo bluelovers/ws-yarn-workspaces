@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.28](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-root@1.0.27...@yarn-tool/find-root@1.0.28) (2020-07-12)
+
+
+### ♻️　Chores
+
+* update deps ([c0c96dc](https://github.com/bluelovers/ws-yarn-workspaces/commit/c0c96dcc7f9d6adc6cfd0b51e3cdcc03d75cf830))
+
+
+
+
+
 ## [1.0.27](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-root@1.0.26...@yarn-tool/find-root@1.0.27) (2020-07-05)
 
 
