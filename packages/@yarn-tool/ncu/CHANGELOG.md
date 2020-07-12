@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.20](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ncu@1.0.19...@yarn-tool/ncu@1.0.20) (2020-07-12)
+
+
+### ✨　Features
+
+* 當版本編號具有以下字元時 `><|=&` 忽略更新 ([40aa9f7](https://github.com/bluelovers/ws-yarn-workspaces/commit/40aa9f7c14c3c6ee90d80a2441cc8c629ab1682a))
+
+
+### 🛠　Build System
+
+* update typescript ([59fcb4b](https://github.com/bluelovers/ws-yarn-workspaces/commit/59fcb4b76df45c08f990ef8adeb66558ed4e4237))
+
+
+
+
+
 ## [1.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ncu@1.0.18...@yarn-tool/ncu@1.0.19) (2020-07-12)
 
 

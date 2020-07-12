@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/changelog@1.0.18...@yarn-tool/changelog@1.0.19) (2020-07-12)
+
+
+### 🛠　Build System
+
+* update typescript ([59fcb4b](https://github.com/bluelovers/ws-yarn-workspaces/commit/59fcb4b76df45c08f990ef8adeb66558ed4e4237))
+
+
+
+
+
 ## [1.0.18](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/changelog@1.0.17...@yarn-tool/changelog@1.0.18) (2020-07-12)
 
 
