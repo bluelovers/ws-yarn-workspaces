@@ -21,6 +21,7 @@ import sortPackageJsonScripts from 'sort-package-json-scripts';
 import WorkspacesProject from '@yarn-tool/workspaces-project';
 import { parse } from 'upath2';
 import pathIsSame from 'path-is-same';
+import linkToNodeModules from '@yarn-tool/node-modules-link';
 
 
 //updateNotifier(__dirname);
@@ -388,6 +389,14 @@ if (!cp.error)
 			writeReadme({
 				file: join(targetDir, 'README.md'),
 				variable: pkg.data,
+			})
+		}
+
+		if (wsProject && !isWorkspace)
+		{
+			linkToNodeModules({
+				cwd: targetDir,
+				sourcePackagePath: targetDir,
 			})
 		}
 

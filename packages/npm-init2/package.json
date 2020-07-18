@@ -48,6 +48,7 @@
   "dependencies": {
     "@ts-type/package-dts": "^1.0.29",
     "@yarn-tool/find-root": "^1.0.28",
+    "@yarn-tool/node-modules-link": "^1.0.0",
     "@yarn-tool/pkg-git-info": "^1.0.10",
     "@yarn-tool/static-file": "^1.0.43",
     "@yarn-tool/update-notifier": "^1.0.13",

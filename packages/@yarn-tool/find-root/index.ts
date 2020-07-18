@@ -13,11 +13,14 @@ export interface IFindRootReturnType
 	root: string;
 }
 
-export function findRoot(options: {
-	cwd: string,
-	skipCheckWorkspace?: boolean | string,
-	throwError?: boolean,
-}, _throwError?: boolean): IFindRootReturnType
+export interface IFindRootOptions
+{
+	cwd: string;
+	skipCheckWorkspace?: boolean | string;
+	throwError?: boolean;
+}
+
+export function findRoot(options: IFindRootOptions, _throwError?: boolean): IFindRootReturnType
 {
 	if (!options.cwd)
 	{

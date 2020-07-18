@@ -6,11 +6,12 @@ export interface IFindRootReturnType {
     isWorkspace: boolean;
     root: string;
 }
-export declare function findRoot(options: {
+export interface IFindRootOptions {
     cwd: string;
     skipCheckWorkspace?: boolean | string;
     throwError?: boolean;
-}, _throwError?: boolean): IFindRootReturnType;
+}
+export declare function findRoot(options: IFindRootOptions, _throwError?: boolean): IFindRootReturnType;
 export { pathNormalize };
 export declare function pathEqual(a: string, b: string): boolean;
 export declare function listMatchedPatternByPath(ws: string, pkg: string): any;

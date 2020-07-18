@@ -31,6 +31,7 @@ function getDefaultPackageJson(name) {
         "peerDependencies": {
             "lerna": "*",
             "yarn": "*",
+            "ynpx": "*",
             "@bluelovers/conventional-changelog-bluelovers": "*",
         },
         "resolutions": {},

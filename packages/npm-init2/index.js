@@ -40,6 +40,7 @@ const sort_package_json_scripts_1 = __importDefault(require("sort-package-json-s
 const workspaces_project_1 = __importDefault(require("@yarn-tool/workspaces-project"));
 const upath2_2 = require("upath2");
 const path_is_same_1 = __importDefault(require("path-is-same"));
+const node_modules_link_1 = __importDefault(require("@yarn-tool/node-modules-link"));
 //updateNotifier(__dirname);
 let cli = yargs_setting_1.default(yargs_1.default);
 let argv = cli.argv._;
@@ -287,6 +288,12 @@ if (!cp.error) {
             writeReadme_1.writeReadme({
                 file: upath2_1.join(targetDir, 'README.md'),
                 variable: pkg.data,
+            });
+        }
+        if (wsProject && !isWorkspace) {
+            node_modules_link_1.default({
+                cwd: targetDir,
+                sourcePackagePath: targetDir,
             });
         }
         /*
