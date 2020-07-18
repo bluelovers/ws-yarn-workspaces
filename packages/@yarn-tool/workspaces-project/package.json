@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@lerna/project": "^3.21.0",
-    "@ts-type/package-dts": "^1.0.29",
+    "@ts-type/package-dts": "^1.0.33",
     "@types/npm-package-arg": "*",
     "@yarn-tool/changelog": "^1.0.19",
     "find-yarn-workspace-root2": "^1.2.22",

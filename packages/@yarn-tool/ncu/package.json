@@ -42,12 +42,12 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^1.0.29",
+    "@ts-type/package-dts": "^1.0.33",
     "@yarn-tool/semver-diff": "^1.0.7",
     "@yarn-tool/table": "^1.0.13",
     "@yarn-tool/yarnlock": "^1.0.20",
     "bluebird": "^3.7.2",
-    "npm-check-updates": "^7.0.1",
+    "npm-check-updates": "^7.0.2",
     "package-json": "^6.5.0",
     "semver": "^7.3.2",
     "ts-type": "^1.2.25"
