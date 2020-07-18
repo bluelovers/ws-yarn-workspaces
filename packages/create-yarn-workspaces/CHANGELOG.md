@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.74](https://github.com/bluelovers/create-yarn-workspaces/compare/create-yarn-workspaces@1.0.73...create-yarn-workspaces@1.0.74) (2020-07-18)
+
+
+### ✨　Features
+
+* link package to node_modules ([ee9fa6e](https://github.com/bluelovers/create-yarn-workspaces/commit/ee9fa6e95a59d09a8fabd3504b3bb781f7d61994))
+
+
+
+
+
 ## [1.0.73](https://github.com/bluelovers/create-yarn-workspaces/compare/create-yarn-workspaces@1.0.72...create-yarn-workspaces@1.0.73) (2020-07-12)
 
 
