@@ -22,7 +22,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-var _a, _b, _c, _d, _e, _f, _g, _h;
+var _a, _b, _c, _d, _e, _f;
 Object.defineProperty(exports, "__esModule", { value: true });
 const yargs_1 = __importDefault(require("yargs"));
 const cross_spawn_extra_1 = __importDefault(require("cross-spawn-extra"));
@@ -42,6 +42,8 @@ const upath2_2 = require("upath2");
 const path_is_same_1 = __importDefault(require("path-is-same"));
 const node_modules_link_1 = __importDefault(require("@yarn-tool/node-modules-link"));
 const init_path_1 = require("@yarn-tool/init-path");
+const path_1 = require("path");
+const is_builtin_module_1 = require("@yarn-tool/is-builtin-module");
 //updateNotifier(__dirname);
 let cli = yargs_setting_1.default(yargs_1.default);
 let argv = cli.argv._;
@@ -63,7 +65,7 @@ if (hasWorkspace) {
     }
     wsProject = new workspaces_project_1.default(hasWorkspace);
 }
-let { targetDir, targetName } = init_path_1.getTargetDir({
+let { targetDir, targetName, scopedPackagePattern } = init_path_1.getTargetDir({
     inputName: argv.length && argv[0],
     cwd,
     targetName: cli.argv.name || null,
@@ -90,12 +92,20 @@ let args = [
     cli.argv.yes && '-y',
 ].filter(v => v);
 //console.log(args);
+const pkg_file_path = upath2_1.join(targetDir, 'package.json');
 let old_pkg_name;
-let oldExists = fs_1.existsSync(upath2_1.join(targetDir, 'package.json'));
+let oldExists = fs_1.existsSync(pkg_file_path);
 let old_pkg;
-if (!targetName) {
+if (!oldExists && targetName && scopedPackagePattern && is_builtin_module_1.isBuiltinModule(path_1.basename(targetDir))) {
+    fs_extra_1.outputJSONSync(pkg_file_path, {
+        name: targetName,
+    }, {
+        spaces: 2
+    });
+}
+else if (!targetName) {
     try {
-        old_pkg = (_a = new npm_package_json_loader_1.default(upath2_1.join(targetDir, 'package.json'))) === null || _a === void 0 ? void 0 : _a.data;
+        old_pkg = (_a = new npm_package_json_loader_1.default(pkg_file_path)) === null || _a === void 0 ? void 0 : _a.data;
         old_pkg_name = old_pkg.name;
     }
     catch (e) {
@@ -106,7 +116,7 @@ let cp = cross_spawn_extra_1.default.sync(cli.argv.npmClient, args, {
     cwd: targetDir,
 });
 if (!cp.error) {
-    let pkg = new npm_package_json_loader_1.default(upath2_1.join(targetDir, 'package.json'));
+    let pkg = new npm_package_json_loader_1.default(pkg_file_path);
     if (pkg.exists()) {
         if (cli.argv.p && cli.argv.npmClient !== 'yarn') {
             pkg.data.private = true;
@@ -259,8 +269,9 @@ if (!cp.error) {
             }
         }
         if (wsProject && !isWorkspace) {
-            if (!((_f = pkg.data.keywords) === null || _f === void 0 ? void 0 : _f.length) && ((_h = (_g = wsProject.manifest) === null || _g === void 0 ? void 0 : _g.keywords) === null || _h === void 0 ? void 0 : _h.length)) {
-                pkg.data.keywords = wsProject.manifest.keywords.slice();
+            const rootKeywords = wsProject.manifest.toJSON().keywords;
+            if (!((_f = pkg.data.keywords) === null || _f === void 0 ? void 0 : _f.length) && (rootKeywords === null || rootKeywords === void 0 ? void 0 : rootKeywords.length)) {
+                pkg.data.keywords = rootKeywords.slice();
             }
         }
         pkg.data.scripts = sort_package_json_scripts_1.default(pkg.data.scripts);

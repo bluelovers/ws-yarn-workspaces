@@ -3,7 +3,7 @@
 import findYarnWorkspaceRoot from 'find-yarn-workspace-root2';
 import yargs from 'yargs';
 import crossSpawn from 'cross-spawn-extra';
-import { ensureDirSync, CopyOptionsSync, copySync, pathExistsSync } from 'fs-extra';
+import { ensureDirSync, CopyOptionsSync, copySync, pathExistsSync, outputJSON, outputJSONSync } from 'fs-extra';
 import { resolve, join, relative } from 'upath2';
 import getConfig, { parseStaticPackagesPaths } from 'workspaces-config';
 import PackageJsonLoader from 'npm-package-json-loader';
@@ -23,6 +23,8 @@ import { parse } from 'upath2';
 import pathIsSame from 'path-is-same';
 import linkToNodeModules from '@yarn-tool/node-modules-link';
 import { getTargetDir } from '@yarn-tool/init-path';
+import { basename } from 'path';
+import { isBuiltinModule } from '@yarn-tool/is-builtin-module';
 
 //updateNotifier(__dirname);
 
@@ -59,7 +61,7 @@ if (hasWorkspace)
 	wsProject = new WorkspacesProject(hasWorkspace)
 }
 
-let { targetDir, targetName } = getTargetDir({
+let { targetDir, targetName, scopedPackagePattern } = getTargetDir({
 	inputName: argv.length && argv[0],
 	cwd,
 	targetName: cli.argv.name || null,
@@ -98,15 +100,25 @@ let args = [
 
 //console.log(args);
 
+const pkg_file_path = join(targetDir, 'package.json');
+
 let old_pkg_name: string;
-let oldExists = existsSync(join(targetDir, 'package.json'));
+let oldExists = existsSync(pkg_file_path);
 let old_pkg: IPackageJson;
 
-if (!targetName)
+if (!oldExists && targetName && scopedPackagePattern && isBuiltinModule(basename(targetDir)))
+{
+	outputJSONSync(pkg_file_path, {
+		name: targetName,
+	}, {
+		spaces: 2
+	})
+}
+else if (!targetName)
 {
 	try
 	{
-		old_pkg = new PackageJsonLoader(join(targetDir, 'package.json'))?.data;
+		old_pkg = new PackageJsonLoader(pkg_file_path)?.data;
 
 		old_pkg_name = old_pkg.name
 	}
@@ -123,7 +135,7 @@ let cp = crossSpawn.sync(cli.argv.npmClient, args, {
 
 if (!cp.error)
 {
-	let pkg = new PackageJsonLoader(join(targetDir, 'package.json'));
+	let pkg = new PackageJsonLoader(pkg_file_path);
 
 	if (pkg.exists())
 	{
@@ -349,9 +361,11 @@ if (!cp.error)
 
 		if (wsProject && !isWorkspace)
 		{
-			if (!pkg.data.keywords?.length && wsProject.manifest?.keywords?.length)
+			const rootKeywords = wsProject.manifest.toJSON().keywords;
+
+			if (!pkg.data.keywords?.length && rootKeywords?.length)
 			{
-				pkg.data.keywords = wsProject.manifest.keywords.slice()
+				pkg.data.keywords = rootKeywords.slice()
 			}
 		}
 
