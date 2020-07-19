@@ -3,6 +3,7 @@
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 const yargs_1 = __importDefault(require("yargs"));
 const __1 = require("..");
@@ -11,6 +12,7 @@ const cli_table3_1 = __importDefault(require("cli-table3"));
 const pkg_dir_1 = __importDefault(require("pkg-dir"));
 const string_natural_compare_1 = __importDefault(require("@bluelovers/string-natural-compare"));
 const table_1 = require("@yarn-tool/table");
+const find_root_1 = require("@yarn-tool/find-root");
 const cli = yargs_1.default
     .option('workspaces', {
     alias: ['w'],
@@ -32,7 +34,8 @@ table.options.head = [
     chalk.bold.reset('validate'),
 ];
 let bool;
-if (cli.workspaces) {
+const rootData = find_root_1.findRoot(cli);
+if ((_a = cli.workspaces) !== null && _a !== void 0 ? _a : rootData.isWorkspace) {
     __1.checkWorkspaces(cli.cwd)
         .sort((a, b) => string_natural_compare_1.default(a.name, b.name))
         .forEach(data => {

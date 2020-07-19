@@ -7,6 +7,7 @@ import Table from 'cli-table3';
 import pkgDir from 'pkg-dir';
 import stringNaturalCompare from '@bluelovers/string-natural-compare';
 import { applyStyleBorderless } from '@yarn-tool/table';
+import { findRoot } from '@yarn-tool/find-root';
 
 const cli = yargs
 	.option('workspaces', {
@@ -36,7 +37,9 @@ table.options.head = [
 
 let bool: boolean;
 
-if (cli.workspaces)
+const rootData = findRoot(cli);
+
+if (cli.workspaces ?? rootData.isWorkspace)
 {
 	checkWorkspaces(cli.cwd)
 		.sort((a, b) => stringNaturalCompare(a.name, b.name))
