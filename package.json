@@ -2,6 +2,14 @@
   "name": "ws-create-yarn-workspaces",
   "version": "1.0.0",
   "private": true,
+  "keywords": [
+    "yarn",
+    "yarn-tool",
+    "npm",
+    "lerna",
+    "workspaces",
+    "packages"
+  ],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"

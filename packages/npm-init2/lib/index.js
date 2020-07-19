@@ -25,15 +25,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.copyStaticFiles = exports.defaultCopyStaticFiles = exports.getTargetDir = exports.npmVersion = void 0;
+exports.copyStaticFiles = exports.defaultCopyStaticFiles = exports.npmVersion = void 0;
 const cross_spawn_extra_1 = __importDefault(require("cross-spawn-extra"));
 const json5_1 = __importDefault(require("json5"));
-const fs_extra_1 = require("fs-extra");
-const path_1 = require("path");
 const static_file_1 = __importStar(require("@yarn-tool/static-file"));
 Object.defineProperty(exports, "defaultCopyStaticFiles", { enumerable: true, get: function () { return static_file_1.defaultCopyStaticFiles; } });
-const validateNpmPackageName_1 = require("@yarn-tool/validate-npm-package-name/lib/validateNpmPackageName");
-const search_workspace_prefix_by_name_1 = require("@yarn-tool/search-workspace-prefix-by-name");
 function npmVersion(npmClient, cwd) {
     let args = [
         'version',
@@ -59,52 +55,6 @@ function npmVersion(npmClient, cwd) {
     return json;
 }
 exports.npmVersion = npmVersion;
-function getTargetDir(options) {
-    var _a;
-    let targetDir;
-    let targetName = options.targetName || null;
-    let { inputName, cwd, hasWorkspace, workspacePrefix, workspacesConfig } = options;
-    if (hasWorkspace && !((_a = workspacesConfig === null || workspacesConfig === void 0 ? void 0 : workspacesConfig.prefix) === null || _a === void 0 ? void 0 : _a.length)) {
-        throw new RangeError(`can't found workspace prefix`);
-    }
-    if (targetName) {
-        validateNpmPackageName_1.validateNpmPackageName(targetName, true);
-    }
-    if (inputName) {
-        targetName = targetName || inputName;
-        let ret = validateNpmPackageName_1.validateNpmPackageName(inputName, true);
-        let name = inputName;
-        let basePath;
-        if (hasWorkspace) {
-            const workspacePrefix = search_workspace_prefix_by_name_1.searchWorkspacePrefixByName({
-                inputName,
-                workspacesConfig,
-            });
-            basePath = path_1.join(hasWorkspace, workspacePrefix);
-        }
-        else {
-            basePath = cwd;
-        }
-        if (ret.scopedPackagePattern) {
-            name = name
-                .replace(/[\/\\]+/g, '_')
-                .replace(/^@/g, '');
-            if (!fs_extra_1.pathExistsSync(path_1.join(basePath, ret.subname))) {
-                name = ret.subname;
-            }
-        }
-        targetDir = path_1.resolve(basePath, name);
-    }
-    else {
-        targetDir = cwd;
-    }
-    return {
-        targetDir,
-        targetName,
-        cwd,
-    };
-}
-exports.getTargetDir = getTargetDir;
 function copyStaticFiles(file_map, options) {
     return static_file_1.default({
         ...options,

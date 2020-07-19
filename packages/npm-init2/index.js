@@ -41,6 +41,7 @@ const workspaces_project_1 = __importDefault(require("@yarn-tool/workspaces-proj
 const upath2_2 = require("upath2");
 const path_is_same_1 = __importDefault(require("path-is-same"));
 const node_modules_link_1 = __importDefault(require("@yarn-tool/node-modules-link"));
+const init_path_1 = require("@yarn-tool/init-path");
 //updateNotifier(__dirname);
 let cli = yargs_setting_1.default(yargs_1.default);
 let argv = cli.argv._;
@@ -62,7 +63,7 @@ if (hasWorkspace) {
     }
     wsProject = new workspaces_project_1.default(hasWorkspace);
 }
-let { targetDir, targetName } = lib_1.getTargetDir({
+let { targetDir, targetName } = init_path_1.getTargetDir({
     inputName: argv.length && argv[0],
     cwd,
     targetName: cli.argv.name || null,
