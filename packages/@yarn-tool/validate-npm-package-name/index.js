@@ -1,105 +1,18 @@
-'use strict'
-
-var scopedPackagePattern = new RegExp('^(?:@([^/]+?)[/])?([^/]+?)$')
-var builtins = require('builtins')
-var blacklist = [
-  'node_modules',
-  'favicon.ico'
-]
-
-var validate = module.exports = function (name) {
-  var warnings = []
-  var errors = []
-
-  if (name === null) {
-    errors.push('name cannot be null')
-    return done(warnings, errors)
-  }
-
-  if (name === undefined) {
-    errors.push('name cannot be undefined')
-    return done(warnings, errors)
-  }
-
-  if (typeof name !== 'string') {
-    errors.push('name must be a string')
-    return done(warnings, errors)
-  }
-
-  if (!name.length) {
-    errors.push('name length must be greater than zero')
-  }
-
-  if (name.match(/^\./)) {
-    errors.push('name cannot start with a period')
-  }
-
-  if (name.match(/^_/)) {
-    errors.push('name cannot start with an underscore')
-  }
-
-  if (name.trim() !== name) {
-    errors.push('name cannot contain leading or trailing spaces')
-  }
-
-  // No funny business
-  blacklist.forEach(function (blacklistedName) {
-    if (name.toLowerCase() === blacklistedName) {
-      errors.push(blacklistedName + ' is a blacklisted name')
-    }
-  })
-
-  // Generate warnings for stuff that used to be allowed
-
-  // core module names like http, events, util, etc
-  builtins.forEach(function (builtin) {
-    if (name.toLowerCase() === builtin) {
-      warnings.push(builtin + ' is a core module name')
-    }
-  })
-
-  // really-long-package-names-------------------------------such--length-----many---wow
-  // the thisisareallyreallylongpackagenameitshouldpublishdowenowhavealimittothelengthofpackagenames-poch.
-  if (name.length > 214) {
-    warnings.push('name can no longer contain more than 214 characters')
-  }
-
-  // mIxeD CaSe nAMEs
-  if (name.toLowerCase() !== name) {
-    warnings.push('name can no longer contain capital letters')
-  }
-
-  if (/[~'!()*]/.test(name.split('/').slice(-1)[0])) {
-    warnings.push('name can no longer contain special characters ("~\'!()*")')
-  }
-
-  if (encodeURIComponent(name) !== name) {
-    // Maybe it's a scoped package name, like @user/package
-    var nameMatch = name.match(scopedPackagePattern)
-    if (nameMatch) {
-      var user = nameMatch[1]
-      var pkg = nameMatch[2]
-      if (encodeURIComponent(user) === user && encodeURIComponent(pkg) === pkg) {
-        return done(warnings, errors)
-      }
-    }
-
-    errors.push('name can only contain URL-friendly characters')
-  }
-
-  return done(warnings, errors)
-}
-
-validate.scopedPackagePattern = scopedPackagePattern
-
-var done = function (warnings, errors) {
-  var result = {
-    validForNewPackages: errors.length === 0 && warnings.length === 0,
-    validForOldPackages: errors.length === 0,
-    warnings: warnings,
-    errors: errors
-  }
-  if (!result.warnings.length) delete result.warnings
-  if (!result.errors.length) delete result.errors
-  return result
-}
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.validateNpmPackageName = void 0;
+const validateNpmPackageName_1 = require("./lib/validateNpmPackageName");
+Object.defineProperty(exports, "validateNpmPackageName", { enumerable: true, get: function () { return validateNpmPackageName_1.validateNpmPackageName; } });
+__exportStar(require("./lib/types"), exports);
+exports.default = validateNpmPackageName_1.validateNpmPackageName;
+//# sourceMappingURL=index.js.map

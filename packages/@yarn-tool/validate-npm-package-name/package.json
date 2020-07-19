@@ -1,38 +1,38 @@
 {
-  "name": "validate-npm-package-name",
+  "name": "@yarn-tool/validate-npm-package-name",
   "version": "3.0.0",
   "description": "Give me a string and I'll tell you if it's a valid npm package name",
-  "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
-  "dependencies": {
-    "builtins": "^1.0.3"
-  },
-  "devDependencies": {
-    "standard": "^8.6.0",
-    "tap": "^10.0.0"
-  },
-  "scripts": {
-    "cov:test": "TAP_FLAGS='--cov' npm run test:code",
-    "test:code": "tap ${TAP_FLAGS:-'--'} test/*.js",
-    "test:style": "standard",
-    "test": "npm run test:code && npm run test:style"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/npm/validate-npm-package-name"
-  },
   "keywords": [
     "npm",
     "package",
     "names",
     "validation"
   ],
-  "author": "zeke",
-  "license": "ISC",
+  "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/validate-npm-package-name#readme",
   "bugs": {
-    "url": "https://github.com/npm/validate-npm-package-name/issues"
+    "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"
   },
-  "homepage": "https://github.com/npm/validate-npm-package-name"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/ws-yarn-workspaces.git"
+  },
+  "license": "ISC",
+  "author": "zeke",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest",
+    "preversion": "yarn run prepublishOnly",
+    "prepublishOnly_": "yarn run test",
+    "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
+    "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
+    "ncu": "yarn-tool ncu -u",
+    "sort-package-json": "yarn-tool sort"
+  },
+  "dependencies": {
+    "builtins": "^3.0.1"
+  },
+  "devDependencies": {}
 }
