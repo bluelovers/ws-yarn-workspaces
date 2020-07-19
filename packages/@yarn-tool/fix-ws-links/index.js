@@ -9,7 +9,6 @@ const ws_find_paths_1 = require("@yarn-tool/node-modules/lib/ws-find-paths");
 const core_1 = __importDefault(require("yarn-list-link/core"));
 const fs_extra_1 = require("fs-extra");
 const cross_spawn_extra_1 = __importDefault(require("cross-spawn-extra"));
-const fs_1 = require("fs");
 const util_1 = require("./lib/util");
 const logger_1 = __importDefault(require("debug-color2/logger"));
 function fixYarnWorkspaceLinks(cwd, options) {
@@ -45,8 +44,8 @@ function fixYarnWorkspaceLinks(cwd, options) {
                     }
                     else {
                         try {
-                            fs_1.unlinkSync(row.location);
-                            fs_extra_1.linkSync(location, row.location);
+                            fs_extra_1.unlinkSync(row.location);
+                            fs_extra_1.symlinkSync(location, row.location);
                             logger_1.default.success(`create link`, row.name, `=>`, location);
                         }
                         catch (e) {

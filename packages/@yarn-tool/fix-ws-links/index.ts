@@ -6,9 +6,8 @@ import { wsPkgListable } from 'ws-pkg-list/lib/listable';
 import { wsFindPackageHasModulesCore } from '@yarn-tool/node-modules/lib/ws-find-paths';
 import { IListableRow } from 'ws-pkg-list';
 import yarnListLink from 'yarn-list-link/core';
-import { linkSync, realpathSync, removeSync, pathExistsSync } from 'fs-extra';
+import { linkSync, realpathSync, removeSync, pathExistsSync, symlinkSync, unlinkSync } from 'fs-extra';
 import crossSpawn from 'cross-spawn-extra';
-import { unlinkSync } from 'fs';
 import { sameRealpath, isSymbolicLink } from './lib/util';
 import console from 'debug-color2/logger';
 
@@ -77,7 +76,7 @@ export function fixYarnWorkspaceLinks(cwd?: string, options?: {
 							try
 							{
 								unlinkSync(row.location);
-								linkSync(location, row.location);
+								symlinkSync(location, row.location);
 
 								console.success(`create link`, row.name, `=>`, location)
 							}
