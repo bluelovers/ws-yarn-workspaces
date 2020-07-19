@@ -10,11 +10,11 @@ function createNewIsBuiltinModule(options) {
     return {
         builtins,
         isBuiltinModule(moduleName) {
-            if (typeof moduleName !== 'string' || !(moduleName === null || moduleName === void 0 ? void 0 : moduleName.length)) {
+            if (typeof moduleName !== 'string') {
                 throw new TypeError('Expected a string');
             }
             return builtins.includes(moduleName);
-        }
+        },
     };
 }
 exports.createNewIsBuiltinModule = createNewIsBuiltinModule;

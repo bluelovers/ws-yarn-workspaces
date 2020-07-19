@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.39](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-pkg-list@1.0.37...ws-pkg-list@1.0.39) (2020-07-19)
+
+
+### 🔖　Miscellaneous
+
+* . ([d2c9132](https://github.com/bluelovers/ws-yarn-workspaces/commit/d2c9132a20002352b271d6dc7acaf21983586fcb))
+
+
+
+
+
 ## [1.0.38](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-pkg-list@1.0.37...ws-pkg-list@1.0.38) (2020-07-19)
 
 **Note:** Version bump only for package ws-pkg-list

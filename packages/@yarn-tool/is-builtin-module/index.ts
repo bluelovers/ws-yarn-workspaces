@@ -10,12 +10,13 @@ export function createNewIsBuiltinModule(options?: {
 		builtins,
 		isBuiltinModule(moduleName: string)
 		{
-			if (typeof moduleName !== 'string' || !moduleName?.length) {
+			if (typeof moduleName !== 'string')
+			{
 				throw new TypeError('Expected a string');
 			}
 
 			return builtins.includes(moduleName)
-		}
+		},
 	}
 }
 
