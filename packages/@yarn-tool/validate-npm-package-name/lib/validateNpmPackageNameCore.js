@@ -1,12 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.validate = void 0;
-const builtins_1 = __importDefault(require("builtins"));
 const types_1 = require("./types");
 const handleResult_1 = require("./handleResult");
+const is_builtin_module_1 = require("@yarn-tool/is-builtin-module");
 const defaultBlacklist = [
     'node_modules',
     'favicon.ico',
@@ -39,28 +36,26 @@ function validate(name, options) {
     if (name.trim() !== name) {
         errors.push('name cannot contain leading or trailing spaces');
     }
+    const name_lc = name.toLowerCase();
     const blacklist = (_a = options === null || options === void 0 ? void 0 : options.blacklist) !== null && _a !== void 0 ? _a : defaultBlacklist;
     // No funny business
     blacklist.forEach(function (blacklistedName) {
-        if (typeof blacklistedName !== 'string' && blacklistedName.test(name) || typeof blacklistedName === 'string' && name.toLowerCase() === blacklistedName) {
+        if (typeof blacklistedName !== 'string' && blacklistedName.test(name) || typeof blacklistedName === 'string' && name_lc === blacklistedName) {
             errors.push(blacklistedName + ' is a blacklisted name');
         }
     });
     // Generate warnings for stuff that used to be allowed
-    const builtins = builtins_1.default(options === null || options === void 0 ? void 0 : options.targetNodeJSVersion);
     // core module names like http, events, util, etc
-    builtins.forEach(function (builtin) {
-        if (name.toLowerCase() === builtin) {
-            warnings.push(builtin + ' is a core module name');
-        }
-    });
+    if (is_builtin_module_1.createNewIsBuiltinModule(options).isBuiltinModule(name_lc)) {
+        warnings.push(name_lc + ' is a core module name');
+    }
     // really-long-package-names-------------------------------such--length-----many---wow
     // the thisisareallyreallylongpackagenameitshouldpublishdowenowhavealimittothelengthofpackagenames-poch.
     if (name.length > 214) {
         warnings.push('name can no longer contain more than 214 characters');
     }
     // mIxeD CaSe nAMEs
-    if (name.toLowerCase() !== name) {
+    if (name_lc !== name) {
         warnings.push('name can no longer contain capital letters');
     }
     if (/[~'!()*]/.test(name.split('/').slice(-1)[0])) {

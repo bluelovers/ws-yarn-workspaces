@@ -10,5 +10,6 @@ export declare function getTargetDir(options: {
     targetDir: string;
     targetName: string;
     cwd: string;
+    scopedPackagePattern: boolean;
 };
 export default getTargetDir;

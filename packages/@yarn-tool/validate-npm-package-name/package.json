@@ -32,7 +32,7 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "builtins": "^3.0.1"
+    "@yarn-tool/is-builtin-module": "^1.0.0"
   },
   "devDependencies": {}
 }

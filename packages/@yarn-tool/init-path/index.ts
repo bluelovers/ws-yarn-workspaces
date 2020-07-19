@@ -28,6 +28,8 @@ export function getTargetDir(options: {
 		validateNpmPackageName(targetName, true);
 	}
 
+	let scopedPackagePattern: boolean;
+
 	if (inputName)
 	{
 		targetName = targetName || inputName;
@@ -64,6 +66,8 @@ export function getTargetDir(options: {
 			}
 		}
 
+		scopedPackagePattern = ret.scopedPackagePattern;
+
 		targetDir = resolve(basePath, name);
 	}
 	else
@@ -75,6 +79,7 @@ export function getTargetDir(options: {
 		targetDir,
 		targetName,
 		cwd,
+		scopedPackagePattern,
 	}
 }
 

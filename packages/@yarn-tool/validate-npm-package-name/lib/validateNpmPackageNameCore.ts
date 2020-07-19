@@ -1,6 +1,7 @@
-import builtinsFn from 'builtins';
+
 import { IOptions, scopedPackagePattern } from './types';
 import { handleResult } from './handleResult';
+import { createNewIsBuiltinModule } from '@yarn-tool/is-builtin-module';
 
 const defaultBlacklist: IOptions["blacklist"] = [
 	'node_modules',
@@ -50,12 +51,14 @@ export function validate(name: string, options?: IOptions)
 		errors.push('name cannot contain leading or trailing spaces')
 	}
 
+	const name_lc = name.toLowerCase();
+
 	const blacklist = options?.blacklist ?? defaultBlacklist;
 
 	// No funny business
 	blacklist.forEach(function (blacklistedName)
 	{
-		if (typeof blacklistedName !== 'string' && blacklistedName.test(name) || typeof blacklistedName === 'string' && name.toLowerCase() === blacklistedName)
+		if (typeof blacklistedName !== 'string' && blacklistedName.test(name) || typeof blacklistedName === 'string' && name_lc === blacklistedName)
 		{
 			errors.push(blacklistedName + ' is a blacklisted name')
 		}
@@ -63,16 +66,11 @@ export function validate(name: string, options?: IOptions)
 
 	// Generate warnings for stuff that used to be allowed
 
-	const builtins: string[] = builtinsFn(options?.targetNodeJSVersion);
-
 	// core module names like http, events, util, etc
-	builtins.forEach(function (builtin)
+	if (createNewIsBuiltinModule(options).isBuiltinModule(name_lc))
 	{
-		if (name.toLowerCase() === builtin)
-		{
-			warnings.push(builtin + ' is a core module name')
-		}
-	})
+		warnings.push(name_lc + ' is a core module name')
+	}
 
 	// really-long-package-names-------------------------------such--length-----many---wow
 	// the thisisareallyreallylongpackagenameitshouldpublishdowenowhavealimittothelengthofpackagenames-poch.
@@ -82,7 +80,7 @@ export function validate(name: string, options?: IOptions)
 	}
 
 	// mIxeD CaSe nAMEs
-	if (name.toLowerCase() !== name)
+	if (name_lc !== name)
 	{
 		warnings.push('name can no longer contain capital letters')
 	}
