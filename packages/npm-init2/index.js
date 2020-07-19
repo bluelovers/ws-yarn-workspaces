@@ -22,7 +22,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-var _a, _b, _c, _d, _e, _f;
+var _a, _b, _c, _d, _e, _f, _g, _h;
 Object.defineProperty(exports, "__esModule", { value: true });
 const yargs_1 = __importDefault(require("yargs"));
 const cross_spawn_extra_1 = __importDefault(require("cross-spawn-extra"));
@@ -158,7 +158,12 @@ if (!cp.error) {
         };
         let prepublishOnly = "yarn run prepublishOnly:check-bin && yarn run prepublishOnly:update && yarn run test";
         if (hasWorkspace) {
-            prepublishOnly = "yarn run prepublishOnly:check-bin && yarn run test";
+            if ((_c = (_b = wsProject === null || wsProject === void 0 ? void 0 : wsProject.manifest) === null || _b === void 0 ? void 0 : _b.scripts) === null || _c === void 0 ? void 0 : _c['prepublishOnly:check-bin']) {
+                prepublishOnly = "yarn run test";
+            }
+            else {
+                prepublishOnly = "yarn run prepublishOnly:check-bin && yarn run test";
+            }
             sharedScript = {
                 ...sharedScript,
                 "preversion": "yarn run prepublishOnly",
@@ -191,7 +196,7 @@ if (!cp.error) {
             sharedScript.prepublishOnly = prepublishOnly;
         }
         if (!oldExists) {
-            if (((_b = pkg.data.scripts) === null || _b === void 0 ? void 0 : _b.test) === "echo \"Error: no test specified\" && exit 1" && ((_c = sharedScript.test) === null || _c === void 0 ? void 0 : _c.length) > 0) {
+            if (((_d = pkg.data.scripts) === null || _d === void 0 ? void 0 : _d.test) === "echo \"Error: no test specified\" && exit 1" && ((_e = sharedScript.test) === null || _e === void 0 ? void 0 : _e.length) > 0) {
                 delete pkg.data.scripts.test;
             }
             Object
@@ -253,7 +258,7 @@ if (!cp.error) {
             }
         }
         if (wsProject && !isWorkspace) {
-            if (!((_d = pkg.data.keywords) === null || _d === void 0 ? void 0 : _d.length) && ((_f = (_e = wsProject.manifest) === null || _e === void 0 ? void 0 : _e.keywords) === null || _f === void 0 ? void 0 : _f.length)) {
+            if (!((_f = pkg.data.keywords) === null || _f === void 0 ? void 0 : _f.length) && ((_h = (_g = wsProject.manifest) === null || _g === void 0 ? void 0 : _g.keywords) === null || _h === void 0 ? void 0 : _h.length)) {
                 pkg.data.keywords = wsProject.manifest.keywords.slice();
             }
         }

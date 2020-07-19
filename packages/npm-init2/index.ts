@@ -23,7 +23,6 @@ import { parse } from 'upath2';
 import pathIsSame from 'path-is-same';
 import linkToNodeModules from '@yarn-tool/node-modules-link';
 
-
 //updateNotifier(__dirname);
 
 let cli = setupToYargs(yargs);
@@ -205,11 +204,18 @@ if (!cp.error)
 
 		if (hasWorkspace)
 		{
-			prepublishOnly = "yarn run prepublishOnly:check-bin && yarn run test";
+			if (wsProject?.manifest?.scripts?.['prepublishOnly:check-bin'])
+			{
+				prepublishOnly = "yarn run test";
+			}
+			else
+			{
+				prepublishOnly = "yarn run prepublishOnly:check-bin && yarn run test";
+			}
 
-				sharedScript = {
+			sharedScript = {
 				...sharedScript,
-					"preversion": "yarn run prepublishOnly",
+				"preversion": "yarn run prepublishOnly",
 			}
 		}
 		else

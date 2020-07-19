@@ -22,8 +22,8 @@ export function getDefaultPackageJson(name?: string): {
 		],
 		"scripts": {
 			"preversion": "echo preversion",
-			"lerna:publish": "lerna publish",
-			"lerna:publish:yes": "lerna publish --yes --bump patch && yarn run postpublishOnly",
+			"lerna:publish": "yarn run prepublishOnly:check-bin && lerna publish && yarn run postpublishOnly",
+			"lerna:publish:yes": "yarn run prepublishOnly:check-bin && lerna publish --yes --bump patch && yarn run postpublishOnly",
 			"prepublishOnly:lockfile": "ynpx --quiet sync-lockfile",
 			"prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
 			"prepare:fix-ws-links": "ynpx --quiet @yarn-tool/fix-ws-links",
