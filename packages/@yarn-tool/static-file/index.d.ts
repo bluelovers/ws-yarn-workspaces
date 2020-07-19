@@ -26,5 +26,5 @@ export declare function parseStaticMap<K extends string>(file_map: IStaticFilesM
 export declare function parseStaticMap<K extends string>(file_map: IStaticFilesMapArray<K>): [K | IStaticFilesID, string, string?][];
 export declare function parseStaticMap<K extends string>(file_map: IStaticFiles<K>): [K | IStaticFilesID, string, string?][];
 export declare function getStaticFile<K extends string>(file_id: K, options?: Pick<ICopyStaticFilesOptions<string>, 'file_map'>): [K, string, string?];
-export declare function copyStaticFiles<K extends string>(options: ICopyStaticFilesOptions<K>): ["README.md" | ".npmignore" | ".gitignore" | ".eslintignore" | ".nvmrc" | ".browserslistrc" | "tsconfig.json.tpl" | "tsconfig.esm.json.tpl" | ".eslintrc.json.tpl" | ".nycrc" | ".mocharc.yml" | "jest.config.js" | ".nowignore" | "now.json.tpl" | "lerna.json.tpl" | K, string, string?][];
+export declare function copyStaticFiles<K extends string>(options: ICopyStaticFilesOptions<K>): [".npmignore" | ".gitignore" | ".eslintignore" | ".nvmrc" | ".browserslistrc" | "tsconfig.json.tpl" | "tsconfig.esm.json.tpl" | ".eslintrc.json.tpl" | "README.md" | ".nycrc" | ".mocharc.yml" | "jest.config.js" | ".nowignore" | "now.json.tpl" | "lerna.json.tpl" | K, string, string?][];
 export default copyStaticFiles;
