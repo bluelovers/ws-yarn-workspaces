@@ -14,6 +14,7 @@ function getDefaultPackageJson(name) {
             "lerna:publish": "lerna publish",
             "lerna:publish:yes": "lerna publish --yes --bump patch && yarn run postpublishOnly",
             "prepublishOnly:lockfile": "ynpx --quiet sync-lockfile",
+            "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
             "prepare:fix-ws-links": "ynpx --quiet @yarn-tool/fix-ws-links",
             "ncu": "yarn run ncu:root && yarn run ncu:ws",
             "ncu:root": "yarn-tool ncu -- -u",

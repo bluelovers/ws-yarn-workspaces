@@ -14,9 +14,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lerna:publish": "npx lerna publish",
-    "lerna:publish:yes": "yarn run prepublish:lockfile && npx lerna publish --yes --bump patch",
+    "lerna:publish:yes": "yarn run prepublish:lockfile && yarn run prepublishOnly:check-bin && npx lerna publish --yes --bump patch",
     "prepublish:lockfile": "ynpx sync-lockfile",
     "prepare:fix-ws-links": "ynpx @yarn-tool/fix-ws-links",
+    "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
     "postpublish:subrepo": "git subrepo push --all & git push",
     "ncu": "yarn run ncu:root && yarn run ncu:ws",
     "ncu:root": "npx yarn-tool ncu -u",
