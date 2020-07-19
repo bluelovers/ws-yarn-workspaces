@@ -20,6 +20,7 @@
   "author": "zeke",
   "main": "index.js",
   "directories": {
+    "lib": "lib",
     "test": "test"
   },
   "scripts": {
@@ -33,5 +34,10 @@
   },
   "dependencies": {
     "@yarn-tool/is-builtin-module": "^1.0.3"
-  }
+  },
+  "devDependencies": {},
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "67f2bf3be478106378700eb513da557943b2f9f3"
 }
