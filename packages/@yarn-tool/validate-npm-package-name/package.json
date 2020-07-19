@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/validate-npm-package-name",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Give me a string and I'll tell you if it's a valid npm package name",
   "keywords": [
     "npm",
@@ -32,7 +32,6 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@yarn-tool/is-builtin-module": "^1.0.0"
-  },
-  "devDependencies": {}
+    "@yarn-tool/is-builtin-module": "^1.0.3"
+  }
 }

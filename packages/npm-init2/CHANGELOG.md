@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.128](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.127...npm-init2@1.0.128) (2020-07-19)
+
+
+### 🐛　Bug Fixes
+
+* fill keyword by root ([6e856f4](https://github.com/bluelovers/npm-init2/commit/6e856f4550e54d5135e5c8c43e5f726265af6354))
+
+
+### 📦　Code Refactoring
+
+* `@yarn-tool/init-path` ([9aad857](https://github.com/bluelovers/npm-init2/commit/9aad85777f322950789fe500c7aa472d010d86e5))
+* searchWorkspacePrefixByName ([b495671](https://github.com/bluelovers/npm-init2/commit/b495671030345218f7df715b29cb50a751cdb5d9))
+* validateNpmPackageName ([9d0c125](https://github.com/bluelovers/npm-init2/commit/9d0c125507f9f78d577cbf580badd24c47a02330))
+
+
+
+
+
 ## [1.0.127](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.126...npm-init2@1.0.127) (2020-07-19)
 
 **Note:** Version bump only for package npm-init2
