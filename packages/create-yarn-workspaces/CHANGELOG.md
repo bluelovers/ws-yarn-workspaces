@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.76](https://github.com/bluelovers/create-yarn-workspaces/compare/create-yarn-workspaces@1.0.75...create-yarn-workspaces@1.0.76) (2020-07-19)
+
+
+### ✨　Features
+
+* add `yarn run prepublishOnly:check-bin` to ws root ([347701f](https://github.com/bluelovers/create-yarn-workspaces/commit/347701fdabfa7014656c78eca1fcb0bd33a289bb))
+
+
+
+
+
 ## [1.0.75](https://github.com/bluelovers/create-yarn-workspaces/compare/create-yarn-workspaces@1.0.74...create-yarn-workspaces@1.0.75) (2020-07-19)
 
 

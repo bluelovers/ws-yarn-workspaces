@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.126](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.125...npm-init2@1.0.126) (2020-07-19)
+
+
+### ✨　Features
+
+* add `yarn run prepublishOnly:check-bin` to ws root ([347701f](https://github.com/bluelovers/npm-init2/commit/347701fdabfa7014656c78eca1fcb0bd33a289bb))
+
+
+
+
+
 ## [1.0.125](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.124...npm-init2@1.0.125) (2020-07-19)
 
 **Note:** Version bump only for package npm-init2
