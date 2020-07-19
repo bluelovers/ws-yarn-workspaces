@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.13](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-root-spawn@1.0.12...ws-root-spawn@1.0.13) (2020-07-19)
+
+
+### 🐛　Bug Fixes
+
+* miss `#!/usr/bin/env node` ([59d89fd](https://github.com/bluelovers/ws-yarn-workspaces/commit/59d89fd7f9b1c62bb0cd4caeea160ae1a1ac9dc2))
+
+
+
+
+
 ## [1.0.12](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-root-spawn@1.0.11...ws-root-spawn@1.0.12) (2020-07-05)
 
 **Note:** Version bump only for package ws-root-spawn
