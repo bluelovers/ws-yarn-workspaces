@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/init-path@1.0.1...@yarn-tool/init-path@1.0.2) (2020-07-19)
+
+
+### 🔖　Miscellaneous
+
+* . ([e6478fb](https://github.com/bluelovers/ws-yarn-workspaces/commit/e6478fb9e579ca2eb0315141a5aa05b0b86a1b07))
+
+
+
+
+
 ## 1.0.1 (2020-07-19)
 
 
