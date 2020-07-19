@@ -4,14 +4,13 @@
 
 import crossSpawn from 'cross-spawn-extra';
 import JSON5 from 'json5';
-
-import _validateNpmPackageName from 'validate-npm-package-name';
 import { pathExistsSync } from 'fs-extra';
 import { join, resolve } from 'path';
 
 import _copyStaticFiles, { defaultCopyStaticFiles } from '@yarn-tool/static-file';
 import { parseStaticPackagesPaths } from 'workspaces-config';
 import searchWorkspacePrefixByName from './searchWorkspacePrefixByName';
+import { validateNpmPackageName } from '@yarn-tool/validate-npm-package-name/lib/validateNpmPackageName';
 
 export function npmVersion(npmClient?: string, cwd?: string)
 {
@@ -122,49 +121,6 @@ export function getTargetDir(options: {
 		targetName,
 		cwd,
 	}
-}
-
-const scopedPackagePattern = new RegExp('^(?:@([^/]+?)[/])?([^/]+?)$');
-
-export function validateNpmPackageName(name: string, throwErr?: boolean)
-{
-	let ret: {
-		validForNewPackages: boolean,
-		validForOldPackages: boolean,
-		scopedPackagePattern: boolean,
-		warnings?: string[],
-		errors?: string[],
-
-		name: string,
-		user?: string,
-		subname?: string,
-
-	} = _validateNpmPackageName(name) as any;
-
-	ret.name = name;
-
-	if (!ret.errors || !ret.errors.length)
-	{
-		const nameMatch = name.match(scopedPackagePattern);
-
-		if (nameMatch)
-		{
-			ret.scopedPackagePattern = true;
-
-			ret.user = nameMatch[1];
-			ret.subname = nameMatch[2];
-		}
-		else
-		{
-			ret.scopedPackagePattern = false;
-		}
-	}
-	else if (throwErr)
-	{
-		throw new RangeError(ret.errors.concat(ret.warnings || []).join(' ; '));
-	}
-
-	return ret;
 }
 
 export { defaultCopyStaticFiles }

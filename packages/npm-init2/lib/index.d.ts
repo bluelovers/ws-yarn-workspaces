@@ -16,16 +16,6 @@ export declare function getTargetDir(options: {
     targetName: string;
     cwd: string;
 };
-export declare function validateNpmPackageName(name: string, throwErr?: boolean): {
-    validForNewPackages: boolean;
-    validForOldPackages: boolean;
-    scopedPackagePattern: boolean;
-    warnings?: string[];
-    errors?: string[];
-    name: string;
-    user?: string;
-    subname?: string;
-};
 export { defaultCopyStaticFiles };
 export declare function copyStaticFiles(file_map: Record<string, string> | [string, string, string?][], options: {
     cwd: string;

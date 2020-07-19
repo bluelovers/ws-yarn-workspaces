@@ -25,15 +25,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.copyStaticFiles = exports.defaultCopyStaticFiles = exports.validateNpmPackageName = exports.getTargetDir = exports.npmVersion = void 0;
+exports.copyStaticFiles = exports.defaultCopyStaticFiles = exports.getTargetDir = exports.npmVersion = void 0;
 const cross_spawn_extra_1 = __importDefault(require("cross-spawn-extra"));
 const json5_1 = __importDefault(require("json5"));
-const validate_npm_package_name_1 = __importDefault(require("validate-npm-package-name"));
 const fs_extra_1 = require("fs-extra");
 const path_1 = require("path");
 const static_file_1 = __importStar(require("@yarn-tool/static-file"));
 Object.defineProperty(exports, "defaultCopyStaticFiles", { enumerable: true, get: function () { return static_file_1.defaultCopyStaticFiles; } });
 const searchWorkspacePrefixByName_1 = __importDefault(require("./searchWorkspacePrefixByName"));
+const validateNpmPackageName_1 = require("@yarn-tool/validate-npm-package-name/lib/validateNpmPackageName");
 function npmVersion(npmClient, cwd) {
     let args = [
         'version',
@@ -68,11 +68,11 @@ function getTargetDir(options) {
         throw new RangeError(`can't found workspace prefix`);
     }
     if (targetName) {
-        validateNpmPackageName(targetName, true);
+        validateNpmPackageName_1.validateNpmPackageName(targetName, true);
     }
     if (inputName) {
         targetName = targetName || inputName;
-        let ret = validateNpmPackageName(inputName, true);
+        let ret = validateNpmPackageName_1.validateNpmPackageName(inputName, true);
         let name = inputName;
         let basePath;
         if (hasWorkspace) {
@@ -105,27 +105,6 @@ function getTargetDir(options) {
     };
 }
 exports.getTargetDir = getTargetDir;
-const scopedPackagePattern = new RegExp('^(?:@([^/]+?)[/])?([^/]+?)$');
-function validateNpmPackageName(name, throwErr) {
-    let ret = validate_npm_package_name_1.default(name);
-    ret.name = name;
-    if (!ret.errors || !ret.errors.length) {
-        const nameMatch = name.match(scopedPackagePattern);
-        if (nameMatch) {
-            ret.scopedPackagePattern = true;
-            ret.user = nameMatch[1];
-            ret.subname = nameMatch[2];
-        }
-        else {
-            ret.scopedPackagePattern = false;
-        }
-    }
-    else if (throwErr) {
-        throw new RangeError(ret.errors.concat(ret.warnings || []).join(' ; '));
-    }
-    return ret;
-}
-exports.validateNpmPackageName = validateNpmPackageName;
 function copyStaticFiles(file_map, options) {
     return static_file_1.default({
         ...options,
