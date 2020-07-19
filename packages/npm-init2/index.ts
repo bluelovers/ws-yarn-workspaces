@@ -72,7 +72,10 @@ let { targetDir, targetName, scopedPackagePattern } = getTargetDir({
 
 ensureDirSync(targetDir);
 
-isWorkspace = pathIsSame(targetDir, rootData.root);
+if (rootData.root)
+{
+	isWorkspace = pathIsSame(targetDir, rootData.root);
+}
 
 let flags = Object.keys(cli.argv)
 	.reduce(function (a, f)

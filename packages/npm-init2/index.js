@@ -74,7 +74,9 @@ let { targetDir, targetName, scopedPackagePattern } = init_path_1.getTargetDir({
     workspacesConfig,
 });
 fs_extra_1.ensureDirSync(targetDir);
-isWorkspace = path_is_same_1.default(targetDir, rootData.root);
+if (rootData.root) {
+    isWorkspace = path_is_same_1.default(targetDir, rootData.root);
+}
 let flags = Object.keys(cli.argv)
     .reduce(function (a, f) {
     if (f === 'silent' || f === 'y' || f === 'yes') {
