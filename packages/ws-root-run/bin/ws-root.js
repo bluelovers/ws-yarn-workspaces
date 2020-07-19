@@ -1,8 +1,6 @@
+#!/usr/bin/env node
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-/**
- * Created by user on 2020/5/11.
- */
 const index_1 = require("../index");
 let argv = process.argv.slice(2);
 let cp;

@@ -1,6 +1,5 @@
-/**
- * Created by user on 2020/5/11.
- */
+#!/usr/bin/env node
+
 import { spawnWsRootExecSync, spawnWsRootRunSync } from '../index';
 import crossSpawn, { SpawnSyncReturns } from 'cross-spawn-extra';
 
