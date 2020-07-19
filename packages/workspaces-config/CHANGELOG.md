@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.19](https://github.com/bluelovers/workspaces-config/compare/workspaces-config@1.0.18...workspaces-config@1.0.19) (2020-07-19)
+
+
+### 📦　Code Refactoring
+
+* searchWorkspacePrefixByName ([b495671](https://github.com/bluelovers/workspaces-config/commit/b495671030345218f7df715b29cb50a751cdb5d9))
+
+
+
+
+
 ## [1.0.18](https://github.com/bluelovers/workspaces-config/compare/workspaces-config@1.0.17...workspaces-config@1.0.18) (2020-07-05)
 
 **Note:** Version bump only for package workspaces-config
