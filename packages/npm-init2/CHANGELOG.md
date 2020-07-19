@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.130](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.129...npm-init2@1.0.130) (2020-07-19)
+
+
+### 🐛　Bug Fixes
+
+* fix can't init in non-package folder ([c6289c3](https://github.com/bluelovers/npm-init2/commit/c6289c35a83305f63eb75a0c1181799de828edb1))
+
+
+
+
+
 ## [1.0.129](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.128...npm-init2@1.0.129) (2020-07-19)
 
 
