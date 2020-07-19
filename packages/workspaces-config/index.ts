@@ -36,7 +36,16 @@ export function parseWorkspaces(workspaces: WorkspacesConfig | WorkspacesConfigA
 	return ws as WorkspacesConfig;
 }
 
-export function parseStaticPackagesPaths(workspaces: WorkspacesConfig | WorkspacesConfigArray)
+export interface IParseStaticPackagesPathsReturnType
+{
+	static: string[];
+	prefixRoot: string[];
+	prefix: string[];
+	prefixSub: string[];
+	all: string[];
+}
+
+export function parseStaticPackagesPaths(workspaces: WorkspacesConfig | WorkspacesConfigArray): IParseStaticPackagesPathsReturnType
 {
 	workspaces = parseWorkspaces(workspaces);
 

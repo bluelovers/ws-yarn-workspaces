@@ -32,8 +32,8 @@ const fs_extra_1 = require("fs-extra");
 const path_1 = require("path");
 const static_file_1 = __importStar(require("@yarn-tool/static-file"));
 Object.defineProperty(exports, "defaultCopyStaticFiles", { enumerable: true, get: function () { return static_file_1.defaultCopyStaticFiles; } });
-const searchWorkspacePrefixByName_1 = __importDefault(require("./searchWorkspacePrefixByName"));
 const validateNpmPackageName_1 = require("@yarn-tool/validate-npm-package-name/lib/validateNpmPackageName");
+const search_workspace_prefix_by_name_1 = require("@yarn-tool/search-workspace-prefix-by-name");
 function npmVersion(npmClient, cwd) {
     let args = [
         'version',
@@ -76,7 +76,7 @@ function getTargetDir(options) {
         let name = inputName;
         let basePath;
         if (hasWorkspace) {
-            const workspacePrefix = searchWorkspacePrefixByName_1.default({
+            const workspacePrefix = search_workspace_prefix_by_name_1.searchWorkspacePrefixByName({
                 inputName,
                 workspacesConfig,
             });

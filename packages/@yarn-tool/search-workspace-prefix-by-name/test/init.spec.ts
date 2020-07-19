@@ -1,5 +1,5 @@
 import { parseWorkspaces, parseStaticPackagesPaths } from 'workspaces-config';
-import searchWorkspacePrefixByName from '../lib/searchWorkspacePrefixByName';
+import { searchWorkspacePrefixByName } from '..';
 
 const data = [
 	"packages/@yarn-tool/*",

@@ -6,9 +6,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.searchWorkspacePrefixByName = void 0;
 const micromatch_1 = __importDefault(require("micromatch"));
 function searchWorkspacePrefixByName({ inputName, workspacesConfig, }) {
-    let workspacePrefix = workspacesConfig.prefix[0];
+    let workspacePrefix;
+    if (workspacesConfig.prefix.includes("packages/*")) {
+        workspacePrefix = "packages/*";
+    }
+    else {
+        workspacePrefix = workspacesConfig.prefix[0];
+    }
     if (workspacesConfig.prefix.length > 1) {
-        for (let i in workspacesConfig.prefixSub) {
+        for (let i = 0; i < workspacesConfig.prefixSub.length; i++) {
             const prefix = workspacesConfig.prefixSub[i];
             if (prefix.length && micromatch_1.default.isMatch(inputName, prefix + '/*')) {
                 workspacePrefix = workspacesConfig.prefix[i];
@@ -23,4 +29,4 @@ function searchWorkspacePrefixByName({ inputName, workspacesConfig, }) {
 }
 exports.searchWorkspacePrefixByName = searchWorkspacePrefixByName;
 exports.default = searchWorkspacePrefixByName;
-//# sourceMappingURL=searchWorkspacePrefixByName.js.map
+//# sourceMappingURL=index.js.map

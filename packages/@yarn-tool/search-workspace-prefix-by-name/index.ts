@@ -1,5 +1,5 @@
-import { parseStaticPackagesPaths } from 'workspaces-config';
 import micromatch from 'micromatch';
+import { IParseStaticPackagesPathsReturnType } from 'workspaces-config';
 
 export function searchWorkspacePrefixByName({
 	inputName,
@@ -11,14 +11,23 @@ export function searchWorkspacePrefixByName({
 	targetName?: string,
 	hasWorkspace?: string,
 	workspacePrefix?: string,
-	workspacesConfig: ReturnType<typeof parseStaticPackagesPaths>
+	workspacesConfig: IParseStaticPackagesPathsReturnType
 })
 {
-	let workspacePrefix: string = workspacesConfig.prefix[0];
+	let workspacePrefix: string;
+
+	if (workspacesConfig.prefix.includes("packages/*"))
+	{
+		workspacePrefix = "packages/*";
+	}
+	else
+	{
+		workspacePrefix = workspacesConfig.prefix[0]
+	}
 
 	if (workspacesConfig.prefix.length > 1)
 	{
-		for (let i in workspacesConfig.prefixSub)
+		for (let i = 0; i < workspacesConfig.prefixSub.length; i++)
 		{
 			const prefix = workspacesConfig.prefixSub[i]
 
@@ -38,4 +47,4 @@ export function searchWorkspacePrefixByName({
 	return workspacePrefix
 }
 
-export default searchWorkspacePrefixByName
+export default searchWorkspacePrefixByName;

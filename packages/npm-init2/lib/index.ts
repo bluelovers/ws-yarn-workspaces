@@ -9,8 +9,8 @@ import { join, resolve } from 'path';
 
 import _copyStaticFiles, { defaultCopyStaticFiles } from '@yarn-tool/static-file';
 import { parseStaticPackagesPaths } from 'workspaces-config';
-import searchWorkspacePrefixByName from './searchWorkspacePrefixByName';
 import { validateNpmPackageName } from '@yarn-tool/validate-npm-package-name/lib/validateNpmPackageName';
+import { searchWorkspacePrefixByName } from '@yarn-tool/search-workspace-prefix-by-name';
 
 export function npmVersion(npmClient?: string, cwd?: string)
 {

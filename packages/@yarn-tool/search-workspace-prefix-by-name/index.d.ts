@@ -1,10 +1,10 @@
-import { parseStaticPackagesPaths } from 'workspaces-config';
+import { IParseStaticPackagesPathsReturnType } from 'workspaces-config';
 export declare function searchWorkspacePrefixByName({ inputName, workspacesConfig, }: {
     inputName: string;
     cwd?: string;
     targetName?: string;
     hasWorkspace?: string;
     workspacePrefix?: string;
-    workspacesConfig: ReturnType<typeof parseStaticPackagesPaths>;
+    workspacesConfig: IParseStaticPackagesPathsReturnType;
 }): string;
 export default searchWorkspacePrefixByName;

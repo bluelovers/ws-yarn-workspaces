@@ -9,12 +9,13 @@ export declare type WorkspacesConfig = {
 export declare type WorkspacesConfigArray = Array<string>;
 export declare function getConfig(cwd?: string): WorkspacesConfig;
 export declare function parseWorkspaces(workspaces: WorkspacesConfig | WorkspacesConfigArray): WorkspacesConfig;
-export declare function parseStaticPackagesPaths(workspaces: WorkspacesConfig | WorkspacesConfigArray): {
+export interface IParseStaticPackagesPathsReturnType {
     static: string[];
     prefixRoot: string[];
     prefix: string[];
     prefixSub: string[];
     all: string[];
-};
+}
+export declare function parseStaticPackagesPaths(workspaces: WorkspacesConfig | WorkspacesConfigArray): IParseStaticPackagesPathsReturnType;
 export { findPkg };
 export default getConfig;
