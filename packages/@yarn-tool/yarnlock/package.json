@@ -43,7 +43,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^1.0.33",
+    "@ts-type/package-dts": "^1.0.35",
     "@yarn-tool/detect-yarnlock-version": "^1.0.2",
     "@yarn-tool/find-root": "^1.0.29",
     "@yarn-tool/table": "^1.0.14",

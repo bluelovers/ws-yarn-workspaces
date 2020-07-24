@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "@bluelovers/fast-glob": "^3.0.4",
-    "@ts-type/package-dts": "^1.0.33",
+    "@ts-type/package-dts": "^1.0.35",
     "@yarn-tool/find-root": "^1.0.29",
     "array-hyper-unique": "^1.1.9",
     "find-yarn-workspace-root2": "^1.2.22",
