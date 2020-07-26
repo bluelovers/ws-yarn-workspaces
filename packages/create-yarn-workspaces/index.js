@@ -131,6 +131,7 @@ function _createYarnWorkspaces(targetPath, options = {}) {
         if (json.workspaces && Object.keys(json.workspaces).length) {
             workspaces = json.workspaces;
             // https://yarnpkg.com/blog/2018/02/15/nohoist/
+            // @ts-ignore
             packages = workspaces.packages || workspaces;
         }
         else {

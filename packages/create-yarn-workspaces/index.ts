@@ -11,6 +11,8 @@ import { existsSync, readFileSync, mkdirSync, writeFileSync } from 'fs-extra';
 import sortPackageJson from 'sort-package-json3';
 import { getDefaultPackageJson } from './lib';
 import { isSamePath } from './lib/util';
+import { ILernaJson } from '@ts-type/package-dts/lerna-json';
+import { IPackageJson } from '@ts-type/package-dts/package-json';
 
 export * from './lib/index';
 export * from './lib/util';
@@ -22,7 +24,7 @@ export interface IOptions
 	ignoreParentWorkspaces?: boolean,
 	ignoreExistsPackage?: boolean,
 
-	initPackageJson?<T = any>(current: ReturnType<typeof getDefaultPackageJson>): ReturnType<typeof getDefaultPackageJson> | ReturnType<typeof getDefaultPackageJson> & T,
+	initPackageJson?<T extends Record<string, any> = {}>(current: IPackageJson): IPackageJson & T,
 
 	debug?: boolean,
 }
@@ -110,16 +112,16 @@ export function _createYarnWorkspaces(targetPath: string, options: IOptions = {}
 {
 	console.info(`create in target path "${targetPath}"`);
 
-	let pkg: ReturnType<typeof getDefaultPackageJson>;
+	let pkg: IPackageJson;
 
-	let lerna;
+	let lerna: ILernaJson;
 
 	{
 		let file = join(targetPath, 'lerna.json');
 
 		if (existsSync(file))
 		{
-			let json = JSON.parse(readFileSync(file).toString());
+			let json: ILernaJson = JSON.parse(readFileSync(file).toString());
 
 			if (json.packages && !Object.keys(json.packages).length)
 			{
@@ -162,15 +164,16 @@ export function _createYarnWorkspaces(targetPath: string, options: IOptions = {}
 	}
 	else
 	{
-		let json = JSON.parse(readFileSync(file).toString());
+		let json: IPackageJson = JSON.parse(readFileSync(file).toString());
 
-		let workspaces;
+		let workspaces: ILernaJson['packages'];
 
 		if (json.workspaces && Object.keys(json.workspaces).length)
 		{
 			workspaces = json.workspaces;
 
 			// https://yarnpkg.com/blog/2018/02/15/nohoist/
+			// @ts-ignore
 			packages = workspaces.packages || workspaces;
 		}
 		else

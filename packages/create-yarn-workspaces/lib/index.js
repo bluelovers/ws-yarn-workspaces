@@ -9,6 +9,7 @@ function getDefaultPackageJson(name) {
         "workspaces": [
             "packages/*",
         ],
+        keywords: [],
         "scripts": {
             "preversion": "echo preversion",
             "lerna:publish": "yarn run prepublishOnly && lerna publish && yarn run postpublishOnly",

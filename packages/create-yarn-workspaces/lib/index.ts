@@ -1,25 +1,15 @@
-export function getDefaultPackageJson(name?: string): {
-	name: string;
-	version: string;
-	private: boolean;
-	workspaces: string[];
-	scripts: {
-		[k: string]: string;
-		test?: string;
-	};
-	resolutions: {
-		[k: string]: string;
-	};
-	[k: string]: any;
-}
+import { IPackageJson } from '@ts-type/package-dts/package-json';
+
+export function getDefaultPackageJson(name?: string): IPackageJson
 {
-	return {
+	return (<IPackageJson>{
 		"name": name,
 		"version": "1.0.0",
 		"private": true,
 		"workspaces": [
 			"packages/*",
 		],
+		keywords: [],
 		"scripts": {
 			"preversion": "echo preversion",
 			"lerna:publish": "yarn run prepublishOnly && lerna publish && yarn run postpublishOnly",
@@ -48,7 +38,7 @@ export function getDefaultPackageJson(name?: string): {
 			"@bluelovers/conventional-changelog-bluelovers": "*",
 		},
 		"resolutions": {},
-	};
+	}) as any;
 }
 
 export function getDefaultTsconfig()
