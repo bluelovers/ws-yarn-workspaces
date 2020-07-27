@@ -33,26 +33,47 @@ export declare class WorkspacesProject {
     get config(): ILernaJson;
     get bump(): IReleaseType;
     get changelogPreset(): IChangelogPreset;
-    get releaseConfig(): import("ts-type").ITSOverwrite<{
+    get releaseConfig(): import("ts-type").ITSOverwrite<Pick<{
         [k: string]: unknown;
         allowBranch?: string[];
         message?: string;
     } & {
+        concurrency?: number;
         bump?: IReleaseType;
         conventionalCommits?: boolean;
         changelogPreset?: string;
-    } & {
+    }, string | number> & Pick<{
+        [k: string]: unknown;
+        allowBranch?: string[];
+        message?: string;
+    } | {
+        concurrency?: number;
+        bump?: IReleaseType;
+        conventionalCommits?: boolean;
+        changelogPreset?: string;
+    }, "changelogPreset" | "concurrency" | "bump" | "conventionalCommits"> & Pick<{
         [k: string]: unknown;
         ignoreChanges?: string[];
         message?: string;
     } & {
+        concurrency?: number;
         bump?: IReleaseType;
         conventionalCommits?: boolean;
         conventionalGraduate?: boolean;
         distTag?: string;
-    }, {
-        changelogPreset: string;
-        conventionalGraduate: boolean;
+    }, string | number> & Pick<{
+        [k: string]: unknown;
+        ignoreChanges?: string[];
+        message?: string;
+    } | {
+        concurrency?: number;
+        bump?: IReleaseType;
+        conventionalCommits?: boolean;
+        conventionalGraduate?: boolean;
+        distTag?: string;
+    }, "concurrency" | "bump" | "conventionalCommits" | "conventionalGraduate" | "distTag">, {
+        changelogPreset: unknown;
+        conventionalGraduate: unknown;
         bump: IReleaseType;
     }>;
     existsLernaConfigFile(): boolean;

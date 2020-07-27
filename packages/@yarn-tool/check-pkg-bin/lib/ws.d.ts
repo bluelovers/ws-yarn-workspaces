@@ -1,5 +1,5 @@
 export declare function checkWorkspaces(cwd?: string): {
-    name: any;
+    name: string;
     pkg: import("npm-package-json-loader").IPackageJson<any>;
     pkgDir: string;
     result: {
