@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.22](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/workspaces-project@1.0.21...@yarn-tool/workspaces-project@1.0.22) (2020-07-27)
+
+
+### 🛠　Build System
+
+* update typescript ([4922edd](https://github.com/bluelovers/ws-yarn-workspaces/commit/4922edd4e5e913f9b8740f60eaf62f23fd25e015))
+
+
+
+
+
 ## [1.0.21](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/workspaces-project@1.0.20...@yarn-tool/workspaces-project@1.0.21) (2020-07-26)
 
 
