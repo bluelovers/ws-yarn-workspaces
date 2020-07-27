@@ -44,7 +44,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^1.0.39",
+    "@ts-type/package-dts": "^1.0.40",
     "@yarn-tool/static-file": "^1.0.47",
     "debug-color2": "^1.2.3",
     "find-yarn-workspace-root2": "^1.2.22",
