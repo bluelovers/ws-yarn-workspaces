@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.36](https://github.com/bluelovers/node-package-json-loader/compare/npm-package-json-loader@1.0.35...npm-package-json-loader@1.0.36) (2020-07-27)
+
+
+### ♻️　Chores
+
+* update deps ([1364e2d](https://github.com/bluelovers/node-package-json-loader/commit/1364e2dbef11e5ff81ac4f69b4fad219ecaf42fa))
+
+
+
+
+
 ## [1.0.35](https://github.com/bluelovers/node-package-json-loader/compare/npm-package-json-loader@1.0.34...npm-package-json-loader@1.0.35) (2020-07-26)
 
 
