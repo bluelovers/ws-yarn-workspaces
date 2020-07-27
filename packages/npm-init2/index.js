@@ -236,8 +236,8 @@ if (!cp.error) {
                     pkg.data.scripts[k] = v;
                 }
             });
-            if (!pkg.data.types || !pkg.data.typeings) {
-                pkg.data.types = pkg.data.types || pkg.data.typeings;
+            if (!pkg.data.types || !pkg.data.typings) {
+                pkg.data.types = pkg.data.types || pkg.data.typings;
                 if (pkg.data.main && !pkg.data.types) {
                     let file = upath2_1.join(targetDir, pkg.data.main);
                     let parsed = upath2_2.parse(file);
@@ -245,7 +245,7 @@ if (!cp.error) {
                         pkg.data.types = upath2_1.relative(targetDir, parsed.dir).replace(/^\.\//, '') + '/' + parsed.name + '.d.ts';
                     }
                 }
-                pkg.data.typeings = pkg.data.types;
+                pkg.data.typings = pkg.data.types;
             }
             if (old_pkg) {
                 Object.keys(old_pkg)

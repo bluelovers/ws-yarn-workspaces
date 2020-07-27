@@ -309,9 +309,9 @@ if (!cp.error)
 				})
 			;
 
-			if (!pkg.data.types || !pkg.data.typeings)
+			if (!pkg.data.types || !pkg.data.typings)
 			{
-				pkg.data.types = pkg.data.types || pkg.data.typeings;
+				pkg.data.types = pkg.data.types || pkg.data.typings;
 
 				if (pkg.data.main && !pkg.data.types)
 				{
@@ -324,7 +324,7 @@ if (!cp.error)
 					}
 				}
 
-				pkg.data.typeings = pkg.data.types;
+				pkg.data.typings = pkg.data.types;
 			}
 
 			if (old_pkg)
