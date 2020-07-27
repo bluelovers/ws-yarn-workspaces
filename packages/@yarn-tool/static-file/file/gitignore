@@ -96,3 +96,4 @@ jest.config.js.map
 !/.github
 !npm-shrinkwrap.json
 *.stat
+.vercel

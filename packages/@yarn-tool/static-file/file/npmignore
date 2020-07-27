@@ -79,3 +79,4 @@ __snapshots__
 npm-shrinkwrap.json
 /example/
 *.stat
+.vercel
