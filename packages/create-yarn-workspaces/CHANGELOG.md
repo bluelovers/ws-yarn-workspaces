@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.83](https://github.com/bluelovers/create-yarn-workspaces/compare/create-yarn-workspaces@1.0.82...create-yarn-workspaces@1.0.83) (2020-07-28)
+
+
+### ✨　Features
+
+* create tsconfig when not monorepo ([2e58b86](https://github.com/bluelovers/create-yarn-workspaces/commit/2e58b86e3d20712445d786f7ee059588d58a9498))
+
+
+### ♻️　Chores
+
+* update deps ([a3e0d3b](https://github.com/bluelovers/create-yarn-workspaces/commit/a3e0d3b656760823bbab877a61ac61ea3f8a00c5))
+
+
+
+
+
 ## [1.0.82](https://github.com/bluelovers/create-yarn-workspaces/compare/create-yarn-workspaces@1.0.81...create-yarn-workspaces@1.0.82) (2020-07-27)
 
 **Note:** Version bump only for package create-yarn-workspaces

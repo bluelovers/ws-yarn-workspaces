@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.36](https://github.com/bluelovers/ws-yarn-workspaces/compare/env-run-path@1.0.35...env-run-path@1.0.36) (2020-07-28)
+
+**Note:** Version bump only for package env-run-path
+
+
+
+
+
 ## [1.0.35](https://github.com/bluelovers/ws-yarn-workspaces/compare/env-run-path@1.0.34...env-run-path@1.0.35) (2020-07-27)
 
 **Note:** Version bump only for package env-run-path

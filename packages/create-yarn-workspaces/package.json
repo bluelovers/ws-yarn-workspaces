@@ -1,6 +1,6 @@
 {
   "name": "create-yarn-workspaces",
-  "version": "1.0.82",
+  "version": "1.0.83",
   "description": "yarn create yarn-workspaces     npx create-yarn-workspaces",
   "keywords": [
     "cli",
@@ -52,7 +52,7 @@
     "path-is-same": "^1.0.5",
     "pkg-dir": "^4.2.0",
     "sort-package-json": "^1.44.0",
-    "sort-package-json3": "^1.0.20",
+    "sort-package-json3": "^1.0.21",
     "yargs": "^15.4.1"
   },
   "gitHead": "445ff249d9e89ede8c67a41af7f967bdc9dd50aa"
