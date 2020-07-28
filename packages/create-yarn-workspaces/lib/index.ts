@@ -19,7 +19,7 @@ export function getDefaultPackageJson(name?: string): IPackageJson
 			"prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
 			"prepare:fix-ws-links": "ynpx --quiet @yarn-tool/fix-ws-links",
 			"ncu": "yarn run ncu:root && yarn run ncu:ws",
-			"ncu:root": "yarn-tool ncu -- -u",
+			"ncu:root": "yarn-tool ncu -u",
 			"ncu:ws": "yarn-tool ws exec yarn-tool ncu -- -u",
 			"sort-package-json": "yarn run sort-package-json:root && yarn run sort-package-json:ws",
 			"sort-package-json:root": "yarn-tool sort",
@@ -28,7 +28,7 @@ export function getDefaultPackageJson(name?: string): IPackageJson
 			"test": "yarn-tool ws run test",
 		},
 		"devDependencies": {
-			"@bluelovers/tsconfig": "^1.0.19",
+			"@bluelovers/tsconfig": "^1.0.20",
 			"@types/node": "*",
 		},
 		"peerDependencies": {

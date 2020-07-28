@@ -31,6 +31,7 @@ const upath2_1 = require("upath2");
 const workspaces_config_1 = __importStar(require("workspaces-config"));
 const npm_package_json_loader_1 = __importDefault(require("npm-package-json-loader"));
 const lib_1 = require("./lib");
+const static_file_1 = require("@yarn-tool/static-file");
 const yargs_setting_1 = __importDefault(require("./lib/yargs-setting"));
 const find_root_1 = require("@yarn-tool/find-root");
 const pkg_git_info_1 = require("@yarn-tool/pkg-git-info");
@@ -102,7 +103,7 @@ if (!oldExists && targetName && scopedPackagePattern && is_builtin_module_1.isBu
     fs_extra_1.outputJSONSync(pkg_file_path, {
         name: targetName,
     }, {
-        spaces: 2
+        spaces: 2,
     });
 }
 else if (!targetName) {
@@ -300,7 +301,16 @@ if (!cp.error) {
          */
         let mdFile = upath2_1.join(targetDir, 'README.md');
         let existsReadme = !oldExists || !fs_1.existsSync(mdFile);
-        lib_1.copyStaticFiles(lib_1.defaultCopyStaticFiles, {
+        let file_map = [
+            ...static_file_1.defaultCopyStaticFiles,
+        ];
+        if (!wsProject) {
+            file_map = [
+                ['tsconfig.json', 'file/tsconfig.json.tpl'],
+                ...file_map,
+            ];
+        }
+        lib_1.copyStaticFiles(file_map, {
             cwd: targetDir,
         });
         if (existsReadme) {

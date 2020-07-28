@@ -10,7 +10,8 @@ import PackageJsonLoader from 'npm-package-json-loader';
 import { IPackageJson } from '@ts-type/package-dts';
 import { updateNotifier } from '@yarn-tool/update-notifier';
 import pkg = require( './package.json' );
-import { copyStaticFiles, defaultCopyStaticFiles} from './lib';
+import { copyStaticFiles } from './lib';
+import { defaultCopyStaticFiles, IStaticFilesMapArray } from '@yarn-tool/static-file';
 import setupToYargs from './lib/yargs-setting';
 import { findRoot } from '@yarn-tool/find-root';
 import { npmHostedGitInfo } from '@yarn-tool/pkg-git-info';
@@ -114,7 +115,7 @@ if (!oldExists && targetName && scopedPackagePattern && isBuiltinModule(basename
 	outputJSONSync(pkg_file_path, {
 		name: targetName,
 	}, {
-		spaces: 2
+		spaces: 2,
 	})
 }
 else if (!targetName)
@@ -404,7 +405,19 @@ if (!cp.error)
 
 		let existsReadme = !oldExists || !existsSync(mdFile);
 
-		copyStaticFiles(defaultCopyStaticFiles, {
+		let file_map: IStaticFilesMapArray<string> = [
+			...defaultCopyStaticFiles,
+		]
+
+		if (!wsProject)
+		{
+			file_map = [
+				['tsconfig.json', 'file/tsconfig.json.tpl'],
+				...file_map,
+			];
+		}
+
+		copyStaticFiles(file_map, {
 			cwd: targetDir,
 		});
 
