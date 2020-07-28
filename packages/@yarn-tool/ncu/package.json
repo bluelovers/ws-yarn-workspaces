@@ -42,7 +42,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^1.0.40",
+    "@ts-type/package-dts": "^1.0.41",
     "@yarn-tool/semver-diff": "^1.0.9",
     "@yarn-tool/table": "^1.0.17",
     "@yarn-tool/yarnlock": "^1.0.24",
@@ -50,7 +50,7 @@
     "npm-check-updates": "^7.0.2",
     "package-json": "^6.5.0",
     "semver": "^7.3.2",
-    "ts-type": "^1.2.30"
+    "ts-type": "^1.2.31"
   },
   "peerDependencies": {
     "yargs": "^15.4.1"

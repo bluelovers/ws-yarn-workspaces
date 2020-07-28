@@ -67,7 +67,7 @@
     "chai": "^4.2.0",
     "jest": "^26.1.0",
     "mocha": "^8.0.1",
-    "ts-jest": "^26.1.3"
+    "ts-jest": "^26.1.4"
   },
   "peerDependencies": {
     "lerna": "^3"

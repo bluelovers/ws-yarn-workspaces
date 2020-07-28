@@ -949,13 +949,13 @@
   resolved "https://registry.npmjs.org/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
   integrity sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==
 
-"@ts-type/package-dts@^1.0.40":
-  version "1.0.40"
-  resolved "https://registry.npmjs.org/@ts-type/package-dts/-/package-dts-1.0.40.tgz#66f90ad6cd90f89804b6e0c51f1798b6abff7153"
-  integrity sha512-aZO0TI3JtcraZwmHAe2v+H6VqfIdpZ4lcaeuvqx/387EtME0GuMN+hiXWviUMnYjyvuaYyIZAdMljcprqIkvAg==
+"@ts-type/package-dts@^1.0.41":
+  version "1.0.41"
+  resolved "https://registry.npmjs.org/@ts-type/package-dts/-/package-dts-1.0.41.tgz#740d44ae0de6f16ac59961aff2fd5ba570de81cf"
+  integrity sha512-DdCgnpZocHtF84c39DcxaqLJWMbmg5seSaVkKQC4HeYAmdmQQZXjCCKosGrXIgfDY090vDbhOxXo7iSdj8qK4w==
   dependencies:
     "@types/semver" "^7.3.1"
-    ts-type "^1.2.30"
+    ts-type "^1.2.31"
 
 "@types/babel__core@^7.0.0", "@types/babel__core@^7.1.7":
   version "7.1.9"
@@ -7081,10 +7081,10 @@ trim-off-newlines@^1.0.0:
   resolved "https://registry.npmjs.org/trim-off-newlines/-/trim-off-newlines-1.0.1.tgz#9f9ba9d9efa8764c387698bcbfeb2c848f11adb3"
   integrity sha1-n5up2e+odkw4dpi8v+sshI8RrbM=
 
-ts-jest@^26.1.3:
-  version "26.1.3"
-  resolved "https://registry.npmjs.org/ts-jest/-/ts-jest-26.1.3.tgz#aac928a05fdf13e3e6dfbc8caec3847442667894"
-  integrity sha512-beUTSvuqR9SmKQEylewqJdnXWMVGJRFqSz2M8wKJe7GBMmLZ5zw6XXKSJckbHNMxn+zdB3guN2eOucSw2gBMnw==
+ts-jest@^26.1.4:
+  version "26.1.4"
+  resolved "https://registry.npmjs.org/ts-jest/-/ts-jest-26.1.4.tgz#87d41a96016a8efe4b8cc14501d3785459af6fa6"
+  integrity sha512-Nd7diUX6NZWfWq6FYyvcIPR/c7GbEF75fH1R6coOp3fbNzbRJBZZAn0ueVS0r8r9ral1VcrpneAFAwB3TsVS1Q==
   dependencies:
     bs-logger "0.x"
     buffer-from "1.x"
@@ -7097,17 +7097,17 @@ ts-jest@^26.1.3:
     semver "7.x"
     yargs-parser "18.x"
 
-ts-toolbelt@^6.13.28:
-  version "6.13.28"
-  resolved "https://registry.npmjs.org/ts-toolbelt/-/ts-toolbelt-6.13.28.tgz#7afbdd5b95ccb947085aec400fe59545d02de448"
-  integrity sha512-89amEuUFvgcErtKh0+8egz8I+DertVSSGYaFAtNK56H7DXx4czFDL+wApauD4xSq4NZrB12kM++ZYu9e/1l3lA==
+ts-toolbelt@^6.13.34:
+  version "6.13.34"
+  resolved "https://registry.npmjs.org/ts-toolbelt/-/ts-toolbelt-6.13.34.tgz#3bd6e1e333a75c5ddab584d293f35494cb8c9222"
+  integrity sha512-ikZwSUPO+fW+OUnyER1KCG58khTi51Di3+iVdhkK7UshqkL0Ir749B2TQ44o/khkKvDSOMzF8NuVkQLycDXnsg==
 
-ts-type@^1, ts-type@^1.2.17, ts-type@^1.2.30:
-  version "1.2.30"
-  resolved "https://registry.npmjs.org/ts-type/-/ts-type-1.2.30.tgz#09e7916451508bdce02b9ddd3d8115e4596384fc"
-  integrity sha512-8i9S2ga0gtXVMJdzRB6NzYxBxCGMeHbnQ2f3fKnd1HO0lU2+k2LUh59/VShhhXTuyA+npPMJdlDJCo61Zzy1tQ==
+ts-type@^1, ts-type@^1.2.17, ts-type@^1.2.31:
+  version "1.2.31"
+  resolved "https://registry.npmjs.org/ts-type/-/ts-type-1.2.31.tgz#761528b2bd7b515567c3468b8ec59bf7344766b3"
+  integrity sha512-XXwdkCEEBHCfkLhQVVNMIC0OYNoBV/mzArhO+W0szL/vUvsBR9oOa4CByWReURsJCkTvoRjZu8mhZk9+jrnrog==
   dependencies:
-    ts-toolbelt "^6.13.28"
+    ts-toolbelt "^6.13.34"
     typedarray-dts "^1.0.0"
 
 tsconfig@^7.0.0:

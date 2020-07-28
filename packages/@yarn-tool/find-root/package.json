@@ -27,7 +27,7 @@
     "sort-package-json": "npx yarn-tool sort"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^1.0.40",
+    "@ts-type/package-dts": "^1.0.41",
     "find-yarn-workspace-root2": "^1.2.22",
     "pkg-dir": "^4.2.0",
     "upath2": "^3.1.5"

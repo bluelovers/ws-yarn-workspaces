@@ -38,7 +38,7 @@
   "dependencies": {
     "@lazy-node/semver-part": "^1.0.3",
     "debug-color2": "^1.2.3",
-    "ts-type": "^1.2.30"
+    "ts-type": "^1.2.31"
   },
   "devDependencies": {
     "chalk": "< 3 && >= 2"
