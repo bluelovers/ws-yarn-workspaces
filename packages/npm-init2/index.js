@@ -22,7 +22,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-var _a, _b, _c, _d, _e, _f;
+var _a, _b, _c, _d, _e, _f, _g;
 Object.defineProperty(exports, "__esModule", { value: true });
 const yargs_1 = __importDefault(require("yargs"));
 const cross_spawn_extra_1 = __importDefault(require("cross-spawn-extra"));
@@ -178,9 +178,14 @@ if (!cp.error) {
             else {
                 prepublishOnly = "yarn run prepublishOnly:check-bin && yarn run test";
             }
+            let preversion = "yarn run prepublishOnly";
+            if (!oldExists || !((_d = pkg.data.scripts) === null || _d === void 0 ? void 0 : _d.prepublishOnly)) {
+                preversion = prepublishOnly;
+                prepublishOnly = "echo prepublishOnly";
+            }
             sharedScript = {
                 ...sharedScript,
-                "preversion": "yarn run prepublishOnly",
+                preversion,
             };
         }
         else {
@@ -210,7 +215,7 @@ if (!cp.error) {
             sharedScript.prepublishOnly = prepublishOnly;
         }
         if (!oldExists) {
-            if (((_d = pkg.data.scripts) === null || _d === void 0 ? void 0 : _d.test) === "echo \"Error: no test specified\" && exit 1" && ((_e = sharedScript.test) === null || _e === void 0 ? void 0 : _e.length) > 0) {
+            if (((_e = pkg.data.scripts) === null || _e === void 0 ? void 0 : _e.test) === "echo \"Error: no test specified\" && exit 1" && ((_f = sharedScript.test) === null || _f === void 0 ? void 0 : _f.length) > 0) {
                 delete pkg.data.scripts.test;
             }
             Object
@@ -273,7 +278,7 @@ if (!cp.error) {
         }
         if (wsProject && !isWorkspace) {
             const rootKeywords = wsProject.manifest.toJSON().keywords;
-            if (!((_f = pkg.data.keywords) === null || _f === void 0 ? void 0 : _f.length) && (rootKeywords === null || rootKeywords === void 0 ? void 0 : rootKeywords.length)) {
+            if (!((_g = pkg.data.keywords) === null || _g === void 0 ? void 0 : _g.length) && (rootKeywords === null || rootKeywords === void 0 ? void 0 : rootKeywords.length)) {
                 pkg.data.keywords = rootKeywords.slice();
             }
         }

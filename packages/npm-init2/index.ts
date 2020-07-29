@@ -230,9 +230,17 @@ if (!cp.error)
 				prepublishOnly = "yarn run prepublishOnly:check-bin && yarn run test";
 			}
 
+			let preversion = "yarn run prepublishOnly";
+
+			if (!oldExists || !pkg.data.scripts?.prepublishOnly)
+			{
+				preversion = prepublishOnly
+				prepublishOnly = "echo prepublishOnly"
+			}
+
 			sharedScript = {
 				...sharedScript,
-				"preversion": "yarn run prepublishOnly",
+				preversion,
 			}
 		}
 		else
