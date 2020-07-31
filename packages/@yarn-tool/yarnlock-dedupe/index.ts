@@ -36,9 +36,31 @@ export function fixDuplicates(yarnlock_old: Buffer | string, options?: IOptionsD
 	throw new TypeError(`can't detect yarn.lock version`)
 }
 
+export function yarnDedupe(yarnlock_old: string, options?: IOptionsDedupe)
+{
+	yarnlock_old = yarnlock_old.toString();
+	const yarnlock_new = fixDuplicates(yarnlock_old, options);
+
+	return {
+		/**
+		 * 執行前的 yarn.lock
+		 */
+		yarnlock_old,
+		/**
+		 * 執行後的 yarn.lock
+		 */
+		yarnlock_new,
+		/**
+		 * yarn.lock 是否有變動
+		 */
+		yarnlock_changed: yarnlock_old !== yarnlock_new,
+	}
+}
+
 const auto = {
 	listDuplicates,
 	fixDuplicates,
+	yarnDedupe,
 }
 
 export default auto

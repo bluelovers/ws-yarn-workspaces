@@ -1,21 +1,5 @@
-import { IYarnLockfileParseObject } from './types';
-import { IOptionsDedupe } from '@yarn-tool/yarnlock-dedupe/lib/types';
-export declare function listDuplicates(yarnlock_old: IYarnLockfileParseObject | string, options?: IOptionsDedupe): string[];
-export declare function fixDuplicates(yarnlock_old: IYarnLockfileParseObject | string, options?: IOptionsDedupe): string;
-export declare function yarnDedupe(yarnlock_old: string, options?: IOptionsDedupe): {
-    /**
-     * 執行前的 yarn.lock
-     */
-    yarnlock_old: string;
-    /**
-     * 執行後的 yarn.lock
-     */
-    yarnlock_new: string;
-    /**
-     * yarn.lock 是否有變動
-     */
-    yarnlock_changed: boolean;
-};
+import { yarnDedupe } from '@yarn-tool/yarnlock-dedupe/object';
+export * from '@yarn-tool/yarnlock-dedupe/object';
 /**
  * @deprecated
  */

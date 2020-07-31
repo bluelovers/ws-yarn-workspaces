@@ -47,6 +47,7 @@
     "@yarn-tool/detect-yarnlock-version": "^1.0.2",
     "@yarn-tool/find-root": "^1.0.33",
     "@yarn-tool/table": "^1.0.18",
+    "@yarn-tool/yarnlock-stringify": "^1.0.0",
     "@yarnpkg/lockfile": "^1.1.0",
     "@yarnpkg/parsers": "^2.1.0",
     "debug-color2": "^1.2.3",

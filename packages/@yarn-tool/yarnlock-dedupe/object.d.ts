@@ -1,24 +1,30 @@
 /// <reference types="node" />
 import { IOptionsDedupe } from './lib/types';
-export declare function listDuplicates(yarnlock_old: Buffer | string, options?: IOptionsDedupe): string[];
-export declare function fixDuplicates(yarnlock_old: Buffer | string, options?: IOptionsDedupe): string;
+/**
+ * @deprecated
+ */
+export declare function listDuplicates(yarnlock_old: Record<string, any> | Buffer | string, options?: IOptionsDedupe): string[];
+/**
+ * @deprecated
+ */
+export declare function fixDuplicates(yarnlock_old: Record<string, any> | Buffer | string, options?: IOptionsDedupe): string;
+/**
+ * @deprecated
+ */
 export declare function yarnDedupe(yarnlock_old: string, options?: IOptionsDedupe): {
-    /**
-     * 執行前的 yarn.lock
-     */
     yarnlock_old: string;
-    /**
-     * 執行後的 yarn.lock
-     */
     yarnlock_new: string;
-    /**
-     * yarn.lock 是否有變動
-     */
     yarnlock_changed: boolean;
 };
+/**
+ * @deprecated
+ */
 declare const auto: {
     listDuplicates: typeof listDuplicates;
     fixDuplicates: typeof fixDuplicates;
     yarnDedupe: typeof yarnDedupe;
 };
+/**
+ * @deprecated
+ */
 export default auto;
