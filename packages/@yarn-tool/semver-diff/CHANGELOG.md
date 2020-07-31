@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.11](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/semver-diff@1.0.10...@yarn-tool/semver-diff@1.0.11) (2020-07-31)
+
+
+### ♻️　Chores
+
+* update deps ([e51c85d](https://github.com/bluelovers/ws-yarn-workspaces/commit/e51c85d4bfa61af2686811b95502726bd48382c1))
+
+
+
+
+
 ## [1.0.10](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/semver-diff@1.0.9...@yarn-tool/semver-diff@1.0.10) (2020-07-28)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarnlock-banner",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "keywords": [
     "yarn",
@@ -39,8 +39,6 @@
   "dependencies": {
     "crlf-normalize": "^1.0.5"
   },
-  "devDependencies": {},
-  "peerDependencies": {},
   "publishConfig": {
     "access": "public"
   }
