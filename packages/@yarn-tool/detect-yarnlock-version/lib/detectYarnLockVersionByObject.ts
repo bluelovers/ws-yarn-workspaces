@@ -10,6 +10,10 @@ export function detectYarnLockVersionByObject(yarnLockObject: Record<string, any
 	{
 		return EnumDetectYarnLock.v1
 	}
+	else if (!('__metadata' in yarnLockObject) && checkV2(yarnLockObject))
+	{
+		return EnumDetectYarnLock.berry
+	}
 	else if (!('type' in yarnLockObject) && !('object' in yarnLockObject) && checkV1(yarnLockObject))
 	{
 		return EnumDetectYarnLock.v1

@@ -9,5 +9,6 @@ export * from './lib/util';
 export * from './lib/diff';
 export * from './lib/dedupe';
 export * from './lib/wrap';
+export { IOptionsDedupe } from '@yarn-tool/yarnlock-dedupe/lib/types';
 declare const _default: typeof import(".");
 export default _default;

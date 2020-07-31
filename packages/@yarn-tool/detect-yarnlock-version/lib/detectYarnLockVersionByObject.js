@@ -10,6 +10,9 @@ function detectYarnLockVersionByObject(yarnLockObject) {
     else if (typeof yarnLockObject.type === 'string' && yarnLockObject.object && checkV1(yarnLockObject.object)) {
         return types_1.EnumDetectYarnLock.v1;
     }
+    else if (!('__metadata' in yarnLockObject) && checkV2(yarnLockObject)) {
+        return types_1.EnumDetectYarnLock.berry;
+    }
     else if (!('type' in yarnLockObject) && !('object' in yarnLockObject) && checkV1(yarnLockObject)) {
         return types_1.EnumDetectYarnLock.v1;
     }

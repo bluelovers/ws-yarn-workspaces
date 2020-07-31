@@ -1,13 +1,7 @@
 import { fixDuplicates as _fixDuplicates, listDuplicates as _listDuplicates } from 'yarn-deduplicate';
 import { IYarnLockfileParseObject } from './types';
 import { stringify } from './parse';
-
-export interface IOptionsDedupe
-{
-	includePackages?: string[],
-	excludePackages?: string[],
-	useMostCommon?: boolean,
-}
+import { IOptionsDedupe } from '@yarn-tool/yarnlock-dedupe/lib/types';
 
 export function listDuplicates(yarnlock_old: IYarnLockfileParseObject | string, options?: IOptionsDedupe): string[]
 {
