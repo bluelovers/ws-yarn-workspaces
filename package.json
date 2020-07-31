@@ -42,6 +42,7 @@
     "array-hyper-unique": "^1.1.9",
     "chalk": "< 3 && >= 2",
     "debug-color2": "^1.2.3",
+    "crlf-normalize": "^1.0.5",
     "semver": "^7.3.2"
   },
   "devDependencies": {
