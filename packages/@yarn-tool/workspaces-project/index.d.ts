@@ -40,8 +40,12 @@ export declare class WorkspacesProject {
     } & {
         concurrency?: number;
         bump?: IReleaseType;
+        allowBranch?: string[];
         conventionalCommits?: boolean;
         changelogPreset?: string;
+        exact?: boolean;
+        createRelease?: "gitlab" | "github";
+        noPrivate?: boolean;
     }, string | number> & Pick<{
         [k: string]: unknown;
         allowBranch?: string[];
@@ -49,9 +53,13 @@ export declare class WorkspacesProject {
     } | {
         concurrency?: number;
         bump?: IReleaseType;
+        allowBranch?: string[];
         conventionalCommits?: boolean;
         changelogPreset?: string;
-    }, "changelogPreset" | "concurrency" | "bump" | "conventionalCommits"> & Pick<{
+        exact?: boolean;
+        createRelease?: "gitlab" | "github";
+        noPrivate?: boolean;
+    }, "changelogPreset" | "concurrency" | "bump" | "conventionalCommits" | "allowBranch" | "noPrivate" | "exact" | "createRelease"> & Pick<{
         [k: string]: unknown;
         ignoreChanges?: string[];
         message?: string;
@@ -61,6 +69,9 @@ export declare class WorkspacesProject {
         conventionalCommits?: boolean;
         conventionalGraduate?: boolean;
         distTag?: string;
+        npmClient?: string;
+        allowBranch?: string[];
+        noPrivate?: boolean;
     }, string | number> & Pick<{
         [k: string]: unknown;
         ignoreChanges?: string[];
@@ -71,7 +82,10 @@ export declare class WorkspacesProject {
         conventionalCommits?: boolean;
         conventionalGraduate?: boolean;
         distTag?: string;
-    }, "concurrency" | "bump" | "conventionalCommits" | "conventionalGraduate" | "distTag">, {
+        npmClient?: string;
+        allowBranch?: string[];
+        noPrivate?: boolean;
+    }, "concurrency" | "bump" | "conventionalCommits" | "conventionalGraduate" | "distTag" | "npmClient" | "allowBranch" | "noPrivate">, {
         changelogPreset: unknown;
         conventionalGraduate: unknown;
         bump: IReleaseType;
