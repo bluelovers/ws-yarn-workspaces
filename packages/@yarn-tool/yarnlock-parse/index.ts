@@ -23,7 +23,7 @@ export interface IYarnLockParsedV2<D extends Record<string, any> = Record<string
 	data: D,
 }
 
-export function yarnLockParse(yarnlock_old: Record<string, any> | Buffer | string): IYarnLockParsedV1 | IYarnLockParsedV2
+export function yarnLockParse(yarnlock_old: Buffer | string): IYarnLockParsedV1 | IYarnLockParsedV2
 {
 	let verType = detectYarnLockVersion(yarnlock_old as string);
 	let data;
@@ -32,11 +32,11 @@ export function yarnLockParse(yarnlock_old: Record<string, any> | Buffer | strin
 	switch (verType)
 	{
 		case EnumDetectYarnLock.berry:
-			({ __metadata: meta, ...data } = parseSyml(yarnlock_old as any as string));
+			({ __metadata: meta, ...data } = parseSyml(yarnlock_old.toString()));
 
 			break;
 		case EnumDetectYarnLock.v1:
-			({ object: data, ...meta } = parse(yarnlock_old as any as string));
+			({ object: data, ...meta } = parse(yarnlock_old.toString()));
 
 			break;
 		default:

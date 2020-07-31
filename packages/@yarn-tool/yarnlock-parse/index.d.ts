@@ -15,7 +15,7 @@ export interface IYarnLockParsedV2<D extends Record<string, any> = Record<string
     };
     data: D;
 }
-export declare function yarnLockParse(yarnlock_old: Record<string, any> | Buffer | string): IYarnLockParsedV1 | IYarnLockParsedV2;
+export declare function yarnLockParse(yarnlock_old: Buffer | string): IYarnLockParsedV1 | IYarnLockParsedV2;
 export declare function isYarnLockParsedV1<T extends Record<string, any>>(data: any): data is IYarnLockParsedV1<T>;
 export declare function isYarnLockParsedV2<T extends Record<string, any>>(data: any): data is IYarnLockParsedV2<T>;
 export default yarnLockParse;

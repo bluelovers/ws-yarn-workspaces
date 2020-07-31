@@ -11,10 +11,10 @@ function yarnLockParse(yarnlock_old) {
     let meta;
     switch (verType) {
         case types_1.EnumDetectYarnLock.berry:
-            ({ __metadata: meta, ...data } = parsers_1.parseSyml(yarnlock_old));
+            ({ __metadata: meta, ...data } = parsers_1.parseSyml(yarnlock_old.toString()));
             break;
         case types_1.EnumDetectYarnLock.v1:
-            ({ object: data, ...meta } = lockfile_1.parse(yarnlock_old));
+            ({ object: data, ...meta } = lockfile_1.parse(yarnlock_old.toString()));
             break;
         default:
             throw new TypeError(`can't detect yarn.lock`);
