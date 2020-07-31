@@ -1,7 +1,8 @@
 import { readFileSync } from "fs";
 import { join, dirname } from "path";
-import detectYarnLockVersion, { EnumDetectYarnLock } from '../lib/detectYarnLockVersion';
+import detectYarnLockVersion from '../lib/detectYarnLockVersion';
 import { detectYarnLockVersionByFile, detectYarnLockVersionByDir } from '../lib/detectYarnLockVersionByFile';
+import { EnumDetectYarnLock } from '../lib/types';
 
 const __res = join(__dirname, 'res');
 

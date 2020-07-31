@@ -1,11 +1,4 @@
-
-export enum EnumDetectYarnLock
-{
-	v1 = 1,
-	v2 = 2,
-	berry = 2,
-	unknown = 0,
-}
+import { EnumDetectYarnLock } from './types';
 
 export function detectYarnLockVersion(buf: Buffer | string)
 {
