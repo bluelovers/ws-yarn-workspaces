@@ -1,3 +1,4 @@
 /// <reference types="node" />
 import { IComputedPackage } from './types';
-export declare function buildComputedPackage(yarnLockContentList: (Buffer | string)[], alreadyComputedPackage?: IComputedPackage): IComputedPackage;
+import { ITSValueOrArray } from 'ts-type/lib/type/base';
+export declare function buildComputedPackage(yarnLockContentList: ITSValueOrArray<Buffer | string>, alreadyComputedPackage?: IComputedPackage): IComputedPackage;
