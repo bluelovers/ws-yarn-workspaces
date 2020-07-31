@@ -3,7 +3,9 @@ import { detectYarnLockVersion } from '@yarn-tool/detect-yarnlock-version/lib/de
 import { EnumDetectYarnLock } from '@yarn-tool/detect-yarnlock-version/lib/types';
 import { parseSyml } from '@yarnpkg/parsers';
 
-export interface IYarnLockParseV1<D extends Record<string, any> = Record<string, any>>
+export type IYarnLockParsed = IYarnLockParsedV1 | IYarnLockParsedV2;
+
+export interface IYarnLockParsedV1<D extends Record<string, any> = Record<string, any>>
 {
 	verType: EnumDetectYarnLock.v1,
 	meta?: {
@@ -12,7 +14,7 @@ export interface IYarnLockParseV1<D extends Record<string, any> = Record<string,
 	data: D,
 }
 
-export interface IYarnLockParseV2<D extends Record<string, any> = Record<string, any>>
+export interface IYarnLockParsedV2<D extends Record<string, any> = Record<string, any>>
 {
 	verType: EnumDetectYarnLock.berry,
 	meta?: {
@@ -21,7 +23,7 @@ export interface IYarnLockParseV2<D extends Record<string, any> = Record<string,
 	data: D,
 }
 
-export function yarnLockParse(yarnlock_old: Record<string, any> | Buffer | string): IYarnLockParseV1 | IYarnLockParseV2
+export function yarnLockParse(yarnlock_old: Record<string, any> | Buffer | string): IYarnLockParsedV1 | IYarnLockParsedV2
 {
 	let verType = detectYarnLockVersion(yarnlock_old as string);
 	let data;
@@ -48,14 +50,14 @@ export function yarnLockParse(yarnlock_old: Record<string, any> | Buffer | strin
 	} as any
 }
 
-export function isYarnLockParseV1<T extends Record<string, any>>(data): data is IYarnLockParseV1<T>
+export function isYarnLockParsedV1<T extends Record<string, any>>(data): data is IYarnLockParsedV1<T>
 {
-	return (data as IYarnLockParseV1).verType === EnumDetectYarnLock.v1
+	return (data as IYarnLockParsedV1).verType === EnumDetectYarnLock.v1
 }
 
-export function isYarnLockParseV2<T extends Record<string, any>>(data): data is IYarnLockParseV2<T>
+export function isYarnLockParsedV2<T extends Record<string, any>>(data): data is IYarnLockParsedV2<T>
 {
-	return (data as IYarnLockParseV2).verType === EnumDetectYarnLock.v2
+	return (data as IYarnLockParsedV2).verType === EnumDetectYarnLock.v2
 }
 
 export default yarnLockParse

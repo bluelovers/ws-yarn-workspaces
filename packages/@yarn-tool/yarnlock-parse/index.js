@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isYarnLockParseV2 = exports.isYarnLockParseV1 = exports.yarnLockParse = void 0;
+exports.isYarnLockParsedV2 = exports.isYarnLockParsedV1 = exports.yarnLockParse = void 0;
 const lockfile_1 = require("@yarnpkg/lockfile");
 const detectYarnLockVersion_1 = require("@yarn-tool/detect-yarnlock-version/lib/detectYarnLockVersion");
 const types_1 = require("@yarn-tool/detect-yarnlock-version/lib/types");
@@ -26,13 +26,13 @@ function yarnLockParse(yarnlock_old) {
     };
 }
 exports.yarnLockParse = yarnLockParse;
-function isYarnLockParseV1(data) {
+function isYarnLockParsedV1(data) {
     return data.verType === types_1.EnumDetectYarnLock.v1;
 }
-exports.isYarnLockParseV1 = isYarnLockParseV1;
-function isYarnLockParseV2(data) {
+exports.isYarnLockParsedV1 = isYarnLockParsedV1;
+function isYarnLockParsedV2(data) {
     return data.verType === types_1.EnumDetectYarnLock.v2;
 }
-exports.isYarnLockParseV2 = isYarnLockParseV2;
+exports.isYarnLockParsedV2 = isYarnLockParsedV2;
 exports.default = yarnLockParse;
 //# sourceMappingURL=index.js.map

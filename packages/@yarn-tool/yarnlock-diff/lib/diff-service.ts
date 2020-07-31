@@ -1,7 +1,7 @@
 import { diff, Diff } from "deep-diff";
 import { fromNullable, Option } from "fp-ts/lib/Option";
-import { parse } from '@yarnpkg/lockfile';
-import { computeHashmapOfPackageAndVersionList } from './diff-service/v1/computeHashmapOfPackageAndVersionList';
+import { yarnLockParse } from '@yarn-tool/yarnlock-parse/index';
+import { computeHashmapOfPackageAndVersionList } from './diff-service/computeHashmapOfPackageAndVersionList';
 
 export function buildDiff(
 	oldYarnLockContent: string[],
@@ -9,13 +9,11 @@ export function buildDiff(
 ): Option<Diff<{}, {}>[]>
 {
 	const oldPacakges = oldYarnLockContent
-		.map(v => parse(v))
-		.map(data => data.object)
+		.map(v => yarnLockParse(v))
 		.reduce(computeHashmapOfPackageAndVersionList, {});
 
 	const newPackages = newYarnLockContent
-		.map(v => parse(v))
-		.map(data => data.object)
+		.map(v => yarnLockParse(v))
 		.reduce(computeHashmapOfPackageAndVersionList, {});
 
 	return fromNullable(diff(oldPacakges, newPackages));
