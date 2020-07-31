@@ -2,6 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports._diffArray = void 0;
 const formatVersion_1 = require("./formatVersion");
+/**
+ * @deprecated
+ */
 function _diffArray(array) {
     const item = array.item;
     switch (item.kind) {
@@ -19,4 +22,4 @@ function _diffArray(array) {
     }
 }
 exports._diffArray = _diffArray;
-//# sourceMappingURL=diffArray.js.map
+//# sourceMappingURL=diffArray001.js.map

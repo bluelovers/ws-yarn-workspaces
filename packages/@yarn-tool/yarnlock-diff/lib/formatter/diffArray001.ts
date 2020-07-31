@@ -1,6 +1,9 @@
 import { DiffArray } from 'deep-diff';
 import { _formatVersion } from './formatVersion';
 
+/**
+ * @deprecated
+ */
 export function _diffArray(array: DiffArray<{}, {}>): [string, string]
 {
 	const item = array.item;

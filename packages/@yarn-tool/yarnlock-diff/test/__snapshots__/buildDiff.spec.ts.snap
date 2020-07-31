@@ -1,54 +1,76 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`buildDiff yarn.lock 1`] = `
-Object {
-  "_tag": "Some",
-  "value": Array [
-    DiffEdit {
-      "kind": "E",
-      "lhs": "7.0.2",
-      "path": Array [
-        "@babel/code-frame",
-        0,
-      ],
-      "rhs": "7.0.0",
-    },
-    DiffEdit {
-      "kind": "E",
-      "lhs": "7.3.5",
-      "path": Array [
-        "@babel/generator",
-        1,
-      ],
-      "rhs": "7.3.4",
-    },
-    DiffEdit {
-      "kind": "E",
-      "lhs": "6.3.7",
-      "path": Array [
-        "@babel/generator",
-        0,
-      ],
-      "rhs": "6.3.4",
-    },
-    DiffDeleted {
+exports[`buildDiff v2.lock 1`] = `
+Array [
+  DiffArray {
+    "index": 1,
+    "item": DiffDeleted {
       "kind": "D",
-      "lhs": Array [
-        "7.3.4",
-      ],
-      "path": Array [
-        "@babel/types",
-      ],
+      "lhs": "1.0.20",
     },
-    DiffNew {
-      "kind": "N",
-      "path": Array [
-        "@babel/parser",
-      ],
-      "rhs": Array [
-        "7.3.4",
-      ],
-    },
-  ],
-}
+    "kind": "A",
+    "path": Array [
+      "@bluelovers/tsconfig",
+    ],
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "1.0.19",
+    "path": Array [
+      "@bluelovers/tsconfig",
+      0,
+    ],
+    "rhs": "1.0.20",
+  },
+]
+`;
+
+exports[`buildDiff yarn.lock 1`] = `
+Array [
+  DiffEdit {
+    "kind": "E",
+    "lhs": "7.0.2",
+    "path": Array [
+      "@babel/code-frame",
+      0,
+    ],
+    "rhs": "7.0.0",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "7.3.5",
+    "path": Array [
+      "@babel/generator",
+      1,
+    ],
+    "rhs": "7.3.4",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "6.3.7",
+    "path": Array [
+      "@babel/generator",
+      0,
+    ],
+    "rhs": "6.3.4",
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "7.3.4",
+    ],
+    "path": Array [
+      "@babel/types",
+    ],
+  },
+  DiffNew {
+    "kind": "N",
+    "path": Array [
+      "@babel/parser",
+    ],
+    "rhs": Array [
+      "7.3.4",
+    ],
+  },
+]
 `;

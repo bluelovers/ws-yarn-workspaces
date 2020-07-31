@@ -1,2 +1,2 @@
-import { Diff } from "deep-diff";
-export declare function buildDiffTable(diff: Diff<{}, {}>[]): string;
+import { buildDiffTable } from './formatter/buildDiffTable002';
+export { buildDiffTable };

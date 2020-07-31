@@ -26,7 +26,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\"",
+    "test": "jest",
     "preversion": "yarn run test",
     "prepublishOnly_": "echo prepublishOnly",
     "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
@@ -35,11 +35,13 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
+    "@yarn-tool/semver-diff": "^1.0.10",
+    "@yarn-tool/table": "^1.0.18",
     "@yarn-tool/yarnlock-parse": "^1.0.0",
-    "chalk": "^4.1.0",
-    "cli-table": "^0.3.1",
+    "@yarnpkg/parsers": "^2.1.0",
+    "array-hyper-unique": "^1.1.9",
+    "debug-color2": "^1.2.3",
     "deep-diff": "^1.0.2",
-    "fp-ts": "^2.7.1",
     "semver": "^7.3.2",
     "ts-type": "^1.2.32"
   },
