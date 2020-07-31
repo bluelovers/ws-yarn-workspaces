@@ -1,4 +1,6 @@
 import { EnumDetectYarnLock } from './types';
+import { parseSyml } from '@yarnpkg/parsers';
+import detectYarnLockVersionByObject from './detectYarnLockVersionByObject';
 
 export function detectYarnLockVersion(buf: Buffer | string)
 {
@@ -12,8 +14,26 @@ export function detectYarnLockVersion(buf: Buffer | string)
 	{
 		return EnumDetectYarnLock.berry
 	}
+	else if (tryParse(buf))
+	{
+		return EnumDetectYarnLock.berry
+	}
 
 	return EnumDetectYarnLock.unknown
+}
+
+function tryParse(buf: Buffer | string)
+{
+	try
+	{
+		let json = parseSyml(buf.toString())
+
+		return detectYarnLockVersionByObject(json) === EnumDetectYarnLock.berry
+	}
+	catch (e)
+	{
+
+	}
 }
 
 export default detectYarnLockVersion;
