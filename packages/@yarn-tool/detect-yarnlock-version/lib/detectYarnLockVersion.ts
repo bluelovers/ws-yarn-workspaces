@@ -9,7 +9,7 @@ export enum EnumDetectYarnLock
 
 export function detectYarnLockVersion(buf: Buffer | string)
 {
-	let head = buf.slice(0, 160).toString()
+	let head = buf.slice(0, 160).toString().trim();
 
 	if (head.includes('# yarn lockfile v1'))
 	{

@@ -9,7 +9,7 @@ var EnumDetectYarnLock;
     EnumDetectYarnLock[EnumDetectYarnLock["unknown"] = 0] = "unknown";
 })(EnumDetectYarnLock = exports.EnumDetectYarnLock || (exports.EnumDetectYarnLock = {}));
 function detectYarnLockVersion(buf) {
-    let head = buf.slice(0, 160).toString();
+    let head = buf.slice(0, 160).toString().trim();
     if (head.includes('# yarn lockfile v1')) {
         return EnumDetectYarnLock.v1;
     }
