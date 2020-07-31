@@ -24,11 +24,11 @@
     "ncu": "yarn-tool ncu -u",
     "sort-package-json": "yarn-tool sort"
   },
-  "publishConfig": {
-    "access": "public"
-  },
   "dependencies": {
     "@yarnpkg/parsers": "^2.1.0"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "publishConfig": {
+    "access": "public"
+  }
 }
