@@ -15,12 +15,7 @@
   },
   "license": "MIT",
   "author": "TychoTa @tychota",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "typings": "lib/index.d.ts",
-  "bin": {
-    "yarn-lock-diff": "bin/run"
-  },
+  "main": "index.js",
   "directories": {
     "lib": "lib",
     "test": "test"

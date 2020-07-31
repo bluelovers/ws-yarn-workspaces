@@ -1,5 +1,5 @@
-import { IOptionsParseVersionsDiff } from '@yarn-tool/semver-diff';
-import { IChalk } from 'debug-color2';
-import { DiffArray } from 'deep-diff';
-export declare function yarnLockDiff(yarnlock_old: string, yarnlock_new: string, options?: IOptionsParseVersionsDiff): string;
-export declare function _diffArray(array: DiffArray<{}, {}>, chalk: IChalk): string[];
+import { yarnLockDiff } from '@yarn-tool/yarnlock-diff';
+import { _diffArray } from '@yarn-tool/yarnlock-diff/lib/formatter/diffArray002';
+export { yarnLockDiff };
+export { _diffArray };
+export default yarnLockDiff;

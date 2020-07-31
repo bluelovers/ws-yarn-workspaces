@@ -47,6 +47,7 @@
     "@yarn-tool/detect-yarnlock-version": "^1.0.2",
     "@yarn-tool/find-root": "^1.0.33",
     "@yarn-tool/table": "^1.0.18",
+    "@yarn-tool/yarnlock-diff": "^1.0.0",
     "@yarn-tool/yarnlock-stringify": "^1.0.0",
     "@yarnpkg/lockfile": "^1.1.0",
     "@yarnpkg/parsers": "^2.1.0",
@@ -55,10 +56,7 @@
     "fs-extra": "^9.0.1",
     "semver": "^7.3.2",
     "ts-type": "^1.2.32",
-    "upath2": "^3.1.5",
-    "yarn-berry-deduplicate": "^2.0.0",
-    "yarn-deduplicate": "^2.1.1",
-    "yarn-lock-diff": "^0.0.0"
+    "upath2": "^3.1.5"
   },
   "publishConfig": {
     "access": "public"
