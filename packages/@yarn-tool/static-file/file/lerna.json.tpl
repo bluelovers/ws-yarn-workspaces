@@ -24,10 +24,12 @@
       ],
       "message": "chore(release): publish",
       "bump": "patch",
+      "noPrivate": true,
       "conventionalCommits": true,
       "conventionalGraduate": false
     },
     "version": {
+      "noPrivate": true,
       "conventionalCommits": true,
       "changelogPreset": "@bluelovers/conventional-changelog-bluelovers"
     },
