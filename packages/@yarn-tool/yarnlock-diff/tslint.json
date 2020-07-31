@@ -1,0 +1,9 @@
+{
+  "extends": "@oclif/tslint",
+  "rules": {
+    "quotemark": [true, "double", "jsx-double"],
+    "object-curly-spacing": "always",
+    "semicolon": [true, "always", "strict-bound-class-methods"],
+    "ter-indent": [false]
+  }
+}
