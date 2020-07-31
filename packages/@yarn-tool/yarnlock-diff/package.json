@@ -1,61 +1,48 @@
 {
-  "name": "yarn-lock-diff",
+  "name": "@yarn-tool/yarnlock-diff",
+  "version": "1.0.0",
   "description": "given one or many old yarn.lock, and one or many new yarn.lock, compute the diff",
-  "version": "0.0.0",
-  "author": "TychoTa @tychota",
-  "bin": {
-    "yarn-lock-diff": "./bin/run"
-  },
-  "bugs": "https://github.com/tychota/yarn-lock-diff/issues",
-  "dependencies": {
-    "@oclif/command": "^1",
-    "@oclif/config": "^1",
-    "@oclif/errors": "^1.2.2",
-    "@oclif/plugin-help": "^2",
-    "@types/chalk": "^2.2.0",
-    "@types/cli-table": "^0.3.0",
-    "@yarnpkg/lockfile": "^1.1.0",
-    "chalk": "^2.4.2",
-    "cli-table": "^0.3.1",
-    "deep-diff": "^1.0.2",
-    "fp-ts": "^1.14.3",
-    "tslib": "^1"
-  },
-  "devDependencies": {
-    "@oclif/test": "^1",
-    "@oclif/tslint": "^3",
-    "@types/chai": "^4",
-    "@types/deep-diff": "^1.0.0",
-    "@types/mocha": "^5",
-    "@types/node": "^11.10.5",
-    "chai": "^4",
-    "mocha": "^6.0.2",
-    "nyc": "^13",
-    "ts-node": "^8.0.3",
-    "tslint": "^5",
-    "typescript": "^3.3"
-  },
-  "engines": {
-    "node": ">=8.0.0"
-  },
-  "files": [
-    "/bin",
-    "/lib"
-  ],
-  "homepage": "https://github.com/tychota/yarn-lock-diff",
   "keywords": [
     "oclif"
   ],
+  "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/yarnlock-diff#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/ws-yarn-workspaces.git"
+  },
   "license": "MIT",
+  "author": "TychoTa @tychota",
   "main": "lib/index.js",
-  "oclif": {
-    "bin": "yarn-lock-diff"
+  "types": "lib/index.d.ts",
+  "typings": "lib/index.d.ts",
+  "bin": {
+    "yarn-lock-diff": "bin/run"
   },
-  "repository": "tychota/yarn-lock-diff",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
   "scripts": {
-    "posttest": "tslint -p test -t stylish",
-    "prepack": "rm -rf lib && tsc -b",
-    "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\""
+    "test": "echo \"Error: no test specified\"",
+    "preversion": "yarn run test",
+    "prepublishOnly_": "echo prepublishOnly",
+    "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
+    "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
+    "ncu": "yarn-tool ncu -u",
+    "sort-package-json": "yarn-tool sort"
   },
-  "types": "lib/index.d.ts"
+  "dependencies": {
+    "@yarnpkg/lockfile": "^1.1.0",
+    "chalk": "^4.1.0",
+    "cli-table": "^0.3.1",
+    "deep-diff": "^1.0.2",
+    "fp-ts": "^2.7.1"
+  },
+  "devDependencies": {},
+  "publishConfig": {
+    "access": "public"
+  }
 }
