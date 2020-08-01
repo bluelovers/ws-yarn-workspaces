@@ -2,6 +2,11 @@ import { EnumDetectYarnLock } from './types';
 
 export function detectYarnLockVersionByObject(yarnLockObject: Record<string, any>)
 {
+	if (typeof yarnLockObject !== 'object')
+	{
+		return EnumDetectYarnLock.unknown
+	}
+
 	if (yarnLockObject.__metadata?.version?.toString() === '4' && checkV2(yarnLockObject))
 	{
 		return EnumDetectYarnLock.berry

@@ -4,6 +4,9 @@ exports.checkV1 = exports.checkV2 = exports.detectYarnLockVersionByObject = void
 const types_1 = require("./types");
 function detectYarnLockVersionByObject(yarnLockObject) {
     var _a, _b;
+    if (typeof yarnLockObject !== 'object') {
+        return types_1.EnumDetectYarnLock.unknown;
+    }
     if (((_b = (_a = yarnLockObject.__metadata) === null || _a === void 0 ? void 0 : _a.version) === null || _b === void 0 ? void 0 : _b.toString()) === '4' && checkV2(yarnLockObject)) {
         return types_1.EnumDetectYarnLock.berry;
     }
