@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/ncu",
-  "version": "1.0.33",
+  "version": "1.0.34",
   "description": "",
   "keywords": [
     "cli",
@@ -45,7 +45,7 @@
     "@ts-type/package-dts": "^1.0.43",
     "@yarn-tool/semver-diff": "^1.0.11",
     "@yarn-tool/table": "^1.0.19",
-    "@yarn-tool/yarnlock": "^1.0.26",
+    "@yarn-tool/yarnlock": "^1.0.27",
     "bluebird": "^3.7.2",
     "npm-check-updates": "^7.0.2",
     "package-json": "^6.5.0",
