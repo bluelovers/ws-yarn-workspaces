@@ -13,5 +13,5 @@ export function buildDiff(
 
 	const newPackages = buildComputedPackage(newYarnLockContent);
 
-	return diff(oldPacakges, newPackages);
+	return diff(oldPacakges, newPackages) ?? [];
 }
