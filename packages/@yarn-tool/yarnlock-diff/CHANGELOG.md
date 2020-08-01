@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-diff@1.0.2...@yarn-tool/yarnlock-diff@1.0.3) (2020-08-01)
+
+
+### 🐛　Bug Fixes
+
+* fix Cannot read property 'map' of undefined ([962f6b9](https://github.com/bluelovers/ws-yarn-workspaces/commit/962f6b923761d7396c9f5f929ecb437e5caa8ee9))
+
+
+
+
+
 ## [1.0.2](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-diff@1.0.1...@yarn-tool/yarnlock-diff@1.0.2) (2020-08-01)
 
 **Note:** Version bump only for package @yarn-tool/yarnlock-diff
