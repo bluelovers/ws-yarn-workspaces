@@ -2,12 +2,11 @@ import { nextVersionRecommendedByWorkspacesProject, nextVersionRecommendedByWork
 import { findRoot } from '@yarn-tool/find-root/index';
 import { readPackageJson } from '@ts-type/package-dts/index';
 import { join } from 'path';
+import { INextVersionRecommendedOptions } from './types';
 
 export function nextVersionRecommendedByPackage(pkg: {
 	version?: string
-}, options?: {
-	cwd?: string
-})
+}, options?: INextVersionRecommendedOptions)
 {
 	if (typeof pkg.version !== 'string' || !pkg.version.length)
 	{
@@ -17,9 +16,7 @@ export function nextVersionRecommendedByPackage(pkg: {
 	return nextVersionRecommendedByWorkspacesFindUp(pkg.version, options)
 }
 
-export function nextVersionRecommendedByPackageFindUp(options?: {
-	cwd?: string
-})
+export function nextVersionRecommendedByPackageFindUp(options?: INextVersionRecommendedOptions)
 {
 	options ??= {};
 	options.cwd ??= process.cwd();
@@ -28,7 +25,7 @@ export function nextVersionRecommendedByPackageFindUp(options?: {
 
 	let pkg = readPackageJson(join(rootData.pkg, 'package.json'))
 
-	return nextVersionRecommendedByPackage(pkg, {
-		cwd: rootData.root,
-	})
+	options.cwd = rootData.root;
+
+	return nextVersionRecommendedByPackage(pkg, options)
 }

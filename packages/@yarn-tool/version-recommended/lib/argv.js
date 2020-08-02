@@ -41,6 +41,7 @@ function setupToYargs(yargs) {
         boolean: true,
     })
         .option('non-interactive', {
+        alias: ['no-interactive'],
         desc: 'do not show interactive prompts',
         boolean: true,
     });

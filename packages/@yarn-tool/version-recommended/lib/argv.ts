@@ -41,6 +41,7 @@ export function setupToYargs<T>(yargs: Argv<T>)
 			boolean: true,
 		})
 		.option('non-interactive', {
+			alias: ['no-interactive'],
 			desc: 'do not show interactive prompts',
 			boolean: true,
 		})

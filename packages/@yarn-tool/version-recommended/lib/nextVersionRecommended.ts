@@ -1,13 +1,14 @@
 import { inc as semverIncrement, ReleaseType } from 'semver';
-import { INextVersionRecommended } from './types';
+import { INextVersionRecommended, INextVersionRecommendedOptions } from './types';
+import { handleOptions } from './handleOptions';
 
-export function nextVersionRecommended(oldVersion: string, options?: {
-	bump?: ReleaseType
-}): INextVersionRecommended
+export function nextVersionRecommended(oldVersion: string,
+	options?: INextVersionRecommendedOptions,
+): INextVersionRecommended
 {
-	let bump = options?.bump ?? 'patch';
+	let bump = handleOptions(options)?.bump ?? 'patch';
 
-	const newVersion = semverIncrement(oldVersion, bump)
+	const newVersion = semverIncrement(oldVersion, bump);
 
 	return {
 		bump,

@@ -18,9 +18,8 @@ function nextVersionRecommendedByPackageFindUp(options) {
     (_a = options.cwd) !== null && _a !== void 0 ? _a : (options.cwd = process.cwd());
     let rootData = index_1.findRoot(options);
     let pkg = index_2.readPackageJson(path_1.join(rootData.pkg, 'package.json'));
-    return nextVersionRecommendedByPackage(pkg, {
-        cwd: rootData.root,
-    });
+    options.cwd = rootData.root;
+    return nextVersionRecommendedByPackage(pkg, options);
 }
 exports.nextVersionRecommendedByPackageFindUp = nextVersionRecommendedByPackageFindUp;
 //# sourceMappingURL=pkg.js.map
