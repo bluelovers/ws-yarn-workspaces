@@ -272,7 +272,7 @@
   dependencies:
     string-natural-compare "^3.0.1"
 
-"@bluelovers/tsconfig@*", "@bluelovers/tsconfig@^1.0.20":
+"@bluelovers/tsconfig@^1.0.20":
   version "1.0.20"
   resolved "https://registry.npmjs.org/@bluelovers/tsconfig/-/tsconfig-1.0.20.tgz#52b7743a5dce69a3b83fd333777f9bb280049e4e"
   integrity sha512-N/06PQ5cu8bLJLes3g2JDKw0PIxfWxahRqMHMIj0WvZlnJwGRJwh8kpHKDuAcB316ZK+v+FW3qK7BowTOD31PA==
