@@ -19,4 +19,6 @@ export declare function setupToYargs<T>(yargs: Argv<T>): Argv<T & {
     prerelease: boolean;
 } & {
     "non-interactive": boolean;
+} & {
+    bump: string;
 }>;

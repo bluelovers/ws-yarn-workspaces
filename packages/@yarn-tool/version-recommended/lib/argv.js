@@ -44,6 +44,10 @@ function setupToYargs(yargs) {
         alias: ['no-interactive'],
         desc: 'do not show interactive prompts',
         boolean: true,
+    })
+        .option('bump', {
+        desc: 'bump version of packages',
+        string: true,
     });
 }
 exports.setupToYargs = setupToYargs;

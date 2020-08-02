@@ -45,4 +45,8 @@ export function setupToYargs<T>(yargs: Argv<T>)
 			desc: 'do not show interactive prompts',
 			boolean: true,
 		})
+		.option('bump', {
+			desc: 'bump version of packages',
+			string: true,
+		})
 }
