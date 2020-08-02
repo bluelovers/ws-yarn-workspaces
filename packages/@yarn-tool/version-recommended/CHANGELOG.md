@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/version-recommended@1.0.2...@yarn-tool/version-recommended@1.0.3) (2020-08-02)
+
+
+### ✨　Features
+
+* handleOptions ([27ea2c6](https://github.com/bluelovers/ws-yarn-workspaces/commit/27ea2c6c5a1af998ff800b203740f13b042da051))
+
+
+
+
+
 ## [1.0.2](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/version-recommended@1.0.1...@yarn-tool/version-recommended@1.0.2) (2020-08-02)
 
 
