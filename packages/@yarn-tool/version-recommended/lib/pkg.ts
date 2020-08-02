@@ -4,16 +4,19 @@ import { readPackageJson } from '@ts-type/package-dts/index';
 import { join } from 'path';
 import { INextVersionRecommendedOptions } from './types';
 
-export function nextVersionRecommendedByPackage(pkg: {
+export function nextVersionRecommendedByPackage<T extends {
 	version?: string
-}, options?: INextVersionRecommendedOptions)
+}>(pkg: T, options?: INextVersionRecommendedOptions)
 {
 	if (typeof pkg.version !== 'string' || !pkg.version.length)
 	{
 		throw  new TypeError(`pkg.version is require`)
 	}
 
-	return nextVersionRecommendedByWorkspacesFindUp(pkg.version, options)
+	return {
+		...nextVersionRecommendedByWorkspacesFindUp(pkg.version, options),
+		pkg,
+	}
 }
 
 export function nextVersionRecommendedByPackageFindUp(options?: INextVersionRecommendedOptions)

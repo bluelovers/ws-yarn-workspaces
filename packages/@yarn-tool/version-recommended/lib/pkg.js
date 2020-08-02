@@ -9,7 +9,10 @@ function nextVersionRecommendedByPackage(pkg, options) {
     if (typeof pkg.version !== 'string' || !pkg.version.length) {
         throw new TypeError(`pkg.version is require`);
     }
-    return ws_1.nextVersionRecommendedByWorkspacesFindUp(pkg.version, options);
+    return {
+        ...ws_1.nextVersionRecommendedByWorkspacesFindUp(pkg.version, options),
+        pkg,
+    };
 }
 exports.nextVersionRecommendedByPackage = nextVersionRecommendedByPackage;
 function nextVersionRecommendedByPackageFindUp(options) {
