@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarnlock",
-  "version": "1.0.29",
+  "version": "1.0.30",
   "description": "util for yarn.lock",
   "keywords": [
     "data deduplication",
@@ -48,7 +48,7 @@
     "@yarn-tool/find-root": "^1.0.34",
     "@yarn-tool/table": "^1.0.19",
     "@yarn-tool/yarnlock-dedupe": "^1.0.2",
-    "@yarn-tool/yarnlock-diff": "^1.0.3",
+    "@yarn-tool/yarnlock-diff": "^1.0.4",
     "@yarn-tool/yarnlock-stringify": "^1.0.2",
     "@yarnpkg/lockfile": "^1.1.0",
     "@yarnpkg/parsers": "^2.1.0",
