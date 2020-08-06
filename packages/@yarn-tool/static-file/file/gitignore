@@ -1,3 +1,4 @@
+/.*
 .idea
 node_modules
 ~ci.list.txt
@@ -97,3 +98,4 @@ jest.config.js.map
 !npm-shrinkwrap.json
 *.stat
 .vercel
+
