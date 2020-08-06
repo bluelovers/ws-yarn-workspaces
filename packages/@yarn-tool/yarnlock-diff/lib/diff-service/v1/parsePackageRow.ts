@@ -1,13 +1,20 @@
 import { IPackageData } from './types';
 import { PACKAGE_REGEX } from './const';
 import { IParsePackageRow } from '../types';
+import npa, { Result } from 'npm-package-arg';
 
 export function parsePackageRow(packageName: string, packageData: IPackageData): IParsePackageRow
 {
-	const regexResult = PACKAGE_REGEX.exec(packageName);
+	let parsed: Result;
+
+	try
+	{
+		parsed = npa(packageName);
+	}
+	catch (e) {}
 
 	const packageNameWithoutVersion =
-		regexResult?.groups?.packageName;
+		parsed?.name ?? PACKAGE_REGEX.exec(packageName)?.groups?.packageName;
 
 	if (packageNameWithoutVersion)
 	{

@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@babel/parser@* 1`] = `
+Object {
+  "name": "@babel/parser",
+  "version": "1.0.0",
+}
+`;
+
+exports[`@babel/parser@next 1`] = `
+Object {
+  "name": "@babel/parser",
+  "version": "1.0.0",
+}
+`;
