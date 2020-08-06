@@ -26,9 +26,11 @@
   },
   "dependencies": {
     "@ts-type/package-dts": "^1.0.43",
+    "@types/semver": "*",
     "@yarn-tool/find-root": "^1.0.34",
     "@yarn-tool/workspaces-project": "^1.0.27",
-    "semver": "^7.3.2"
+    "semver": "^7.3.2",
+    "ts-type": "^1.2.32"
   },
   "publishConfig": {
     "access": "public"
