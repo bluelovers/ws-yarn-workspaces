@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/workspaces-project",
-  "version": "1.0.27",
+  "version": "1.0.28",
   "description": "mixin yarn/lerna workspaces",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/workspaces-project#readme",
   "bugs": {
