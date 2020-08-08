@@ -1,0 +1,52 @@
+{
+  "name": "cache-path",
+  "version": "1.0.4",
+  "description": "return a cache directory, like `find-cache-dir` do",
+  "keywords": [
+    "cache",
+    "caching",
+    "dir",
+    "directory",
+    "find",
+    "async",
+    "sync",
+    "folder",
+    "npm",
+    "path",
+    "resolve",
+    "search",
+    "temp",
+    "tmp",
+    "yarn"
+  ],
+  "homepage": "https://github.com/bluelovers/cache-path#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/cache-path/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/cache-path.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@types/bluebird": "^3.5.26",
+    "cross-spawn": "^6.0.5",
+    "fs-extra": "^7.0.1",
+    "hash-sum": "^1.0.2",
+    "pkg-dir": "^4.1.0",
+    "bluebird": "^3.5.4",
+    "strip-ansi": "^5.2.0"
+  },
+  "devDependencies": {
+    "@types/cross-spawn": "^6.0.0",
+    "pkg-up": "^3.1.0"
+  }
+}

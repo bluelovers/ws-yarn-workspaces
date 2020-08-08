@@ -1,0 +1,74 @@
+# Created by .ignore support plugin (hsz.mobi)
+### npm2 template
+.idea
+
+*.ts
+!*.d.ts
+
+~ci.list.txt
+~ci.log.txt
+~ci.errors.txt
+
+*.stackdump
+*.bak
+*.old
+
+tsconfig.json
+#package-lock.json
+
+test
+
+.github
+.gitkeep
+
+/.*
+
+test
+tests
+
+.github
+.gitkeep
+
+/.*
+
+/~*
+
+__test__
+__tests__
+
+/node_modules/
+**/node_modules/
+### test template
+*.spec.ts
+*.spec.js
+*.spec.js.map
+*.test.ts
+*.test.js
+*.test.js.map
+### temp template
+/~*
+~ci.list.txt
+~ci.log.txt
+~ci.errors.txt
+
+*.stackdump
+*.bak
+*.old
+
+/*.log
+/*.lock
+
+*.tmp
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+
+
+/readme/
+/readme/*
+/bin/*.d.ts
