@@ -44,6 +44,7 @@
     "crlf-normalize": "^1.0.5",
     "debug-color2": "^1.2.3",
     "inquirer": "^7.3.3",
+    "package-json": "^6.5.0",
     "semver": "^7.3.2"
   },
   "devDependencies": {
