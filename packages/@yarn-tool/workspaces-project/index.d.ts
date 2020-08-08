@@ -59,7 +59,7 @@ export declare class WorkspacesProject {
         exact?: boolean;
         createRelease?: "gitlab" | "github";
         noPrivate?: boolean;
-    }, "bump" | "changelogPreset" | "concurrency" | "conventionalCommits" | "allowBranch" | "noPrivate" | "exact" | "createRelease"> & Pick<{
+    }, "changelogPreset" | "concurrency" | "bump" | "conventionalCommits" | "allowBranch" | "noPrivate" | "exact" | "createRelease"> & Pick<{
         [k: string]: unknown;
         ignoreChanges?: string[];
         message?: string;
@@ -85,7 +85,7 @@ export declare class WorkspacesProject {
         npmClient?: string;
         allowBranch?: string[];
         noPrivate?: boolean;
-    }, "bump" | "concurrency" | "conventionalCommits" | "conventionalGraduate" | "distTag" | "npmClient" | "allowBranch" | "noPrivate">, {
+    }, "concurrency" | "bump" | "conventionalCommits" | "conventionalGraduate" | "distTag" | "npmClient" | "allowBranch" | "noPrivate">, {
         changelogPreset: unknown;
         conventionalGraduate: unknown;
         bump: IReleaseType;
