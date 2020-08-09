@@ -35,4 +35,5 @@ export interface IOptions extends DirOptions {
      */
     disableDefaultFailback?: boolean;
     processEnv?: NodeJS.ProcessEnv;
+    randomIfNoName?: boolean;
 }

@@ -15,11 +15,11 @@ export function getCachePath(options: IOptions & {
 	thunk: true,
 }): ICachePathThunk
 // @ts-ignore
-export function getCachePath(name: string, options?: IOptions & {
+export function getCachePath(name: string, options: IOptions & {
 	thunk: true,
 }): ICachePathThunk
 export function getCachePath(name: string, options?: IOptions): string
-export function getCachePath(options: IOptions): string
+export function getCachePath(options?: IOptions): string
 export function getCachePath(_options: IOptions, opt?)
 {
 	let options: IOptions;
@@ -50,6 +50,10 @@ export function getCachePath(_options: IOptions, opt?)
 		name = normalizeName(name, options.hash);
 
 		dir = join(tmpdir, name)
+	}
+	else if (!options.randomIfNoName)
+	{
+		dir = tmpdir;
 	}
 	else
 	{
@@ -90,7 +94,7 @@ export function getCachePathAsync(name: string, options: IOptions & {
 	thunk: true,
 }): Bluebird<ICachePathThunk>
 export function getCachePathAsync(name: string, options?: IOptions): Bluebird<string>
-export function getCachePathAsync(options: IOptions): Bluebird<string>
+export function getCachePathAsync(options?: IOptions): Bluebird<string>
 export function getCachePathAsync(options: IOptions, opt?)
 {
 	return Bluebird.resolve()
@@ -120,6 +124,10 @@ export function getCachePathAsync(options: IOptions, opt?)
 				name = normalizeName(name, options.hash);
 
 				dir = join(tmpdir, name)
+			}
+			else if (!options.randomIfNoName)
+			{
+				dir = tmpdir;
 			}
 			else
 			{

@@ -52,6 +52,9 @@ function getCachePath(_options, opt) {
         name = normalizeName_1.normalizeName(name, options.hash);
         dir = upath2_1.join(tmpdir, name);
     }
+    else if (!options.randomIfNoName) {
+        dir = tmpdir;
+    }
     else {
         name = void 0;
         dir = tmp_1.dirSync({
@@ -92,6 +95,9 @@ function getCachePathAsync(options, opt) {
         if (name === null || name === void 0 ? void 0 : name.length) {
             name = normalizeName_1.normalizeName(name, options.hash);
             dir = upath2_1.join(tmpdir, name);
+        }
+        else if (!options.randomIfNoName) {
+            dir = tmpdir;
         }
         else {
             name = void 0;
