@@ -4791,20 +4791,20 @@ lowercase-keys@^2.0.0:
   resolved "https://registry.npmjs.org/lowercase-keys/-/lowercase-keys-2.0.0.tgz#2603e78b7b4b0006cbca2fbcc8a3202558ac9479"
   integrity sha512-tqNXrS78oMOE73NMxK4EMLQsQowWf8jKooH9g7xPavRT706R6bkQJ6DY2Te7QukaZsulxa30wQ7bk0pm4XiHmA==
 
-lru-cache-fs2@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.npmjs.org/lru-cache-fs2/-/lru-cache-fs2-2.0.3.tgz#8ce4db4d450af18c26c44bd9b233250dcec3dd90"
-  integrity sha512-uH4QbLw4IKJvNkBnbE1G1uu96RwOgVvWDeCbEc0c0B5nWEJc01yJmIAIXoxionyXt4rZqq9ak/orbx3mfRfLiw==
+lru-cache-fs2@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.npmjs.org/lru-cache-fs2/-/lru-cache-fs2-2.0.4.tgz#79fdd78834563b13050d0eedfa948c86ce74b727"
+  integrity sha512-9WwVaMsHhtk2XI8YuVwlqcluzGygK+lKfJLhDX/oRe2/L5SM5fd0I2tP0fAcCpfYJdW2/EgArwdlaC9eGNZ07Q==
   dependencies:
     env-paths "^2"
     err-code "^2"
     fs-extra "^9"
-    lru-cache2 "^6.0.3"
+    lru-cache2 "^6.0.4"
 
-lru-cache2@^6.0.3:
-  version "6.0.3"
-  resolved "https://registry.npmjs.org/lru-cache2/-/lru-cache2-6.0.3.tgz#cba83fbf0cb756044530682d43c1a7dee984e7fc"
-  integrity sha512-deuiwr7NoqY5lWUeTZrN//eVrkXD43aPxDDKct5T7uu/3SCmz4ziJ3Me0jZQGvhDdimmDy6tjolQ8Zc87i5VZA==
+lru-cache2@^6.0.4:
+  version "6.0.4"
+  resolved "https://registry.npmjs.org/lru-cache2/-/lru-cache2-6.0.4.tgz#bb167bdc3e29c04852f7f3d2b46046be59ab085d"
+  integrity sha512-gCFW4oZ7mn0fznMFMBuWiQrS4SXKevgsVk15cCkn6zkiZoLT4ntgLn9/tCtr1sSOL3D16PbliVodT+YD7O+EYA==
   dependencies:
     "@types/yallist" "*"
     yallist "^4"
