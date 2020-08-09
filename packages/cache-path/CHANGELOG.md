@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/bluelovers/ws-yarn-workspaces/compare/cache-path@2.0.1...cache-path@2.0.2) (2020-08-09)
+
+
+### ✨　Features
+
+* options.randomIfNoName ([5002537](https://github.com/bluelovers/ws-yarn-workspaces/commit/50025375ec379cef63d57cd4d522e53da27fc8b0))
+
+
+
+
+
 ## 2.0.1 (2020-08-09)
 
 
