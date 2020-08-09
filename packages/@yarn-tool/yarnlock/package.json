@@ -57,7 +57,7 @@
     "fs-extra": "^9.0.1",
     "semver": "^7.3.2",
     "ts-type": "^1.2.32",
-    "upath2": "^3.1.5"
+    "upath2": "^3.1.6"
   },
   "publishConfig": {
     "access": "public"
