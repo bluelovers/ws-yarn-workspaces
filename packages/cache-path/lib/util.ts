@@ -1,41 +1,75 @@
-import { SpawnSyncOptionsWithBufferEncoding } from "child_process";
-import CrossSpawn = require('cross-spawn');
-import pkgDir = require('pkg-dir');
-import stripAnsi from 'strip-ansi';
+import { defaultOrder, findPkgModuleCachePath } from './finder';
+import { array_unique_overwrite } from 'array-hyper-unique/index';
+import { findPkgModulePath, findPkgPath } from './finder/findPkgModuleCachePath';
+import { existsSync } from "fs";
+import { ensureDirSync } from 'fs-extra';
+import { isWritableDirectorySync } from '@lazy-node/is-writeable-path/index';
+import { resolve } from "upath2";
+import { IOptions } from './types';
 
-export function findPkgPath(cwd?: string): string
+export function handleOptions(options?: IOptions | string): IOptions
 {
-	let dir = cwd || process.cwd();
-	return pkgDir.sync(dir);
+	if (typeof options === 'string')
+	{
+		options = {
+			cwd: options,
+		}
+	}
+
+	options ??= {};
+
+	let {
+		cwd = process.cwd(),
+		fnOrder = defaultOrder,
+	} = options;
+
+	if (!options.disableDefaultFailback && options.fnOrder && fnOrder !== defaultOrder)
+	{
+		// @ts-ignore
+		fnOrder = fnOrder.concat(defaultOrder);
+
+		array_unique_overwrite(fnOrder);
+	}
+
+	options.cwd = resolve(cwd);
+	options.fnOrder = fnOrder;
+	options.processEnv ??= process.env;
+	options.create = !!options.create;
+
+	return options
 }
 
-export function spawn_stdout(bin: string, argv: string[] = [], options?: SpawnSyncOptionsWithBufferEncoding): string
+export function _createAble(options: IOptions, fn)
 {
-	let stdout = CrossSpawn.sync(bin, argv, options).stdout;
-
-	return stripAnsi(stdout.toString().replace(/^\s+|\s+$/, ''))
+	return (options?.create === true || fn === findPkgModuleCachePath || fn === findPkgModulePath || fn === findPkgPath)
 }
 
-export function ObjectFreezeAll<T>(obj: T)
+export function _check(dir: string, options: IOptions)
 {
-	let ret = Object.freeze(obj);
-
-	Object.keys(ret)
-		.forEach(function (key)
+	if (!dir?.length)
+	{
+		throw new Error(`can't found cache path`)
+	}
+	else if (typeof dir !== 'string')
+	{
+		throw new Error(`not a path '${dir}'`)
+	}
+	else if (!existsSync(dir))
+	{
+		if (options.create)
 		{
-			let type = typeof ret[key];
+			ensureDirSync(dir)
+		}
+		else
+		{
+			throw new Error(`path not exists '${dir}'`)
+		}
+	}
 
-			if (type === 'object' || type === 'function')
-			{
-				Object.freeze(ret[key])
-			}
-		})
-	;
+	if (!isWritableDirectorySync(dir))
+	{
+		throw new Error(`path is not writeable '${dir}'`)
+	}
 
-	return ret;
+	return true
 }
-
-export default exports as typeof import('./util');
-
-// @ts-ignore
-exports = ObjectFreezeAll(exports);

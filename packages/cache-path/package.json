@@ -1,6 +1,6 @@
 {
   "name": "cache-path",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "description": "return a cache directory, like `find-cache-dir` do",
   "keywords": [
     "cache",
@@ -19,34 +19,48 @@
     "tmp",
     "yarn"
   ],
-  "homepage": "https://github.com/bluelovers/cache-path#readme",
+  "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/cache-path#readme",
   "bugs": {
-    "url": "https://github.com/bluelovers/cache-path/issues"
+    "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bluelovers/cache-path.git"
+    "url": "git+https://github.com/bluelovers/ws-yarn-workspaces.git"
   },
   "license": "ISC",
-  "author": "",
+  "author": "bluelovers",
   "main": "index.js",
   "directories": {
+    "lib": "lib",
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\"",
+    "npm:publish": "npm publish",
+    "npm:publish:lerna": "lerna publish --yes --bump patch",
+    "preversion": "echo preversion",
+    "prepublishOnly_": "yarn run prepublishOnly:check-bin && yarn run prepublishOnly:update && yarn run test",
+    "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
+    "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
+    "postpublish_": "yarn run postpublish:changelog && yarn run postpublish:git:commit && yarn run postpublish:git:tag && yarn run postpublish:git:push",
+    "postpublish:changelog": "ynpx --quiet @yarn-tool/changelog && git add ./CHANGELOG.md",
+    "postpublish:git:commit": "git commit -m \"chore(release): publish\" . & echo postpublish:git:commit",
+    "postpublish:git:push": "git push --follow-tags",
+    "postpublish:git:tag": "ynpx --quiet @yarn-tool/tag",
+    "ncu": "yarn-tool ncu -u",
+    "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@types/bluebird": "^3.5.26",
-    "cross-spawn": "^6.0.5",
-    "fs-extra": "^7.0.1",
-    "hash-sum": "^1.0.2",
-    "pkg-dir": "^4.1.0",
-    "bluebird": "^3.5.4",
-    "strip-ansi": "^5.2.0"
+    "@lazy-node/is-writeable-path": "^1.0.1",
+    "@types/bluebird": "*",
+    "@yarn-tool/find-root": "^1.0.34",
+    "array-hyper-unique": "^1.1.9",
+    "bluebird": "^3.7.2",
+    "cross-spawn-extra": "^2.1.0",
+    "fs-extra": "^9.0.1",
+    "hash-sum": "^2.0.0",
+    "tmp": "^0.2.1",
+    "upath2": "^3.1.6"
   },
-  "devDependencies": {
-    "@types/cross-spawn": "^6.0.0",
-    "pkg-up": "^3.1.0"
-  }
+  "devDependencies": {}
 }

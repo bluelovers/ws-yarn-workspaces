@@ -1,31 +1,57 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const CrossSpawn = require("cross-spawn");
-const pkgDir = require("pkg-dir");
-const strip_ansi_1 = require("strip-ansi");
-function findPkgPath(cwd) {
-    let dir = cwd || process.cwd();
-    return pkgDir.sync(dir);
+exports._check = exports._createAble = exports.handleOptions = void 0;
+const finder_1 = require("./finder");
+const index_1 = require("array-hyper-unique/index");
+const findPkgModuleCachePath_1 = require("./finder/findPkgModuleCachePath");
+const fs_1 = require("fs");
+const fs_extra_1 = require("fs-extra");
+const index_2 = require("@lazy-node/is-writeable-path/index");
+const upath2_1 = require("upath2");
+function handleOptions(options) {
+    var _a;
+    if (typeof options === 'string') {
+        options = {
+            cwd: options,
+        };
+    }
+    options !== null && options !== void 0 ? options : (options = {});
+    let { cwd = process.cwd(), fnOrder = finder_1.defaultOrder, } = options;
+    if (!options.disableDefaultFailback && options.fnOrder && fnOrder !== finder_1.defaultOrder) {
+        // @ts-ignore
+        fnOrder = fnOrder.concat(finder_1.defaultOrder);
+        index_1.array_unique_overwrite(fnOrder);
+    }
+    options.cwd = upath2_1.resolve(cwd);
+    options.fnOrder = fnOrder;
+    (_a = options.processEnv) !== null && _a !== void 0 ? _a : (options.processEnv = process.env);
+    options.create = !!options.create;
+    return options;
 }
-exports.findPkgPath = findPkgPath;
-function spawn_stdout(bin, argv = [], options) {
-    let stdout = CrossSpawn.sync(bin, argv, options).stdout;
-    return strip_ansi_1.default(stdout.toString().replace(/^\s+|\s+$/, ''));
+exports.handleOptions = handleOptions;
+function _createAble(options, fn) {
+    return ((options === null || options === void 0 ? void 0 : options.create) === true || fn === finder_1.findPkgModuleCachePath || fn === findPkgModuleCachePath_1.findPkgModulePath || fn === findPkgModuleCachePath_1.findPkgPath);
 }
-exports.spawn_stdout = spawn_stdout;
-function ObjectFreezeAll(obj) {
-    let ret = Object.freeze(obj);
-    Object.keys(ret)
-        .forEach(function (key) {
-        let type = typeof ret[key];
-        if (type === 'object' || type === 'function') {
-            Object.freeze(ret[key]);
+exports._createAble = _createAble;
+function _check(dir, options) {
+    if (!(dir === null || dir === void 0 ? void 0 : dir.length)) {
+        throw new Error(`can't found cache path`);
+    }
+    else if (typeof dir !== 'string') {
+        throw new Error(`not a path '${dir}'`);
+    }
+    else if (!fs_1.existsSync(dir)) {
+        if (options.create) {
+            fs_extra_1.ensureDirSync(dir);
         }
-    });
-    return ret;
+        else {
+            throw new Error(`path not exists '${dir}'`);
+        }
+    }
+    if (!index_2.isWritableDirectorySync(dir)) {
+        throw new Error(`path is not writeable '${dir}'`);
+    }
+    return true;
 }
-exports.ObjectFreezeAll = ObjectFreezeAll;
-exports.default = exports;
-// @ts-ignore
-exports = ObjectFreezeAll(exports);
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidXRpbC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbInV0aWwudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFDQSwwQ0FBMkM7QUFDM0Msa0NBQW1DO0FBQ25DLDJDQUFtQztBQUVuQyxTQUFnQixXQUFXLENBQUMsR0FBWTtJQUV2QyxJQUFJLEdBQUcsR0FBRyxHQUFHLElBQUksT0FBTyxDQUFDLEdBQUcsRUFBRSxDQUFDO0lBQy9CLE9BQU8sTUFBTSxDQUFDLElBQUksQ0FBQyxHQUFHLENBQUMsQ0FBQztBQUN6QixDQUFDO0FBSkQsa0NBSUM7QUFFRCxTQUFnQixZQUFZLENBQUMsR0FBVyxFQUFFLE9BQWlCLEVBQUUsRUFBRSxPQUE0QztJQUUxRyxJQUFJLE1BQU0sR0FBRyxVQUFVLENBQUMsSUFBSSxDQUFDLEdBQUcsRUFBRSxJQUFJLEVBQUUsT0FBTyxDQUFDLENBQUMsTUFBTSxDQUFDO0lBRXhELE9BQU8sb0JBQVMsQ0FBQyxNQUFNLENBQUMsUUFBUSxFQUFFLENBQUMsT0FBTyxDQUFDLFdBQVcsRUFBRSxFQUFFLENBQUMsQ0FBQyxDQUFBO0FBQzdELENBQUM7QUFMRCxvQ0FLQztBQUVELFNBQWdCLGVBQWUsQ0FBSSxHQUFNO0lBRXhDLElBQUksR0FBRyxHQUFHLE1BQU0sQ0FBQyxNQUFNLENBQUMsR0FBRyxDQUFDLENBQUM7SUFFN0IsTUFBTSxDQUFDLElBQUksQ0FBQyxHQUFHLENBQUM7U0FDZCxPQUFPLENBQUMsVUFBVSxHQUFHO1FBRXJCLElBQUksSUFBSSxHQUFHLE9BQU8sR0FBRyxDQUFDLEdBQUcsQ0FBQyxDQUFDO1FBRTNCLElBQUksSUFBSSxLQUFLLFFBQVEsSUFBSSxJQUFJLEtBQUssVUFBVSxFQUM1QztZQUNDLE1BQU0sQ0FBQyxNQUFNLENBQUMsR0FBRyxDQUFDLEdBQUcsQ0FBQyxDQUFDLENBQUE7U0FDdkI7SUFDRixDQUFDLENBQUMsQ0FDRjtJQUVELE9BQU8sR0FBRyxDQUFDO0FBQ1osQ0FBQztBQWpCRCwwQ0FpQkM7QUFFRCxrQkFBZSxPQUFrQyxDQUFDO0FBRWxELGFBQWE7QUFDYixPQUFPLEdBQUcsZUFBZSxDQUFDLE9BQU8sQ0FBQyxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgU3Bhd25TeW5jT3B0aW9uc1dpdGhCdWZmZXJFbmNvZGluZyB9IGZyb20gXCJjaGlsZF9wcm9jZXNzXCI7XG5pbXBvcnQgQ3Jvc3NTcGF3biA9IHJlcXVpcmUoJ2Nyb3NzLXNwYXduJyk7XG5pbXBvcnQgcGtnRGlyID0gcmVxdWlyZSgncGtnLWRpcicpO1xuaW1wb3J0IHN0cmlwQW5zaSBmcm9tICdzdHJpcC1hbnNpJztcblxuZXhwb3J0IGZ1bmN0aW9uIGZpbmRQa2dQYXRoKGN3ZD86IHN0cmluZyk6IHN0cmluZ1xue1xuXHRsZXQgZGlyID0gY3dkIHx8IHByb2Nlc3MuY3dkKCk7XG5cdHJldHVybiBwa2dEaXIuc3luYyhkaXIpO1xufVxuXG5leHBvcnQgZnVuY3Rpb24gc3Bhd25fc3Rkb3V0KGJpbjogc3RyaW5nLCBhcmd2OiBzdHJpbmdbXSA9IFtdLCBvcHRpb25zPzogU3Bhd25TeW5jT3B0aW9uc1dpdGhCdWZmZXJFbmNvZGluZyk6IHN0cmluZ1xue1xuXHRsZXQgc3Rkb3V0ID0gQ3Jvc3NTcGF3bi5zeW5jKGJpbiwgYXJndiwgb3B0aW9ucykuc3Rkb3V0O1xuXG5cdHJldHVybiBzdHJpcEFuc2koc3Rkb3V0LnRvU3RyaW5nKCkucmVwbGFjZSgvXlxccyt8XFxzKyQvLCAnJykpXG59XG5cbmV4cG9ydCBmdW5jdGlvbiBPYmplY3RGcmVlemVBbGw8VD4ob2JqOiBUKVxue1xuXHRsZXQgcmV0ID0gT2JqZWN0LmZyZWV6ZShvYmopO1xuXG5cdE9iamVjdC5rZXlzKHJldClcblx0XHQuZm9yRWFjaChmdW5jdGlvbiAoa2V5KVxuXHRcdHtcblx0XHRcdGxldCB0eXBlID0gdHlwZW9mIHJldFtrZXldO1xuXG5cdFx0XHRpZiAodHlwZSA9PT0gJ29iamVjdCcgfHwgdHlwZSA9PT0gJ2Z1bmN0aW9uJylcblx0XHRcdHtcblx0XHRcdFx0T2JqZWN0LmZyZWV6ZShyZXRba2V5XSlcblx0XHRcdH1cblx0XHR9KVxuXHQ7XG5cblx0cmV0dXJuIHJldDtcbn1cblxuZXhwb3J0IGRlZmF1bHQgZXhwb3J0cyBhcyB0eXBlb2YgaW1wb3J0KCcuL3V0aWwnKTtcblxuLy8gQHRzLWlnbm9yZVxuZXhwb3J0cyA9IE9iamVjdEZyZWV6ZUFsbChleHBvcnRzKTtcbiJdfQ==
+exports._check = _check;
+//# sourceMappingURL=util.js.map
