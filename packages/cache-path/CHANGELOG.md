@@ -1,0 +1,21 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## 2.0.1 (2020-08-09)
+
+
+### 📦　Code Refactoring
+
+* code splitting ([58e30c4](https://github.com/bluelovers/ws-yarn-workspaces/commit/58e30c44f5f647718f7493869843624a97a93363))
+
+
+### 🔖　Miscellaneous
+
+* Add 'packages/cache-path/' from commit '1a7ee1aeec5749c9487b38ff7b21aabe6afc49fa' ([3eaf2c5](https://github.com/bluelovers/ws-yarn-workspaces/commit/3eaf2c5343896756f10389cb7026aeeeabb4aef9))
+
+
+### BREAKING CHANGES
+
+* 不相容於舊版

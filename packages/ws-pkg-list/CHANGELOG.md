@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.47](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-pkg-list@1.0.46...ws-pkg-list@1.0.47) (2020-08-09)
+
+
+### ♻️　Chores
+
+* update deps ([51d69c2](https://github.com/bluelovers/ws-yarn-workspaces/commit/51d69c261f22c8b31b3a425a5ac5b3bfbc454310))
+
+
+
+
+
 ## [1.0.46](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-pkg-list@1.0.45...ws-pkg-list@1.0.46) (2020-07-31)
 
 

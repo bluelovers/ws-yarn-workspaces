@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/changelog",
-  "version": "1.0.33",
+  "version": "1.0.34",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/changelog#readme",
   "bugs": {
@@ -38,14 +38,14 @@
   },
   "dependencies": {
     "@lerna/conventional-commits": "^3.22.0",
-    "@yarn-tool/find-root": "^1.0.34",
+    "@yarn-tool/find-root": "^1.0.35",
     "@yarn-tool/semver-diff": "^1.0.11",
     "@yarn-tool/table": "^1.0.19",
     "lodash": "^4.17.19",
     "path-is-same": "^1.0.5",
     "ts-type": "^1.2.32",
     "upath2": "^3.1.6",
-    "ws-pkg-list": "^1.0.46",
+    "ws-pkg-list": "^1.0.47",
     "yargs": "*"
   },
   "peerDependencies": {
