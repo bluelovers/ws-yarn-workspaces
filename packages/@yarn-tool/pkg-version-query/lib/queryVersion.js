@@ -11,8 +11,8 @@ const index_1 = require("@lazy-node/semver-ampersand/index");
 const createCacheKey_1 = require("./createCacheKey");
 const core_1 = require("./core");
 const queryVersionCacheRaw_1 = require("./queryVersionCacheRaw");
-function queryVersionWithCache(name, targetVersion = 'latest') {
-    return bluebird_1.default.resolve(queryVersionCacheRaw_1.queryVersionCacheRaw(name, targetVersion))
+function queryVersionWithCache(name, targetVersion = 'latest', options) {
+    return bluebird_1.default.resolve(queryVersionCacheRaw_1.queryVersionCacheRaw(name, targetVersion, options))
         .then(data => {
         var _a;
         if (data === null || data === void 0 ? void 0 : data.error) {
@@ -21,11 +21,17 @@ function queryVersionWithCache(name, targetVersion = 'latest') {
         else if (data === null || data === void 0 ? void 0 : data.result) {
             return data.result;
         }
-        return queryVersion(name, (_a = data === null || data === void 0 ? void 0 : data.version) !== null && _a !== void 0 ? _a : targetVersion);
+        return queryVersion(name, (_a = data === null || data === void 0 ? void 0 : data.version) !== null && _a !== void 0 ? _a : targetVersion, true, options)
+            .catch(e => {
+            if (data === null || data === void 0 ? void 0 : data.result) {
+                return data.result;
+            }
+            return Promise.reject(e);
+        });
     });
 }
 exports.queryVersionWithCache = queryVersionWithCache;
-function queryVersion(name, targetVersion = 'latest', save = true) {
+function queryVersion(name, targetVersion = 'latest', save = true, options) {
     let version = targetVersion !== null && targetVersion !== void 0 ? targetVersion : (targetVersion = 'latest');
     let key = createCacheKey_1._createCacheKey(name, targetVersion);
     return core_1._queryVersion(name, {
@@ -47,10 +53,10 @@ function queryVersion(name, targetVersion = 'latest', save = true) {
         if (bool) {
             return Promise.reject(e);
         }
-        return queryVersion(name, version, false);
+        return queryVersion(name, version, false, options);
     })
         .tapCatch(package_json_1.VersionNotFoundError, package_json_1.PackageNotFoundError, (error) => {
-        save && cacheAgent_1.getCache().set(key, {
+        save && cacheAgent_1.getCache(options).set(key, {
             key,
             name,
             version,
@@ -58,7 +64,7 @@ function queryVersion(name, targetVersion = 'latest', save = true) {
         });
     })
         .tap(result => {
-        save && cacheAgent_1.getCache().set(key, {
+        save && cacheAgent_1.getCache(options).set(key, {
             key,
             name,
             version,

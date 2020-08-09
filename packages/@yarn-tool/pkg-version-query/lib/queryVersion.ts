@@ -1,14 +1,15 @@
-import { PackageNotFoundError, VersionNotFoundError } from 'package-json';
+import { PackageNotFoundError, VersionNotFoundError, Options } from 'package-json';
 import Bluebird from 'bluebird';
 import { getCache } from './cacheAgent';
 import { handleVersionRange, reHandleVersionRange } from '@lazy-node/semver-ampersand/index';
 import { _createCacheKey } from './createCacheKey';
 import { _queryVersion } from './core';
 import { queryVersionCacheRaw } from './queryVersionCacheRaw';
+import { IOptionsQueryVersion } from './types';
 
-export function queryVersionWithCache(name: string, targetVersion: string = 'latest'): Bluebird<string>
+export function queryVersionWithCache(name: string, targetVersion: string = 'latest', options: IOptionsQueryVersion<Options>): Bluebird<string>
 {
-	return Bluebird.resolve(queryVersionCacheRaw(name, targetVersion))
+	return Bluebird.resolve(queryVersionCacheRaw(name, targetVersion, options))
 		.then(data =>
 		{
 			if (data?.error)
@@ -20,11 +21,19 @@ export function queryVersionWithCache(name: string, targetVersion: string = 'lat
 				return data.result
 			}
 
-			return queryVersion(name, data?.version ?? targetVersion)
+			return queryVersion(name, data?.version ?? targetVersion, true,options)
+				.catch(e => {
+					if (data?.result)
+					{
+						return data.result
+					}
+
+					return Promise.reject(e)
+				})
 		})
 }
 
-export function queryVersion(name: string, targetVersion: string = 'latest', save: boolean = true): Bluebird<string>
+export function queryVersion(name: string, targetVersion: string = 'latest', save: boolean = true, options?: IOptionsQueryVersion<Options>): Bluebird<string>
 {
 	let version = targetVersion ??= 'latest';
 	let key = _createCacheKey(name, targetVersion);
@@ -59,11 +68,11 @@ export function queryVersion(name: string, targetVersion: string = 'latest', sav
 				return Promise.reject(e)
 			}
 
-			return queryVersion(name, version, false)
+			return queryVersion(name, version, false,options)
 		})
 		.tapCatch(VersionNotFoundError, PackageNotFoundError, (error) =>
 		{
-			save && getCache().set(key, {
+			save && getCache(options).set(key, {
 				key,
 				name,
 				version,
@@ -72,7 +81,7 @@ export function queryVersion(name: string, targetVersion: string = 'latest', sav
 		})
 		.tap(result =>
 		{
-			save && getCache().set(key, {
+			save && getCache(options).set(key, {
 				key,
 				name,
 				version,

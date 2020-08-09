@@ -1,4 +1,4 @@
-import Cache from 'lru-cache-fs2';
+import Cache, { IOptionsLRUCacheFS } from 'lru-cache-fs2';
 import {
 	normalizeName,
 	getCachePath,
@@ -7,11 +7,12 @@ import {
 	findNpmCachePath,
 	findOSTempPath,
 } from 'cache-path';
-import { ICachedVersionResult } from './types';
+import { ICachedVersionResult, IOptionsQueryVersion } from './types';
+import { Options } from 'package-json';
 
 let cache: Cache<string, ICachedVersionResult>;
 
-export function initCache()
+export function initCache(options?: IOptionsQueryVersion<Options>)
 {
 	let id = '@yarn-tool/pkg-version-query';
 
@@ -22,21 +23,35 @@ export function initCache()
 			findOSTempPath,
 			findPkgModulePath,
 		],
-	})
-
-	const cache = new Cache<string, ICachedVersionResult>({
-		max: 100,
-		cacheName: normalizeName(id, true),
-		cwd,
-		autoCreate: true,
-		maxAge: 60 * 1000,
 	});
+
+	let { cacheAgentOptions } = options;
+
+	cacheAgentOptions = {
+//		max: 1000,
+//		maxAge: 5 * 60 * 1000,
+		...cacheAgentOptions,
+		cacheName: normalizeName(id, true),
+		autoCreate: true,
+		cwd,
+	}
+
+	if (!cacheAgentOptions.max || cacheAgentOptions.max <= 100)
+	{
+		cacheAgentOptions.max = 1000;
+	}
+
+	if (!cacheAgentOptions.maxAge || cacheAgentOptions.maxAge <= 60 * 1000)
+	{
+		cacheAgentOptions.maxAge = 10 * 60 * 1000;
+	}
+
+	const cache = new Cache<string, ICachedVersionResult>(cacheAgentOptions);
 
 	return cache;
 }
 
-export function getCache()
+export function getCache(options?: IOptionsQueryVersion<Options>)
 {
-	return cache ??= initCache();
+	return options?.cacheAgent ?? (cache ??= initCache(options));
 }
-

@@ -20,7 +20,7 @@ export function _queryVersion(packageName: string,
 export function _queryVersion(packageName: string,
 	options?: IOptionsQueryVersion<Options>,
 ): Bluebird<AbbreviatedMetadata>
-export function _queryVersion(packageName: string, options: IOptionsQueryVersion<Options>)
+export function _queryVersion(packageName: string, options?: IOptionsQueryVersion<Options>)
 {
 	options ??= {};
 

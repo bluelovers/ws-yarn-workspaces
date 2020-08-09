@@ -14,9 +14,9 @@ function parseVersionByNpmPackageArg(input) {
     };
 }
 exports.parseVersionByNpmPackageArg = parseVersionByNpmPackageArg;
-function queryVersionByNpmPackageArgWithCache(input) {
+function queryVersionByNpmPackageArgWithCache(input, options) {
     const { name, version } = parseVersionByNpmPackageArg(input);
-    return queryVersion_1.default(name, version);
+    return queryVersion_1.default(name, version, options);
 }
 exports.queryVersionByNpmPackageArgWithCache = queryVersionByNpmPackageArgWithCache;
 exports.default = queryVersionByNpmPackageArgWithCache;
