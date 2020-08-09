@@ -5,7 +5,7 @@ const os_1 = require("os");
 /**
  * get os temp dir
  */
-function findOSTempPath(cwd) {
+function findOSTempPath(cwd, processEnv = process.env) {
     return os_1.tmpdir();
 }
 exports.findOSTempPath = findOSTempPath;

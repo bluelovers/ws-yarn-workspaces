@@ -6,11 +6,13 @@ import { Options } from 'semver';
 import semverValidRange from 'semver/ranges/valid';
 import semverSimplifyRange from 'semver/ranges/simplify';
 
+export const reHandleVersionRange = /[&\s]+/g;
+
 export function handleVersionRange<T>(versionRange: T): T
 {
 	if (typeof versionRange === 'string')
 	{
-		return versionRange.replace(/[&\s]+/g, ' ').trim() as any
+		return versionRange.replace(reHandleVersionRange, ' ').trim() as any
 	}
 
 	return versionRange

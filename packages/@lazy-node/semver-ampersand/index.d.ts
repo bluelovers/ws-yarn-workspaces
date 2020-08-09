@@ -1,5 +1,6 @@
 import SemVer from 'semver/classes/semver';
 import { Options } from 'semver';
+export declare const reHandleVersionRange: RegExp;
 export declare function handleVersionRange<T>(versionRange: T): T;
 export declare function satisfies(version: string | SemVer, range: string | Range, optionsOrLoose?: boolean | Options): boolean;
 export declare function maxSatisfying<T extends string | SemVer>(versions: ReadonlyArray<T>, range: string | Range, optionsOrLoose?: boolean | Options): T;

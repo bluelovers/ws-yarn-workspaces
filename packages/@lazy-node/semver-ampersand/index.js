@@ -3,15 +3,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.simplifyRange = exports.validRange = exports.minSatisfying = exports.maxSatisfying = exports.satisfies = exports.handleVersionRange = void 0;
+exports.simplifyRange = exports.validRange = exports.minSatisfying = exports.maxSatisfying = exports.satisfies = exports.handleVersionRange = exports.reHandleVersionRange = void 0;
 const satisfies_1 = __importDefault(require("semver/functions/satisfies"));
 const max_satisfying_1 = __importDefault(require("semver/ranges/max-satisfying"));
 const min_satisfying_1 = __importDefault(require("semver/ranges/min-satisfying"));
 const valid_1 = __importDefault(require("semver/ranges/valid"));
 const simplify_1 = __importDefault(require("semver/ranges/simplify"));
+exports.reHandleVersionRange = /[&\s]+/g;
 function handleVersionRange(versionRange) {
     if (typeof versionRange === 'string') {
-        return versionRange.replace(/[&\s]+/g, ' ').trim();
+        return versionRange.replace(exports.reHandleVersionRange, ' ').trim();
     }
     return versionRange;
 }

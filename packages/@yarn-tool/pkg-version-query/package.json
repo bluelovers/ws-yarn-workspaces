@@ -38,16 +38,14 @@
   },
   "dependencies": {
     "@lazy-node/semver-ampersand": "^1.0.1",
-    "got": "^11.5.2",
-    "keyv": "^4.0.1",
-    "keyv-file": "^0.2.0",
+    "cache-path": "^2.0.3",
+    "lru-cache-fs2": "^2.0.3",
+    "npm-package-arg": "^8.0.1",
     "package-json": "^6.5.0",
-    "semver": "^7.3.2"
+    "semver": "^7.3.2",
+    "ts-type": "^1.2.32"
   },
-  "devDependencies": {
-    "@types/got": "^9.6.11",
-    "@types/keyv": "^3.1.1"
-  },
+  "devDependencies": {},
   "publishConfig": {
     "access": "public"
   }
