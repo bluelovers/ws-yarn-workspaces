@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/cache-path@2.0.3...cache-path@2.0.4) (2020-08-09)
+
+
+### ✨　Features
+
+* @yarn-tool/pkg-version-query ([c655fd3](https://github.com/bluelovers/ws-yarn-workspaces/commit/c655fd3babdd4c26722b4ae209070147474bef71))
+
+
+
+
+
 ## [2.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/cache-path@2.0.2...cache-path@2.0.3) (2020-08-09)
 
 
