@@ -10,7 +10,16 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.normalizeName = exports.getCacheRootAsync = exports.getCacheRoot = exports.getCachePathAsync = exports.getCachePath = void 0;
+exports.findOSTempPath = exports.findNpmCachePath = exports.findYarnCachePath = exports.findPkgModulePath = exports.findPkgModuleCachePath = exports.normalizeName = exports.getCacheRootAsync = exports.getCacheRoot = exports.getCachePathAsync = exports.getCachePath = void 0;
+const findNpmCachePath_1 = require("./lib/finder/findNpmCachePath");
+Object.defineProperty(exports, "findNpmCachePath", { enumerable: true, get: function () { return findNpmCachePath_1.findNpmCachePath; } });
+const findOSTempPath_1 = require("./lib/finder/findOSTempPath");
+Object.defineProperty(exports, "findOSTempPath", { enumerable: true, get: function () { return findOSTempPath_1.findOSTempPath; } });
+const findPkgModuleCachePath_1 = require("./lib/finder/findPkgModuleCachePath");
+Object.defineProperty(exports, "findPkgModuleCachePath", { enumerable: true, get: function () { return findPkgModuleCachePath_1.findPkgModuleCachePath; } });
+Object.defineProperty(exports, "findPkgModulePath", { enumerable: true, get: function () { return findPkgModuleCachePath_1.findPkgModulePath; } });
+const findYarnCachePath_1 = require("./lib/finder/findYarnCachePath");
+Object.defineProperty(exports, "findYarnCachePath", { enumerable: true, get: function () { return findYarnCachePath_1.findYarnCachePath; } });
 const getCachePath_1 = require("./lib/getCachePath");
 var getCachePath_2 = require("./lib/getCachePath");
 Object.defineProperty(exports, "getCachePath", { enumerable: true, get: function () { return getCachePath_2.getCachePath; } });
