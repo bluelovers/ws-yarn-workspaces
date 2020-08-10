@@ -17,7 +17,7 @@ function initCache(options) {
             cache_path_1.findPkgModulePath,
         ],
     });
-    let { cacheAgentOptions } = options;
+    let { cacheAgentOptions } = (options !== null && options !== void 0 ? options : (options = {}));
     cacheAgentOptions = {
         //		max: 1000,
         //		maxAge: 5 * 60 * 1000,

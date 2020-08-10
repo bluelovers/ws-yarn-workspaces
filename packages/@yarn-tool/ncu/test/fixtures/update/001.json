@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@material-ui/lab": "^4.0.0-alpha.56"
+  },
+  "devDependencies": {
+    "esm": "^3.0.0",
+    "typescript": "^4.0.0-dev.20200615"
+  }
+}

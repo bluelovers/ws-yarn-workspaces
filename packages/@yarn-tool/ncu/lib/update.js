@@ -15,6 +15,9 @@ const semver_1 = __importDefault(require("semver"));
 const remote_1 = require("./remote");
 const options_1 = require("./options");
 const table_1 = require("@yarn-tool/table");
+const npm_package_arg_1 = __importDefault(require("npm-package-arg"));
+const queryVersion_1 = __importDefault(require("@yarn-tool/pkg-version-query/lib/queryVersion"));
+const pkg_version_query_1 = require("@yarn-tool/pkg-version-query");
 function checkResolutionsUpdate(resolutions, yarnlock_old_obj, options) {
     return bluebird_1.default.resolve()
         .then(async function () {
@@ -89,32 +92,52 @@ async function npmCheckUpdates(cache, ncuOptions) {
     ncuOptions.cwd = cache.cwd;
     ncuOptions.json_new = JSON.parse(ncuOptions.packageData);
     ncuOptions.list_updated = await npm_check_updates_1.run(ncuOptions);
-    const ks = Object.keys(ncuOptions.list_updated);
     let json_changed = false;
     const current = {};
     const list_updated = {};
-    if (ks.length) {
-        ks.forEach(name => {
+    await bluebird_1.default
+        .resolve([
+        'dependencies',
+        'devDependencies',
+        'peerDependencies',
+        'optionalDependencies',
+    ])
+        .each(async (key) => {
+        var _a;
+        const deps = (_a = ncuOptions.json_new[key]) !== null && _a !== void 0 ? _a : {};
+        await bluebird_1.default
+            .resolve(Object.keys(deps))
+            .each(async (name) => {
+            var _a;
             const version_new = ncuOptions.list_updated[name];
-            [
-                'dependencies',
-                'devDependencies',
-                'peerDependencies',
-                'optionalDependencies',
-            ].forEach(key => {
-                const deps = ncuOptions.json_new[key];
-                if (deps) {
-                    const version_old = deps[name];
-                    if (version_old !== version_new && util_1.allowUpdateVersion(version_old)) {
+            const version_old = deps[name];
+            if (version_new === null || version_new === void 0 ? void 0 : version_new.length) {
+                if (version_old !== version_new && util_1.allowUpdateVersion(version_old)) {
+                    list_updated[name] = version_new;
+                    current[name] = version_old;
+                    deps[name] = version_new;
+                    json_changed = true;
+                }
+            }
+            else if (!/[\s|&]/.test(version_old)) {
+                let key = `${name}@${version_old}`;
+                let check = npm_package_arg_1.default(key);
+                let prefix = (_a = /^([\^~\s]+)/.exec(version_old)) === null || _a === void 0 ? void 0 : _a[1];
+                if ((prefix === null || prefix === void 0 ? void 0 : prefix.length) && check.type === 'range') {
+                    let version_new = await queryVersion_1.default(name, version_old)
+                        .then(v => prefix + v)
+                        .catch(e => null);
+                    if ((version_new === null || version_new === void 0 ? void 0 : version_new.length) && version_new !== version_old) {
                         list_updated[name] = version_new;
                         current[name] = version_old;
                         deps[name] = version_new;
                         json_changed = true;
                     }
                 }
-            });
+            }
         });
-    }
+    });
+    await pkg_version_query_1.getCache().fsDump();
     ncuOptions.json_changed = json_changed;
     ncuOptions.list_updated = list_updated;
     ncuOptions.current = current;

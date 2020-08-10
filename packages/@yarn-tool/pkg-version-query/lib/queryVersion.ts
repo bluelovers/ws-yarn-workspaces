@@ -7,7 +7,7 @@ import { _queryVersion } from './core';
 import { queryVersionCacheRaw } from './queryVersionCacheRaw';
 import { IOptionsQueryVersion } from './types';
 
-export function queryVersionWithCache(name: string, targetVersion: string = 'latest', options: IOptionsQueryVersion<Options>): Bluebird<string>
+export function queryVersionWithCache(name: string, targetVersion: string = 'latest', options?: IOptionsQueryVersion<Options>): Bluebird<string>
 {
 	return Bluebird.resolve(queryVersionCacheRaw(name, targetVersion, options))
 		.then(data =>

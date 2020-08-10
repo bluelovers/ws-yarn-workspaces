@@ -24,6 +24,9 @@ import { npmCheckUpdatesOptions } from './options';
 import { IPackageJsonDependenciesField } from '@ts-type/package-dts/package-json';
 import { toDependencyTable } from '@yarn-tool/table';
 import { ITSRequireAtLeastOne } from 'ts-type';
+import npmPackageArg from 'npm-package-arg';
+import queryVersionWithCache from '@yarn-tool/pkg-version-query/lib/queryVersion';
+import { getCache } from '@yarn-tool/pkg-version-query';
 
 export function checkResolutionsUpdate(resolutions: IPackageMap,
 	yarnlock_old_obj: IYarnLockfileParseObject | string,
@@ -125,7 +128,9 @@ export function checkResolutionsUpdate(resolutions: IPackageMap,
 		;
 }
 
-export async function npmCheckUpdates<C extends IWrapDedupeCache>(cache: Partial<C>, ncuOptions: ITSRequireAtLeastOne<IOptionsNpmCheckUpdates, 'json_old' | 'packageData'>)
+export async function npmCheckUpdates<C extends IWrapDedupeCache>(cache: Partial<C>,
+	ncuOptions: ITSRequireAtLeastOne<IOptionsNpmCheckUpdates, 'json_old' | 'packageData'>,
+)
 {
 	//ncuOptions.silent = false;
 
@@ -144,49 +149,73 @@ export async function npmCheckUpdates<C extends IWrapDedupeCache>(cache: Partial
 
 	ncuOptions.list_updated = await _npmCheckUpdates(ncuOptions) as Record<string, string>;
 
-	const ks = Object.keys(ncuOptions.list_updated);
-
 	let json_changed = false;
 
 	const current: IDependency = {};
 	const list_updated: IDependency = {};
 
-	if (ks.length)
-	{
-		ks.forEach(name =>
+	await Bluebird
+		.resolve([
+			'dependencies',
+			'devDependencies',
+			'peerDependencies',
+			'optionalDependencies',
+		] as IPackageJsonDependenciesField[])
+		.each(async (key) =>
 		{
-			const version_new = ncuOptions.list_updated[name];
+			const deps = ncuOptions.json_new[key] ?? {};
 
-			([
-				'dependencies',
-				'devDependencies',
-				'peerDependencies',
-				'optionalDependencies',
-			] as IPackageJsonDependenciesField[]).forEach(key =>
-			{
-
-				const deps = ncuOptions.json_new[key];
-
-				if (deps)
+			await Bluebird
+				.resolve(Object.keys(deps))
+				.each(async (name) =>
 				{
+					const version_new = ncuOptions.list_updated[name];
 					const version_old = deps[name];
 
-					if (version_old !== version_new && allowUpdateVersion(version_old))
+					if (version_new?.length)
 					{
-						list_updated[name] = version_new;
-						current[name] = version_old;
+						if (version_old !== version_new && allowUpdateVersion(version_old))
+						{
+							list_updated[name] = version_new;
+							current[name] = version_old;
 
-						deps[name] = version_new;
+							deps[name] = version_new;
 
-						json_changed = true;
+							json_changed = true;
+						}
 					}
-				}
+					else if (!/[\s|&]/.test(version_old))
+					{
+						let key = `${name}@${version_old}`
 
-			})
+						let check = npmPackageArg(key)
+						let prefix = /^([\^~\s]+)/.exec(version_old)?.[1];
 
-		});
+						if (prefix?.length && check.type === 'range')
+						{
+							let version_new = await queryVersionWithCache(name, version_old)
+								.then(v => prefix + v)
+								.catch(e => null)
+							;
 
-	}
+							if (version_new?.length && version_new !== version_old)
+							{
+								list_updated[name] = version_new;
+								current[name] = version_old;
+
+								deps[name] = version_new;
+
+								json_changed = true;
+							}
+						}
+					}
+
+				})
+
+		})
+	;
+
+	await getCache().fsDump();
 
 	ncuOptions.json_changed = json_changed;
 	ncuOptions.list_updated = list_updated;

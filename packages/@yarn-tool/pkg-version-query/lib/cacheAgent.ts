@@ -25,7 +25,7 @@ export function initCache(options?: IOptionsQueryVersion<Options>)
 		],
 	});
 
-	let { cacheAgentOptions } = options;
+	let { cacheAgentOptions } = (options ??= {});
 
 	cacheAgentOptions = {
 //		max: 1000,
