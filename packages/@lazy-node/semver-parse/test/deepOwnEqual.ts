@@ -4,7 +4,8 @@ export function deepOwnEqual(a, b)
 	// if arrays of objects, recurse down to the objects
 	if (Array.isArray(a) && Array.isArray(b))
 	{
-		expect(a.length).toEqual(b.length)
+		expect(a.length).toStrictEqual(b.length);
+
 		for (let i = 0; i < a.length; i++)
 		{
 			deepOwnEqual(a[i], b[i])
@@ -16,11 +17,14 @@ export function deepOwnEqual(a, b)
 		const aKeys = Object.keys(a);
 		const bKeys = Object.keys(b);
 
-		expect(aKeys).toEqual(bKeys);
+		expect(aKeys).toStrictEqual(bKeys);
+		expect(a).toMatchObject(b)
 
+		/*
 		aKeys.forEach(function (key)
 		{
-			expect(a[key]).toEqual(b[key])
+			expect(a[key]).toMatchObject(b[key])
 		});
+		 */
 	}
 }

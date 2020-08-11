@@ -1,7 +1,7 @@
 import { ISimpleSemVer } from './types';
 import { hasOperator, isSimpleSemVerObjectLike, isSimpleSemVerOperatorLike } from './checker';
 import { SimpleSemVer } from './SimpleSemVer';
-import { stringifySemver } from './stringifySemver';
+import { stringifySemver, stringifySemverFull } from './stringifySemver';
 
 export function stringifySemverRange(arr: ISimpleSemVer[])
 {
@@ -13,15 +13,15 @@ export function stringifySemverRange(arr: ISimpleSemVer[])
 		}
 		else if (isSimpleSemVerObjectLike(ver))
 		{
-			let str = ver.operator ?? '';
+			let str: string;
 
 			if (ver instanceof SimpleSemVer)
 			{
-				str += ver.toString()
+				str = ver.toFullString()
 			}
 			else
 			{
-				str += stringifySemver(ver);
+				str = stringifySemverFull(ver);
 			}
 
 			a.push(str)

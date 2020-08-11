@@ -1,4 +1,5 @@
 import { ISimpleSemVerObject } from './types';
+import { EnumVersionExtra } from './const';
 
 export function stringifySemver(obj: ISimpleSemVerObject)
 {
@@ -12,15 +13,21 @@ export function stringifySemver(obj: ISimpleSemVerObject)
 
 	if (obj.release?.length > 0)
 	{
-		str += '-' + obj.release;
+		str += EnumVersionExtra.release + obj.release;
 	}
 
 	if (obj.build?.length > 0)
 	{
-		str += '+' + obj.build;
+		str += EnumVersionExtra.build + obj.build;
 	}
 
 	return str;
 }
 
+export function stringifySemverFull(obj: ISimpleSemVerObject)
+{
+	return (obj.operator ?? '') + stringifySemver(obj)
+}
+
+export default stringifySemver
 

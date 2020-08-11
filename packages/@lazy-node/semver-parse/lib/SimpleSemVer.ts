@@ -1,27 +1,66 @@
-import { ISimpleSemVerObject, ISimpleSemVer } from './types';
+import {
+	ISimpleSemVerObject,
+	ISimpleSemVer,
+	ISimpleSemVerObjectBase,
+	ISimpleSemVerOperator,
+	IHasOperator, IOperator,
+} from './types';
 import { stringifySemver } from './stringifySemver';
-import { pruned } from './util/pruned';
+import { pruned, prunedSimpleSemVer } from './util/pruned';
+import { hasOperator, isSimpleSemVerOperatorLike, isSimpleSemVerObjectLike } from './checker';
 
-export class SimpleSemVer implements ISimpleSemVerObject
+export class SimpleSemVer<T extends ISimpleSemVer = ISimpleSemVer> implements ISimpleSemVerObjectBase
 {
-	operator?: string;
-	semver: string;
-	major: string;
-	minor?: string;
-	patch?: string;
-	release?: string;
-	build?: string;
+	readonly semver: string;
+	readonly operator?: IOperator;
+	readonly version?: string;
+	readonly major?: string;
+	readonly minor?: string;
+	readonly patch?: string;
+	readonly release?: string;
+	readonly build?: string;
 
-	constructor(obj: ISimpleSemVer)
+	constructor(obj: T)
 	{
-		Object.keys(obj).forEach((key) =>
+		if (!obj?.semver?.length && !obj?.operator?.length)
 		{
-			this[key] = obj[key];
-		});
+			throw new TypeError(`obj not a SimpleSemVerLike`)
+		}
+
+		// @ts-ignore
+		prunedSimpleSemVer(obj, this)
+	}
+
+	isValidOperator(): this is SimpleSemVer<ISimpleSemVerOperator>
+	{
+		return isSimpleSemVerOperatorLike(this)
+	}
+
+	isValidObject(): this is SimpleSemVer<ISimpleSemVerObject>
+	{
+		return isSimpleSemVerObjectLike(this)
+	}
+
+	hasOperator(): this is SimpleSemVer<IHasOperator<T>>
+	{
+		return hasOperator(this)
+	}
+
+	toJSON(): T
+	{
+		return prunedSimpleSemVer(this as any);
 	}
 
 	toString()
 	{
-		return stringifySemver(this);
+		return stringifySemver(this as any);
 	}
+
+	toFullString()
+	{
+		return (this.operator ?? '') + this.toString();
+	}
+
 }
+
+export default SimpleSemVer

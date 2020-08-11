@@ -4,18 +4,19 @@ import { handleVersionRange } from './handleVersionRange';
 
 export class Range extends semverRange
 {
-	rawRange?: string | Range;
+	rawSource?: string | Range;
 
-	constructor(rawRange: string | Range | semverRange, optionsOrLoose?: boolean | Options) {
-		const range = handleVersionRange(rawRange);
+	constructor(rawSource: string | Range | semverRange, optionsOrLoose?: boolean | Options) {
+		const range = handleVersionRange(rawSource);
 
 		super(range, optionsOrLoose);
 
-		if (typeof rawRange === 'string' && range !== rawRange)
+		if (typeof rawSource === 'string' && range !== rawSource)
 		{
-			this.rawRange = rawRange;
+			this.rawSource = rawSource;
 		}
 	}
+
 }
 
 export default Range

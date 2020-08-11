@@ -8,22 +8,23 @@ export function parseSemver(version: string)
 	// https://github.com/mojombo/semver/issues/32
 	// https://github.com/isaacs/node-semver/issues/10
 	// optional v
-	const m = reSemver.exec(version) || []
-	;let ver = new SimpleSemVer(pruned({
-		semver: m[0]
-		, version: m[1]
-		, major: m[2]
-		, minor: m[3]
-		, patch: m[4]
-		, release: m[5]
-		, build: m[6],
-	}))
-;
+	const m = reSemver.exec(version);
+	let ver: SimpleSemVer;
 
-	if (0 === m.length)
+	if (m?.length > 0)
 	{
-		ver = null;
+		ver = new SimpleSemVer({
+			semver: m[0]
+			, version: m[1]
+			, major: m[2]
+			, minor: m[3]
+			, patch: m[4]
+			, release: m[5]
+			, build: m[6],
+		})
 	}
 
 	return ver;
 }
+
+export default parseSemver

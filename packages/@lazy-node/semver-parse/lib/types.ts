@@ -1,30 +1,38 @@
 import { ITSRequiredWith, ITSPickExtra, ITSPartialRecord  } from 'ts-type/lib/type/record';
 
-export interface ISimpleSemVerObject
+export type IOperatorBase = '~' | '^' | '>=' | '<=' | '=' | '-' | '||' | '=' | '~>';
+export type IOperator = IOperatorBase | string;
+
+export interface ISimpleSemVerObjectBase
 {
-	operator?: string,
+	operator?: IOperator,
 	version?: string,
 	semver: string,
-	major: string,
+	major?: string,
 	minor?: string,
 	patch?: string,
 	release?: string
 	build?: string
 }
 
-export interface ISimpleSemVerObjectWithOperator extends ISimpleSemVerObject
+export interface ISimpleSemVerObject extends ISimpleSemVerObjectBase
 {
-	operator: string,
+	major: string,
 }
 
-export interface ISimpleSemVerOperator extends ITSPartialRecord<Exclude<keyof ISimpleSemVerObject, 'operator'>, never>
+export interface ISimpleSemVerObjectWithOperator extends ISimpleSemVerObject
 {
-	operator: string,
+	operator: IOperator,
+}
+
+export interface ISimpleSemVerOperator extends ISimpleSemVerObjectBase
+{
+	operator: IOperator,
 }
 
 export type ISimpleSemVer = ISimpleSemVerObject | ISimpleSemVerOperator | ISimpleSemVerObjectWithOperator;
 
-export type IHasOperator<T extends ISimpleSemVer> = T & {
-	operator: string,
+export type IHasOperator<T extends ISimpleSemVerObjectBase> = T & {
+	operator: IOperator,
 }
 

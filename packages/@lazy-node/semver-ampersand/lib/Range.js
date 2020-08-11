@@ -7,11 +7,11 @@ exports.Range = void 0;
 const range_1 = __importDefault(require("semver/classes/range"));
 const handleVersionRange_1 = require("./handleVersionRange");
 class Range extends range_1.default {
-    constructor(rawRange, optionsOrLoose) {
-        const range = handleVersionRange_1.handleVersionRange(rawRange);
+    constructor(rawSource, optionsOrLoose) {
+        const range = handleVersionRange_1.handleVersionRange(rawSource);
         super(range, optionsOrLoose);
-        if (typeof rawRange === 'string' && range !== rawRange) {
-            this.rawRange = rawRange;
+        if (typeof rawSource === 'string' && range !== rawSource) {
+            this.rawSource = rawSource;
         }
     }
 }

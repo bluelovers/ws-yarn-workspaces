@@ -16,4 +16,4 @@ function hasOperator(obj) {
     return ((_a = obj.operator) === null || _a === void 0 ? void 0 : _a.length) > 0;
 }
 exports.hasOperator = hasOperator;
-//# sourceMappingURL=isSimpleSemVerOperatorLike.js.map
+//# sourceMappingURL=checker.js.map

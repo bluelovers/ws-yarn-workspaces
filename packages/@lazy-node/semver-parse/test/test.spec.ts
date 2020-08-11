@@ -1,12 +1,13 @@
 import { deepOwnEqual } from './deepOwnEqual';
 import * as semverutils from '..';
+import { parse, parseRange } from '../index';
 
 describe('parse', function ()
 {
 
 	it('should parse a simple 3-part version', function ()
 	{
-		deepOwnEqual(semverutils.parse('1.0.0'), {
+		deepOwnEqual(parse('1.0.0'), {
 			semver: '1.0.0',
 			version: '1.0.0',
 			major: '1',
@@ -17,7 +18,7 @@ describe('parse', function ()
 
 	it('should parse pre-release versions', function ()
 	{
-		deepOwnEqual(semverutils.parse('1.0.0-alpha1'), {
+		deepOwnEqual(parse('1.0.0-alpha1'), {
 			semver: '1.0.0-alpha1',
 			version: '1.0.0',
 			major: '1',
@@ -29,7 +30,7 @@ describe('parse', function ()
 
 	it('should parse build numbers', function ()
 	{
-		deepOwnEqual(semverutils.parse('1.0.0+build-123'), {
+		deepOwnEqual(parse('1.0.0+build-123'), {
 			semver: '1.0.0+build-123',
 			version: '1.0.0',
 			major: '1',
@@ -41,11 +42,11 @@ describe('parse', function ()
 
 	it('should not parse invalid versions', function ()
 	{
-		expect(semverutils.parse('a.b.c')).toEqual(null);
-		expect(semverutils.parse('1')).toEqual(null);
-		expect(semverutils.parse('1.0')).toEqual(null);
-		expect(semverutils.parse('1.0.0b')).toEqual(null);
-		expect(semverutils.parse('1.0.0+build-abc.')).toEqual(null);
+		expect(parse('a.b.c')).toBeUndefined();
+		expect(parse('1')).toBeUndefined();
+		expect(parse('1.0')).toBeUndefined();
+		expect(parse('1.0.0b')).toBeUndefined();
+		expect(parse('1.0.0+build-abc.')).toBeUndefined();
 	});
 
 });
@@ -56,7 +57,7 @@ describe('parseRange', function ()
 	it('should parse an exact version as a range', function ()
 	{
 
-		deepOwnEqual(semverutils.parseRange('1.0.0'), [
+		deepOwnEqual(parseRange('1.0.0'), [
 			{
 				semver: '1.0.0',
 				major: '1',
@@ -69,7 +70,7 @@ describe('parseRange', function ()
 	it('should ignore the v- prefix', function ()
 	{
 
-		deepOwnEqual(semverutils.parseRange('v1.0.0'), [
+		deepOwnEqual(parseRange('v1.0.0'), [
 			{
 				semver: 'v1.0.0',
 				major: '1',
@@ -81,7 +82,7 @@ describe('parseRange', function ()
 
 	it('should parse a comparison operator', function ()
 	{
-		deepOwnEqual(semverutils.parseRange('< v2.0.0'), [
+		deepOwnEqual(parseRange('< v2.0.0'), [
 			{
 				semver: '< v2.0.0',
 				operator: '<',
@@ -94,7 +95,7 @@ describe('parseRange', function ()
 
 	it('should parse tilde', function ()
 	{
-		deepOwnEqual(semverutils.parseRange('~1.0.0'), [
+		deepOwnEqual(parseRange('~1.0.0'), [
 			{
 				semver: '~1.0.0',
 				operator: '~',
@@ -107,7 +108,7 @@ describe('parseRange', function ()
 
 	it('should parse caret', function ()
 	{
-		deepOwnEqual(semverutils.parseRange('^1.0.0'), [
+		deepOwnEqual(parseRange('^1.0.0'), [
 			{
 				semver: '^1.0.0',
 				operator: '^',
@@ -120,7 +121,7 @@ describe('parseRange', function ()
 
 	it('should parse tilde and v- prefix', function ()
 	{
-		deepOwnEqual(semverutils.parseRange('~v1.0.0'), [
+		deepOwnEqual(parseRange('~v1.0.0'), [
 			{
 				semver: '~v1.0.0',
 				operator: '~',
@@ -133,7 +134,7 @@ describe('parseRange', function ()
 
 	it('should parse ||', function ()
 	{
-		deepOwnEqual(semverutils.parseRange('~1.0.0 || ~2.0.0'), [
+		deepOwnEqual(parseRange('~1.0.0 || ~2.0.0'), [
 			{
 				semver: '~1.0.0',
 				operator: '~',
@@ -154,7 +155,7 @@ describe('parseRange', function ()
 
 	it('should parse build numbers', function ()
 	{
-		deepOwnEqual(semverutils.parseRange('2.0.0+build.1848'), [
+		deepOwnEqual(parseRange('2.0.0+build.1848'), [
 			{
 				semver: '2.0.0+build.1848',
 				major: '2',
@@ -167,7 +168,7 @@ describe('parseRange', function ()
 
 	it('should parse pre-release versions', function ()
 	{
-		deepOwnEqual(semverutils.parseRange('1.0.0-rc1'), [
+		deepOwnEqual(parseRange('1.0.0-rc1'), [
 			{
 				semver: '1.0.0-rc1',
 				major: '1',
@@ -181,7 +182,7 @@ describe('parseRange', function ()
 	it('should parse pre-release versions with hyphens', function ()
 	{
 
-		deepOwnEqual(semverutils.parseRange('1.0.0-rc-2'), [
+		deepOwnEqual(parseRange('1.0.0-rc-2'), [
 			{
 				semver: '1.0.0-rc-2',
 				major: '1',
@@ -194,7 +195,7 @@ describe('parseRange', function ()
 
 	it('should parse hyphen ranges', function ()
 	{
-		deepOwnEqual(semverutils.parseRange('1.0.0 - 1.0.x'), [
+		deepOwnEqual(parseRange('1.0.0 - 1.0.x'), [
 			{
 				semver: '1.0.0',
 				major: '1',
@@ -213,7 +214,7 @@ describe('parseRange', function ()
 
 	it('should parse constrained * ranges', function ()
 	{
-		deepOwnEqual(semverutils.parseRange('1.*'), [
+		deepOwnEqual(parseRange('1.*'), [
 			{
 				semver: '1.*',
 				major: '1',
@@ -224,7 +225,7 @@ describe('parseRange', function ()
 
 	it('should parse constrained .x', function ()
 	{
-		deepOwnEqual(semverutils.parseRange('1.x'), [
+		deepOwnEqual(parseRange('1.x'), [
 			{
 				semver: '1.x',
 				major: '1',
@@ -235,7 +236,7 @@ describe('parseRange', function ()
 
 	it('should parse ~> ranges', function ()
 	{
-		deepOwnEqual(semverutils.parseRange('~> 2.0.0'), [
+		deepOwnEqual(parseRange('~> 2.0.0'), [
 			{
 				semver: '~> 2.0.0',
 				operator: '~>',
