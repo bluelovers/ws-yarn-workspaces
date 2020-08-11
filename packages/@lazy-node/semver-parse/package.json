@@ -1,6 +1,6 @@
 {
   "name": "@lazy-node/semver-simple-parse",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "Tools for manipulating semver strings and objects",
   "keywords": [
     "semver",
@@ -35,7 +35,6 @@
   "dependencies": {
     "ts-type": "^1.2.32"
   },
-  "devDependencies": {},
   "publishConfig": {
     "access": "public"
   },
