@@ -1,5 +1,5 @@
 import { ISimpleSemVer } from './types';
-import { hasOperator, isSimpleSemVerObjectLike } from './isSimpleSemVerOperatorLike';
+import { hasOperator, isSimpleSemVerObjectLike, isSimpleSemVerOperatorLike } from './checker';
 import { SimpleSemVer } from './SimpleSemVer';
 import { stringifySemver } from './stringifySemver';
 
@@ -7,27 +7,26 @@ export function stringifySemverRange(arr: ISimpleSemVer[])
 {
 	return arr.reduce((a, ver) =>
 	{
-
-		let bool: boolean = true;
-		if (hasOperator(ver))
+		if (isSimpleSemVerOperatorLike(ver))
 		{
 			a.push(ver.operator)
-
-			bool = false;
 		}
-		if (isSimpleSemVerObjectLike(ver))
+		else if (isSimpleSemVerObjectLike(ver))
 		{
+			let str = ver.operator ?? '';
+
 			if (ver instanceof SimpleSemVer)
 			{
-				a.push(ver.toString());
+				str += ver.toString()
 			}
 			else
 			{
-				a.push(stringifySemver(ver));
+				str += stringifySemver(ver);
 			}
-			bool = false;
+
+			a.push(str)
 		}
-		else if (bool === true)
+		else
 		{
 			throw new TypeError(`obj not a ISimpleSemVerLike`)
 		}
@@ -35,3 +34,5 @@ export function stringifySemverRange(arr: ISimpleSemVer[])
 		return a;
 	}, [] as string[]).join(' ')
 }
+
+export default stringifySemverRange
