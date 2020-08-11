@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.parseSimpleSemVer = void 0;
 const const_1 = require("./const");
 const SimpleSemVer_1 = require("./SimpleSemVer");
+const checker_1 = require("./checker");
 function parseSimpleSemVer(version) {
     // semver, major, minor, patch
     // https://github.com/mojombo/semver/issues/32
@@ -22,6 +23,7 @@ function parseSimpleSemVer(version) {
             release,
             build,
         });
+        checker_1.assertSimpleSemVerObjectLike(ver);
     }
     return ver;
 }

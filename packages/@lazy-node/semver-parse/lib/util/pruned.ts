@@ -16,9 +16,7 @@ export function pruned<T>(obj: T, o = {} as T)
 	return o;
 }
 
-export function prunedSimpleSemVer<T extends ISimpleSemVer & {
-	operator: ISimpleSemVer["operator"] | string,
-}>(obj: T, o = {} as T)
+export function prunedSimpleSemVer<T extends ISimpleSemVer>(obj: T, o = {} as T)
 {
 	for (const key of simpleSemVerKeys)
 	{

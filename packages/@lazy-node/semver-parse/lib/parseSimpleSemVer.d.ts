@@ -1,4 +1,4 @@
 import { SimpleSemVer } from './SimpleSemVer';
-import { ISimpleSemVer } from './types';
-export declare function parseSimpleSemVer<T extends ISimpleSemVer = ISimpleSemVer>(version: string): SimpleSemVer<ISimpleSemVer>;
+import { ISimpleSemVerObject, IToSimpleSemVerObject } from './types';
+export declare function parseSimpleSemVer<T extends ISimpleSemVerObject = ISimpleSemVerObject>(version: string): IToSimpleSemVerObject<SimpleSemVer<IToSimpleSemVerObject<T>>>;
 export default parseSimpleSemVer;

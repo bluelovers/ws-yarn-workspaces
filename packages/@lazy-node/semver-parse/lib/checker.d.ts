@@ -1,15 +1,11 @@
-import { IHasOperator, ISimpleSemVerObjectBase } from './types';
-export declare function isSimpleSemVerOperatorLike<T extends ISimpleSemVerObjectBase>(obj: T): obj is IHasOperator<T> & {
-    major?: never;
-};
-export declare function assertSimpleSemVerOperatorLike<T extends ISimpleSemVerObjectBase>(obj: T, notThrow?: boolean): asserts obj is IHasOperator<T> & {
-    major?: never;
-};
-export declare function isSimpleSemVerObjectLike<T extends ISimpleSemVerObjectBase>(obj: T): obj is T & {
-    major: string;
-};
-export declare function assertSimpleSemVerObjectLike<T extends ISimpleSemVerObjectBase>(obj: T, notThrow?: boolean): asserts obj is T & {
-    major: string;
-};
+import { IHasOperator, ISimpleSemVerObjectBase, IToSimpleSemVerOperator, IToSimpleSemVerObject, IToSimpleSemVerObjectWithOperator, IToSimpleSemVerObjectOrOperator } from './types';
+export declare function isSimpleSemVerOperatorLike<T extends ISimpleSemVerObjectBase>(obj: T): obj is IToSimpleSemVerOperator<T>;
+export declare function assertSimpleSemVerOperatorLike<T extends ISimpleSemVerObjectBase>(obj: T, notThrow?: boolean): asserts obj is IToSimpleSemVerOperator<T>;
+export declare function isSimpleSemVerObjectLike<T extends ISimpleSemVerObjectBase>(obj: T): obj is IToSimpleSemVerObject<T>;
+export declare function assertSimpleSemVerObjectLike<T extends ISimpleSemVerObjectBase>(obj: T, notThrow?: boolean): asserts obj is IToSimpleSemVerObject<T>;
+export declare function isSimpleSemVerObjectWithOperatorLike<T extends ISimpleSemVerObjectBase>(obj: T): obj is IToSimpleSemVerObjectWithOperator<T>;
+export declare function assertSimpleSemVerObjectWithOperatorLike<T extends ISimpleSemVerObjectBase>(obj: T, notThrow?: boolean): asserts obj is IToSimpleSemVerObjectWithOperator<T>;
 export declare function hasOperator<T extends ISimpleSemVerObjectBase>(obj: T): obj is IHasOperator<T>;
 export declare function assertHasOperator<T extends ISimpleSemVerObjectBase>(obj: T, notThrow?: boolean): asserts obj is IHasOperator<T>;
+export declare function isSimpleSemVerObjectOrOperatorLike<T extends ISimpleSemVerObjectBase>(obj: T): obj is IToSimpleSemVerObjectOrOperator<T>;
+export declare function assertSimpleSemVerObjectOrOperatorLike<T extends ISimpleSemVerObjectBase>(obj: T, notThrow?: boolean): asserts obj is IToSimpleSemVerObjectOrOperator<T>;

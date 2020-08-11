@@ -1,9 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.assertHasOperator = exports.hasOperator = exports.assertSimpleSemVerObjectLike = exports.isSimpleSemVerObjectLike = exports.assertSimpleSemVerOperatorLike = exports.isSimpleSemVerOperatorLike = void 0;
+exports.assertSimpleSemVerObjectOrOperatorLike = exports.isSimpleSemVerObjectOrOperatorLike = exports.assertHasOperator = exports.hasOperator = exports.assertSimpleSemVerObjectWithOperatorLike = exports.isSimpleSemVerObjectWithOperatorLike = exports.assertSimpleSemVerObjectLike = exports.isSimpleSemVerObjectLike = exports.assertSimpleSemVerOperatorLike = exports.isSimpleSemVerOperatorLike = void 0;
 function isSimpleSemVerOperatorLike(obj) {
-    var _a, _b;
-    return (!((_a = obj.major) === null || _a === void 0 ? void 0 : _a.length) && ((_b = obj.operator) === null || _b === void 0 ? void 0 : _b.length) > 0);
+    return !isSimpleSemVerObjectLike(obj) && hasOperator(obj);
 }
 exports.isSimpleSemVerOperatorLike = isSimpleSemVerOperatorLike;
 function assertSimpleSemVerOperatorLike(obj, notThrow) {
@@ -23,6 +22,16 @@ function assertSimpleSemVerObjectLike(obj, notThrow) {
     }
 }
 exports.assertSimpleSemVerObjectLike = assertSimpleSemVerObjectLike;
+function isSimpleSemVerObjectWithOperatorLike(obj) {
+    return isSimpleSemVerObjectLike(obj) && hasOperator(obj);
+}
+exports.isSimpleSemVerObjectWithOperatorLike = isSimpleSemVerObjectWithOperatorLike;
+function assertSimpleSemVerObjectWithOperatorLike(obj, notThrow) {
+    if (notThrow !== true && !isSimpleSemVerObjectLike(obj)) {
+        throw new TypeError(`obj not a SimpleSemVerObject`);
+    }
+}
+exports.assertSimpleSemVerObjectWithOperatorLike = assertSimpleSemVerObjectWithOperatorLike;
 function hasOperator(obj) {
     var _a;
     return ((_a = obj.operator) === null || _a === void 0 ? void 0 : _a.length) > 0;
@@ -34,4 +43,14 @@ function assertHasOperator(obj, notThrow) {
     }
 }
 exports.assertHasOperator = assertHasOperator;
+function isSimpleSemVerObjectOrOperatorLike(obj) {
+    return isSimpleSemVerObjectLike(obj) || hasOperator(obj);
+}
+exports.isSimpleSemVerObjectOrOperatorLike = isSimpleSemVerObjectOrOperatorLike;
+function assertSimpleSemVerObjectOrOperatorLike(obj, notThrow) {
+    if (notThrow !== true && !isSimpleSemVerObjectOrOperatorLike(obj)) {
+        throw new TypeError(`obj not a SimpleSemVerObject or SimpleSemVerOperator`);
+    }
+}
+exports.assertSimpleSemVerObjectOrOperatorLike = assertSimpleSemVerObjectOrOperatorLike;
 //# sourceMappingURL=checker.js.map

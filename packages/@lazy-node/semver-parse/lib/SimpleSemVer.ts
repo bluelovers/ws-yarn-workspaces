@@ -3,16 +3,21 @@ import {
 	ISimpleSemVer,
 	ISimpleSemVerObjectBase,
 	ISimpleSemVerOperator,
-	IHasOperator, IOperator,
+	IHasOperator, IOperator, IToSimpleSemVerObject, IToSimpleSemVerOperator, IToSimpleSemVerObjectOrOperator,
 } from './types';
 import { stringifySimpleSemVer } from './stringifySimpleSemVer';
 import { pruned, prunedSimpleSemVer } from './util/pruned';
-import { hasOperator, isSimpleSemVerOperatorLike, isSimpleSemVerObjectLike } from './checker';
+import {
+	hasOperator,
+	isSimpleSemVerOperatorLike,
+	isSimpleSemVerObjectLike,
+	assertSimpleSemVerObjectOrOperatorLike, isSimpleSemVerObjectOrOperatorLike,
+} from './checker';
 import parseSimpleSemVer from './parseSimpleSemVer';
 
 export class SimpleSemVer<T extends ISimpleSemVer = ISimpleSemVer> implements ISimpleSemVerObjectBase
 {
-	readonly semver: string;
+	readonly semver?: string;
 	readonly operator?: IOperator;
 	readonly version?: string;
 	readonly major?: string;
@@ -23,31 +28,33 @@ export class SimpleSemVer<T extends ISimpleSemVer = ISimpleSemVer> implements IS
 
 	constructor(obj: T)
 	{
-		if (!obj?.semver?.length && !obj?.operator?.length)
-		{
-			throw new TypeError(`obj not a SimpleSemVerLike`)
-		}
+		assertSimpleSemVerObjectOrOperatorLike(obj);
 
 		// @ts-ignore
-		prunedSimpleSemVer(obj, this)
+		prunedSimpleSemVer(obj, this as any)
 	}
 
 	static create<T extends ISimpleSemVer = ISimpleSemVer>(version: string)
 	{
-		return new this<T>(parseSimpleSemVer(version) as any)
+		return new this<T>(parseSimpleSemVer(version) as any) as IToSimpleSemVerObjectOrOperator<SimpleSemVer<T>>
 	}
 
-	isValidOperator(): this is SimpleSemVer<ISimpleSemVerOperator>
+	isValid(): this is IToSimpleSemVerObjectOrOperator<SimpleSemVer<IToSimpleSemVerObjectOrOperator<T>>>
+	{
+		return isSimpleSemVerObjectOrOperatorLike(this)
+	}
+
+	isValidOperator(): this is IToSimpleSemVerOperator<SimpleSemVer<IToSimpleSemVerOperator<T>>>
 	{
 		return isSimpleSemVerOperatorLike(this)
 	}
 
-	isValidObject(): this is SimpleSemVer<ISimpleSemVerObject>
+	isValidObject(): this is IToSimpleSemVerObject<SimpleSemVer<IToSimpleSemVerObject<T>>>
 	{
 		return isSimpleSemVerObjectLike(this)
 	}
 
-	hasOperator(): this is SimpleSemVer<IHasOperator<T>>
+	hasOperator(): this is IHasOperator<SimpleSemVer<IHasOperator<T>>>
 	{
 		return hasOperator(this)
 	}

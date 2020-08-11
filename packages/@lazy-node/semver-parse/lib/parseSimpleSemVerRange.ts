@@ -1,12 +1,12 @@
 import { SimpleSemVer } from './SimpleSemVer';
 import { reSemverRange, EnumVersionExtra } from './const';
-import { ISimpleSemVer, IOperator } from './types';
+import { ISimpleSemVer, IOperator, IToSimpleSemVerObjectOrOperator, ISimpleSemVerObjectBase } from './types';
 import { pruned } from './util/pruned';
 
 export function parseSimpleSemVerRange(str: string)
 {
 	let m: RegExpExecArray;
-	const arr: SimpleSemVer[] = [];
+	const arr: (IToSimpleSemVerObjectOrOperator<SimpleSemVer>)[] = [];
 
 	while (m = reSemverRange.exec(str))
 	{
@@ -26,7 +26,7 @@ export function parseSimpleSemVerRange(str: string)
 			obj.release = m[13];
 		}
 
-		arr.push(new SimpleSemVer(obj));
+		arr.push(new SimpleSemVer(obj) as any);
 	}
 
 	return arr;

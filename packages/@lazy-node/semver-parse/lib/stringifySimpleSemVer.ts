@@ -5,9 +5,9 @@ import { assertSimpleSemVerOperatorLike, assertSimpleSemVerObjectLike } from './
 
 export function stringifySimpleSemVer(obj: ISimpleSemVerObject | SimpleSemVer)
 {
-	let str = '';
-
 	assertSimpleSemVerObjectLike(obj);
+
+	let str = '';
 
 	str += obj.major ?? '0';
 	str += '.';

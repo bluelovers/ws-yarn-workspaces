@@ -10,15 +10,15 @@ const checker_1 = require("./checker");
 const parseSimpleSemVer_1 = __importDefault(require("./parseSimpleSemVer"));
 class SimpleSemVer {
     constructor(obj) {
-        var _a, _b;
-        if (!((_a = obj === null || obj === void 0 ? void 0 : obj.semver) === null || _a === void 0 ? void 0 : _a.length) && !((_b = obj === null || obj === void 0 ? void 0 : obj.operator) === null || _b === void 0 ? void 0 : _b.length)) {
-            throw new TypeError(`obj not a SimpleSemVerLike`);
-        }
+        checker_1.assertSimpleSemVerObjectOrOperatorLike(obj);
         // @ts-ignore
         pruned_1.prunedSimpleSemVer(obj, this);
     }
     static create(version) {
         return new this(parseSimpleSemVer_1.default(version));
+    }
+    isValid() {
+        return checker_1.isSimpleSemVerObjectOrOperatorLike(this);
     }
     isValidOperator() {
         return checker_1.isSimpleSemVerOperatorLike(this);
