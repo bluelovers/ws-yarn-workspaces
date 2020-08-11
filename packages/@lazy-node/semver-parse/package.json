@@ -2,26 +2,37 @@
   "name": "semver-utils",
   "version": "1.1.3",
   "description": "Tools for manipulating semver strings and objects",
-  "homepage": "https://git.coolaj86.com/coolaj86/semver-utils.js",
-  "main": "semver-utils.js",
-  "scripts": {
-    "test": "mocha"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://git.coolaj86.com/coolaj86/semver-utils.js.git"
-  },
   "keywords": [
     "semver",
     "parse",
     "parseRange",
     "range"
   ],
-  "author": "AJ ONeal",
+  "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@lazy-node/semver-parse#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/ws-yarn-workspaces.git"
+  },
   "license": "APACHEv2",
-  "readmeFilename": "README.md",
-  "devDependencies": {
-    "chai": "^3.0.0",
-    "mocha": "^2.2.5"
-  }
+  "author": "AJ ONeal",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest",
+    "preversion": "yarn run test",
+    "prepublishOnly_": "echo prepublishOnly",
+    "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
+    "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
+    "ncu": "yarn-tool ncu -u",
+    "sort-package-json": "yarn-tool sort"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "readmeFilename": "README.md"
 }
