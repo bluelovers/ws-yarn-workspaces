@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.parseSemverRange = void 0;
+exports.parseSimpleSemVerRange = void 0;
 const SimpleSemVer_1 = require("./SimpleSemVer");
 const const_1 = require("./const");
-function parseSemverRange(str) {
+function parseSimpleSemVerRange(str) {
     let m;
     const arr = [];
     while (m = const_1.reSemverRange.exec(str)) {
@@ -24,6 +24,6 @@ function parseSemverRange(str) {
     }
     return arr;
 }
-exports.parseSemverRange = parseSemverRange;
-exports.default = parseSemverRange;
-//# sourceMappingURL=parseSemverRange.js.map
+exports.parseSimpleSemVerRange = parseSimpleSemVerRange;
+exports.default = parseSimpleSemVerRange;
+//# sourceMappingURL=parseSimpleSemVerRange.js.map

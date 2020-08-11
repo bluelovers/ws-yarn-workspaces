@@ -1,7 +1,7 @@
 import { ISimpleSemVerObject } from './types';
 import { EnumVersionExtra } from './const';
 
-export function stringifySemver(obj: ISimpleSemVerObject)
+export function stringifySimpleSemVer(obj: ISimpleSemVerObject)
 {
 	let str = '';
 
@@ -26,8 +26,8 @@ export function stringifySemver(obj: ISimpleSemVerObject)
 
 export function stringifySemverFull(obj: ISimpleSemVerObject)
 {
-	return (obj.operator ?? '') + stringifySemver(obj)
+	return (obj.operator ?? '') + stringifySimpleSemVer(obj)
 }
 
-export default stringifySemver
+export default stringifySimpleSemVer
 

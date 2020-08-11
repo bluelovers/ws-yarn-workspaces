@@ -5,7 +5,7 @@ import {
 	ISimpleSemVerOperator,
 	IHasOperator, IOperator,
 } from './types';
-import { stringifySemver } from './stringifySemver';
+import { stringifySimpleSemVer } from './stringifySimpleSemVer';
 import { pruned, prunedSimpleSemVer } from './util/pruned';
 import { hasOperator, isSimpleSemVerOperatorLike, isSimpleSemVerObjectLike } from './checker';
 
@@ -53,7 +53,7 @@ export class SimpleSemVer<T extends ISimpleSemVer = ISimpleSemVer> implements IS
 
 	toString()
 	{
-		return stringifySemver(this as any);
+		return stringifySimpleSemVer(this as any);
 	}
 
 	toFullString()

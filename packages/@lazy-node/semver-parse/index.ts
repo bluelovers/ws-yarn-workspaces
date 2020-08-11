@@ -3,16 +3,16 @@
 //               | | 3 segment version
 //               | |                    |optional release prefixed by '-'
 //               | |                    |                                        |optional build prefixed by '+'
-import { stringifySemver, stringifySemverFull } from './lib/stringifySemver';
-import { stringifySemverRange } from './lib/stringifySemverRange';
-import { parseSemverRange } from './lib/parseSemverRange';
-import { parseSemver } from './lib/parseSemver';
+import { stringifySimpleSemVer, stringifySemverFull } from './lib/stringifySimpleSemVer';
+import { stringifySimpleSemVerRange } from './lib/stringifySimpleSemVerRange';
+import { parseSimpleSemVerRange } from './lib/parseSimpleSemVerRange';
+import { parseSimpleSemVer } from './lib/parseSimpleSemVer';
 
-export { parseSemver as parse };
-export { parseSemverRange as parseRange };
+export { parseSimpleSemVer as parse };
+export { parseSimpleSemVerRange as parseRange };
 
-export { stringifySemver as stringify };
+export { stringifySimpleSemVer as stringify };
 export { stringifySemverFull as stringifyFull };
-export { stringifySemverRange as stringifyRange };
+export { stringifySimpleSemVerRange as stringifyRange };
 
-export default stringifySemverRange
+export default stringifySimpleSemVerRange

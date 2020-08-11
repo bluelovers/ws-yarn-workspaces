@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.parseSemver = void 0;
+exports.parseSimpleSemVer = void 0;
 const const_1 = require("./const");
 const SimpleSemVer_1 = require("./SimpleSemVer");
-function parseSemver(version) {
+function parseSimpleSemVer(version) {
     // semver, major, minor, patch
     // https://github.com/mojombo/semver/issues/32
     // https://github.com/isaacs/node-semver/issues/10
@@ -23,6 +23,6 @@ function parseSemver(version) {
     }
     return ver;
 }
-exports.parseSemver = parseSemver;
-exports.default = parseSemver;
-//# sourceMappingURL=parseSemver.js.map
+exports.parseSimpleSemVer = parseSimpleSemVer;
+exports.default = parseSimpleSemVer;
+//# sourceMappingURL=parseSimpleSemVer.js.map

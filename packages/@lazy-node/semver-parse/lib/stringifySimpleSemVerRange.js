@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.stringifySemverRange = void 0;
+exports.stringifySimpleSemVerRange = void 0;
 const checker_1 = require("./checker");
 const SimpleSemVer_1 = require("./SimpleSemVer");
-const stringifySemver_1 = require("./stringifySemver");
-function stringifySemverRange(arr) {
+const stringifySimpleSemVer_1 = require("./stringifySimpleSemVer");
+function stringifySimpleSemVerRange(arr) {
     return arr.reduce((a, ver) => {
         if (checker_1.isSimpleSemVerOperatorLike(ver)) {
             a.push(ver.operator);
@@ -15,7 +15,7 @@ function stringifySemverRange(arr) {
                 str = ver.toFullString();
             }
             else {
-                str = stringifySemver_1.stringifySemverFull(ver);
+                str = stringifySimpleSemVer_1.stringifySemverFull(ver);
             }
             a.push(str);
         }
@@ -25,6 +25,6 @@ function stringifySemverRange(arr) {
         return a;
     }, []).join(' ');
 }
-exports.stringifySemverRange = stringifySemverRange;
-exports.default = stringifySemverRange;
-//# sourceMappingURL=stringifySemverRange.js.map
+exports.stringifySimpleSemVerRange = stringifySimpleSemVerRange;
+exports.default = stringifySimpleSemVerRange;
+//# sourceMappingURL=stringifySimpleSemVerRange.js.map

@@ -6,14 +6,14 @@ exports.stringifyRange = exports.stringifyFull = exports.stringify = exports.par
 //               | | 3 segment version
 //               | |                    |optional release prefixed by '-'
 //               | |                    |                                        |optional build prefixed by '+'
-const stringifySemver_1 = require("./lib/stringifySemver");
-Object.defineProperty(exports, "stringify", { enumerable: true, get: function () { return stringifySemver_1.stringifySemver; } });
-Object.defineProperty(exports, "stringifyFull", { enumerable: true, get: function () { return stringifySemver_1.stringifySemverFull; } });
-const stringifySemverRange_1 = require("./lib/stringifySemverRange");
-Object.defineProperty(exports, "stringifyRange", { enumerable: true, get: function () { return stringifySemverRange_1.stringifySemverRange; } });
-const parseSemverRange_1 = require("./lib/parseSemverRange");
-Object.defineProperty(exports, "parseRange", { enumerable: true, get: function () { return parseSemverRange_1.parseSemverRange; } });
-const parseSemver_1 = require("./lib/parseSemver");
-Object.defineProperty(exports, "parse", { enumerable: true, get: function () { return parseSemver_1.parseSemver; } });
-exports.default = stringifySemverRange_1.stringifySemverRange;
+const stringifySimpleSemVer_1 = require("./lib/stringifySimpleSemVer");
+Object.defineProperty(exports, "stringify", { enumerable: true, get: function () { return stringifySimpleSemVer_1.stringifySimpleSemVer; } });
+Object.defineProperty(exports, "stringifyFull", { enumerable: true, get: function () { return stringifySimpleSemVer_1.stringifySemverFull; } });
+const stringifySimpleSemVerRange_1 = require("./lib/stringifySimpleSemVerRange");
+Object.defineProperty(exports, "stringifyRange", { enumerable: true, get: function () { return stringifySimpleSemVerRange_1.stringifySimpleSemVerRange; } });
+const parseSimpleSemVerRange_1 = require("./lib/parseSimpleSemVerRange");
+Object.defineProperty(exports, "parseRange", { enumerable: true, get: function () { return parseSimpleSemVerRange_1.parseSimpleSemVerRange; } });
+const parseSimpleSemVer_1 = require("./lib/parseSimpleSemVer");
+Object.defineProperty(exports, "parse", { enumerable: true, get: function () { return parseSimpleSemVer_1.parseSimpleSemVer; } });
+exports.default = stringifySimpleSemVerRange_1.stringifySimpleSemVerRange;
 //# sourceMappingURL=index.js.map

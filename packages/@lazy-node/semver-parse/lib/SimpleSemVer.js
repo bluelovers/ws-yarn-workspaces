@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SimpleSemVer = void 0;
-const stringifySemver_1 = require("./stringifySemver");
+const stringifySimpleSemVer_1 = require("./stringifySimpleSemVer");
 const pruned_1 = require("./util/pruned");
 const checker_1 = require("./checker");
 class SimpleSemVer {
@@ -26,7 +26,7 @@ class SimpleSemVer {
         return pruned_1.prunedSimpleSemVer(this);
     }
     toString() {
-        return stringifySemver_1.stringifySemver(this);
+        return stringifySimpleSemVer_1.stringifySimpleSemVer(this);
     }
     toFullString() {
         var _a;

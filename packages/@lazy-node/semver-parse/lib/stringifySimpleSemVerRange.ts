@@ -1,9 +1,9 @@
 import { ISimpleSemVer } from './types';
 import { hasOperator, isSimpleSemVerObjectLike, isSimpleSemVerOperatorLike } from './checker';
 import { SimpleSemVer } from './SimpleSemVer';
-import { stringifySemver, stringifySemverFull } from './stringifySemver';
+import { stringifySimpleSemVer, stringifySemverFull } from './stringifySimpleSemVer';
 
-export function stringifySemverRange(arr: ISimpleSemVer[])
+export function stringifySimpleSemVerRange(arr: ISimpleSemVer[])
 {
 	return arr.reduce((a, ver) =>
 	{
@@ -35,4 +35,4 @@ export function stringifySemverRange(arr: ISimpleSemVer[])
 	}, [] as string[]).join(' ')
 }
 
-export default stringifySemverRange
+export default stringifySimpleSemVerRange

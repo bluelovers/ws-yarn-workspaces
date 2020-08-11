@@ -3,7 +3,7 @@ import { reSemverRange, EnumVersionExtra } from './const';
 import { ISimpleSemVer, IOperator } from './types';
 import { pruned } from './util/pruned';
 
-export function parseSemverRange(str: string)
+export function parseSimpleSemVerRange(str: string)
 {
 	let m: RegExpExecArray;
 	const arr: SimpleSemVer[] = [];
@@ -32,4 +32,4 @@ export function parseSemverRange(str: string)
 	return arr;
 }
 
-export default parseSemverRange
+export default parseSimpleSemVerRange

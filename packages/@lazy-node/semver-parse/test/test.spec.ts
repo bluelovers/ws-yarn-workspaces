@@ -1,5 +1,4 @@
 import { deepOwnEqual } from './deepOwnEqual';
-import * as semverutils from '..';
 import { parse, parseRange } from '../index';
 
 describe('parse', function ()

@@ -2,7 +2,7 @@ import { reSemver } from './const';
 import { SimpleSemVer } from './SimpleSemVer';
 import { pruned } from './util/pruned';
 
-export function parseSemver(version: string)
+export function parseSimpleSemVer(version: string)
 {
 	// semver, major, minor, patch
 	// https://github.com/mojombo/semver/issues/32
@@ -27,4 +27,4 @@ export function parseSemver(version: string)
 	return ver;
 }
 
-export default parseSemver
+export default parseSimpleSemVer
