@@ -1,55 +1,27 @@
-import semverSatisfies from 'semver/functions/satisfies';
-import semverMaxSatisfying from 'semver/ranges/max-satisfying';
-import semverMinSatisfying from 'semver/ranges/min-satisfying';
-import SemVer from 'semver/classes/semver';
-import { Options } from 'semver';
-import semverValidRange from 'semver/ranges/valid';
-import semverSimplifyRange from 'semver/ranges/simplify';
+import { simplifyRange } from './lib/simplifyRange';
+import { handleVersionRange } from './lib/handleVersionRange';
+import { satisfies } from './lib/satisfies';
+import { maxSatisfying } from './lib/maxSatisfying';
+import { minSatisfying } from './lib/minSatisfying';
+import { validRange } from './lib/validRange';
+import { Range } from './lib/Range';
 
-export const reHandleVersionRange = /[&\s]+/g;
+export type { Options as IOptions } from 'semver';
 
-export function handleVersionRange<T>(versionRange: T): T
-{
-	if (typeof versionRange === 'string')
-	{
-		return versionRange.replace(reHandleVersionRange, ' ').trim() as any
-	}
+export { reHandleVersionRange } from './lib/const';
 
-	return versionRange
-}
+export {
+	satisfies,
 
-export function satisfies(version: string | SemVer, range: string | Range, optionsOrLoose?: boolean | Options)
-{
-	return semverSatisfies(version, handleVersionRange(range) as any, optionsOrLoose)
-}
+	maxSatisfying,
+	minSatisfying,
 
-export function maxSatisfying<T extends string | SemVer>(versions: ReadonlyArray<T>,
-	range: string | Range,
-	optionsOrLoose?: boolean | Options,
-): T
-{
-	return semverMaxSatisfying(versions, handleVersionRange(range) as any, optionsOrLoose)
-}
+	validRange,
+	simplifyRange,
 
-export function minSatisfying<T extends string | SemVer>(versions: ReadonlyArray<T>,
-	range: string | Range,
-	optionsOrLoose?: boolean | Options,
-): T
-{
-	return semverMinSatisfying(versions, handleVersionRange(range) as any, optionsOrLoose)
-}
+	handleVersionRange,
 
-export function validRange<T extends string | SemVer>(range: T | null | undefined,
-	optionsOrLoose?: boolean | Options,
-)
-{
-	return semverValidRange(handleVersionRange(range) as any, optionsOrLoose)
-}
-
-export function simplifyRange<T extends string | SemVer>(ranges: string[], range: T, options?: Options,
-)
-{
-	return semverSimplifyRange(ranges, handleVersionRange(range) as any, options) as T
+	Range,
 }
 
 export default {
@@ -62,4 +34,6 @@ export default {
 	simplifyRange,
 
 	handleVersionRange,
+
+	Range,
 }
