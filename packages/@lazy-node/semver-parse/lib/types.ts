@@ -17,7 +17,7 @@ export interface ISimpleSemVerObjectBase
 
 export interface ISimpleSemVerObject extends IToSimpleSemVerObject<ISimpleSemVerObjectBase>
 {
-	semver: string,
+	semver?: string,
 }
 
 export interface ISimpleSemVerObjectWithOperator extends IHasOperator<ISimpleSemVerObject>

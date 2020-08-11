@@ -16,8 +16,11 @@ const remote_1 = require("./remote");
 const options_1 = require("./options");
 const table_1 = require("@yarn-tool/table");
 const npm_package_arg_1 = __importDefault(require("npm-package-arg"));
-const queryVersion_1 = __importDefault(require("@yarn-tool/pkg-version-query/lib/queryVersion"));
+const queryVersion_1 = require("@yarn-tool/pkg-version-query/lib/queryVersion");
 const pkg_version_query_1 = require("@yarn-tool/pkg-version-query");
+const parseSimpleSemVer_1 = require("@lazy-node/semver-simple-parse/lib/parseSimpleSemVer");
+const mergeSimpleSemVer_1 = require("@lazy-node/semver-simple-parse/lib/mergeSimpleSemVer");
+const stringifySimpleSemVer_1 = require("@lazy-node/semver-simple-parse/lib/stringifySimpleSemVer");
 function checkResolutionsUpdate(resolutions, yarnlock_old_obj, options) {
     return bluebird_1.default.resolve()
         .then(async function () {
@@ -124,14 +127,21 @@ async function npmCheckUpdates(cache, ncuOptions) {
                 let check = npm_package_arg_1.default(key);
                 let prefix = (_a = /^([\^~\s]+)/.exec(version_old)) === null || _a === void 0 ? void 0 : _a[1];
                 if ((prefix === null || prefix === void 0 ? void 0 : prefix.length) && check.type === 'range') {
-                    let version_new = await queryVersion_1.default(name, version_old)
+                    let version_new = await queryVersion_1.queryVersionWithCache(name, version_old)
                         .then(v => prefix + v)
                         .catch(e => null);
                     if ((version_new === null || version_new === void 0 ? void 0 : version_new.length) && version_new !== version_old) {
-                        list_updated[name] = version_new;
-                        current[name] = version_old;
-                        deps[name] = version_new;
-                        json_changed = true;
+                        try {
+                            let { target } = mergeSimpleSemVer_1.mergeSimpleSemVer(parseSimpleSemVer_1.parseSimpleSemVer(version_old), parseSimpleSemVer_1.parseSimpleSemVer(version_new));
+                            let version = stringifySimpleSemVer_1.stringifySemverFull(target);
+                            if ((version === null || version === void 0 ? void 0 : version.length) > 0) {
+                                list_updated[name] = version;
+                                current[name] = version_old;
+                                deps[name] = version;
+                                json_changed = true;
+                            }
+                        }
+                        catch (err) { }
                     }
                 }
             }

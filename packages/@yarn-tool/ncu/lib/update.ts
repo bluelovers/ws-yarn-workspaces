@@ -25,8 +25,11 @@ import { IPackageJsonDependenciesField } from '@ts-type/package-dts/package-json
 import { toDependencyTable } from '@yarn-tool/table';
 import { ITSRequireAtLeastOne } from 'ts-type';
 import npmPackageArg from 'npm-package-arg';
-import queryVersionWithCache from '@yarn-tool/pkg-version-query/lib/queryVersion';
+import { queryVersionWithCache } from '@yarn-tool/pkg-version-query/lib/queryVersion';
 import { getCache } from '@yarn-tool/pkg-version-query';
+import { parseSimpleSemVer } from '@lazy-node/semver-simple-parse/lib/parseSimpleSemVer';
+import { mergeSimpleSemVer } from '@lazy-node/semver-simple-parse/lib/mergeSimpleSemVer';
+import { stringifySemverFull } from '@lazy-node/semver-simple-parse/lib/stringifySimpleSemVer';
 
 export function checkResolutionsUpdate(resolutions: IPackageMap,
 	yarnlock_old_obj: IYarnLockfileParseObject | string,
@@ -200,12 +203,24 @@ export async function npmCheckUpdates<C extends IWrapDedupeCache>(cache: Partial
 
 							if (version_new?.length && version_new !== version_old)
 							{
-								list_updated[name] = version_new;
-								current[name] = version_old;
+								try
+								{
+									let { target } = mergeSimpleSemVer(parseSimpleSemVer(version_old), parseSimpleSemVer(version_new));
 
-								deps[name] = version_new;
+									let version = stringifySemverFull(target)
 
-								json_changed = true;
+									if (version?.length > 0)
+									{
+										list_updated[name] = version;
+										current[name] = version_old;
+
+										deps[name] = version;
+
+										json_changed = true;
+									}
+								}
+								catch (err)
+								{}
 							}
 						}
 					}

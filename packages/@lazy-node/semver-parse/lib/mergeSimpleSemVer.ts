@@ -10,14 +10,16 @@ import { ITSRequiredWith, ITSPickExtra, ITSPartialRecord, ITSRequiredPick, ITSPa
 export function mergeSimpleSemVer<T extends ISimpleSemVer>(target: T, b: ISimpleSemVerObjectBase)
 {
 	assertSimpleSemVerObjectLike(target);
-	assertSimpleSemVerObjectOrOperatorLike(b);
+	assertSimpleSemVerObjectLike(b);
 
-	let changed: ITSPartialPick<ISimpleSemVerObjectBase, 'major'|'minor'|'patch'>;
+	let changed: ITSPartialPick<ISimpleSemVerObjectBase, 'major'|'minor'|'patch' | 'release' | 'build'>;
 
 	([
 		'major',
 		'minor',
 		'patch',
+		'release',
+		'build',
 	] as (keyof typeof changed)[]).forEach(key => {
 
 		let value1: string = target[key];
@@ -39,3 +41,4 @@ export function mergeSimpleSemVer<T extends ISimpleSemVer>(target: T, b: ISimple
 	}
 }
 
+export default mergeSimpleSemVer

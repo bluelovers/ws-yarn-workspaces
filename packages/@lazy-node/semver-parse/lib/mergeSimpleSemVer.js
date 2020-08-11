@@ -5,12 +5,14 @@ const checker_1 = require("./checker");
 const isAllowedMergeAbleValue_1 = require("./util/isAllowedMergeAbleValue");
 function mergeSimpleSemVer(target, b) {
     checker_1.assertSimpleSemVerObjectLike(target);
-    checker_1.assertSimpleSemVerObjectOrOperatorLike(b);
+    checker_1.assertSimpleSemVerObjectLike(b);
     let changed;
     [
         'major',
         'minor',
         'patch',
+        'release',
+        'build',
     ].forEach(key => {
         let value1 = target[key];
         let value2 = b[key];
@@ -26,4 +28,5 @@ function mergeSimpleSemVer(target, b) {
     };
 }
 exports.mergeSimpleSemVer = mergeSimpleSemVer;
+exports.default = mergeSimpleSemVer;
 //# sourceMappingURL=mergeSimpleSemVer.js.map
