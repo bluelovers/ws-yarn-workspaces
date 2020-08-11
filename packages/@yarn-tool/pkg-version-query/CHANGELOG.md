@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.5](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-version-query@1.0.4...@yarn-tool/pkg-version-query@1.0.5) (2020-08-11)
+
+
+### 🐛　Bug Fixes
+
+* update deps version wit follow current pattern ([d7e5115](https://github.com/bluelovers/ws-yarn-workspaces/commit/d7e51157238dd8f9602f8d66529ed9b5dfeb7fab))
+
+
+### 📦　Code Refactoring
+
+* code splitting ([5df72a8](https://github.com/bluelovers/ws-yarn-workspaces/commit/5df72a85cb849063529ca73aec593bdebe0945e9))
+
+
+### ♻️　Chores
+
+* update deps ([39554f3](https://github.com/bluelovers/ws-yarn-workspaces/commit/39554f3b7693f4c246ce551b29cd06050db421dd))
+* update deps ([5e304b7](https://github.com/bluelovers/ws-yarn-workspaces/commit/5e304b70eeae2cfb011b8b1071854ef978575a61))
+
+
+
+
+
 ## [1.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-version-query@1.0.3...@yarn-tool/pkg-version-query@1.0.4) (2020-08-10)
 
 

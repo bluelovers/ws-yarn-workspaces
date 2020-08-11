@@ -1,6 +1,6 @@
 {
   "name": "create-yarn-workspaces",
-  "version": "1.0.87",
+  "version": "1.0.88",
   "description": "yarn create yarn-workspaces     npx create-yarn-workspaces",
   "keywords": [
     "cli",
