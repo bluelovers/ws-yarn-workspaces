@@ -1,4 +1,3 @@
-var assert = require('chai').assert;
 var semverutils = require('../semver-utils');
 var deepOwnEqual = require('./deepOwnEqual');
 
@@ -37,11 +36,11 @@ describe('parse', function() {
   });
 
   it('should not parse invalid versions', function() {
-    assert.equal(semverutils.parse('a.b.c'), null);
-    assert.equal(semverutils.parse('1'), null);
-    assert.equal(semverutils.parse('1.0'), null);
-    assert.equal(semverutils.parse('1.0.0b'), null);
-    assert.equal(semverutils.parse('1.0.0+build-abc.'), null, 'trailing period');
+    expect(semverutils.parse('a.b.c')).toEqual(null);
+    expect(semverutils.parse('1')).toEqual(null);
+    expect(semverutils.parse('1.0')).toEqual(null);
+    expect(semverutils.parse('1.0.0b')).toEqual(null);
+    expect(semverutils.parse('1.0.0+build-abc.')).toEqual(null);
   });
 
 });
