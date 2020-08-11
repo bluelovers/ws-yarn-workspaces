@@ -7,3 +7,5 @@ export function satisfies(version: string | SemVer, range: string | Range, optio
 {
 	return semverSatisfies(version, handleVersionRange(range) as any, optionsOrLoose)
 }
+
+export default satisfies

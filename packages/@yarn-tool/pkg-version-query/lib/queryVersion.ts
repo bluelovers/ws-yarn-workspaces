@@ -1,11 +1,12 @@
 import { PackageNotFoundError, VersionNotFoundError, Options } from 'package-json';
 import Bluebird from 'bluebird';
 import { getCache } from './cacheAgent';
-import { handleVersionRange, reHandleVersionRange } from '@lazy-node/semver-ampersand/index';
 import { _createCacheKey } from './createCacheKey';
 import { _queryVersion } from './core';
 import { queryVersionCacheRaw } from './queryVersionCacheRaw';
 import { IOptionsQueryVersion } from './types';
+import { handleVersionRange } from '@lazy-node/semver-ampersand/lib/handleVersionRange';
+import { reHandleVersionRange } from '@lazy-node/semver-ampersand/lib/const';
 
 export function queryVersionWithCache(name: string, targetVersion: string = 'latest', options?: IOptionsQueryVersion<Options>): Bluebird<string>
 {

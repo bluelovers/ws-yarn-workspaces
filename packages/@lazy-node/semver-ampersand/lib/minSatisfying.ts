@@ -10,3 +10,5 @@ export function minSatisfying<T extends string | SemVer>(versions: ReadonlyArray
 {
 	return semverMinSatisfying(versions, handleVersionRange(range) as any, optionsOrLoose)
 }
+
+export default minSatisfying

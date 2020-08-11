@@ -10,4 +10,5 @@ function validRange(range, optionsOrLoose) {
     return valid_1.default(handleVersionRange_1.handleVersionRange(range), optionsOrLoose);
 }
 exports.validRange = validRange;
+exports.default = validRange;
 //# sourceMappingURL=validRange.js.map

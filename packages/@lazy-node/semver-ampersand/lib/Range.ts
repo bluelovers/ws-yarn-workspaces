@@ -17,3 +17,5 @@ export class Range extends semverRange
 		}
 	}
 }
+
+export default Range

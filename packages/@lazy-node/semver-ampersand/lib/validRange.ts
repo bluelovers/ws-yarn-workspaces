@@ -9,3 +9,5 @@ export function validRange<T extends string | SemVer>(range: T | null | undefine
 {
 	return semverValidRange(handleVersionRange(range) as any, optionsOrLoose)
 }
+
+export default validRange

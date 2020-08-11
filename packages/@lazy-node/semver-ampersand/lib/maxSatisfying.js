@@ -10,4 +10,5 @@ function maxSatisfying(versions, range, optionsOrLoose) {
     return max_satisfying_1.default(versions, handleVersionRange_1.handleVersionRange(range), optionsOrLoose);
 }
 exports.maxSatisfying = maxSatisfying;
+exports.default = maxSatisfying;
 //# sourceMappingURL=maxSatisfying.js.map

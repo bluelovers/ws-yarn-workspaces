@@ -8,3 +8,5 @@ export function simplifyRange<T extends string | SemVer>(ranges: string[], range
 {
 	return semverSimplifyRange(ranges, handleVersionRange(range) as any, options) as T
 }
+
+export default simplifyRange

@@ -10,4 +10,5 @@ function satisfies(version, range, optionsOrLoose) {
     return satisfies_1.default(version, handleVersionRange_1.handleVersionRange(range), optionsOrLoose);
 }
 exports.satisfies = satisfies;
+exports.default = satisfies;
 //# sourceMappingURL=satisfies.js.map

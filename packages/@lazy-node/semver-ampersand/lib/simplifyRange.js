@@ -10,4 +10,5 @@ function simplifyRange(ranges, range, options) {
     return simplify_1.default(ranges, handleVersionRange_1.handleVersionRange(range), options);
 }
 exports.simplifyRange = simplifyRange;
+exports.default = simplifyRange;
 //# sourceMappingURL=simplifyRange.js.map

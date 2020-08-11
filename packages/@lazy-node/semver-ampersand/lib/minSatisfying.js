@@ -10,4 +10,5 @@ function minSatisfying(versions, range, optionsOrLoose) {
     return min_satisfying_1.default(versions, handleVersionRange_1.handleVersionRange(range), optionsOrLoose);
 }
 exports.minSatisfying = minSatisfying;
+exports.default = minSatisfying;
 //# sourceMappingURL=minSatisfying.js.map

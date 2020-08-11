@@ -10,3 +10,5 @@ export function maxSatisfying<T extends string | SemVer>(versions: ReadonlyArray
 {
 	return semverMaxSatisfying(versions, handleVersionRange(range) as any, optionsOrLoose)
 }
+
+export default maxSatisfying

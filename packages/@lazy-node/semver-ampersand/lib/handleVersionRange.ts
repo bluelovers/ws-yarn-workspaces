@@ -9,3 +9,5 @@ export function handleVersionRange<T>(versionRange: T): T
 
 	return versionRange
 }
+
+export default handleVersionRange

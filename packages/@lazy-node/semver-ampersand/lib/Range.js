@@ -16,4 +16,5 @@ class Range extends range_1.default {
     }
 }
 exports.Range = Range;
+exports.default = Range;
 //# sourceMappingURL=Range.js.map

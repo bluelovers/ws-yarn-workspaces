@@ -3,6 +3,9 @@
   "version": "1.0.2",
   "description": "semver with support (&)ampersand",
   "keywords": [
+    "semver",
+    "ampersand",
+    "range",
     "yarn",
     "yarn-tool",
     "npm",

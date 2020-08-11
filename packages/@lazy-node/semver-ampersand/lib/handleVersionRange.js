@@ -9,4 +9,5 @@ function handleVersionRange(versionRange) {
     return versionRange;
 }
 exports.handleVersionRange = handleVersionRange;
+exports.default = handleVersionRange;
 //# sourceMappingURL=handleVersionRange.js.map
