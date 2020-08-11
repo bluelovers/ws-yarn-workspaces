@@ -32,7 +32,9 @@
     "ncu": "yarn-tool ncu -u",
     "sort-package-json": "yarn-tool sort"
   },
-  "dependencies": {},
+  "dependencies": {
+    "ts-type": "^1.2.32"
+  },
   "devDependencies": {},
   "readmeFilename": "README.md"
 }
