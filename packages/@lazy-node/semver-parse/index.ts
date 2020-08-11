@@ -8,6 +8,8 @@ import { stringifySimpleSemVerRange } from './lib/stringifySimpleSemVerRange';
 import { parseSimpleSemVerRange } from './lib/parseSimpleSemVerRange';
 import { parseSimpleSemVer } from './lib/parseSimpleSemVer';
 
+export * from './lib/checker';
+
 export { parseSimpleSemVer as parse };
 export { parseSimpleSemVerRange as parseRange };
 
