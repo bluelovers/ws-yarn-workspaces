@@ -35,5 +35,10 @@
   "dependencies": {
     "ts-type": "^1.2.32"
   },
+  "devDependencies": {},
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "02f74c14e885366e9be773564ea43f7425f9d97a",
   "readmeFilename": "README.md"
 }
