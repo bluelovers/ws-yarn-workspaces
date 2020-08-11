@@ -1,0 +1,155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should not update < 1 1`] = `
+Object {
+  "current": Object {},
+  "cwd": undefined,
+  "jsonUpgraded": true,
+  "json_changed": false,
+  "json_new": Object {
+    "devDependencies": Object {
+      "@types/node": "< 1",
+    },
+  },
+  "json_old": Object {
+    "devDependencies": Object {
+      "@types/node": "< 1",
+    },
+  },
+  "list_updated": Object {},
+  "packageData": "{\\"devDependencies\\":{\\"@types/node\\":\\"< 1\\"}}",
+  "packageManager": "npm",
+}
+`;
+
+exports[`should not update <= 1 1`] = `
+Object {
+  "current": Object {},
+  "cwd": undefined,
+  "jsonUpgraded": true,
+  "json_changed": false,
+  "json_new": Object {
+    "devDependencies": Object {
+      "@types/node": "<= 1",
+    },
+  },
+  "json_old": Object {
+    "devDependencies": Object {
+      "@types/node": "<= 1",
+    },
+  },
+  "list_updated": Object {},
+  "packageData": "{\\"devDependencies\\":{\\"@types/node\\":\\"<= 1\\"}}",
+  "packageManager": "npm",
+}
+`;
+
+exports[`should not update = 1 1`] = `
+Object {
+  "current": Object {},
+  "cwd": undefined,
+  "jsonUpgraded": true,
+  "json_changed": false,
+  "json_new": Object {
+    "devDependencies": Object {
+      "@types/node": "= 1",
+    },
+  },
+  "json_old": Object {
+    "devDependencies": Object {
+      "@types/node": "= 1",
+    },
+  },
+  "list_updated": Object {},
+  "packageData": "{\\"devDependencies\\":{\\"@types/node\\":\\"= 1\\"}}",
+  "packageManager": "npm",
+}
+`;
+
+exports[`should not update > 1 1`] = `
+Object {
+  "current": Object {},
+  "cwd": undefined,
+  "jsonUpgraded": true,
+  "json_changed": false,
+  "json_new": Object {
+    "devDependencies": Object {
+      "@types/node": "> 1",
+    },
+  },
+  "json_old": Object {
+    "devDependencies": Object {
+      "@types/node": "> 1",
+    },
+  },
+  "list_updated": Object {},
+  "packageData": "{\\"devDependencies\\":{\\"@types/node\\":\\"> 1\\"}}",
+  "packageManager": "npm",
+}
+`;
+
+exports[`should not update >= 1 1`] = `
+Object {
+  "current": Object {},
+  "cwd": undefined,
+  "jsonUpgraded": true,
+  "json_changed": false,
+  "json_new": Object {
+    "devDependencies": Object {
+      "@types/node": ">= 1",
+    },
+  },
+  "json_old": Object {
+    "devDependencies": Object {
+      "@types/node": ">= 1",
+    },
+  },
+  "list_updated": Object {},
+  "packageData": "{\\"devDependencies\\":{\\"@types/node\\":\\">= 1\\"}}",
+  "packageManager": "npm",
+}
+`;
+
+exports[`should not update ^1 & ^2 1`] = `
+Object {
+  "current": Object {},
+  "cwd": undefined,
+  "jsonUpgraded": true,
+  "json_changed": false,
+  "json_new": Object {
+    "devDependencies": Object {
+      "@types/node": "^1 & ^2",
+    },
+  },
+  "json_old": Object {
+    "devDependencies": Object {
+      "@types/node": "^1 & ^2",
+    },
+  },
+  "list_updated": Object {},
+  "packageData": "{\\"devDependencies\\":{\\"@types/node\\":\\"^1 & ^2\\"}}",
+  "packageManager": "npm",
+}
+`;
+
+exports[`should not update ^1 | ^2 1`] = `
+Object {
+  "current": Object {},
+  "cwd": undefined,
+  "jsonUpgraded": true,
+  "json_changed": false,
+  "json_new": Object {
+    "devDependencies": Object {
+      "@types/node": "^1 | ^2",
+    },
+  },
+  "json_old": Object {
+    "devDependencies": Object {
+      "@types/node": "^1 | ^2",
+    },
+  },
+  "list_updated": Object {},
+  "packageData": "{\\"devDependencies\\":{\\"@types/node\\":\\"^1 | ^2\\"}}",
+  "packageManager": "npm",
+}
+`;
