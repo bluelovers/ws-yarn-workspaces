@@ -1,9 +1,13 @@
 import { ISimpleSemVerObject } from './types';
 import { EnumVersionExtra } from './const';
+import SimpleSemVer from './SimpleSemVer';
+import { assertSimpleSemVerOperatorLike, assertSimpleSemVerObjectLike } from './checker';
 
-export function stringifySimpleSemVer(obj: ISimpleSemVerObject)
+export function stringifySimpleSemVer(obj: ISimpleSemVerObject | SimpleSemVer)
 {
 	let str = '';
+
+	assertSimpleSemVerObjectLike(obj);
 
 	str += obj.major ?? '0';
 	str += '.';
@@ -24,7 +28,7 @@ export function stringifySimpleSemVer(obj: ISimpleSemVerObject)
 	return str;
 }
 
-export function stringifySemverFull(obj: ISimpleSemVerObject)
+export function stringifySemverFull(obj: ISimpleSemVerObject | SimpleSemVer)
 {
 	return (obj.operator ?? '') + stringifySimpleSemVer(obj)
 }

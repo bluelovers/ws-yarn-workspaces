@@ -8,17 +8,19 @@ function parseSimpleSemVer(version) {
     // https://github.com/mojombo/semver/issues/32
     // https://github.com/isaacs/node-semver/issues/10
     // optional v
-    const m = const_1.reSemver.exec(version);
+    const m = const_1.reSemverWithRange.exec(version);
     let ver;
     if ((m === null || m === void 0 ? void 0 : m.length) > 0) {
+        let [semver, operator, version, major, minor, patch, release, build] = m;
         ver = new SimpleSemVer_1.SimpleSemVer({
-            semver: m[0],
-            version: m[1],
-            major: m[2],
-            minor: m[3],
-            patch: m[4],
-            release: m[5],
-            build: m[6],
+            operator,
+            semver,
+            version,
+            major,
+            minor,
+            patch,
+            release,
+            build,
         });
     }
     return ver;

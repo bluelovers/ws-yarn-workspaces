@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parseSimpleSemVer ^4.0.0-dev.20200615 1`] = `
+Object {
+  "major": "4",
+  "minor": "0",
+  "operator": "^",
+  "patch": "0",
+  "release": "dev.20200615",
+  "semver": "^4.0.0-dev.20200615",
+  "version": "4.0.0",
+}
+`;

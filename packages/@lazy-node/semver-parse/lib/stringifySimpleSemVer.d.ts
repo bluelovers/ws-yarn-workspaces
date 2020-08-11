@@ -1,4 +1,5 @@
 import { ISimpleSemVerObject } from './types';
-export declare function stringifySimpleSemVer(obj: ISimpleSemVerObject): string;
-export declare function stringifySemverFull(obj: ISimpleSemVerObject): string;
+import SimpleSemVer from './SimpleSemVer';
+export declare function stringifySimpleSemVer(obj: ISimpleSemVerObject | SimpleSemVer): string;
+export declare function stringifySemverFull(obj: ISimpleSemVerObject | SimpleSemVer): string;
 export default stringifySimpleSemVer;

@@ -1,4 +1,5 @@
 export declare const reSemver: RegExp;
+export declare const reSemverWithRange: RegExp;
 /**
  * , reSemverRange = /\s*((\|\||\-)|(([<>~]?=?)\s*(v)?([0-9]+)(\.(x|[0-9]+))?(\.(x|[0-9]+))?(([\-+])([a-zA-Z0-9\.]+))?))\s* /g
  */

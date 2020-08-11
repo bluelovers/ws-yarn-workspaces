@@ -9,6 +9,7 @@ export declare class SimpleSemVer<T extends ISimpleSemVer = ISimpleSemVer> imple
     readonly release?: string;
     readonly build?: string;
     constructor(obj: T);
+    static create<T extends ISimpleSemVer = ISimpleSemVer>(version: string): SimpleSemVer<T>;
     isValidOperator(): this is SimpleSemVer<ISimpleSemVerOperator>;
     isValidObject(): this is SimpleSemVer<ISimpleSemVerObject>;
     hasOperator(): this is SimpleSemVer<IHasOperator<T>>;

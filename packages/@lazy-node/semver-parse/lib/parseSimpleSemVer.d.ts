@@ -1,3 +1,4 @@
 import { SimpleSemVer } from './SimpleSemVer';
-export declare function parseSimpleSemVer(version: string): SimpleSemVer<import("./types").ISimpleSemVer>;
+import { ISimpleSemVer } from './types';
+export declare function parseSimpleSemVer<T extends ISimpleSemVer = ISimpleSemVer>(version: string): SimpleSemVer<ISimpleSemVer>;
 export default parseSimpleSemVer;

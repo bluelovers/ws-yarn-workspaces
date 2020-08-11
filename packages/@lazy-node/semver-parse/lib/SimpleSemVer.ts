@@ -8,6 +8,7 @@ import {
 import { stringifySimpleSemVer } from './stringifySimpleSemVer';
 import { pruned, prunedSimpleSemVer } from './util/pruned';
 import { hasOperator, isSimpleSemVerOperatorLike, isSimpleSemVerObjectLike } from './checker';
+import parseSimpleSemVer from './parseSimpleSemVer';
 
 export class SimpleSemVer<T extends ISimpleSemVer = ISimpleSemVer> implements ISimpleSemVerObjectBase
 {
@@ -29,6 +30,11 @@ export class SimpleSemVer<T extends ISimpleSemVer = ISimpleSemVer> implements IS
 
 		// @ts-ignore
 		prunedSimpleSemVer(obj, this)
+	}
+
+	static create<T extends ISimpleSemVer = ISimpleSemVer>(version: string)
+	{
+		return new this<T>(parseSimpleSemVer(version) as any)
 	}
 
 	isValidOperator(): this is SimpleSemVer<ISimpleSemVerOperator>

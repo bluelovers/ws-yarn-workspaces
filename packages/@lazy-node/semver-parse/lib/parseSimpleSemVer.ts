@@ -1,26 +1,30 @@
-import { reSemver } from './const';
+import { reSemver, reSemverWithRange } from './const';
 import { SimpleSemVer } from './SimpleSemVer';
 import { pruned } from './util/pruned';
+import { ISimpleSemVer } from './types';
 
-export function parseSimpleSemVer(version: string)
+export function parseSimpleSemVer<T extends ISimpleSemVer = ISimpleSemVer>(version: string)
 {
 	// semver, major, minor, patch
 	// https://github.com/mojombo/semver/issues/32
 	// https://github.com/isaacs/node-semver/issues/10
 	// optional v
-	const m = reSemver.exec(version);
+	const m = reSemverWithRange.exec(version);
 	let ver: SimpleSemVer;
 
 	if (m?.length > 0)
 	{
+		let [semver, operator, version, major, minor, patch, release, build] = m;
+
 		ver = new SimpleSemVer({
-			semver: m[0]
-			, version: m[1]
-			, major: m[2]
-			, minor: m[3]
-			, patch: m[4]
-			, release: m[5]
-			, build: m[6],
+			operator,
+			semver,
+			version,
+			major,
+			minor,
+			patch,
+			release,
+			build,
 		})
 	}
 

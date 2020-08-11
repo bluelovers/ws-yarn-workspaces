@@ -1,9 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.stringifySemverFull = exports.stringifySimpleSemVer = void 0;
+const checker_1 = require("./checker");
 function stringifySimpleSemVer(obj) {
     var _a, _b, _c, _d, _e;
     let str = '';
+    checker_1.assertSimpleSemVerObjectLike(obj);
     str += (_a = obj.major) !== null && _a !== void 0 ? _a : '0';
     str += '.';
     str += (_b = obj.minor) !== null && _b !== void 0 ? _b : '0';
