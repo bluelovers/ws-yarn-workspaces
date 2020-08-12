@@ -16,6 +16,10 @@ export interface IYarnLockDataRowV1 extends IYarnLockDataRow {
 }
 export interface IYarnLockDataRowV2 extends IYarnLockDataRow {
     resolution: string;
+    dependencies?: IDependency;
+    checksum?: string;
+    languageName?: string | 'node';
+    linkType?: string | 'hard';
 }
 export interface IYarnLockDataRecordBase<D extends IYarnLockDataRowBase> {
     [key: string]: D;

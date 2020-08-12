@@ -2,11 +2,11 @@ import semverRange from 'semver/classes/range';
 import { Options } from 'semver';
 import { handleVersionRange } from './handleVersionRange';
 
-export class Range extends semverRange
+export class SemverRange extends semverRange
 {
 	rawSource?: string | Range;
 
-	constructor(rawSource: string | Range | semverRange, optionsOrLoose?: boolean | Options) {
+	constructor(rawSource: string | SemverRange | semverRange, optionsOrLoose?: boolean | Options) {
 		const range = handleVersionRange(rawSource);
 
 		super(range, optionsOrLoose);
@@ -19,4 +19,6 @@ export class Range extends semverRange
 
 }
 
-export default Range
+export { SemverRange as Range }
+
+export default SemverRange

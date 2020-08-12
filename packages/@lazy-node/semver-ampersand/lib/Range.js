@@ -3,10 +3,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Range = void 0;
+exports.Range = exports.SemverRange = void 0;
 const range_1 = __importDefault(require("semver/classes/range"));
 const handleVersionRange_1 = require("./handleVersionRange");
-class Range extends range_1.default {
+class SemverRange extends range_1.default {
     constructor(rawSource, optionsOrLoose) {
         const range = handleVersionRange_1.handleVersionRange(rawSource);
         super(range, optionsOrLoose);
@@ -15,6 +15,7 @@ class Range extends range_1.default {
         }
     }
 }
-exports.Range = Range;
-exports.default = Range;
+exports.SemverRange = SemverRange;
+exports.Range = SemverRange;
+exports.default = SemverRange;
 //# sourceMappingURL=Range.js.map
