@@ -6,8 +6,8 @@ export interface IReport {
     }>;
 }
 export declare function updateYarnLockTag(yarnlock_old: Buffer | string): Promise<{
-    yarnlock_old: string | Buffer;
-    yarnlock_new: any;
+    yarnlock_old: string;
+    yarnlock_new: string;
     yarnlock_changed: boolean;
     report: IReport;
 }>;
