@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.5](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-util@1.0.4...@yarn-tool/yarnlock-util@1.0.5) (2020-08-12)
+
+
+### 🐛　Bug Fixes
+
+* miss @yarn-tool/npm-package-arg-util ([ca31d21](https://github.com/bluelovers/ws-yarn-workspaces/commit/ca31d216cddfe79d84af2fdd7851fa667def2a09))
+
+
+
+
+
 ## 1.0.4 (2020-08-12)
 
 
