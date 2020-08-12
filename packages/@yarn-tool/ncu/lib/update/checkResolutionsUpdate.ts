@@ -1,14 +1,13 @@
 import { IPackageMap, IOptionsNpmCheckUpdates, IVersionCacheMapValue } from '../types';
 import Bluebird from 'bluebird';
-import { queryRemoteVersions } from '../remote';
 import { keyObjectToPackageMap } from '../util';
 import semver from 'semver';
 import { IYarnLockfileParseObject } from '@yarn-tool/yarnlock/lib/types';
 import {
 	parse as parseYarnLock,
-	filterResolutions,
-	IWrapDedupeCache,
-} from '@yarn-tool/yarnlock';
+} from '@yarn-tool/yarnlock/lib/parse';
+import { filterResolutions } from '@yarn-tool/yarnlock/lib/core';
+import { queryRemoteVersions } from '../remote/queryRemoteVersions';
 
 export function checkResolutionsUpdate(resolutions: IPackageMap,
 	yarnlock_old_obj: IYarnLockfileParseObject | string,

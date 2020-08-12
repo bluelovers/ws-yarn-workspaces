@@ -5,20 +5,21 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.checkResolutionsUpdate = void 0;
 const bluebird_1 = __importDefault(require("bluebird"));
-const remote_1 = require("../remote");
 const util_1 = require("../util");
 const semver_1 = __importDefault(require("semver"));
-const yarnlock_1 = require("@yarn-tool/yarnlock");
+const parse_1 = require("@yarn-tool/yarnlock/lib/parse");
+const core_1 = require("@yarn-tool/yarnlock/lib/core");
+const queryRemoteVersions_1 = require("../remote/queryRemoteVersions");
 function checkResolutionsUpdate(resolutions, yarnlock_old_obj, options) {
     return bluebird_1.default.resolve()
         .then(async function () {
         if (typeof yarnlock_old_obj === 'string') {
-            yarnlock_old_obj = yarnlock_1.parse(yarnlock_old_obj);
+            yarnlock_old_obj = parse_1.parse(yarnlock_old_obj);
         }
-        let result = yarnlock_1.filterResolutions({
+        let result = core_1.filterResolutions({
             resolutions,
         }, yarnlock_old_obj);
-        let deps = await remote_1.queryRemoteVersions(resolutions, options);
+        let deps = await queryRemoteVersions_1.queryRemoteVersions(resolutions, options);
         //console.dir(deps);
         let deps2 = util_1.keyObjectToPackageMap(deps, true);
         let deps3 = Object.values(deps)
