@@ -1,14 +1,7 @@
 import { fromContent } from '@yarn-tool/yarnlock-entries/lib/fromContent';
 import { queryVersionWithCache } from '@yarn-tool/pkg-version-query/lib/queryVersion';
 import { gt } from 'semver';
-
-export interface IReport
-{
-	removed?: Record<string, {
-		from: string,
-		to: string,
-	}>
-}
+import { IYarnLockUpdateReport, IYarnLockUpdate } from './types';
 
 export async function updateYarnLockTag(yarnlock_old: Buffer | string)
 {
@@ -16,7 +9,7 @@ export async function updateYarnLockTag(yarnlock_old: Buffer | string)
 
 	yarnlock_old = obj.stringify();
 
-	let report: IReport = {};
+	let report: IYarnLockUpdateReport = {};
 
 	await obj.mapAsync(async (data, key) => {
 
@@ -49,5 +42,5 @@ export async function updateYarnLockTag(yarnlock_old: Buffer | string)
 		yarnlock_new,
 		yarnlock_changed: yarnlock_old !== yarnlock_new,
 		report,
-	}
+	} as IYarnLockUpdate
 }

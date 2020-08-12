@@ -1182,12 +1182,13 @@
   resolved "https://registry.npmjs.org/@types/tmp/-/tmp-0.2.0.tgz#e3f52b4d7397eaa9193592ef3fdd44dc0af4298c"
   integrity sha512-flgpHJjntpBAdJD43ShRosQvNC0ME97DCfGvZEDlAThQmnerRXrLbX6YgzRBQCZTthET9eAWFAMaYP0m0Y4HzQ==
 
-"@types/update-notifier@^4.1.0":
-  version "4.1.0"
-  resolved "https://registry.npmjs.org/@types/update-notifier/-/update-notifier-4.1.0.tgz#891502c741babf12a666fa9ceb3af011dd76893c"
-  integrity sha512-vA13siXfQr32NKBm/6cu084W0kaw68uXhoM5klpv9J9rYjUYjpbv5nu8LV2OBLrZMIhYx5nCktebU8JRYcmxGg==
+"@types/update-notifier@^4.1.1":
+  version "4.1.1"
+  resolved "https://registry.npmjs.org/@types/update-notifier/-/update-notifier-4.1.1.tgz#370a2159db6ca85a0c7bb1ed08e4346c7b12ea46"
+  integrity sha512-iPySyshoFAgiPMj6MC41X1rbNjkTGBhCQju9xAldSGe1Y6utyWG2Fbdr7OXuuqcH96KMZbuJjviu9bXgfVbJUg==
   dependencies:
     "@types/configstore" "*"
+    boxen "^4.2.0"
 
 "@types/validate-npm-package-name@^3.0.0":
   version "3.0.0"
