@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.6](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-diff@1.0.4...@yarn-tool/yarnlock-diff@1.0.6) (2020-08-12)
+
+
+### 📦　Code Refactoring
+
+* use @yarn-tool/yarnlock-util ([d63e9c2](https://github.com/bluelovers/ws-yarn-workspaces/commit/d63e9c2685e47fdfc2c0933e7d2933687d4c7435))
+
+
+### 🚨　Tests
+
+* update snapshot ([b1e81ff](https://github.com/bluelovers/ws-yarn-workspaces/commit/b1e81ff12771ea5aed2b7cd3ef77af4e943a32ba))
+
+
+
+
+
+## [1.0.5](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-diff@1.0.4...@yarn-tool/yarnlock-diff@1.0.5) (2020-08-12)
+
+
+### 📦　Code Refactoring
+
+* use @yarn-tool/yarnlock-util ([d63e9c2](https://github.com/bluelovers/ws-yarn-workspaces/commit/d63e9c2685e47fdfc2c0933e7d2933687d4c7435))
+
+
+### 🚨　Tests
+
+* update snapshot ([b1e81ff](https://github.com/bluelovers/ws-yarn-workspaces/commit/b1e81ff12771ea5aed2b7cd3ef77af4e943a32ba))
+
+
+
+
+
 ## [1.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-diff@1.0.3...@yarn-tool/yarnlock-diff@1.0.4) (2020-08-06)
 
 

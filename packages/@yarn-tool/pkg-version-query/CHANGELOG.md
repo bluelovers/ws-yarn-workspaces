@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.11](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-version-query@1.0.7...@yarn-tool/pkg-version-query@1.0.11) (2020-08-12)
+
+
+### 🔖　Miscellaneous
+
+* . ([7d4b7df](https://github.com/bluelovers/ws-yarn-workspaces/commit/7d4b7df38006b018eef185784d22f30171bcd435))
+* . ([32d2ba2](https://github.com/bluelovers/ws-yarn-workspaces/commit/32d2ba2d3e9b0f0d3d77496a39e225868b28f892))
+* . ([0a4422e](https://github.com/bluelovers/ws-yarn-workspaces/commit/0a4422e36f2c72d1b4f41f6ed2973a98503163d7))
+
+
+
+
+
+## [1.0.10](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-version-query@1.0.7...@yarn-tool/pkg-version-query@1.0.10) (2020-08-12)
+
+
+### 🔖　Miscellaneous
+
+* . ([7d4b7df](https://github.com/bluelovers/ws-yarn-workspaces/commit/7d4b7df38006b018eef185784d22f30171bcd435))
+* . ([32d2ba2](https://github.com/bluelovers/ws-yarn-workspaces/commit/32d2ba2d3e9b0f0d3d77496a39e225868b28f892))
+* . ([0a4422e](https://github.com/bluelovers/ws-yarn-workspaces/commit/0a4422e36f2c72d1b4f41f6ed2973a98503163d7))
+
+
+
+
+
 ## [1.0.9](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-version-query@1.0.7...@yarn-tool/pkg-version-query@1.0.9) (2020-08-12)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarnlock-entries",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "",
   "keywords": [
     "yarn",
@@ -37,15 +37,13 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@yarn-tool/yarnlock-parse": "^1.0.2",
     "@yarn-tool/detect-yarnlock-version": "^1.0.4",
-    "@yarn-tool/yarnlock-util": "^1.0.0",
+    "@yarn-tool/yarnlock-parse": "^1.0.6",
     "@yarn-tool/yarnlock-stringify": "^1.0.2",
-    "ts-type": "^1.2.32",
-    "lodash": "^4.17.19"
+    "@yarn-tool/yarnlock-util": "^1.0.4",
+    "lodash": "^4.17.19",
+    "ts-type": "^1.2.32"
   },
-  "devDependencies": {},
-  "peerDependencies": {},
   "publishConfig": {
     "access": "public"
   }

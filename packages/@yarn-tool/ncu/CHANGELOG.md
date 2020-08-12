@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.42](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ncu@1.0.41...@yarn-tool/ncu@1.0.42) (2020-08-12)
+
+
+### 📦　Code Refactoring
+
+* code splitting ([13252e0](https://github.com/bluelovers/ws-yarn-workspaces/commit/13252e0dfbcb7fc11ccfb4dd4849dcf8aa50e127))
+* code splitting ([eb6ad98](https://github.com/bluelovers/ws-yarn-workspaces/commit/eb6ad988894b073bd32e3fd9a60dbba48afb8afd))
+
+
+
+
+
 ## [1.0.41](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ncu@1.0.40...@yarn-tool/ncu@1.0.41) (2020-08-11)
 
 

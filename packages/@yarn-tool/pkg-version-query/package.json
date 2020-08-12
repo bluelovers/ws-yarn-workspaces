@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/pkg-version-query",
-  "version": "1.0.9",
+  "version": "1.0.11",
   "description": "",
   "keywords": [
     "yarn",
@@ -37,7 +37,7 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@lazy-node/semver-ampersand": "^1.0.5",
+    "@lazy-node/semver-ampersand": "^1.0.7",
     "cache-path": "^2.0.4",
     "lru-cache-fs2": "^2.0.5",
     "npm-package-arg": "^8.0.1",
