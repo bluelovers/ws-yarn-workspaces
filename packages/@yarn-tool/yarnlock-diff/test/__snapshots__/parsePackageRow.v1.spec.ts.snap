@@ -3,6 +3,9 @@
 exports[`@babel/parser@* 1`] = `
 Object {
   "name": "@babel/parser",
+  "raw": "@babel/parser@*",
+  "semver": "*",
+  "type": "range",
   "version": "1.0.0",
 }
 `;
@@ -10,6 +13,9 @@ Object {
 exports[`@babel/parser@next 1`] = `
 Object {
   "name": "@babel/parser",
+  "raw": "@babel/parser@next",
+  "semver": "next",
+  "type": "tag",
   "version": "1.0.0",
 }
 `;
