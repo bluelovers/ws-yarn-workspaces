@@ -15,13 +15,33 @@ function parseYarnLockRowV2(packageName, packageData) {
         if (!version.length) {
             version = ret.descriptor.description;
         }
-        let parsed = index_1.npa(packageName);
-        let semver = getSemverFromNpaResult_1.getSemverFromNpaResult(parsed);
+        let parsed;
+        let semver;
+        try {
+            /**
+             * @fixme support packageName: 'once@npm:^1.3.1, once@npm:^1.4.0'
+             */
+            parsed = index_1.npa(packageName);
+            semver = getSemverFromNpaResult_1.getSemverFromNpaResult(parsed);
+        }
+        catch (e) {
+            /*
+            console.dir({
+                name,
+                version,
+            })
+            console.dir({
+                packageName,
+                packageData,
+            })
+
+             */
+        }
         return {
             name,
             version,
-            type: parsed.type,
-            raw: parsed.raw,
+            type: parsed === null || parsed === void 0 ? void 0 : parsed.type,
+            raw: parsed === null || parsed === void 0 ? void 0 : parsed.raw,
             semver,
         };
     }
