@@ -1,8 +1,8 @@
 import IPackageJson from '@ts-type/package-dts/package-json';
-import { npmCheckUpdates } from '../lib/update';
 import FastGlob from '@bluelovers/fast-glob';
 import { basename, join } from 'path';
 import { readJSONSync } from 'fs-extra';
+import { npmCheckUpdates } from '../lib/update/npmCheckUpdates';
 
 describe(`should not update`, () =>
 {
