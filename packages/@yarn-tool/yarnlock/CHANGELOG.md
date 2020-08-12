@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.34](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock@1.0.33...@yarn-tool/yarnlock@1.0.34) (2020-08-12)
+
+
+### ✨　Features
+
+* fsYarnLockSafe ([388bbc7](https://github.com/bluelovers/ws-yarn-workspaces/commit/388bbc79bbe9f8006e20173e8bfcf18acf1739da))
+
+
+### BREAKING CHANGES
+
+* function renamed
+
+
+
+
+
 ## [1.0.33](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock@1.0.31...@yarn-tool/yarnlock@1.0.33) (2020-08-12)
 
 **Note:** Version bump only for package @yarn-tool/yarnlock
