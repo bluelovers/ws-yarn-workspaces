@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/npm-package-arg-util",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "keywords": [
     "yarn",
@@ -40,8 +40,6 @@
     "@types/npm-package-arg": "*",
     "npm-package-arg": "^8.0.1"
   },
-  "devDependencies": {},
-  "peerDependencies": {},
   "publishConfig": {
     "access": "public"
   }

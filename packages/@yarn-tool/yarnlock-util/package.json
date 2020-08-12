@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarnlock-util",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "keywords": [
     "yarn",
@@ -37,12 +37,10 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@yarn-tool/yarnlock-parse": "^1.0.2",
+    "@yarn-tool/yarnlock-parse": "^1.0.3",
     "@yarnpkg/parsers": "^2.1.0",
     "npm-package-arg": "^8.0.1"
   },
-  "devDependencies": {},
-  "peerDependencies": {},
   "publishConfig": {
     "access": "public"
   }
