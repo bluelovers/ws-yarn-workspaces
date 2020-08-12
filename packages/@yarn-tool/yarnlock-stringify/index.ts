@@ -15,7 +15,8 @@ export function yarnLockStringify(yarnlock_old: Record<string, any> | Buffer | s
 			case EnumDetectYarnLock.berry:
 				return stringifySyml(yarnlock_old)
 			case EnumDetectYarnLock.v1:
-				return _stringify(yarnlock_old)
+				// @ts-ignore
+				return _stringify(yarnlock_old.object ?? yarnlock_old)
 		}
 	}
 	else
