@@ -1,7 +1,8 @@
 import { IYarnLockDataRowV2 } from '@yarn-tool/yarnlock-parse/index';
 import { parseResolution } from '@yarnpkg/parsers';
 import { IParseNameAndVersion } from '../types';
-import npa from 'npm-package-arg';
+//import npa from 'npm-package-arg';
+import { getSemverFromNpaResult, npa } from '@yarn-tool/npm-package-arg-util/index';
 
 export function parseYarnLockRowV2(packageName: string, packageData: IYarnLockDataRowV2): IParseNameAndVersion
 {
@@ -19,14 +20,15 @@ export function parseYarnLockRowV2(packageName: string, packageData: IYarnLockDa
 			version = ret.descriptor.description
 		}
 
-		let parsed = npa(`${name}@${version}`);
+		let parsed = npa(packageName);
+		let semver = getSemverFromNpaResult(parsed);
 
 		return {
 			name,
 			version,
 			type: parsed.type,
 			raw: parsed.raw,
-			semver: parsed.rawSpec,
+			semver,
 		}
 	}
 }

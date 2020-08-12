@@ -1,11 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.parseYarnLockRowV2 = void 0;
 const parsers_1 = require("@yarnpkg/parsers");
-const npm_package_arg_1 = __importDefault(require("npm-package-arg"));
+//import npa from 'npm-package-arg';
+const index_1 = require("@yarn-tool/npm-package-arg-util/index");
 function parseYarnLockRowV2(packageName, packageData) {
     var _a, _b;
     let ret = parsers_1.parseResolution(packageData.resolution);
@@ -16,13 +14,14 @@ function parseYarnLockRowV2(packageName, packageData) {
         if (!version.length) {
             version = ret.descriptor.description;
         }
-        let parsed = npm_package_arg_1.default(`${name}@${version}`);
+        let parsed = index_1.npa(packageName);
+        let semver = index_1.getSemverFromNpaResult(parsed);
         return {
             name,
             version,
             type: parsed.type,
             raw: parsed.raw,
-            semver: parsed.rawSpec,
+            semver,
         };
     }
 }
