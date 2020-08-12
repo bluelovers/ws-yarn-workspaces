@@ -6,33 +6,34 @@ import { readFileSync, writeFileSync, pathExistsSync } from "fs-extra";
 import { parse, stringify } from './parse';
 import { IYarnLockfileParseObject, IYarnLockfileParseObjectRow } from './types';
 import { join } from "path";
+import { BaseEncodingOptions } from "fs";
 
-export function existsYarnLockfile(file: string)
+export function existsYarnLockFile(file: string)
 {
 	return pathExistsSync(file)
 }
 
-export function checkYarnLockfileUnsafeCore(buf: Buffer | string)
+export function checkYarnLockFileUnsafeCore(buf: Buffer | string)
 {
 	return buf.length > 0
 }
 
-export function checkAndReadYarnLockfileUnsafe(file: string)
+export function checkAndReadYarnLockFileUnsafe<T extends Buffer | string = Buffer>(file: string, options?: BaseEncodingOptions & { flag?: string; } | BufferEncoding | null)
 {
-	if (existsYarnLockfile(file))
+	if (existsYarnLockFile(file))
 	{
-		let buf = readFileSync(file)
+		let buf = readFileSync(file, options) as T
 
-		if (checkYarnLockfileUnsafeCore(buf))
+		if (checkYarnLockFileUnsafeCore(buf))
 		{
 			return buf
 		}
 	}
 }
 
-export function checkAndReadYarnLockfile(file: string)
+export function checkAndParseYarnLockFile(file: string, printError?: boolean)
 {
-	let buf = checkAndReadYarnLockfileUnsafe(file)
+	let buf = checkAndReadYarnLockFileUnsafe(file)
 	if (buf?.length)
 	{
 		try
@@ -41,19 +42,19 @@ export function checkAndReadYarnLockfile(file: string)
 		}
 		catch (e)
 		{
-			console.trace(e)
+			printError && console.trace(e)
 		}
 	}
 }
 
-export function readYarnLockfile(file: string)
+export function readYarnLockFile(file: string)
 {
 	let buf = readFileSync(file)
 
 	return parse(buf)
 }
 
-export function writeYarnLockfile(file: string, data: IYarnLockfileParseObject)
+export function writeYarnLockFile(file: string, data: IYarnLockfileParseObject)
 {
 	return writeFileSync(file, stringify(data))
 }
@@ -65,6 +66,9 @@ export interface IFsYarnLockReturnType
 	yarnlock_old: string;
 }
 
+/**
+ * @deprecated
+ */
 export function fsYarnLock(root: string): IFsYarnLockReturnType
 {
 	let yarnlock_file = join(root, 'yarn.lock');
@@ -79,3 +83,20 @@ export function fsYarnLock(root: string): IFsYarnLockReturnType
 		yarnlock_old,
 	}
 }
+
+export function fsYarnLockSafe(root: string): IFsYarnLockReturnType
+{
+	const yarnlock_file = join(root, 'yarn.lock');
+
+	const yarnlock_old = checkAndReadYarnLockFileUnsafe<string>(yarnlock_file, 'utf8');
+
+	const yarnlock_exists = checkYarnLockFileUnsafeCore(yarnlock_old);
+
+	return {
+		yarnlock_file,
+		yarnlock_exists,
+		yarnlock_old,
+	}
+}
+
+export default fsYarnLockSafe
