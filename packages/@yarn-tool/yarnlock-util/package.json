@@ -37,6 +37,7 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
+    "@yarn-tool/npm-package-arg-util": "^1.0.4",
     "@yarn-tool/yarnlock-parse": "^1.0.6",
     "@yarnpkg/parsers": "^2.1.0",
     "npm-package-arg": "^8.0.1"
