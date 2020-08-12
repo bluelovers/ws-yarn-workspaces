@@ -11,7 +11,7 @@ const index_3 = __importDefault(require("@yarn-tool/yarnlock-stringify/index"));
 class YarnLockIterator {
     constructor(object) {
         this.object = object;
-        if (!this.isV1() || !this.isV2()) {
+        if (!this.isV1() && !this.isV2()) {
             throw new TypeError(`unknown object`);
         }
     }
