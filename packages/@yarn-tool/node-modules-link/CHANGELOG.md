@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.8](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/node-modules-link@1.0.7...@yarn-tool/node-modules-link@1.0.8) (2020-08-12)
+
+
+### 🐛　Bug Fixes
+
+* avoid run prepublishOnly x 2 ([66be218](https://github.com/bluelovers/ws-yarn-workspaces/commit/66be2186a617129e9c9594882ef2ccfa843c6a24))
+
+
+
+
+
 ## [1.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/node-modules-link@1.0.6...@yarn-tool/node-modules-link@1.0.7) (2020-08-09)
 
 

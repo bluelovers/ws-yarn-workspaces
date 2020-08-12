@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/node-modules-link",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "link package to node_modules",
   "keywords": [],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/node-modules-link#readme",
