@@ -1,4 +1,9 @@
-import { IYarnLockParsedV1, IYarnLockParsedV2, IUnpackYarnLockDataRow } from '@yarn-tool/yarnlock-parse/index';
+import {
+    IYarnLockParsedV1,
+    IYarnLockParsedV2,
+    IUnpackYarnLockDataRow,
+    IYarnLockSource,
+} from '@yarn-tool/yarnlock-parse/index';
 import { IYarnLockIteratorWrap, IYarnLockIteratorWrapValue } from './types';
 import { ITSResolvable } from 'ts-type/index';
 export declare class YarnLockIterator<T extends IYarnLockParsedV1 | IYarnLockParsedV2, DD extends IUnpackYarnLockDataRow<T> = IUnpackYarnLockDataRow<T>> {
@@ -20,7 +25,7 @@ export declare class YarnLockIterator<T extends IYarnLockParsedV1 | IYarnLockPar
     [Symbol.iterator]<D extends IUnpackYarnLockDataRow<T>>(): Generator<IYarnLockIteratorWrap<D>, void, unknown>;
     iterator<D extends IUnpackYarnLockDataRow<T> = DD>(): Generator<IYarnLockIteratorWrap<D>, void, unknown>;
     stringify(): string;
-    toJSON(): T;
+    toJSON<T extends IYarnLockSource>(): T;
     map<U, D extends IUnpackYarnLockDataRow<T> = DD>(fn: (value: IYarnLockIteratorWrap<D>, key: string, _this: this) => U): U[];
     mapAsync<U, D extends IUnpackYarnLockDataRow<T> = DD>(fn: (value: IYarnLockIteratorWrap<D>, key: string, _this: this) => ITSResolvable<U>): Promise<U[]>;
     reduce<U = unknown, D extends IUnpackYarnLockDataRow<T> = DD>(fn: (initValue: U, value: IYarnLockIteratorWrap<D>, key: string, _this: this) => U, initValue?: U): U;

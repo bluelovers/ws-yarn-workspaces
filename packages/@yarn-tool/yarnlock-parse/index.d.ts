@@ -24,7 +24,7 @@ export declare type IYarnLockDataRecord<D extends IYarnLockDataRowBase = IYarnLo
 export interface IYarnLockParsedV1<D extends IYarnLockDataRecord<IYarnLockDataRowBase> = IYarnLockDataRecord<IYarnLockDataRowV1>> {
     verType: EnumDetectYarnLock.v1;
     meta?: {
-        type?: string | 'success';
+        type?: string | 'success' | 'merge' | 'conflict';
         version?: never;
     };
     data: D;
@@ -40,6 +40,16 @@ export interface IYarnLockParsedV2<D extends IYarnLockDataRecord<IYarnLockDataRo
 export declare type IUnpackYarnLockDataRow<T extends IYarnLockParsedV1 | IYarnLockParsedV2> = T extends {
     data: IYarnLockDataRecord<infer D>;
 } ? D extends IYarnLockDataRowV2 ? D : D extends IYarnLockDataRowV1 ? D : D extends IYarnLockDataRowBase ? D : never : never;
+export interface IYarnLockSourceV1 {
+    type?: 'success' | 'merge' | 'conflict';
+    object: IYarnLockDataRecord<IYarnLockDataRowV1>;
+}
+export declare type IYarnLockSourceV2 = {
+    __metadata?: {
+        version?: string;
+    };
+} & IYarnLockDataRecord<IYarnLockDataRowV2>;
+export declare type IYarnLockSource = IYarnLockSourceV1 | IYarnLockSourceV2;
 export declare function yarnLockParse<T extends IYarnLockParsedV1 | IYarnLockParsedV2 = IYarnLockParsedV1 | IYarnLockParsedV2>(yarnlock_old: Buffer | string): T;
 export declare function isYarnLockParsedV1<T extends IYarnLockDataRecord<IYarnLockDataRowBase> = IYarnLockDataRecord<IYarnLockDataRowV1>>(data: any): data is IYarnLockParsedV1<T>;
 export declare function isYarnLockParsedV2<T extends IYarnLockDataRecord<IYarnLockDataRowBase> = IYarnLockDataRecord<IYarnLockDataRowV2>>(data: any): data is IYarnLockParsedV2<T>;

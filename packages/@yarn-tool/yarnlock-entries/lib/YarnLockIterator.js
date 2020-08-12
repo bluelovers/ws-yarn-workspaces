@@ -85,10 +85,21 @@ class YarnLockIterator {
         }
     }
     stringify() {
-        return index_3.default(this.object);
+        return index_3.default(this.toJSON());
     }
     toJSON() {
-        return this.object;
+        if (this.isV2()) {
+            return {
+                __metadata: this.object.meta,
+                ...this.object.data,
+            };
+        }
+        return {
+            // @ts-ignore
+            ...this.object.meta,
+            // @ts-ignore
+            object: this.object.data,
+        };
     }
     map(fn) {
         const list = [];

@@ -42,7 +42,7 @@ export interface IYarnLockParsedV1<D extends IYarnLockDataRecord<IYarnLockDataRo
 {
 	verType: EnumDetectYarnLock.v1,
 	meta?: {
-		type?: string | 'success'
+		type?: string | 'success' | 'merge' | 'conflict'
 		version?: never,
 	},
 	data: D,
@@ -71,6 +71,20 @@ export type IUnpackYarnLockDataRow<T extends IYarnLockParsedV1 | IYarnLockParsed
 	: never
 	;
 
+export interface IYarnLockSourceV1
+{
+	type?: 'success' | 'merge' | 'conflict';
+	object: IYarnLockDataRecord<IYarnLockDataRowV1>;
+}
+
+export type IYarnLockSourceV2 = {
+	__metadata?: {
+		version?: string,
+	}
+} & IYarnLockDataRecord<IYarnLockDataRowV2>;
+
+export type IYarnLockSource = IYarnLockSourceV1 | IYarnLockSourceV2;
+
 export function yarnLockParse<T extends IYarnLockParsedV1 | IYarnLockParsedV2 = IYarnLockParsedV1 | IYarnLockParsedV2>(yarnlock_old: Buffer | string): T
 {
 	let verType = detectYarnLockVersion(yarnlock_old as string);
@@ -80,11 +94,11 @@ export function yarnLockParse<T extends IYarnLockParsedV1 | IYarnLockParsedV2 = 
 	switch (verType)
 	{
 		case EnumDetectYarnLock.berry:
-			({ __metadata: meta, ...data } = parseSyml(yarnlock_old.toString()));
+			({ __metadata: meta, ...data } = parseSyml(yarnlock_old.toString()) as IYarnLockSourceV2);
 
 			break;
 		case EnumDetectYarnLock.v1:
-			({ object: data, ...meta } = parse(yarnlock_old.toString()));
+			({ object: data, ...meta } = parse(yarnlock_old.toString()) as IYarnLockSourceV1);
 
 			break;
 		default:

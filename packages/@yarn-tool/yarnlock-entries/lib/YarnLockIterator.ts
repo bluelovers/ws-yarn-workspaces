@@ -1,4 +1,9 @@
-import { IYarnLockParsedV1, IYarnLockParsedV2, IUnpackYarnLockDataRow } from '@yarn-tool/yarnlock-parse/index';
+import {
+	IYarnLockParsedV1,
+	IYarnLockParsedV2,
+	IUnpackYarnLockDataRow,
+	IYarnLockSourceV1, IYarnLockSourceV2, IYarnLockSource,
+} from '@yarn-tool/yarnlock-parse/index';
 import { EnumDetectYarnLock } from '@yarn-tool/detect-yarnlock-version/index';
 import { merge } from 'lodash';
 import { IYarnLockIteratorWrap, IYarnLockIteratorWrapValue } from './types';
@@ -129,12 +134,25 @@ export class YarnLockIterator<T extends IYarnLockParsedV1 | IYarnLockParsedV2, D
 
 	stringify()
 	{
-		return yarnLockStringify(this.object)
+		return yarnLockStringify(this.toJSON())
 	}
 
-	toJSON()
+	toJSON<T extends IYarnLockSource>(): T
 	{
-		return this.object
+		if (this.isV2())
+		{
+			return {
+				__metadata: this.object.meta,
+				...this.object.data,
+			} as Extract<T, IYarnLockSourceV2>
+		}
+
+		return {
+			// @ts-ignore
+			...this.object.meta,
+			// @ts-ignore
+			object: this.object.data,
+		} as Extract<T, IYarnLockSourceV1>
 	}
 
 	map<U, D extends IUnpackYarnLockDataRow<T> = DD>(fn: (value: IYarnLockIteratorWrap<D>,
