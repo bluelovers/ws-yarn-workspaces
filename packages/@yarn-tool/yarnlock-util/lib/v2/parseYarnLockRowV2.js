@@ -4,6 +4,7 @@ exports.parseYarnLockRowV2 = void 0;
 const parsers_1 = require("@yarnpkg/parsers");
 //import npa from 'npm-package-arg';
 const index_1 = require("@yarn-tool/npm-package-arg-util/index");
+const getSemverFromNpaResult_1 = require("@yarn-tool/npm-package-arg-util/lib/getSemverFromNpaResult");
 function parseYarnLockRowV2(packageName, packageData) {
     var _a, _b;
     let ret = parsers_1.parseResolution(packageData.resolution);
@@ -15,7 +16,7 @@ function parseYarnLockRowV2(packageName, packageData) {
             version = ret.descriptor.description;
         }
         let parsed = index_1.npa(packageName);
-        let semver = index_1.getSemverFromNpaResult(parsed);
+        let semver = getSemverFromNpaResult_1.getSemverFromNpaResult(parsed);
         return {
             name,
             version,
