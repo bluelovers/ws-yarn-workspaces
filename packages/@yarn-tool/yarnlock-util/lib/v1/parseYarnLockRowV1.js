@@ -18,6 +18,9 @@ function parseYarnLockRowV1(packageName, packageData) {
         return {
             name,
             version: packageData.version,
+            type: parsed.type,
+            raw: parsed.raw,
+            semver: parsed.rawSpec,
         };
     }
 }

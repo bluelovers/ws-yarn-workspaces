@@ -22,6 +22,9 @@ export function parseYarnLockRowV1(packageName: string, packageData: IYarnLockDa
 		return {
 			name,
 			version: packageData.version,
+			type: parsed.type,
+			raw: parsed.raw,
+			semver: parsed.rawSpec,
 		}
 	}
 }

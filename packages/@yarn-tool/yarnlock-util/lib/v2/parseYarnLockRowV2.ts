@@ -1,6 +1,7 @@
 import { IYarnLockDataRowV2 } from '@yarn-tool/yarnlock-parse/index';
 import { parseResolution } from '@yarnpkg/parsers';
 import { IParseNameAndVersion } from '../types';
+import npa from 'npm-package-arg';
 
 export function parseYarnLockRowV2(packageName: string, packageData: IYarnLockDataRowV2): IParseNameAndVersion
 {
@@ -18,9 +19,14 @@ export function parseYarnLockRowV2(packageName: string, packageData: IYarnLockDa
 			version = ret.descriptor.description
 		}
 
+		let parsed = npa(`${name}@${version}`);
+
 		return {
 			name,
 			version,
+			type: parsed.type,
+			raw: parsed.raw,
+			semver: parsed.rawSpec,
 		}
 	}
 }
