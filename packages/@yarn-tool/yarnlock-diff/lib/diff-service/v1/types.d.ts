@@ -1,4 +1,5 @@
-export interface IPackageData {
+import { IYarnLockDataRowV1 } from '@yarn-tool/yarnlock-parse/index';
+export interface IPackageData extends IYarnLockDataRowV1 {
     version: string;
     resolved: string;
     integrity: string;

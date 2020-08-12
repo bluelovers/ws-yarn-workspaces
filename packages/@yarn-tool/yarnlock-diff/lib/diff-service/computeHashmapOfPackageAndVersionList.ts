@@ -2,7 +2,7 @@ import {
 	IYarnLockParsedV1,
 	IYarnLockParsedV2,
 	isYarnLockParsedV1,
-	isYarnLockParsedV2,
+	isYarnLockParsedV2, IYarnLockDataRowV1, IYarnLockDataRowV2,
 } from '@yarn-tool/yarnlock-parse/index';
 
 import { parsePackageRow as v1 } from './v1/parsePackageRow';
@@ -16,7 +16,7 @@ export function computeHashmapOfPackageAndVersionList(alreadyComputedPackage: IC
 	parsedOldPackage: IYarnLockParsedV1 | IYarnLockParsedV2,
 ): IComputedPackage
 {
-	let fn: (...argv) => {
+	let fn: (packageName: string, packageData: any, ...argv) => {
 		name: string;
 		version: string;
 	};
@@ -34,7 +34,7 @@ export function computeHashmapOfPackageAndVersionList(alreadyComputedPackage: IC
 		throw new TypeError(`can't detect yarn.lock version`)
 	}
 
-	Object.entries(parsedOldPackage.data)
+	Object.entries<IYarnLockDataRowV1 | IYarnLockDataRowV2>(parsedOldPackage.data)
 		.forEach(([packageName, packageData]) =>
 		{
 			const result = fn(packageName, packageData);
