@@ -12,7 +12,7 @@ function existsYarnLockFile(file) {
 }
 exports.existsYarnLockFile = existsYarnLockFile;
 function checkYarnLockFileUnsafeCore(buf) {
-    return buf.length > 0;
+    return (buf === null || buf === void 0 ? void 0 : buf.length) > 0;
 }
 exports.checkYarnLockFileUnsafeCore = checkYarnLockFileUnsafeCore;
 function checkAndReadYarnLockFileUnsafe(file, options) {

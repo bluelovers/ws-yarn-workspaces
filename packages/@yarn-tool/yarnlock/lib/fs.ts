@@ -15,7 +15,7 @@ export function existsYarnLockFile(file: string)
 
 export function checkYarnLockFileUnsafeCore(buf: Buffer | string)
 {
-	return buf.length > 0
+	return buf?.length > 0
 }
 
 export function checkAndReadYarnLockFileUnsafe<T extends Buffer | string = Buffer>(file: string, options?: BaseEncodingOptions & { flag?: string; } | BufferEncoding | null)
