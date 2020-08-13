@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarnlock-fs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "keywords": [
     "yarn",
@@ -41,8 +41,6 @@
     "@yarn-tool/yarnlock-stringify": "^1.0.3",
     "fs-extra": "^9.0.1"
   },
-  "devDependencies": {},
-  "peerDependencies": {},
   "publishConfig": {
     "access": "public"
   }

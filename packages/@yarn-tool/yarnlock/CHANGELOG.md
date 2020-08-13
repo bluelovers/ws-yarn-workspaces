@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.37](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock@1.0.36...@yarn-tool/yarnlock@1.0.37) (2020-08-13)
+
+
+### 🐛　Bug Fixes
+
+* TypeError: Cannot read property 'length' of undefined ([2859f56](https://github.com/bluelovers/ws-yarn-workspaces/commit/2859f5662fb2426042497ad4ec169d304afd314f))
+
+
+### 📦　Code Refactoring
+
+* code splitting ([b2ec145](https://github.com/bluelovers/ws-yarn-workspaces/commit/b2ec145541c21379e045efa1b03060aae190d616))
+
+
+
+
+
 ## [1.0.36](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock@1.0.35...@yarn-tool/yarnlock@1.0.36) (2020-08-12)
 
 **Note:** Version bump only for package @yarn-tool/yarnlock
