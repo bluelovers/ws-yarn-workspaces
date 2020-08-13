@@ -2,7 +2,6 @@
  * Created by user on 2020/6/12.
  */
 import findRoot from '@yarn-tool/find-root';
-import { fsYarnLock } from './fs';
 import { Console2 } from 'debug-color2';
 import { Argv, Arguments } from 'yargs';
 import { resolve } from 'upath2';
@@ -11,6 +10,7 @@ import { yarnLockDiff } from './diff';
 import { writeFileSync, readFileSync } from 'fs-extra';
 import { ITSWriteableWith, ITSWriteablePick } from 'ts-type';
 import { IWrapDedupeReturnType, IWrapDedupeCache, IInfoFromDedupeCacheReturnType } from './types';
+import { fsYarnLock } from '@yarn-tool/yarnlock-fs/lib/read';
 
 interface IWrapDedupeCacheRuntime extends Omit<ITSWriteableWith<IWrapDedupeCache, 'cwd' | 'rootData' | 'yarnlock_old' | 'yarnlock_old_exists' | 'ret' | 'consoleDebug' | 'console'>, 'ret'>
 {

@@ -4,7 +4,6 @@
 
 import { ITSArrayListMaybeReadonly, ITSValueOfArray } from 'ts-type';
 import { IFindRootReturnType } from '@yarn-tool/find-root';
-import { IFsYarnLockReturnType } from './fs';
 import { Console2 } from 'debug-color2';
 import { Argv, Arguments } from 'yargs';
 
@@ -12,6 +11,7 @@ export * from '@ts-type/package-dts/lib/package-json/types';
 
 import { IVersionValue } from '@ts-type/package-dts/lib/package-json/types';
 import { IYarnLockfileParseObjectRowBase } from './base/types';
+import { IFsYarnLockReturnType } from '@yarn-tool/yarnlock-fs/lib/types';
 
 export interface IYarnLockfileParseFull<T extends ITSArrayListMaybeReadonly<string> = string[]>
 {
