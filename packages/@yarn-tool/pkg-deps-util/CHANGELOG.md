@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-deps-util@1.0.1...@yarn-tool/pkg-deps-util@1.0.2) (2020-08-17)
+
+
+### 📦　Code Refactoring
+
+* checkInstallTargetTypes ([de5e990](https://github.com/bluelovers/ws-yarn-workspaces/commit/de5e9905418c1bc3b6dded038548977e042d2aef))
+
+
+### 🔖　Miscellaneous
+
+* . ([77f0ed9](https://github.com/bluelovers/ws-yarn-workspaces/commit/77f0ed9f56bfa5c774df593c117be964e1136e73))
+
+
+
+
+
 ## 1.0.1 (2020-08-17)
 
 

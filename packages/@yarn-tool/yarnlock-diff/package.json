@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarnlock-diff",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "given one or many old yarn.lock, and one or many new yarn.lock, compute the diff",
   "keywords": [
     "oclif"
@@ -33,7 +33,7 @@
     "@yarn-tool/semver-diff": "^1.0.12",
     "@yarn-tool/table": "^1.0.20",
     "@yarn-tool/yarnlock-parse": "^1.0.6",
-    "@yarn-tool/yarnlock-util": "^1.0.6",
+    "@yarn-tool/yarnlock-util": "^1.0.7",
     "@yarnpkg/parsers": "^2.1.0",
     "array-hyper-unique": "^1.1.9",
     "debug-color2": "^1.2.3",
