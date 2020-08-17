@@ -46,7 +46,7 @@ async function checkInstallTargetTypes(packageName, options) {
         name,
         target,
         error: 0 /* SUCCESS */,
-        msg: `install ${target}`,
+        msg: `add ${target} to dependency`,
     };
 }
 exports.checkInstallTargetTypes = checkInstallTargetTypes;

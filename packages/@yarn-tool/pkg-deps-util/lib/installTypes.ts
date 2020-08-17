@@ -59,6 +59,6 @@ export async function checkInstallTargetTypes(packageName: string, options?: {
 		name,
 		target,
 		error: EnumInstallTypesErrorCode.SUCCESS,
-		msg: `install ${target}`,
+		msg: `add ${target} to dependency`,
 	}
 }
