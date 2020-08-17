@@ -58,5 +58,6 @@ export async function checkInstallTargetTypes(packageName: string, options?: {
 	return {
 		name,
 		target,
+		msg: `install ${target}`,
 	}
 }

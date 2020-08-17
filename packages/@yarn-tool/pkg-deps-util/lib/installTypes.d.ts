@@ -12,6 +12,6 @@ export declare function checkInstallTargetTypes(packageName: string, options?: {
 } | {
     name: string;
     target: string;
+    msg: string;
     error?: undefined;
-    msg?: undefined;
 }>;
