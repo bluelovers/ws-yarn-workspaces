@@ -1,25 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.pkgNameToTypes = exports.extractName = exports.listToTypes = exports.escapePackageName = exports.isNamespacedName = exports.parseArgvPkgName = exports.reNamespacedNameWithVersion = exports.reNamespacedName = exports.sep = void 0;
-const core_1 = require("array-hyper-unique/core");
+const parseArgvPkgName_1 = require("@yarn-tool/npm-package-arg-util/lib/parseArgvPkgName");
+Object.defineProperty(exports, "parseArgvPkgName", { enumerable: true, get: function () { return parseArgvPkgName_1.parseArgvPkgName; } });
+const listToTypes_1 = require("@yarn-tool/pkg-deps-util/lib/util/listToTypes");
+Object.defineProperty(exports, "listToTypes", { enumerable: true, get: function () { return listToTypes_1.listToTypes; } });
 const sep = '__';
 exports.sep = sep;
 const reNamespacedName = /^(?:(@[^\/]+)\/)?([^@]+)$/;
 exports.reNamespacedName = reNamespacedName;
 const reNamespacedNameWithVersion = /^(?:(@[^\/]+)\/)?([^@]+)(?:@(.+))?$/;
 exports.reNamespacedNameWithVersion = reNamespacedNameWithVersion;
-function parseArgvPkgName(input) {
-    let m = input.match(reNamespacedNameWithVersion);
-    if (m) {
-        return {
-            input,
-            namespace: m[1],
-            name: m[2],
-            version: m[3],
-        };
-    }
-}
-exports.parseArgvPkgName = parseArgvPkgName;
 function isNamespacedName(packageName) {
     return reNamespacedName.test(packageName);
 }
@@ -30,20 +21,13 @@ function escapePackageName(packageName) {
         .replace(/[/\\]/, '__');
 }
 exports.escapePackageName = escapePackageName;
-function listToTypes(input, includeVersion) {
-    return core_1.array_unique_overwrite(input.reduce(function (a, b) {
-        a.push(pkgNameToTypes(b, includeVersion));
-        return a;
-    }, []));
-}
-exports.listToTypes = listToTypes;
 function extractName(packageName) {
-    return parseArgvPkgName(packageName).name;
+    return parseArgvPkgName_1.parseArgvPkgName(packageName).name;
 }
 exports.extractName = extractName;
 function pkgNameToTypes(packageName, includeVersion) {
     var _a;
-    let m = parseArgvPkgName(packageName);
+    let m = parseArgvPkgName_1.parseArgvPkgName(packageName);
     let { version, name, namespace } = m;
     if (namespace) {
         name = escapePackageName(namespace) + '__' + name;

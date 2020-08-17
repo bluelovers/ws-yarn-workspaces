@@ -1,5 +1,5 @@
 import { AliasResult } from 'npm-package-arg';
-import { IResult } from '../index';
+import { IResult } from './types';
 
 export function getSemverFromNpaResult(npaResult: IResult)
 {
