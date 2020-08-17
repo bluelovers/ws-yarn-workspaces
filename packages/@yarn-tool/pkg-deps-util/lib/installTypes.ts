@@ -58,6 +58,7 @@ export async function checkInstallTargetTypes(packageName: string, options?: {
 	return {
 		name,
 		target,
+		error: EnumInstallTypesErrorCode.SUCCESS,
 		msg: `install ${target}`,
 	}
 }

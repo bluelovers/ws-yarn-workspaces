@@ -45,6 +45,7 @@ async function checkInstallTargetTypes(packageName, options) {
     return {
         name,
         target,
+        error: 0 /* SUCCESS */,
         msg: `install ${target}`,
     };
 }

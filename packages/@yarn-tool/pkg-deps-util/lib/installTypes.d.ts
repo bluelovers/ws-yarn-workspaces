@@ -9,9 +9,4 @@ export declare function checkInstallTargetTypes(packageName: string, options?: {
     target: string;
     error: EnumInstallTypesErrorCode;
     msg: string;
-} | {
-    name: string;
-    target: string;
-    msg: string;
-    error?: undefined;
 }>;
