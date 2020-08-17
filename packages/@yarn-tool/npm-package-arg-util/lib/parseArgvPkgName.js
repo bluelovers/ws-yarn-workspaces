@@ -22,12 +22,16 @@ exports.parseArgvPkgName = parseArgvPkgName;
 function parsePackageName(packageName) {
     const result = index_1.npa(packageName);
     const subname = stripScope_1.stripScope(result.name);
+    let semver = index_1.getSemverFromNpaResult(result);
+    if (!(semver === null || semver === void 0 ? void 0 : semver.length)) {
+        semver = void 0;
+    }
     return {
         type: result.type,
         name: result.name,
         scope: result.scope,
         subname,
-        semver: index_1.getSemverFromNpaResult(result),
+        semver,
         result,
     };
 }

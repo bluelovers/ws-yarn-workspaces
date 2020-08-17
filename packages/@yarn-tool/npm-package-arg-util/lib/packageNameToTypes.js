@@ -11,8 +11,8 @@ function packageNameToTypes(packageName, prefix) {
     }
     let { result } = ret;
     let scope = prefix;
-    let subname = escapePackageNameToTypes_1.escapePackageNameToTypes(result);
-    let name = prefix + '/' + escapePackageNameToTypes_1.escapePackageNameToTypes(result);
+    let subname = escapePackageNameToTypes_1.escapePackageNameToTypes(result, prefix);
+    let name = prefix + '/' + subname;
     return {
         ...ret,
         name,

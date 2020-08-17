@@ -17,9 +17,9 @@ export function packageNameToTypes(packageName: string, prefix?: string): IParse
 
 	let scope = prefix;
 
-	let subname = escapePackageNameToTypes(result);
+	let subname = escapePackageNameToTypes(result, prefix);
 
-	let name = prefix + '/' + escapePackageNameToTypes(result);
+	let name = prefix + '/' + subname;
 
 	return {
 		...ret,

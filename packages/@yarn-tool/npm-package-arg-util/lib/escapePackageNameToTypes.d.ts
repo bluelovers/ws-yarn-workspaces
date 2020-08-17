@@ -1,4 +1,4 @@
 export declare function escapePackageNameToTypes(options: {
     scope?: string;
     name: string;
-}): string;
+}, prefix?: string): string;

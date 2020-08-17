@@ -27,12 +27,19 @@ export function parsePackageName(packageName: string): IParsePackageName
 
 	const subname = stripScope(result.name);
 
+	let semver = getSemverFromNpaResult(result);
+
+	if (!semver?.length)
+	{
+		semver = void 0;
+	}
+
 	return {
 		type: result.type,
 		name: result.name,
 		scope: result.scope,
 		subname,
-		semver: getSemverFromNpaResult(result),
+		semver,
 		result,
 	}
 }

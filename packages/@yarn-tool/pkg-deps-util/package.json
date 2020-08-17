@@ -39,10 +39,13 @@
   "dependencies": {
     "@ts-type/package-dts": "^1.0.43",
     "@yarn-tool/npm-package-arg-util": "^1.0.4",
+    "@yarn-tool/pkg-version-query": "^1.0.11",
     "array-hyper-unique": "^1.1.9"
   },
   "devDependencies": {},
-  "peerDependencies": {},
+  "peerDependencies": {
+    "yargs": "*"
+  },
   "publishConfig": {
     "access": "public"
   }

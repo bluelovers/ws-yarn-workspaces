@@ -14,4 +14,15 @@ describe(`packageNameToTypes`, () =>
 
 	});
 
+	test(`@types/typescript@^1.3.1`, () =>
+	{
+
+		let actual = packageNameToTypes(`@types/typescript@^1.3.1`);
+
+		expect(actual).toHaveProperty('name', '@types/typescript');
+
+		expect(actual).toMatchSnapshot();
+
+	});
+
 })

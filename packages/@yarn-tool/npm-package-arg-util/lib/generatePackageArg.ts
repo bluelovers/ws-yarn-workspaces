@@ -1,6 +1,7 @@
 import { IParsePackageName, IResult } from './types';
+import { ITSPartialPick } from 'ts-type/lib/type/record';
 
-export function generatePackageArg(input: Pick<IParsePackageName, 'name' | 'semver' | 'type'>, includeVersion?: boolean)
+export function generatePackageArg(input: Pick<IParsePackageName, 'name'> & ITSPartialPick<IParsePackageName, 'semver' | 'type'>, includeVersion?: boolean)
 {
 	if (includeVersion && input.semver?.length > 0)
 	{
