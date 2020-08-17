@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.5](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/npm-package-arg-util@1.0.4...@yarn-tool/npm-package-arg-util@1.0.5) (2020-08-17)
+
+
+### 🐛　Bug Fixes
+
+* ``@types/typescript` should be same ([2eea803](https://github.com/bluelovers/ws-yarn-workspaces/commit/2eea8038252f24f0bad2f11d69b9009b8a4c3c05))
+
+
+### 📦　Code Refactoring
+
+* code splitting ([adf8db9](https://github.com/bluelovers/ws-yarn-workspaces/commit/adf8db933ceca6c55629910194cd236b5b962299))
+
+
+### 🔖　Miscellaneous
+
+* . ([2c41bb7](https://github.com/bluelovers/ws-yarn-workspaces/commit/2c41bb70e56bdde67d24747b850f83b9df913247))
+
+
+
+
+
 ## 1.0.4 (2020-08-12)
 
 

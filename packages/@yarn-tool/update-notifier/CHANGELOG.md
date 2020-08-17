@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.15](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/update-notifier@1.0.14...@yarn-tool/update-notifier@1.0.15) (2020-08-17)
+
+
+### ♻️　Chores
+
+* update deps ([d812758](https://github.com/bluelovers/ws-yarn-workspaces/commit/d8127586b4a69d2c6434de0d74170590bd01907e))
+
+
+
+
+
 ## [1.0.14](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/update-notifier@1.0.13...@yarn-tool/update-notifier@1.0.14) (2020-07-18)
 
 

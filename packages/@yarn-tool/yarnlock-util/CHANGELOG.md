@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.6](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-util@1.0.5...@yarn-tool/yarnlock-util@1.0.6) (2020-08-17)
+
+
+### 📦　Code Refactoring
+
+* code splitting ([adf8db9](https://github.com/bluelovers/ws-yarn-workspaces/commit/adf8db933ceca6c55629910194cd236b5b962299))
+
+
+
+
+
 ## [1.0.5](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-util@1.0.4...@yarn-tool/yarnlock-util@1.0.5) (2020-08-12)
 
 

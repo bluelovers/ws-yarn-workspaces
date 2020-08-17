@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.31](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/workspaces-project@1.0.30...@yarn-tool/workspaces-project@1.0.31) (2020-08-17)
+
+
+### ♻️　Chores
+
+* update deps ([d812758](https://github.com/bluelovers/ws-yarn-workspaces/commit/d8127586b4a69d2c6434de0d74170590bd01907e))
+
+
+
+
+
 ## [1.0.30](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/workspaces-project@1.0.29...@yarn-tool/workspaces-project@1.0.30) (2020-08-09)
 
 
