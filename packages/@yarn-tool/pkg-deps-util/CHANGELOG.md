@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-deps-util@1.0.6...@yarn-tool/pkg-deps-util@1.0.7) (2020-08-19)
+
+
+### 🐛　Bug Fixes
+
+* wrong return type ([906979d](https://github.com/bluelovers/ws-yarn-workspaces/commit/906979d1503a018186955164bb1fe31512d84d47))
+
+
+
+
+
 ## [1.0.6](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-deps-util@1.0.5...@yarn-tool/pkg-deps-util@1.0.6) (2020-08-19)
 
 
