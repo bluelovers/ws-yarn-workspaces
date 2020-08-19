@@ -1,15 +1,11 @@
 import { packageNameToTypes } from '@yarn-tool/npm-package-arg-util/lib/packageNameToTypes';
 import { generatePackageArg } from '@yarn-tool/npm-package-arg-util/lib/generatePackageArg';
-import { IPackageJson } from '@ts-type/package-dts/package-json';
 import { existsDependencies } from './util/existsDependencies';
 import { getPackageInfo } from './getPackageInfo';
 import { EnumInstallTypesErrorCode } from './const';
+import { IOptionsCheckInstallTarget } from './types';
 
-export async function checkInstallTargetTypes(packageName: string, options?: {
-	excludeVersion?: boolean,
-	pkg?: IPackageJson,
-	checkExists?: boolean,
-})
+export async function checkInstallTargetTypes(packageName: string, options?: IOptionsCheckInstallTarget)
 {
 	let data = packageNameToTypes(packageName);
 	let { name } = data;
