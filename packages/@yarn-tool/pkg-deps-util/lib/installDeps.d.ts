@@ -1,7 +1,7 @@
 import { IOptionsInstallDepsFromWorkspaces } from './installDepsFromWorkspaces';
 export interface IOptionsInstallDeps extends IOptionsInstallDepsFromWorkspaces {
 }
-export declare function filterInstallDeps(packageNames: string[], options?: IOptionsInstallDeps): Promise<{
+export declare function filterInstallDeps(packageNames: string[], options?: IOptionsInstallDeps): {
     cwd: string;
     packageNames: string[];
     pkg: import("npm-package-json-loader").IPackageJson<any>;
@@ -11,4 +11,4 @@ export declare function filterInstallDeps(packageNames: string[], options?: IOpt
     packageNames: string[];
     pkg?: undefined;
     rootData?: undefined;
-}>;
+};
