@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/pkg-name-to-types",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/pkg-name-to-types#readme",
   "bugs": {
@@ -30,7 +30,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@yarn-tool/pkg-deps-util": "^1.0.4"
+    "@yarn-tool/pkg-deps-util": "^1.0.5"
   },
   "publishConfig": {
     "access": "public"
