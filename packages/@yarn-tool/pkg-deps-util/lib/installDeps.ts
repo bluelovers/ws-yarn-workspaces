@@ -7,7 +7,7 @@ export interface IOptionsInstallDeps extends IOptionsInstallDepsFromWorkspaces
 
 }
 
-export async function filterInstallDeps(packageNames: string[], options: IOptionsInstallDeps = {})
+export function filterInstallDeps(packageNames: string[], options: IOptionsInstallDeps = {})
 {
 	const cwd = options.cwd ??= process.cwd();
 
