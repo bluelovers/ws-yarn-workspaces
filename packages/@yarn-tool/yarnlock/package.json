@@ -43,7 +43,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^1.0.43",
+    "@ts-type/package-dts": "^1.0.45",
     "@yarn-tool/detect-yarnlock-version": "^1.0.4",
     "@yarn-tool/find-root": "^1.0.35",
     "@yarn-tool/table": "^1.0.20",
@@ -52,12 +52,12 @@
     "@yarn-tool/yarnlock-fs": "^1.0.1",
     "@yarn-tool/yarnlock-stringify": "^1.0.3",
     "@yarnpkg/lockfile": "^1.1.0",
-    "@yarnpkg/parsers": "^2.1.0",
+    "@yarnpkg/parsers": "^2.2.0",
     "debug-color2": "^1.2.3",
     "deep-diff": "^1.0.2",
     "fs-extra": "^9.0.1",
     "semver": "^7.3.2",
-    "ts-type": "^1.2.32",
+    "ts-type": "^1.2.34",
     "upath2": "^3.1.6"
   },
   "publishConfig": {

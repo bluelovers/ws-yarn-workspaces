@@ -50,7 +50,7 @@
     "@yarn-tool/yarnlock-banner": "^1.0.1",
     "@yarn-tool/yarnlock-stringify": "^1.0.3",
     "yarn-berry-deduplicate": "^2.0.0",
-    "yarn-deduplicate": "^2.1.1"
+    "yarn-deduplicate": "^3.0.0"
   },
   "publishConfig": {
     "access": "public"

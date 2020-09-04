@@ -43,7 +43,7 @@
     "npm-package-arg": "^8.0.1",
     "package-json": "^6.5.0",
     "semver": "^7.3.2",
-    "ts-type": "^1.2.32"
+    "ts-type": "^1.2.34"
   },
   "publishConfig": {
     "access": "public"

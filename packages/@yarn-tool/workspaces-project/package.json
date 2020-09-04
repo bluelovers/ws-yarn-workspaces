@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@lerna/project": "^3.21.0",
-    "@ts-type/package-dts": "^1.0.43",
+    "@ts-type/package-dts": "^1.0.45",
     "@types/npm-package-arg": "*",
     "@yarn-tool/changelog": "^1.0.35",
     "find-yarn-workspace-root2": "^1.2.23",
@@ -34,7 +34,7 @@
     "lodash": "^4.17.20",
     "path-dir-normalize": "^1.0.17",
     "sort-object-keys2": "^2.0.3",
-    "ts-type": "^1.2.32",
+    "ts-type": "^1.2.34",
     "upath2": "^3.1.6"
   },
   "publishConfig": {
