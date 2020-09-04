@@ -29,6 +29,8 @@ export function filterInstallDeps(packageNames: string[], options: IOptionsInsta
 				packageNames,
 				pkg: data.pkg,
 				rootData,
+				added: data.added,
+				exists: data.exists,
 			};
 		}
 	}

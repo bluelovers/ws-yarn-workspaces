@@ -19,6 +19,8 @@ function filterInstallDeps(packageNames, options = {}) {
                 packageNames,
                 pkg: data.pkg,
                 rootData,
+                added: data.added,
+                exists: data.exists,
             };
         }
     }
