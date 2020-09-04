@@ -63,38 +63,66 @@ export function installDepsFromWorkspaces(packageNames: string[], options: IOpti
 			if (row)
 			{
 				const semver = `^${row.version}`;
-				let bool = true;
+				let bool: boolean = null;
 
-				if (options.dev && !pkg.devDependencies?.[name]?.length)
+				if (options.dev)
 				{
-					pkg.devDependencies ??= {};
-					pkg.devDependencies[name] = semver;
+					if (!pkg.devDependencies?.[name]?.length)
+					{
+						pkg.devDependencies ??= {};
+						pkg.devDependencies[name] = semver;
 
-					bool = false;
+						bool = false;
+					}
+					else
+					{
+						bool ??= true;
+					}
 				}
 
-				if (options.peer && !pkg.peerDependencies?.[name]?.length)
+				if (options.peer)
 				{
-					pkg.peerDependencies ??= {};
-					pkg.peerDependencies[name] = semver;
+					if (!pkg.peerDependencies?.[name]?.length)
+					{
+						pkg.peerDependencies ??= {};
+						pkg.peerDependencies[name] = semver;
 
-					bool = false;
+						bool = false;
+					}
+					else
+					{
+						bool ??= true;
+					}
 				}
 
-				if (options.optional && !pkg.optionalDependencies?.[name]?.length)
+				if (options.optional)
 				{
-					pkg.optionalDependencies ??= {};
-					pkg.optionalDependencies[name] = semver;
+					if (!pkg.optionalDependencies?.[name]?.length)
+					{
+						pkg.optionalDependencies ??= {};
+						pkg.optionalDependencies[name] = semver;
 
-					bool = false;
+						bool = false;
+					}
+					else
+					{
+						bool ??= true;
+					}
 				}
 
-				if (bool && !pkg.dependencies?.[name]?.length)
+				if (bool === null)
 				{
-					pkg.dependencies ??= {};
-					pkg.dependencies[name] = semver;
+					if (!pkg.dependencies?.[name]?.length)
+					{
+						pkg.dependencies ??= {};
+						pkg.dependencies[name] = semver;
 
-					bool = false;
+						bool = false;
+					}
+					else
+					{
+						bool ??= true;
+					}
 				}
 
 				if (bool === false)
