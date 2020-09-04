@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarnlock-fs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "keywords": [
     "yarn",
@@ -37,8 +37,8 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@yarn-tool/yarnlock-parse": "^1.0.6",
-    "@yarn-tool/yarnlock-stringify": "^1.0.3",
+    "@yarn-tool/yarnlock-parse": "^1.0.7",
+    "@yarn-tool/yarnlock-stringify": "^1.0.4",
     "fs-extra": "^9.0.1"
   },
   "publishConfig": {
