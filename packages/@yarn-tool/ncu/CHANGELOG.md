@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.54](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ncu@1.0.53...@yarn-tool/ncu@1.0.54) (2020-09-04)
+
+
+### 🐛　Bug Fixes
+
+* TypeError: versionmanager_1.getVersionTarget is not a function ([8dfbe7d](https://github.com/bluelovers/ws-yarn-workspaces/commit/8dfbe7dcd39638f6103112e2d42da53d3faa9887)), closes [/github.com/raineorshine/npm-check-updates/commit/31b684a752ec0dbe7e87dcde61dcf080773c95c9#diff-15ec6f0a7089133029d1784f738d3a27](https://github.com//github.com/raineorshine/npm-check-updates/commit/31b684a752ec0dbe7e87dcde61dcf080773c95c9/issues/diff-15ec6f0a7089133029d1784f738d3a27)
+
+
+
+
+
 ## [1.0.53](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ncu@1.0.52...@yarn-tool/ncu@1.0.53) (2020-09-04)
 
 
