@@ -13,6 +13,8 @@ const store_1 = require("./store");
 const package_json_1 = __importDefault(require("package-json"));
 const versionmanager_1 = require("npm-check-updates/lib/versionmanager");
 const npm_1 = __importDefault(require("npm-check-updates/lib/package-managers/npm"));
+const getVersionTarget_1 = require("./remote/getVersionTarget");
+Object.defineProperty(exports, "getVersionTarget", { enumerable: true, get: function () { return getVersionTarget_1.getVersionTarget; } });
 var queryRemoteVersions_1 = require("./remote/queryRemoteVersions");
 Object.defineProperty(exports, "queryRemoteVersions", { enumerable: true, get: function () { return queryRemoteVersions_1.queryRemoteVersions; } });
 function requestVersion(packageName) {
@@ -56,17 +58,6 @@ function fetchVersion(packageName, options = {}, ncuOptions) {
     });
 }
 exports.fetchVersion = fetchVersion;
-function getVersionTarget(options) {
-    if (typeof options === 'string') {
-        // @ts-ignore
-        return options;
-    }
-    else if (options.versionTarget) {
-        return options.versionTarget;
-    }
-    return versionmanager_1.getVersionTarget(options);
-}
-exports.getVersionTarget = getVersionTarget;
 function queryPackageManagersNpm(name, version = '0', versionTarget = types_1.EnumVersionValue.latest) {
     let method = types_1.EnumPackageManagersNpmMethod[versionTarget];
     if (version == null) {

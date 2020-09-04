@@ -16,11 +16,11 @@ import { remoteCacheMap, objVersionCache } from './store';
 import packageJson from 'package-json';
 
 import {
-	getVersionTarget as _getVersionTarget,
 	isUpgradeable as _isUpgradeable,
 	upgradeDependencyDeclaration,
 } from 'npm-check-updates/lib/versionmanager';
 import PackageManagersNpm from 'npm-check-updates/lib/package-managers/npm';
+import { getVersionTarget } from './remote/getVersionTarget';
 
 export { queryRemoteVersions } from './remote/queryRemoteVersions';
 
@@ -83,20 +83,7 @@ export function fetchVersion(packageName: string, options: IOptionsFetchVersion 
 		;
 }
 
-export function getVersionTarget(options: Partial<IOptionsNpmCheckUpdates> | string | IOptionsNpmCheckUpdates['versionTarget']): IOptionsNpmCheckUpdates['versionTarget']
-{
-	if (typeof options === 'string')
-	{
-		// @ts-ignore
-		return options
-	}
-	else if (options.versionTarget)
-	{
-		return options.versionTarget
-	}
-
-	return _getVersionTarget(options)
-}
+export { getVersionTarget }
 
 export function queryPackageManagersNpm(name: string,
 	version: IVersionValue = '0',
