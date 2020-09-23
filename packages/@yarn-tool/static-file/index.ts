@@ -29,6 +29,8 @@ const _defaultCopyStaticFiles = [
 
 	['lerna.json.tpl', 'file/lerna.json.tpl', 'lerna.json'],
 
+	['pnpm-workspace.yaml.tpl', 'file/pnpm-workspace.yaml', 'pnpm-workspace.yaml'],
+
 ] as const;
 
 export type IStaticFilesID<T = typeof _defaultCopyStaticFiles> =
