@@ -7,7 +7,6 @@ import semver from 'semver';
 import { getVersionTarget, packageMapToKeyObject, queryPackageManagersNpm, fetchVersion } from '../remote';
 import {
 	queryVersions as _queryVersions,
-	getVersionTarget as _getVersionTarget,
 	isUpgradeable as _isUpgradeable,
 	upgradeDependencyDeclaration,
 } from 'npm-check-updates/lib/versionmanager';
