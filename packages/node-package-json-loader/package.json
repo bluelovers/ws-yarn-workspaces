@@ -1,6 +1,6 @@
 {
   "name": "npm-package-json-loader",
-  "version": "1.0.40",
+  "version": "1.0.41",
   "private": false,
   "description": "Find and load configuration from a package.json",
   "keywords": [
@@ -48,7 +48,7 @@
     "fs-extra": "^9.0.1",
     "pkg-up": "^3.1.0",
     "sort-package-json": "^1.46.0",
-    "sort-package-json3": "^1.0.23",
+    "sort-package-json3": "^1.0.24",
     "ts-type": "^1.2.34"
   },
   "bundleDependencies": [],

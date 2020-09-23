@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.53](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.52...@yarn-tool/static-file@1.0.53) (2020-09-23)
+
+
+### ✨　Features
+
+* add pnpm-workspace.yaml ([049a10b](https://github.com/bluelovers/ws-yarn-workspaces/commit/049a10b735be67c70d4c2ebd93ae3faa10275713))
+
+
+### ♻️　Chores
+
+* update deps ([40ae83d](https://github.com/bluelovers/ws-yarn-workspaces/commit/40ae83d6ce841c55f3b2b0949adb0fe4f4956edf))
+
+
+
+
+
 ## [1.0.52](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.51...@yarn-tool/static-file@1.0.52) (2020-08-08)
 
 

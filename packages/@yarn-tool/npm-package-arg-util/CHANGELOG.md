@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.9](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/npm-package-arg-util@1.0.8...@yarn-tool/npm-package-arg-util@1.0.9) (2020-09-23)
+
+
+### 🛠　Build System
+
+* update build js ([217f6de](https://github.com/bluelovers/ws-yarn-workspaces/commit/217f6ded5e656fa91c530b032ced00a3f2d50d4d))
+
+
+
+
+
 ## [1.0.8](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/npm-package-arg-util@1.0.7...@yarn-tool/npm-package-arg-util@1.0.8) (2020-09-04)
 
 

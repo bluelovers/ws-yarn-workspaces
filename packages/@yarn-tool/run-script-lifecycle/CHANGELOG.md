@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.21](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/run-script-lifecycle@1.0.20...@yarn-tool/run-script-lifecycle@1.0.21) (2020-09-23)
+
+
+### ♻️　Chores
+
+* update deps ([40ae83d](https://github.com/bluelovers/ws-yarn-workspaces/commit/40ae83d6ce841c55f3b2b0949adb0fe4f4956edf))
+
+
+
+
+
 ## [1.0.20](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/run-script-lifecycle@1.0.19...@yarn-tool/run-script-lifecycle@1.0.20) (2020-09-04)
 
 
