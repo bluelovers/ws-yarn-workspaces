@@ -33,7 +33,7 @@
     "sort-package-json-scripts": "^1.1.5"
   },
   "peerDependencies": {
-    "sort-package-json": "^1.44.0"
+    "sort-package-json": "^1.46.0"
   },
   "gitHead": "445ff249d9e89ede8c67a41af7f967bdc9dd50aa"
 }

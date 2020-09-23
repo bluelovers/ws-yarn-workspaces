@@ -20,6 +20,7 @@ const _defaultCopyStaticFiles = [
     ['now.json.tpl', 'file/now.json.tpl', 'now.json'],
     ['lerna.json.tpl', 'file/lerna.json.tpl', 'lerna.json'],
     ['pnpm-workspace.yaml.tpl', 'file/pnpm-workspace.yaml', 'pnpm-workspace.yaml'],
+    ['.npmrc.tpl', 'file/npmrc', '.npmrc'],
 ];
 exports.defaultCopyStaticFiles = Object.freeze(_defaultCopyStaticFiles);
 function parseStaticMap(file_map) {

@@ -31,6 +31,8 @@ const _defaultCopyStaticFiles = [
 
 	['pnpm-workspace.yaml.tpl', 'file/pnpm-workspace.yaml', 'pnpm-workspace.yaml'],
 
+	['.npmrc.tpl', 'file/npmrc', '.npmrc'],
+
 ] as const;
 
 export type IStaticFilesID<T = typeof _defaultCopyStaticFiles> =
