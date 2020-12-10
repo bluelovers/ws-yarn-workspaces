@@ -67,7 +67,7 @@
     "upath2": "^3.1.6",
     "validate-npm-package-name": "^3.0.0",
     "workspaces-config": "^1.0.23",
-    "yargs": "^16.0.3"
+    "yargs": "^16.2.0"
   },
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.20",

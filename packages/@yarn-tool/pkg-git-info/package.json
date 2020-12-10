@@ -32,8 +32,8 @@
   },
   "dependencies": {
     "@git-lazy/info": "^1.0.22",
-    "@types/hosted-git-info": "^3.0.0",
-    "hosted-git-info": "^3.0.5"
+    "@types/hosted-git-info": "^3.0.1",
+    "hosted-git-info": "^3.0.7"
   },
   "publishConfig": {
     "access": "public"

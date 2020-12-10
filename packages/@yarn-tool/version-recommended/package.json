@@ -29,7 +29,7 @@
     "@types/semver": "*",
     "@yarn-tool/find-root": "^1.0.36",
     "@yarn-tool/workspaces-project": "^1.0.33",
-    "semver": "^7.3.2",
+    "semver": "^7.3.4",
     "ts-type": "^1.2.34"
   },
   "publishConfig": {

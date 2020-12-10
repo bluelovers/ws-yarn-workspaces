@@ -25,7 +25,7 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@yarnpkg/parsers": "^2.2.0"
+    "@yarnpkg/parsers": "^2.3.0"
   },
   "publishConfig": {
     "access": "public"

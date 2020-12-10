@@ -37,7 +37,7 @@
     "find-yarn-workspace-root2": "^1.2.23"
   },
   "peerDependencies": {
-    "yarn": "^1.22.5"
+    "yarn": "^1.22.10"
   },
   "gitHead": "40676553ac196265d354e537459d4c78d67f0a8c"
 }

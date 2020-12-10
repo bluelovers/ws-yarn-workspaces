@@ -13,10 +13,12 @@ function getPackageInfo(packageName, excludeVersion) {
     }
     return core_1._queryVersion(data.name, {
         version,
+        //fullMetadata: true,
     })
         .catch(package_json_1.VersionNotFoundError, () => {
         return core_1._queryVersion(data.name, {
             version: 'latest',
+            //fullMetadata: true,
         });
     })
         .catch(package_json_1.PackageNotFoundError, err => void 0);

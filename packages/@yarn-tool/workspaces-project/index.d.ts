@@ -33,7 +33,59 @@ export declare class WorkspacesProject {
     get config(): ILernaJson;
     get bump(): IReleaseType;
     get changelogPreset(): IChangelogPreset;
-    get releaseConfig(): import("ts-type").ITSOverwrite<Record<string, unknown>, {
+    get releaseConfig(): import("ts-type").ITSOverwrite<Pick<{
+        [k: string]: unknown;
+        allowBranch?: string[];
+        message?: string;
+    } & {
+        concurrency?: number;
+        bump?: IReleaseType;
+        allowBranch?: string[];
+        conventionalCommits?: boolean;
+        changelogPreset?: string;
+        exact?: boolean;
+        createRelease?: "gitlab" | "github";
+        noPrivate?: boolean;
+    }, string | number> & Pick<{
+        [k: string]: unknown;
+        allowBranch?: string[];
+        message?: string;
+    } | {
+        concurrency?: number;
+        bump?: IReleaseType;
+        allowBranch?: string[];
+        conventionalCommits?: boolean;
+        changelogPreset?: string;
+        exact?: boolean;
+        createRelease?: "gitlab" | "github";
+        noPrivate?: boolean;
+    }, "changelogPreset" | "concurrency" | "bump" | "conventionalCommits" | "allowBranch" | "noPrivate" | "exact" | "createRelease"> & Pick<{
+        [k: string]: unknown;
+        ignoreChanges?: string[];
+        message?: string;
+    } & {
+        concurrency?: number;
+        bump?: IReleaseType;
+        conventionalCommits?: boolean;
+        conventionalGraduate?: boolean;
+        distTag?: string;
+        npmClient?: string;
+        allowBranch?: string[];
+        noPrivate?: boolean;
+    }, string | number> & Pick<{
+        [k: string]: unknown;
+        ignoreChanges?: string[];
+        message?: string;
+    } | {
+        concurrency?: number;
+        bump?: IReleaseType;
+        conventionalCommits?: boolean;
+        conventionalGraduate?: boolean;
+        distTag?: string;
+        npmClient?: string;
+        allowBranch?: string[];
+        noPrivate?: boolean;
+    }, "npmClient" | "concurrency" | "bump" | "conventionalCommits" | "conventionalGraduate" | "distTag" | "allowBranch" | "noPrivate">, {
         changelogPreset: unknown;
         conventionalGraduate: unknown;
         bump: IReleaseType;
