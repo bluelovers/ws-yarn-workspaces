@@ -7,8 +7,8 @@ import { crlf } from 'crlf-normalize';
 
 const __res = join(__dirname, 'res');
 
-const yarnlock_v1 = readFileSync(join(__res, 'v1', 'yarn.lock'));
-const yarnlock_v2 = readFileSync(join(__res, 'v2', 'yarn.lock'));
+const yarnlock_v1 = readFileSync(join(__res, 'v1', 'yarn.lock')).toString();
+const yarnlock_v2 = readFileSync(join(__res, 'v2', 'yarn.lock')).toString();
 
 describe(`v1`, () =>
 {
