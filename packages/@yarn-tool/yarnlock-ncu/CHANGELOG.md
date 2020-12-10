@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.9](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-ncu@1.0.8...@yarn-tool/yarnlock-ncu@1.0.9) (2020-12-10)
+
+
+### ♻️　Chores
+
+* update deps ([42c0cea](https://github.com/bluelovers/ws-yarn-workspaces/commit/42c0cea71062526ba664c8b5cf0888c0d15a1359))
+
+
+
+
+
 ## [1.0.8](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-ncu@1.0.7...@yarn-tool/yarnlock-ncu@1.0.8) (2020-09-23)
 
 **Note:** Version bump only for package @yarn-tool/yarnlock-ncu

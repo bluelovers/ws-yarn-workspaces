@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.25](https://github.com/bluelovers/ws-yarn-workspaces/compare/sort-package-json3@1.0.24...sort-package-json3@1.0.25) (2020-12-10)
+
+
+### ♻️　Chores
+
+* update deps ([42c0cea](https://github.com/bluelovers/ws-yarn-workspaces/commit/42c0cea71062526ba664c8b5cf0888c0d15a1359))
+
+
+
+
+
 ## [1.0.24](https://github.com/bluelovers/ws-yarn-workspaces/compare/sort-package-json3@1.0.23...sort-package-json3@1.0.24) (2020-09-23)
 
 
