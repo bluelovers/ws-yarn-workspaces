@@ -33,7 +33,7 @@
     "@lerna/log-packed": "^3.16.0",
     "@ts-type/package-dts": "^1.0.45",
     "npm-packlist": "^2.1.4",
-    "tar": "^6.0.5"
+    "tar": "^6.1.0"
   },
   "publishConfig": {
     "access": "public"
