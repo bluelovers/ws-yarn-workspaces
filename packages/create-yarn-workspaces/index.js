@@ -9,18 +9,6 @@ var __createBinding = (this && this.__createBinding) || (Object.create ? (functi
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
 }));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
 var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
@@ -33,11 +21,12 @@ const core_1 = __importDefault(require("find-yarn-workspace-root2/core"));
 const path_1 = require("path");
 const pkg_dir_1 = __importDefault(require("pkg-dir"));
 const logger_1 = __importDefault(require("debug-color2/logger"));
-const static_file_1 = __importStar(require("@yarn-tool/static-file"));
+const static_file_1 = __importDefault(require("@yarn-tool/static-file"));
 const fs_extra_1 = require("fs-extra");
 const sort_package_json3_1 = __importDefault(require("sort-package-json3"));
 const lib_1 = require("./lib");
 const util_1 = require("./lib/util");
+const wsCopyStaticFiles_1 = __importDefault(require("./lib/wsCopyStaticFiles"));
 __exportStar(require("./lib/index"), exports);
 __exportStar(require("./lib/util"), exports);
 function createYarnWorkspaces(cwd, options = {}) {
@@ -163,11 +152,7 @@ function _createYarnWorkspaces(targetPath, options = {}) {
         console.success(`create tsconfig.json`);
     }
      */
-    let file_map = [
-        ['tsconfig.json', 'file/tsconfig.json.tpl'],
-        ['lerna.json', 'file/lerna.json.tpl'],
-        ...static_file_1.defaultCopyStaticFiles,
-    ];
+    const file_map = wsCopyStaticFiles_1.default();
     static_file_1.default({
         cwd: targetPath,
         file_map,

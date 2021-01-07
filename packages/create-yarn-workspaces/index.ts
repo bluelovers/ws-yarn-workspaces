@@ -13,6 +13,7 @@ import { getDefaultPackageJson } from './lib';
 import { isSamePath } from './lib/util';
 import { ILernaJson } from '@ts-type/package-dts/lerna-json';
 import { IPackageJson } from '@ts-type/package-dts/package-json';
+import getWsCopyStaticFiles from './lib/wsCopyStaticFiles';
 
 export * from './lib/index';
 export * from './lib/util';
@@ -217,11 +218,7 @@ export function _createYarnWorkspaces(targetPath: string, options: IOptions = {}
 	}
 	 */
 
-	let file_map: IStaticFilesMapArray<string> = [
-		['tsconfig.json', 'file/tsconfig.json.tpl'],
-		['lerna.json', 'file/lerna.json.tpl'],
-		...defaultCopyStaticFiles,
-	]
+	const file_map: IStaticFilesMapArray<string> = getWsCopyStaticFiles();
 
 	copyStaticFiles({
 		cwd: targetPath,
