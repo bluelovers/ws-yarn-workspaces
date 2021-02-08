@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.18](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-version-query@1.0.17...@yarn-tool/pkg-version-query@1.0.18) (2021-02-08)
+
+
+### 🛠　Build System
+
+* **typescript:** update build files ([16e37c7](https://github.com/bluelovers/ws-yarn-workspaces/commit/16e37c7b0692fe4a156f793618a3487b6aa81c56))
+
+
+
+
+
 ## [1.0.17](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-version-query@1.0.16...@yarn-tool/pkg-version-query@1.0.17) (2021-01-07)
 
 
