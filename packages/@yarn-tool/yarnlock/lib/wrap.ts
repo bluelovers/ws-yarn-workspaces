@@ -10,7 +10,7 @@ import { yarnLockDiff } from './diff';
 import { writeFileSync, readFileSync } from 'fs-extra';
 import { ITSWriteableWith, ITSWriteablePick } from 'ts-type';
 import { IWrapDedupeReturnType, IWrapDedupeCache, IInfoFromDedupeCacheReturnType } from './types';
-import { fsYarnLock } from '@yarn-tool/yarnlock-fs/lib/read';
+import { fsYarnLockSafe as fsYarnLock } from '@yarn-tool/yarnlock-fs/lib/read';
 
 interface IWrapDedupeCacheRuntime extends Omit<ITSWriteableWith<IWrapDedupeCache, 'cwd' | 'rootData' | 'yarnlock_old' | 'yarnlock_old_exists' | 'ret' | 'consoleDebug' | 'console'>, 'ret'>
 {
@@ -64,7 +64,6 @@ export function wrapDedupe<T extends {
 }): IWrapDedupeReturnType<T, U, C>
 {
 	const { consoleDebug } = options;
-
 
 	let cache: IWrapDedupeCacheRuntime = options.cache as any || {};
 
