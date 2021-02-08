@@ -44,7 +44,7 @@
     "array-hyper-unique": "^1.1.9",
     "cross-spawn-extra": "^2.1.0",
     "debug-color2": "^1.2.3",
-    "err-code": "^2.0.3",
+    "err-code": "^3.0.1",
     "sort-object-keys2": "^2.0.3",
     "ws-pkg-list": "^1.0.49"
   },

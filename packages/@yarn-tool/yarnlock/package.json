@@ -55,7 +55,7 @@
     "@yarnpkg/parsers": "^2.3.0",
     "debug-color2": "^1.2.3",
     "deep-diff": "^1.0.2",
-    "fs-extra": "^9.0.1",
+    "fs-extra": "^9.1.0",
     "semver": "^7.3.4",
     "ts-type": "^1.2.34",
     "upath2": "^3.1.6"

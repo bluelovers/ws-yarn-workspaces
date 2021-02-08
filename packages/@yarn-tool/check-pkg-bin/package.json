@@ -46,7 +46,7 @@
     "@yarn-tool/table": "^1.0.23",
     "cli-table3": "^0.6.0",
     "debug-color2": "^1.2.3",
-    "fs-extra": "^9.0.1",
+    "fs-extra": "^9.1.0",
     "pkg-dir": "^5.0.0",
     "upath2": "^3.1.6",
     "ws-pkg-list": "^1.0.49",

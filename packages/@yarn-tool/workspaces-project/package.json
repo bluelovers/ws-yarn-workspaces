@@ -30,7 +30,7 @@
     "@types/npm-package-arg": "*",
     "@yarn-tool/changelog": "^1.0.38",
     "find-yarn-workspace-root2": "^1.2.24",
-    "fs-extra": "^9.0.1",
+    "fs-extra": "^9.1.0",
     "lodash": "^4.17.20",
     "path-dir-normalize": "^1.0.17",
     "sort-object-keys2": "^2.0.3",

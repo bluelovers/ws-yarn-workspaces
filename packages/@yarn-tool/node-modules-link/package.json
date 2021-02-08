@@ -33,7 +33,7 @@
     "@ts-type/package-dts": "^1.0.45",
     "@yarn-tool/find-root": "^1.0.37",
     "find-yarn-workspace-root2": "^1.2.24",
-    "fs-extra": "^9.0.1",
+    "fs-extra": "^9.1.0",
     "upath2": "^3.1.6",
     "yargs": "^16.2.0"
   },

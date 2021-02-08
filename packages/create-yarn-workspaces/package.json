@@ -48,7 +48,7 @@
     "@yarn-tool/static-file": "^1.0.53",
     "debug-color2": "^1.2.3",
     "find-yarn-workspace-root2": "^1.2.24",
-    "fs-extra": "^9.0.1",
+    "fs-extra": "^9.1.0",
     "path-is-same": "^1.0.5",
     "pkg-dir": "^5.0.0",
     "sort-package-json": "^1.48.1",
