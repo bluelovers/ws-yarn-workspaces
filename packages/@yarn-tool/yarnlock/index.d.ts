@@ -21,5 +21,5 @@ export { readYarnLockFile } from '@yarn-tool/yarnlock-fs/lib/readParseYarnLockFi
 export { writeYarnLockFile } from '@yarn-tool/yarnlock-fs/lib/writeYarnLockFile';
 export { IFsYarnLockReturnType } from '@yarn-tool/yarnlock-fs/lib/types';
 export { fsYarnLock } from '@yarn-tool/yarnlock-fs/lib/read';
-declare const _default: typeof import(".");
+declare const _default: typeof import("./index");
 export default _default;

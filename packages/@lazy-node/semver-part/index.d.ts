@@ -5,5 +5,5 @@ export type { Operator, Options } from 'semver';
 export * from './lib/_core';
 export * from './lib/compare';
 export * from './lib/parse';
-declare const _default: typeof import(".");
+declare const _default: typeof import("./index");
 export default _default;

@@ -8,7 +8,7 @@ export declare function nextVersionRecommendedByPackage<T extends {
     newVersion: string;
 };
 export declare function nextVersionRecommendedByPackageFindUp(options?: INextVersionRecommendedOptions): {
-    pkg: import("@ts-type/package-dts").IPackageJson<any>;
+    pkg: import("@ts-type/package-dts/package-json").IPackageJson<any>;
     bump: import("semver").ReleaseType;
     oldVersion: string;
     newVersion: string;

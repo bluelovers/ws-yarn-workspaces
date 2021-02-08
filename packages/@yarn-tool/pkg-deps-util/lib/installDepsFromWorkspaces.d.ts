@@ -9,7 +9,7 @@ export interface IOptionsInstallDepsFromWorkspaces extends Partial<IFindRootOpti
 }
 export declare function installDepsFromWorkspaces(packageNames: string[], options?: IOptionsInstallDepsFromWorkspaces): {
     cwd: string;
-    rootData: import("@yarn-tool/find-root").IFindRootReturnType;
+    rootData: import("@yarn-tool/find-root/index").IFindRootReturnType;
     added: [name: string, semver: string][];
     exists: string[];
     others: string[];

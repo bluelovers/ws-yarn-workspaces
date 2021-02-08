@@ -8,5 +8,5 @@ export * from './lib/remote';
 export * from './lib/util';
 export * from './lib/options';
 export * from './lib/update';
-declare const _default: typeof import(".");
+declare const _default: typeof import("./index");
 export default _default;

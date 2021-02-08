@@ -33,11 +33,11 @@ export declare class WorkspacesProject {
     get config(): ILernaJson;
     get bump(): IReleaseType;
     get changelogPreset(): IChangelogPreset;
-    get releaseConfig(): import("ts-type").ITSOverwrite<Pick<{
+    get releaseConfig(): import("ts-type").ITSOverwrite<import("ts-type").ITSPickBothDiff<{
         [k: string]: unknown;
         allowBranch?: string[];
         message?: string;
-    } & {
+    }, {
         concurrency?: number;
         bump?: IReleaseType;
         allowBranch?: string[];
@@ -46,7 +46,7 @@ export declare class WorkspacesProject {
         exact?: boolean;
         createRelease?: "gitlab" | "github";
         noPrivate?: boolean;
-    }, string | number> & Pick<{
+    }> & Pick<{
         [k: string]: unknown;
         allowBranch?: string[];
         message?: string;
@@ -59,11 +59,24 @@ export declare class WorkspacesProject {
         exact?: boolean;
         createRelease?: "gitlab" | "github";
         noPrivate?: boolean;
-    }, "changelogPreset" | "concurrency" | "bump" | "conventionalCommits" | "allowBranch" | "noPrivate" | "exact" | "createRelease"> & Pick<{
+    }, import("ts-type").ITSKeyofBothSame<{
+        [k: string]: unknown;
+        allowBranch?: string[];
+        message?: string;
+    }, {
+        concurrency?: number;
+        bump?: IReleaseType;
+        allowBranch?: string[];
+        conventionalCommits?: boolean;
+        changelogPreset?: string;
+        exact?: boolean;
+        createRelease?: "gitlab" | "github";
+        noPrivate?: boolean;
+    }>> & import("ts-type").ITSPickBothDiff<{
         [k: string]: unknown;
         ignoreChanges?: string[];
         message?: string;
-    } & {
+    }, {
         concurrency?: number;
         bump?: IReleaseType;
         conventionalCommits?: boolean;
@@ -72,7 +85,7 @@ export declare class WorkspacesProject {
         npmClient?: string;
         allowBranch?: string[];
         noPrivate?: boolean;
-    }, string | number> & Pick<{
+    }> & Pick<{
         [k: string]: unknown;
         ignoreChanges?: string[];
         message?: string;
@@ -85,7 +98,20 @@ export declare class WorkspacesProject {
         npmClient?: string;
         allowBranch?: string[];
         noPrivate?: boolean;
-    }, "npmClient" | "concurrency" | "bump" | "conventionalCommits" | "conventionalGraduate" | "distTag" | "allowBranch" | "noPrivate">, {
+    }, import("ts-type").ITSKeyofBothSame<{
+        [k: string]: unknown;
+        ignoreChanges?: string[];
+        message?: string;
+    }, {
+        concurrency?: number;
+        bump?: IReleaseType;
+        conventionalCommits?: boolean;
+        conventionalGraduate?: boolean;
+        distTag?: string;
+        npmClient?: string;
+        allowBranch?: string[];
+        noPrivate?: boolean;
+    }>>, {
         changelogPreset: unknown;
         conventionalGraduate: unknown;
         bump: IReleaseType;
