@@ -15,9 +15,10 @@
   "main": "index.js",
   "scripts": {
     "lint": "ynpx --quiet eslint -- **/*.ts",
-    "test": "echo \"Error: no test specified\"",
+    "test": "yarn run test:jest",
     "test:jest": "ynpx --quiet jest -- --coverage",
     "test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
+    "preversion": "yarn run test",
     "prepublishOnly": "yarn run prepublishOnly:check-bin && yarn run test",
     "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
     "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
@@ -25,17 +26,17 @@
     "sort-package-json": "ynpx --quiet yarn-tool -- sort"
   },
   "dependencies": {
-    "@lerna/project": "^3.21.0",
+    "@lerna/project": "^4.0.0",
     "@ts-type/package-dts": "^1.0.45",
     "@types/npm-package-arg": "*",
     "@yarn-tool/changelog": "^1.0.39",
     "find-yarn-workspace-root2": "^1.2.24",
     "fs-extra": "^9.1.0",
     "lodash": "^4.17.20",
-    "path-dir-normalize": "^1.0.17",
+    "path-dir-normalize": "^1.0.18",
     "sort-object-keys2": "^2.0.3",
     "ts-type": "^1.2.34",
-    "upath2": "^3.1.6"
+    "upath2": "^3.1.7"
   },
   "publishConfig": {
     "access": "public"

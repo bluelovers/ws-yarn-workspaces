@@ -30,7 +30,7 @@
   "dependencies": {
     "find-yarn-workspace-root2": "^1.2.24",
     "fs-extra": "^9.1.0",
-    "upath2": "^3.1.6"
+    "upath2": "^3.1.7"
   },
   "gitHead": "40676553ac196265d354e537459d4c78d67f0a8c"
 }
