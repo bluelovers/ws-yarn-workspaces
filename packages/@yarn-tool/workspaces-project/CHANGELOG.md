@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.37](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/workspaces-project@1.0.36...@yarn-tool/workspaces-project@1.0.37) (2021-02-12)
+
+
+### 🚨　Tests
+
+* **workspaces-project:** update test ([07475ce](https://github.com/bluelovers/ws-yarn-workspaces/commit/07475ce1149f0a05b2a641238a0b5290287d2f80))
+* **workspaces-project:** add lazy test ([8ea46d1](https://github.com/bluelovers/ws-yarn-workspaces/commit/8ea46d1d592bdcfb400e29f000b4aefc832a9c55))
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([132ba9d](https://github.com/bluelovers/ws-yarn-workspaces/commit/132ba9d8373adf141fb1824ade9c252be9ee2fd9))
+
+
+
+
+
 ## [1.0.36](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/workspaces-project@1.0.35...@yarn-tool/workspaces-project@1.0.36) (2021-02-08)
 
 

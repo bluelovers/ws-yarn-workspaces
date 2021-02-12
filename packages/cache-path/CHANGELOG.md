@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.8](https://github.com/bluelovers/ws-yarn-workspaces/compare/cache-path@2.0.7...cache-path@2.0.8) (2021-02-12)
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([132ba9d](https://github.com/bluelovers/ws-yarn-workspaces/commit/132ba9d8373adf141fb1824ade9c252be9ee2fd9))
+
+
+
+
+
 ## [2.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/cache-path@2.0.6...cache-path@2.0.7) (2021-02-08)
 
 

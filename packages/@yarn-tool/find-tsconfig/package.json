@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/find-tsconfig",
-  "version": "1.0.36",
+  "version": "1.0.37",
   "description": "",
   "license": "ISC",
   "author": "",
@@ -15,7 +15,7 @@
     "sort-package-json": "npx yarn-tool sort"
   },
   "dependencies": {
-    "@yarn-tool/find-root": "^1.0.37",
+    "@yarn-tool/find-root": "^1.0.38",
     "tsconfig": "^7.0.0"
   },
   "publishConfig": {

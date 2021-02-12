@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.96](https://github.com/bluelovers/create-yarn-workspaces/compare/create-yarn-workspaces@1.0.95...create-yarn-workspaces@1.0.96) (2021-02-12)
+
+
+### ✨　Features
+
+* **create-yarn-workspaces:** add `install:reset-lockfile` ([c9b92ed](https://github.com/bluelovers/create-yarn-workspaces/commit/c9b92ed1293a19fa580e7bf922dbc00c0e0ebd85))
+
+
+
+
+
 ## [1.0.95](https://github.com/bluelovers/create-yarn-workspaces/compare/create-yarn-workspaces@1.0.94...create-yarn-workspaces@1.0.95) (2021-02-08)
 
 

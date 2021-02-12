@@ -1,6 +1,6 @@
 {
   "name": "workspaces-config",
-  "version": "1.0.25",
+  "version": "1.0.26",
   "description": "```ts console.log(parseStaticPackagesPaths(getConfig())); // => { static: [], prefix: [ 'packages' ], all: [ 'packages/*' ] } ```",
   "keywords": [
     "init",
@@ -28,7 +28,7 @@
     "sort-package-json": "npx yarn-tool sort"
   },
   "dependencies": {
-    "find-pkg-ws": "^1.0.21",
+    "find-pkg-ws": "^1.0.22",
     "fs-extra": "^9.1.0"
   },
   "gitHead": "67f2bf3be478106378700eb513da557943b2f9f3"
