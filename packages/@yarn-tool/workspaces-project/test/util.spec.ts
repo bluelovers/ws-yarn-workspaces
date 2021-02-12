@@ -1,5 +1,4 @@
 import { checkPaths, EnumCheckPaths } from '../lib/util';
-import __ from 'lodash/fp/__';
 import { join } from 'path';
 
 describe(`describe`, () =>

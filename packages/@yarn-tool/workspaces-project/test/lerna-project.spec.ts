@@ -1,4 +1,4 @@
-import findWorkspaceRoot from '../../../find-yarn-workspace-root2/core';
+import findWorkspaceRoot from 'find-yarn-workspace-root2/core';
 import LernaProject from '@lerna/project';
 import { checkPaths, EnumCheckPaths } from '../lib/util';
 
