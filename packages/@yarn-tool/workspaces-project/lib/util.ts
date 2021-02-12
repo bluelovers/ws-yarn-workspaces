@@ -42,6 +42,3 @@ export function checkPaths(input: {
 
 	return EnumCheckPaths.failed
 }
-
-{}
-

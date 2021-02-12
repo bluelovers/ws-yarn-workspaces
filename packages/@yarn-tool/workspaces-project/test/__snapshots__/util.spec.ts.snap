@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`describe EnumCheckPaths.root 1`] = `1`;
+
+exports[`describe EnumCheckPaths.rootPath 1`] = `0`;
+
+exports[`describe empty return EnumCheckPaths.failed 1`] = `-1`;
+
+exports[`describe failed 1`] = `-1`;
+
+exports[`describe root is empty return EnumCheckPaths.rootPath 1`] = `0`;
+
+exports[`describe rootPath is empty return EnumCheckPaths.failed 1`] = `-1`;
+
+exports[`skipStrictCheck EnumCheckPaths.root 1`] = `1`;
+
+exports[`skipStrictCheck EnumCheckPaths.rootPath 1`] = `0`;
+
+exports[`skipStrictCheck empty return EnumCheckPaths.failed 1`] = `-1`;
+
+exports[`skipStrictCheck failed => rootPath 1`] = `0`;
+
+exports[`skipStrictCheck root is empty return EnumCheckPaths.rootPath 1`] = `0`;
+
+exports[`skipStrictCheck rootPath is empty return EnumCheckPaths.failed 1`] = `-1`;

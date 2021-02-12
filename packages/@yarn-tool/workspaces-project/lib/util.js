@@ -32,5 +32,4 @@ function checkPaths(input, options) {
     return -1 /* failed */;
 }
 exports.checkPaths = checkPaths;
-{ }
 //# sourceMappingURL=util.js.map
