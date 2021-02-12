@@ -27,6 +27,7 @@ function getDefaultPackageJson(name) {
             "sort-package-json:ws": "yarn-tool ws exec yarn-tool sort",
             "postpublishOnly": "echo postpublishOnly",
             "test": "yarn-tool ws run test",
+            "install:reset-lockfile": "yarn-tool install --reset-lockfile",
         },
         "devDependencies": {
             "@bluelovers/tsconfig": "^1.0.20",
