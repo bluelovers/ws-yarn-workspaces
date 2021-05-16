@@ -1,17 +1,16 @@
 "use strict";
-var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (receiver, privateMap) {
-    if (!privateMap.has(receiver)) {
-        throw new TypeError("attempted to get private field on non-instance");
-    }
-    return privateMap.get(receiver);
+var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (receiver, state, kind, f) {
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
+    return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
 };
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-var _internal;
+var _WorkspacesProject_internal;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.WorkspacesProject = void 0;
-const project_1 = __importDefault(require("@lerna/project"));
+const project_1 = require("@lerna/project");
 const upath2_1 = require("upath2");
 const core_1 = __importDefault(require("find-yarn-workspace-root2/core"));
 const util_1 = require("./lib/util");
@@ -20,17 +19,17 @@ const sort_object_keys2_1 = __importDefault(require("sort-object-keys2"));
 const fs_extra_1 = require("fs-extra");
 class WorkspacesProject {
     constructor(cwd, options) {
-        _internal.set(this, {});
+        _WorkspacesProject_internal.set(this, {});
         cwd = upath2_1.resolve(cwd || process.cwd());
         let root = core_1.default(cwd);
-        this._project = new project_1.default(cwd);
+        this._project = new project_1.Project(cwd);
         let rootPath = this._project.rootPath;
         switch (util_1.checkPaths({
             root,
             rootPath,
         }, options)) {
             case 1 /* root */:
-                this._project = new project_1.default(root);
+                this._project = new project_1.Project(root);
                 break;
             case -1 /* failed */:
                 throw new Error(`lerna root is not match yarn workspaces root.\ncwd: ${cwd}\nyarn: ${root}\nlerna: ${rootPath}`);
@@ -46,13 +45,13 @@ class WorkspacesProject {
         this._project.rootConfigLocation = upath2_1.normalize(this._project.rootConfigLocation);
     }
     _hasInternal(field) {
-        return field in __classPrivateFieldGet(this, _internal);
+        return field in __classPrivateFieldGet(this, _WorkspacesProject_internal, "f");
     }
     _getInternal(field) {
-        return __classPrivateFieldGet(this, _internal)[field];
+        return __classPrivateFieldGet(this, _WorkspacesProject_internal, "f")[field];
     }
     _setInternal(field, value) {
-        return __classPrivateFieldGet(this, _internal)[field] = value;
+        return __classPrivateFieldGet(this, _WorkspacesProject_internal, "f")[field] = value;
     }
     get rootPath() {
         return this._project.rootPath;
@@ -97,7 +96,7 @@ class WorkspacesProject {
         if (!this.workspaces.includes(value)) {
             throw new RangeError(`${value} not exists in ${this.workspaces}`);
         }
-        __classPrivateFieldGet(this, _internal).defaultWorkspace = value;
+        __classPrivateFieldGet(this, _WorkspacesProject_internal, "f").defaultWorkspace = value;
     }
     isIndependent() {
         return this.version === "independent" /* independent */;
@@ -147,19 +146,19 @@ class WorkspacesProject {
     get releaseConfig() {
         var _a, _b, _c;
         const command = this._project.config.command;
-        __classPrivateFieldGet(this, _internal).releaseConfig = lodash_1.merge(__classPrivateFieldGet(this, _internal).releaseConfig, command === null || command === void 0 ? void 0 : command.version, command === null || command === void 0 ? void 0 : command.publish, {
+        __classPrivateFieldGet(this, _WorkspacesProject_internal, "f").releaseConfig = lodash_1.merge(__classPrivateFieldGet(this, _WorkspacesProject_internal, "f").releaseConfig, command === null || command === void 0 ? void 0 : command.version, command === null || command === void 0 ? void 0 : command.publish, {
             changelogPreset: this.changelogPreset,
             bump: this.bump,
             conventionalGraduate: (_b = (_a = command === null || command === void 0 ? void 0 : command.publish) === null || _a === void 0 ? void 0 : _a.conventionalGraduate) !== null && _b !== void 0 ? _b : (_c = command === null || command === void 0 ? void 0 : command.version) === null || _c === void 0 ? void 0 : _c.conventionalGraduate,
         });
-        __classPrivateFieldGet(this, _internal).releaseConfig = sort_object_keys2_1.default(__classPrivateFieldGet(this, _internal).releaseConfig);
-        return __classPrivateFieldGet(this, _internal).releaseConfig;
+        __classPrivateFieldGet(this, _WorkspacesProject_internal, "f").releaseConfig = sort_object_keys2_1.default(__classPrivateFieldGet(this, _WorkspacesProject_internal, "f").releaseConfig);
+        return __classPrivateFieldGet(this, _WorkspacesProject_internal, "f").releaseConfig;
     }
     existsLernaConfigFile() {
         return fs_extra_1.pathExistsSync(this.lernaConfigLocation);
     }
 }
 exports.WorkspacesProject = WorkspacesProject;
-_internal = new WeakMap();
+_WorkspacesProject_internal = new WeakMap();
 exports.default = WorkspacesProject;
 //# sourceMappingURL=index.js.map

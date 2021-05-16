@@ -1,4 +1,4 @@
-import LernaProject from '@lerna/project';
+import { Project as LernaProject } from '@lerna/project';
 import { resolve, normalize } from 'upath2';
 import { IWorkspacesProjectInternal, EnumWorkspacesProject, IPackedManifest } from './lib/types';
 import findWorkspaceRoot from 'find-yarn-workspace-root2/core';

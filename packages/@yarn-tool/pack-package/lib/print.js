@@ -2,14 +2,11 @@
 /**
  * Created by user on 2020/4/9.
  */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.printPackedTarballInfo = void 0;
-const log_packed_1 = __importDefault(require("@lerna/log-packed"));
+const log_packed_1 = require("@lerna/log-packed");
 function printPackedTarballInfo(tarball) {
-    return log_packed_1.default(tarball);
+    return log_packed_1.logPacked(tarball);
 }
 exports.printPackedTarballInfo = printPackedTarballInfo;
 exports.default = printPackedTarballInfo;

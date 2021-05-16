@@ -2,7 +2,7 @@
  * Created by user on 2020/4/9.
  */
 
-import getPacked from '@lerna/get-packed';
+import { getPacked } from '@lerna/get-packed';
 import { IPackageJson } from '@ts-type/package-dts';
 import { IPackedTarballInfo } from './types';
 

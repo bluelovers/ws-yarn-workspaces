@@ -1,6 +1,6 @@
 import { IListableRow } from 'ws-pkg-list';
 import { IOptionsUpdateChangelog, IOptionsWithType, IReturnTypeUpdateChangelog } from '../types';
-import _updateChangelog from '@lerna/conventional-commits/lib/update-changelog';
+import { updateChangelog as _updateChangelog } from '@lerna/conventional-commits/lib/update-changelog';
 import { handleOptions } from './util';
 import { normalize } from 'upath2';
 

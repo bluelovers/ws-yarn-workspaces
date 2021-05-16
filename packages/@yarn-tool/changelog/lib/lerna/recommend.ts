@@ -1,6 +1,6 @@
 import { IListableRow } from 'ws-pkg-list';
 import { IType, IOptionsRecommendVersion, IOptionsWithType, IOptionsUpdateChangelog } from '../types';
-import _recommendVersion from '@lerna/conventional-commits/lib/recommend-version';
+import { recommendVersion as _recommendVersion } from '@lerna/conventional-commits/lib/recommend-version';
 import { handleOptions } from './util';
 
 export function recommendVersion(pkg: IListableRow, options?: IOptionsWithType<IOptionsRecommendVersion>): Promise<string>
