@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.27](https://github.com/bluelovers/ws-yarn-workspaces/compare/sort-package-json3@1.0.28...sort-package-json3@1.0.27) (2021-05-17)
+
+
+### 🐛　Bug Fixes
+
+* https://github.com/sindresorhus/is-plain-obj/commit/69581e4e218f70d689009712b2b5b1e0f12834e7 ([a2991a3](https://github.com/bluelovers/ws-yarn-workspaces/commit/a2991a32104a9d0e907cfd695c465a34a39ed131))
+
+
+
+
+
 ## [1.0.28](https://github.com/bluelovers/ws-yarn-workspaces/compare/sort-package-json3@1.0.26...sort-package-json3@1.0.28) (2021-05-17)
 
 
