@@ -32,7 +32,7 @@
     "@lerna/get-packed": "^4.0.0",
     "@lerna/log-packed": "^4.0.0",
     "@ts-type/package-dts": "^1.0.45",
-    "npm-packlist": "^2.1.4",
+    "npm-packlist": "^2.2.2",
     "tar": "^6.1.0"
   },
   "publishConfig": {

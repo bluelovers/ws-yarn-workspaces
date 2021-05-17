@@ -28,7 +28,7 @@
   "dependencies": {
     "@yarn-tool/search-workspace-prefix-by-name": "^1.0.9",
     "@yarn-tool/validate-npm-package-name": "^3.0.3",
-    "fs-extra": "^9.1.0",
+    "fs-extra": "^10.0.0",
     "workspaces-config": "^1.0.26"
   },
   "publishConfig": {

@@ -49,14 +49,14 @@
     "@yarn-tool/table": "^1.0.24",
     "@yarn-tool/yarnlock": "^1.0.46",
     "bluebird": "^3.7.2",
-    "npm-check-updates": "^11.1.1",
-    "npm-package-arg": "^8.1.0",
+    "npm-check-updates": "^11.5.12",
+    "npm-package-arg": "^8.1.2",
     "package-json": "^6.5.0",
-    "semver": "^7.3.4",
+    "semver": "^7.3.5",
     "ts-type": "^1.2.34"
   },
   "peerDependencies": {
-    "yargs": "^16.2.0"
+    "yargs": "^17.0.1"
   },
   "publishConfig": {
     "access": "public"

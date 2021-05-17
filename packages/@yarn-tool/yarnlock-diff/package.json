@@ -38,8 +38,8 @@
     "array-hyper-unique": "^1.1.9",
     "debug-color2": "^1.2.3",
     "deep-diff": "^1.0.2",
-    "npm-package-arg": "^8.1.0",
-    "semver": "^7.3.4",
+    "npm-package-arg": "^8.1.2",
+    "semver": "^7.3.5",
     "ts-type": "^1.2.34"
   },
   "publishConfig": {

@@ -40,9 +40,9 @@
     "@lazy-node/semver-ampersand": "^1.0.7",
     "cache-path": "^2.0.8",
     "lru-cache-fs2": "^2.0.5",
-    "npm-package-arg": "^8.1.0",
+    "npm-package-arg": "^8.1.2",
     "package-json": "^6.5.0",
-    "semver": "^7.3.4",
+    "semver": "^7.3.5",
     "ts-type": "^1.2.34"
   },
   "publishConfig": {

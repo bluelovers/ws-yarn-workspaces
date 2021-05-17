@@ -28,7 +28,7 @@
     "sort-package-json": "npx yarn-tool sort"
   },
   "dependencies": {
-    "micromatch": "^4.0.2",
+    "micromatch": "^4.0.4",
     "pkg-dir": "^5.0.0",
     "upath2": "^3.1.7"
   },

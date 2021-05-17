@@ -29,7 +29,7 @@
   "dependencies": {
     "@yarn-tool/find-root": "^1.0.38",
     "debug-color2": "^1.2.3",
-    "path-key": "^3.1.1"
+    "path-key": "^4.0.0"
   },
   "publishConfig": {
     "access": "public"

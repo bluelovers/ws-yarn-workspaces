@@ -45,7 +45,7 @@
     "cross-spawn-extra": "^2.1.0",
     "git-root2": "^1.0.22",
     "glob-regex": "^0.3.2",
-    "micromatch": "^4.0.2",
+    "micromatch": "^4.0.4",
     "workspaces-config": "^1.0.26",
     "ws-pkg-list": "^1.0.51"
   },

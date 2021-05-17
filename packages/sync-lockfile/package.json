@@ -34,9 +34,9 @@
   },
   "dependencies": {
     "@yarn-tool/find-root": "^1.0.38",
-    "fs-extra": "^9.1.0",
+    "fs-extra": "^10.0.0",
     "ws-pkg-list": "^1.0.51",
-    "yargs": "^16.2.0"
+    "yargs": "^17.0.1"
   },
   "gitHead": "67f2bf3be478106378700eb513da557943b2f9f3"
 }

@@ -33,7 +33,7 @@
   "dependencies": {
     "@git-lazy/info": "^1.0.24",
     "@types/hosted-git-info": "^3.0.1",
-    "hosted-git-info": "^3.0.8"
+    "hosted-git-info": "^4.0.2"
   },
   "publishConfig": {
     "access": "public"

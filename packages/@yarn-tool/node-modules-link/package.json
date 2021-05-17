@@ -33,9 +33,9 @@
     "@ts-type/package-dts": "^1.0.45",
     "@yarn-tool/find-root": "^1.0.38",
     "find-yarn-workspace-root2": "^1.2.25",
-    "fs-extra": "^9.1.0",
+    "fs-extra": "^10.0.0",
     "upath2": "^3.1.7",
-    "yargs": "^16.2.0"
+    "yargs": "^17.0.1"
   },
   "publishConfig": {
     "access": "public"

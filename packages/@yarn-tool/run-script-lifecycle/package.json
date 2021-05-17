@@ -31,12 +31,12 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@npmcli/run-script": "^1.8.3",
+    "@npmcli/run-script": "^1.8.5",
     "@ts-type/package-dts": "^1.0.45",
     "@yarn-tool/script-lifecycle": "^1.0.2"
   },
   "peerDependencies": {
-    "read-package-json-fast": "^2.0.1"
+    "read-package-json-fast": "^2.0.2"
   },
   "publishConfig": {
     "access": "public"

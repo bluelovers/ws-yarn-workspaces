@@ -37,7 +37,7 @@
     "@yarn-tool/node-modules": "^1.0.41",
     "cross-spawn-extra": "^2.1.0",
     "debug-color2": "^1.2.3",
-    "fs-extra": "^9.1.0",
+    "fs-extra": "^10.0.0",
     "ws-pkg-list": "^1.0.51",
     "yarn-list-link": "^1.0.19"
   },

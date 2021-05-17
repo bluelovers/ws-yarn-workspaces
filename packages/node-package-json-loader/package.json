@@ -45,9 +45,9 @@
   "dependencies": {
     "@ts-type/package-dts": "^1.0.45",
     "bind-decorator": "^1.0.11",
-    "fs-extra": "^9.1.0",
+    "fs-extra": "^10.0.0",
     "pkg-up": "^3.1.0",
-    "sort-package-json": "^1.48.1",
+    "sort-package-json": "^1.50.0",
     "sort-package-json3": "^1.0.26",
     "ts-type": "^1.2.34"
   },
