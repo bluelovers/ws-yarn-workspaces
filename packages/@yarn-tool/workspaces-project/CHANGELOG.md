@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.38](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/workspaces-project@1.0.37...@yarn-tool/workspaces-project@1.0.38) (2021-05-17)
+
+
+### 🐛　Bug Fixes
+
+* lerna v4 use named export ([040a335](https://github.com/bluelovers/ws-yarn-workspaces/commit/040a3350b36b8471ae8253066b392da094120e6c))
+
+
+### ♻️　Chores
+
+* update deps ([65356d0](https://github.com/bluelovers/ws-yarn-workspaces/commit/65356d095752ea1c9b5524380e1fcee659871562))
+
+
+
+
+
 ## [1.0.37](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/workspaces-project@1.0.36...@yarn-tool/workspaces-project@1.0.37) (2021-02-12)
 
 

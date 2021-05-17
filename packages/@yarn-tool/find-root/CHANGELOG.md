@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.40](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-root@1.0.38...@yarn-tool/find-root@1.0.40) (2021-05-17)
+
+**Note:** Version bump only for package @yarn-tool/find-root
+
+
+
+
+
+## [1.0.39](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-root@1.0.38...@yarn-tool/find-root@1.0.39) (2021-05-17)
+
+**Note:** Version bump only for package @yarn-tool/find-root
+
+
+
+
+
 ## [1.0.38](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-root@1.0.37...@yarn-tool/find-root@1.0.38) (2021-02-12)
 
 
