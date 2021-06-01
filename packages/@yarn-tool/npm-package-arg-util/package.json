@@ -26,8 +26,8 @@
   "main": "index.js",
   "scripts": {
     "lint": "ynpx --quiet eslint -- **/*.ts",
-    "test": "echo \"Error: no test specified\"",
-    "test:jest": "ynpx --quiet jest -- --coverage",
+    "test": "jest",
+    "test:jest": "jest",
     "test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
     "preversion": "yarn run test",
     "prepublishOnly": "echo prepublishOnly",

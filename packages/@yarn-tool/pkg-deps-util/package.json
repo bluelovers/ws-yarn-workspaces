@@ -13,7 +13,7 @@
     "packages",
     "package"
   ],
-  "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/pkg-deps-add#readme",
+  "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/pkg-deps-util#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"
   },

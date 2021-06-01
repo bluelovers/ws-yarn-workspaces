@@ -1,4 +1,4 @@
-import { packageNameToTypes } from '@yarn-tool/npm-package-arg-util/lib/packageNameToTypes';
+import { packageNameToTypes } from '../lib/packageNameToTypes';
 
 describe(`packageNameToTypes`, () =>
 {
