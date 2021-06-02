@@ -67,6 +67,7 @@ if (hasWorkspace) {
     wsProject = new workspaces_project_1.default(hasWorkspace);
 }
 let { targetDir, targetName, scopedPackagePattern } = init_path_1.getTargetDir({
+    // @ts-ignore
     inputName: argv.length && argv[0],
     cwd,
     targetName: cli.argv.name || null,
@@ -168,7 +169,7 @@ if (!cp.error) {
             "ncu": "yarn-tool ncu -u",
             "sort-package-json": "yarn-tool sort",
             "test": `echo "Error: no test specified"`,
-            "preversion": `echo preversion`,
+            "preversion": `echo preversion && yarn run test`,
         };
         let prepublishOnly = "yarn run prepublishOnly:check-bin && yarn run prepublishOnly:update && yarn run test";
         if (hasWorkspace) {
@@ -221,7 +222,7 @@ if (!cp.error) {
             Object
                 .entries({
                 "test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
-                "test:jest": "ynpx --quiet jest -- --coverage",
+                "test:jest": "ynpx --quiet jest -- --coverage --passWithNoTests",
                 "lint": "ynpx --quiet eslint -- **/*.ts",
                 ...sharedScript,
             })
