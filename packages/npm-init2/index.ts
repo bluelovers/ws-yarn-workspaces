@@ -26,6 +26,7 @@ import linkToNodeModules from '@yarn-tool/node-modules-link';
 import { getTargetDir } from '@yarn-tool/init-path';
 import { basename } from 'path';
 import { isBuiltinModule } from '@yarn-tool/is-builtin-module';
+import { initWithPreserveDeps } from './lib/initWithPreserveDeps';
 
 //updateNotifier(__dirname);
 
@@ -133,9 +134,12 @@ else if (!targetName)
 	}
 }
 
-let cp = crossSpawn.sync(cli.argv.npmClient, args, {
-	stdio: 'inherit',
+let { cp } = initWithPreserveDeps({
+	npmClient: cli.argv.npmClient,
+	args,
 	cwd: targetDir,
+	old_pkg,
+	pkg_file_path,
 });
 
 if (!cp.error)

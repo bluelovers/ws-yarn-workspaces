@@ -25,7 +25,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 var _a, _b, _c, _d, _e, _f, _g;
 Object.defineProperty(exports, "__esModule", { value: true });
 const yargs_1 = __importDefault(require("yargs"));
-const cross_spawn_extra_1 = __importDefault(require("cross-spawn-extra"));
 const fs_extra_1 = require("fs-extra");
 const upath2_1 = require("upath2");
 const workspaces_config_1 = __importStar(require("workspaces-config"));
@@ -45,6 +44,7 @@ const node_modules_link_1 = __importDefault(require("@yarn-tool/node-modules-lin
 const init_path_1 = require("@yarn-tool/init-path");
 const path_1 = require("path");
 const is_builtin_module_1 = require("@yarn-tool/is-builtin-module");
+const initWithPreserveDeps_1 = require("./lib/initWithPreserveDeps");
 //updateNotifier(__dirname);
 let cli = yargs_setting_1.default(yargs_1.default);
 let argv = cli.argv._;
@@ -115,9 +115,12 @@ else if (!targetName) {
     catch (e) {
     }
 }
-let cp = cross_spawn_extra_1.default.sync(cli.argv.npmClient, args, {
-    stdio: 'inherit',
+let { cp } = initWithPreserveDeps_1.initWithPreserveDeps({
+    npmClient: cli.argv.npmClient,
+    args,
     cwd: targetDir,
+    old_pkg,
+    pkg_file_path,
 });
 if (!cp.error) {
     let pkg = new npm_package_json_loader_1.default(pkg_file_path);
