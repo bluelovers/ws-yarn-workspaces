@@ -21,6 +21,7 @@ const _defaultCopyStaticFiles = [
     ['lerna.json.tpl', 'file/lerna.json.tpl', 'lerna.json'],
     ['pnpm-workspace.yaml.tpl', 'file/pnpm-workspace.yaml', 'pnpm-workspace.yaml'],
     ['.npmrc.tpl', 'file/npmrc', '.npmrc'],
+    ['tsdx.config.js.tpl', 'file/tsdx.config.js', 'tsdx.config.js'],
 ];
 exports.defaultCopyStaticFiles = Object.freeze(_defaultCopyStaticFiles);
 function parseStaticMap(file_map) {

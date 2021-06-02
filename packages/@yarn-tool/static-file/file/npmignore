@@ -83,3 +83,4 @@ npm-shrinkwrap.json
 /example/
 *.stat
 .vercel
+tsdx.config.js

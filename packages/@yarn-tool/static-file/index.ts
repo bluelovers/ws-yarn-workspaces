@@ -33,6 +33,8 @@ const _defaultCopyStaticFiles = [
 
 	['.npmrc.tpl', 'file/npmrc', '.npmrc'],
 
+	['tsdx.config.js.tpl', 'file/tsdx.config.js', 'tsdx.config.js'],
+
 ] as const;
 
 export type IStaticFilesID<T = typeof _defaultCopyStaticFiles> =
