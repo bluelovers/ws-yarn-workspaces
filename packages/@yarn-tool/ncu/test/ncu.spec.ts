@@ -20,7 +20,7 @@ describe(`should not update`, () =>
 		const name = "@types/node";
 		const field = "devDependencies";
 
-		test(version, async (done) =>
+		test(version, async () =>
 		{
 
 			let json_old: IPackageJson = {
@@ -36,7 +36,7 @@ describe(`should not update`, () =>
 			expect(actual.json_new[field]).toHaveProperty(name, version);
 			expect(actual).toMatchSnapshot();
 
-			return done();
+
 		});
 
 	});
@@ -54,7 +54,7 @@ describe(`should update`, () =>
 	})
 		.forEach(file => {
 
-			test(basename(file), async (done) => {
+			test(basename(file), async () => {
 
 				let json_old: IPackageJson = readJSONSync(file);
 
@@ -66,7 +66,6 @@ describe(`should update`, () =>
 					.not.toStrictEqual(json_old)
 				;
 
-				return done();
 			})
 
 		})
