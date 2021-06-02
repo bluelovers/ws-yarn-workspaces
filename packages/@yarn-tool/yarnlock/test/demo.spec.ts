@@ -1,13 +1,13 @@
 import { join } from "path";
 import FastGlob from '@bluelovers/fast-glob';
-import { checkAndReadYarnLockfile } from '..';
+import { checkAndParseYarnLockFile } from '../index';
 
 describe(`yarn.lock`, () =>
 {
 	const __res = join(__dirname, 'res');
 
 	FastGlob.sync<string>([
-			'*.lock',
+			'**/*.lock',
 			//'!yarn.lock',
 		], {
 			cwd: __res,
@@ -18,7 +18,7 @@ describe(`yarn.lock`, () =>
 
 			test(file, () =>
 			{
-				let actual = checkAndReadYarnLockfile(_file);
+				let actual = checkAndParseYarnLockFile(_file);
 				let expected;
 
 				//expect(actual).toStrictEqual(expected);
