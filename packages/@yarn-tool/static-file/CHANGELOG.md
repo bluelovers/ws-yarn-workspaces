@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.57](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.56...@yarn-tool/static-file@1.0.57) (2021-06-02)
+
+
+### ✨　Features
+
+* add `tsdx.config.js` ([a8b21dd](https://github.com/bluelovers/ws-yarn-workspaces/commit/a8b21ddd39c4b9b559b340e9665b2b80d3a1be85))
+
+
+
+
+
 ## [1.0.56](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.54...@yarn-tool/static-file@1.0.56) (2021-05-17)
 
 
