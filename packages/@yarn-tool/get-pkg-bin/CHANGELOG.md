@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.30](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/get-pkg-bin@1.0.29...@yarn-tool/get-pkg-bin@1.0.30) (2021-06-02)
+
+
+### 🚨　Tests
+
+* fix wrong name ([1015e78](https://github.com/bluelovers/ws-yarn-workspaces/commit/1015e7899c81e78ce1ccc15ba08c0d5977942821))
+
+
+### ♻️　Chores
+
+* update deps ([4da6568](https://github.com/bluelovers/ws-yarn-workspaces/commit/4da65683a914d70a296533568d412df3f9a90e93))
+
+
+
+
+
 ## [1.0.29](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/get-pkg-bin@1.0.28...@yarn-tool/get-pkg-bin@1.0.29) (2021-02-12)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "sync-lockfile",
-  "version": "1.0.31",
+  "version": "1.0.32",
   "description": "sync yarn.lock to each packages in yarn workspaces",
   "keywords": [],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/sync-lockfile#readme",
@@ -34,9 +34,9 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@yarn-tool/find-root": "^1.0.40",
+    "@yarn-tool/find-root": "^1.0.41",
     "fs-extra": "^10.0.0",
-    "ws-pkg-list": "^1.0.52",
+    "ws-pkg-list": "^1.0.53",
     "yargs": "^17.0.1"
   },
   "gitHead": "67f2bf3be478106378700eb513da557943b2f9f3"

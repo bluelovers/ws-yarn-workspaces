@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.29](https://github.com/bluelovers/workspaces-config/compare/workspaces-config@1.0.28...workspaces-config@1.0.29) (2021-06-02)
+
+
+### ♻️　Chores
+
+* update deps ([4da6568](https://github.com/bluelovers/workspaces-config/commit/4da65683a914d70a296533568d412df3f9a90e93))
+
+
+
+
+
 ## [1.0.28](https://github.com/bluelovers/workspaces-config/compare/workspaces-config@1.0.26...workspaces-config@1.0.28) (2021-05-17)
 
 

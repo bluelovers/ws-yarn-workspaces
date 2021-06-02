@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.25](https://github.com/bluelovers/find-pkg-ws/compare/find-pkg-ws@1.0.24...find-pkg-ws@1.0.25) (2021-06-02)
+
+
+### ♻️　Chores
+
+* update deps ([4da6568](https://github.com/bluelovers/find-pkg-ws/commit/4da65683a914d70a296533568d412df3f9a90e93))
+
+
+
+
+
 ## [1.0.24](https://github.com/bluelovers/find-pkg-ws/compare/find-pkg-ws@1.0.22...find-pkg-ws@1.0.24) (2021-05-17)
 
 **Note:** Version bump only for package find-pkg-ws

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.15](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-ncu@1.0.14...@yarn-tool/yarnlock-ncu@1.0.15) (2021-06-02)
+
+
+### 🚨　Tests
+
+* fix jest test ([18cda2e](https://github.com/bluelovers/ws-yarn-workspaces/commit/18cda2e0981a8acfb1cc0113a80ec65991220888))
+
+
+
+
+
 ## [1.0.14](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-ncu@1.0.13...@yarn-tool/yarnlock-ncu@1.0.14) (2021-06-02)
 
 **Note:** Version bump only for package @yarn-tool/yarnlock-ncu
