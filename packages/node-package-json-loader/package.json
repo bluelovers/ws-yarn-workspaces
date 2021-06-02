@@ -35,7 +35,8 @@
   "scripts": {
     "lint": "eslint .",
     "test": "jest -u",
-    "prepublishOnly": "yarn run ncu && yarn run sort-package-json",
+    "preversion": "yarn run test",
+    "prepublishOnly": "echo prepublishOnly",
     "postpublish_": "git commit -m \"chore(release): publish\" .",
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort"

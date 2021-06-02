@@ -10,7 +10,8 @@
     "lint": "npx eslint **/*.ts",
     "test": "ts-node ./test/test.ts",
     "npm:publish": "npx npm publish",
-    "prepublishOnly": "yarn run ncu && yarn run sort-package-json && yarn run test",
+    "preversion": "yarn run test",
+    "prepublishOnly": "echo prepublishOnly",
     "postpublish_": "git commit -m \"publish new version\" .",
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort"

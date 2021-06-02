@@ -1,6 +1,7 @@
 {
   "name": "create-yarn-workspaces",
   "version": "1.0.100",
+  "private": true,
   "description": "yarn create yarn-workspaces     npx create-yarn-workspaces",
   "keywords": [
     "cli",
@@ -31,18 +32,23 @@
   "directories": {
     "test": "test"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "coverage": "npx nyc npm run test",
     "lint": "npx eslint **/*.ts",
     "test": "node ./bin/yarn-ws-init --debug --ignoreExistsPackage --ignoreParentWorkspaces ./test/temp",
     "npm:publish": "npm publish",
-    "prepublishOnly": "npm run ncu && npm run sort-package-json",
+    "preversion": "yarn run test",
+    "prepublishOnly": "echo prepublishOnly",
     "postpublish_": "git commit -m \"chore(release): publish\" .",
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort",
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
+  "resolutions": {},
   "dependencies": {
     "@ts-type/package-dts": "^1.0.45",
     "@yarn-tool/static-file": "^1.0.57",

@@ -23,7 +23,8 @@
   "scripts": {
     "coverage": "npx nyc yarn run test",
     "test": "jest",
-    "prepublishOnly": "yarn run ncu && yarn run sort-package-json && yarn run test",
+    "preversion": "yarn run test",
+    "prepublishOnly": "echo prepublishOnly",
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort"
   },

@@ -33,11 +33,12 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\"",
     "prebuild:lockfile": "npx sync-lockfile .",
     "npm:publish": "npm publish",
+    "preversion": "yarn run test",
     "prepublish:lockfile": "npx sync-lockfile .",
-    "prepublishOnly": "yarn run ncu && yarn run sort-package-json",
+    "prepublishOnly": "echo prepublishOnly",
     "prepublishOnly_": "yarn run ncu && yarn run sort-package-json && yarn run test",
     "postpublish_": "git commit -m \"chore(release): publish\" . & git push & echo postpublish",
     "ncu": "npx yarn-tool ncu -u",

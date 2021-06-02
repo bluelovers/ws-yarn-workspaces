@@ -23,8 +23,9 @@
   "main": "index.js",
   "scripts": {
     "coverage": "npx nyc npm run test",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublishOnly": "npm run ncu && npm run sort-package-json",
+    "test": "echo \"Error: no test specified\"",
+    "preversion": "yarn run test",
+    "prepublishOnly": "echo prepublishOnly",
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort"
   },

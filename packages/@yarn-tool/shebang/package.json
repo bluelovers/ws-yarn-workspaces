@@ -38,8 +38,9 @@
     "test": "jest",
     "npm:publish": "npm publish",
     "npm:publish:lerna": "npx lerna publish --yes --bump patch",
+    "preversion": "yarn run test",
     "prepublish:lockfile": "npx sync-lockfile .",
-    "prepublishOnly": "yarn run test",
+    "prepublishOnly": "echo prepublishOnly",
     "postpublish_": "git commit -m \"chore(release): publish & git push & echo postpublish\" .",
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort"
