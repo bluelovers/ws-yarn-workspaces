@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/path-parents",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "keywords": [
     "yarn",
@@ -42,8 +42,6 @@
     "path-parents": "^1.0.9",
     "upath2": "^3.1.7"
   },
-  "devDependencies": {},
-  "peerDependencies": {},
   "publishConfig": {
     "access": "public"
   }
