@@ -3,11 +3,16 @@ import { findRoot } from '@yarn-tool/find-root';
 import { resolve } from 'upath2';
 import pathIsSame from 'path-is-same';
 
-export function* pathUpToWorkspacesGenerator(cwd?: string)
+export function* pathUpToWorkspacesGenerator(cwd?: string, options?: {
+	ignoreCurrentDirectory?: boolean
+})
 {
 	cwd = resolve(cwd ?? process.cwd())
 
-	yield cwd
+	if (!options?.ignoreCurrentDirectory)
+	{
+		yield cwd
+	}
 
 	let {
 		root,
