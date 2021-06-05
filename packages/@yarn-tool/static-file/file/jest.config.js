@@ -30,6 +30,7 @@ module.exports = {
 	moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
 	testEnvironment: 'node',
 	//testMatch: ['**/*.test.ts', '**/*.spec.ts'],
+	testMatch: void 0,
 	testRegex: ['\\.(tests?|spec)\\.(ts|tsx)$'],
 	//testRunner: 'jest-circus/runner',
 	setupFilesAfterEnv: [
