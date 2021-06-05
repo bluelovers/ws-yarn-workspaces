@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.setupToYargs = void 0;
 function setupToYargs(yargs) {
-    return yargs
+    const _return = yargs
         .option('no-git-tag-version', {
         desc: 'no git tag version',
         boolean: true,
@@ -49,6 +49,7 @@ function setupToYargs(yargs) {
         desc: 'bump version of packages',
         string: true,
     });
+    return _return;
 }
 exports.setupToYargs = setupToYargs;
 //# sourceMappingURL=argv.js.map

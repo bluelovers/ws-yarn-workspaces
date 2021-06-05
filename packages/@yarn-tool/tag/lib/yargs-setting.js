@@ -5,7 +5,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.setupToYargs = void 0;
 function setupToYargs(yargs) {
-    return yargs
+    const _return = yargs
         .option('cwd', {
         default: process.cwd(),
         normalize: true,
@@ -28,6 +28,7 @@ function setupToYargs(yargs) {
         .option('sign-git-tag', {
         boolean: true,
     });
+    return _return;
 }
 exports.setupToYargs = setupToYargs;
 exports.default = setupToYargs;

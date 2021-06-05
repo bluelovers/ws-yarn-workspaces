@@ -2,11 +2,12 @@
  * Created by user on 2020/6/15.
  */
 
-import { Argv, Omit } from 'yargs';
+import { Arguments, Argv, Omit } from 'yargs';
+import { IYargsSync, IYargsUnPackArgv } from '@yarn-tool/types';
 
 export function setupToYargs<T>(yargs: Argv<T>)
 {
-	return yargs
+	const _return = yargs
 		.option('preset', {
 			desc: `Name of the preset you want to use. Must be one of the following:\n@bluelovers/conventional-changelog-bluelovers, angular, atom, codemirror, ember, eslint, express, jquery, jscs or jshint`,
 			alias: ['p', 'changelogPreset'],
@@ -31,6 +32,8 @@ export function setupToYargs<T>(yargs: Argv<T>)
 			normalize: true,
 		})
 	;
+
+	return _return as any as IYargsSync<typeof _return>
 }
 
 export default setupToYargs

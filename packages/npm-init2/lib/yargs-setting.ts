@@ -2,12 +2,13 @@
  * Created by user on 2019/5/16.
  */
 
-import yargs from 'yargs';
+import yargs, { Arguments } from 'yargs';
 import { Argv, Omit } from 'yargs';
+import { IYargsSync, IYargsUnPackArgv } from '@yarn-tool/types';
 
 export function setupToYargs<T>(yargs: Argv<T>)
 {
-	return yargs
+	const _return = yargs
 		.default({
 			//input: process.cwd(),
 		})
@@ -59,6 +60,9 @@ export function setupToYargs<T>(yargs: Argv<T>)
 		.option('copyStatic', {
 			type: 'boolean',
 		})
+	;
+
+	return _return as any as IYargsSync<typeof _return>
 }
 
 export default setupToYargs

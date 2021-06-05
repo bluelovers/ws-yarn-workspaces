@@ -5,7 +5,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.setupToYargs = void 0;
 function setupToYargs(yargs) {
-    return yargs
+    const _return = yargs
         .option('preset', {
         desc: `Name of the preset you want to use. Must be one of the following:\n@bluelovers/conventional-changelog-bluelovers, angular, atom, codemirror, ember, eslint, express, jquery, jscs or jshint`,
         alias: ['p', 'changelogPreset'],
@@ -29,6 +29,7 @@ function setupToYargs(yargs) {
         default: process.cwd(),
         normalize: true,
     });
+    return _return;
 }
 exports.setupToYargs = setupToYargs;
 exports.default = setupToYargs;

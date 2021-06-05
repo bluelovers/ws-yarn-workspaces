@@ -1,8 +1,19 @@
 {
-  "name": "@yarn-tool/version-recommended",
-  "version": "1.0.18",
-  "description": "bump new version",
-  "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/version-recommended#readme",
+  "name": "@yarn-tool/types",
+  "version": "1.0.0",
+  "description": "typescript types for share use",
+  "keywords": [
+    "yarn",
+    "yarn-tool",
+    "npm",
+    "lerna",
+    "workspaces",
+    "pkg",
+    "dependencies",
+    "packages",
+    "package"
+  ],
+  "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/types#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"
   },
@@ -16,24 +27,18 @@
   "scripts": {
     "lint": "ynpx --quiet eslint -- **/*.ts",
     "test": "echo \"Error: no test specified\"",
-    "test:jest": "ynpx --quiet jest -- --coverage",
+    "test:jest": "ynpx --quiet jest -- --coverage --passWithNoTests",
     "test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
     "preversion": "yarn run test",
     "prepublishOnly": "echo prepublishOnly",
     "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
     "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
-    "ncu": "ynpx --quiet yarn-tool -- ncu -u",
-    "sort-package-json": "ynpx --quiet yarn-tool -- sort"
+    "ncu": "yarn-tool ncu -u",
+    "sort-package-json": "yarn-tool sort"
   },
-  "dependencies": {
-    "@ts-type/package-dts": "^1.0.45",
-    "@types/semver": "*",
-    "@yarn-tool/find-root": "^1.0.41",
-    "@yarn-tool/types": "^1.0.0",
-    "@yarn-tool/workspaces-project": "^1.0.40",
-    "semver": "^7.3.5",
-    "ts-type": "^1.2.34"
-  },
+  "dependencies": {},
+  "devDependencies": {},
+  "peerDependencies": {},
   "publishConfig": {
     "access": "public"
   }

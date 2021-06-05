@@ -3,7 +3,8 @@
  */
 import yargs from 'yargs';
 import { Argv } from 'yargs';
-export declare function setupToYargs<T>(yargs: Argv<T>): yargs.Argv<yargs.Omit<T, never> & {
+import { IYargsSync } from '@yarn-tool/types';
+export declare function setupToYargs<T>(yargs: Argv<T>): IYargsSync<yargs.Argv<yargs.Omit<T, never> & {
     npmClient: string;
 } & {
     yes: boolean;
@@ -23,5 +24,5 @@ export declare function setupToYargs<T>(yargs: Argv<T>): yargs.Argv<yargs.Omit<T
     name: string;
 } & {
     copyStatic: boolean;
-}>;
+}>>;
 export default setupToYargs;

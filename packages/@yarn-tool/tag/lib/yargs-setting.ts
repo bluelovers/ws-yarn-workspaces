@@ -3,10 +3,11 @@
  */
 
 import yargs, { Argv, Omit } from 'yargs';
+import { IYargsSync, IYargsUnPackArgv } from '@yarn-tool/types';
 
 export function setupToYargs<T>(yargs: Argv<T>)
 {
-	return yargs
+	const _return = yargs
 		.option('cwd', {
 			default: process.cwd(),
 			normalize: true,
@@ -30,6 +31,8 @@ export function setupToYargs<T>(yargs: Argv<T>)
 			boolean: true,
 		})
 	;
+
+	return _return as any as IYargsSync<typeof _return>
 }
 
 export default setupToYargs

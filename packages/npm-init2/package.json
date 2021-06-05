@@ -54,6 +54,7 @@
     "@yarn-tool/node-modules-link": "^1.0.15",
     "@yarn-tool/pkg-git-info": "^1.0.17",
     "@yarn-tool/static-file": "^1.0.59",
+    "@yarn-tool/types": "^1.0.0",
     "@yarn-tool/update-notifier": "^1.0.18",
     "@yarn-tool/workspaces-project": "^1.0.40",
     "cross-spawn-extra": "^2.1.0",

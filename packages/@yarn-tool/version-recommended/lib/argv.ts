@@ -1,8 +1,9 @@
 import { Argv } from 'yargs';
+import { IYargsSync, IYargsUnPackArgv } from '@yarn-tool/types';
 
 export function setupToYargs<T>(yargs: Argv<T>)
 {
-	return yargs
+	const _return = yargs
 		.option('no-git-tag-version', {
 			desc: 'no git tag version',
 			boolean: true,
@@ -49,4 +50,6 @@ export function setupToYargs<T>(yargs: Argv<T>)
 			desc: 'bump version of packages',
 			string: true,
 		})
+
+	return _return as any as IYargsSync<typeof _return>
 }

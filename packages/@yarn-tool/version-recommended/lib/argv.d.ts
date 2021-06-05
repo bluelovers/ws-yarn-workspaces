@@ -1,5 +1,6 @@
 import { Argv } from 'yargs';
-export declare function setupToYargs<T>(yargs: Argv<T>): Argv<T & {
+import { IYargsSync } from '@yarn-tool/types';
+export declare function setupToYargs<T>(yargs: Argv<T>): IYargsSync<Argv<T & {
     "no-git-tag-version": boolean;
 } & {
     "new-version": string;
@@ -21,4 +22,4 @@ export declare function setupToYargs<T>(yargs: Argv<T>): Argv<T & {
     "non-interactive": boolean;
 } & {
     bump: string;
-}>;
+}>>;
