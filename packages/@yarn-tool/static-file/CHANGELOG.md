@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.59](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.58...@yarn-tool/static-file@1.0.59) (2021-06-05)
+
+
+### ✨　Features
+
+* update moduleFileExtensions ([54898bd](https://github.com/bluelovers/ws-yarn-workspaces/commit/54898bde122a7bd5cc94fa0a4abbc4cc40d03b00))
+* use `@yarn-tool/require-resolve` ([ef1cc77](https://github.com/bluelovers/ws-yarn-workspaces/commit/ef1cc77a19f1de754affa276a1204e77366195c2))
+
+
+
+
+
 ## [1.0.58](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.57...@yarn-tool/static-file@1.0.58) (2021-06-02)
 
 

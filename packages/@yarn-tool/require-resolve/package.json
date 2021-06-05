@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/require-resolve",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "require.resolve with search on extra paths",
   "keywords": [
     "yarn",
@@ -39,8 +39,6 @@
   "dependencies": {
     "global-dirs": "^3.0.0"
   },
-  "devDependencies": {},
-  "peerDependencies": {},
   "publishConfig": {
     "access": "public"
   }
