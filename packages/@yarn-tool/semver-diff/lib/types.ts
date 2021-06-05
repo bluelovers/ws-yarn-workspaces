@@ -36,4 +36,6 @@ export interface IOptionsParseVersionsDiffPlus
 export interface IOptionsParseVersionsDiff extends IOptionsParseVersionsDiffPlus
 {
 	_colors?: [IStylesColorNames, IStylesColorNames, IStylesColorNames],
+
+	stripAnsi?: boolean,
 }

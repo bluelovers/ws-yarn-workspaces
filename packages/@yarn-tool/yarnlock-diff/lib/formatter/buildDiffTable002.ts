@@ -8,6 +8,7 @@ import { colorizeDiff, IOptionsParseVersionsDiff } from '@yarn-tool/semver-diff/
 import { createDependencyTable } from '@yarn-tool/table/lib/core';
 import { IChalk } from 'debug-color2/index'
 import { console, chalkByConsoleMaybe } from 'debug-color2/index';
+import stripAnsi from 'strip-ansi';
 
 export function buildDiffTable(diff: Diff<IComputedPackage, IComputedPackage>[], options?: IOptionsParseVersionsDiff): string
 {
@@ -83,8 +84,15 @@ export function buildDiffTable(diff: Diff<IComputedPackage, IComputedPackage>[],
 		})
 	;
 
-	table.push(...Object.values(formatedDiff))
+	table.push(...Object.values(formatedDiff));
 
-	return _ok ? table.toString() : '';
+	let output = _ok ? table.toString() : '';
+
+	if (options?.stripAnsi === true)
+	{
+		output = stripAnsi(output);
+	}
+
+	return _ok ? output : '';
 }
 

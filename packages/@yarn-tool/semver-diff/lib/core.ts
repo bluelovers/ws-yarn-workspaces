@@ -49,7 +49,7 @@ export function parseVersionsDiffCore(from: string, to: string, options?: IOptio
 export function colorizeDiffCore(from: string, to: string, options?: ITSRequireAtLeastOne<IOptionsParseVersionsDiff, 'chalk'>,
 ): string
 {
-	const {
+	let {
 		leadingWildcard,
 		result,
 		middot,
@@ -58,12 +58,17 @@ export function colorizeDiffCore(from: string, to: string, options?: ITSRequireA
 		comp,
 	} = parseVersionsDiffCore(from, to, options)
 
-	const { chalk } = options;
+	if (options.stripAnsi !== true)
+	{
+		const { chalk } = options;
+
+		// @ts-ignore
+		resultAppend = (comp ? chalk[color](resultAppend) : chalk(resultAppend))
+	}
 
 	return leadingWildcard +
 		result +
 		middot +
-		// @ts-ignore
-		(comp ? chalk[color](resultAppend) : chalk(resultAppend))
+		resultAppend
 }
 

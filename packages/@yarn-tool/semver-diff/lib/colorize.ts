@@ -12,7 +12,7 @@ export function colorizeDiff(from: string,
 	options?: IOptionsParseVersionsDiff,
 ): string
 {
-	if (options?.chalk)
+	if (options?.chalk || options?.stripAnsi)
 	{
 		return colorizeDiffCore(from, to, options as any)
 	}

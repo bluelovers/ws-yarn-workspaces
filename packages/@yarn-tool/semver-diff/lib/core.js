@@ -32,13 +32,16 @@ function parseVersionsDiffCore(from, to, options) {
 }
 exports.parseVersionsDiffCore = parseVersionsDiffCore;
 function colorizeDiffCore(from, to, options) {
-    const { leadingWildcard, result, middot, resultAppend, color, comp, } = parseVersionsDiffCore(from, to, options);
-    const { chalk } = options;
+    let { leadingWildcard, result, middot, resultAppend, color, comp, } = parseVersionsDiffCore(from, to, options);
+    if (options.stripAnsi !== true) {
+        const { chalk } = options;
+        // @ts-ignore
+        resultAppend = (comp ? chalk[color](resultAppend) : chalk(resultAppend));
+    }
     return leadingWildcard +
         result +
         middot +
-        // @ts-ignore
-        (comp ? chalk[color](resultAppend) : chalk(resultAppend));
+        resultAppend;
 }
 exports.colorizeDiffCore = colorizeDiffCore;
 //# sourceMappingURL=core.js.map

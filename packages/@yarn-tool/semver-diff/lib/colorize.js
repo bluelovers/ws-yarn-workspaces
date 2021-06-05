@@ -8,7 +8,7 @@ const debug_color2_1 = require("debug-color2");
 const core_1 = require("./core");
 function colorizeDiff(from, to, options) {
     var _a;
-    if (options === null || options === void 0 ? void 0 : options.chalk) {
+    if ((options === null || options === void 0 ? void 0 : options.chalk) || (options === null || options === void 0 ? void 0 : options.stripAnsi)) {
         return core_1.colorizeDiffCore(from, to, options);
     }
     return debug_color2_1.chalkByConsole((chalk) => {

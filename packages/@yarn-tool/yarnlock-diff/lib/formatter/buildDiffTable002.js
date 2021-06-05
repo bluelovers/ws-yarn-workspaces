@@ -1,4 +1,7 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.buildDiffTable = void 0;
 const formatVersion_1 = require("./formatVersion");
@@ -6,6 +9,7 @@ const diffArray002_1 = require("./diffArray002");
 const index_1 = require("@yarn-tool/semver-diff/index");
 const core_1 = require("@yarn-tool/table/lib/core");
 const index_2 = require("debug-color2/index");
+const strip_ansi_1 = __importDefault(require("strip-ansi"));
 function buildDiffTable(diff, options) {
     var _a;
     // @ts-ignore
@@ -54,7 +58,11 @@ function buildDiffTable(diff, options) {
         _arr && (formatedDiff[path] = _arr);
     });
     table.push(...Object.values(formatedDiff));
-    return _ok ? table.toString() : '';
+    let output = _ok ? table.toString() : '';
+    if ((options === null || options === void 0 ? void 0 : options.stripAnsi) === true) {
+        output = strip_ansi_1.default(output);
+    }
+    return _ok ? output : '';
 }
 exports.buildDiffTable = buildDiffTable;
 //# sourceMappingURL=buildDiffTable002.js.map
