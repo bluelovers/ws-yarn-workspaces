@@ -1,4 +1,3 @@
-
 function _requireResolve(name)
 {
 	let result;
@@ -25,6 +24,9 @@ function _requireResolve(name)
 	return result || require.resolve(name)
 }
 
+/**
+ * @type { import('@jest/types').Config.InitialOptions }
+ */
 module.exports = {
 	clearMocks: true,
 	moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
