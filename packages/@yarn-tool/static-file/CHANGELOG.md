@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.60](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.59...@yarn-tool/static-file@1.0.60) (2021-06-05)
+
+
+### 🐛　Bug Fixes
+
+* Configuration options `testMatch` and `testRegex` cannot be used together. ([5062828](https://github.com/bluelovers/ws-yarn-workspaces/commit/506282803a31f140c67d705d1202b73a53820ace))
+
+
+### ✨　Features
+
+* add typescript support for `jest.config.js` ([20830cb](https://github.com/bluelovers/ws-yarn-workspaces/commit/20830cbe29fa3391c59948f3e18fdbd6dcff8b94))
+
+
+
+
+
 ## [1.0.59](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.58...@yarn-tool/static-file@1.0.59) (2021-06-05)
 
 

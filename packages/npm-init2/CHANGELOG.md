@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.156](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.155...npm-init2@1.0.156) (2021-06-05)
+
+
+### 📦　Code Refactoring
+
+* use `@yarn-tool/types` ([a4ebd01](https://github.com/bluelovers/npm-init2/commit/a4ebd0112fe7097c9fa8055c0d367bf127327933))
+
+
+
+
+
 ## [1.0.155](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.154...npm-init2@1.0.155) (2021-06-05)
 
 **Note:** Version bump only for package npm-init2
