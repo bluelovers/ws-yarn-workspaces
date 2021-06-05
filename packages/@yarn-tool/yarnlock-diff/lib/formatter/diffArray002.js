@@ -11,7 +11,7 @@ function _diffArray(array, chalk) {
             return [`[..., ${chalk.red(formatVersion_1._formatVersion(item.lhs))}]`, `[...]`];
         case "E":
             return [
-                `[...], ${chalk.yellow(formatVersion_1._formatVersion(item.lhs))}]`,
+                `[..., ${chalk.yellow(formatVersion_1._formatVersion(item.lhs))}]`,
                 `[..., ${chalk.yellow(formatVersion_1._formatVersion(item.lhs))}]`,
             ];
         default:

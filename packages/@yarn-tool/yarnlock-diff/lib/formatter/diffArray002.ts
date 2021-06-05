@@ -13,7 +13,7 @@ export function _diffArray(array: DiffArray<{}, {}>, chalk: IChalk)
 			return [`[..., ${chalk.red(_formatVersion(item.lhs))}]`, `[...]`];
 		case "E":
 			return [
-				`[...], ${chalk.yellow(_formatVersion(item.lhs))}]`,
+				`[..., ${chalk.yellow(_formatVersion(item.lhs))}]`,
 				`[..., ${chalk.yellow(_formatVersion(item.lhs))}]`,
 			];
 		default:
