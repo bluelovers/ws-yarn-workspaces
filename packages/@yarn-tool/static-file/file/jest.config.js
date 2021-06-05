@@ -1,3 +1,30 @@
+
+function _requireResolve(name)
+{
+	let result;
+
+	try
+	{
+		const { requireResolveExtra, requireResolveCore } = require('@yarn-tool/require-resolve');
+
+		const tsdx_path = requireResolveExtra('tsdx').result;
+
+		result = requireResolveCore(name, {
+			includeGlobal: true,
+			includeCurrentDirectory: true,
+			paths: [
+				tsdx_path,
+			],
+		})
+	}
+	catch (e)
+	{
+
+	}
+
+	return result || require.resolve(name)
+}
+
 module.exports = {
 	clearMocks: true,
 	moduleFileExtensions: ['ts', 'js'],
@@ -12,7 +39,7 @@ module.exports = {
 		//"jest-num-close-with",
 	],
 	transform: {
-		'^.+\\.ts$': 'ts-jest',
+		'.(ts|tsx)$': _requireResolve('ts-jest'),
 	},
 	verbose: true,
 	/**

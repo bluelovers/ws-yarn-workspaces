@@ -37,6 +37,8 @@ function getDefaultPackageJson(name) {
             "lerna": "*",
             "yarn": "*",
             "ynpx": "*",
+            "@yarn-tool/require-resolve": "*",
+            "yarn-tool": "*",
             "@bluelovers/conventional-changelog-bluelovers": "*",
         },
         "resolutions": {},
