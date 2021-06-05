@@ -27,7 +27,7 @@ function _requireResolve(name)
 
 module.exports = {
 	clearMocks: true,
-	moduleFileExtensions: ['ts', 'js'],
+	moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
 	testEnvironment: 'node',
 	//testMatch: ['**/*.test.ts', '**/*.spec.ts'],
 	testRegex: ['\\.(tests?|spec)\\.(ts|tsx)$'],
