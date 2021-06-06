@@ -33,7 +33,8 @@ function buildDiffTable(diff, options) {
     const ARROW = chalk.gray('→');
     diff
         .map(packageDiff => {
-        const path = packageDiff.path.find(() => true);
+        //const path: string = packageDiff.path.find(() => true);
+        const path = packageDiff.path[0];
         _ok = true;
         let _arr;
         switch (packageDiff.kind) {

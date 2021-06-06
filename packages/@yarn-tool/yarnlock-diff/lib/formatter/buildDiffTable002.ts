@@ -41,7 +41,8 @@ export function buildDiffTable(diff: Diff<IComputedPackage, IComputedPackage>[],
 	diff
 		.map(packageDiff =>
 		{
-			const path: string = packageDiff.path.find(() => true);
+			//const path: string = packageDiff.path.find(() => true);
+			const path: string = packageDiff.path[0];
 
 			_ok = true;
 
