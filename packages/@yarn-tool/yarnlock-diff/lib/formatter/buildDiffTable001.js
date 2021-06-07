@@ -24,21 +24,21 @@ function buildDiffTable(diff) {
     diff.map(packageDiff => {
         const path = packageDiff.path.find(() => true);
         switch (packageDiff.kind) {
-            case "D":
+            case "D" /* DiffDeleted */:
                 formatedDiff[path] = [
                     path,
                     chalk_1.default.red(formatVersion_1._formatVersion(packageDiff.lhs)),
                     "-",
                 ];
                 break;
-            case "N":
+            case "N" /* DiffNew */:
                 formatedDiff[path] = [
                     path,
                     "-",
                     chalk_1.default.green(formatVersion_1._formatVersion(packageDiff.rhs)),
                 ];
                 break;
-            case "E":
+            case "E" /* DiffEdit */:
                 const lhs = chalk_1.default.yellow(formatVersion_1._formatVersion(packageDiff.lhs));
                 const rhs = chalk_1.default.yellow(formatVersion_1._formatVersion(packageDiff.rhs));
                 if (formatedDiff[path]) {
@@ -52,7 +52,7 @@ function buildDiffTable(diff) {
                     formatedDiff[path] = [path, lhs, rhs];
                 }
                 break;
-            case "A":
+            case "A" /* DiffArray */:
                 const diffArray = diffArray001_1._diffArray(packageDiff);
                 formatedDiff[path] = [path, diffArray[0], diffArray[1]];
         }

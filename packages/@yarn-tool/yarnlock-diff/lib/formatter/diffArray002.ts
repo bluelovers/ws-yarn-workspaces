@@ -1,4 +1,4 @@
-import { DiffArray } from 'deep-diff';
+import { DiffArray, EnumKinds } from '@bluelovers/deep-diff';
 import { _formatVersion } from './formatVersion';
 import { IChalk } from 'debug-color2/index'
 
@@ -7,11 +7,11 @@ export function _diffArray(array: DiffArray<{}, {}>, chalk: IChalk)
 	const item = array.item;
 	switch (item.kind)
 	{
-		case "N":
+		case EnumKinds.DiffNew:
 			return [`[...]`, `[..., ${chalk.green(_formatVersion(item.rhs))}]`];
-		case "D":
+		case EnumKinds.DiffDeleted:
 			return [`[..., ${chalk.red(_formatVersion(item.lhs))}]`, `[...]`];
-		case "E":
+		case EnumKinds.DiffEdit:
 			return [
 				`[..., ${chalk.yellow(_formatVersion(item.lhs))}]`,
 				`[..., ${chalk.yellow(_formatVersion(item.rhs))}]`,

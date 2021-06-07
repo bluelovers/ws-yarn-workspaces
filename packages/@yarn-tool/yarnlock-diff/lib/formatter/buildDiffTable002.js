@@ -38,21 +38,21 @@ function buildDiffTable(diff, options) {
         _ok = true;
         let _arr;
         switch (packageDiff.kind) {
-            case 'A':
+            case "A" /* DiffArray */:
                 let diffArray = diffArray002_1._diffArray(packageDiff, chalk);
                 _arr = [path, chalk.gray(diffArray[0]), ARROW, chalk.gray(diffArray[1])];
                 break;
-            case 'D':
+            case "D" /* DiffDeleted */:
                 _arr = [chalk.red(path), chalk.red(formatVersion_1._formatVersion(packageDiff.lhs)), ARROW, NONE];
                 break;
-            case 'E':
+            case "E" /* DiffEdit */:
                 let lhs0 = formatVersion_1._formatVersion(packageDiff.lhs);
                 let rhs0 = formatVersion_1._formatVersion(packageDiff.rhs);
                 let lhs = chalk.yellow(lhs0);
                 let rhs = chalk.yellow(index_1.colorizeDiff(lhs0, rhs0, options));
                 _arr = [chalk.yellow(path), lhs, ARROW, rhs];
                 break;
-            case 'N':
+            case "N" /* DiffNew */:
                 _arr = [chalk.green(path), NONE, ARROW, chalk.green(formatVersion_1._formatVersion(packageDiff.rhs))];
                 break;
         }

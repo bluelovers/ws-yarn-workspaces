@@ -8,11 +8,11 @@ const formatVersion_1 = require("./formatVersion");
 function _diffArray(array) {
     const item = array.item;
     switch (item.kind) {
-        case "N":
+        case "N" /* DiffNew */:
             return [`[...]`, `[..., ${formatVersion_1._formatVersion(item.rhs)}]`];
-        case "D":
+        case "D" /* DiffDeleted */:
             return [`[..., ${formatVersion_1._formatVersion(item.lhs)}]`, `[...]`];
-        case "E":
+        case "E" /* DiffEdit */:
             return [
                 `[...], ${formatVersion_1._formatVersion(item.lhs)}]`,
                 `[..., ${formatVersion_1._formatVersion(item.lhs)}]`,

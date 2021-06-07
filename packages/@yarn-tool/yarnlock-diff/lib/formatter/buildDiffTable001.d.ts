@@ -1,6 +1,6 @@
-import { Diff } from 'deep-diff';
+import { IDiffNode } from '@bluelovers/deep-diff';
 import { IComputedPackage } from '../diff-service/types';
 /**
  * @deprecated
  */
-export declare function buildDiffTable(diff: Diff<IComputedPackage, IComputedPackage>[]): string;
+export declare function buildDiffTable(diff: IDiffNode<IComputedPackage, IComputedPackage>[]): string;

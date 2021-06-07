@@ -1,4 +1,4 @@
-import { DiffArray } from 'deep-diff';
+import { DiffArray } from '@bluelovers/deep-diff';
 /**
  * @deprecated
  */

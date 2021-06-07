@@ -1,4 +1,4 @@
-import { Diff } from 'deep-diff';
+import { IDiffNode, EnumKinds } from '@bluelovers/deep-diff';
 import { IComputedPackage } from '../diff-service/types';
 import Table from 'cli-table';
 import chalk from 'chalk';
@@ -10,7 +10,7 @@ import { IChalk } from 'debug-color2/index'
 import { console, chalkByConsoleMaybe } from 'debug-color2/index';
 import stripAnsi from 'strip-ansi';
 
-export function buildDiffTable(diff: Diff<IComputedPackage, IComputedPackage>[], options?: IOptionsParseVersionsDiff): string
+export function buildDiffTable(diff: IDiffNode<IComputedPackage, IComputedPackage>[], options?: IOptionsParseVersionsDiff): string
 {
 	// @ts-ignore
 	let chalk: IChalk = options?.chalk ?? chalkByConsoleMaybe(options?.console);
@@ -42,7 +42,7 @@ export function buildDiffTable(diff: Diff<IComputedPackage, IComputedPackage>[],
 		.map(packageDiff =>
 		{
 			//const path: string = packageDiff.path.find(() => true);
-			const path: string = packageDiff.path[0];
+			const path: string = packageDiff.path[0] as any;
 
 			_ok = true;
 
@@ -50,19 +50,19 @@ export function buildDiffTable(diff: Diff<IComputedPackage, IComputedPackage>[],
 
 			switch (packageDiff.kind)
 			{
-				case 'A':
+				case EnumKinds.DiffArray:
 
 					let diffArray = _diffArray(packageDiff, chalk);
 
 					_arr = [path, chalk.gray(diffArray[0]), ARROW, chalk.gray(diffArray[1])];
 
 					break;
-				case 'D':
+				case EnumKinds.DiffDeleted:
 
 					_arr = [chalk.red(path), chalk.red(_formatVersion(packageDiff.lhs)), ARROW, NONE];
 
 					break;
-				case 'E':
+				case EnumKinds.DiffEdit:
 
 					let lhs0 = _formatVersion(packageDiff.lhs);
 					let rhs0 = _formatVersion(packageDiff.rhs);
@@ -73,7 +73,7 @@ export function buildDiffTable(diff: Diff<IComputedPackage, IComputedPackage>[],
 					_arr = [chalk.yellow(path), lhs, ARROW, rhs];
 
 					break;
-				case 'N':
+				case EnumKinds.DiffNew:
 
 					_arr = [chalk.green(path), NONE, ARROW, chalk.green(_formatVersion(packageDiff.rhs))];
 

@@ -1,4 +1,4 @@
-import { Diff } from 'deep-diff';
+import { EnumKinds, IDiffNode } from '@bluelovers/deep-diff';
 import { IComputedPackage } from '../diff-service/types';
 import Table from 'cli-table';
 import chalk from 'chalk';
@@ -8,7 +8,7 @@ import { _diffArray } from './diffArray001';
 /**
  * @deprecated
  */
-export function buildDiffTable(diff: Diff<IComputedPackage, IComputedPackage>[]): string
+export function buildDiffTable(diff: IDiffNode<IComputedPackage, IComputedPackage>[]): string
 {
 	const table = new Table({
 		head: [
@@ -24,21 +24,21 @@ export function buildDiffTable(diff: Diff<IComputedPackage, IComputedPackage>[])
 		const path = packageDiff.path!.find(() => true) as string;
 		switch (packageDiff.kind)
 		{
-			case "D":
+			case EnumKinds.DiffDeleted:
 				formatedDiff[path] = [
 					path,
 					chalk.red(_formatVersion(packageDiff.lhs)),
 					"-",
 				];
 				break;
-			case "N":
+			case EnumKinds.DiffNew:
 				formatedDiff[path] = [
 					path,
 					"-",
 					chalk.green(_formatVersion(packageDiff.rhs)),
 				];
 				break;
-			case "E":
+			case EnumKinds.DiffEdit:
 				const lhs = chalk.yellow(
 					_formatVersion(packageDiff.lhs),
 				);
@@ -58,7 +58,7 @@ export function buildDiffTable(diff: Diff<IComputedPackage, IComputedPackage>[])
 					formatedDiff[path] = [path, lhs, rhs];
 				}
 				break;
-			case "A":
+			case EnumKinds.DiffArray:
 				const diffArray = _diffArray(packageDiff);
 				formatedDiff[path] = [path, diffArray[0], diffArray[1]];
 		}

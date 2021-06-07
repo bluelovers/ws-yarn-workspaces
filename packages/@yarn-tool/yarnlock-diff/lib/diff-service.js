@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.buildDiff = void 0;
-const deep_diff_1 = require("deep-diff");
+const deep_diff_1 = require("@bluelovers/deep-diff");
 const buildComputedPackage_1 = require("./diff-service/buildComputedPackage");
 function buildDiff(oldYarnLockContent, newYarnLockContent) {
     var _a;

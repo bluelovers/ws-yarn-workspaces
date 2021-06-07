@@ -1,4 +1,4 @@
-import { DiffArray } from 'deep-diff';
+import { DiffArray, EnumKinds } from '@bluelovers/deep-diff';
 import { _formatVersion } from './formatVersion';
 
 /**
@@ -9,11 +9,11 @@ export function _diffArray(array: DiffArray<{}, {}>): [string, string]
 	const item = array.item;
 	switch (item.kind)
 	{
-		case "N":
+		case EnumKinds.DiffNew:
 			return [`[...]`, `[..., ${_formatVersion(item.rhs)}]`];
-		case "D":
+		case EnumKinds.DiffDeleted:
 			return [`[..., ${_formatVersion(item.lhs)}]`, `[...]`];
-		case "E":
+		case EnumKinds.DiffEdit:
 			return [
 				`[...], ${_formatVersion(item.lhs)}]`,
 				`[..., ${_formatVersion(item.lhs)}]`,
