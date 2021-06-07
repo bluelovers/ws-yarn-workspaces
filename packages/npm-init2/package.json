@@ -72,7 +72,7 @@
     "yargs": "^17.0.1"
   },
   "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.20",
+    "@bluelovers/tsconfig": "^1.0.21",
     "@types/node": "*"
   },
   "bundleDependencies": [],

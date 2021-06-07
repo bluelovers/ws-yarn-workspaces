@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@types/npm-package-arg": "*",
-    "npm-package-arg": "^8.1.2"
+    "npm-package-arg": "^8.1.4"
   },
   "publishConfig": {
     "access": "public"
