@@ -253,6 +253,7 @@ if (!cp.error)
 			sharedScript = {
 				...sharedScript,
 				"npm:publish": "npm publish",
+				"npm:publish:bump": "yarn-tool version && npm publish",
 				"npm:publish:lerna": "lerna publish --yes --bump patch",
 				"postpublish:git:commit": `git commit -m "chore(release): publish" . & echo postpublish:git:commit`,
 				"postpublish:git:tag": `ynpx --quiet @yarn-tool/tag`,
