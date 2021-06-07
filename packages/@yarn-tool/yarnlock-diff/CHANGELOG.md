@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-diff@1.0.18...@yarn-tool/yarnlock-diff@1.0.19) (2021-06-07)
+
+
+### 🐛　Bug Fixes
+
+* 修正當 `item.kind` 為 `E` 時 錯誤顯示 ([4c419ff](https://github.com/bluelovers/ws-yarn-workspaces/commit/4c419ff6720a8e8e5789541c9321c041f2602dc8))
+* 修正多餘的 `]` ([d81f065](https://github.com/bluelovers/ws-yarn-workspaces/commit/d81f065615cea25bdfa797ad06d6b815cc6e635b))
+
+
+### ✨　Features
+
+* options.stripAnsi ([7485bb2](https://github.com/bluelovers/ws-yarn-workspaces/commit/7485bb27e32ad2be468448d70ffa11e309b57506))
+
+
+### 📦　Code Refactoring
+
+* use ``@bluelovers/deep-diff` ([fa8a6ca](https://github.com/bluelovers/ws-yarn-workspaces/commit/fa8a6caeef4ecd94cd630a0008998de65f5b7d58))
+* no need use `packageDiff.path.find(() => true)` ([804102b](https://github.com/bluelovers/ws-yarn-workspaces/commit/804102b862a475f052b8d4f1d91de34c5efec7a1))
+
+
+
+
+
 ## [1.0.18](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-diff@1.0.17...@yarn-tool/yarnlock-diff@1.0.18) (2021-06-02)
 
 **Note:** Version bump only for package @yarn-tool/yarnlock-diff

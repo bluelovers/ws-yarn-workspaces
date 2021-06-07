@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.50](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock@1.0.49...@yarn-tool/yarnlock@1.0.50) (2021-06-07)
+
+
+### 📦　Code Refactoring
+
+* use ``@bluelovers/deep-diff` ([fa8a6ca](https://github.com/bluelovers/ws-yarn-workspaces/commit/fa8a6caeef4ecd94cd630a0008998de65f5b7d58))
+
+
+
+
+
 ## [1.0.49](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock@1.0.48...@yarn-tool/yarnlock@1.0.49) (2021-06-02)
 
 
