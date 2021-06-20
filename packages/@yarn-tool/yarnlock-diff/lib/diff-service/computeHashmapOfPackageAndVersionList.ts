@@ -6,26 +6,26 @@ import {
 	IYarnLockDataRowV2,
 	IYarnLockParsedV1,
 	IYarnLockParsedV2,
-} from '@yarn-tool/yarnlock-parse/index';
+} from '@yarn-tool/yarnlock-parse';
 
-import { parsePackageRow as v1 } from './v1/parsePackageRow';
-import { parsePackageRow as v2 } from './v2/parsePackageRow';
+import { parseYarnLockRowV1 as v1 } from '@yarn-tool/yarnlock-util/lib/v1/parseYarnLockRowV1';
+import { parseYarnLockRowV2 as v2 } from '@yarn-tool/yarnlock-util/lib/v2/parseYarnLockRowV2';
 
 import { IComputedPackage } from './types';
-import { array_unique_overwrite } from 'array-hyper-unique/index';
+import { array_unique_overwrite } from 'array-hyper-unique';
 import { compareLoose } from 'semver';
 import { EnumDetectYarnLock } from '@yarn-tool/detect-yarnlock-version/lib/types';
+import { IParseNameAndVersion } from '@yarn-tool/yarnlock-util/lib/types';
+import { reduceYarnLockParsedEntries } from '@yarn-tool/yarnlock-util/lib/util/reduceYarnLockParsedEntries';
 
 export function computeHashmapOfPackageAndVersionList(alreadyComputedPackage: IComputedPackage,
 	parsedOldPackage: IYarnLockParsedV1 | IYarnLockParsedV2,
 ): IComputedPackage
 {
-	let fn: (packageName: string, packageData: any, ...argv) => {
-		name: string;
-		version: string;
-	};
+	let fn: (packageName: string, packageData: any, ...argv) => IParseNameAndVersion;
 
-	assertYarnLockParsedIsSupported(parsedOldPackage, (verType, parsedOldPackage) => {
+	assertYarnLockParsedIsSupported(parsedOldPackage, (verType, parsedOldPackage) =>
+	{
 
 		if (verType === EnumDetectYarnLock.v1)
 		{
@@ -53,22 +53,30 @@ export function computeHashmapOfPackageAndVersionList(alreadyComputedPackage: IC
 	}
 	 */
 
-	Object.entries<IYarnLockDataRowV1 | IYarnLockDataRowV2>(parsedOldPackage.data)
-		.forEach(([packageName, packageData]) =>
+	alreadyComputedPackage = reduceYarnLockParsedEntries(alreadyComputedPackage, parsedOldPackage, (alreadyComputedPackage,
+		[packageName, packageData],
+	) =>
+	{
+
+		const result = fn(packageName, packageData);
+
+		if (typeof result !== 'undefined' && result !== null)
 		{
-			const result = fn(packageName, packageData);
-
-			if (typeof result === 'undefined' || result === null)
-			{
-				return;
-			}
-
 			alreadyComputedPackage[result.name] ??= [];
 			alreadyComputedPackage[result.name].push(result.version);
+		}
 
-			array_unique_overwrite(alreadyComputedPackage[result.name])
+		return alreadyComputedPackage;
+	});
 
-			alreadyComputedPackage[result.name].sort(compareLoose);
+	Object.keys(alreadyComputedPackage)
+		.forEach((name) =>
+		{
+
+			array_unique_overwrite(alreadyComputedPackage[name]);
+
+			alreadyComputedPackage[name].sort(compareLoose);
+
 		})
 	;
 

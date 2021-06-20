@@ -1,20 +1,21 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.computeHashmapOfPackageAndVersionList = void 0;
-const index_1 = require("@yarn-tool/yarnlock-parse/index");
-const parsePackageRow_1 = require("./v1/parsePackageRow");
-const parsePackageRow_2 = require("./v2/parsePackageRow");
-const index_2 = require("array-hyper-unique/index");
+const yarnlock_parse_1 = require("@yarn-tool/yarnlock-parse");
+const parseYarnLockRowV1_1 = require("@yarn-tool/yarnlock-util/lib/v1/parseYarnLockRowV1");
+const parseYarnLockRowV2_1 = require("@yarn-tool/yarnlock-util/lib/v2/parseYarnLockRowV2");
+const array_hyper_unique_1 = require("array-hyper-unique");
 const semver_1 = require("semver");
 const types_1 = require("@yarn-tool/detect-yarnlock-version/lib/types");
+const reduceYarnLockParsedEntries_1 = require("@yarn-tool/yarnlock-util/lib/util/reduceYarnLockParsedEntries");
 function computeHashmapOfPackageAndVersionList(alreadyComputedPackage, parsedOldPackage) {
     let fn;
-    index_1.assertYarnLockParsedIsSupported(parsedOldPackage, (verType, parsedOldPackage) => {
+    yarnlock_parse_1.assertYarnLockParsedIsSupported(parsedOldPackage, (verType, parsedOldPackage) => {
         if (verType === types_1.EnumDetectYarnLock.v1) {
-            fn = parsePackageRow_1.parsePackageRow;
+            fn = parseYarnLockRowV1_1.parseYarnLockRowV1;
         }
         else {
-            fn = parsePackageRow_2.parsePackageRow;
+            fn = parseYarnLockRowV2_1.parseYarnLockRowV2;
         }
     });
     /*
@@ -31,18 +32,20 @@ function computeHashmapOfPackageAndVersionList(alreadyComputedPackage, parsedOld
         throw new TypeError(`can't detect yarn.lock version`)
     }
      */
-    Object.entries(parsedOldPackage.data)
-        .forEach(([packageName, packageData]) => {
+    alreadyComputedPackage = reduceYarnLockParsedEntries_1.reduceYarnLockParsedEntries(alreadyComputedPackage, parsedOldPackage, (alreadyComputedPackage, [packageName, packageData]) => {
         var _a;
         var _b;
         const result = fn(packageName, packageData);
-        if (typeof result === 'undefined' || result === null) {
-            return;
+        if (typeof result !== 'undefined' && result !== null) {
+            (_a = alreadyComputedPackage[_b = result.name]) !== null && _a !== void 0 ? _a : (alreadyComputedPackage[_b] = []);
+            alreadyComputedPackage[result.name].push(result.version);
         }
-        (_a = alreadyComputedPackage[_b = result.name]) !== null && _a !== void 0 ? _a : (alreadyComputedPackage[_b] = []);
-        alreadyComputedPackage[result.name].push(result.version);
-        index_2.array_unique_overwrite(alreadyComputedPackage[result.name]);
-        alreadyComputedPackage[result.name].sort(semver_1.compareLoose);
+        return alreadyComputedPackage;
+    });
+    Object.keys(alreadyComputedPackage)
+        .forEach((name) => {
+        array_hyper_unique_1.array_unique_overwrite(alreadyComputedPackage[name]);
+        alreadyComputedPackage[name].sort(semver_1.compareLoose);
     });
     return alreadyComputedPackage;
 }
