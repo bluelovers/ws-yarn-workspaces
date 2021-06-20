@@ -1,8 +1,11 @@
 import {
+	assertYarnLockParsedIsSupported,
+	isYarnLockParsedV1,
+	isYarnLockParsedV2,
+	IYarnLockDataRowV1,
+	IYarnLockDataRowV2,
 	IYarnLockParsedV1,
 	IYarnLockParsedV2,
-	isYarnLockParsedV1,
-	isYarnLockParsedV2, IYarnLockDataRowV1, IYarnLockDataRowV2,
 } from '@yarn-tool/yarnlock-parse/index';
 
 import { parsePackageRow as v1 } from './v1/parsePackageRow';
@@ -11,6 +14,7 @@ import { parsePackageRow as v2 } from './v2/parsePackageRow';
 import { IComputedPackage } from './types';
 import { array_unique_overwrite } from 'array-hyper-unique/index';
 import { compareLoose } from 'semver';
+import { EnumDetectYarnLock } from '@yarn-tool/detect-yarnlock-version/lib/types';
 
 export function computeHashmapOfPackageAndVersionList(alreadyComputedPackage: IComputedPackage,
 	parsedOldPackage: IYarnLockParsedV1 | IYarnLockParsedV2,
@@ -21,6 +25,20 @@ export function computeHashmapOfPackageAndVersionList(alreadyComputedPackage: IC
 		version: string;
 	};
 
+	assertYarnLockParsedIsSupported(parsedOldPackage, (verType, parsedOldPackage) => {
+
+		if (verType === EnumDetectYarnLock.v1)
+		{
+			fn = v1
+		}
+		else
+		{
+			fn = v2
+		}
+
+	});
+
+	/*
 	if (isYarnLockParsedV1(parsedOldPackage))
 	{
 		fn = v1
@@ -33,6 +51,7 @@ export function computeHashmapOfPackageAndVersionList(alreadyComputedPackage: IC
 	{
 		throw new TypeError(`can't detect yarn.lock version`)
 	}
+	 */
 
 	Object.entries<IYarnLockDataRowV1 | IYarnLockDataRowV2>(parsedOldPackage.data)
 		.forEach(([packageName, packageData]) =>

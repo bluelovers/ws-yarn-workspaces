@@ -10,6 +10,7 @@ import { IYarnLockIteratorWrap, IYarnLockIteratorWrapValue } from './types';
 import { parseYarnLockRowV2, parseYarnLockRowV1 } from '@yarn-tool/yarnlock-util/index';
 import yarnLockStringify from '@yarn-tool/yarnlock-stringify/index';
 import { ITSResolvable } from 'ts-type/index';
+import newYarnLockParsedVersionError from '@yarn-tool/yarnlock-error';
 
 export class YarnLockIterator<T extends IYarnLockParsedV1 | IYarnLockParsedV2, DD extends IUnpackYarnLockDataRow<T> = IUnpackYarnLockDataRow<T>>
 {
@@ -18,7 +19,7 @@ export class YarnLockIterator<T extends IYarnLockParsedV1 | IYarnLockParsedV2, D
 	{
 		if (!this.isV1() && !this.isV2())
 		{
-			throw new TypeError(`unknown object`)
+			throw newYarnLockParsedVersionError()
 		}
 	}
 
@@ -39,7 +40,7 @@ export class YarnLockIterator<T extends IYarnLockParsedV1 | IYarnLockParsedV2, D
 			return this as any
 		}
 
-		throw new TypeError(`current object not v1 yarnlock`)
+		throw newYarnLockParsedVersionError(`current object not v1 yarnlock`)
 	}
 
 	v2<TT extends IYarnLockParsedV2 = Extract<T, IYarnLockParsedV2>>(): YarnLockIterator<TT>
@@ -49,7 +50,7 @@ export class YarnLockIterator<T extends IYarnLockParsedV1 | IYarnLockParsedV2, D
 			return this as any
 		}
 
-		throw new TypeError(`current object not v2 yarnlock`)
+		throw newYarnLockParsedVersionError(`current object not v2 yarnlock`)
 	}
 
 	keys(): string[]

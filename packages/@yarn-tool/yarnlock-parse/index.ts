@@ -3,6 +3,7 @@ import { detectYarnLockVersion } from '@yarn-tool/detect-yarnlock-version/lib/de
 import { EnumDetectYarnLock } from '@yarn-tool/detect-yarnlock-version/lib/types';
 import { parseSyml } from '@yarnpkg/parsers';
 import { IDependency } from '@ts-type/package-dts/lib/package-json/types';
+import newYarnLockParsedVersionError from '@yarn-tool/yarnlock-error';
 
 export type IYarnLockParsed = IYarnLockParsedV1 | IYarnLockParsedV2;
 
@@ -106,7 +107,7 @@ export function yarnLockParse<T extends IYarnLockParsedV1 | IYarnLockParsedV2 = 
 
 			break;
 		default:
-			throw new TypeError(`can't detect yarn.lock`)
+			throw newYarnLockParsedVersionError()
 	}
 
 	return {
@@ -124,6 +125,27 @@ export function isYarnLockParsedV1<T extends IYarnLockDataRecord<IYarnLockDataRo
 export function isYarnLockParsedV2<T extends IYarnLockDataRecord<IYarnLockDataRowBase> = IYarnLockDataRecord<IYarnLockDataRowV2>>(data): data is IYarnLockParsedV2<T>
 {
 	return (data as IYarnLockParsedV2).verType === EnumDetectYarnLock.v2
+}
+
+interface IAssertYarnLockParsedIsSupportedCB<T extends IYarnLockParsedV1 | IYarnLockParsedV2>
+{
+	(verType: EnumDetectYarnLock.v1, parsedOldPackage: Extract<T, IYarnLockParsedV1>): any
+	(verType: EnumDetectYarnLock.v2, parsedOldPackage: Extract<T, IYarnLockParsedV2>): any
+	(verType: EnumDetectYarnLock, parsedOldPackage: T): any
+}
+
+export function assertYarnLockParsedIsSupported<T extends IYarnLockParsedV1 | IYarnLockParsedV2>(parsedOldPackage: T, cb?: IAssertYarnLockParsedIsSupportedCB<T>): asserts parsedOldPackage is T
+{
+	if (isYarnLockParsedV1(parsedOldPackage))
+	{
+		return cb?.(EnumDetectYarnLock.v1, parsedOldPackage)
+	}
+	else if (isYarnLockParsedV2(parsedOldPackage))
+	{
+		return cb?.(EnumDetectYarnLock.v2, parsedOldPackage)
+	}
+
+	throw newYarnLockParsedVersionError()
 }
 
 export default yarnLockParse

@@ -6,17 +6,31 @@ const parsePackageRow_1 = require("./v1/parsePackageRow");
 const parsePackageRow_2 = require("./v2/parsePackageRow");
 const index_2 = require("array-hyper-unique/index");
 const semver_1 = require("semver");
+const types_1 = require("@yarn-tool/detect-yarnlock-version/lib/types");
 function computeHashmapOfPackageAndVersionList(alreadyComputedPackage, parsedOldPackage) {
     let fn;
-    if (index_1.isYarnLockParsedV1(parsedOldPackage)) {
-        fn = parsePackageRow_1.parsePackageRow;
+    index_1.assertYarnLockParsedIsSupported(parsedOldPackage, (verType, parsedOldPackage) => {
+        if (verType === types_1.EnumDetectYarnLock.v1) {
+            fn = parsePackageRow_1.parsePackageRow;
+        }
+        else {
+            fn = parsePackageRow_2.parsePackageRow;
+        }
+    });
+    /*
+    if (isYarnLockParsedV1(parsedOldPackage))
+    {
+        fn = v1
     }
-    else if (index_1.isYarnLockParsedV2(parsedOldPackage)) {
-        fn = parsePackageRow_2.parsePackageRow;
+    else if (isYarnLockParsedV2(parsedOldPackage))
+    {
+        fn = v2
     }
-    else {
-        throw new TypeError(`can't detect yarn.lock version`);
+    else
+    {
+        throw new TypeError(`can't detect yarn.lock version`)
     }
+     */
     Object.entries(parsedOldPackage.data)
         .forEach(([packageName, packageData]) => {
         var _a;
