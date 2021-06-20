@@ -2,8 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.parseYarnLockRowV2 = void 0;
 const parsers_1 = require("@yarnpkg/parsers");
-//import npa from 'npm-package-arg';
-const index_1 = require("@yarn-tool/npm-package-arg-util/index");
+const npm_package_arg_util_1 = require("@yarn-tool/npm-package-arg-util");
 const getSemverFromNpaResult_1 = require("@yarn-tool/npm-package-arg-util/lib/getSemverFromNpaResult");
 function parseYarnLockRowV2(packageName, packageData) {
     var _a, _b;
@@ -21,7 +20,7 @@ function parseYarnLockRowV2(packageName, packageData) {
             /**
              * @fixme support packageName: 'once@npm:^1.3.1, once@npm:^1.4.0'
              */
-            parsed = index_1.npa(packageName);
+            parsed = npm_package_arg_util_1.npa(packageName);
             semver = getSemverFromNpaResult_1.getSemverFromNpaResult(parsed);
         }
         catch (e) {

@@ -1,10 +1,8 @@
-import { IYarnLockDataRowV2 } from '@yarn-tool/yarnlock-parse/index';
+import { IYarnLockDataRowV2 } from '@yarn-tool/yarnlock-parse';
 import { parseResolution } from '@yarnpkg/parsers';
 import { IParseNameAndVersion } from '../types';
-//import npa from 'npm-package-arg';
-import { npa} from '@yarn-tool/npm-package-arg-util/index';
+import { npa } from '@yarn-tool/npm-package-arg-util';
 import { getSemverFromNpaResult } from '@yarn-tool/npm-package-arg-util/lib/getSemverFromNpaResult';
-import SemverRange from '@lazy-node/semver-ampersand/lib/Range';
 import { IResult } from '@yarn-tool/npm-package-arg-util/lib/types';
 
 export function parseYarnLockRowV2(packageName: string, packageData: IYarnLockDataRowV2): IParseNameAndVersion
