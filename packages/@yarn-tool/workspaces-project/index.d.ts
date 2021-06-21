@@ -35,7 +35,7 @@ export declare class WorkspacesProject {
     get changelogPreset(): IChangelogPreset;
     get releaseConfig(): import("ts-type").ITSOverwrite<import("ts-type").ITSPickBothDiff<{
         [k: string]: unknown;
-        allowBranch?: string[];
+        allowBranch?: string | string[];
         message?: string;
     }, {
         concurrency?: number;
@@ -48,7 +48,7 @@ export declare class WorkspacesProject {
         noPrivate?: boolean;
     }> & Pick<{
         [k: string]: unknown;
-        allowBranch?: string[];
+        allowBranch?: string | string[];
         message?: string;
     } | {
         concurrency?: number;
@@ -61,7 +61,7 @@ export declare class WorkspacesProject {
         noPrivate?: boolean;
     }, import("ts-type").ITSKeyofBothSame<{
         [k: string]: unknown;
-        allowBranch?: string[];
+        allowBranch?: string | string[];
         message?: string;
     }, {
         concurrency?: number;
@@ -74,7 +74,7 @@ export declare class WorkspacesProject {
         noPrivate?: boolean;
     }>> & import("ts-type").ITSPickBothDiff<{
         [k: string]: unknown;
-        ignoreChanges?: string[];
+        ignoreChanges?: string | string[];
         message?: string;
     }, {
         concurrency?: number;
@@ -87,7 +87,7 @@ export declare class WorkspacesProject {
         noPrivate?: boolean;
     }> & Pick<{
         [k: string]: unknown;
-        ignoreChanges?: string[];
+        ignoreChanges?: string | string[];
         message?: string;
     } | {
         concurrency?: number;
@@ -100,7 +100,7 @@ export declare class WorkspacesProject {
         noPrivate?: boolean;
     }, import("ts-type").ITSKeyofBothSame<{
         [k: string]: unknown;
-        ignoreChanges?: string[];
+        ignoreChanges?: string | string[];
         message?: string;
     }, {
         concurrency?: number;

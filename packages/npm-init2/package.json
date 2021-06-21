@@ -47,7 +47,7 @@
   "config": {},
   "resolutions": {},
   "dependencies": {
-    "@ts-type/package-dts": "^1.0.45",
+    "@ts-type/package-dts": "^1.0.46",
     "@yarn-tool/find-root": "^1.0.41",
     "@yarn-tool/init-path": "^1.0.9",
     "@yarn-tool/is-builtin-module": "^1.0.7",
@@ -64,15 +64,15 @@
     "lodash": "^4.17.21",
     "micromatch": "^4.0.4",
     "npm-package-json-loader": "^1.0.48",
-    "path-is-same": "^1.0.5",
+    "path-is-same": "^1.0.9",
     "sort-package-json-scripts": "^1.1.6",
-    "upath2": "^3.1.7",
+    "upath2": "^3.1.8",
     "validate-npm-package-name": "^3.0.0",
     "workspaces-config": "^1.0.29",
     "yargs": "^17.0.1"
   },
   "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.21",
+    "@bluelovers/tsconfig": "^1.0.22",
     "@types/node": "*"
   },
   "bundleDependencies": [],

@@ -27,16 +27,16 @@
   },
   "dependencies": {
     "@lerna/project": "^4.0.0",
-    "@ts-type/package-dts": "^1.0.45",
+    "@ts-type/package-dts": "^1.0.46",
     "@types/npm-package-arg": "*",
     "@yarn-tool/changelog": "^1.0.44",
     "find-yarn-workspace-root2": "^1.2.28",
     "fs-extra": "^10.0.0",
     "lodash": "^4.17.21",
-    "path-dir-normalize": "^1.0.18",
+    "path-dir-normalize": "^1.0.19",
     "sort-object-keys2": "^2.0.3",
-    "ts-type": "^1.2.34",
-    "upath2": "^3.1.7"
+    "ts-type": "^1.2.35",
+    "upath2": "^3.1.8"
   },
   "publishConfig": {
     "access": "public"

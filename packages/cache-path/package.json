@@ -51,7 +51,7 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@lazy-node/is-writeable-path": "^1.0.1",
+    "@lazy-node/is-writeable-path": "^1.0.5",
     "@types/bluebird": "*",
     "@yarn-tool/find-root": "^1.0.41",
     "array-hyper-unique": "^1.1.9",
@@ -60,6 +60,6 @@
     "fs-extra": "^10.0.0",
     "hash-sum": "^2.0.0",
     "tmp": "^0.2.1",
-    "upath2": "^3.1.7"
+    "upath2": "^3.1.8"
   }
 }

@@ -44,13 +44,13 @@
   "config": {},
   "resolutions": {},
   "dependencies": {
-    "@ts-type/package-dts": "^1.0.45",
+    "@ts-type/package-dts": "^1.0.46",
     "bind-decorator": "^1.0.11",
     "fs-extra": "^10.0.0",
     "pkg-up": "^3.1.0",
     "sort-package-json": "^1.50.0",
     "sort-package-json3": "^1.0.31",
-    "ts-type": "^1.2.34"
+    "ts-type": "^1.2.35"
   },
   "bundleDependencies": [],
   "preferGlobal": true,

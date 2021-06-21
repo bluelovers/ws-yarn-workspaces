@@ -40,7 +40,7 @@
     "@yarn-tool/npm-package-arg-util": "^1.0.15",
     "@yarn-tool/yarnlock-parse": "^1.0.9",
     "@yarnpkg/parsers": "^2.3.0",
-    "npm-package-arg": "^8.1.4"
+    "npm-package-arg": "^8.1.5"
   },
   "publishConfig": {
     "access": "public"
