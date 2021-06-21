@@ -16,6 +16,7 @@ const path_1 = require("path");
 const addDependenciesIfNotExists_1 = require("./addDependenciesIfNotExists");
 const read_1 = require("@yarn-tool/yarnlock-fs/lib/read");
 const yarnlock_parse_1 = require("@yarn-tool/yarnlock-parse");
+const core_1 = __importDefault(require("sort-object-keys2/core"));
 function fetchRemoteInfo(packageNames, options = {}) {
     return bluebird_1.default.resolve(packageNames)
         .reduce(async (data, input) => {
@@ -37,7 +38,7 @@ function filterDepsFromYarnLock(packageNames, parsedOldPackage, options) {
 }
 exports.filterDepsFromYarnLock = filterDepsFromYarnLock;
 async function installDepsFromYarnLockCore(packageNames, parsedOldPackage, options = {}) {
-    var _a, _b;
+    var _a, _b, _c, _d, _e, _f;
     let names = packageNames.map((name) => npm_package_arg_util_1.default(name).name);
     let listRemoteInfo = await fetchRemoteInfo(packageNames, options);
     let filteredYarnLock = filterDepsFromYarnLock(names, parsedOldPackage, {
@@ -67,6 +68,15 @@ async function installDepsFromYarnLockCore(packageNames, parsedOldPackage, optio
         }
         return true;
     });
+    if (others.length !== packageNames.length) {
+        let opts = {
+            useSource: true,
+        };
+        core_1.default((_c = pkg.dependencies) !== null && _c !== void 0 ? _c : {}, opts);
+        core_1.default((_d = pkg.devDependencies) !== null && _d !== void 0 ? _d : {}, opts);
+        core_1.default((_e = pkg.peerDependencies) !== null && _e !== void 0 ? _e : {}, opts);
+        core_1.default((_f = pkg.optionalDependencies) !== null && _f !== void 0 ? _f : {}, opts);
+    }
     return {
         cwd,
         rootData,

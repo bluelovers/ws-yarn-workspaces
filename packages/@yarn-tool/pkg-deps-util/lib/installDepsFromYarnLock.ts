@@ -29,6 +29,7 @@ import { join } from 'path';
 import { addDependenciesIfNotExists } from './addDependenciesIfNotExists';
 import { fsYarnLockSafe, fsYarnLock } from '@yarn-tool/yarnlock-fs/lib/read';
 import { yarnLockParse } from '@yarn-tool/yarnlock-parse';
+import sortObjectKeys from 'sort-object-keys2/core';
 
 export interface IOptionsInstallDepsFromYarnLock extends IOptionsInstallDepsFromWorkspaces, IGroupYarnLockParsedEntriesOptions
 {
@@ -122,6 +123,18 @@ export async function installDepsFromYarnLockCore<T extends string>(packageNames
 
 		return true
 	});
+
+	if (others.length !== packageNames.length)
+	{
+		let opts = {
+			useSource: true,
+		};
+
+		sortObjectKeys(pkg.dependencies ?? {}, opts);
+		sortObjectKeys(pkg.devDependencies ?? {}, opts);
+		sortObjectKeys(pkg.peerDependencies ?? {}, opts);
+		sortObjectKeys(pkg.optionalDependencies ?? {}, opts);
+	}
 
 	return {
 		cwd,

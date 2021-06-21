@@ -2,12 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.filterInstallDeps = void 0;
 const installDepsFromWorkspaces_1 = require("./installDepsFromWorkspaces");
-const index_1 = require("@yarn-tool/find-root/index");
+const find_root_1 = require("@yarn-tool/find-root");
 function filterInstallDeps(packageNames, options = {}) {
     var _a;
     const cwd = (_a = options.cwd) !== null && _a !== void 0 ? _a : (options.cwd = process.cwd());
     if (!options.skipCheckWorkspace) {
-        const rootData = index_1.findRoot({
+        const rootData = find_root_1.findRoot({
             ...options,
             cwd,
         });
