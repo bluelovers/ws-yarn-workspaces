@@ -28,10 +28,11 @@
     "sort-package-json": "npx yarn-tool sort"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^1.0.45",
+    "@ts-type/package-dts": "^1.0.46",
+    "err-code": "^3.0.1",
     "find-yarn-workspace-root2": "^1.2.28",
     "pkg-dir": "^5.0.0",
-    "upath2": "^3.1.7"
+    "upath2": "^3.1.8"
   },
   "publishConfig": {
     "access": "public"

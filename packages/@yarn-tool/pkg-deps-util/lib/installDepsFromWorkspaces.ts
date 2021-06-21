@@ -1,10 +1,14 @@
 import { wsPkgListable } from 'ws-pkg-list/lib/listable';
-import { findRoot, IFindRootOptions } from '@yarn-tool/find-root/index';
+import {
+	findRoot,
+	IFindRootOptions,
+	assertHasAndNotWorkspacesRoot,
+	IFindRootReturnType,
+} from '@yarn-tool/find-root';
 import errcode from 'err-code';
-import { readPackageJson, IPackageJson } from '@ts-type/package-dts/index';
-import { packageJsonDependenciesFields } from '@ts-type/package-dts/package-json';
+import { readPackageJson, IPackageJson } from '@ts-type/package-dts';
 import { join } from 'path';
-import npa from '@yarn-tool/npm-package-arg-util/index';
+import npa from '@yarn-tool/npm-package-arg-util';
 import { IListableRow } from 'ws-pkg-list';
 import sortObjectKeys from 'sort-object-keys2/core';
 
@@ -20,22 +24,19 @@ export interface IOptionsInstallDepsFromWorkspaces extends Partial<IFindRootOpti
 export function installDepsFromWorkspaces(packageNames: string[], options: IOptionsInstallDepsFromWorkspaces = {})
 {
 	const cwd = options.cwd ??= process.cwd();
-	options.throwError = true;
-	options.skipCheckWorkspace = false;
 
-	const rootData = findRoot({
+	options = {
 		...options,
 		cwd,
 		throwError: true,
 		skipCheckWorkspace: false,
-	})
+		shouldHasWorkspaces: true,
+		shouldNotWorkspacesRoot: true,
+	};
 
-	if (rootData.isWorkspace || !rootData.hasWorkspace)
-	{
-		throw errcode(new RangeError(`cwd should inside of workspaces root`), {
-			rootData,
-		})
-	}
+	const rootData = findRoot(options as Required<IOptionsInstallDepsFromWorkspaces>);
+
+	assertHasAndNotWorkspacesRoot(rootData);
 
 	const pkg = options.pkg ?? readPackageJson(join(rootData.pkg, 'package.json'));
 

@@ -5,29 +5,25 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.installDepsFromWorkspaces = void 0;
 const listable_1 = require("ws-pkg-list/lib/listable");
-const index_1 = require("@yarn-tool/find-root/index");
-const err_code_1 = __importDefault(require("err-code"));
-const index_2 = require("@ts-type/package-dts/index");
+const find_root_1 = require("@yarn-tool/find-root");
+const package_dts_1 = require("@ts-type/package-dts");
 const path_1 = require("path");
-const index_3 = __importDefault(require("@yarn-tool/npm-package-arg-util/index"));
+const npm_package_arg_util_1 = __importDefault(require("@yarn-tool/npm-package-arg-util"));
 const core_1 = __importDefault(require("sort-object-keys2/core"));
 function installDepsFromWorkspaces(packageNames, options = {}) {
     var _a, _b, _c, _d, _e, _f;
     const cwd = (_a = options.cwd) !== null && _a !== void 0 ? _a : (options.cwd = process.cwd());
-    options.throwError = true;
-    options.skipCheckWorkspace = false;
-    const rootData = index_1.findRoot({
+    options = {
         ...options,
         cwd,
         throwError: true,
         skipCheckWorkspace: false,
-    });
-    if (rootData.isWorkspace || !rootData.hasWorkspace) {
-        throw err_code_1.default(new RangeError(`cwd should inside of workspaces root`), {
-            rootData,
-        });
-    }
-    const pkg = (_b = options.pkg) !== null && _b !== void 0 ? _b : index_2.readPackageJson(path_1.join(rootData.pkg, 'package.json'));
+        shouldHasWorkspaces: true,
+        shouldNotWorkspacesRoot: true,
+    };
+    const rootData = find_root_1.findRoot(options);
+    find_root_1.assertHasAndNotWorkspacesRoot(rootData);
+    const pkg = (_b = options.pkg) !== null && _b !== void 0 ? _b : package_dts_1.readPackageJson(path_1.join(rootData.pkg, 'package.json'));
     const record = listable_1.wsPkgListable(rootData.root)
         .reduce((a, b) => {
         a[b.name] = b;
@@ -38,7 +34,7 @@ function installDepsFromWorkspaces(packageNames, options = {}) {
     const others = packageNames
         .filter(packageName => {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
-        const result = index_3.default(packageName);
+        const result = npm_package_arg_util_1.default(packageName);
         const { name } = result;
         const row = record[name];
         if (row) {

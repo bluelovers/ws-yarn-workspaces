@@ -1,6 +1,11 @@
 import { relative, normalize as pathNormalize } from 'upath2';
-import { extractWorkspaces, isMatchWorkspaces, readPackageJSON, findWorkspaceRoot as findYarnWorkspaceRoot } from 'find-yarn-workspace-root2/core';
-import { readPackageJson } from '@ts-type/package-dts';
+import {
+	extractWorkspaces,
+	isMatchWorkspaces,
+	readPackageJSON,
+	findWorkspaceRoot as findYarnWorkspaceRoot,
+} from 'find-yarn-workspace-root2/core';
+import errcode from 'err-code';
 
 import { sync as pkgDir } from 'pkg-dir';
 
@@ -18,6 +23,9 @@ export interface IFindRootOptions
 	cwd: string;
 	skipCheckWorkspace?: boolean | string;
 	throwError?: boolean;
+
+	shouldHasWorkspaces?: boolean;
+	shouldNotWorkspacesRoot?: boolean;
 }
 
 export function findRoot(options: IFindRootOptions, _throwError?: boolean): IFindRootReturnType
@@ -33,14 +41,22 @@ export function findRoot(options: IFindRootOptions, _throwError?: boolean): IFin
 	{
 		ws = findYarnWorkspaceRoot(options.cwd);
 	}
+	else if (options.shouldHasWorkspaces)
+	{
+		throw errcode(new RangeError(`shouldHasWorkspaces and skipCheckWorkspace should not enable at same time`), {
+			options,
+		})
+	}
 
 	let pkg = pkgDir(options.cwd);
 
-	let { throwError = _throwError } = options;
+	const { throwError = _throwError } = options;
 
-	if (pkg == null && throwError)
+	if (pkg == null && (throwError || options.shouldHasWorkspaces))
 	{
-		let err = new TypeError(`can't found package root from target directory '${options.cwd}'`);
+		const err = errcode(new RangeError(`can't found package root from target directory '${options.cwd}'`), {
+			options,
+		});
 		throw err;
 	}
 
@@ -54,17 +70,65 @@ export function findRoot(options: IFindRootOptions, _throwError?: boolean): IFin
 		pkg = pathNormalize(pkg);
 	}
 
-	let hasWorkspace = ws && ws != null;
-	let isWorkspace = hasWorkspace && pathEqual(ws, pkg);
-	let root = hasWorkspace ? ws : pkg;
+	const hasWorkspace = ws?.length > 0;
+	const isWorkspace = hasWorkspace && pathEqual(ws, pkg);
+	const root = hasWorkspace ? ws : pkg;
 
-	return {
+	const rootData = {
 		pkg,
 		ws,
 		hasWorkspace,
 		isWorkspace,
 		root,
+	};
+
+	if (options.shouldHasWorkspaces)
+	{
+		assertHasWorkspaces(rootData);
 	}
+
+	if (options.shouldNotWorkspacesRoot)
+	{
+		assertNotWorkspacesRoot(rootData);
+	}
+
+	return rootData
+}
+
+export function assertHasWorkspaces<T extends IFindRootReturnType>(rootData: T): asserts rootData is T & {
+	hasWorkspace: true
+}
+{
+	if (!rootData.pkg?.length || rootData.hasWorkspace !== true)
+	{
+		throw errcode(new RangeError(`cwd should inside of workspaces root`), {
+			rootData,
+		})
+	}
+}
+
+export function assertNotWorkspacesRoot<T extends IFindRootReturnType>(rootData: T): asserts rootData is T & {
+	isWorkspace: false
+}
+{
+	if (rootData.hasWorkspace === true)
+	{
+		if (rootData.isWorkspace === true)
+		{
+			throw errcode(new RangeError(`cwd should not as workspaces root`), {
+				rootData,
+			})
+		}
+	}
+}
+
+export function assertHasAndNotWorkspacesRoot<T extends IFindRootReturnType>(rootData: T): asserts rootData is T & {
+	hasWorkspace: true,
+	isWorkspace: false,
+}
+{
+	assertHasWorkspaces(rootData)
+	assertNotWorkspacesRoot(rootData)
 }
 
 export { pathNormalize }
@@ -92,7 +156,8 @@ export function listMatchedPatternByPath(ws: string, pkg: string)
 		throw new RangeError(`pkg should not same as ws`)
 	}
 
-	const { ignores, list } = workspaces.reduce((a, b) => {
+	const { ignores, list } = workspaces.reduce((a, b) =>
+	{
 
 		if (b.startsWith('!'))
 		{
@@ -122,7 +187,7 @@ export function listMatchedPatternByPath(ws: string, pkg: string)
 
 			return a;
 		}, [] as string[])
-	;
+		;
 }
 
 export default findRoot
