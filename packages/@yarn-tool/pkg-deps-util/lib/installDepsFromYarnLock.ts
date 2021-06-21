@@ -96,6 +96,8 @@ export async function installDepsFromYarnLockCore<T extends string>(packageNames
 	const pkg = options.pkg ?? readPackageJson(join(rootData.pkg, 'package.json'));
 
 	const added = [] as [name: string, semver: string][];
+	const exists = [] as string[];
+
 	let others: T[] = packageNames.filter((packageName) => {
 		const result = npa(packageName);
 		const { name } = result;
@@ -117,6 +119,7 @@ export async function installDepsFromYarnLockCore<T extends string>(packageNames
 			}
 			else if (bool === null)
 			{
+				exists.push(name);
 				return false;
 			}
 		}
@@ -133,6 +136,7 @@ export async function installDepsFromYarnLockCore<T extends string>(packageNames
 		cwd,
 		rootData,
 		added,
+		exists,
 		others,
 		pkg,
 	}

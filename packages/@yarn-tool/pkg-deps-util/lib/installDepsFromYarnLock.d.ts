@@ -22,6 +22,7 @@ export declare function installDepsFromYarnLockCore<T extends string>(packageNam
     cwd: string;
     rootData: import("@yarn-tool/find-root").IFindRootReturnType;
     added: [name: string, semver: string][];
+    exists: string[];
     others: T[];
     pkg: IPackageJson<any>;
 }>;
@@ -32,6 +33,7 @@ export declare function installDepsFromYarnLock<T extends string>(packageNames: 
     cwd: string;
     rootData: import("@yarn-tool/find-root").IFindRootReturnType;
     added: [name: string, semver: string][];
+    exists: string[];
     others: T[];
     pkg: IPackageJson<any>;
 }>;

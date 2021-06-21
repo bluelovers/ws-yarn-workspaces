@@ -49,6 +49,7 @@ async function installDepsFromYarnLockCore(packageNames, parsedOldPackage, optio
     const rootData = find_root_1.findRootLazy(options);
     const pkg = (_b = options.pkg) !== null && _b !== void 0 ? _b : package_dts_1.readPackageJson(path_1.join(rootData.pkg, 'package.json'));
     const added = [];
+    const exists = [];
     let others = packageNames.filter((packageName) => {
         var _a, _b, _c;
         const result = npm_package_arg_util_1.default(packageName);
@@ -63,6 +64,7 @@ async function installDepsFromYarnLockCore(packageNames, parsedOldPackage, optio
                 return false;
             }
             else if (bool === null) {
+                exists.push(name);
                 return false;
             }
         }
@@ -75,6 +77,7 @@ async function installDepsFromYarnLockCore(packageNames, parsedOldPackage, optio
         cwd,
         rootData,
         added,
+        exists,
         others,
         pkg,
     };
