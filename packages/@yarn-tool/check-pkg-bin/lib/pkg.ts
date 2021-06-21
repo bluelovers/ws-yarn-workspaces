@@ -13,7 +13,7 @@ export function checkPkgDir(pkgDir: string = process.cwd())
 	const result = checkPkgJson(pkg, pkgDir)
 
 	return {
-		name: pkg.name,
+		name: pkg.name as string,
 		pkg,
 		pkgDir,
 		result,

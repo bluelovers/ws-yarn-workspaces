@@ -3,6 +3,7 @@ import { findRoot } from '@yarn-tool/find-root/index';
 import { readPackageJson } from '@ts-type/package-dts/index';
 import { join } from 'path';
 import { INextVersionRecommendedOptions } from './types';
+import { IPackageJson } from '@ts-type/package-dts/package-json';
 
 export function nextVersionRecommendedByPackage<T extends {
 	version?: string
@@ -19,7 +20,10 @@ export function nextVersionRecommendedByPackage<T extends {
 	}
 }
 
-export function nextVersionRecommendedByPackageFindUp(options?: INextVersionRecommendedOptions)
+export function nextVersionRecommendedByPackageFindUp<T extends {
+	version?: string
+	// @ts-ignore
+} = IPackageJson>(options?: INextVersionRecommendedOptions)
 {
 	options ??= {};
 	options.cwd ??= process.cwd();
@@ -30,5 +34,6 @@ export function nextVersionRecommendedByPackageFindUp(options?: INextVersionReco
 
 	options.cwd = rootData.root;
 
-	return nextVersionRecommendedByPackage(pkg, options)
+	// @ts-ignore
+	return nextVersionRecommendedByPackage<T>(pkg as T, options)
 }

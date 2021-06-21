@@ -22,6 +22,7 @@ function nextVersionRecommendedByPackageFindUp(options) {
     let rootData = index_1.findRoot(options);
     let pkg = index_2.readPackageJson(path_1.join(rootData.pkg, 'package.json'));
     options.cwd = rootData.root;
+    // @ts-ignore
     return nextVersionRecommendedByPackage(pkg, options);
 }
 exports.nextVersionRecommendedByPackageFindUp = nextVersionRecommendedByPackageFindUp;
