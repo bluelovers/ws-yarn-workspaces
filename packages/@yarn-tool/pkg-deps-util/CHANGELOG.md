@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.20](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-deps-util@1.0.19...@yarn-tool/pkg-deps-util@1.0.20) (2021-06-21)
+
+
+### 📦　Code Refactoring
+
+* sortDependencies ([4581eab](https://github.com/bluelovers/ws-yarn-workspaces/commit/4581eab097b053a7112bad42859299948354aca3))
+
+
+
+
+
 ## [1.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-deps-util@1.0.18...@yarn-tool/pkg-deps-util@1.0.19) (2021-06-21)
 
 
