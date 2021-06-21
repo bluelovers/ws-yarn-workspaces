@@ -30,6 +30,7 @@ import { addDependenciesIfNotExists } from './addDependenciesIfNotExists';
 import { fsYarnLockSafe, fsYarnLock } from '@yarn-tool/yarnlock-fs/lib/read';
 import { yarnLockParse } from '@yarn-tool/yarnlock-parse';
 import sortObjectKeys from 'sort-object-keys2/core';
+import { array_unique_overwrite } from 'array-hyper-unique/core';
 
 export interface IOptionsInstallDepsFromYarnLock extends IOptionsInstallDepsFromWorkspaces, IGroupYarnLockParsedEntriesOptions
 {
@@ -69,8 +70,6 @@ export function filterDepsFromYarnLock<T extends string>(packageNames: T[],
 )
 {
 	let group = groupYarnLockParsedEntries(parsedOldPackage, options);
-
-	console.dir(group)
 
 	return pick(group, packageNames.map((name) => npa(name).name)) as IFilteredRecord<IComputedPackageEntries<IParseNameAndVersion>, T>;
 }
@@ -152,6 +151,8 @@ export async function installDepsFromYarnLock<T extends string>(packageNames: T[
 	options: IOptionsInstallDepsFromYarnLock = {},
 )
 {
+	packageNames = array_unique_overwrite(packageNames.filter(v => v?.length));
+
 	if (packageNames.length)
 	{
 		options.cwd ??= process.cwd();

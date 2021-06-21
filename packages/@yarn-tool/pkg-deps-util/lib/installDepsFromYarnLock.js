@@ -17,6 +17,7 @@ const addDependenciesIfNotExists_1 = require("./addDependenciesIfNotExists");
 const read_1 = require("@yarn-tool/yarnlock-fs/lib/read");
 const yarnlock_parse_1 = require("@yarn-tool/yarnlock-parse");
 const core_1 = __importDefault(require("sort-object-keys2/core"));
+const core_2 = require("array-hyper-unique/core");
 function fetchRemoteInfo(packageNames, options = {}) {
     return bluebird_1.default.resolve(packageNames)
         .reduce(async (data, input) => {
@@ -33,7 +34,6 @@ function fetchRemoteInfo(packageNames, options = {}) {
 exports.fetchRemoteInfo = fetchRemoteInfo;
 function filterDepsFromYarnLock(packageNames, parsedOldPackage, options) {
     let group = groupYarnLockParsedEntries_1.groupYarnLockParsedEntries(parsedOldPackage, options);
-    console.dir(group);
     return lodash_1.pick(group, packageNames.map((name) => npm_package_arg_util_1.default(name).name));
 }
 exports.filterDepsFromYarnLock = filterDepsFromYarnLock;
@@ -91,6 +91,7 @@ exports.installDepsFromYarnLockCore = installDepsFromYarnLockCore;
  */
 async function installDepsFromYarnLock(packageNames, options = {}) {
     var _a, _b;
+    packageNames = core_2.array_unique_overwrite(packageNames.filter(v => v === null || v === void 0 ? void 0 : v.length));
     if (packageNames.length) {
         (_a = options.cwd) !== null && _a !== void 0 ? _a : (options.cwd = process.cwd());
         const rootData = find_root_1.findRootLazy(options);
