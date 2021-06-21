@@ -109,6 +109,7 @@ export interface IWrapDedupeCache {
         readonly before: boolean | void | null;
         readonly main: boolean | void | null;
         readonly after: boolean | void | null;
+        readonly end: boolean | void | null;
     };
     readonly consoleDebug?: Console2;
     readonly console?: Console2;
