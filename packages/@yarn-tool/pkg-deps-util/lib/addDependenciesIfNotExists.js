@@ -10,7 +10,7 @@ function addDependenciesIfNotExists(pkg, name, semver, options = {}) {
             pkg.devDependencies[name] = semver;
             bool = false;
         }
-        else {
+        else if (pkg.devDependencies[name] !== semver) {
             bool !== null && bool !== void 0 ? bool : (bool = true);
         }
     }
@@ -20,7 +20,7 @@ function addDependenciesIfNotExists(pkg, name, semver, options = {}) {
             pkg.peerDependencies[name] = semver;
             bool = false;
         }
-        else {
+        else if (pkg.peerDependencies[name] !== semver) {
             bool !== null && bool !== void 0 ? bool : (bool = true);
         }
     }
@@ -30,7 +30,7 @@ function addDependenciesIfNotExists(pkg, name, semver, options = {}) {
             pkg.optionalDependencies[name] = semver;
             bool = false;
         }
-        else {
+        else if (pkg.optionalDependencies[name] !== semver) {
             bool !== null && bool !== void 0 ? bool : (bool = true);
         }
     }
@@ -40,7 +40,7 @@ function addDependenciesIfNotExists(pkg, name, semver, options = {}) {
             pkg.dependencies[name] = semver;
             bool = false;
         }
-        else {
+        else if (pkg.dependencies[name] !== semver) {
             bool !== null && bool !== void 0 ? bool : (bool = true);
         }
     }

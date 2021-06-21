@@ -8,7 +8,7 @@ import {
 
 export interface IComputedPackageEntries<T>
 {
-	[packageName: string]: [string, T][];
+	[packageName: string]: [key: string, data: T][];
 }
 
 export function reduceYarnLockParsedEntries<T, R extends IYarnLockDataRowV1 | IYarnLockDataRowV2 = IYarnLockDataRowV1 | IYarnLockDataRowV2>(alreadyComputedPackage: T,

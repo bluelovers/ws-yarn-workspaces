@@ -18,7 +18,7 @@ export function addDependenciesIfNotExists(pkg: IPackageJson,
 
 			bool = false;
 		}
-		else
+		else if (pkg.devDependencies[name] !== semver)
 		{
 			bool ??= true;
 		}
@@ -33,7 +33,7 @@ export function addDependenciesIfNotExists(pkg: IPackageJson,
 
 			bool = false;
 		}
-		else
+		else if (pkg.peerDependencies[name] !== semver)
 		{
 			bool ??= true;
 		}
@@ -48,7 +48,7 @@ export function addDependenciesIfNotExists(pkg: IPackageJson,
 
 			bool = false;
 		}
-		else
+		else if (pkg.optionalDependencies[name] !== semver)
 		{
 			bool ??= true;
 		}
@@ -63,7 +63,7 @@ export function addDependenciesIfNotExists(pkg: IPackageJson,
 
 			bool = false;
 		}
-		else
+		else if (pkg.dependencies[name] !== semver)
 		{
 			bool ??= true;
 		}
