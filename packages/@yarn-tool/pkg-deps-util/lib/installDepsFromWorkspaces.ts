@@ -1,16 +1,11 @@
 import { wsPkgListable } from 'ws-pkg-list/lib/listable';
-import {
-	findRoot,
-	IFindRootOptions,
-	assertHasAndNotWorkspacesRoot,
-	IFindRootReturnType,
-} from '@yarn-tool/find-root';
-import errcode from 'err-code';
-import { readPackageJson, IPackageJson } from '@ts-type/package-dts';
+import { assertHasAndNotWorkspacesRoot, findRoot, IFindRootOptions } from '@yarn-tool/find-root';
+import { IPackageJson, readPackageJson } from '@ts-type/package-dts';
 import { join } from 'path';
 import npa from '@yarn-tool/npm-package-arg-util';
 import { IListableRow } from 'ws-pkg-list';
 import sortObjectKeys from 'sort-object-keys2/core';
+import { addDependenciesIfNotExists } from './addDependenciesIfNotExists';
 
 export interface IOptionsInstallDepsFromWorkspaces extends Partial<IFindRootOptions>
 {
@@ -64,67 +59,7 @@ export function installDepsFromWorkspaces(packageNames: string[], options: IOpti
 			if (row)
 			{
 				const semver = `^${row.version}`;
-				let bool: boolean = null;
-
-				if (options.dev)
-				{
-					if (!pkg.devDependencies?.[name]?.length)
-					{
-						pkg.devDependencies ??= {};
-						pkg.devDependencies[name] = semver;
-
-						bool = false;
-					}
-					else
-					{
-						bool ??= true;
-					}
-				}
-
-				if (options.peer)
-				{
-					if (!pkg.peerDependencies?.[name]?.length)
-					{
-						pkg.peerDependencies ??= {};
-						pkg.peerDependencies[name] = semver;
-
-						bool = false;
-					}
-					else
-					{
-						bool ??= true;
-					}
-				}
-
-				if (options.optional)
-				{
-					if (!pkg.optionalDependencies?.[name]?.length)
-					{
-						pkg.optionalDependencies ??= {};
-						pkg.optionalDependencies[name] = semver;
-
-						bool = false;
-					}
-					else
-					{
-						bool ??= true;
-					}
-				}
-
-				if (bool === null)
-				{
-					if (!pkg.dependencies?.[name]?.length)
-					{
-						pkg.dependencies ??= {};
-						pkg.dependencies[name] = semver;
-
-						bool = false;
-					}
-					else
-					{
-						bool ??= true;
-					}
-				}
+				let bool: boolean = addDependenciesIfNotExists(pkg, name, semver, options).bool;
 
 				if (bool === false)
 				{

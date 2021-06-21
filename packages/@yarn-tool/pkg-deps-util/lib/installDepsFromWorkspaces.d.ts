@@ -1,4 +1,4 @@
-import { IFindRootOptions, IFindRootReturnType } from '@yarn-tool/find-root';
+import { IFindRootOptions } from '@yarn-tool/find-root';
 import { IPackageJson } from '@ts-type/package-dts';
 export interface IOptionsInstallDepsFromWorkspaces extends Partial<IFindRootOptions> {
     cwd?: string;
@@ -9,7 +9,7 @@ export interface IOptionsInstallDepsFromWorkspaces extends Partial<IFindRootOpti
 }
 export declare function installDepsFromWorkspaces(packageNames: string[], options?: IOptionsInstallDepsFromWorkspaces): {
     cwd: string;
-    rootData: IFindRootReturnType & {
+    rootData: import("@yarn-tool/find-root").IFindRootReturnType & {
         hasWorkspace: true;
         isWorkspace: false;
     };
