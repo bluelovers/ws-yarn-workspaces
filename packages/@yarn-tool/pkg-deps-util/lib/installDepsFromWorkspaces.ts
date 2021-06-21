@@ -6,6 +6,7 @@ import npa from '@yarn-tool/npm-package-arg-util';
 import { IListableRow } from 'ws-pkg-list';
 import sortObjectKeys from 'sort-object-keys2/core';
 import { addDependenciesIfNotExists } from './addDependenciesIfNotExists';
+import { sortDependencies } from './util/sortDependencies';
 
 export interface IOptionsInstallDepsFromWorkspaces extends Partial<IFindRootOptions>
 {
@@ -81,14 +82,7 @@ export function installDepsFromWorkspaces(packageNames: string[], options: IOpti
 
 	if (others.length !== packageNames.length)
 	{
-		let opts = {
-			useSource: true,
-		};
-
-		sortObjectKeys(pkg.dependencies ?? {}, opts);
-		sortObjectKeys(pkg.devDependencies ?? {}, opts);
-		sortObjectKeys(pkg.peerDependencies ?? {}, opts);
-		sortObjectKeys(pkg.optionalDependencies ?? {}, opts);
+		sortDependencies(pkg)
 	}
 
 	return {
