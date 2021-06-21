@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.52](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock@1.0.51...@yarn-tool/yarnlock@1.0.52) (2021-06-21)
+
+
+### 📦　Code Refactoring
+
+* wrapDedupe ([a24c273](https://github.com/bluelovers/ws-yarn-workspaces/commit/a24c273746572119f27da295b6b2cbe5e7cd732d))
+
+
+### BREAKING CHANGE
+
+* code split
+
+
+
+
+
 ## [1.0.51](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock@1.0.50...@yarn-tool/yarnlock@1.0.51) (2021-06-21)
 
 
