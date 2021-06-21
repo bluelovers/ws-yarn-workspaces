@@ -13,6 +13,7 @@ export interface IFindRootOptions {
     shouldHasWorkspaces?: boolean;
     shouldNotWorkspacesRoot?: boolean;
 }
+export declare function findRootLazy(options?: Partial<IFindRootOptions>, _throwError?: boolean): IFindRootReturnType;
 export declare function findRoot(options: IFindRootOptions, _throwError?: boolean): IFindRootReturnType;
 export declare function assertHasWorkspaces<T extends IFindRootReturnType>(rootData: T): asserts rootData is T & {
     hasWorkspace: true;

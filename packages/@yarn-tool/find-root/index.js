@@ -3,15 +3,23 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.listMatchedPatternByPath = exports.pathEqual = exports.pathNormalize = exports.assertHasAndNotWorkspacesRoot = exports.assertNotWorkspacesRoot = exports.assertHasWorkspaces = exports.findRoot = void 0;
+exports.listMatchedPatternByPath = exports.pathEqual = exports.pathNormalize = exports.assertHasAndNotWorkspacesRoot = exports.assertNotWorkspacesRoot = exports.assertHasWorkspaces = exports.findRoot = exports.findRootLazy = void 0;
 const upath2_1 = require("upath2");
 Object.defineProperty(exports, "pathNormalize", { enumerable: true, get: function () { return upath2_1.normalize; } });
 const core_1 = require("find-yarn-workspace-root2/core");
 const err_code_1 = __importDefault(require("err-code"));
 const pkg_dir_1 = require("pkg-dir");
+function findRootLazy(options, _throwError) {
+    var _a;
+    options !== null && options !== void 0 ? options : (options = {});
+    (_a = options.cwd) !== null && _a !== void 0 ? _a : (options.cwd = process.cwd());
+    return findRoot(options, _throwError);
+}
+exports.findRootLazy = findRootLazy;
 function findRoot(options, _throwError) {
-    if (!options.cwd) {
-        throw new TypeError(`options.cwd is '${options.cwd}'`);
+    var _a;
+    if (!((_a = options.cwd) === null || _a === void 0 ? void 0 : _a.length)) {
+        throw new RangeError(`options.cwd is '${options.cwd}'`);
     }
     let ws;
     if (!options.skipCheckWorkspace) {
@@ -86,7 +94,7 @@ exports.pathEqual = pathEqual;
 function listMatchedPatternByPath(ws, pkg) {
     const manifest = core_1.readPackageJSON(ws);
     if (!manifest || !manifest.workspaces) {
-        throw new Error(`not a package.json of yarn workspaces`);
+        throw new RangeError(`not a package.json of yarn workspaces`);
     }
     const workspaces = core_1.extractWorkspaces(manifest);
     const relativePath = upath2_1.relative(ws, pkg);

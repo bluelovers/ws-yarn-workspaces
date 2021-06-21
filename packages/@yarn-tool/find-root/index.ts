@@ -28,11 +28,19 @@ export interface IFindRootOptions
 	shouldNotWorkspacesRoot?: boolean;
 }
 
+export function findRootLazy(options?: Partial<IFindRootOptions>, _throwError?: boolean)
+{
+	options ??= {} as any;
+	options.cwd ??= process.cwd();
+
+	return findRoot(options as IFindRootOptions, _throwError)
+}
+
 export function findRoot(options: IFindRootOptions, _throwError?: boolean): IFindRootReturnType
 {
-	if (!options.cwd)
+	if (!options.cwd?.length)
 	{
-		throw new TypeError(`options.cwd is '${options.cwd}'`)
+		throw new RangeError(`options.cwd is '${options.cwd}'`)
 	}
 
 	let ws: string;
@@ -144,7 +152,7 @@ export function listMatchedPatternByPath(ws: string, pkg: string)
 
 	if (!manifest || !manifest.workspaces)
 	{
-		throw new Error(`not a package.json of yarn workspaces`)
+		throw new RangeError(`not a package.json of yarn workspaces`)
 	}
 
 	const workspaces = extractWorkspaces(manifest);
