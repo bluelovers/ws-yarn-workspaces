@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.17](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-util@1.0.16...@yarn-tool/yarnlock-util@1.0.17) (2021-06-21)
+
+
+### ✨　Features
+
+* installDepsFromYarnLock ([e0876c7](https://github.com/bluelovers/ws-yarn-workspaces/commit/e0876c750438331f7479a1e94ff18fd688aa898e))
+
+
+### 📦　Code Refactoring
+
+* use `reduceYarnLockParsedEntries` ([586ea75](https://github.com/bluelovers/ws-yarn-workspaces/commit/586ea75bb4c1de5181767dedfca710d31b3c61b1))
+* add `npaTry` ([f6cf50c](https://github.com/bluelovers/ws-yarn-workspaces/commit/f6cf50ca06978a2baf9cba6f1904221513da61ee))
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([32a3cff](https://github.com/bluelovers/ws-yarn-workspaces/commit/32a3cff85a28c9c7e26ab9e13860c025f9c32b1c))
+
+
+
+
+
 ## [1.0.16](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-util@1.0.15...@yarn-tool/yarnlock-util@1.0.16) (2021-06-07)
 
 

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.16](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/npm-package-arg-util@1.0.15...@yarn-tool/npm-package-arg-util@1.0.16) (2021-06-21)
+
+
+### 📦　Code Refactoring
+
+* add `npaTry` ([f6cf50c](https://github.com/bluelovers/ws-yarn-workspaces/commit/f6cf50ca06978a2baf9cba6f1904221513da61ee))
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([32a3cff](https://github.com/bluelovers/ws-yarn-workspaces/commit/32a3cff85a28c9c7e26ab9e13860c025f9c32b1c))
+
+
+
+
+
 ## [1.0.15](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/npm-package-arg-util@1.0.14...@yarn-tool/npm-package-arg-util@1.0.15) (2021-06-07)
 
 

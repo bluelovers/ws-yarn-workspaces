@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.30](https://github.com/bluelovers/workspaces-config/compare/workspaces-config@1.0.29...workspaces-config@1.0.30) (2021-06-21)
+
+**Note:** Version bump only for package workspaces-config
+
+
+
+
+
 ## [1.0.29](https://github.com/bluelovers/workspaces-config/compare/workspaces-config@1.0.28...workspaces-config@1.0.29) (2021-06-02)
 
 

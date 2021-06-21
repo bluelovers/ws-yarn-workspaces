@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.42](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-root@1.0.41...@yarn-tool/find-root@1.0.42) (2021-06-21)
+
+
+### ✨　Features
+
+* add findRootLazy ([c962ef9](https://github.com/bluelovers/ws-yarn-workspaces/commit/c962ef91336c6eb0f5fe16e093e0fd2436a5a95e))
+* new options `shouldHasWorkspaces`, `shouldNotWorkspacesRoot` for check and throw error ([518c0ee](https://github.com/bluelovers/ws-yarn-workspaces/commit/518c0eebe9d012e1bece998d6b152216a2bbf457))
+
+
+
+
+
 ## [1.0.41](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-root@1.0.40...@yarn-tool/find-root@1.0.41) (2021-06-02)
 
 

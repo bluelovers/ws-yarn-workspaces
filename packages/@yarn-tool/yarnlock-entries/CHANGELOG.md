@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.16](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-entries@1.0.15...@yarn-tool/yarnlock-entries@1.0.16) (2021-06-21)
+
+
+### 📦　Code Refactoring
+
+* @yarn-tool/yarnlock-error ([adce55e](https://github.com/bluelovers/ws-yarn-workspaces/commit/adce55e51514395f3c14aa81abb92cad0ade88a1))
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([32a3cff](https://github.com/bluelovers/ws-yarn-workspaces/commit/32a3cff85a28c9c7e26ab9e13860c025f9c32b1c))
+
+
+
+
+
 ## [1.0.15](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-entries@1.0.14...@yarn-tool/yarnlock-entries@1.0.15) (2021-06-07)
 
 **Note:** Version bump only for package @yarn-tool/yarnlock-entries

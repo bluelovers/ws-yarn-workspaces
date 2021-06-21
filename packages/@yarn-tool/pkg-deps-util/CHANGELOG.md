@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-deps-util@1.0.18...@yarn-tool/pkg-deps-util@1.0.19) (2021-06-21)
+
+
+### ✨　Features
+
+* use array_unique_overwrite ([5a78eb6](https://github.com/bluelovers/ws-yarn-workspaces/commit/5a78eb63ddacd5e4a42a05aef2de3f3c95ce10f3))
+* sortObjectKeys ([fa2fb40](https://github.com/bluelovers/ws-yarn-workspaces/commit/fa2fb403ba1953e13b7c1583110ed089f3c7d624))
+* installDepsFromYarnLock ([e0876c7](https://github.com/bluelovers/ws-yarn-workspaces/commit/e0876c750438331f7479a1e94ff18fd688aa898e))
+* new options `shouldHasWorkspaces`, `shouldNotWorkspacesRoot` for check and throw error ([518c0ee](https://github.com/bluelovers/ws-yarn-workspaces/commit/518c0eebe9d012e1bece998d6b152216a2bbf457))
+
+
+### 📦　Code Refactoring
+
+* addDependenciesIfNotExists ([59008f1](https://github.com/bluelovers/ws-yarn-workspaces/commit/59008f16ee9c7abb1abf521d7fff2af089b071b2))
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([32a3cff](https://github.com/bluelovers/ws-yarn-workspaces/commit/32a3cff85a28c9c7e26ab9e13860c025f9c32b1c))
+
+
+
+
+
 ## [1.0.18](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-deps-util@1.0.17...@yarn-tool/pkg-deps-util@1.0.18) (2021-06-07)
 
 **Note:** Version bump only for package @yarn-tool/pkg-deps-util
