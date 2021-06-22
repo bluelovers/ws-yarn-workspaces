@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.45](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/check-pkg-bin@1.0.44...@yarn-tool/check-pkg-bin@1.0.45) (2021-06-22)
+
+
+### 🔖　Miscellaneous
+
+* . ([dac4938](https://github.com/bluelovers/ws-yarn-workspaces/commit/dac4938ef48eae92bb8911bd50aa7f1730959b20))
+
+
+
+
+
 ## [1.0.44](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/check-pkg-bin@1.0.43...@yarn-tool/check-pkg-bin@1.0.44) (2021-06-21)
 
 
