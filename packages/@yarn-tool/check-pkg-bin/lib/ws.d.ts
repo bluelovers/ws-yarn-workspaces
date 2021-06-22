@@ -1,6 +1,6 @@
 export declare function checkWorkspaces(cwd?: string): {
     name: string;
-    pkg: import("@ts-type/package-dts").IPackageJson<any>;
+    pkg: import("npm-package-json-loader").IPackageJson<any>;
     pkgDir: string;
     result: {
         file: string;
