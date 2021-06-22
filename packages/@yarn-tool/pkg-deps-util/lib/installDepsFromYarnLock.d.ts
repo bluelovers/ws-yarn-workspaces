@@ -25,6 +25,7 @@ export declare function installDepsFromYarnLockCore<T extends string>(packageNam
     exists: string[];
     others: T[];
     pkg: IPackageJson<any>;
+    updated: boolean;
 }>;
 /**
  * 檢查並且過濾要安裝的版本是否已經存在於 yarn.lock 內
@@ -36,4 +37,5 @@ export declare function installDepsFromYarnLock<T extends string>(packageNames: 
     exists: string[];
     others: T[];
     pkg: IPackageJson<any>;
+    updated: boolean;
 }>;

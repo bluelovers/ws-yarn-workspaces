@@ -70,7 +70,8 @@ async function installDepsFromYarnLockCore(packageNames, parsedOldPackage, optio
         }
         return true;
     });
-    if (others.length !== packageNames.length) {
+    const updated = others.length !== packageNames.length;
+    if (updated) {
         sortDependencies_1.sortDependencies(pkg);
     }
     return {
@@ -80,6 +81,7 @@ async function installDepsFromYarnLockCore(packageNames, parsedOldPackage, optio
         exists,
         others,
         pkg,
+        updated,
     };
 }
 exports.installDepsFromYarnLockCore = installDepsFromYarnLockCore;

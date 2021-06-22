@@ -52,7 +52,8 @@ function installDepsFromWorkspaces(packageNames, options = {}) {
             return true;
         }
     });
-    if (others.length !== packageNames.length) {
+    const updated = others.length !== packageNames.length;
+    if (updated) {
         sortDependencies_1.sortDependencies(pkg);
     }
     return {
@@ -62,6 +63,7 @@ function installDepsFromWorkspaces(packageNames, options = {}) {
         exists,
         others,
         pkg,
+        updated,
     };
 }
 exports.installDepsFromWorkspaces = installDepsFromWorkspaces;

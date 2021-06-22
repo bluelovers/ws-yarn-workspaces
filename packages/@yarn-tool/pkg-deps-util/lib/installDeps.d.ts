@@ -4,10 +4,11 @@ export interface IOptionsInstallDeps extends IOptionsInstallDepsFromWorkspaces {
 export declare function filterInstallDeps(packageNames: string[], options?: IOptionsInstallDeps): {
     cwd: string;
     packageNames: string[];
-    pkg: import("@ts-type/package-dts").IPackageJson<any>;
+    pkg: import("npm-package-json-loader").IPackageJson<any>;
     rootData: import("@yarn-tool/find-root").IFindRootReturnType;
     added: [name: string, semver: string][];
     exists: string[];
+    updated: boolean;
 } | {
     cwd: string;
     packageNames: string[];
@@ -15,4 +16,5 @@ export declare function filterInstallDeps(packageNames: string[], options?: IOpt
     rootData?: undefined;
     added?: undefined;
     exists?: undefined;
+    updated?: undefined;
 };

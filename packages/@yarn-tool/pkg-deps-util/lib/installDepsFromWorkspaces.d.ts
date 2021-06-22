@@ -17,4 +17,5 @@ export declare function installDepsFromWorkspaces(packageNames: string[], option
     exists: string[];
     others: string[];
     pkg: IPackageJson<any>;
+    updated: boolean;
 };

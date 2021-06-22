@@ -127,7 +127,9 @@ export async function installDepsFromYarnLockCore<T extends string>(packageNames
 		return true
 	});
 
-	if (others.length !== packageNames.length)
+	const updated = others.length !== packageNames.length;
+
+	if (updated)
 	{
 		sortDependencies(pkg)
 	}
@@ -139,6 +141,7 @@ export async function installDepsFromYarnLockCore<T extends string>(packageNames
 		exists,
 		others,
 		pkg,
+		updated,
 	}
 }
 

@@ -80,7 +80,9 @@ export function installDepsFromWorkspaces(packageNames: string[], options: IOpti
 		})
 	;
 
-	if (others.length !== packageNames.length)
+	const updated = others.length !== packageNames.length;
+
+	if (updated)
 	{
 		sortDependencies(pkg)
 	}
@@ -92,5 +94,6 @@ export function installDepsFromWorkspaces(packageNames: string[], options: IOpti
 		exists,
 		others,
 		pkg,
+		updated,
 	}
 }
