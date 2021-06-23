@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.processRunPathEnv = exports.processRunPath = void 0;
 const lib_1 = require("./lib");
 function processRunPath(options = {}) {
-    let { binPaths, execPath, envPath, pathKey, delimiter, processEnv } = lib_1.processRunPathCore(options);
+    let { binPaths, execPath, envPath, pathKey, delimiter, processEnv } = (0, lib_1.processRunPathCore)(options);
     let result = [];
     if (options.includeEnvPath) {
         result.push(envPath);

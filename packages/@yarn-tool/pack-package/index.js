@@ -14,16 +14,16 @@ Object.defineProperty(exports, "printPackedTarballInfo", { enumerable: true, get
 var info_2 = require("./lib/info");
 Object.defineProperty(exports, "getPackedTarballInfo", { enumerable: true, get: function () { return info_2.getPackedTarballInfo; } });
 function packPackage(options) {
-    return pack_1.packTargetPackage(options)
+    return (0, pack_1.packTargetPackage)(options)
         .then(async (data) => {
         let tarball;
         const object = Object.freeze({
             ...data,
             async tarball() {
-                return tarball !== null && tarball !== void 0 ? tarball : (tarball = await info_1.getPackedTarballInfo(data));
+                return tarball !== null && tarball !== void 0 ? tarball : (tarball = await (0, info_1.getPackedTarballInfo)(data));
             },
             async log() {
-                return print_1.printPackedTarballInfo(await object.tarball());
+                return (0, print_1.printPackedTarballInfo)(await object.tarball());
             },
         });
         return object;

@@ -31,12 +31,12 @@ function wsPkgListableFromReaded(readed, options) {
 exports.wsPkgListableFromReaded = wsPkgListableFromReaded;
 function wsPkgListableFromPaths(paths, cwd, options) {
     cwd = cwd !== null && cwd !== void 0 ? cwd : process.cwd();
-    return wsPkgListableFromReaded(readpkg_1.readPackages(paths, cwd), options);
+    return wsPkgListableFromReaded((0, readpkg_1.readPackages)(paths, cwd), options);
 }
 exports.wsPkgListableFromPaths = wsPkgListableFromPaths;
 function wsPkgListable(cwd, options) {
     cwd = cwd !== null && cwd !== void 0 ? cwd : process.cwd();
-    return wsPkgListableFromPaths(listpkg_1.workspacesPackagesList(cwd), cwd, options);
+    return wsPkgListableFromPaths((0, listpkg_1.workspacesPackagesList)(cwd), cwd, options);
 }
 exports.wsPkgListable = wsPkgListable;
 exports.default = wsPkgListable;

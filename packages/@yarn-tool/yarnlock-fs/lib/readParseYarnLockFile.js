@@ -6,10 +6,10 @@ const parse_1 = require("@yarn-tool/yarnlock/lib/parse");
 const fs_extra_1 = require("fs-extra");
 const notEmpty_1 = require("./notEmpty");
 function checkAndParseYarnLockFile(file, printError) {
-    let buf = readYarnLockFile_1.checkAndReadYarnLockFileSafe(file);
-    if (notEmpty_1.notEmpty(buf)) {
+    let buf = (0, readYarnLockFile_1.checkAndReadYarnLockFileSafe)(file);
+    if ((0, notEmpty_1.notEmpty)(buf)) {
         try {
-            return parse_1.parse(buf);
+            return (0, parse_1.parse)(buf);
         }
         catch (e) {
             printError && console.trace(e);
@@ -18,8 +18,8 @@ function checkAndParseYarnLockFile(file, printError) {
 }
 exports.checkAndParseYarnLockFile = checkAndParseYarnLockFile;
 function readYarnLockFile(file) {
-    let buf = fs_extra_1.readFileSync(file);
-    return parse_1.parse(buf);
+    let buf = (0, fs_extra_1.readFileSync)(file);
+    return (0, parse_1.parse)(buf);
 }
 exports.readYarnLockFile = readYarnLockFile;
 //# sourceMappingURL=readParseYarnLockFile.js.map

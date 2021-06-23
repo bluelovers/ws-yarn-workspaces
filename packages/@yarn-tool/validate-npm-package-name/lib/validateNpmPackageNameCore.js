@@ -14,15 +14,15 @@ function validate(name, options) {
     const errors = [];
     if (name === null) {
         errors.push('name cannot be null');
-        return handleResult_1.handleResult(warnings, errors);
+        return (0, handleResult_1.handleResult)(warnings, errors);
     }
     if (name === undefined) {
         errors.push('name cannot be undefined');
-        return handleResult_1.handleResult(warnings, errors);
+        return (0, handleResult_1.handleResult)(warnings, errors);
     }
     if (typeof name !== 'string') {
         errors.push('name must be a string');
-        return handleResult_1.handleResult(warnings, errors);
+        return (0, handleResult_1.handleResult)(warnings, errors);
     }
     if (!name.length) {
         errors.push('name length must be greater than zero');
@@ -46,7 +46,7 @@ function validate(name, options) {
     });
     // Generate warnings for stuff that used to be allowed
     // core module names like http, events, util, etc
-    if (is_builtin_module_1.createNewIsBuiltinModule(options).isBuiltinModule(name_lc)) {
+    if ((0, is_builtin_module_1.createNewIsBuiltinModule)(options).isBuiltinModule(name_lc)) {
         warnings.push(name_lc + ' is a core module name');
     }
     // really-long-package-names-------------------------------such--length-----many---wow
@@ -68,12 +68,12 @@ function validate(name, options) {
             const user = nameMatch[1];
             const pkg = nameMatch[2];
             if (encodeURIComponent(user) === user && encodeURIComponent(pkg) === pkg) {
-                return handleResult_1.handleResult(warnings, errors);
+                return (0, handleResult_1.handleResult)(warnings, errors);
             }
         }
         errors.push('name can only contain URL-friendly characters');
     }
-    return handleResult_1.handleResult(warnings, errors);
+    return (0, handleResult_1.handleResult)(warnings, errors);
 }
 exports.validate = validate;
 exports.default = validate;

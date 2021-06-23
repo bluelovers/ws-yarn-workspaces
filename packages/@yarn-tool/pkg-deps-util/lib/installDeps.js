@@ -7,12 +7,12 @@ function filterInstallDeps(packageNames, options = {}) {
     var _a;
     const cwd = (_a = options.cwd) !== null && _a !== void 0 ? _a : (options.cwd = process.cwd());
     if (!options.skipCheckWorkspace) {
-        const rootData = find_root_1.findRoot({
+        const rootData = (0, find_root_1.findRoot)({
             ...options,
             cwd,
         });
         if (rootData.hasWorkspace && !rootData.isWorkspace) {
-            let data = installDepsFromWorkspaces_1.installDepsFromWorkspaces(packageNames, options);
+            let data = (0, installDepsFromWorkspaces_1.installDepsFromWorkspaces)(packageNames, options);
             packageNames = data.others;
             return {
                 cwd,

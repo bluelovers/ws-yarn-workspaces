@@ -6,13 +6,13 @@ function _diffArray(array, chalk) {
     const item = array.item;
     switch (item.kind) {
         case "N" /* DiffNew */:
-            return [`[...]`, `[..., ${chalk.green(formatVersion_1._formatVersion(item.rhs))}]`];
+            return [`[...]`, `[..., ${chalk.green((0, formatVersion_1._formatVersion)(item.rhs))}]`];
         case "D" /* DiffDeleted */:
-            return [`[..., ${chalk.red(formatVersion_1._formatVersion(item.lhs))}]`, `[...]`];
+            return [`[..., ${chalk.red((0, formatVersion_1._formatVersion)(item.lhs))}]`, `[...]`];
         case "E" /* DiffEdit */:
             return [
-                `[..., ${chalk.yellow(formatVersion_1._formatVersion(item.lhs))}]`,
-                `[..., ${chalk.yellow(formatVersion_1._formatVersion(item.rhs))}]`,
+                `[..., ${chalk.yellow((0, formatVersion_1._formatVersion)(item.lhs))}]`,
+                `[..., ${chalk.yellow((0, formatVersion_1._formatVersion)(item.rhs))}]`,
             ];
         default:
             return [`[...]`, `[...]`];

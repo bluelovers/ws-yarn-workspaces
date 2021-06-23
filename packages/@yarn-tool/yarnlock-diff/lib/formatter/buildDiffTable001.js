@@ -1,11 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.buildDiffTable = void 0;
-const cli_table_1 = __importDefault(require("cli-table"));
-const chalk_1 = __importDefault(require("chalk"));
+const tslib_1 = require("tslib");
+const cli_table_1 = (0, tslib_1.__importDefault)(require("cli-table"));
+const chalk_1 = (0, tslib_1.__importDefault)(require("chalk"));
 const formatVersion_1 = require("./formatVersion");
 const diffArray001_1 = require("./diffArray001");
 /**
@@ -27,7 +25,7 @@ function buildDiffTable(diff) {
             case "D" /* DiffDeleted */:
                 formatedDiff[path] = [
                     path,
-                    chalk_1.default.red(formatVersion_1._formatVersion(packageDiff.lhs)),
+                    chalk_1.default.red((0, formatVersion_1._formatVersion)(packageDiff.lhs)),
                     "-",
                 ];
                 break;
@@ -35,12 +33,12 @@ function buildDiffTable(diff) {
                 formatedDiff[path] = [
                     path,
                     "-",
-                    chalk_1.default.green(formatVersion_1._formatVersion(packageDiff.rhs)),
+                    chalk_1.default.green((0, formatVersion_1._formatVersion)(packageDiff.rhs)),
                 ];
                 break;
             case "E" /* DiffEdit */:
-                const lhs = chalk_1.default.yellow(formatVersion_1._formatVersion(packageDiff.lhs));
-                const rhs = chalk_1.default.yellow(formatVersion_1._formatVersion(packageDiff.rhs));
+                const lhs = chalk_1.default.yellow((0, formatVersion_1._formatVersion)(packageDiff.lhs));
+                const rhs = chalk_1.default.yellow((0, formatVersion_1._formatVersion)(packageDiff.rhs));
                 if (formatedDiff[path]) {
                     formatedDiff[path] = [
                         path,
@@ -53,7 +51,7 @@ function buildDiffTable(diff) {
                 }
                 break;
             case "A" /* DiffArray */:
-                const diffArray = diffArray001_1._diffArray(packageDiff);
+                const diffArray = (0, diffArray001_1._diffArray)(packageDiff);
                 formatedDiff[path] = [path, diffArray[0], diffArray[1]];
         }
     });

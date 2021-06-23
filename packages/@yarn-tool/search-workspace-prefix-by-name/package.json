@@ -26,6 +26,7 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
+    "tslib": "^2.3.0",
     "workspaces-config": "^1.0.30"
   },
   "publishConfig": {

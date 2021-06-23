@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.stringify = exports.parse = exports.parseFull = void 0;
 const lockfile_1 = require("@yarnpkg/lockfile");
 function parseFull(text) {
-    return lockfile_1.parse(text.toString());
+    return (0, lockfile_1.parse)(text.toString());
 }
 exports.parseFull = parseFull;
 function parse(text) {
@@ -14,7 +14,7 @@ function parse(text) {
 }
 exports.parse = parse;
 function stringify(json) {
-    return lockfile_1.stringify(json);
+    return (0, lockfile_1.stringify)(json);
 }
 exports.stringify = stringify;
 //# sourceMappingURL=parse.js.map

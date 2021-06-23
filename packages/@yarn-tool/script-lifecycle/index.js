@@ -1,10 +1,8 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.isKnownLifecycleKey = exports.entryToList = exports.getLifecycleList = exports.getLifecycle = exports.getLifecycleCore = void 0;
-const lifecycle_1 = __importDefault(require("./lib/lifecycle"));
+const tslib_1 = require("tslib");
+const lifecycle_1 = (0, tslib_1.__importDefault)(require("./lib/lifecycle"));
 function getLifecycleCore(scriptName) {
     if (isKnownLifecycleKey(scriptName)) {
         return lifecycle_1.default[scriptName];

@@ -32,7 +32,7 @@ function keyObjectToPackageMap(obj, useVarsionNew) {
         if (useVarsionNew) {
             if (typeof data.version_new !== 'string') {
                 return a;
-                throw new TypeError(`not a IVersionCacheMapValue object, ${util_1.inspect(data)}`);
+                throw new TypeError(`not a IVersionCacheMapValue object, ${(0, util_1.inspect)(data)}`);
             }
             a[data.name] = data.version_new;
         }

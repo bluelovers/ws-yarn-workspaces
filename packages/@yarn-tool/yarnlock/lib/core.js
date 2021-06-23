@@ -2,17 +2,15 @@
 /**
  * Created by user on 2020/6/11.
  */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.exportYarnLock = exports.filterDuplicateYarnLock = exports.removeResolutionsCore = exports.removeResolutions = exports.filterResolutions = void 0;
-const semver_1 = __importDefault(require("semver"));
+const tslib_1 = require("tslib");
+const semver_1 = (0, tslib_1.__importDefault)(require("semver"));
 const util_1 = require("./util");
 function filterResolutions(pkg, yarnlock) {
     if (pkg.resolutions) {
         return exportYarnLock(yarnlock, (key, index, array_keys, yarnlock1) => {
-            let name = util_1.stripDepsName(key)[0];
+            let name = (0, util_1.stripDepsName)(key)[0];
             return pkg.resolutions[name] != null;
         });
     }
@@ -71,7 +69,7 @@ function filterDuplicateYarnLock(yarnlock) {
         return fy.installed[value].length > 1;
     });
     return exportYarnLock(yarnlock, (key, index, array_keys, yarnlock1) => {
-        let n = util_1.stripDepsName(key)[0];
+        let n = (0, util_1.stripDepsName)(key)[0];
         return ks.includes(n);
     });
 }
@@ -86,7 +84,7 @@ function exportYarnLock(yarnlock, filter) {
     }
     return ks
         .reduce(function (a, k) {
-        let n = util_1.stripDepsName(k);
+        let n = (0, util_1.stripDepsName)(k);
         let name = n[0];
         let key = n[1];
         let data = yarnlock[k];

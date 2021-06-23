@@ -26,7 +26,8 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "builtins": "^4.0.0"
+    "builtins": "^4.0.0",
+    "tslib": "^2.3.0"
   },
   "publishConfig": {
     "access": "public"

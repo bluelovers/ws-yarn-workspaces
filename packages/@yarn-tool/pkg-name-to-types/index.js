@@ -22,12 +22,12 @@ function escapePackageName(packageName) {
 }
 exports.escapePackageName = escapePackageName;
 function extractName(packageName) {
-    return parseArgvPkgName_1.parseArgvPkgName(packageName).name;
+    return (0, parseArgvPkgName_1.parseArgvPkgName)(packageName).name;
 }
 exports.extractName = extractName;
 function pkgNameToTypes(packageName, includeVersion) {
     var _a;
-    let m = parseArgvPkgName_1.parseArgvPkgName(packageName);
+    let m = (0, parseArgvPkgName_1.parseArgvPkgName)(packageName);
     let { version, name, namespace } = m;
     if (namespace) {
         name = escapePackageName(namespace) + '__' + name;

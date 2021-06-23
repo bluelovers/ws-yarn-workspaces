@@ -2,21 +2,19 @@
 /**
  * Created by user on 2018/5/14/014.
  */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.findPkg = exports.parseStaticPackagesPaths = exports.parseWorkspaces = exports.getConfig = void 0;
-const find_pkg_ws_1 = __importDefault(require("find-pkg-ws"));
+const tslib_1 = require("tslib");
+const find_pkg_ws_1 = (0, tslib_1.__importDefault)(require("find-pkg-ws"));
 exports.findPkg = find_pkg_ws_1.default;
 const fs_extra_1 = require("fs-extra");
 const path_1 = require("path");
 function getConfig(cwd) {
-    let file = find_pkg_ws_1.default(cwd);
+    let file = (0, find_pkg_ws_1.default)(cwd);
     if (!file) {
         throw new RangeError();
     }
-    let pkg = fs_extra_1.readJSONSync(file);
+    let pkg = (0, fs_extra_1.readJSONSync)(file);
     return parseWorkspaces(pkg.workspaces);
 }
 exports.getConfig = getConfig;

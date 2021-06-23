@@ -2,18 +2,10 @@
 /**
  * Created by user on 2019/5/21.
  */
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 var _a, _b;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.YargsCommandModule = exports.SYM_PROP = exports.SYM_YARGS = exports.SYM_CONFIG = void 0;
+const tslib_1 = require("tslib");
 const core_decorators_1 = require("core-decorators");
 exports.SYM_CONFIG = Symbol.for('config');
 exports.SYM_YARGS = Symbol.for('yargs');
@@ -104,53 +96,53 @@ class YargsCommandModule {
         };
     }
 }
-__decorate([
+(0, tslib_1.__decorate)([
     core_decorators_1.autobind,
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
+    (0, tslib_1.__metadata)("design:type", Object),
+    (0, tslib_1.__metadata)("design:paramtypes", [Object])
 ], YargsCommandModule.prototype, "command", null);
-__decorate([
+(0, tslib_1.__decorate)([
     core_decorators_1.autobind,
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
+    (0, tslib_1.__metadata)("design:type", Object),
+    (0, tslib_1.__metadata)("design:paramtypes", [Object])
 ], YargsCommandModule.prototype, "describe", null);
-__decorate([
+(0, tslib_1.__decorate)([
     core_decorators_1.autobind,
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [Object])
+    (0, tslib_1.__metadata)("design:type", Object),
+    (0, tslib_1.__metadata)("design:paramtypes", [Object])
 ], YargsCommandModule.prototype, "aliases", null);
-__decorate([
+(0, tslib_1.__decorate)([
     core_decorators_1.autobind,
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [])
+    (0, tslib_1.__metadata)("design:type", Object),
+    (0, tslib_1.__metadata)("design:paramtypes", [])
 ], YargsCommandModule.prototype, "builder", null);
-__decorate([
+(0, tslib_1.__decorate)([
     core_decorators_1.autobind,
-    __metadata("design:type", Object),
-    __metadata("design:paramtypes", [])
+    (0, tslib_1.__metadata)("design:type", Object),
+    (0, tslib_1.__metadata)("design:paramtypes", [])
 ], YargsCommandModule.prototype, "yargs", null);
-__decorate([
+(0, tslib_1.__decorate)([
     core_decorators_1.autobind,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [])
+    (0, tslib_1.__metadata)("design:type", Function),
+    (0, tslib_1.__metadata)("design:paramtypes", [])
 ], YargsCommandModule.prototype, "handler", null);
-__decorate([
+(0, tslib_1.__decorate)([
     core_decorators_1.autobind,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Function]),
-    __metadata("design:returntype", void 0)
+    (0, tslib_1.__metadata)("design:type", Function),
+    (0, tslib_1.__metadata)("design:paramtypes", [Function]),
+    (0, tslib_1.__metadata)("design:returntype", void 0)
 ], YargsCommandModule.prototype, "setHandler", null);
-__decorate([
+(0, tslib_1.__decorate)([
     core_decorators_1.autobind,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Function]),
-    __metadata("design:returntype", void 0)
+    (0, tslib_1.__metadata)("design:type", Function),
+    (0, tslib_1.__metadata)("design:paramtypes", [Function]),
+    (0, tslib_1.__metadata)("design:returntype", void 0)
 ], YargsCommandModule.prototype, "newHandler", null);
-__decorate([
+(0, tslib_1.__decorate)([
     core_decorators_1.autobind,
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
+    (0, tslib_1.__metadata)("design:type", Function),
+    (0, tslib_1.__metadata)("design:paramtypes", []),
+    (0, tslib_1.__metadata)("design:returntype", void 0)
 ], YargsCommandModule.prototype, "toValue", null);
 exports.YargsCommandModule = YargsCommandModule;
 exports.default = YargsCommandModule;

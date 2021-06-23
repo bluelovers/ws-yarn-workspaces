@@ -12,16 +12,16 @@ const path_1 = require("path");
  * @returns {string}
  */
 function findTsconfig(cwd) {
-    let rooData = find_root_1.findRoot({
+    let rooData = (0, find_root_1.findRoot)({
         cwd,
     });
-    let file = tsconfig_1.findSync(cwd);
+    let file = (0, tsconfig_1.findSync)(cwd);
     if (!file) {
-        file = tsconfig_1.findSync(fs_1.realpathSync(cwd));
+        file = (0, tsconfig_1.findSync)((0, fs_1.realpathSync)(cwd));
     }
     if (file) {
-        file = path_1.normalize(file);
-        if (file.includes(path_1.normalize(rooData.pkg)) || rooData.hasWorkspace && !rooData.isWorkspace && file.includes(path_1.normalize(rooData.ws))) {
+        file = (0, path_1.normalize)(file);
+        if (file.includes((0, path_1.normalize)(rooData.pkg)) || rooData.hasWorkspace && !rooData.isWorkspace && file.includes((0, path_1.normalize)(rooData.ws))) {
             return file;
         }
     }

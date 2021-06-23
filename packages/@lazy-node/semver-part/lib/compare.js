@@ -1,17 +1,15 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.tryCompare = exports.cmp = exports.lte = exports.lt = exports.gte = exports.gt = exports.neq = exports.eq = exports.compare = void 0;
+const tslib_1 = require("tslib");
 /**
  * Created by user on 2020/6/11.
  */
 const _core_1 = require("./_core");
-const compare_1 = __importDefault(require("semver/functions/compare"));
-const cmp_1 = __importDefault(require("semver/functions/cmp"));
+const compare_1 = (0, tslib_1.__importDefault)(require("semver/functions/compare"));
+const cmp_1 = (0, tslib_1.__importDefault)(require("semver/functions/cmp"));
 function compare(part1, part2, optionsOrLoose) {
-    return compare_1.default(..._core_1._part(part1, part2), optionsOrLoose);
+    return (0, compare_1.default)(...(0, _core_1._part)(part1, part2), optionsOrLoose);
 }
 exports.compare = compare;
 function eq(part1, part2, optionsOrLoose) {
@@ -39,8 +37,8 @@ function lte(part1, part2, optionsOrLoose) {
 }
 exports.lte = lte;
 function cmp(part1, operator, part2, optionsOrLoose) {
-    const [v1, v2] = _core_1._part(part1, part2);
-    return cmp_1.default(v1, operator, v2, optionsOrLoose);
+    const [v1, v2] = (0, _core_1._part)(part1, part2);
+    return (0, cmp_1.default)(v1, operator, v2, optionsOrLoose);
 }
 exports.cmp = cmp;
 function tryCompare(v1, v2, optionsOrLoose) {

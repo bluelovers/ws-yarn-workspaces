@@ -6,16 +6,16 @@ const SimpleSemVer_1 = require("./SimpleSemVer");
 const stringifySimpleSemVer_1 = require("./stringifySimpleSemVer");
 function stringifySimpleSemVerRange(arr) {
     return arr.reduce((a, ver) => {
-        if (checker_1.isSimpleSemVerOperatorLike(ver)) {
+        if ((0, checker_1.isSimpleSemVerOperatorLike)(ver)) {
             a.push(ver.operator);
         }
-        else if (checker_1.isSimpleSemVerObjectLike(ver)) {
+        else if ((0, checker_1.isSimpleSemVerObjectLike)(ver)) {
             let str;
             if (ver instanceof SimpleSemVer_1.SimpleSemVer) {
                 str = ver.toFullString();
             }
             else {
-                str = stringifySimpleSemVer_1.stringifySemverFull(ver);
+                str = (0, stringifySimpleSemVer_1.stringifySemverFull)(ver);
             }
             a.push(str);
         }

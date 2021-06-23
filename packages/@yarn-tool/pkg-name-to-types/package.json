@@ -31,7 +31,8 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@yarn-tool/pkg-deps-util": "^1.0.22"
+    "@yarn-tool/pkg-deps-util": "^1.0.22",
+    "tslib": "^2.3.0"
   },
   "publishConfig": {
     "access": "public"

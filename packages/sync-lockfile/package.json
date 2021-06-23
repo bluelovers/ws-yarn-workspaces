@@ -36,6 +36,7 @@
   "dependencies": {
     "@yarn-tool/find-root": "^1.0.42",
     "fs-extra": "^10.0.0",
+    "tslib": "^2.3.0",
     "ws-pkg-list": "^1.0.54",
     "yargs": "^17.0.1"
   },

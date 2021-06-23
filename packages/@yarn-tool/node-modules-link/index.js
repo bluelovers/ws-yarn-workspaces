@@ -6,9 +6,9 @@ const upath2_1 = require("upath2");
 const find_root_1 = require("@yarn-tool/find-root");
 const core_1 = require("find-yarn-workspace-root2/core");
 function linkToNodeModulesCore(options) {
-    let resultPath = upath2_1.join(options.targetNodeModulesPath, options.name);
-    fs_extra_1.ensureDirSync(upath2_1.dirname(resultPath));
-    fs_extra_1.ensureSymlinkSync(options.sourcePackagePath, resultPath);
+    let resultPath = (0, upath2_1.join)(options.targetNodeModulesPath, options.name);
+    (0, fs_extra_1.ensureDirSync)((0, upath2_1.dirname)(resultPath));
+    (0, fs_extra_1.ensureSymlinkSync)(options.sourcePackagePath, resultPath);
     return {
         ...options,
         resultPath,
@@ -20,11 +20,11 @@ function linkToNodeModules(options) {
     options !== null && options !== void 0 ? options : (options = {});
     (_a = options.cwd) !== null && _a !== void 0 ? _a : (options.cwd = process.cwd());
     if (!options.sourcePackagePath || !options.targetNodeModulesPath) {
-        let rootData = find_root_1.findRoot(options);
+        let rootData = (0, find_root_1.findRoot)(options);
         (_b = options.sourcePackagePath) !== null && _b !== void 0 ? _b : (options.sourcePackagePath = rootData.pkg);
-        (_c = options.targetNodeModulesPath) !== null && _c !== void 0 ? _c : (options.targetNodeModulesPath = upath2_1.join(rootData.root, (_d = options.targetNodeModulesName) !== null && _d !== void 0 ? _d : 'node_modules'));
+        (_c = options.targetNodeModulesPath) !== null && _c !== void 0 ? _c : (options.targetNodeModulesPath = (0, upath2_1.join)(rootData.root, (_d = options.targetNodeModulesName) !== null && _d !== void 0 ? _d : 'node_modules'));
     }
-    (_e = options.name) !== null && _e !== void 0 ? _e : (options.name = core_1.readPackageJSON(options.sourcePackagePath).name);
+    (_e = options.name) !== null && _e !== void 0 ? _e : (options.name = (0, core_1.readPackageJSON)(options.sourcePackagePath).name);
     return linkToNodeModulesCore(options);
 }
 exports.linkToNodeModules = linkToNodeModules;

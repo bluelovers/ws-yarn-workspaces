@@ -31,7 +31,8 @@
   "dependencies": {
     "@ts-type/package-dts": "^1.0.46",
     "is-plain-obj": "< 4",
-    "sort-package-json-scripts": "^1.1.6"
+    "sort-package-json-scripts": "^1.1.6",
+    "tslib": "^2.3.0"
   },
   "peerDependencies": {
     "sort-package-json": "^1.50.0"

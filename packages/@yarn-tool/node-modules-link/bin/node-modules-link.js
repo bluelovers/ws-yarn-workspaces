@@ -1,11 +1,9 @@
 #!/usr/bin/env node
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const yargs_1 = __importDefault(require("yargs"));
-const index_1 = __importDefault(require("../index"));
+const tslib_1 = require("tslib");
+const yargs_1 = (0, tslib_1.__importDefault)(require("yargs"));
+const index_1 = (0, tslib_1.__importDefault)(require("../index"));
 let argv = yargs_1.default
     .option('name', {
     string: true,
@@ -32,7 +30,7 @@ let argv = yargs_1.default
     boolean: true,
 })
     .argv;
-console.dir(index_1.default({
+console.dir((0, index_1.default)({
     ...argv,
     throwError: true,
 }));

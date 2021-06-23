@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.flagsYarnAdd = void 0;
 const lazyFlags_1 = require("../util/lazyFlags");
 function flagsYarnAdd(argv) {
-    return lazyFlags_1.lazyFlags([
+    return (0, lazyFlags_1.lazyFlags)([
         'dev',
         'peer',
         'optional',

@@ -6,8 +6,8 @@ Object.defineProperty(exports, "buildDiff", { enumerable: true, get: function ()
 const formatter_1 = require("./lib/formatter");
 Object.defineProperty(exports, "buildDiffTable", { enumerable: true, get: function () { return formatter_1.buildDiffTable; } });
 function yarnLockDiff(yarnlock_old, yarnlock_new, options) {
-    const diff = diff_service_1.buildDiff(yarnlock_old, yarnlock_new);
-    return formatter_1.buildDiffTable(diff, options);
+    const diff = (0, diff_service_1.buildDiff)(yarnlock_old, yarnlock_new);
+    return (0, formatter_1.buildDiffTable)(diff, options);
 }
 exports.yarnLockDiff = yarnLockDiff;
 exports.default = yarnLockDiff;

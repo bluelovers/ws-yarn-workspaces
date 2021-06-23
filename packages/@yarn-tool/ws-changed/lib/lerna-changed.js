@@ -1,15 +1,13 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.lernaChanged = void 0;
-const cross_spawn_extra_1 = __importDefault(require("cross-spawn-extra"));
+const tslib_1 = require("tslib");
+const cross_spawn_extra_1 = (0, tslib_1.__importDefault)(require("cross-spawn-extra"));
 const find_root_1 = require("@yarn-tool/find-root");
 const util_1 = require("ws-pkg-list/lib/util");
 function lernaChanged(cwd, options) {
     var _a;
-    cwd = find_root_1.findRoot({
+    cwd = (0, find_root_1.findRoot)({
         cwd: cwd !== null && cwd !== void 0 ? cwd : process.cwd(),
         throwError: true,
     }).root;
@@ -23,7 +21,7 @@ function lernaChanged(cwd, options) {
     });
     let out = cp.stdout.toString().trim();
     let list = (out.length ? JSON.parse(out) : []);
-    list = util_1.normalizeListableExtra(list, cwd);
+    list = (0, util_1.normalizeListableExtra)(list, cwd);
     return {
         cwd,
         list,

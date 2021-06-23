@@ -49,7 +49,7 @@ function copyStaticFiles(options) {
     if (!options.cwd || typeof options.cwd != 'string') {
         throw new TypeError(`options.cwd must is string`);
     }
-    if (!fs_extra_1.pathExistsSync(options.cwd)) {
+    if (!(0, fs_extra_1.pathExistsSync)(options.cwd)) {
         throw new TypeError(`options.cwd not exists`);
     }
     let copyOptions = {
@@ -67,18 +67,18 @@ function copyStaticFiles(options) {
     return ls
         // @ts-ignore
         .filter(function ([a, b, c]) {
-        let fa = path_1.resolve(cwd, a);
-        let fb = path_1.resolve(staticRoot, b);
+        let fa = (0, path_1.resolve)(cwd, a);
+        let fb = (0, path_1.resolve)(staticRoot, b);
         if (c != null) {
-            let fc = path_1.resolve(cwd, c);
-            if (fs_extra_1.existsSync(fc)) {
+            let fc = (0, path_1.resolve)(cwd, c);
+            if ((0, fs_extra_1.existsSync)(fc)) {
                 return;
             }
         }
-        if (!fs_extra_1.existsSync(fb)) {
+        if (!(0, fs_extra_1.existsSync)(fb)) {
             throw new Error(`file not exists. ${fb}`);
         }
-        fs_extra_1.copySync(fb, fa, copyOptions);
+        (0, fs_extra_1.copySync)(fb, fa, copyOptions);
         return true;
     });
 }

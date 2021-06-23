@@ -1,13 +1,11 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.spawnWsRootExecSync = exports.spawnWsRootRunSync = exports.spawnWsRootExec = exports.spawnWsRootRun = void 0;
-const core_1 = __importDefault(require("find-yarn-workspace-root2/core"));
-const cross_spawn_extra_1 = __importDefault(require("cross-spawn-extra"));
+const tslib_1 = require("tslib");
+const core_1 = (0, tslib_1.__importDefault)(require("find-yarn-workspace-root2/core"));
+const cross_spawn_extra_1 = (0, tslib_1.__importDefault)(require("cross-spawn-extra"));
 function spawnWsRootRun(argv, opts) {
-    let cwd = core_1.default(opts === null || opts === void 0 ? void 0 : opts.cwd);
+    let cwd = (0, core_1.default)(opts === null || opts === void 0 ? void 0 : opts.cwd);
     return cross_spawn_extra_1.default.async((opts === null || opts === void 0 ? void 0 : opts.npmClient) || 'yarn', [
         'run',
         ...argv,
@@ -19,7 +17,7 @@ function spawnWsRootRun(argv, opts) {
 }
 exports.spawnWsRootRun = spawnWsRootRun;
 function spawnWsRootExec(argv, opts) {
-    let cwd = core_1.default(opts === null || opts === void 0 ? void 0 : opts.cwd);
+    let cwd = (0, core_1.default)(opts === null || opts === void 0 ? void 0 : opts.cwd);
     return cross_spawn_extra_1.default.async((opts === null || opts === void 0 ? void 0 : opts.npmClient) || 'yarn', [
         'exec',
         ...argv,
@@ -31,7 +29,7 @@ function spawnWsRootExec(argv, opts) {
 }
 exports.spawnWsRootExec = spawnWsRootExec;
 function spawnWsRootRunSync(argv, opts) {
-    let cwd = core_1.default(opts === null || opts === void 0 ? void 0 : opts.cwd);
+    let cwd = (0, core_1.default)(opts === null || opts === void 0 ? void 0 : opts.cwd);
     return cross_spawn_extra_1.default.sync((opts === null || opts === void 0 ? void 0 : opts.npmClient) || 'yarn', [
         'run',
         ...argv,
@@ -43,7 +41,7 @@ function spawnWsRootRunSync(argv, opts) {
 }
 exports.spawnWsRootRunSync = spawnWsRootRunSync;
 function spawnWsRootExecSync(argv, opts) {
-    let cwd = core_1.default(opts === null || opts === void 0 ? void 0 : opts.cwd);
+    let cwd = (0, core_1.default)(opts === null || opts === void 0 ? void 0 : opts.cwd);
     return cross_spawn_extra_1.default.sync((opts === null || opts === void 0 ? void 0 : opts.npmClient) || 'yarn', [
         'exec',
         ...argv,

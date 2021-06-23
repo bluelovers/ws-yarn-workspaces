@@ -24,7 +24,7 @@ function findUpDepsDeepRecordCore(target, record, map = {}) {
         }
         return map;
     }, map);
-    core_1.array_unique_overwrite(map[target]);
+    (0, core_1.array_unique_overwrite)(map[target]);
     return map;
 }
 exports.findUpDepsDeepRecordCore = findUpDepsDeepRecordCore;
@@ -38,7 +38,7 @@ function findUpDepsAllDeepRecordCore(targets, record, map = {}) {
 exports.findUpDepsAllDeepRecordCore = findUpDepsAllDeepRecordCore;
 function findUpDepsAllDeep(targets, record) {
     let map = findUpDepsAllDeepRecordCore(targets, record);
-    let map2 = find_1.findDepsAllDeepRecordCore(Object.keys(map), record);
+    let map2 = (0, find_1.findDepsAllDeepRecordCore)(Object.keys(map), record);
     let list = Object.entries(map);
     list.sort((a, b) => {
         return b[1].length - a[1].length;

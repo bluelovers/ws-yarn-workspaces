@@ -9,8 +9,8 @@ Object.defineProperty(exports, "wsGitChanged", { enumerable: true, get: function
 const lerna_changed_1 = require("./lib/lerna-changed");
 Object.defineProperty(exports, "lernaChanged", { enumerable: true, get: function () { return lerna_changed_1.lernaChanged; } });
 function wsChanged(cwd, options) {
-    let data1 = lerna_changed_1.lernaChanged(cwd !== null && cwd !== void 0 ? cwd : process.cwd(), options);
-    let data2 = git_changed_1.wsGitChanged(data1.cwd, options);
+    let data1 = (0, lerna_changed_1.lernaChanged)(cwd !== null && cwd !== void 0 ? cwd : process.cwd(), options);
+    let data2 = (0, git_changed_1.wsGitChanged)(data1.cwd, options);
     cwd = data1.cwd;
     return {
         cwd,

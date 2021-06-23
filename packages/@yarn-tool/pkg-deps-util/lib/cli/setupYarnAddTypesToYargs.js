@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.setupYarnAddTypesToYargs = void 0;
 const setupYarnAddToYargs_1 = require("./setupYarnAddToYargs");
 function setupYarnAddTypesToYargs(yargs) {
-    return setupYarnAddToYargs_1.setupYarnAddToYargs(yargs, {
+    return (0, setupYarnAddToYargs_1.setupYarnAddToYargs)(yargs, {
         allowEmptyName: true,
     })
         .option('auto', {

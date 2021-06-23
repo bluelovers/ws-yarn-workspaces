@@ -26,15 +26,15 @@ function dotEnvFiles(options) {
 }
 exports.dotEnvFiles = dotEnvFiles;
 function wsEnvConfig(cwd, options) {
-    cwd = upath2_1.resolve(cwd !== null && cwd !== void 0 ? cwd : process.cwd());
+    cwd = (0, upath2_1.resolve)(cwd !== null && cwd !== void 0 ? cwd : process.cwd());
     const files = dotEnvFiles(options).dotenvFiles;
     let ret;
     let current;
     let path;
-    for (current of path_parents_1.pathUpToWorkspacesGenerator(cwd)) {
+    for (current of (0, path_parents_1.pathUpToWorkspacesGenerator)(cwd)) {
         for (let file of files) {
-            path = upath2_1.join(current, file);
-            ret = dotenv_1.config({
+            path = (0, upath2_1.join)(current, file);
+            ret = (0, dotenv_1.config)({
                 path,
             });
             if (!ret.error) {

@@ -1,10 +1,8 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.normalizeName = void 0;
-const hash_sum_1 = __importDefault(require("hash-sum"));
+const tslib_1 = require("tslib");
+const hash_sum_1 = (0, tslib_1.__importDefault)(require("hash-sum"));
 /**
  * normalize cache name
  */
@@ -13,7 +11,7 @@ function normalizeName(name, hash) {
         if (typeof hash === 'function') {
             return hash(name);
         }
-        return hash_sum_1.default(name);
+        return (0, hash_sum_1.default)(name);
     }
     return name
         .trim()

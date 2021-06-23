@@ -2,18 +2,16 @@
 /**
  * Created by user on 2020/1/8.
  */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.syncLockfile = void 0;
+const tslib_1 = require("tslib");
 const ws_pkg_list_1 = require("ws-pkg-list");
-const find_root_1 = __importDefault(require("@yarn-tool/find-root"));
-const fs_extra_1 = __importDefault(require("fs-extra"));
-const path_1 = __importDefault(require("path"));
+const find_root_1 = (0, tslib_1.__importDefault)(require("@yarn-tool/find-root"));
+const fs_extra_1 = (0, tslib_1.__importDefault)(require("fs-extra"));
+const path_1 = (0, tslib_1.__importDefault)(require("path"));
 function syncLockfile(cwd, options = {}) {
     const { print, noThrowError } = options;
-    const ws = find_root_1.default({
+    const ws = (0, find_root_1.default)({
         cwd
     });
     if (!ws.hasWorkspace) {
@@ -29,7 +27,7 @@ function syncLockfile(cwd, options = {}) {
     print && console.log(`workspaces:`, ws.root, '\n');
     const label = `copy done`;
     print && console.time(label);
-    ws_pkg_list_1.workspacesPackagesList(ws.root, true)
+    (0, ws_pkg_list_1.workspacesPackagesList)(ws.root, true)
         .forEach(pkg_dir => {
         print && console.log(`copy to... ${path_1.default.relative(ws.root, pkg_dir)}`);
         fs_extra_1.default.copySync(lockfile_root, path_1.default.join(pkg_dir, lockfile), {

@@ -12,7 +12,7 @@ let cli = setupWorkspacesInitToYargs(yargs)
 	// @ts-ignore
 	.command('$0', '', function (yargs)
 	{
-		let name = yargs.argv.name || yargs.argv._[0];
+		let name = (yargs.argv.name || yargs.argv._[0]) as string;
 
 		if (name)
 		{

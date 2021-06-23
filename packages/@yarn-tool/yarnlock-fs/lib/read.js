@@ -9,9 +9,9 @@ const fs_extra_1 = require("fs-extra");
  * @deprecated
  */
 function fsYarnLock(root) {
-    let yarnlock_file = path_1.join(root, 'yarn.lock');
-    let yarnlock_exists = fs_extra_1.pathExistsSync(yarnlock_file);
-    let yarnlock_old = yarnlock_exists && fs_extra_1.readFileSync(yarnlock_file, 'utf8') || null;
+    let yarnlock_file = (0, path_1.join)(root, 'yarn.lock');
+    let yarnlock_exists = (0, fs_extra_1.pathExistsSync)(yarnlock_file);
+    let yarnlock_old = yarnlock_exists && (0, fs_extra_1.readFileSync)(yarnlock_file, 'utf8') || null;
     return {
         yarnlock_file,
         yarnlock_exists,
@@ -20,9 +20,9 @@ function fsYarnLock(root) {
 }
 exports.fsYarnLock = fsYarnLock;
 function fsYarnLockSafe(root) {
-    const yarnlock_file = path_1.join(root, 'yarn.lock');
-    const yarnlock_old = readYarnLockFile_1.checkAndReadYarnLockFileSafe(yarnlock_file, 'utf8');
-    const yarnlock_exists = notEmpty_1.notEmpty(yarnlock_old);
+    const yarnlock_file = (0, path_1.join)(root, 'yarn.lock');
+    const yarnlock_old = (0, readYarnLockFile_1.checkAndReadYarnLockFileSafe)(yarnlock_file, 'utf8');
+    const yarnlock_exists = (0, notEmpty_1.notEmpty)(yarnlock_old);
     return {
         yarnlock_file,
         yarnlock_exists,

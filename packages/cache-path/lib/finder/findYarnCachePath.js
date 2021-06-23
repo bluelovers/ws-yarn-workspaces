@@ -6,7 +6,7 @@ const fs_extra_1 = require("fs-extra");
 const cross_spawn_extra_1 = require("cross-spawn-extra");
 function findYarnCachePath(cwd, processEnv = process.env) {
     try {
-        let cp = cross_spawn_extra_1.sync('yarn', [
+        let cp = (0, cross_spawn_extra_1.sync)('yarn', [
             'config',
             'current',
             '--json',
@@ -17,13 +17,13 @@ function findYarnCachePath(cwd, processEnv = process.env) {
         });
         let data = JSON.parse(JSON.parse(cp.stdout.toString()).data);
         if (data.tempFolder) {
-            return upath2_1.normalize(data.tempFolder);
+            return (0, upath2_1.normalize)(data.tempFolder);
         }
     }
     catch (e) {
     }
-    if (processEnv.YARN_CACHE_FOLDER && fs_extra_1.pathExistsSync(processEnv.YARN_CACHE_FOLDER)) {
-        return upath2_1.normalize(processEnv.YARN_CACHE_FOLDER);
+    if (processEnv.YARN_CACHE_FOLDER && (0, fs_extra_1.pathExistsSync)(processEnv.YARN_CACHE_FOLDER)) {
+        return (0, upath2_1.normalize)(processEnv.YARN_CACHE_FOLDER);
     }
 }
 exports.findYarnCachePath = findYarnCachePath;

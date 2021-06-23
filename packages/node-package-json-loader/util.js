@@ -4,8 +4,8 @@ exports.fixBinPath = void 0;
 const fs_extra_1 = require("fs-extra");
 const path_1 = require("path");
 function fixBinPath(bin, root) {
-    if (!fs_extra_1.existsSync(path_1.join(root, bin))
-        && fs_extra_1.existsSync(path_1.join(root, 'bin', bin))) {
+    if (!(0, fs_extra_1.existsSync)((0, path_1.join)(root, bin))
+        && (0, fs_extra_1.existsSync)((0, path_1.join)(root, 'bin', bin))) {
         return path_1.posix.join('.', 'bin', bin);
     }
     return null;

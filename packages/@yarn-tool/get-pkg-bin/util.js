@@ -2,21 +2,12 @@
 /**
  * Created by user on 2020/2/16.
  */
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __exportStar = (this && this.__exportStar) || function(m, exports) {
-    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getPackageInfo = exports.firstPackageBin = exports.handlePackageBins = exports.getPackageBins = void 0;
+const tslib_1 = require("tslib");
 const upath2_1 = require("upath2");
 const resolve_package_1 = require("@yarn-tool/resolve-package");
-__exportStar(require("./lib/types"), exports);
+(0, tslib_1.__exportStar)(require("./lib/types"), exports);
 function getPackageBins(pkg) {
     if (pkg.bin != null) {
         if (typeof pkg.bin === 'string') {
@@ -39,11 +30,11 @@ function handlePackageBins(bins, resolveFn) {
         if (resolveFn) {
             bin = resolveFn(_cwd + bin);
         }
-        if (!upath2_1.isAbsolute(upath2_1.normalize(bin))) {
-            bin = _cwd + upath2_1.normalize(bin);
+        if (!(0, upath2_1.isAbsolute)((0, upath2_1.normalize)(bin))) {
+            bin = _cwd + (0, upath2_1.normalize)(bin);
         }
         else {
-            bin = upath2_1.normalize(bin);
+            bin = (0, upath2_1.normalize)(bin);
         }
         a[k] = bin;
         return a;
@@ -64,7 +55,7 @@ function getPackageInfo(options) {
         name = name || options.pkg.name;
     }
     else if (name) {
-        let data = resolve_package_1.resolvePackage(options.name, {
+        let data = (0, resolve_package_1.resolvePackage)(options.name, {
             paths: options.paths,
         });
         pkg = data.pkg;

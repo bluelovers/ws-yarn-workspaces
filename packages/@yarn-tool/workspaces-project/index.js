@@ -1,30 +1,23 @@
 "use strict";
-var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (receiver, state, kind, f) {
-    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
-    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
-    return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
-};
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 var _WorkspacesProject_internal;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.WorkspacesProject = void 0;
+const tslib_1 = require("tslib");
 const project_1 = require("@lerna/project");
 const upath2_1 = require("upath2");
-const core_1 = __importDefault(require("find-yarn-workspace-root2/core"));
+const core_1 = (0, tslib_1.__importDefault)(require("find-yarn-workspace-root2/core"));
 const util_1 = require("./lib/util");
 const lodash_1 = require("lodash");
-const sort_object_keys2_1 = __importDefault(require("sort-object-keys2"));
+const sort_object_keys2_1 = (0, tslib_1.__importDefault)(require("sort-object-keys2"));
 const fs_extra_1 = require("fs-extra");
 class WorkspacesProject {
     constructor(cwd, options) {
         _WorkspacesProject_internal.set(this, {});
-        cwd = upath2_1.resolve(cwd || process.cwd());
-        let root = core_1.default(cwd);
+        cwd = (0, upath2_1.resolve)(cwd || process.cwd());
+        let root = (0, core_1.default)(cwd);
         this._project = new project_1.Project(cwd);
         let rootPath = this._project.rootPath;
-        switch (util_1.checkPaths({
+        switch ((0, util_1.checkPaths)({
             root,
             rootPath,
         }, options)) {
@@ -41,17 +34,17 @@ class WorkspacesProject {
                 this.config.useWorkspaces = true;
             }
         }
-        this._project.rootPath = upath2_1.normalize(this._project.rootPath);
-        this._project.rootConfigLocation = upath2_1.normalize(this._project.rootConfigLocation);
+        this._project.rootPath = (0, upath2_1.normalize)(this._project.rootPath);
+        this._project.rootConfigLocation = (0, upath2_1.normalize)(this._project.rootConfigLocation);
     }
     _hasInternal(field) {
-        return field in __classPrivateFieldGet(this, _WorkspacesProject_internal, "f");
+        return field in (0, tslib_1.__classPrivateFieldGet)(this, _WorkspacesProject_internal, "f");
     }
     _getInternal(field) {
-        return __classPrivateFieldGet(this, _WorkspacesProject_internal, "f")[field];
+        return (0, tslib_1.__classPrivateFieldGet)(this, _WorkspacesProject_internal, "f")[field];
     }
     _setInternal(field, value) {
-        return __classPrivateFieldGet(this, _WorkspacesProject_internal, "f")[field] = value;
+        return (0, tslib_1.__classPrivateFieldGet)(this, _WorkspacesProject_internal, "f")[field] = value;
     }
     get rootPath() {
         return this._project.rootPath;
@@ -96,7 +89,7 @@ class WorkspacesProject {
         if (!this.workspaces.includes(value)) {
             throw new RangeError(`${value} not exists in ${this.workspaces}`);
         }
-        __classPrivateFieldGet(this, _WorkspacesProject_internal, "f").defaultWorkspace = value;
+        (0, tslib_1.__classPrivateFieldGet)(this, _WorkspacesProject_internal, "f").defaultWorkspace = value;
     }
     isIndependent() {
         return this.version === "independent" /* independent */;
@@ -146,16 +139,16 @@ class WorkspacesProject {
     get releaseConfig() {
         var _a, _b, _c;
         const command = this._project.config.command;
-        __classPrivateFieldGet(this, _WorkspacesProject_internal, "f").releaseConfig = lodash_1.merge(__classPrivateFieldGet(this, _WorkspacesProject_internal, "f").releaseConfig, command === null || command === void 0 ? void 0 : command.version, command === null || command === void 0 ? void 0 : command.publish, {
+        (0, tslib_1.__classPrivateFieldGet)(this, _WorkspacesProject_internal, "f").releaseConfig = (0, lodash_1.merge)((0, tslib_1.__classPrivateFieldGet)(this, _WorkspacesProject_internal, "f").releaseConfig, command === null || command === void 0 ? void 0 : command.version, command === null || command === void 0 ? void 0 : command.publish, {
             changelogPreset: this.changelogPreset,
             bump: this.bump,
             conventionalGraduate: (_b = (_a = command === null || command === void 0 ? void 0 : command.publish) === null || _a === void 0 ? void 0 : _a.conventionalGraduate) !== null && _b !== void 0 ? _b : (_c = command === null || command === void 0 ? void 0 : command.version) === null || _c === void 0 ? void 0 : _c.conventionalGraduate,
         });
-        __classPrivateFieldGet(this, _WorkspacesProject_internal, "f").releaseConfig = sort_object_keys2_1.default(__classPrivateFieldGet(this, _WorkspacesProject_internal, "f").releaseConfig);
-        return __classPrivateFieldGet(this, _WorkspacesProject_internal, "f").releaseConfig;
+        (0, tslib_1.__classPrivateFieldGet)(this, _WorkspacesProject_internal, "f").releaseConfig = (0, sort_object_keys2_1.default)((0, tslib_1.__classPrivateFieldGet)(this, _WorkspacesProject_internal, "f").releaseConfig);
+        return (0, tslib_1.__classPrivateFieldGet)(this, _WorkspacesProject_internal, "f").releaseConfig;
     }
     existsLernaConfigFile() {
-        return fs_extra_1.pathExistsSync(this.lernaConfigLocation);
+        return (0, fs_extra_1.pathExistsSync)(this.lernaConfigLocation);
     }
 }
 exports.WorkspacesProject = WorkspacesProject;

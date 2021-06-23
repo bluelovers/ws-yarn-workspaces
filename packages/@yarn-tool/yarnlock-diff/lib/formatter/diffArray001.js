@@ -9,13 +9,13 @@ function _diffArray(array) {
     const item = array.item;
     switch (item.kind) {
         case "N" /* DiffNew */:
-            return [`[...]`, `[..., ${formatVersion_1._formatVersion(item.rhs)}]`];
+            return [`[...]`, `[..., ${(0, formatVersion_1._formatVersion)(item.rhs)}]`];
         case "D" /* DiffDeleted */:
-            return [`[..., ${formatVersion_1._formatVersion(item.lhs)}]`, `[...]`];
+            return [`[..., ${(0, formatVersion_1._formatVersion)(item.lhs)}]`, `[...]`];
         case "E" /* DiffEdit */:
             return [
-                `[...], ${formatVersion_1._formatVersion(item.lhs)}]`,
-                `[..., ${formatVersion_1._formatVersion(item.lhs)}]`,
+                `[...], ${(0, formatVersion_1._formatVersion)(item.lhs)}]`,
+                `[..., ${(0, formatVersion_1._formatVersion)(item.lhs)}]`,
             ];
         default:
             return [`[...]`, `[...]`];

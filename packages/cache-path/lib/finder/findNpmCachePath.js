@@ -7,7 +7,7 @@ const cross_spawn_extra_1 = require("cross-spawn-extra");
  */
 function findNpmCachePath(cwd, processEnv = process.env) {
     var _a, _b, _c;
-    let cache = (_c = (_b = (_a = cross_spawn_extra_1.sync('npm', [
+    let cache = (_c = (_b = (_a = (0, cross_spawn_extra_1.sync)('npm', [
         'config', 'get', 'cache',
     ], {
         stripAnsi: true,

@@ -1,11 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.queryVersion = exports.queryVersionWithCache = void 0;
+const tslib_1 = require("tslib");
 const package_json_1 = require("package-json");
-const bluebird_1 = __importDefault(require("bluebird"));
+const bluebird_1 = (0, tslib_1.__importDefault)(require("bluebird"));
 const cacheAgent_1 = require("./cacheAgent");
 const createCacheKey_1 = require("./createCacheKey");
 const core_1 = require("./core");
@@ -13,7 +11,7 @@ const queryVersionCacheRaw_1 = require("./queryVersionCacheRaw");
 const handleVersionRange_1 = require("@lazy-node/semver-ampersand/lib/handleVersionRange");
 const const_1 = require("@lazy-node/semver-ampersand/lib/const");
 function queryVersionWithCache(name, targetVersion = 'latest', options) {
-    return bluebird_1.default.resolve(queryVersionCacheRaw_1.queryVersionCacheRaw(name, targetVersion, options))
+    return bluebird_1.default.resolve((0, queryVersionCacheRaw_1.queryVersionCacheRaw)(name, targetVersion, options))
         .then(data => {
         var _a;
         if (data === null || data === void 0 ? void 0 : data.error) {
@@ -34,8 +32,8 @@ function queryVersionWithCache(name, targetVersion = 'latest', options) {
 exports.queryVersionWithCache = queryVersionWithCache;
 function queryVersion(name, targetVersion = 'latest', save = true, options) {
     let version = targetVersion !== null && targetVersion !== void 0 ? targetVersion : (targetVersion = 'latest');
-    let key = createCacheKey_1._createCacheKey(name, targetVersion);
-    return core_1._queryVersion(name, {
+    let key = (0, createCacheKey_1._createCacheKey)(name, targetVersion);
+    return (0, core_1._queryVersion)(name, {
         version,
     })
         .then((result) => {
@@ -48,7 +46,7 @@ function queryVersion(name, targetVersion = 'latest', save = true, options) {
             bool = false;
         }
         if (const_1.reHandleVersionRange.test(version)) {
-            version = handleVersionRange_1.handleVersionRange(version);
+            version = (0, handleVersionRange_1.handleVersionRange)(version);
             bool = false;
         }
         if (bool) {
@@ -57,7 +55,7 @@ function queryVersion(name, targetVersion = 'latest', save = true, options) {
         return queryVersion(name, version, false, options);
     })
         .tapCatch(package_json_1.VersionNotFoundError, package_json_1.PackageNotFoundError, (error) => {
-        save && cacheAgent_1.getCache(options).set(key, {
+        save && (0, cacheAgent_1.getCache)(options).set(key, {
             key,
             name,
             version,
@@ -65,7 +63,7 @@ function queryVersion(name, targetVersion = 'latest', save = true, options) {
         });
     })
         .tap(result => {
-        save && cacheAgent_1.getCache(options).set(key, {
+        save && (0, cacheAgent_1.getCache)(options).set(key, {
             key,
             name,
             version,

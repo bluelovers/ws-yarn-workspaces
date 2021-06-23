@@ -34,7 +34,8 @@
   "dependencies": {
     "@npmcli/run-script": "^1.8.5",
     "@ts-type/package-dts": "^1.0.46",
-    "@yarn-tool/script-lifecycle": "^1.0.3"
+    "@yarn-tool/script-lifecycle": "^1.0.3",
+    "tslib": "^2.3.0"
   },
   "peerDependencies": {
     "read-package-json-fast": "^2.0.2"

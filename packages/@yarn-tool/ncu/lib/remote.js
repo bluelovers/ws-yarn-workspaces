@@ -2,17 +2,15 @@
 /**
  * Created by user on 2020/6/12.
  */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.updateSemver = exports.isUpgradeable = exports.packageMapToKeyObject = exports.queryPackageManagersNpm = exports.getVersionTarget = exports.fetchVersion = exports.requestVersion = exports.queryRemoteVersions = void 0;
+const tslib_1 = require("tslib");
 const types_1 = require("./types");
-const bluebird_1 = __importDefault(require("bluebird"));
+const bluebird_1 = (0, tslib_1.__importDefault)(require("bluebird"));
 const store_1 = require("./store");
-const package_json_1 = __importDefault(require("package-json"));
+const package_json_1 = (0, tslib_1.__importDefault)(require("package-json"));
 const versionmanager_1 = require("npm-check-updates/lib/versionmanager");
-const npm_1 = __importDefault(require("npm-check-updates/lib/package-managers/npm"));
+const npm_1 = (0, tslib_1.__importDefault)(require("npm-check-updates/lib/package-managers/npm"));
 const getVersionTarget_1 = require("./remote/getVersionTarget");
 Object.defineProperty(exports, "getVersionTarget", { enumerable: true, get: function () { return getVersionTarget_1.getVersionTarget; } });
 var queryRemoteVersions_1 = require("./remote/queryRemoteVersions");
@@ -22,7 +20,7 @@ function requestVersion(packageName) {
         .resolve(store_1.remoteCacheMap.get(packageName))
         .then(function (result) {
         if (result == null) {
-            return package_json_1.default(packageName, { allVersions: true });
+            return (0, package_json_1.default)(packageName, { allVersions: true });
         }
         return result;
     })
@@ -90,18 +88,18 @@ function packageMapToKeyObject(packageMap, versionTarget) {
     return Object
         .entries(packageMap)
         .map(([name, version_old]) => {
-        return store_1.objVersionCache({
+        return (0, store_1.objVersionCache)({
             name, version_old, versionTarget,
         });
     });
 }
 exports.packageMapToKeyObject = packageMapToKeyObject;
 function isUpgradeable(current, latest) {
-    return versionmanager_1.isUpgradeable(current, latest);
+    return (0, versionmanager_1.isUpgradeable)(current, latest);
 }
 exports.isUpgradeable = isUpgradeable;
 function updateSemver(current, latest, options = {}) {
-    return versionmanager_1.upgradeDependencyDeclaration(current, latest, options);
+    return (0, versionmanager_1.upgradeDependencyDeclaration)(current, latest, options);
 }
 exports.updateSemver = updateSemver;
 //# sourceMappingURL=remote.js.map

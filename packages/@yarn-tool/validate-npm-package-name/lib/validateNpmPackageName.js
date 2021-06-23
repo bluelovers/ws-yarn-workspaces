@@ -10,7 +10,7 @@ function validateNpmPackageName(name, options) {
             throwErr: options,
         };
     }
-    const ret = validateNpmPackageNameCore_1.validate(name, options);
+    const ret = (0, validateNpmPackageNameCore_1.validate)(name, options);
     ret.name = name;
     if (!((_a = ret.errors) === null || _a === void 0 ? void 0 : _a.length)) {
         const nameMatch = name.match(types_1.scopedPackagePattern);

@@ -6,7 +6,7 @@ const npm_package_arg_util_1 = require("@yarn-tool/npm-package-arg-util");
 const getSemverFromNpaResult_1 = require("@yarn-tool/npm-package-arg-util/lib/getSemverFromNpaResult");
 function parseYarnLockRowV2(packageName, packageData) {
     var _a, _b;
-    let ret = parsers_1.parseResolution(packageData.resolution);
+    let ret = (0, parsers_1.parseResolution)(packageData.resolution);
     let name = (_a = ret === null || ret === void 0 ? void 0 : ret.descriptor) === null || _a === void 0 ? void 0 : _a.fullName;
     let version = (_b = ret === null || ret === void 0 ? void 0 : ret.descriptor) === null || _b === void 0 ? void 0 : _b.description;
     if (name) {
@@ -20,8 +20,8 @@ function parseYarnLockRowV2(packageName, packageData) {
             /**
              * @fixme support packageName: 'once@npm:^1.3.1, once@npm:^1.4.0'
              */
-            parsed = npm_package_arg_util_1.npa(packageName);
-            semver = getSemverFromNpaResult_1.getSemverFromNpaResult(parsed);
+            parsed = (0, npm_package_arg_util_1.npa)(packageName);
+            semver = (0, getSemverFromNpaResult_1.getSemverFromNpaResult)(parsed);
         }
         catch (e) {
             /*

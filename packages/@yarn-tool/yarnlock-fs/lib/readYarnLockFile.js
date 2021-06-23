@@ -5,9 +5,9 @@ const existsYarnLockFile_1 = require("./existsYarnLockFile");
 const fs_extra_1 = require("fs-extra");
 const notEmpty_1 = require("./notEmpty");
 function checkAndReadYarnLockFileSafe(file, options) {
-    if (existsYarnLockFile_1.existsYarnLockFile(file)) {
-        let buf = fs_extra_1.readFileSync(file, options);
-        if (notEmpty_1.notEmpty(buf)) {
+    if ((0, existsYarnLockFile_1.existsYarnLockFile)(file)) {
+        let buf = (0, fs_extra_1.readFileSync)(file, options);
+        if ((0, notEmpty_1.notEmpty)(buf)) {
             return buf;
         }
     }

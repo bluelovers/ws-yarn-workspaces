@@ -2,14 +2,12 @@
 /**
  * Created by user on 2020/6/20.
  */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sortPackageJsonScripts = exports.sortPackageJsonScriptsOld = exports._core = void 0;
-const handleOptions_1 = __importDefault(require("./handleOptions"));
+const tslib_1 = require("tslib");
+const handleOptions_1 = (0, tslib_1.__importDefault)(require("./handleOptions"));
 const handleKeyOrdersCore_1 = require("./handleKeyOrdersCore");
-const sort_object_keys2_1 = __importDefault(require("sort-object-keys2"));
+const sort_object_keys2_1 = (0, tslib_1.__importDefault)(require("sort-object-keys2"));
 const util_1 = require("./util");
 /**
  * a better sort package.json scripts, by default is follow npm lifecycle scripts
@@ -17,20 +15,20 @@ const util_1 = require("./util");
  * origin code fork from https://github.com/keithamus/sort-package-json
  */
 function _core(scripts, opts) {
-    const keys = handleKeyOrdersCore_1.handleKeyOrdersCore(Object.keys(scripts), opts);
-    return sort_object_keys2_1.default(scripts, {
+    const keys = (0, handleKeyOrdersCore_1.handleKeyOrdersCore)(Object.keys(scripts), opts);
+    return (0, sort_object_keys2_1.default)(scripts, {
         keys,
         sort: opts.sortKeyFn,
     });
 }
 exports._core = _core;
 function sortPackageJsonScriptsOld(scripts, opts) {
-    opts = handleOptions_1.default(opts);
+    opts = (0, handleOptions_1.default)(opts);
     return _core(scripts, opts);
 }
 exports.sortPackageJsonScriptsOld = sortPackageJsonScriptsOld;
 function sortPackageJsonScripts(scripts, opts) {
-    opts = handleOptions_1.default(opts);
+    opts = (0, handleOptions_1.default)(opts);
     const { omitKeyFn, sortKeyFn } = opts;
     scripts = _core(scripts, opts);
     let topMap = Object.keys(scripts)
@@ -42,7 +40,7 @@ function sortPackageJsonScripts(scripts, opts) {
             let i = full.indexOf(key);
             let sub = full.slice(i + key.length);
             let pre = full.slice(0, i);
-            let subkey = util_1.trimKey(sub);
+            let subkey = (0, util_1.trimKey)(sub);
             topMap[key][subkey] = topMap[key][subkey] || {};
             topMap[key][subkey][pre] = topMap[key][subkey][pre] || {};
             topMap[key][subkey][pre][sub] = full;
@@ -53,18 +51,18 @@ function sortPackageJsonScripts(scripts, opts) {
         .reduce((a, [key, c]) => {
         a.push(key);
         if (Object.keys(c).length) {
-            c = sort_object_keys2_1.default(c, {
-                keys: handleKeyOrdersCore_1.handleKeyOrdersCore(Object.keys(c), opts),
+            c = (0, sort_object_keys2_1.default)(c, {
+                keys: (0, handleKeyOrdersCore_1.handleKeyOrdersCore)(Object.keys(c), opts),
                 sort: sortKeyFn,
             });
             Object.keys(c).forEach(subkey => {
-                c[subkey] = sort_object_keys2_1.default(c[subkey], {
-                    keys: handleKeyOrdersCore_1.handleKeyOrdersCore(Object.keys(c[subkey]), opts),
+                c[subkey] = (0, sort_object_keys2_1.default)(c[subkey], {
+                    keys: (0, handleKeyOrdersCore_1.handleKeyOrdersCore)(Object.keys(c[subkey]), opts),
                     sort: sortKeyFn,
                 });
                 Object.keys(c[subkey]).forEach(pre => {
-                    c[subkey][pre] = sort_object_keys2_1.default(c[subkey][pre], {
-                        keys: handleKeyOrdersCore_1.handleKeyOrdersCore(Object.keys(c[subkey][pre]), opts),
+                    c[subkey][pre] = (0, sort_object_keys2_1.default)(c[subkey][pre], {
+                        keys: (0, handleKeyOrdersCore_1.handleKeyOrdersCore)(Object.keys(c[subkey][pre]), opts),
                         sort: sortKeyFn,
                     });
                     Object.keys(c[subkey][pre]).forEach(sub => {
@@ -76,7 +74,7 @@ function sortPackageJsonScripts(scripts, opts) {
         return a;
     }, []);
     //keys = array_unique(keys)
-    return sort_object_keys2_1.default(scripts, {
+    return (0, sort_object_keys2_1.default)(scripts, {
         keys,
         sort: opts.sortKeyFn,
     });

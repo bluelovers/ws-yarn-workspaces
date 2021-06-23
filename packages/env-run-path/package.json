@@ -31,7 +31,8 @@
   "dependencies": {
     "@yarn-tool/find-root": "^1.0.42",
     "debug-color2": "^1.2.3",
-    "path-key": "^4.0.0"
+    "path-key": "^4.0.0",
+    "tslib": "^2.3.0"
   },
   "publishConfig": {
     "access": "public"

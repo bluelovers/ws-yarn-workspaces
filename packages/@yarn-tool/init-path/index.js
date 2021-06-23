@@ -1,13 +1,11 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getTargetDir = void 0;
+const tslib_1 = require("tslib");
 const validate_npm_package_name_1 = require("@yarn-tool/validate-npm-package-name");
 const path_1 = require("path");
 const fs_extra_1 = require("fs-extra");
-const search_workspace_prefix_by_name_1 = __importDefault(require("@yarn-tool/search-workspace-prefix-by-name"));
+const search_workspace_prefix_by_name_1 = (0, tslib_1.__importDefault)(require("@yarn-tool/search-workspace-prefix-by-name"));
 function getTargetDir(options) {
     var _a;
     let targetDir;
@@ -17,20 +15,20 @@ function getTargetDir(options) {
         throw new RangeError(`can't found workspace prefix`);
     }
     if (targetName) {
-        validate_npm_package_name_1.validateNpmPackageName(targetName, true);
+        (0, validate_npm_package_name_1.validateNpmPackageName)(targetName, true);
     }
     let scopedPackagePattern;
     if (inputName) {
         targetName = targetName || inputName;
-        let ret = validate_npm_package_name_1.validateNpmPackageName(inputName, true);
+        let ret = (0, validate_npm_package_name_1.validateNpmPackageName)(inputName, true);
         let name = inputName;
         let basePath;
         if (hasWorkspace) {
-            const workspacePrefix = search_workspace_prefix_by_name_1.default({
+            const workspacePrefix = (0, search_workspace_prefix_by_name_1.default)({
                 inputName,
                 workspacesConfig,
             });
-            basePath = path_1.join(hasWorkspace, workspacePrefix);
+            basePath = (0, path_1.join)(hasWorkspace, workspacePrefix);
         }
         else {
             basePath = cwd;
@@ -39,12 +37,12 @@ function getTargetDir(options) {
             name = name
                 .replace(/[\/\\]+/g, '_')
                 .replace(/^@/g, '');
-            if (!fs_extra_1.pathExistsSync(path_1.join(basePath, ret.subname))) {
+            if (!(0, fs_extra_1.pathExistsSync)((0, path_1.join)(basePath, ret.subname))) {
                 name = ret.subname;
             }
         }
         scopedPackagePattern = ret.scopedPackagePattern;
-        targetDir = path_1.resolve(basePath, name);
+        targetDir = (0, path_1.resolve)(basePath, name);
     }
     else {
         targetDir = cwd;

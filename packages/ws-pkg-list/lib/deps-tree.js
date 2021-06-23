@@ -2,16 +2,14 @@
 /**
  * Created by user on 2020/6/13.
  */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.wsPkgDepsListableRecord = exports.wsPkgDepsListable = void 0;
+const tslib_1 = require("tslib");
 const util_1 = require("./util");
 const find_root_1 = require("@yarn-tool/find-root");
-const listable_1 = __importDefault(require("./listable"));
+const listable_1 = (0, tslib_1.__importDefault)(require("./listable"));
 function wsPkgDepsListable(cwd, options) {
-    cwd = find_root_1.findRoot({
+    cwd = (0, find_root_1.findRoot)({
         cwd: cwd !== null && cwd !== void 0 ? cwd : process.cwd(),
         throwError: true,
     }).root;
@@ -23,7 +21,7 @@ function wsPkgDepsListable(cwd, options) {
         return row;
     };
     let handler = (row, pkg) => {
-        return _handler(util_1.normalizeListableRowExtra(row, cwd), pkg);
+        return _handler((0, util_1.normalizeListableRowExtra)(row, cwd), pkg);
     };
     if (options === null || options === void 0 ? void 0 : options.handler) {
         let _handler_old = options.handler;
@@ -32,14 +30,14 @@ function wsPkgDepsListable(cwd, options) {
             return _handler_old(_old(row, pkg), pkg);
         };
     }
-    return listable_1.default(cwd, {
+    return (0, listable_1.default)(cwd, {
         ...options,
         handler,
     });
 }
 exports.wsPkgDepsListable = wsPkgDepsListable;
 function wsPkgDepsListableRecord(cwd, options) {
-    return util_1.listableToRecord(wsPkgDepsListable(cwd, options));
+    return (0, util_1.listableToRecord)(wsPkgDepsListable(cwd, options));
 }
 exports.wsPkgDepsListableRecord = wsPkgDepsListableRecord;
 exports.default = wsPkgDepsListableRecord;

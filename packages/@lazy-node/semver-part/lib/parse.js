@@ -4,8 +4,8 @@ exports.parseVersionsAndCompare = exports.parseVersions = void 0;
 const _core_1 = require("./_core");
 const compare_1 = require("./compare");
 function parseVersions(versionOld, versionNew) {
-    const partsNew = _core_1.versionToParts(versionNew);
-    const partsOld = _core_1.versionToParts(versionOld);
+    const partsNew = (0, _core_1.versionToParts)(versionNew);
+    const partsOld = (0, _core_1.versionToParts)(versionOld);
     let index = partsNew.findIndex((part, i) => part !== partsOld[i]);
     index = index >= 0 ? index : partsNew.length;
     return {
@@ -19,7 +19,7 @@ function parseVersions(versionOld, versionNew) {
 exports.parseVersions = parseVersions;
 function parseVersionsAndCompare(versionOld, versionNew, optionsOrLoose) {
     const data = parseVersions(versionOld, versionNew);
-    let comp = compare_1.tryCompare(data.partsNew[data.index], data.partsOld[data.index], optionsOrLoose);
+    let comp = (0, compare_1.tryCompare)(data.partsNew[data.index], data.partsOld[data.index], optionsOrLoose);
     return {
         ...data,
         comp,

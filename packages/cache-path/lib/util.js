@@ -20,9 +20,9 @@ function handleOptions(options) {
     if (!options.disableDefaultFailback && options.fnOrder && fnOrder !== finder_1.defaultOrder) {
         // @ts-ignore
         fnOrder = fnOrder.concat(finder_1.defaultOrder);
-        index_1.array_unique_overwrite(fnOrder);
+        (0, index_1.array_unique_overwrite)(fnOrder);
     }
-    options.cwd = upath2_1.resolve(cwd);
+    options.cwd = (0, upath2_1.resolve)(cwd);
     options.fnOrder = fnOrder;
     (_a = options.processEnv) !== null && _a !== void 0 ? _a : (options.processEnv = process.env);
     options.create = !!options.create;
@@ -40,15 +40,15 @@ function _check(dir, options) {
     else if (typeof dir !== 'string') {
         throw new Error(`not a path '${dir}'`);
     }
-    else if (!fs_1.existsSync(dir)) {
+    else if (!(0, fs_1.existsSync)(dir)) {
         if (options.create) {
-            fs_extra_1.ensureDirSync(dir);
+            (0, fs_extra_1.ensureDirSync)(dir);
         }
         else {
             throw new Error(`path not exists '${dir}'`);
         }
     }
-    if (!index_2.isWritableDirectorySync(dir)) {
+    if (!(0, index_2.isWritableDirectorySync)(dir)) {
         throw new Error(`path is not writeable '${dir}'`);
     }
     return true;

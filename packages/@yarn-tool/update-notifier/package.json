@@ -19,6 +19,7 @@
   "dependencies": {
     "@npmcli/ci-detect": "^1.3.0",
     "@yarn-tool/is-npx": "^1.0.5",
+    "tslib": "^2.3.0",
     "update-notifier": "^5.1.0"
   },
   "publishConfig": {

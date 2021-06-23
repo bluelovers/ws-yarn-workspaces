@@ -33,6 +33,7 @@
   "dependencies": {
     "@bluelovers/fast-glob": "^3.0.4",
     "pkg-dir": "^5.0.0",
+    "tslib": "^2.3.0",
     "upath2": "^3.1.8",
     "ws-pkg-list": "^1.0.54"
   },

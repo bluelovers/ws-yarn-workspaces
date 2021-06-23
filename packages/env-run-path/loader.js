@@ -5,7 +5,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.processEnv = void 0;
 const index_1 = require("./index");
-exports.processEnv = index_1.processRunPathEnv({
+exports.processEnv = (0, index_1.processRunPathEnv)({
     overwrite: true,
     appendExecPath: true,
 });

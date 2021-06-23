@@ -55,6 +55,7 @@
     "pkg-dir": "^5.0.0",
     "sort-package-json": "^1.50.0",
     "sort-package-json3": "^1.0.32",
+    "tslib": "^2.3.0",
     "yargs": "^17.0.1"
   },
   "gitHead": "02f74c14e885366e9be773564ea43f7425f9d97a"

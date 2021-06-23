@@ -6,9 +6,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.listableToRecord = exports.normalizeListableExtra = exports.normalizeListableRowExtra = exports.normalizeListable = exports.normalizeListableRow = void 0;
 const upath2_1 = require("upath2");
 function normalizeListableRow(row) {
-    row.location = upath2_1.normalize(row.location);
+    row.location = (0, upath2_1.normalize)(row.location);
     if (typeof row.manifestLocation === 'undefined') {
-        row.manifestLocation = upath2_1.join(row.location, 'package.json');
+        row.manifestLocation = (0, upath2_1.join)(row.location, 'package.json');
     }
     return row;
 }
@@ -21,7 +21,7 @@ function normalizeListable(list) {
 exports.normalizeListable = normalizeListable;
 function normalizeListableRowExtra(_row, root) {
     let row = normalizeListableRow(_row);
-    row.prefix = upath2_1.relative(root, row.location);
+    row.prefix = (0, upath2_1.relative)(root, row.location);
     return row;
 }
 exports.normalizeListableRowExtra = normalizeListableRowExtra;

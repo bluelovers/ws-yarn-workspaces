@@ -1,13 +1,11 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.nextVersionRecommendedByWorkspacesFindUp = exports.nextVersionRecommendedByWorkspacesProject = void 0;
-const index_1 = __importDefault(require("@yarn-tool/workspaces-project/index"));
+const tslib_1 = require("tslib");
+const index_1 = (0, tslib_1.__importDefault)(require("@yarn-tool/workspaces-project/index"));
 const nextVersionRecommended_1 = require("./nextVersionRecommended");
 function nextVersionRecommendedByWorkspacesProject(oldVersion, wsProject) {
-    return nextVersionRecommended_1.nextVersionRecommended(oldVersion, wsProject);
+    return (0, nextVersionRecommended_1.nextVersionRecommended)(oldVersion, wsProject);
 }
 exports.nextVersionRecommendedByWorkspacesProject = nextVersionRecommendedByWorkspacesProject;
 function nextVersionRecommendedByWorkspacesFindUp(oldVersion, options) {

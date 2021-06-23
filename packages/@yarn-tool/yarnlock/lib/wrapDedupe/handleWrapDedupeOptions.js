@@ -1,11 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.handleWrapDedupeOptions = void 0;
+const tslib_1 = require("tslib");
 const upath2_1 = require("upath2");
-const find_root_1 = __importDefault(require("@yarn-tool/find-root"));
+const find_root_1 = (0, tslib_1.__importDefault)(require("@yarn-tool/find-root"));
 const read_1 = require("@yarn-tool/yarnlock-fs/lib/read");
 function handleWrapDedupeOptions(yarg, argv, options) {
     let cache = options.cache || {};
@@ -15,7 +13,7 @@ function handleWrapDedupeOptions(yarg, argv, options) {
         throw new TypeError(`cache.cwd is '${cache.cwd}'`);
     }
     // @ts-ignore
-    cache.cwd = upath2_1.resolve(cache.cwd);
+    cache.cwd = (0, upath2_1.resolve)(cache.cwd);
     // @ts-ignore
     cache.ret = {};
     cache.yarnlock_msg = undefined;
@@ -24,12 +22,12 @@ function handleWrapDedupeOptions(yarg, argv, options) {
     // @ts-ignore
     cache.consoleDebug = cache.consoleDebug || options.consoleDebug;
     // @ts-ignore
-    cache.rootData = cache.rootData || find_root_1.default({
+    cache.rootData = cache.rootData || (0, find_root_1.default)({
         ...argv,
         cwd: cache.cwd,
     }, true);
     // @ts-ignore
-    cache.yarnlock_cache = cache.yarnlock_cache || read_1.fsYarnLockSafe(cache.rootData.root);
+    cache.yarnlock_cache = cache.yarnlock_cache || (0, read_1.fsYarnLockSafe)(cache.rootData.root);
     // @ts-ignore
     cache.yarnlock_old = cache.yarnlock_cache.yarnlock_old;
     cache.yarnlock_old2 = cache.yarnlock_old;

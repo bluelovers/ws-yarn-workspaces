@@ -14,12 +14,12 @@ function parseVersionsDiffCore(from, to, options) {
         from = from.slice(1);
     }
     const { _colors = ['red', 'cyan', 'green'] } = options || {};
-    const data = parse_1.parseVersionsAndCompare(from, to);
+    const data = (0, parse_1.parseVersionsAndCompare)(from, to);
     const { index, partsNew, partsOld } = data;
     const color = _colors[index];
     const middot = index > 0 && index < partsNew.length ? '.' : '';
-    const result = _core_1.partsToVersion(partsNew.slice(0, index));
-    const resultAppend = _core_1.partsToVersion(partsNew.slice(index));
+    const result = (0, _core_1.partsToVersion)(partsNew.slice(0, index));
+    const resultAppend = (0, _core_1.partsToVersion)(partsNew.slice(index));
     return {
         ...data,
         _colors,

@@ -4,7 +4,7 @@ exports.writeYarnLockFile = void 0;
 const parse_1 = require("@yarn-tool/yarnlock/lib/parse");
 const fs_extra_1 = require("fs-extra");
 function writeYarnLockFile(file, data) {
-    return fs_extra_1.writeFileSync(file, parse_1.stringify(data));
+    return (0, fs_extra_1.writeFileSync)(file, (0, parse_1.stringify)(data));
 }
 exports.writeYarnLockFile = writeYarnLockFile;
 //# sourceMappingURL=writeYarnLockFile.js.map

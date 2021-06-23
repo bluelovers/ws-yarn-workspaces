@@ -7,22 +7,22 @@ const stripScope_1 = require("./stripScope");
  * @deprecated
  */
 function parseArgvPkgName(input) {
-    const result = index_1.npa(input);
+    const result = (0, index_1.npa)(input);
     if (result) {
         return {
             input,
             namespace: result.scope,
-            name: stripScope_1.stripScope(result.name),
-            version: index_1.getSemverFromNpaResult(result),
+            name: (0, stripScope_1.stripScope)(result.name),
+            version: (0, index_1.getSemverFromNpaResult)(result),
             result,
         };
     }
 }
 exports.parseArgvPkgName = parseArgvPkgName;
 function parsePackageName(packageName) {
-    const result = index_1.npa(packageName);
-    const subname = stripScope_1.stripScope(result.name);
-    let semver = index_1.getSemverFromNpaResult(result);
+    const result = (0, index_1.npa)(packageName);
+    const subname = (0, stripScope_1.stripScope)(result.name);
+    let semver = (0, index_1.getSemverFromNpaResult)(result);
     if (!(semver === null || semver === void 0 ? void 0 : semver.length)) {
         semver = void 0;
     }

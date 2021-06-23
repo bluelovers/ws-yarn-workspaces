@@ -7,7 +7,7 @@ const listDuplicates_1 = require("./listDuplicates");
 Object.defineProperty(exports, "listDuplicates", { enumerable: true, get: function () { return listDuplicates_1.listDuplicates; } });
 function yarnDedupe(yarnlock_old, options) {
     yarnlock_old = yarnlock_old.toString();
-    const yarnlock_new = fixDuplicates_1.fixDuplicates(yarnlock_old, options);
+    const yarnlock_new = (0, fixDuplicates_1.fixDuplicates)(yarnlock_old, options);
     return {
         /**
          * 執行前的 yarn.lock

@@ -23,7 +23,7 @@ function parseSimpleSemVer(version) {
             release,
             build,
         });
-        checker_1.assertSimpleSemVerObjectLike(ver);
+        (0, checker_1.assertSimpleSemVerObjectLike)(ver);
     }
     return ver;
 }

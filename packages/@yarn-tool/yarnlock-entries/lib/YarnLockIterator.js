@@ -1,19 +1,17 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.YarnLockIterator = void 0;
+const tslib_1 = require("tslib");
 const index_1 = require("@yarn-tool/detect-yarnlock-version/index");
 const lodash_1 = require("lodash");
 const index_2 = require("@yarn-tool/yarnlock-util/index");
-const index_3 = __importDefault(require("@yarn-tool/yarnlock-stringify/index"));
-const yarnlock_error_1 = __importDefault(require("@yarn-tool/yarnlock-error"));
+const index_3 = (0, tslib_1.__importDefault)(require("@yarn-tool/yarnlock-stringify/index"));
+const yarnlock_error_1 = (0, tslib_1.__importDefault)(require("@yarn-tool/yarnlock-error"));
 class YarnLockIterator {
     constructor(object) {
         this.object = object;
         if (!this.isV1() && !this.isV2()) {
-            throw yarnlock_error_1.default();
+            throw (0, yarnlock_error_1.default)();
         }
     }
     isV1() {
@@ -26,13 +24,13 @@ class YarnLockIterator {
         if (this.isV1()) {
             return this;
         }
-        throw yarnlock_error_1.default(`current object not v1 yarnlock`);
+        throw (0, yarnlock_error_1.default)(`current object not v1 yarnlock`);
     }
     v2() {
         if (this.isV2()) {
             return this;
         }
-        throw yarnlock_error_1.default(`current object not v2 yarnlock`);
+        throw (0, yarnlock_error_1.default)(`current object not v2 yarnlock`);
     }
     keys() {
         return Object.keys(this.object.data);
@@ -57,7 +55,7 @@ class YarnLockIterator {
     }
     update(key, raw) {
         if (this.has(key)) {
-            return lodash_1.merge(this.object.data[key], raw);
+            return (0, lodash_1.merge)(this.object.data[key], raw);
         }
         throw new TypeError(`'${key}' not exists`);
     }
@@ -70,10 +68,10 @@ class YarnLockIterator {
     }
     _normalize(raw, key) {
         if (this.isV2()) {
-            return index_2.parseYarnLockRowV2(key, raw);
+            return (0, index_2.parseYarnLockRowV2)(key, raw);
         }
         else {
-            return index_2.parseYarnLockRowV1(key, raw);
+            return (0, index_2.parseYarnLockRowV1)(key, raw);
         }
     }
     *[Symbol.iterator]() {
@@ -86,7 +84,7 @@ class YarnLockIterator {
         }
     }
     stringify() {
-        return index_3.default(this.toJSON());
+        return (0, index_3.default)(this.toJSON());
     }
     toJSON() {
         if (this.isV2()) {

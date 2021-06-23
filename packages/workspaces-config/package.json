@@ -30,7 +30,8 @@
   },
   "dependencies": {
     "find-pkg-ws": "^1.0.26",
-    "fs-extra": "^10.0.0"
+    "fs-extra": "^10.0.0",
+    "tslib": "^2.3.0"
   },
   "gitHead": "67f2bf3be478106378700eb513da557943b2f9f3"
 }

@@ -10,7 +10,7 @@ function nextVersionRecommendedByPackage(pkg, options) {
         throw new TypeError(`pkg.version is require`);
     }
     return {
-        ...ws_1.nextVersionRecommendedByWorkspacesFindUp(pkg.version, options),
+        ...(0, ws_1.nextVersionRecommendedByWorkspacesFindUp)(pkg.version, options),
         pkg,
     };
 }
@@ -19,8 +19,8 @@ function nextVersionRecommendedByPackageFindUp(options) {
     var _a;
     options !== null && options !== void 0 ? options : (options = {});
     (_a = options.cwd) !== null && _a !== void 0 ? _a : (options.cwd = process.cwd());
-    let rootData = index_1.findRoot(options);
-    let pkg = index_2.readPackageJson(path_1.join(rootData.pkg, 'package.json'));
+    let rootData = (0, index_1.findRoot)(options);
+    let pkg = (0, index_2.readPackageJson)((0, path_1.join)(rootData.pkg, 'package.json'));
     options.cwd = rootData.root;
     // @ts-ignore
     return nextVersionRecommendedByPackage(pkg, options);

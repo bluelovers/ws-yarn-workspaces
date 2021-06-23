@@ -32,5 +32,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
   }
 }

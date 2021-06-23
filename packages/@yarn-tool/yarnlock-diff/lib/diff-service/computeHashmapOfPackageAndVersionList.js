@@ -10,7 +10,7 @@ const types_1 = require("@yarn-tool/detect-yarnlock-version/lib/types");
 const reduceYarnLockParsedEntries_1 = require("@yarn-tool/yarnlock-util/lib/util/reduceYarnLockParsedEntries");
 function computeHashmapOfPackageAndVersionList(alreadyComputedPackage, parsedOldPackage) {
     let fn;
-    yarnlock_parse_1.assertYarnLockParsedIsSupported(parsedOldPackage, (verType, parsedOldPackage) => {
+    (0, yarnlock_parse_1.assertYarnLockParsedIsSupported)(parsedOldPackage, (verType, parsedOldPackage) => {
         if (verType === types_1.EnumDetectYarnLock.v1) {
             fn = parseYarnLockRowV1_1.parseYarnLockRowV1;
         }
@@ -32,7 +32,7 @@ function computeHashmapOfPackageAndVersionList(alreadyComputedPackage, parsedOld
         throw new TypeError(`can't detect yarn.lock version`)
     }
      */
-    alreadyComputedPackage = reduceYarnLockParsedEntries_1.reduceYarnLockParsedEntries(alreadyComputedPackage, parsedOldPackage, (alreadyComputedPackage, [packageName, packageData]) => {
+    alreadyComputedPackage = (0, reduceYarnLockParsedEntries_1.reduceYarnLockParsedEntries)(alreadyComputedPackage, parsedOldPackage, (alreadyComputedPackage, [packageName, packageData]) => {
         var _a;
         var _b;
         const result = fn(packageName, packageData);
@@ -44,7 +44,7 @@ function computeHashmapOfPackageAndVersionList(alreadyComputedPackage, parsedOld
     });
     Object.keys(alreadyComputedPackage)
         .forEach((name) => {
-        array_hyper_unique_1.array_unique_overwrite(alreadyComputedPackage[name]);
+        (0, array_hyper_unique_1.array_unique_overwrite)(alreadyComputedPackage[name]);
         alreadyComputedPackage[name].sort(semver_1.compareLoose);
     });
     return alreadyComputedPackage;

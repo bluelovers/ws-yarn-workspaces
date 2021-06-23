@@ -44,7 +44,8 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "semver": "^7"
+    "semver": "^7",
+    "tslib": "^2.3.0"
   },
   "peerDependencies": {
     "semver": "^7"

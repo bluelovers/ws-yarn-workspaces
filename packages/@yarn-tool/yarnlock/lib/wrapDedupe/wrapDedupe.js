@@ -14,7 +14,7 @@ function wrapDedupe(yarg, argv, options) {
     ({
         options,
         cache,
-    } = handleWrapDedupeOptions_1.handleWrapDedupeOptions(yarg, argv, options));
+    } = (0, handleWrapDedupeOptions_1.handleWrapDedupeOptions)(yarg, argv, options));
     const { consoleDebug } = options;
     let { init, before, main, after, end } = options;
     LABEL1: {
@@ -28,12 +28,12 @@ function wrapDedupe(yarg, argv, options) {
         if (cache.ret.before) {
             break LABEL1;
         }
-        cache.yarnlock_cache = read_1.fsYarnLockSafe(cache.rootData.root);
+        cache.yarnlock_cache = (0, read_1.fsYarnLockSafe)(cache.rootData.root);
         if (cache.yarnlock_cache.yarnlock_exists) {
-            let ret1 = object_1.yarnDedupe(cache.yarnlock_cache.yarnlock_old);
+            let ret1 = (0, object_1.yarnDedupe)(cache.yarnlock_cache.yarnlock_old);
             if (ret1.yarnlock_changed) {
-                fs_extra_1.writeFileSync(cache.yarnlock_cache.yarnlock_file, ret1.yarnlock_new);
-                let msg = yarnlock_diff_1.yarnLockDiff(ret1.yarnlock_old, ret1.yarnlock_new);
+                (0, fs_extra_1.writeFileSync)(cache.yarnlock_cache.yarnlock_file, ret1.yarnlock_new);
+                let msg = (0, yarnlock_diff_1.yarnLockDiff)(ret1.yarnlock_old, ret1.yarnlock_new);
                 if (msg) {
                     cache.yarnlock_msg = msg;
                 }
@@ -48,15 +48,15 @@ function wrapDedupe(yarg, argv, options) {
         if (cache.ret.main) {
             break LABEL1;
         }
-        cache.yarnlock_cache = read_1.fsYarnLockSafe(cache.rootData.root);
+        cache.yarnlock_cache = (0, read_1.fsYarnLockSafe)(cache.rootData.root);
         if (cache.yarnlock_cache.yarnlock_exists) {
-            let ret1 = object_1.yarnDedupe(cache.yarnlock_cache.yarnlock_old);
+            let ret1 = (0, object_1.yarnDedupe)(cache.yarnlock_cache.yarnlock_old);
             if (ret1.yarnlock_changed) {
                 if (cache.yarnlock_old2 == null) {
                     cache.yarnlock_old2 = ret1.yarnlock_old;
                 }
-                fs_extra_1.writeFileSync(cache.yarnlock_cache.yarnlock_file, ret1.yarnlock_new);
-                let msg = yarnlock_diff_1.yarnLockDiff(ret1.yarnlock_old, ret1.yarnlock_new);
+                (0, fs_extra_1.writeFileSync)(cache.yarnlock_cache.yarnlock_file, ret1.yarnlock_new);
+                let msg = (0, yarnlock_diff_1.yarnLockDiff)(ret1.yarnlock_old, ret1.yarnlock_new);
                 if (msg) {
                     cache.yarnlock_msg = msg;
                 }
@@ -79,19 +79,19 @@ function wrapDedupe(yarg, argv, options) {
         if (cache.ret.after) {
             break LABEL1;
         }
-        cache.yarnlock_cache = read_1.fsYarnLockSafe(cache.rootData.root);
+        cache.yarnlock_cache = (0, read_1.fsYarnLockSafe)(cache.rootData.root);
         if (cache.yarnlock_cache.yarnlock_exists) {
             if (cache.yarnlock_changed) {
-                let msg = yarnlock_diff_1.yarnLockDiff(cache.yarnlock_old || cache.yarnlock_old2, cache.yarnlock_cache.yarnlock_old);
+                let msg = (0, yarnlock_diff_1.yarnLockDiff)(cache.yarnlock_old || cache.yarnlock_old2, cache.yarnlock_cache.yarnlock_old);
                 if (msg) {
                     cache.yarnlock_msg = msg;
                 }
             }
             else {
-                let yarnlock_now = fs_extra_1.readFileSync(cache.yarnlock_cache.yarnlock_file).toString();
+                let yarnlock_now = (0, fs_extra_1.readFileSync)(cache.yarnlock_cache.yarnlock_file).toString();
                 let yarnlock_old2 = cache.yarnlock_old || cache.yarnlock_old2;
                 if (yarnlock_old2) {
-                    let msg = yarnlock_diff_1.yarnLockDiff(yarnlock_old2, yarnlock_now);
+                    let msg = (0, yarnlock_diff_1.yarnLockDiff)(yarnlock_old2, yarnlock_now);
                     if (msg) {
                         cache.yarnlock_msg = msg;
                         cache.yarnlock_changed = true;

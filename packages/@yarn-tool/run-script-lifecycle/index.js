@@ -1,26 +1,24 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.runLifecycleScript = void 0;
+const tslib_1 = require("tslib");
 /**
  * Created by user on 2020/4/8.
  */
-const run_script_pkg_1 = __importDefault(require("@npmcli/run-script/lib/run-script-pkg"));
+const run_script_pkg_1 = (0, tslib_1.__importDefault)(require("@npmcli/run-script/lib/run-script-pkg"));
 const fs_extra_1 = require("fs-extra");
 const path_1 = require("path");
 const script_lifecycle_1 = require("@yarn-tool/script-lifecycle");
 const util_1 = require("./lib/util");
-const read_package_json_fast_1 = __importDefault(require("read-package-json-fast"));
+const read_package_json_fast_1 = (0, tslib_1.__importDefault)(require("read-package-json-fast"));
 async function runLifecycleScript(options) {
-    const pkg_path = path_1.join(options.path, 'package.json');
-    if (fs_extra_1.pathExistsSync(pkg_path)) {
-        return read_package_json_fast_1.default(pkg_path)
+    const pkg_path = (0, path_1.join)(options.path, 'package.json');
+    if ((0, fs_extra_1.pathExistsSync)(pkg_path)) {
+        return (0, read_package_json_fast_1.default)(pkg_path)
             .then(async (pkg) => {
             var _a, _b;
-            let lifecycle = script_lifecycle_1.getLifecycle(options.event);
-            let tmpOptions = util_1._options({
+            let lifecycle = (0, script_lifecycle_1.getLifecycle)(options.event);
+            let tmpOptions = (0, util_1._options)({
                 ...options,
                 args: [],
                 event: void 0,
@@ -28,7 +26,7 @@ async function runLifecycleScript(options) {
             });
             const resultList = [];
             if ((_a = lifecycle.before) === null || _a === void 0 ? void 0 : _a.length) {
-                const results = await util_1.runLifecycleScriptList({
+                const results = await (0, util_1.runLifecycleScriptList)({
                     eventList: lifecycle.before,
                     tmpOptions,
                     pkg,
@@ -38,13 +36,13 @@ async function runLifecycleScript(options) {
                 //					})
                 resultList.push(...results);
             }
-            const result = await util_1.runLifecycleScriptCore({
+            const result = await (0, util_1.runLifecycleScriptCore)({
                 ...options,
                 pkg,
             }, run_script_pkg_1.default);
             resultList.push(result);
             if ((_b = lifecycle.after) === null || _b === void 0 ? void 0 : _b.length) {
-                const results = await util_1.runLifecycleScriptList({
+                const results = await (0, util_1.runLifecycleScriptList)({
                     eventList: lifecycle.after,
                     tmpOptions,
                     pkg,
@@ -57,7 +55,7 @@ async function runLifecycleScript(options) {
             return resultList;
         });
     }
-    return util_1.runLifecycleScriptCore(options)
+    return (0, util_1.runLifecycleScriptCore)(options)
         .then(result => [result]);
 }
 exports.runLifecycleScript = runLifecycleScript;

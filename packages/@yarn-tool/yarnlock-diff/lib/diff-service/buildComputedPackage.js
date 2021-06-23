@@ -8,7 +8,7 @@ function buildComputedPackage(yarnLockContentList, alreadyComputedPackage = {}) 
         yarnLockContentList = [yarnLockContentList];
     }
     return yarnLockContentList
-        .map(v => index_1.yarnLockParse(v))
+        .map(v => (0, index_1.yarnLockParse)(v))
         .reduce(computeHashmapOfPackageAndVersionList_1.computeHashmapOfPackageAndVersionList, alreadyComputedPackage);
 }
 exports.buildComputedPackage = buildComputedPackage;

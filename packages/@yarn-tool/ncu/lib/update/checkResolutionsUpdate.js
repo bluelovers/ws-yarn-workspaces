@@ -1,12 +1,10 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.checkResolutionsUpdate = void 0;
-const bluebird_1 = __importDefault(require("bluebird"));
+const tslib_1 = require("tslib");
+const bluebird_1 = (0, tslib_1.__importDefault)(require("bluebird"));
 const util_1 = require("../util");
-const semver_1 = __importDefault(require("semver"));
+const semver_1 = (0, tslib_1.__importDefault)(require("semver"));
 const parse_1 = require("@yarn-tool/yarnlock/lib/parse");
 const core_1 = require("@yarn-tool/yarnlock/lib/core");
 const queryRemoteVersions_1 = require("../remote/queryRemoteVersions");
@@ -14,14 +12,14 @@ function checkResolutionsUpdate(resolutions, yarnlock_old_obj, options) {
     return bluebird_1.default.resolve()
         .then(async function () {
         if (typeof yarnlock_old_obj === 'string') {
-            yarnlock_old_obj = parse_1.parse(yarnlock_old_obj);
+            yarnlock_old_obj = (0, parse_1.parse)(yarnlock_old_obj);
         }
-        let result = core_1.filterResolutions({
+        let result = (0, core_1.filterResolutions)({
             resolutions,
         }, yarnlock_old_obj);
-        let deps = await queryRemoteVersions_1.queryRemoteVersions(resolutions, options);
+        let deps = await (0, queryRemoteVersions_1.queryRemoteVersions)(resolutions, options);
         //console.dir(deps);
-        let deps2 = util_1.keyObjectToPackageMap(deps, true);
+        let deps2 = (0, util_1.keyObjectToPackageMap)(deps, true);
         let deps3 = Object.values(deps)
             .reduce(function (a, b) {
             a[b.name] = b;

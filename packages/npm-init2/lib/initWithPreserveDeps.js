@@ -4,7 +4,7 @@ exports.initWithPreserveDeps = void 0;
 const cross_spawn_extra_1 = require("cross-spawn-extra");
 const npm_package_json_loader_1 = require("npm-package-json-loader");
 function initWithPreserveDeps({ npmClient, cwd, args, old_pkg, pkg_file_path }) {
-    const cp = cross_spawn_extra_1.sync(npmClient, args, {
+    const cp = (0, cross_spawn_extra_1.sync)(npmClient, args, {
         stdio: 'inherit',
         cwd,
     });

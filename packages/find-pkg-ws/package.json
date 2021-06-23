@@ -30,7 +30,8 @@
     "sort-package-json": "npx yarn-tool sort"
   },
   "dependencies": {
-    "find-yarn-workspace-root2": "^1.2.29"
+    "find-yarn-workspace-root2": "^1.2.29",
+    "tslib": "^2.3.0"
   },
   "gitHead": "40676553ac196265d354e537459d4c78d67f0a8c"
 }

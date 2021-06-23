@@ -1,15 +1,13 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getCache = exports.initCache = void 0;
-const lru_cache_fs2_1 = __importDefault(require("lru-cache-fs2"));
+const tslib_1 = require("tslib");
+const lru_cache_fs2_1 = (0, tslib_1.__importDefault)(require("lru-cache-fs2"));
 const cache_path_1 = require("cache-path");
 let cache;
 function initCache(options) {
     let id = '@yarn-tool/pkg-version-query';
-    let cwd = cache_path_1.getCachePath(id, {
+    let cwd = (0, cache_path_1.getCachePath)(id, {
         fnOrder: [
             cache_path_1.findYarnCachePath,
             cache_path_1.findNpmCachePath,
@@ -22,7 +20,7 @@ function initCache(options) {
         //		max: 1000,
         //		maxAge: 5 * 60 * 1000,
         ...cacheAgentOptions,
-        cacheName: cache_path_1.normalizeName(id, true),
+        cacheName: (0, cache_path_1.normalizeName)(id, true),
         autoCreate: true,
         cwd,
     };

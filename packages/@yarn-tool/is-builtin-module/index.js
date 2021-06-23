@@ -1,12 +1,10 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.isBuiltinModule = exports.builtins = exports.createNewIsBuiltinModule = void 0;
-const builtins_1 = __importDefault(require("builtins"));
+const tslib_1 = require("tslib");
+const builtins_1 = (0, tslib_1.__importDefault)(require("builtins"));
 function createNewIsBuiltinModule(options) {
-    const builtins = builtins_1.default(options === null || options === void 0 ? void 0 : options.targetNodeJSVersion);
+    const builtins = (0, builtins_1.default)(options === null || options === void 0 ? void 0 : options.targetNodeJSVersion);
     return {
         builtins,
         isBuiltinModule(moduleName) {

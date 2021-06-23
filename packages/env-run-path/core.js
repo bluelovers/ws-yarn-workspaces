@@ -15,22 +15,22 @@ function findBinPathCore(options = {}) {
         stopPath = stopPath.slice();
     }
     let bool = true;
-    let current = path_1.resolve(cwd);
+    let current = (0, path_1.resolve)(cwd);
     let prev;
     let result = [];
     let history = [];
     stopPath = stopPath.map(v => {
-        return path_1.resolve(v);
+        return (0, path_1.resolve)(v);
     });
     while (bool) {
         if (prev == current) {
             break;
         }
-        let dir = path_1.resolve(current, './node_modules/.bin/');
+        let dir = (0, path_1.resolve)(current, './node_modules/.bin/');
         history.push(dir);
         let stat;
         try {
-            stat = fs_1.statSync(dir);
+            stat = (0, fs_1.statSync)(dir);
             if (stat.isDirectory()) {
                 result.push(dir);
             }
@@ -41,7 +41,7 @@ function findBinPathCore(options = {}) {
             break;
         }
         prev = current;
-        current = path_1.resolve(current, '..');
+        current = (0, path_1.resolve)(current, '..');
     }
     return {
         result,

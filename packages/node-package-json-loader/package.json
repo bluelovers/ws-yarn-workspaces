@@ -50,7 +50,8 @@
     "pkg-up": "^3.1.0",
     "sort-package-json": "^1.50.0",
     "sort-package-json3": "^1.0.32",
-    "ts-type": "^1.2.35"
+    "ts-type": "^1.2.35",
+    "tslib": "^2.3.0"
   },
   "bundleDependencies": [],
   "preferGlobal": true,

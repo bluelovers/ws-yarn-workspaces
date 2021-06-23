@@ -8,7 +8,7 @@ const parseYarnLockRowV2_1 = require("../v2/parseYarnLockRowV2");
 const reduceYarnLockParsedEntries_1 = require("./reduceYarnLockParsedEntries");
 function groupYarnLockParsedEntries(parsedOldPackage, options) {
     let fn;
-    yarnlock_parse_1.assertYarnLockParsedIsSupported(parsedOldPackage, (verType, parsedOldPackage) => {
+    (0, yarnlock_parse_1.assertYarnLockParsedIsSupported)(parsedOldPackage, (verType, parsedOldPackage) => {
         if (verType === types_1.EnumDetectYarnLock.v1) {
             fn = parseYarnLockRowV1_1.parseYarnLockRowV1;
         }
@@ -20,7 +20,7 @@ function groupYarnLockParsedEntries(parsedOldPackage, options) {
     if ((names === null || names === void 0 ? void 0 : names.length) === 0) {
         names = void 0;
     }
-    return reduceYarnLockParsedEntries_1.reduceYarnLockParsedEntries({}, parsedOldPackage, (data, [packageName, packageData]) => {
+    return (0, reduceYarnLockParsedEntries_1.reduceYarnLockParsedEntries)({}, parsedOldPackage, (data, [packageName, packageData]) => {
         var _a, _b;
         const result = fn(packageName, packageData);
         const { name, version } = result;
