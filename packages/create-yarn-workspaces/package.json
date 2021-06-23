@@ -1,7 +1,6 @@
 {
   "name": "create-yarn-workspaces",
   "version": "1.0.105",
-  "private": true,
   "description": "yarn create yarn-workspaces     npx create-yarn-workspaces",
   "keywords": [
     "cli",
@@ -32,9 +31,6 @@
   "directories": {
     "test": "test"
   },
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
     "coverage": "npx nyc npm run test",
     "lint": "npx eslint **/*.ts",
