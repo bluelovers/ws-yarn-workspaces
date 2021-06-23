@@ -10,6 +10,9 @@
     "workspaces",
     "pkg",
     "dependencies",
+    "monorepo",
+    "yarnlock",
+    "node-modules",
     "packages",
     "package"
   ],
