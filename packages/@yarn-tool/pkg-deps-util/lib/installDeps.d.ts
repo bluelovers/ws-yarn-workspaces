@@ -1,4 +1,4 @@
-import { IOptionsInstallDepsFromWorkspaces } from './installDepsFromWorkspaces';
+import { IOptionsInstallDepsFromWorkspaces } from './types';
 export interface IOptionsInstallDeps extends IOptionsInstallDepsFromWorkspaces {
 }
 export declare function filterInstallDeps(packageNames: string[], options?: IOptionsInstallDeps): {

@@ -1,21 +1,12 @@
 import { wsPkgListable } from 'ws-pkg-list/lib/listable';
-import { assertHasAndNotWorkspacesRoot, findRoot, IFindRootOptions } from '@yarn-tool/find-root';
-import { IPackageJson, readPackageJson } from '@ts-type/package-dts';
+import { assertHasAndNotWorkspacesRoot, findRoot } from '@yarn-tool/find-root';
+import { readPackageJson } from '@ts-type/package-dts';
 import { join } from 'path';
 import npa from '@yarn-tool/npm-package-arg-util';
 import { IListableRow } from 'ws-pkg-list';
-import sortObjectKeys from 'sort-object-keys2/core';
 import { addDependenciesIfNotExists } from './addDependenciesIfNotExists';
 import { sortDependencies } from './util/sortDependencies';
-
-export interface IOptionsInstallDepsFromWorkspaces extends Partial<IFindRootOptions>
-{
-	cwd?: string,
-	pkg?: IPackageJson,
-	dev?: boolean,
-	peer?: boolean,
-	optional?: boolean,
-}
+import { IOptionsInstallDepsFromWorkspaces } from './types';
 
 export function installDepsFromWorkspaces(packageNames: string[], options: IOptionsInstallDepsFromWorkspaces = {})
 {

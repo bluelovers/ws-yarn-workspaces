@@ -1,35 +1,19 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.installDepsFromYarnLock = exports.installDepsFromYarnLockCore = exports.filterDepsFromYarnLock = exports.fetchRemoteInfo = void 0;
+exports.installDepsFromYarnLock = exports.installDepsFromYarnLockCore = exports.filterDepsFromYarnLock = void 0;
 const tslib_1 = require("tslib");
 const find_root_1 = require("@yarn-tool/find-root");
 const package_dts_1 = require("@ts-type/package-dts");
-const bluebird_1 = (0, tslib_1.__importDefault)(require("bluebird"));
-const queryVersion_1 = require("@yarn-tool/pkg-version-query/lib/queryVersion");
 const npm_package_arg_util_1 = (0, tslib_1.__importDefault)(require("@yarn-tool/npm-package-arg-util"));
-const parseArgvPkgName_1 = require("@yarn-tool/npm-package-arg-util/lib/parseArgvPkgName");
+const yarnlock_parse_1 = require("@yarn-tool/yarnlock-parse");
 const groupYarnLockParsedEntries_1 = require("@yarn-tool/yarnlock-util/lib/util/groupYarnLockParsedEntries");
 const lodash_1 = require("lodash");
 const path_1 = require("path");
 const addDependenciesIfNotExists_1 = require("./addDependenciesIfNotExists");
 const read_1 = require("@yarn-tool/yarnlock-fs/lib/read");
-const yarnlock_parse_1 = require("@yarn-tool/yarnlock-parse");
 const core_1 = require("array-hyper-unique/core");
 const sortDependencies_1 = require("./util/sortDependencies");
-function fetchRemoteInfo(packageNames, options = {}) {
-    return bluebird_1.default.resolve(packageNames)
-        .reduce(async (data, input) => {
-        const result = (0, parseArgvPkgName_1.parsePackageName)(input);
-        const versionQuery = await (0, queryVersion_1.queryVersionWithCache)(result.name, result.semver, options.queryOptions);
-        // @ts-ignore
-        data[result.name] = {
-            ...result,
-            versionQuery,
-        };
-        return data;
-    }, {});
-}
-exports.fetchRemoteInfo = fetchRemoteInfo;
+const fetchRemoteInfo_1 = require("./util/fetchRemoteInfo");
 function filterDepsFromYarnLock(packageNames, parsedOldPackage, options) {
     let group = (0, groupYarnLockParsedEntries_1.groupYarnLockParsedEntries)(parsedOldPackage, options);
     return (0, lodash_1.pick)(group, packageNames.map((name) => (0, npm_package_arg_util_1.default)(name).name));
@@ -38,7 +22,7 @@ exports.filterDepsFromYarnLock = filterDepsFromYarnLock;
 async function installDepsFromYarnLockCore(packageNames, parsedOldPackage, options = {}) {
     var _a, _b;
     let names = packageNames.map((name) => (0, npm_package_arg_util_1.default)(name).name);
-    let listRemoteInfo = await fetchRemoteInfo(packageNames, options);
+    let listRemoteInfo = await (0, fetchRemoteInfo_1.fetchRemoteInfo)(packageNames, options);
     let filteredYarnLock = filterDepsFromYarnLock(names, parsedOldPackage, {
         ...options,
         names,

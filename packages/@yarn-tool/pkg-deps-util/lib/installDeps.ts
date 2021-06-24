@@ -1,5 +1,5 @@
-import { IOptionsCheckInstallTarget } from './types';
-import { IOptionsInstallDepsFromWorkspaces, installDepsFromWorkspaces } from './installDepsFromWorkspaces';
+import { IOptionsCheckInstallTarget, IOptionsInstallDepsFromWorkspaces } from './types';
+import { installDepsFromWorkspaces } from './installDepsFromWorkspaces';
 import { findRoot, IFindRootOptions } from '@yarn-tool/find-root';
 
 export interface IOptionsInstallDeps extends IOptionsInstallDepsFromWorkspaces

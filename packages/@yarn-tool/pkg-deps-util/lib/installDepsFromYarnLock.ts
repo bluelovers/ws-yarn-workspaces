@@ -1,22 +1,7 @@
-import { findRoot, findRootLazy, IFindRootOptions } from '@yarn-tool/find-root';
-import { IPackageJson, readPackageJson } from '@ts-type/package-dts';
-import { IOptionsInstallDepsFromWorkspaces } from './installDepsFromWorkspaces';
-import Bluebird from 'bluebird';
-import { IOptionsQueryVersion } from '@yarn-tool/pkg-version-query/lib/types';
-import { Options } from 'package-json';
-import { queryVersionWithCache } from '@yarn-tool/pkg-version-query/lib/queryVersion';
+import { findRootLazy } from '@yarn-tool/find-root';
+import { readPackageJson } from '@ts-type/package-dts';
 import npa from '@yarn-tool/npm-package-arg-util';
-import { parsePackageName } from '@yarn-tool/npm-package-arg-util/lib/parseArgvPkgName';
-import { IParsePackageName } from '@yarn-tool/npm-package-arg-util/lib/types';
-import {
-	assertYarnLockParsedIsSupported,
-	isYarnLockParsedV1,
-	isYarnLockParsedV2,
-	IYarnLockDataRowV1,
-	IYarnLockDataRowV2,
-	IYarnLockParsedV1,
-	IYarnLockParsedV2,
-} from '@yarn-tool/yarnlock-parse';
+import { IYarnLockParsedV1, IYarnLockParsedV2, yarnLockParse } from '@yarn-tool/yarnlock-parse';
 import {
 	groupYarnLockParsedEntries,
 	IGroupYarnLockParsedEntriesOptions,
@@ -27,47 +12,15 @@ import { IParseNameAndVersion } from '@yarn-tool/yarnlock-util/lib/types';
 import { pick } from 'lodash';
 import { join } from 'path';
 import { addDependenciesIfNotExists } from './addDependenciesIfNotExists';
-import { fsYarnLockSafe, fsYarnLock } from '@yarn-tool/yarnlock-fs/lib/read';
-import { yarnLockParse } from '@yarn-tool/yarnlock-parse';
-import sortObjectKeys from 'sort-object-keys2/core';
+import { fsYarnLockSafe } from '@yarn-tool/yarnlock-fs/lib/read';
 import { array_unique_overwrite } from 'array-hyper-unique/core';
 import { sortDependencies } from './util/sortDependencies';
-
-export interface IOptionsInstallDepsFromYarnLock extends IOptionsInstallDepsFromWorkspaces, IGroupYarnLockParsedEntriesOptions
-{
-	queryOptions?: IOptionsQueryVersion<Options>,
-}
-
-export function fetchRemoteInfo<T extends string>(packageNames: T[], options: IOptionsInstallDepsFromYarnLock = {})
-{
-	return Bluebird.resolve(packageNames)
-		.reduce(async (data, input) =>
-		{
-
-			const result = parsePackageName(input);
-
-			const versionQuery = await queryVersionWithCache(result.name, result.semver, options.queryOptions);
-
-			// @ts-ignore
-			data[result.name] = {
-				...result,
-				versionQuery,
-			};
-
-			return data
-		}, {} as IFilteredRecord<Record<string, IParsePackageName & {
-			versionQuery: string,
-		}>, T>)
-		;
-}
-
-export type IFilteredRecord<T extends Record<string, any>, K extends string> = T extends Record<string, infer U>
-	? T & Record<K, U>
-	: T
+import { fetchRemoteInfo } from './util/fetchRemoteInfo';
+import { IFilteredRecord, IOptionsInstallDepsFromYarnLock } from './types';
 
 export function filterDepsFromYarnLock<T extends string>(packageNames: T[],
 	parsedOldPackage: IYarnLockParsedV1 | IYarnLockParsedV2,
-	options?: IGroupYarnLockParsedEntriesOptions
+	options?: IGroupYarnLockParsedEntriesOptions,
 )
 {
 	let group = groupYarnLockParsedEntries(parsedOldPackage, options);
@@ -98,7 +51,8 @@ export async function installDepsFromYarnLockCore<T extends string>(packageNames
 	const added = [] as [name: string, semver: string][];
 	const exists = [] as string[];
 
-	let others: T[] = packageNames.filter((packageName) => {
+	let others: T[] = packageNames.filter((packageName) =>
+	{
 		const result = npa(packageName);
 		const { name } = result;
 
