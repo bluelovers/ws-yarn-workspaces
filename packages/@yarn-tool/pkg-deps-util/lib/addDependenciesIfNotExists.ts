@@ -1,5 +1,93 @@
 import { IPackageJson } from '@ts-type/package-dts';
-import { IOptionsInstallDepsFromWorkspaces } from './installDepsFromWorkspaces';
+import { IOptionsInstallDepsFromWorkspaces } from './types';
+import { IPackageJsonDependenciesField } from '@ts-type/package-dts/lib/package-json/types';
+
+export function addDependencies(pkg: IPackageJson,
+	name: string,
+	semver: string,
+	options: IOptionsInstallDepsFromWorkspaces = {},
+	override?: boolean,
+)
+{
+	let bool: boolean = null;
+
+	if (options.dev)
+	{
+		bool = _add_to_deps_field(pkg,
+			'devDependencies',
+			name,
+			semver,
+			override,
+			bool,
+		);
+	}
+
+	if (options.peer)
+	{
+		bool = _add_to_deps_field(pkg,
+			'peerDependencies',
+			name,
+			semver,
+			override,
+			bool,
+		);
+	}
+
+	if (options.optional)
+	{
+		bool = _add_to_deps_field(pkg,
+			'optionalDependencies',
+			name,
+			semver,
+			override,
+			bool,
+		);
+	}
+
+	if (bool === null)
+	{
+		bool = _add_to_deps_field(pkg,
+			'dependencies',
+			name,
+			semver,
+			override,
+			bool,
+		);
+	}
+
+	return {
+		pkg,
+		bool,
+	}
+}
+
+export function _add_to_deps_field(pkg: IPackageJson,
+	field: IPackageJsonDependenciesField,
+	name: string,
+	semver: string,
+	override: boolean,
+	bool: boolean,
+)
+{
+	const record = pkg[field] ?? {};
+
+	if (record[name] !== semver)
+	{
+		if (!record[name]?.length || override === true)
+		{
+			pkg[field] ??= {};
+			pkg[field][name] = semver;
+
+			bool = false;
+		}
+		else
+		{
+			bool ??= true;
+		}
+	}
+
+	return bool
+}
 
 export function addDependenciesIfNotExists(pkg: IPackageJson,
 	name: string,
@@ -7,70 +95,5 @@ export function addDependenciesIfNotExists(pkg: IPackageJson,
 	options: IOptionsInstallDepsFromWorkspaces = {},
 )
 {
-	let bool: boolean = null;
-
-	if (options.dev)
-	{
-		if (!pkg.devDependencies?.[name]?.length)
-		{
-			pkg.devDependencies ??= {};
-			pkg.devDependencies[name] = semver;
-
-			bool = false;
-		}
-		else if (pkg.devDependencies[name] !== semver)
-		{
-			bool ??= true;
-		}
-	}
-
-	if (options.peer)
-	{
-		if (!pkg.peerDependencies?.[name]?.length)
-		{
-			pkg.peerDependencies ??= {};
-			pkg.peerDependencies[name] = semver;
-
-			bool = false;
-		}
-		else if (pkg.peerDependencies[name] !== semver)
-		{
-			bool ??= true;
-		}
-	}
-
-	if (options.optional)
-	{
-		if (!pkg.optionalDependencies?.[name]?.length)
-		{
-			pkg.optionalDependencies ??= {};
-			pkg.optionalDependencies[name] = semver;
-
-			bool = false;
-		}
-		else if (pkg.optionalDependencies[name] !== semver)
-		{
-			bool ??= true;
-		}
-	}
-
-	if (bool === null)
-	{
-		if (!pkg.dependencies?.[name]?.length)
-		{
-			pkg.dependencies ??= {};
-			pkg.dependencies[name] = semver;
-
-			bool = false;
-		}
-		else if (pkg.dependencies[name] !== semver)
-		{
-			bool ??= true;
-		}
-	}
-
-	return {
-		pkg,
-		bool,
-	}
+	return addDependencies(pkg, name, semver, options)
 }
