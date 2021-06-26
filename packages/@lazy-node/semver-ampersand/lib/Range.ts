@@ -1,13 +1,13 @@
 import semverRange from 'semver/classes/range';
 import { Options } from 'semver';
-import { handleVersionRange } from './handleVersionRange';
+import { handleAmpersandAndSpaces } from './handleAmpersandAndSpaces';
 
 export class SemverRange extends semverRange
 {
 	rawSource?: string | Range;
 
 	constructor(rawSource: string | SemverRange | semverRange, optionsOrLoose?: boolean | Options) {
-		const range = handleVersionRange(rawSource);
+		const range = handleAmpersandAndSpaces(rawSource);
 
 		super(range, optionsOrLoose);
 

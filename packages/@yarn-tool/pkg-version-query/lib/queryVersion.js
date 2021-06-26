@@ -8,7 +8,7 @@ const cacheAgent_1 = require("./cacheAgent");
 const createCacheKey_1 = require("./createCacheKey");
 const core_1 = require("./core");
 const queryVersionCacheRaw_1 = require("./queryVersionCacheRaw");
-const handleVersionRange_1 = require("@lazy-node/semver-ampersand/lib/handleVersionRange");
+const handleAmpersandAndSpaces_1 = require("@lazy-node/semver-ampersand/lib/handleAmpersandAndSpaces");
 const const_1 = require("@lazy-node/semver-ampersand/lib/const");
 function queryVersionWithCache(name, targetVersion = 'latest', options) {
     return bluebird_1.default.resolve((0, queryVersionCacheRaw_1.queryVersionCacheRaw)(name, targetVersion, options))
@@ -45,8 +45,8 @@ function queryVersion(name, targetVersion = 'latest', save = true, options) {
             version = version.replace(/^npm:/, '');
             bool = false;
         }
-        if (const_1.reHandleVersionRange.test(version)) {
-            version = (0, handleVersionRange_1.handleVersionRange)(version);
+        if (const_1.reAmpersandAndSpaces.test(version)) {
+            version = (0, handleAmpersandAndSpaces_1.handleAmpersandAndSpaces)(version);
             bool = false;
         }
         if (bool) {

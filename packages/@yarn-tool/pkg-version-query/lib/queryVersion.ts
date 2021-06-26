@@ -5,8 +5,8 @@ import { _createCacheKey } from './createCacheKey';
 import { _queryVersion } from './core';
 import { queryVersionCacheRaw } from './queryVersionCacheRaw';
 import { IOptionsQueryVersion } from './types';
-import { handleVersionRange } from '@lazy-node/semver-ampersand/lib/handleVersionRange';
-import { reHandleVersionRange } from '@lazy-node/semver-ampersand/lib/const';
+import { handleAmpersandAndSpaces } from '@lazy-node/semver-ampersand/lib/handleAmpersandAndSpaces';
+import { reAmpersandAndSpaces } from '@lazy-node/semver-ampersand/lib/const';
 
 export function queryVersionWithCache(name: string, targetVersion: string = 'latest', options?: IOptionsQueryVersion<Options>): Bluebird<string>
 {
@@ -57,9 +57,9 @@ export function queryVersion(name: string, targetVersion: string = 'latest', sav
 				bool = false
 			}
 
-			if (reHandleVersionRange.test(version))
+			if (reAmpersandAndSpaces.test(version))
 			{
-				version = handleVersionRange(version)
+				version = handleAmpersandAndSpaces(version)
 
 				bool = false
 			}

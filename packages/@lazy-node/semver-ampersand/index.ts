@@ -1,5 +1,5 @@
 import { simplifyRange } from './lib/simplifyRange';
-import { handleVersionRange } from './lib/handleVersionRange';
+import { handleAmpersandAndSpaces } from './lib/handleAmpersandAndSpaces';
 import { satisfies } from './lib/satisfies';
 import { maxSatisfying } from './lib/maxSatisfying';
 import { minSatisfying } from './lib/minSatisfying';
@@ -8,7 +8,7 @@ import { Range } from './lib/Range';
 
 export type { Options as IOptions } from 'semver';
 
-export { reHandleVersionRange } from './lib/const';
+export { reAmpersandAndSpaces } from './lib/const';
 
 export {
 	satisfies,
@@ -19,7 +19,7 @@ export {
 	validRange,
 	simplifyRange,
 
-	handleVersionRange,
+	handleAmpersandAndSpaces,
 
 	Range,
 }
@@ -33,7 +33,7 @@ export default {
 	validRange,
 	simplifyRange,
 
-	handleVersionRange,
+	handleAmpersandAndSpaces,
 
 	Range,
 }

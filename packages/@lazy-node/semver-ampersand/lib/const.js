@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.reHandleVersionRange = void 0;
-exports.reHandleVersionRange = /[&\s]+/g;
+exports.reInvalidCharacter = exports.reAmpersandAndSpaces = void 0;
+exports.reAmpersandAndSpaces = /[&\s]+/g;
+exports.reInvalidCharacter = /[^\s\w.*\-><~!]/;
 //# sourceMappingURL=const.js.map
