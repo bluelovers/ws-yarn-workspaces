@@ -1,5 +1,11 @@
-import { existsSync, copySync, CopyOptionsSync, pathExistsSync } from 'fs-extra';
-import { resolve } from 'path';
+import {
+	existsSync,
+	copySync,
+	CopyOptionsSync,
+	pathExistsSync,
+	ensureDirSync,
+} from 'fs-extra';
+import { resolve, dirname } from 'path';
 
 const _defaultCopyStaticFiles = [
 
@@ -34,6 +40,8 @@ const _defaultCopyStaticFiles = [
 	['.npmrc.tpl', 'file/npmrc', '.npmrc'],
 
 	['tsdx.config.js.tpl', 'file/tsdx.config.js', 'tsdx.config.js'],
+
+	['.github/workflows/coverage.yml', 'file/github/workflows/coverage.yml'],
 
 ] as const;
 
@@ -159,6 +167,7 @@ export function copyStaticFiles<K extends string>(options: ICopyStaticFilesOptio
 				throw new Error(`file not exists. ${fb}`)
 			}
 
+			ensureDirSync(dirname(fa))
 			copySync(fb, fa, copyOptions);
 
 			return true;

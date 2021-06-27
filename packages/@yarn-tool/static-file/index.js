@@ -22,6 +22,7 @@ const _defaultCopyStaticFiles = [
     ['pnpm-workspace.yaml.tpl', 'file/pnpm-workspace.yaml', 'pnpm-workspace.yaml'],
     ['.npmrc.tpl', 'file/npmrc', '.npmrc'],
     ['tsdx.config.js.tpl', 'file/tsdx.config.js', 'tsdx.config.js'],
+    ['.github/workflows/coverage.yml', 'file/github/workflows/coverage.yml'],
 ];
 exports.defaultCopyStaticFiles = Object.freeze(_defaultCopyStaticFiles);
 function parseStaticMap(file_map) {
@@ -78,6 +79,7 @@ function copyStaticFiles(options) {
         if (!(0, fs_extra_1.existsSync)(fb)) {
             throw new Error(`file not exists. ${fb}`);
         }
+        (0, fs_extra_1.ensureDirSync)((0, path_1.dirname)(fa));
         (0, fs_extra_1.copySync)(fb, fa, copyOptions);
         return true;
     });
