@@ -10,6 +10,7 @@ const _defaultCopyStaticFiles = [
     ['.nvmrc', 'file/nvmrc'],
     ['.browserslistrc', 'file/browserslistrc'],
     ['tsconfig.json.tpl', 'file/tsconfig.json.tpl', 'tsconfig.json'],
+    ['test/tsconfig.json.tpl', 'file/test/tsconfig.json.tpl', 'test/tsconfig.json'],
     ['tsconfig.esm.json.tpl', 'file/tsconfig.esm.json.tpl', 'tsconfig.esm.json'],
     ['.eslintrc.json.tpl', 'file/eslintrc.json.tpl', '.eslintrc.json'],
     ['README.md', 'file/README.md'],
