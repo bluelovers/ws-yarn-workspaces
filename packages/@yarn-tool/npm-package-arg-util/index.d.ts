@@ -1,7 +1,7 @@
 import { AliasResult, FileResult, RegistryResult, HostedGitResult, URLResult } from 'npm-package-arg';
-import { IResult } from './lib/types';
+import { IResult, IResultType } from './lib/types';
 export type { AliasResult, FileResult, RegistryResult, HostedGitResult, URLResult };
-export type { IResult };
+export type { IResult, IResultType };
 export { getSemverFromNpaResult } from './lib/getSemverFromNpaResult';
 export declare function npa<T extends IResult>(arg: string, where?: string): T;
 export declare function npaTry<T extends IResult>(arg: string, where?: string): T;

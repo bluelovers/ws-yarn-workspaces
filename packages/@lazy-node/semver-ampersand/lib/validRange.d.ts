@@ -1,4 +1,6 @@
-import SemVer from 'semver/classes/semver';
-import { Options } from 'semver';
-export declare function validRange<T extends string | SemVer>(range: T | null | undefined, optionsOrLoose?: boolean | Options): string;
+import { IOptionsOrLoose } from './types';
+/**
+ * Return the valid range or null if it's not valid
+ */
+export declare function validRange(range: string, optionsOrLoose?: IOptionsOrLoose): string;
 export default validRange;

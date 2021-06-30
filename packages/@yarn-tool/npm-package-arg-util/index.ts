@@ -1,8 +1,8 @@
 import _npa, { AliasResult, FileResult, RegistryResult, HostedGitResult, URLResult } from 'npm-package-arg';
-import { IResult } from './lib/types';
+import { IResult, IResultType } from './lib/types';
 
 export type { AliasResult, FileResult, RegistryResult, HostedGitResult, URLResult }
-export type { IResult }
+export type { IResult, IResultType }
 
 export { getSemverFromNpaResult } from './lib/getSemverFromNpaResult';
 

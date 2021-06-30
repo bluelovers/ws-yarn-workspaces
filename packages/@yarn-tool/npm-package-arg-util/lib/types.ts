@@ -3,7 +3,7 @@ import { AliasResult, FileResult, RegistryResult, HostedGitResult, URLResult } f
 
 export interface IParsePackageName
 {
-	type: IResult["type"],
+	type: IResultType,
 	name: string;
 	scope: string;
 	subname: string;
@@ -12,3 +12,5 @@ export interface IParsePackageName
 }
 
 export type IResult = AliasResult | FileResult | RegistryResult | HostedGitResult | URLResult;
+
+export type IResultType = IResult["type"]

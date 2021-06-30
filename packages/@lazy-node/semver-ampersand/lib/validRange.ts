@@ -1,13 +1,35 @@
 import SemVer from 'semver/classes/semver';
-import { Options } from 'semver';
-import semverValidRange from 'semver/ranges/valid';
-import { handleAmpersandAndSpaces } from './handleAmpersandAndSpaces';
+import parseOptionsOrLoose from 'semver/internal/parse-options';
+import SemverRange from './Range';
+import { IOptionsOrLoose } from './types';
+import { hasInvalidCharacter } from './util/assert';
 
-export function validRange<T extends string | SemVer>(range: T | null | undefined,
-	optionsOrLoose?: boolean | Options,
-)
+/**
+ * Return the valid range or null if it's not valid
+ */
+export function validRange(range: string, optionsOrLoose?: IOptionsOrLoose)
 {
-	return semverValidRange(handleAmpersandAndSpaces(range) as any, optionsOrLoose)
+	optionsOrLoose = parseOptionsOrLoose(optionsOrLoose)
+
+	if (typeof range !== 'string')
+	{
+		throw new TypeError(`range should be string, but got ${range}`)
+	}
+
+	if (hasInvalidCharacter(range, optionsOrLoose))
+	{
+		return null
+	}
+
+	try
+	{
+		return new SemverRange(range, optionsOrLoose).toRangeString()
+	}
+	catch (er)
+	{
+		return null
+	}
+
 }
 
 export default validRange
