@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`range as argument to range ctor 1`] = `
+SemverRange {
+  "includePrerelease": false,
+  "loose": true,
+  "options": Object {
+    "includePrerelease": false,
+    "loose": true,
+  },
+  "range": "1.2.3",
+  "raw": "1.2.3",
+  "set": Array [
+    Array [
+      Comparator {
+        "loose": true,
+        "operator": "",
+        "options": Object {
+          "loose": true,
+        },
+        "semver": SemVer {
+          "build": Array [],
+          "includePrerelease": false,
+          "loose": true,
+          "major": 1,
+          "minor": 2,
+          "options": Object {
+            "loose": true,
+          },
+          "patch": 3,
+          "prerelease": Array [],
+          "raw": "1.2.3",
+          "version": "1.2.3",
+        },
+        "value": "1.2.3",
+      },
+    ],
+  ],
+}
+`;
+
+exports[`range as argument to range ctor 2`] = `
+SemverRange {
+  "includePrerelease": true,
+  "loose": false,
+  "options": Object {
+    "includePrerelease": true,
+    "loose": false,
+  },
+  "range": "1.2.3",
+  "raw": "1.2.3",
+  "set": Array [
+    Array [
+      Comparator {
+        "loose": false,
+        "operator": "",
+        "options": Object {
+          "includePrerelease": true,
+        },
+        "semver": SemVer {
+          "build": Array [],
+          "includePrerelease": false,
+          "loose": false,
+          "major": 1,
+          "minor": 2,
+          "options": Object {},
+          "patch": 3,
+          "prerelease": Array [],
+          "raw": "1.2.3",
+          "version": "1.2.3",
+        },
+        "value": "1.2.3",
+      },
+    ],
+  ],
+}
+`;
+
+exports[`range parsing >01.02.03 undefined null 1`] = `"Invalid comparator: >01.02.03"`;
+
+exports[`range parsing ~1.2.3beta undefined null 1`] = `"Invalid comparator: ~1.2.3beta"`;

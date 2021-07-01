@@ -1,5 +1,5 @@
 import SemVer from 'semver/classes/semver';
-import parseOptionsOrLoose from 'semver/internal/parse-options';
+import { parseOptionsOrLoose } from './internal/parseOptionsOrLoose';
 import SemverRange from './Range';
 import { IOptionsOrLoose } from './types';
 import { hasInvalidCharacter } from './util/assert';

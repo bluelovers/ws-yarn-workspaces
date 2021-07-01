@@ -49,6 +49,7 @@
   "dependencies": {
     "class-without-call-parent-constructor": "^2.0.1",
     "split-smartly2": "^1.1.10",
+    "ts-type": "^1.2.35",
     "tslib": "^2.3.0"
   }
 }

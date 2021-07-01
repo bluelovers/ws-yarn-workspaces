@@ -1,5 +1,5 @@
-import { IOptionsOrLoose } from '../types';
-import parseOptionsOrLoose from 'semver/internal/parse-options';
+import { IComparatorSetInput, IOptionsOrLoose } from '../types';
+import { parseOptionsOrLoose } from '../internal/parseOptionsOrLoose';
 import { reInvalidCharacter, reInvalidCharacterOrAmpersand } from '../const';
 
 export function hasInvalidCharacter(semver: string,
@@ -22,5 +22,13 @@ export function assertInvalidCharacter(semver: string,
 	if (m?.length)
 	{
 		throw new TypeError(`Invalid SemVer Character: '${m[0]}' at index ${m.index} of '${semver}'`)
+	}
+}
+
+export function assertInvalidComparatorSet(comparatorsSet: IComparatorSetInput, message?: string): asserts comparatorsSet is IComparatorSetInput
+{
+	if (!comparatorsSet?.length || !Array.isArray(comparatorsSet))
+	{
+		throw new TypeError(message ?? `Invalid ComparatorSet: ${comparatorsSet}`)
 	}
 }
