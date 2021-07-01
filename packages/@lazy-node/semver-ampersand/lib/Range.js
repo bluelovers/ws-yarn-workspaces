@@ -13,6 +13,7 @@ const toRangeString_1 = require("./range/toRangeString");
 const assert_1 = require("./util/assert");
 const fixComparatorSet_1 = require("./range/fixComparatorSet");
 const parseOptionsOrLoose_1 = require("./internal/parseOptionsOrLoose");
+const split_1 = require("./util/split");
 class SemverRange extends (0, class_without_call_parent_constructor_1.default)(range_1.default) {
     constructor(rawSource, optionsOrLoose) {
         // skip original semverRange constructor
@@ -34,8 +35,7 @@ class SemverRange extends (0, class_without_call_parent_constructor_1.default)(r
         this.format();
     }
     _buildComparatorsSet(range, options) {
-        let comparatorsSet = range
-            .split(/\s*\|\|\s*/)
+        let comparatorsSet = (0, split_1.splitDoubleVerticalBar)(range)
             // map the range to a 2d array of comparators
             .map(range => this.parseRange.call({
             // avoid false value to be cache key

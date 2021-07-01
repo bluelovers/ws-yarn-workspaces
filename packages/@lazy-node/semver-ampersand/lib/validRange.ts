@@ -9,27 +9,26 @@ import { hasInvalidCharacter } from './util/assert';
  */
 export function validRange(range: string, optionsOrLoose?: IOptionsOrLoose)
 {
-	optionsOrLoose = parseOptionsOrLoose(optionsOrLoose)
-
 	if (typeof range !== 'string')
 	{
 		throw new TypeError(`range should be string, but got ${range}`)
 	}
 
-	if (hasInvalidCharacter(range, optionsOrLoose))
-	{
-		return null
-	}
+	optionsOrLoose = parseOptionsOrLoose(optionsOrLoose)
 
 	try
 	{
-		return new SemverRange(range, optionsOrLoose).toRangeString()
+		if (!hasInvalidCharacter(range, optionsOrLoose))
+		{
+			return new SemverRange(range, optionsOrLoose).toRangeString()
+		}
 	}
 	catch (er)
 	{
-		return null
+
 	}
 
+	return null
 }
 
 export default validRange

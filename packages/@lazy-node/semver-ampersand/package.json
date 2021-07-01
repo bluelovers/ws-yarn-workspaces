@@ -29,12 +29,10 @@
   "main": "index.js",
   "scripts": {
     "lint": "ynpx --quiet eslint -- **/*.ts",
-    "test": "echo \"Error: no test specified\"",
-    "test:jest": "ynpx --quiet jest -- --coverage",
-    "test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
+    "test": "yarn run test:jest",
+    "test:jest": "jest",
     "preversion": "yarn run test",
     "prepublishOnly": "echo prepublishOnly",
-    "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
     "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
     "ncu": "yarn-tool ncu -u",
     "sort-package-json": "yarn-tool sort"
@@ -47,8 +45,8 @@
   },
   "gitHead": "02f74c14e885366e9be773564ea43f7425f9d97a",
   "dependencies": {
-    "class-without-call-parent-constructor": "^2.0.1",
-    "split-smartly2": "^1.1.10",
+    "class-without-call-parent-constructor": "^2.0.4",
+    "split-smartly2": "^1.1.11",
     "ts-type": "^1.2.35",
     "tslib": "^2.3.0"
   }

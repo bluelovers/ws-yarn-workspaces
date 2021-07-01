@@ -10,6 +10,7 @@ import { toRangeString } from './range/toRangeString';
 import { assertInvalidComparatorSet } from './util/assert';
 import { fixComparatorSet } from './range/fixComparatorSet';
 import { parseOptionsOrLoose } from './internal/parseOptionsOrLoose';
+import { splitDoubleVerticalBar } from './util/split';
 
 export class SemverRange<RAW extends ISemverRangeInput> extends classWithoutCallParentConstructor(semverRange)
 {
@@ -59,8 +60,7 @@ export class SemverRange<RAW extends ISemverRangeInput> extends classWithoutCall
 
 	protected _buildComparatorsSet(range: string, options: IOptions): IComparatorSetInput
 	{
-		let comparatorsSet = range
-			.split(/\s*\|\|\s*/)
+		let comparatorsSet = splitDoubleVerticalBar(range)
 			// map the range to a 2d array of comparators
 			.map(range => this.parseRange.call({
 				// avoid false value to be cache key

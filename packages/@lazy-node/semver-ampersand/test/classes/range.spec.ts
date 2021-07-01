@@ -1,13 +1,13 @@
 import { Comparator } from 'semver';
-import { SemverRange, Range } from '../../lib/Range';
+import { Range } from '../../lib/Range';
 
 import rangeIntersection from '../fixtures/range-intersection'
 import rangeInclude from '../fixtures/range-include'
 import rangeExclude from '../fixtures/range-exclude'
 import rangeParse from '../fixtures/range-parse'
-import { reDoubleVerticalBar, separatorDoubleVerticalBar } from '../../lib/const';
 
 import { inspect } from 'util';
+import { _replaceDoubleVerticalBar } from '../util';
 
 //jest.setTimeout(5000 * 10);
 
@@ -123,12 +123,3 @@ test('missing range parameter in range intersect', () =>
 	}).toThrowError(new TypeError('a Range is required'))
 })
 
-function _replaceDoubleVerticalBar(expected: string)
-{
-	if (expected != null)
-	{
-		return expected.replace(reDoubleVerticalBar, separatorDoubleVerticalBar)
-	}
-
-	return expected
-}
