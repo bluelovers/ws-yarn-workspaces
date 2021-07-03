@@ -45,6 +45,7 @@
   },
   "gitHead": "02f74c14e885366e9be773564ea43f7425f9d97a",
   "dependencies": {
+    "array-hyper-unique": "^1.1.9",
     "class-without-call-parent-constructor": "^2.0.4",
     "lru-cache2": "^6.0.7",
     "split-smartly2": "^1.1.11",

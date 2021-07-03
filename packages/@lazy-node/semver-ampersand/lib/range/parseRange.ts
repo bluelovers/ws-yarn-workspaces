@@ -5,6 +5,9 @@ import { IOptions } from '../types';
 import { caretTrimReplace, comparatorTrimReplace, re, t, tildeTrimReplace } from 'semver/internal/re'
 import debug from 'semver/internal/debug';
 import { hyphenReplace, parseComparator, replaceGTE0 } from './util';
+import { splitSpace } from '../util/split';
+import { array_unique_overwrite } from 'array-hyper-unique';
+import { reSpaces } from '../const';
 
 /**
  * memoize range parsing for performance.
@@ -15,12 +18,11 @@ export function getMemoOpts(options: IOptions)
 	return Object.keys(options).filter(k => options[k]).join(',')
 }
 
-export function parseRangeCore(range: string, options: IOptions): ReadonlyArray<Comparator>
+export function normalizeRangeInput(range: string, options: IOptions)
 {
-	const { loose, includePrerelease } = options
 	// `1.2.3 - 1.2.4` => `>=1.2.3 <=1.2.4`
-	const hr = loose ? re[t.HYPHENRANGELOOSE] : re[t.HYPHENRANGE]
-	range = range.replace(hr, hyphenReplace(includePrerelease))
+	const hr = options.loose ? re[t.HYPHENRANGELOOSE] : re[t.HYPHENRANGE]
+	range = range.replace(hr, hyphenReplace(options.includePrerelease))
 	debug('hyphen replace', range)
 	// `> 1.2.3 < 1.2.5` => `>1.2.3 <1.2.5`
 	range = range.replace(re[t.COMPARATORTRIM], comparatorTrimReplace)
@@ -33,29 +35,66 @@ export function parseRangeCore(range: string, options: IOptions): ReadonlyArray<
 	range = range.replace(re[t.CARETTRIM], caretTrimReplace)
 
 	// normalize spaces
-	range = range.split(/\s+/).join(' ')
+	range = range.replace(reSpaces, ' ')
+
+	return range
+}
+
+export function normalizeRangeInputForComparator(range: string, options: IOptions)
+{
+	let rangeList = splitSpace(range)
+		.map(comp => parseComparator(comp, options))
+	;
+
+	rangeList = splitSpace(rangeList.join(' '))
+		// >=0.0.0 is equivalent to *
+		.map(comp => replaceGTE0(comp, options))
+
+	return array_unique_overwrite(rangeList)
+}
+
+export function parseRangeCore(range: string, options: IOptions): ReadonlyArray<Comparator>
+{
+	range = normalizeRangeInput(range, options);
 
 	// At this point, the range is completely trimmed and
 	// ready to be split into comparators.
 
-	const compRe = loose ? re[t.COMPARATORLOOSE] : re[t.COMPARATOR]
-	const rangeList = range
-		.split(' ')
-		.map(comp => parseComparator(comp, options))
-		.join(' ')
-		.split(/\s+/)
-		// >=0.0.0 is equivalent to *
-		.map(comp => replaceGTE0(comp, options))
-		// in loose mode, throw out any that are not valid comparators
-		.filter(loose ? comp => !!comp.match(compRe) : () => true)
+	let rangeList = normalizeRangeInputForComparator(range, options)
+
+	if (options.loose)
+	{
+		rangeList = filterRangeListForComparator(rangeList, options)
+	}
+
+	let compList = rangeList
 		.map(comp => new Comparator(comp, options))
 
-	// if any comparators are the null set, then replace with JUST null set
-	// if more than one comparator, remove any * comparators
-	// also, don't include the same comparator more than once
-	const l = rangeList.length
+	const result = reduceComparatorList(compList)
+
+	return result
+}
+
+/**
+ * in loose mode, throw out any that are not valid comparators
+ */
+export function filterRangeListForComparator(rangeList: string[], options: IOptions)
+{
+	const compRe = options.loose ? re[t.COMPARATORLOOSE] : re[t.COMPARATOR]
+
+	return rangeList.filter(comp => !!comp.match(compRe))
+}
+
+/**
+ * if any comparators are the null set, then replace with JUST null set
+ * if more than one comparator, remove any * comparators
+ * also, don't include the same comparator more than once
+ */
+export function reduceComparatorList(compList: Comparator[])
+{
+	const l = compList.length
 	const rangeMap = new Map<string, Comparator>()
-	for (const comp of rangeList)
+	for (const comp of compList)
 	{
 		if (isNullSet(comp))
 		{
