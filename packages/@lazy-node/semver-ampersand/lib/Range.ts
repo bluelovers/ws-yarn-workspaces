@@ -63,18 +63,7 @@ export class SemverRange<RAW extends ISemverRangeInput> extends classWithoutCall
 	{
 		let comparatorsSet = splitDoubleVerticalBar(range)
 			// map the range to a 2d array of comparators
-			.map(range => this.parseRange.call({
-				// avoid false value to be cache key
-				options: Object.entries(options).reduce((a, b) => {
-
-					if (b[1])
-					{
-						a[b[0]] = b[1];
-					}
-
-					return a
-				}, {} as IOptions)
-			}, range.trim()))
+			.map(range => this.parseRange(range))
 			// throw out any comparator lists that are empty
 			// this generally means that it was not a valid range, which is allowed
 			// in loose mode, but will still throw if the WHOLE range is invalid.

@@ -6,24 +6,21 @@ import { caretTrimReplace, comparatorTrimReplace, re, t, tildeTrimReplace } from
 import debug from 'semver/internal/debug';
 import { hyphenReplace, parseComparator, replaceGTE0 } from './util';
 
-export function parseRange(range: string, options: IOptions): ReadonlyArray<Comparator>
+/**
+ * memoize range parsing for performance.
+ * this is a very hot path, and fully deterministic.
+ */
+export function getMemoOpts(options: IOptions)
 {
-	range = range.trim()
+	return Object.keys(options).filter(k => options[k]).join(',')
+}
 
-	// memoize range parsing for performance.
-	// this is a very hot path, and fully deterministic.
-	const memoOpts = Object.keys(options).join(',')
-	const memoKey = `parseRange:${memoOpts}:${range}`
-	const cached = cache.get(memoKey)
-	if (cached)
-	{
-		return cached
-	}
-
-	const loose = options.loose
+export function parseRangeCore(range: string, options: IOptions): ReadonlyArray<Comparator>
+{
+	const { loose, includePrerelease } = options
 	// `1.2.3 - 1.2.4` => `>=1.2.3 <=1.2.4`
 	const hr = loose ? re[t.HYPHENRANGELOOSE] : re[t.HYPHENRANGE]
-	range = range.replace(hr, hyphenReplace(options.includePrerelease))
+	range = range.replace(hr, hyphenReplace(includePrerelease))
 	debug('hyphen replace', range)
 	// `> 1.2.3 < 1.2.5` => `>1.2.3 <1.2.5`
 	range = range.replace(re[t.COMPARATORTRIM], comparatorTrimReplace)
@@ -50,14 +47,14 @@ export function parseRange(range: string, options: IOptions): ReadonlyArray<Comp
 		// >=0.0.0 is equivalent to *
 		.map(comp => replaceGTE0(comp, options))
 		// in loose mode, throw out any that are not valid comparators
-		.filter(options.loose ? comp => !!comp.match(compRe) : () => true)
+		.filter(loose ? comp => !!comp.match(compRe) : () => true)
 		.map(comp => new Comparator(comp, options))
 
 	// if any comparators are the null set, then replace with JUST null set
 	// if more than one comparator, remove any * comparators
 	// also, don't include the same comparator more than once
 	const l = rangeList.length
-	const rangeMap = new Map()
+	const rangeMap = new Map<string, Comparator>()
 	for (const comp of rangeList)
 	{
 		if (isNullSet(comp))
@@ -72,6 +69,26 @@ export function parseRange(range: string, options: IOptions): ReadonlyArray<Comp
 	}
 
 	const result = [...rangeMap.values()]
+
+	return result
+}
+
+export function parseRange(range: string, options: IOptions): ReadonlyArray<Comparator>
+{
+	range = range.trim()
+
+	// memoize range parsing for performance.
+	// this is a very hot path, and fully deterministic.
+	const memoOpts = getMemoOpts(options)
+	const memoKey = `parseRange:${memoOpts}:${range}`
+	const cached = cache.get(memoKey)
+	if (cached)
+	{
+		return cached
+	}
+
+	const result = parseRangeCore(range, options)
+
 	cache.set(memoKey, result)
 	return result
 }

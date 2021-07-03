@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.parseRange = void 0;
+exports.parseRange = exports.parseRangeCore = exports.getMemoOpts = void 0;
 const tslib_1 = require("tslib");
 const cache_1 = require("./cache");
 const semver_1 = require("semver");
@@ -8,20 +8,19 @@ const detect_1 = require("../comparator/detect");
 const re_1 = require("semver/internal/re");
 const debug_1 = (0, tslib_1.__importDefault)(require("semver/internal/debug"));
 const util_1 = require("./util");
-function parseRange(range, options) {
-    range = range.trim();
-    // memoize range parsing for performance.
-    // this is a very hot path, and fully deterministic.
-    const memoOpts = Object.keys(options).join(',');
-    const memoKey = `parseRange:${memoOpts}:${range}`;
-    const cached = cache_1.cache.get(memoKey);
-    if (cached) {
-        return cached;
-    }
-    const loose = options.loose;
+/**
+ * memoize range parsing for performance.
+ * this is a very hot path, and fully deterministic.
+ */
+function getMemoOpts(options) {
+    return Object.keys(options).filter(k => options[k]).join(',');
+}
+exports.getMemoOpts = getMemoOpts;
+function parseRangeCore(range, options) {
+    const { loose, includePrerelease } = options;
     // `1.2.3 - 1.2.4` => `>=1.2.3 <=1.2.4`
     const hr = loose ? re_1.re[re_1.t.HYPHENRANGELOOSE] : re_1.re[re_1.t.HYPHENRANGE];
-    range = range.replace(hr, (0, util_1.hyphenReplace)(options.includePrerelease));
+    range = range.replace(hr, (0, util_1.hyphenReplace)(includePrerelease));
     (0, debug_1.default)('hyphen replace', range);
     // `> 1.2.3 < 1.2.5` => `>1.2.3 <1.2.5`
     range = range.replace(re_1.re[re_1.t.COMPARATORTRIM], re_1.comparatorTrimReplace);
@@ -43,7 +42,7 @@ function parseRange(range, options) {
         // >=0.0.0 is equivalent to *
         .map(comp => (0, util_1.replaceGTE0)(comp, options))
         // in loose mode, throw out any that are not valid comparators
-        .filter(options.loose ? comp => !!comp.match(compRe) : () => true)
+        .filter(loose ? comp => !!comp.match(compRe) : () => true)
         .map(comp => new semver_1.Comparator(comp, options));
     // if any comparators are the null set, then replace with JUST null set
     // if more than one comparator, remove any * comparators
@@ -60,6 +59,20 @@ function parseRange(range, options) {
         rangeMap.delete('');
     }
     const result = [...rangeMap.values()];
+    return result;
+}
+exports.parseRangeCore = parseRangeCore;
+function parseRange(range, options) {
+    range = range.trim();
+    // memoize range parsing for performance.
+    // this is a very hot path, and fully deterministic.
+    const memoOpts = getMemoOpts(options);
+    const memoKey = `parseRange:${memoOpts}:${range}`;
+    const cached = cache_1.cache.get(memoKey);
+    if (cached) {
+        return cached;
+    }
+    const result = parseRangeCore(range, options);
     cache_1.cache.set(memoKey, result);
     return result;
 }
