@@ -1,7 +1,7 @@
 import semverRange from 'semver/classes/range';
 import { IComparatorSet, IComparatorSetInput, IOptions, IOptionsOrLoose, ISemverRangeInput } from './types';
 import { Comparator } from 'semver';
-declare const SemverRange_base: new () => semverRange;
+declare const SemverRange_base: typeof semverRange & (new () => semverRange);
 export declare class SemverRange<RAW extends ISemverRangeInput> extends SemverRange_base {
     readonly rawSource?: RAW;
     readonly range: string;
@@ -12,6 +12,7 @@ export declare class SemverRange<RAW extends ISemverRangeInput> extends SemverRa
     readonly includePrerelease: boolean;
     constructor(rawSource: RAW, optionsOrLoose?: IOptionsOrLoose);
     protected _buildComparatorsSet(range: string, options: IOptions): IComparatorSetInput;
+    parseRange(range: string): readonly Comparator[];
     protected _inherit(range: ISemverRangeInput, options: IOptions): {
         range: string;
         options: IOptions;

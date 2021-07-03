@@ -14,6 +14,7 @@ const assert_1 = require("./util/assert");
 const fixComparatorSet_1 = require("./range/fixComparatorSet");
 const parseOptionsOrLoose_1 = require("./internal/parseOptionsOrLoose");
 const split_1 = require("./util/split");
+const parseRange_1 = require("./range/parseRange");
 class SemverRange extends (0, class_without_call_parent_constructor_1.default)(range_1.default) {
     constructor(rawSource, optionsOrLoose) {
         // skip original semverRange constructor
@@ -51,6 +52,9 @@ class SemverRange extends (0, class_without_call_parent_constructor_1.default)(r
             // in loose mode, but will still throw if the WHOLE range is invalid.
             .filter(c => c.length);
         return comparatorsSet;
+    }
+    parseRange(range) {
+        return (0, parseRange_1.parseRange)(range, this.options);
     }
     _inherit(range, options) {
         let set;

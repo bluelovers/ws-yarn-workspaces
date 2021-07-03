@@ -11,6 +11,7 @@ import { assertInvalidComparatorSet } from './util/assert';
 import { fixComparatorSet } from './range/fixComparatorSet';
 import { parseOptionsOrLoose } from './internal/parseOptionsOrLoose';
 import { splitDoubleVerticalBar } from './util/split';
+import { parseRange } from './range/parseRange';
 
 export class SemverRange<RAW extends ISemverRangeInput> extends classWithoutCallParentConstructor(semverRange)
 {
@@ -81,6 +82,11 @@ export class SemverRange<RAW extends ISemverRangeInput> extends classWithoutCall
 		;
 
 		return comparatorsSet
+	}
+
+	override parseRange(range: string)
+	{
+		return parseRange(range, this.options)
 	}
 
 	protected _inherit(range: ISemverRangeInput, options: IOptions)
