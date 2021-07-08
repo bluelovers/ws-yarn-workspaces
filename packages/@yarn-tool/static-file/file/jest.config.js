@@ -6,14 +6,15 @@ function _requireResolve(name)
 	{
 		const { requireResolveExtra, requireResolveCore } = require('@yarn-tool/require-resolve');
 
-		const tsdx_path = requireResolveExtra('tsdx').result;
+		const paths = [
+			requireResolveExtra('@bluelovers/tsdx').result,
+			requireResolveExtra('tsdx').result,
+		].filter(Boolean);
 
 		result = requireResolveCore(name, {
 			includeGlobal: true,
 			includeCurrentDirectory: true,
-			paths: [
-				tsdx_path,
-			],
+			paths,
 		})
 	}
 	catch (e)
