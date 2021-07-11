@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/ncu",
-  "version": "1.0.66",
+  "version": "1.0.67",
   "description": "",
   "keywords": [
     "cli",
@@ -42,12 +42,12 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@lazy-node/semver-simple-parse": "^1.1.8",
+    "@lazy-node/semver-simple-parse": "^1.1.10",
     "@ts-type/package-dts": "^1.0.46",
-    "@yarn-tool/pkg-version-query": "^1.0.23",
-    "@yarn-tool/semver-diff": "^1.0.19",
-    "@yarn-tool/table": "^1.0.27",
-    "@yarn-tool/yarnlock": "^1.0.53",
+    "@yarn-tool/pkg-version-query": "^1.0.25",
+    "@yarn-tool/semver-diff": "^1.0.21",
+    "@yarn-tool/table": "^1.0.29",
+    "@yarn-tool/yarnlock": "^1.0.54",
     "bluebird": "^3.7.2",
     "npm-check-updates": "^11.8.2",
     "npm-package-arg": "^8.1.5",

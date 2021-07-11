@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.160](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.159...npm-init2@1.0.160) (2021-07-11)
+
+
+### ✨　Features
+
+* init add tslib ([5682820](https://github.com/bluelovers/npm-init2/commit/568282042e0a51386959f0d36515d6bfbaecc6d8))
+
+
+### 🛠　Build System
+
+* use tslib ([a172f5b](https://github.com/bluelovers/npm-init2/commit/a172f5b85b6b74256ebc8707435e0756adfd533a))
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([c5a9fc4](https://github.com/bluelovers/npm-init2/commit/c5a9fc47e24cc599de16024f960b6dff12741d2f))
+
+
+
+
+
 ## [1.0.159](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.158...npm-init2@1.0.159) (2021-06-21)
 
 

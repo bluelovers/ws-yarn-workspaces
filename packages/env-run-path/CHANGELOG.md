@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.47](https://github.com/bluelovers/ws-yarn-workspaces/compare/env-run-path@1.0.45...env-run-path@1.0.47) (2021-07-11)
+
+
+### 🛠　Build System
+
+* use tslib ([a172f5b](https://github.com/bluelovers/ws-yarn-workspaces/commit/a172f5b85b6b74256ebc8707435e0756adfd533a))
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([7e1b9e9](https://github.com/bluelovers/ws-yarn-workspaces/commit/7e1b9e976a1c4187a256ec8be0b0b1b15566bf77))
+
+
+### 🔖　Miscellaneous
+
+* . ([992892b](https://github.com/bluelovers/ws-yarn-workspaces/commit/992892bbf110cad2a8ee559521fc64506700e228))
+
+
+
+
+
 ## [1.0.46](https://github.com/bluelovers/ws-yarn-workspaces/compare/env-run-path@1.0.45...env-run-path@1.0.46) (2021-07-11)
 
 

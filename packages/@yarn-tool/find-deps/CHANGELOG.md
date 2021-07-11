@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.33](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-deps@1.0.31...@yarn-tool/find-deps@1.0.33) (2021-07-11)
+
+
+### 🛠　Build System
+
+* use tslib ([a172f5b](https://github.com/bluelovers/ws-yarn-workspaces/commit/a172f5b85b6b74256ebc8707435e0756adfd533a))
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([c5a9fc4](https://github.com/bluelovers/ws-yarn-workspaces/commit/c5a9fc47e24cc599de16024f960b6dff12741d2f))
+
+
+### 🔖　Miscellaneous
+
+* . ([992892b](https://github.com/bluelovers/ws-yarn-workspaces/commit/992892bbf110cad2a8ee559521fc64506700e228))
+
+
+
+
+
 ## [1.0.32](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-deps@1.0.31...@yarn-tool/find-deps@1.0.32) (2021-07-11)
 
 
