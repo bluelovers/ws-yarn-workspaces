@@ -193,11 +193,11 @@ function replaceXRange(comp, options) {
         if (xM) {
             if (gtlt === '>' || gtlt === '<') {
                 // nothing is allowed
-                ret = '<0.0.0-0';
+                ret = "<0.0.0-0" /* NULL */;
             }
             else {
                 // nothing is forbidden
-                ret = '*';
+                ret = "*" /* STAR */;
             }
         }
         else if (gtlt && anyX) {

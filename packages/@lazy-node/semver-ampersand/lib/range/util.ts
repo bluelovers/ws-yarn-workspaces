@@ -1,5 +1,6 @@
 import { re, t } from 'semver/internal/re';
 import { IOptions } from '../types';
+import { EnumSemverVersion } from '../const';
 
 /**
  * This function is passed to string.replace(re[t.HYPHENRANGE])
@@ -271,12 +272,12 @@ export function replaceXRange(comp: string, options: IOptions)
 			if (gtlt === '>' || gtlt === '<')
 			{
 				// nothing is allowed
-				ret = '<0.0.0-0'
+				ret = EnumSemverVersion.NULL
 			}
 			else
 			{
 				// nothing is forbidden
-				ret = '*'
+				ret = EnumSemverVersion.STAR
 			}
 		}
 		else if (gtlt && anyX)

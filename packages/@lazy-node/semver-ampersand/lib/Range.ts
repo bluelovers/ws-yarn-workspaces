@@ -129,13 +129,13 @@ export class SemverRange<RAW extends ISemverRangeInput> extends classWithoutCall
 
 	protected _inheritOptions(options: IOptions)
 	{
-		(this as semverRange).options = options;
+		(this as any as semverRange).options = options;
 		_copyOptions(this, options);
 	}
 
 	override format()
 	{
-		(this as semverRange).range = stringifyComparatorsSet(this.set);
+		(this as any as semverRange).range = stringifyComparatorsSet(this.set);
 		return this.range
 	}
 

@@ -5,9 +5,11 @@ import { IOptions } from '../types';
 import { caretTrimReplace, comparatorTrimReplace, re, t, tildeTrimReplace } from 'semver/internal/re'
 import debug from 'semver/internal/debug';
 import { hyphenReplace, parseComparator, replaceGTE0 } from './util';
-import { splitSpace } from '../util/split';
+import { splitDoubleVerticalBar, splitSpace } from '../util/split';
 import { array_unique_overwrite } from 'array-hyper-unique';
 import { reSpaces } from '../const';
+import { handleAmpersandAndSpaces } from '../handleAmpersandAndSpaces';
+import { array_sub_map } from '../util/array';
 
 /**
  * memoize range parsing for performance.
@@ -131,3 +133,23 @@ export function parseRange(range: string, options: IOptions): ReadonlyArray<Comp
 	cache.set(memoKey, result)
 	return result
 }
+
+export function buildRangeSet(range: string, options: IOptions = {})
+{
+	range = handleAmpersandAndSpaces(range, options);
+
+	let rangeSet = splitDoubleVerticalBar(range)
+		// map the range to a 2d array of comparators
+		.map(range => {
+			range = normalizeRangeInput(range, options);
+
+			return splitSpace(range)
+		})
+	;
+
+	rangeSet = array_unique_overwrite(rangeSet)
+
+	return rangeSet
+}
+
+

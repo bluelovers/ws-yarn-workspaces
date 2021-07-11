@@ -19,3 +19,4 @@ export declare function filterRangeListForComparator(rangeList: string[], option
  */
 export declare function reduceComparatorList(compList: Comparator[]): Comparator[];
 export declare function parseRange(range: string, options: IOptions): ReadonlyArray<Comparator>;
+export declare function buildRangeSet(range: string, options?: IOptions): string[][];

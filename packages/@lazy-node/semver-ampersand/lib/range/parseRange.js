@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.parseRange = exports.reduceComparatorList = exports.filterRangeListForComparator = exports.parseRangeCore = exports.normalizeRangeInputForComparator = exports.normalizeRangeInput = exports.getMemoOpts = void 0;
+exports.buildRangeSet = exports.parseRange = exports.reduceComparatorList = exports.filterRangeListForComparator = exports.parseRangeCore = exports.normalizeRangeInputForComparator = exports.normalizeRangeInput = exports.getMemoOpts = void 0;
 const tslib_1 = require("tslib");
 const cache_1 = require("./cache");
 const semver_1 = require("semver");
@@ -11,6 +11,7 @@ const util_1 = require("./util");
 const split_1 = require("../util/split");
 const array_hyper_unique_1 = require("array-hyper-unique");
 const const_1 = require("../const");
+const handleAmpersandAndSpaces_1 = require("../handleAmpersandAndSpaces");
 /**
  * memoize range parsing for performance.
  * this is a very hot path, and fully deterministic.
@@ -103,4 +104,16 @@ function parseRange(range, options) {
     return result;
 }
 exports.parseRange = parseRange;
+function buildRangeSet(range, options = {}) {
+    range = (0, handleAmpersandAndSpaces_1.handleAmpersandAndSpaces)(range, options);
+    let rangeSet = (0, split_1.splitDoubleVerticalBar)(range)
+        // map the range to a 2d array of comparators
+        .map(range => {
+        range = normalizeRangeInput(range, options);
+        return (0, split_1.splitSpace)(range);
+    });
+    rangeSet = (0, array_hyper_unique_1.array_unique_overwrite)(rangeSet);
+    return rangeSet;
+}
+exports.buildRangeSet = buildRangeSet;
 //# sourceMappingURL=parseRange.js.map
