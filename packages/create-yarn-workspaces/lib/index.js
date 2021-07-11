@@ -11,7 +11,7 @@ function getDefaultPackageJson(name) {
         ],
         keywords: [],
         "scripts": {
-            "preversion": "echo preversion",
+            "preversion": "yt ws run test",
             "lerna:publish": "yarn run prepublishOnly:root && lerna publish && yarn run postpublishOnly",
             "lerna:publish:yes": "yarn run prepublishOnly:root && lerna publish --yes --bump patch && yarn run postpublishOnly",
             "prepublishOnly": "echo prepublishOnly",
