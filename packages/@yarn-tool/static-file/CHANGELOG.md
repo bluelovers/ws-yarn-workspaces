@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.63](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.62...@yarn-tool/static-file@1.0.63) (2021-07-11)
+
+
+### ✨　Features
+
+* add importHelpers ([1532684](https://github.com/bluelovers/ws-yarn-workspaces/commit/1532684212584bffdbf92494807aab6a90d45232))
+* update jest.config.js ([6e3515a](https://github.com/bluelovers/ws-yarn-workspaces/commit/6e3515a4040a8a36e545c2b6e87968aa5d432465))
+* test/tsconfig.json ([26d3744](https://github.com/bluelovers/ws-yarn-workspaces/commit/26d3744db11fe86e8aa20863a52e192da96871aa))
+* add ``.github/workflows/coverage.yml` ([1f97142](https://github.com/bluelovers/ws-yarn-workspaces/commit/1f97142a1db71365c28be7d1782f6f11fa02a846))
+
+
+### 🛠　Build System
+
+* use tslib ([a172f5b](https://github.com/bluelovers/ws-yarn-workspaces/commit/a172f5b85b6b74256ebc8707435e0756adfd533a))
+
+
+
+
+
 ## [1.0.62](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.61...@yarn-tool/static-file@1.0.62) (2021-06-21)
 
 

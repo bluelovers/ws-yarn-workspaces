@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarnlock-parse",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "",
   "keywords": [
     "yarn",
@@ -38,8 +38,8 @@
   },
   "dependencies": {
     "@ts-type/package-dts": "^1.0.46",
-    "@yarn-tool/detect-yarnlock-version": "^1.0.7",
-    "@yarn-tool/yarnlock-error": "^1.0.1",
+    "@yarn-tool/detect-yarnlock-version": "^1.0.8",
+    "@yarn-tool/yarnlock-error": "^1.0.2",
     "@yarnpkg/lockfile": "^1.1.0",
     "@yarnpkg/parsers": "^2.3.0",
     "tslib": "^2.3.0"

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.12](https://github.com/bluelovers/ws-yarn-workspaces/compare/cache-path@2.0.11...cache-path@2.0.12) (2021-07-11)
+
+
+### 🛠　Build System
+
+* use tslib ([a172f5b](https://github.com/bluelovers/ws-yarn-workspaces/commit/a172f5b85b6b74256ebc8707435e0756adfd533a))
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([c5a9fc4](https://github.com/bluelovers/ws-yarn-workspaces/commit/c5a9fc47e24cc599de16024f960b6dff12741d2f))
+
+
+
+
+
 ## [2.0.11](https://github.com/bluelovers/ws-yarn-workspaces/compare/cache-path@2.0.10...cache-path@2.0.11) (2021-06-21)
 
 

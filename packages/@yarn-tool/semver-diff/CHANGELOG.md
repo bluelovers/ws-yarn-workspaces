@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.20](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/semver-diff@1.0.19...@yarn-tool/semver-diff@1.0.20) (2021-07-11)
+
+
+### 🛠　Build System
+
+* use tslib ([a172f5b](https://github.com/bluelovers/ws-yarn-workspaces/commit/a172f5b85b6b74256ebc8707435e0756adfd533a))
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([7e1b9e9](https://github.com/bluelovers/ws-yarn-workspaces/commit/7e1b9e976a1c4187a256ec8be0b0b1b15566bf77))
+
+
+
+
+
 ## [1.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/semver-diff@1.0.18...@yarn-tool/semver-diff@1.0.19) (2021-06-21)
 
 

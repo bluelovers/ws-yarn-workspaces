@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/is-builtin-module",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/is-builtin-module#readme",
   "bugs": {

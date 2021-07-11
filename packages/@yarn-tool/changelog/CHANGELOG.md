@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.46](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/changelog@1.0.45...@yarn-tool/changelog@1.0.46) (2021-07-11)
+
+
+### 🛠　Build System
+
+* use tslib ([a172f5b](https://github.com/bluelovers/ws-yarn-workspaces/commit/a172f5b85b6b74256ebc8707435e0756adfd533a))
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([c5a9fc4](https://github.com/bluelovers/ws-yarn-workspaces/commit/c5a9fc47e24cc599de16024f960b6dff12741d2f))
+
+
+
+
+
 ## [1.0.45](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/changelog@1.0.44...@yarn-tool/changelog@1.0.45) (2021-06-21)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.50](https://github.com/bluelovers/node-package-json-loader/compare/npm-package-json-loader@1.0.49...npm-package-json-loader@1.0.50) (2021-07-11)
+
+
+### 🛠　Build System
+
+* use tslib ([a172f5b](https://github.com/bluelovers/node-package-json-loader/commit/a172f5b85b6b74256ebc8707435e0756adfd533a))
+
+
+
+
+
 ## [1.0.49](https://github.com/bluelovers/node-package-json-loader/compare/npm-package-json-loader@1.0.48...npm-package-json-loader@1.0.49) (2021-06-21)
 
 

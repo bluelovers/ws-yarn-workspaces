@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/sort-package-json-scripts@1.1.6...sort-package-json-scripts@1.1.7) (2021-07-11)
+
+
+### 🛠　Build System
+
+* use tslib ([a172f5b](https://github.com/bluelovers/ws-yarn-workspaces/commit/a172f5b85b6b74256ebc8707435e0756adfd533a))
+
+
+
+
+
 ## [1.1.6](https://github.com/bluelovers/ws-yarn-workspaces/compare/sort-package-json-scripts@1.1.5...sort-package-json-scripts@1.1.6) (2021-06-02)
 
 
