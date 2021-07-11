@@ -37,7 +37,7 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "crlf-normalize": "^1.0.5",
+    "crlf-normalize": "^1.0.6",
     "tslib": "^2.3.0"
   },
   "publishConfig": {

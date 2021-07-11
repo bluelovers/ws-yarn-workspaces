@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@git-lazy/info": "^1.0.25",
-    "@types/hosted-git-info": "^3.0.1",
+    "@types/hosted-git-info": "^3.0.2",
     "hosted-git-info": "^4.0.2",
     "tslib": "^2.3.0"
   },
