@@ -46,7 +46,7 @@
     "@yarn-tool/shebang": "^1.0.4",
     "@yarn-tool/table": "^1.0.27",
     "cli-table3": "^0.6.0",
-    "debug-color2": "^1.2.3",
+    "debug-color2": "^1.2.5",
     "fs-extra": "^10.0.0",
     "pkg-dir": "^5.0.0",
     "tslib": "^2.3.0",

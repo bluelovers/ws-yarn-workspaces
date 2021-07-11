@@ -54,7 +54,7 @@
     "@yarn-tool/yarnlock-stringify": "^1.0.6",
     "@yarnpkg/lockfile": "^1.1.0",
     "@yarnpkg/parsers": "^2.3.0",
-    "debug-color2": "^1.2.3",
+    "debug-color2": "^1.2.5",
     "fs-extra": "^10.0.0",
     "semver": "^7.3.5",
     "ts-type": "^1.2.35",

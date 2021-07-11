@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@lazy-node/semver-part": "^1.0.8",
-    "debug-color2": "^1.2.3",
+    "debug-color2": "^1.2.5",
     "ts-type": "^1.2.35",
     "tslib": "^2.3.0"
   },
@@ -46,7 +46,7 @@
     "chalk": "< 3 && >= 2"
   },
   "peerDependencies": {
-    "debug-color2": "^1.2.3"
+    "debug-color2": "^1.2.5"
   },
   "publishConfig": {
     "access": "public"
