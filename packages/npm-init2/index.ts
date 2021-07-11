@@ -307,6 +307,10 @@ if (!cp.error)
 		}
 		else
 		{
+			pkg.data.scripts ??= {};
+			pkg.data.scripts.test ??= "echo \"Error: no test specified\""
+			pkg.data.scripts.preversion ??= "echo preversion && yarn run test";
+
 			Object
 				.entries(sharedScript)
 				.forEach(([k, v]) =>

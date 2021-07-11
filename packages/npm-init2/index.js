@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 "use strict";
-var _a, _b, _c, _d, _e, _f, _g;
+var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
+var _l, _m, _o;
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const yargs_1 = (0, tslib_1.__importDefault)(require("yargs"));
@@ -215,6 +216,9 @@ if (!cp.error) {
             });
         }
         else {
+            (_g = (_l = pkg.data).scripts) !== null && _g !== void 0 ? _g : (_l.scripts = {});
+            (_h = (_m = pkg.data.scripts).test) !== null && _h !== void 0 ? _h : (_m.test = "echo \"Error: no test specified\"");
+            (_j = (_o = pkg.data.scripts).preversion) !== null && _j !== void 0 ? _j : (_o.preversion = "echo preversion && yarn run test");
             Object
                 .entries(sharedScript)
                 .forEach(([k, v]) => {
@@ -262,7 +266,7 @@ if (!cp.error) {
         }
         if (wsProject && !isWorkspace) {
             const rootKeywords = wsProject.manifest.toJSON().keywords;
-            if (!((_g = pkg.data.keywords) === null || _g === void 0 ? void 0 : _g.length) && (rootKeywords === null || rootKeywords === void 0 ? void 0 : rootKeywords.length)) {
+            if (!((_k = pkg.data.keywords) === null || _k === void 0 ? void 0 : _k.length) && (rootKeywords === null || rootKeywords === void 0 ? void 0 : rootKeywords.length)) {
                 pkg.data.keywords = rootKeywords.slice();
             }
         }
