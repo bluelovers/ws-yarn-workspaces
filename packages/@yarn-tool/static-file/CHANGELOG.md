@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.65](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.64...@yarn-tool/static-file@1.0.65) (2021-07-11)
+
+
+### ✨　Features
+
+* **jest:** https://github.com/facebook/jest/issues/9771#issuecomment-872764344 ([a8b61fc](https://github.com/bluelovers/ws-yarn-workspaces/commit/a8b61fc7c9dd2ebf3ffbe816649f3f4478ee5c48)), closes [/github.com/facebook/jest/issues/9771#issuecomment-872764344](https://github.com//github.com/facebook/jest/issues/9771/issues/issuecomment-872764344)
+
+
+
+
+
 ## [1.0.64](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.62...@yarn-tool/static-file@1.0.64) (2021-07-11)
 
 

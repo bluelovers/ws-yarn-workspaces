@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.161](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.160...npm-init2@1.0.161) (2021-07-11)
+
+
+### ✨　Features
+
+* add `test` `preversion` if not exists ([21d88a8](https://github.com/bluelovers/npm-init2/commit/21d88a87b55cc7e870e8ccf5e59014a756fa3149))
+
+
+
+
+
 ## [1.0.160](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.159...npm-init2@1.0.160) (2021-07-11)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "cache-path",
-  "version": "2.0.13",
+  "version": "2.0.14",
   "description": "return a cache directory, like `find-cache-dir` do",
   "keywords": [
     "cache",

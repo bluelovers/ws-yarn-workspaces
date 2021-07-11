@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.108](https://github.com/bluelovers/create-yarn-workspaces/compare/create-yarn-workspaces@1.0.107...create-yarn-workspaces@1.0.108) (2021-07-11)
+
+
+### ✨　Features
+
+* `preversion` run `yt ws run test` ([4a9f1db](https://github.com/bluelovers/create-yarn-workspaces/commit/4a9f1dbdc416bbb9aa3798ccfedaaebc131d9380))
+
+
+
+
+
 ## [1.0.107](https://github.com/bluelovers/create-yarn-workspaces/compare/create-yarn-workspaces@1.0.105...create-yarn-workspaces@1.0.107) (2021-07-11)
 
 
