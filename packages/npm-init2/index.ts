@@ -254,7 +254,6 @@ if (!cp.error)
 				...sharedScript,
 				"npm:publish": "npm publish",
 				"npm:publish:bump": "yarn-tool version && npm publish",
-				"npm:publish:lerna": "lerna publish --yes --bump patch",
 				"postpublish:git:commit": `git commit -m "chore(release): publish" . & echo postpublish:git:commit`,
 				"postpublish:git:tag": `ynpx --quiet @yarn-tool/tag`,
 				"postpublish:changelog": `ynpx --quiet @yarn-tool/changelog && git add ./CHANGELOG.md`,
@@ -375,6 +374,8 @@ if (!cp.error)
 				pkg.data.devDependencies['@bluelovers/tsconfig'] = findVersion('@bluelovers/tsconfig');
 				pkg.data.devDependencies['@types/node'] = findVersion('@types/node');
 			}
+
+			pkg.data.dependencies['tslib'] = findVersion('tslib');
 		}
 
 		if (wsProject && !isWorkspace)
