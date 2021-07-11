@@ -1,7 +1,7 @@
 /// <reference types="node" />
-import { BaseEncodingOptions } from "fs";
+import { ObjectEncodingOptions } from "fs";
 export declare type IBufferOrString = Buffer | string;
-export interface IOptionsReadFile extends BaseEncodingOptions {
+export interface IOptionsReadFile extends ObjectEncodingOptions {
     flag?: string;
 }
 export interface IFsYarnLockReturnType {

@@ -1,4 +1,3 @@
-import { BaseEncodingOptions } from "fs";
 import { existsYarnLockFile } from './existsYarnLockFile';
 import { readFileSync } from 'fs-extra';
 import { notEmpty } from './notEmpty';

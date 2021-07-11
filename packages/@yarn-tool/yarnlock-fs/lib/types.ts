@@ -1,8 +1,8 @@
-import { BaseEncodingOptions } from "fs";
+import { ObjectEncodingOptions } from "fs";
 
 export type IBufferOrString = Buffer | string;
 
-export interface IOptionsReadFile extends BaseEncodingOptions
+export interface IOptionsReadFile extends ObjectEncodingOptions
 {
 	flag?: string;
 }
