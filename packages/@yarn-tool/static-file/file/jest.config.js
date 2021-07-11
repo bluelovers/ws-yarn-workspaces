@@ -52,4 +52,8 @@ module.exports = {
 	 */
 	coverageProvider: 'v8',
 	collectCoverage: false,
+	/**
+	 * https://github.com/facebook/jest/issues/9771#issuecomment-872764344
+	 */
+	//resolver: 'jest-node-exports-resolver',
 }
