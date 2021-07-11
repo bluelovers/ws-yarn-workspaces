@@ -13,11 +13,15 @@ function normalizeName(name, hash) {
         }
         return (0, hash_sum_1.default)(name);
     }
-    return name
+    const normalized = name
         .trim()
         .replace(/[^\w\-\.]/g, '_')
         .replace(/\.+/g, '_')
         .replace(/_+/g, '_');
+    if (!/[^_]/.test(normalized)) {
+        throw new Error(`unsafe normalizeName { ${name} => ${normalized} }`);
+    }
+    return normalized;
 }
 exports.normalizeName = normalizeName;
 //# sourceMappingURL=normalizeName.js.map
