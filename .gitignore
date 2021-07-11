@@ -82,3 +82,4 @@ tsconfig.tsbuildinfo
 *.map
 
 !jest.config.js
+/test/my-db/
