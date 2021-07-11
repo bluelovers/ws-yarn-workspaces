@@ -29,6 +29,9 @@ export function getDefaultPackageJson(name?: string): IPackageJson
 			"test": "yarn-tool ws run test",
 			"install:reset-lockfile": "yarn-tool install --reset-lockfile",
 		},
+		"dependencies": {
+			"tslib": "^2.3.0"
+		},
 		"devDependencies": {
 			"@bluelovers/tsconfig": "^1.0.20",
 			"@types/node": "*",
