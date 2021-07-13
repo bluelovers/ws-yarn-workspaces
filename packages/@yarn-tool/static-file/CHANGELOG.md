@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.66](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.65...@yarn-tool/static-file@1.0.66) (2021-07-13)
+
+
+### 🐛　Bug Fixes
+
+* Error: file not exists. [@yarn-tool](https://github.com/yarn-tool)\static-file\file\test\tsconfig.json.tpl ([9975d8e](https://github.com/bluelovers/ws-yarn-workspaces/commit/9975d8ed8197be2004c731622cbd3daa9d077809))
+
+
+
+
+
 ## [1.0.65](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.64...@yarn-tool/static-file@1.0.65) (2021-07-11)
 
 
