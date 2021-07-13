@@ -65,3 +65,7 @@ jest.config.js
 /stories
 /.storybook
 /tsdx.config.*
+!/file/test
+!/file/test/*
+!/file/github
+!/file/github/*
