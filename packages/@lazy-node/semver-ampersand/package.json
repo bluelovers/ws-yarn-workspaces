@@ -37,19 +37,19 @@
     "ncu": "yarn-tool ncu -u",
     "sort-package-json": "yarn-tool sort"
   },
+  "dependencies": {
+    "array-hyper-unique": "^1.1.10",
+    "class-without-call-parent-constructor": "^2.0.4",
+    "lru-cache2": "^6.0.7",
+    "split-smartly2": "^1.1.11",
+    "ts-type": "^1.2.36",
+    "tslib": "^2.3.0"
+  },
   "peerDependencies": {
     "semver": "*"
   },
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "02f74c14e885366e9be773564ea43f7425f9d97a",
-  "dependencies": {
-    "array-hyper-unique": "^1.1.10",
-    "class-without-call-parent-constructor": "^2.0.4",
-    "lru-cache2": "^6.0.7",
-    "split-smartly2": "^1.1.11",
-    "ts-type": "^1.2.35",
-    "tslib": "^2.3.0"
-  }
+  "gitHead": "02f74c14e885366e9be773564ea43f7425f9d97a"
 }

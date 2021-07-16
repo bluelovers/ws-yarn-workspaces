@@ -32,7 +32,7 @@
   "dependencies": {
     "@lerna/get-packed": "^4.0.0",
     "@lerna/log-packed": "^4.0.0",
-    "@ts-type/package-dts": "^1.0.46",
+    "@ts-type/package-dts": "^1.0.47",
     "npm-packlist": "^2.2.2",
     "tar": "^6.1.0",
     "tslib": "^2.3.0"

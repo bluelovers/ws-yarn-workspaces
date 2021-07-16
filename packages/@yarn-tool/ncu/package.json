@@ -43,17 +43,17 @@
   },
   "dependencies": {
     "@lazy-node/semver-simple-parse": "^1.1.12",
-    "@ts-type/package-dts": "^1.0.46",
+    "@ts-type/package-dts": "^1.0.47",
     "@yarn-tool/pkg-version-query": "^1.0.27",
     "@yarn-tool/semver-diff": "^1.0.21",
     "@yarn-tool/table": "^1.0.29",
     "@yarn-tool/yarnlock": "^1.0.54",
     "bluebird": "^3.7.2",
-    "npm-check-updates": "^11.8.2",
+    "npm-check-updates": "^11.8.3",
     "npm-package-arg": "^8.1.5",
     "package-json": "<7 >=6.5",
     "semver": "^7.3.5",
-    "ts-type": "^1.2.35",
+    "ts-type": "^1.2.36",
     "tslib": "^2.3.0"
   },
   "peerDependencies": {

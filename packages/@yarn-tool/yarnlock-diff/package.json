@@ -40,7 +40,7 @@
     "debug-color2": "^1.2.5",
     "npm-package-arg": "^8.1.5",
     "semver": "^7.3.5",
-    "ts-type": "^1.2.35",
+    "ts-type": "^1.2.36",
     "tslib": "^2.3.0"
   },
   "devDependencies": {

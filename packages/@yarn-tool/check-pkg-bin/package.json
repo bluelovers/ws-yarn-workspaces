@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@bluelovers/string-natural-compare": "^1.1.3",
-    "@ts-type/package-dts": "^1.0.46",
+    "@ts-type/package-dts": "^1.0.47",
     "@yarn-tool/find-root": "^1.0.44",
     "@yarn-tool/get-pkg-bin": "^1.0.33",
     "@yarn-tool/shebang": "^1.0.6",

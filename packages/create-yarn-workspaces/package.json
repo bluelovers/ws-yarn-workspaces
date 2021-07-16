@@ -50,7 +50,7 @@
   },
   "resolutions": {},
   "dependencies": {
-    "@ts-type/package-dts": "^1.0.46",
+    "@ts-type/package-dts": "^1.0.47",
     "@yarn-tool/static-file": "^1.0.66",
     "debug-color2": "^1.2.5",
     "find-yarn-workspace-root2": "^1.2.31",
