@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.27](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-deps-util@1.0.26...@yarn-tool/pkg-deps-util@1.0.27) (2021-07-16)
+
+
+### ✨　Features
+
+* sort and update deps ([68b8088](https://github.com/bluelovers/ws-yarn-workspaces/commit/68b80888dade4eb368927afdd50066488014ecbd))
+
+
+
+
+
 ## [1.0.26](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-deps-util@1.0.25...@yarn-tool/pkg-deps-util@1.0.26) (2021-07-11)
 
 **Note:** Version bump only for package @yarn-tool/pkg-deps-util

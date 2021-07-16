@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/script-lifecycle@1.0.6...@yarn-tool/script-lifecycle@1.0.7) (2021-07-16)
+
+
+### ✨　Features
+
+* add `currentScriptOnly` ([a328c3e](https://github.com/bluelovers/ws-yarn-workspaces/commit/a328c3eeaa33793feeeda0d2b94ce43e9e667f1b))
+
+
+### 🛠　Build System
+
+* update js ([bd9c1c0](https://github.com/bluelovers/ws-yarn-workspaces/commit/bd9c1c0288ee00ff54710b99a088dadaeff968c4))
+
+
+
+
+
 ## [1.0.6](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/script-lifecycle@1.0.5...@yarn-tool/script-lifecycle@1.0.6) (2021-07-13)
 
 **Note:** Version bump only for package @yarn-tool/script-lifecycle

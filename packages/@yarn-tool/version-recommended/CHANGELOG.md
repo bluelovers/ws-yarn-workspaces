@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.25](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/version-recommended@1.0.24...@yarn-tool/version-recommended@1.0.25) (2021-07-16)
+
+
+### ✨　Features
+
+* sort and update deps ([68b8088](https://github.com/bluelovers/ws-yarn-workspaces/commit/68b80888dade4eb368927afdd50066488014ecbd))
+
+
+
+
+
 ## [1.0.24](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/version-recommended@1.0.23...@yarn-tool/version-recommended@1.0.24) (2021-07-13)
 
 **Note:** Version bump only for package @yarn-tool/version-recommended

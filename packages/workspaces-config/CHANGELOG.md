@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.33](https://github.com/bluelovers/ws-yarn-workspaces/compare/workspaces-config@1.0.32...workspaces-config@1.0.33) (2021-07-16)
+
+
+### ✨　Features
+
+* sort and update deps ([68b8088](https://github.com/bluelovers/ws-yarn-workspaces/commit/68b80888dade4eb368927afdd50066488014ecbd))
+
+
+### 🔖　Miscellaneous
+
+* **fix:** wrong pkg setting ([3557ff5](https://github.com/bluelovers/ws-yarn-workspaces/commit/3557ff5202614a6f739a350ada66e22885d75754))
+
+
+
+
+
 ## [1.0.32](https://github.com/bluelovers/workspaces-config/compare/workspaces-config@1.0.30...workspaces-config@1.0.32) (2021-07-11)
 
 

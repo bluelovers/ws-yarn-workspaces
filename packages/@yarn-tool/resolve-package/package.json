@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/resolve-package",
-  "version": "1.0.30",
+  "version": "1.0.31",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/resolve-package#readme",
   "bugs": {

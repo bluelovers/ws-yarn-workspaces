@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarnlock-util",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "",
   "keywords": [
     "yarn",
@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@yarn-tool/npm-package-arg-util": "^1.0.18",
-    "@yarn-tool/yarnlock-parse": "^1.0.12",
+    "@yarn-tool/yarnlock-parse": "^1.0.13",
     "@yarnpkg/parsers": "^2.3.0",
     "npm-package-arg": "^8.1.5",
     "tslib": "^2.3.0"
