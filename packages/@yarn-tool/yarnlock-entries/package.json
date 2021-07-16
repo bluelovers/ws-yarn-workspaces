@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarnlock-entries",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "",
   "keywords": [
     "yarn",
@@ -38,10 +38,10 @@
   },
   "dependencies": {
     "@yarn-tool/detect-yarnlock-version": "^1.0.9",
-    "@yarn-tool/yarnlock-error": "^1.0.4",
-    "@yarn-tool/yarnlock-parse": "^1.0.13",
+    "@yarn-tool/yarnlock-error": "^1.0.5",
+    "@yarn-tool/yarnlock-parse": "^1.0.14",
     "@yarn-tool/yarnlock-stringify": "^1.0.8",
-    "@yarn-tool/yarnlock-util": "^1.0.20",
+    "@yarn-tool/yarnlock-util": "^1.0.21",
     "lodash": "^4.17.21",
     "ts-type": "^1.2.36",
     "tslib": "^2.3.0"

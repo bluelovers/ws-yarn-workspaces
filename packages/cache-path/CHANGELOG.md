@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.16](https://github.com/bluelovers/ws-yarn-workspaces/compare/cache-path@2.0.14...cache-path@2.0.16) (2021-07-16)
+
+
+### 🔖　Miscellaneous
+
+* . ([1ca3e67](https://github.com/bluelovers/ws-yarn-workspaces/commit/1ca3e671f12b47170bfdd2f38e9e515f3d63d961))
+
+
+
+
+
 ## [2.0.15](https://github.com/bluelovers/ws-yarn-workspaces/compare/cache-path@2.0.14...cache-path@2.0.15) (2021-07-16)
 
 **Note:** Version bump only for package cache-path

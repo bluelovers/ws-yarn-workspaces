@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/dotenv",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "load dotenv from workspaces",
   "keywords": [
     "yarn",
@@ -37,7 +37,7 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@yarn-tool/path-parents": "^1.0.6",
+    "@yarn-tool/path-parents": "^1.0.7",
     "dotenv": "^10.0.0",
     "tslib": "^2.3.0",
     "upath2": "^3.1.9"

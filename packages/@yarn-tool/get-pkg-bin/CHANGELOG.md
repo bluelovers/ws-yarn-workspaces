@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.35](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/get-pkg-bin@1.0.33...@yarn-tool/get-pkg-bin@1.0.35) (2021-07-16)
+
+
+### 🐛　Bug Fixes
+
+* **typescript:** avoid https://github.com/microsoft/TypeScript/issues/45064 ([72f9e66](https://github.com/bluelovers/ws-yarn-workspaces/commit/72f9e66f4ddf338049e4bee25b823da4e0b65bd1))
+
+
+### ✨　Features
+
+* sort and update deps ([68b8088](https://github.com/bluelovers/ws-yarn-workspaces/commit/68b80888dade4eb368927afdd50066488014ecbd))
+
+
+### 🔖　Miscellaneous
+
+* . ([1ca3e67](https://github.com/bluelovers/ws-yarn-workspaces/commit/1ca3e671f12b47170bfdd2f38e9e515f3d63d961))
+
+
+
+
+
 ## [1.0.34](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/get-pkg-bin@1.0.33...@yarn-tool/get-pkg-bin@1.0.34) (2021-07-16)
 
 

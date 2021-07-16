@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.68](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.66...@yarn-tool/static-file@1.0.68) (2021-07-16)
+
+
+### ✨　Features
+
+* update ignore and tsconfig for test ([1b119d6](https://github.com/bluelovers/ws-yarn-workspaces/commit/1b119d676e587d36602fdd34c0a62e7f93bb6cfb))
+
+
+### 🔖　Miscellaneous
+
+* . ([1ca3e67](https://github.com/bluelovers/ws-yarn-workspaces/commit/1ca3e671f12b47170bfdd2f38e9e515f3d63d961))
+
+
+
+
+
 ## [1.0.67](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.66...@yarn-tool/static-file@1.0.67) (2021-07-16)
 
 

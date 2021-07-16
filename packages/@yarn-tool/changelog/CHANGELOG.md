@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.49](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/changelog@1.0.47...@yarn-tool/changelog@1.0.49) (2021-07-16)
+
+
+### ✨　Features
+
+* make sure `options` is expected, and use `@yarn-tool/require-resolve` ([43babff](https://github.com/bluelovers/ws-yarn-workspaces/commit/43babff616ee4a0cb8ddf835f42c4a55318f45a9))
+* sort and update deps ([68b8088](https://github.com/bluelovers/ws-yarn-workspaces/commit/68b80888dade4eb368927afdd50066488014ecbd))
+
+
+### 🔖　Miscellaneous
+
+* . ([1ca3e67](https://github.com/bluelovers/ws-yarn-workspaces/commit/1ca3e671f12b47170bfdd2f38e9e515f3d63d961))
+
+
+
+
+
 ## [1.0.48](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/changelog@1.0.47...@yarn-tool/changelog@1.0.48) (2021-07-16)
 
 
