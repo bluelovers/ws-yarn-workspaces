@@ -133,4 +133,5 @@ jest.config.js.map
 !npm-shrinkwrap.json
 *.stat
 .vercel
-
+/test/tsconfig.json.tpl
+/tsconfig.json.tpl
