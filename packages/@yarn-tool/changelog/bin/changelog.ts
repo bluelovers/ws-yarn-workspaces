@@ -17,7 +17,7 @@ const argv = setupToYargs(yargs)
 	.showHelpOnFail(true)
 	.version()
 	.help()
-	.argv
+	.parseSync()
 ;
 
 let options: Partial<IOptionsWithType<IOptionsUpdateChangelog>> = {

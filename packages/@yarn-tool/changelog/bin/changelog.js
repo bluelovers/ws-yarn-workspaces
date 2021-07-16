@@ -16,7 +16,7 @@ const argv = (0, yargs_setting_1.default)(yargs_1.default)
     .showHelpOnFail(true)
     .version()
     .help()
-    .argv;
+    .parseSync();
 let options = {
     changelogPreset: argv.preset,
     tagPrefix: argv['tag-prefix'],

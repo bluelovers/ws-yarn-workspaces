@@ -38,8 +38,10 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
+    "@bluelovers/conventional-changelog-bluelovers": "*",
     "@lerna/conventional-commits": "^4.0.0",
     "@yarn-tool/find-root": "^1.0.44",
+    "@yarn-tool/require-resolve": "^1.0.3",
     "@yarn-tool/semver-diff": "^1.0.21",
     "@yarn-tool/table": "^1.0.29",
     "@yarn-tool/types": "^1.0.3",
