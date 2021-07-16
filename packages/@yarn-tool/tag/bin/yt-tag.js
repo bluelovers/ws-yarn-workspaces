@@ -13,7 +13,7 @@ let argv = (0, yargs_setting_1.default)(yargs_1.default)
     .showHelpOnFail(true)
     .version()
     .help()
-    .argv;
+    .parseSync();
 (0, git_tag_1.default)({
     cwd: argv.cwd,
     tagPrefix: argv['tag-prefix'],

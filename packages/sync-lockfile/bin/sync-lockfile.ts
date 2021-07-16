@@ -19,7 +19,7 @@ let argv = yargs
 	})
 	.help(true)
 	.showHelpOnFail(true)
-	.argv
+	.parseSync()
 ;
 
 syncLockfile(argv.cwd, {

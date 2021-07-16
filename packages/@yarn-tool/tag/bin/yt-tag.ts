@@ -12,7 +12,7 @@ let argv = setupToYargs(yargs)
 	.showHelpOnFail(true)
 	.version()
 	.help()
-	.argv
+	.parseSync()
 ;
 
 gitPackageTag({

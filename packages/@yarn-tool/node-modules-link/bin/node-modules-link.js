@@ -29,7 +29,7 @@ let argv = yargs_1.default
     ],
     boolean: true,
 })
-    .argv;
+    .parseSync();
 console.dir((0, index_1.default)({
     ...argv,
     throwError: true,

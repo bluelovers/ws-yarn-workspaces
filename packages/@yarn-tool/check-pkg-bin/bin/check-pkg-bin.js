@@ -21,7 +21,7 @@ const cli = yargs_1.default
     default: process.cwd(),
 })
     .help()
-    .argv;
+    .parseSync();
 const table = new cli_table3_1.default({
     colAligns: ['left', 'right'],
 });

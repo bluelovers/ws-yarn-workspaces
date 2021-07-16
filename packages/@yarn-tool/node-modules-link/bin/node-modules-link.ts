@@ -28,7 +28,7 @@ let argv = yargs
 		],
 		boolean: true,
 	})
-	.argv
+	.parseSync()
 ;
 
 console.dir(linkToNodeModules({

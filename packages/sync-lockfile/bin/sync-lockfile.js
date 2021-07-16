@@ -19,7 +19,7 @@ let argv = yargs_1.default
 })
     .help(true)
     .showHelpOnFail(true)
-    .argv;
+    .parseSync();
 (0, index_1.default)(argv.cwd, {
     print: !argv.silent,
 });

@@ -12,6 +12,7 @@ let cli = setupWorkspacesInitToYargs(yargs)
 	// @ts-ignore
 	.command('$0', '', function (yargs)
 	{
+		// @ts-ignore
 		let name = (yargs.argv.name || yargs.argv._[0]) as string;
 
 		if (name)
@@ -25,11 +26,15 @@ let cli = setupWorkspacesInitToYargs(yargs)
 
 		//console.log(CWD, yargs.argv);
 
+		// @ts-ignore
 		yargs.argv.debug && debug.debug(yargs.argv);
 
 		let bool = createYarnWorkspaces(name, {
+			// @ts-ignore
 			ignoreExistsPackage: !!yargs.argv.ignoreExistsPackage,
+			// @ts-ignore
 			ignoreParentWorkspaces: !!yargs.argv.ignoreParentWorkspaces,
+			// @ts-ignore
 			debug: !!yargs.argv.debug,
 		});
 

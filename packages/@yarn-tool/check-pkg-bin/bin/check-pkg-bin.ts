@@ -19,7 +19,7 @@ const cli = yargs
 		default: process.cwd(),
 	})
 	.help()
-	.argv
+	.parseSync()
 ;
 
 const table = new Table({
