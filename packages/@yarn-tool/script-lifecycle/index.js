@@ -1,10 +1,8 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.isKnownLifecycleKey = exports.entryToList = exports.getLifecycleList = exports.getLifecycle = exports.getLifecycleCore = void 0;
-const lifecycle_1 = __importDefault(require("./lib/lifecycle"));
+const tslib_1 = require("tslib");
+const lifecycle_1 = (0, tslib_1.__importDefault)(require("./lib/lifecycle"));
 function getLifecycleCore(scriptName) {
     if (isKnownLifecycleKey(scriptName)) {
         return lifecycle_1.default[scriptName];
@@ -12,22 +10,25 @@ function getLifecycleCore(scriptName) {
     //return (lifecycleMap as ILifecycleMap)[scriptName]
 }
 exports.getLifecycleCore = getLifecycleCore;
-function getLifecycle(scriptName) {
-    var _a;
-    return (_a = getLifecycleCore(scriptName)) !== null && _a !== void 0 ? _a : {
+function getLifecycle(scriptName, currentScriptOnly) {
+    let entry;
+    if (!currentScriptOnly) {
+        entry = getLifecycleCore(scriptName);
+    }
+    return entry !== null && entry !== void 0 ? entry : {
         name: scriptName,
         ignoreSelf: false,
         before: [
-            `pre${scriptName}`
+            `pre${scriptName}`,
         ],
         after: [
-            `post${scriptName}`
+            `post${scriptName}`,
         ],
     };
 }
 exports.getLifecycle = getLifecycle;
-function getLifecycleList(scriptName, includeSelf) {
-    return entryToList(getLifecycle(scriptName), includeSelf);
+function getLifecycleList(scriptName, includeSelf, currentScriptOnly) {
+    return entryToList(getLifecycle(scriptName, currentScriptOnly), includeSelf);
 }
 exports.getLifecycleList = getLifecycleList;
 function entryToList(entry, includeSelf) {

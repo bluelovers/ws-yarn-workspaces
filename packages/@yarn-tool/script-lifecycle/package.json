@@ -30,10 +30,11 @@
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
+  "dependencies": {
+    "ts-type": "^1.2.36",
+    "tslib": "^2.3.0"
+  },
   "publishConfig": {
     "access": "public"
-  },
-  "dependencies": {
-    "tslib": "^2.3.0"
   }
 }

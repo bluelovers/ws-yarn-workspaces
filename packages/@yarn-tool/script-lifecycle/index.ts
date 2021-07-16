@@ -1,38 +1,52 @@
-import { ILifecycleMapKeys, ILifecycleMap, ILifecycleEntry, ILifecycleMapEntry } from './lib/types';
+import { ILifecycleMapKeys, ILifecycleMap, ILifecycleEntry, ILifecycleMapEntry, ILifecycleList } from './lib/types';
 import lifecycleMap from './lib/lifecycle';
 
 export function getLifecycleCore<K extends ILifecycleMapKeys>(scriptName: string | K)
 {
 	if (isKnownLifecycleKey(scriptName))
 	{
-		return lifecycleMap[scriptName]
+		return lifecycleMap[scriptName] as ILifecycleMapEntry<K>
 	}
 
 	//return (lifecycleMap as ILifecycleMap)[scriptName]
 }
 
-export function getLifecycle<K extends ILifecycleMapKeys>(scriptName: string | K): ILifecycleMapEntry<K>
+export function getLifecycle<K extends string | ILifecycleMapKeys>(scriptName: K,
+	currentScriptOnly?: boolean,
+): ILifecycleEntry<K>
 {
-	return getLifecycleCore(scriptName) ?? ({
+	let entry: ILifecycleEntry<K>
+
+	if (!currentScriptOnly)
+	{
+		entry = getLifecycleCore(scriptName) as ILifecycleEntry<K>;
+	}
+
+	return entry ?? ({
 		name: scriptName,
 		ignoreSelf: false,
 		before: [
-			`pre${scriptName}`
+			`pre${scriptName}` as const,
 		],
 		after: [
-			`post${scriptName}`
+			`post${scriptName}` as const,
 		],
-	} as ILifecycleEntry<K>) as any
+	} as ILifecycleEntry<K>)
 }
 
-export function getLifecycleList<K extends ILifecycleMapKeys>(scriptName: string | K, includeSelf?: boolean)
+export function getLifecycleList<K extends string | ILifecycleMapKeys>(scriptName: K,
+	includeSelf?: boolean,
+	currentScriptOnly?: boolean,
+): ILifecycleList<K>
 {
-	return entryToList(getLifecycle(scriptName), includeSelf)
+	return entryToList(getLifecycle(scriptName, currentScriptOnly), includeSelf)
 }
 
-export function entryToList(entry: ILifecycleMapEntry | ILifecycleEntry, includeSelf?: boolean)
+export function entryToList<K extends string | ILifecycleMapKeys>(entry: ILifecycleMapEntry<K> | ILifecycleEntry<K>,
+	includeSelf?: boolean,
+): ILifecycleList<K>
 {
-	let result = [] as string[]
+	let result = [] as ILifecycleList<K>
 
 	if (entry.before?.length)
 	{

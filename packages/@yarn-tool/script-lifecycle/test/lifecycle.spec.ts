@@ -7,10 +7,10 @@ import { ILifecycleEntry } from '../lib/types';
 
 describe('should lifecycle any script name', function ()
 {
-	[
+	([
 		'yy',
 		'pretitter',
-	].forEach(name => {
+	] as const).forEach(name => {
 		it(name, function ()
 		{
 			let actual = getLifecycle(name);
@@ -36,7 +36,7 @@ describe('should lifecycle any script name', function ()
 
 it('install', function ()
 {
-	let name = 'install';
+	let name = 'install' as const;
 	let actual = getLifecycle(name);
 
 	expect(actual).toMatchObject({
@@ -62,7 +62,7 @@ it('install', function ()
 
 it('pack', function ()
 {
-	let name = 'pack';
+	let name = 'pack' as const;
 	let actual = getLifecycle(name);
 
 	expect(actual).toMatchObject({
@@ -91,7 +91,7 @@ it('pack', function ()
 
 it('publish', function ()
 {
-	let name = 'publish';
+	let name = 'publish' as const;
 	let actual = getLifecycle(name);
 
 	expect(actual).toMatchObject({
