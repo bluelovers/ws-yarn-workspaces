@@ -114,7 +114,7 @@ export function exportYarnLock<T extends ITSArrayListMaybeReadonly<string>>(yarn
 		{
 			let n = stripDepsName<ITSValueOfArray<T>>(k);
 
-			let name = n[0];
+			let name = n[0] as string;
 			let key = n[1];
 
 			let data = yarnlock[k];
