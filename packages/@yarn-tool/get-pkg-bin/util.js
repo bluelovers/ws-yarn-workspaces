@@ -26,6 +26,7 @@ exports.getPackageBins = getPackageBins;
 function handlePackageBins(bins, resolveFn) {
     const _cwd = '.' + upath2_1.sep;
     return Object.entries(bins)
+        // FIXME: https://github.com/microsoft/TypeScript/issues/45064
         .reduce((a, [k, bin]) => {
         if (resolveFn) {
             bin = resolveFn(_cwd + bin);

@@ -35,7 +35,8 @@ export function handlePackageBins<K extends string>(bins: Record<K, string>,
 	const _cwd = '.' + sep;
 
 	return Object.entries(bins)
-		.reduce((a, [k, bin]) =>
+		// FIXME: https://github.com/microsoft/TypeScript/issues/45064
+		.reduce((a, [k, bin]: [string, any]) =>
 		{
 			if (resolveFn)
 			{
