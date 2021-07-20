@@ -44,8 +44,8 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@git-lazy/spawn": "^1.0.25",
-    "@git-lazy/tag": "^1.0.6",
+    "@git-lazy/spawn": "^1.0.26",
+    "@git-lazy/tag": "^1.0.7",
     "@yarn-tool/find-root": "^1.0.46",
     "@yarn-tool/types": "^1.0.5",
     "path-dir-normalize": "^1.0.20",

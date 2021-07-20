@@ -42,7 +42,7 @@
     "@yarn-tool/table": "^1.0.31",
     "@yarn-tool/yarnlock-diff": "^1.0.24",
     "@yarn-tool/yarnlock-entries": "^1.0.20",
-    "debug-color2": "^1.2.5",
+    "debug-color2": "^1.2.7",
     "semver": "^7.3.5",
     "tslib": "^2.3.0"
   },

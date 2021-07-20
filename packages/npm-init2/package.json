@@ -47,7 +47,7 @@
   "config": {},
   "resolutions": {},
   "dependencies": {
-    "@ts-type/package-dts": "^1.0.47",
+    "@ts-type/package-dts": "^1.0.50",
     "@yarn-tool/find-root": "^1.0.46",
     "@yarn-tool/init-path": "^1.0.14",
     "@yarn-tool/is-builtin-module": "^1.0.9",
@@ -73,7 +73,7 @@
     "yargs": "^17.0.1"
   },
   "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.24",
+    "@bluelovers/tsconfig": "^1.0.25",
     "@types/node": "*"
   },
   "bundleDependencies": [],

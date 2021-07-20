@@ -38,15 +38,15 @@
   },
   "dependencies": {
     "@lazy-node/semver-part": "^1.0.10",
-    "debug-color2": "^1.2.5",
-    "ts-type": "^1.2.36",
+    "debug-color2": "^1.2.7",
+    "ts-type": "^1.2.39",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
     "chalk": "< 3 && >= 2"
   },
   "peerDependencies": {
-    "debug-color2": "^1.2.5"
+    "debug-color2": "^1.2.7"
   },
   "publishConfig": {
     "access": "public"
