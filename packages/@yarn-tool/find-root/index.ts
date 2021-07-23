@@ -146,6 +146,7 @@ export { pathNormalize }
 
 export function pathEqual(a: string, b: string)
 {
+	if (!a?.length || !b?.length) return null
 	return pathNormalize(a) === pathNormalize(b)
 }
 

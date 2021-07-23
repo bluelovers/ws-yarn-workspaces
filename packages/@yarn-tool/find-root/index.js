@@ -88,6 +88,8 @@ function assertHasAndNotWorkspacesRoot(rootData) {
 }
 exports.assertHasAndNotWorkspacesRoot = assertHasAndNotWorkspacesRoot;
 function pathEqual(a, b) {
+    if (!(a === null || a === void 0 ? void 0 : a.length) || !(b === null || b === void 0 ? void 0 : b.length))
+        return null;
     return (0, upath2_1.normalize)(a) === (0, upath2_1.normalize)(b);
 }
 exports.pathEqual = pathEqual;
