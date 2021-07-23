@@ -16,6 +16,7 @@ export interface IFindRootReturnType
 	hasWorkspace: boolean;
 	isWorkspace: boolean;
 	root: string;
+	isRoot: boolean
 }
 
 export interface IFindRootOptions
@@ -81,6 +82,7 @@ export function findRoot(options: IFindRootOptions, _throwError?: boolean): IFin
 	const hasWorkspace = ws?.length > 0;
 	const isWorkspace = hasWorkspace && pathEqual(ws, pkg);
 	const root = hasWorkspace ? ws : pkg;
+	const isRoot = pathEqual(root, pkg);
 
 	const rootData = {
 		pkg,
@@ -88,6 +90,7 @@ export function findRoot(options: IFindRootOptions, _throwError?: boolean): IFin
 		hasWorkspace,
 		isWorkspace,
 		root,
+		isRoot
 	};
 
 	if (options.shouldHasWorkspaces)

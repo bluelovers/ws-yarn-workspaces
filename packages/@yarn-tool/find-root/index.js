@@ -45,12 +45,14 @@ function findRoot(options, _throwError) {
     const hasWorkspace = (ws === null || ws === void 0 ? void 0 : ws.length) > 0;
     const isWorkspace = hasWorkspace && pathEqual(ws, pkg);
     const root = hasWorkspace ? ws : pkg;
+    const isRoot = pathEqual(root, pkg);
     const rootData = {
         pkg,
         ws,
         hasWorkspace,
         isWorkspace,
         root,
+        isRoot
     };
     if (options.shouldHasWorkspaces) {
         assertHasWorkspaces(rootData);

@@ -5,6 +5,7 @@ export interface IFindRootReturnType {
     hasWorkspace: boolean;
     isWorkspace: boolean;
     root: string;
+    isRoot: boolean;
 }
 export interface IFindRootOptions {
     cwd: string;
