@@ -9,8 +9,6 @@ const fs_extra_1 = require("fs-extra");
 const upath2_1 = require("upath2");
 const workspaces_config_1 = (0, tslib_1.__importStar)(require("workspaces-config"));
 const npm_package_json_loader_1 = (0, tslib_1.__importDefault)(require("npm-package-json-loader"));
-const lib_1 = require("./lib");
-const static_file_1 = require("@yarn-tool/static-file");
 const yargs_setting_1 = (0, tslib_1.__importDefault)(require("./lib/yargs-setting"));
 const find_root_1 = require("@yarn-tool/find-root");
 const pkg_git_info_1 = require("@yarn-tool/pkg-git-info");
@@ -25,6 +23,8 @@ const init_path_1 = require("@yarn-tool/init-path");
 const path_1 = require("path");
 const is_builtin_module_1 = require("@yarn-tool/is-builtin-module");
 const initWithPreserveDeps_1 = require("./lib/initWithPreserveDeps");
+const const_1 = require("@yarn-tool/static-file/lib/const");
+const static_file_1 = require("@yarn-tool/static-file");
 //updateNotifier(__dirname);
 let cli = (0, yargs_setting_1.default)(yargs_1.default);
 let argv = cli.argv._;
@@ -295,16 +295,17 @@ if (!cp.error) {
         let mdFile = (0, upath2_1.join)(targetDir, 'README.md');
         let existsReadme = !oldExists || !(0, fs_1.existsSync)(mdFile);
         let file_map = [
-            ...static_file_1.defaultCopyStaticFiles,
+            ...const_1.defaultCopyStaticFiles,
         ];
         if (!wsProject) {
             file_map = [
-                ['tsconfig.json', 'file/tsconfig.json.tpl'],
+                ...const_1.defaultCopyStaticFilesRootOnly,
                 ...file_map,
             ];
         }
-        (0, lib_1.copyStaticFiles)(file_map, {
+        (0, static_file_1.copyStaticFiles)({
             cwd: targetDir,
+            file_map,
         });
         if (existsReadme) {
             (0, writeReadme_1.writeReadme)({

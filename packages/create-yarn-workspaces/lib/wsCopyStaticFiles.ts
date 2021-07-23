@@ -1,13 +1,19 @@
-import copyStaticFiles, { defaultCopyStaticFiles, IStaticFilesMapArray } from '@yarn-tool/static-file';
+import { defaultCopyStaticFiles, defaultCopyStaticFilesRootOnly } from '@yarn-tool/static-file/lib/const';
+import { IStaticFiles, IStaticFilesKey, IStaticFilesMapArray } from '@yarn-tool/static-file/lib/types';
+import { reMapStaticFilesMapArray } from '@yarn-tool/static-file/lib/reMapStaticFilesMapArray';
 
-export function getWsCopyStaticFiles(): IStaticFilesMapArray<string>
+const remap = {
+	'tsconfig.json': 'tsconfig.json.tpl',
+	'lerna.json': 'lerna.json.tpl',
+	'pnpm-workspace.yaml': 'pnpm-workspace.yaml.tpl',
+} as const
+
+export function getWsCopyStaticFiles(): IStaticFiles<IStaticFilesKey<typeof defaultCopyStaticFiles | typeof defaultCopyStaticFilesRootOnly> | keyof typeof remap>
 {
-	return [
-		['tsconfig.json', 'file/tsconfig.json.tpl'],
-		['lerna.json', 'file/lerna.json.tpl'],
-		['pnpm-workspace.yaml', 'file/pnpm-workspace.yaml'],
+	return reMapStaticFilesMapArray([
 		...defaultCopyStaticFiles,
-	];
+		...defaultCopyStaticFilesRootOnly,
+	], remap);
 }
 
 export default getWsCopyStaticFiles;

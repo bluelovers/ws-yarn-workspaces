@@ -9,7 +9,7 @@ const core_1 = (0, tslib_1.__importDefault)(require("find-yarn-workspace-root2/c
 const path_1 = require("path");
 const pkg_dir_1 = (0, tslib_1.__importDefault)(require("pkg-dir"));
 const logger_1 = (0, tslib_1.__importDefault)(require("debug-color2/logger"));
-const static_file_1 = (0, tslib_1.__importDefault)(require("@yarn-tool/static-file"));
+const static_file_1 = require("@yarn-tool/static-file");
 const fs_extra_1 = require("fs-extra");
 const sort_package_json3_1 = (0, tslib_1.__importDefault)(require("sort-package-json3"));
 const lib_1 = require("./lib");
@@ -132,16 +132,8 @@ function _createYarnWorkspaces(targetPath, options = {}) {
         (0, fs_extra_1.writeFileSync)(file, s);
         logger_1.default.info(`update lerna.json`);
     }
-    /*
-    if (!fs.existsSync(path.join(targetPath, 'tsconfig.json')))
-    {
-        fs.writeFileSync(path.join(targetPath, 'tsconfig.json'), JSON.stringify(getDefaultTsconfig(), null, 2));
-
-        console.success(`create tsconfig.json`);
-    }
-     */
     const file_map = (0, wsCopyStaticFiles_1.default)();
-    (0, static_file_1.default)({
+    (0, static_file_1.copyStaticFiles)({
         cwd: targetPath,
         file_map,
     });

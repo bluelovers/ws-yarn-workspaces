@@ -1,0 +1,3 @@
+import { IStaticFilesMapArray } from './types';
+export declare const defaultCopyStaticFiles: IStaticFilesMapArray<"tsconfig.json.tpl" | "test/tsconfig.json.tpl" | "tsconfig.esm.json.tpl" | ".eslintrc.json.tpl" | "now.json.tpl" | ".npmrc.tpl" | "tsdx.config.js.tpl">;
+export declare const defaultCopyStaticFilesRootOnly: IStaticFilesMapArray<"tsconfig.json" | "lerna.json.tpl" | "pnpm-workspace.yaml.tpl">;

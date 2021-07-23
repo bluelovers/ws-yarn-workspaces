@@ -6,7 +6,7 @@ import findYarnWorkspaceRoot from 'find-yarn-workspace-root2/core';
 import { resolve, join, basename } from 'path';
 import pkgDir from 'pkg-dir';
 import console from 'debug-color2/logger';
-import copyStaticFiles, { defaultCopyStaticFiles, IStaticFilesMapArray } from '@yarn-tool/static-file';
+import { copyStaticFiles } from '@yarn-tool/static-file';
 import { existsSync, readFileSync, mkdirSync, writeFileSync } from 'fs-extra';
 import sortPackageJson from 'sort-package-json3';
 import { getDefaultPackageJson } from './lib';
@@ -209,16 +209,7 @@ export function _createYarnWorkspaces(targetPath: string, options: IOptions = {}
 		console.info(`update lerna.json`);
 	}
 
-	/*
-	if (!fs.existsSync(path.join(targetPath, 'tsconfig.json')))
-	{
-		fs.writeFileSync(path.join(targetPath, 'tsconfig.json'), JSON.stringify(getDefaultTsconfig(), null, 2));
-
-		console.success(`create tsconfig.json`);
-	}
-	 */
-
-	const file_map: IStaticFilesMapArray<string> = getWsCopyStaticFiles();
+	const file_map = getWsCopyStaticFiles();
 
 	copyStaticFiles({
 		cwd: targetPath,

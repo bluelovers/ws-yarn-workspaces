@@ -5,8 +5,6 @@
 import crossSpawn from 'cross-spawn-extra';
 import JSON5 from 'json5';
 
-import _copyStaticFiles, { defaultCopyStaticFiles } from '@yarn-tool/static-file';
-
 export function npmVersion(npmClient?: string, cwd?: string)
 {
 	let args = [
@@ -43,16 +41,3 @@ export function npmVersion(npmClient?: string, cwd?: string)
 	return json
 }
 
-export { defaultCopyStaticFiles }
-
-export function copyStaticFiles(file_map: Record<string, string> | [string, string, string?][], options: {
-	cwd: string,
-	staticRoot?: string,
-	overwrite?: boolean,
-})
-{
-	return _copyStaticFiles({
-		...options,
-		file_map,
-	});
-}
