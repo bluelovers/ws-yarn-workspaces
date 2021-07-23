@@ -38,6 +38,10 @@
     },
     "exec": {
       "stream": true
+    },
+    "add": {
+      "concurrency": 1,
+      "stream": true
     }
   },
   "npmClient": "yarn",
