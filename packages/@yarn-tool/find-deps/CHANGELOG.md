@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.37](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-deps@1.0.36...@yarn-tool/find-deps@1.0.37) (2021-07-23)
+
+**Note:** Version bump only for package @yarn-tool/find-deps
+
+
+
+
+
 ## [1.0.36](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-deps@1.0.35...@yarn-tool/find-deps@1.0.36) (2021-07-23)
 
 

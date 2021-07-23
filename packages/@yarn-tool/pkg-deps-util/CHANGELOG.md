@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.30](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-deps-util@1.0.29...@yarn-tool/pkg-deps-util@1.0.30) (2021-07-23)
+
+**Note:** Version bump only for package @yarn-tool/pkg-deps-util
+
+
+
+
+
 ## [1.0.29](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-deps-util@1.0.28...@yarn-tool/pkg-deps-util@1.0.29) (2021-07-23)
 
 

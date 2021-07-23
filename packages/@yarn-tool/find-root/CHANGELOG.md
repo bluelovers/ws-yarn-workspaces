@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.48](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-root@1.0.47...@yarn-tool/find-root@1.0.48) (2021-07-23)
+
+
+### 🐛　Bug Fixes
+
+* [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received undefined ([b2cad5c](https://github.com/bluelovers/ws-yarn-workspaces/commit/b2cad5c4c0932782a38e76545547bd74159a9763))
+
+
+
+
+
 ## [1.0.47](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-root@1.0.46...@yarn-tool/find-root@1.0.47) (2021-07-23)
 
 

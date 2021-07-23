@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/pkg-deps-util",
-  "version": "1.0.29",
+  "version": "1.0.30",
   "description": "",
   "keywords": [
     "yarn",
@@ -38,9 +38,9 @@
   },
   "dependencies": {
     "@ts-type/package-dts": "^1.0.50",
-    "@yarn-tool/find-root": "^1.0.47",
+    "@yarn-tool/find-root": "^1.0.48",
     "@yarn-tool/npm-package-arg-util": "^1.0.18",
-    "@yarn-tool/pkg-version-query": "^1.0.30",
+    "@yarn-tool/pkg-version-query": "^1.0.31",
     "@yarn-tool/yarnlock-fs": "^1.0.14",
     "@yarn-tool/yarnlock-parse": "^1.0.15",
     "@yarn-tool/yarnlock-util": "^1.0.22",
@@ -51,7 +51,7 @@
     "lodash": "^4.17.21",
     "sort-object-keys2": "^2.0.3",
     "tslib": "^2.3.0",
-    "ws-pkg-list": "^1.0.59"
+    "ws-pkg-list": "^1.0.60"
   },
   "peerDependencies": {
     "yargs": "*"
