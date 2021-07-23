@@ -35,6 +35,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
+    "@yarn-tool/fix-ws-pkgs-link": "^1.0.0",
     "@yarn-tool/node-modules": "^1.0.48",
     "cross-spawn-extra": "^2.1.0",
     "debug-color2": "^1.2.7",

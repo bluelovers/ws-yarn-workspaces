@@ -38,7 +38,7 @@
     "tslib": "^2.3.0"
   },
   "peerDependencies": {
-    "read-package-json-fast": "^2.0.2"
+    "read-package-json-fast": "^2.0.3"
   },
   "publishConfig": {
     "access": "public"
