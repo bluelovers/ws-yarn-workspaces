@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.112](https://github.com/bluelovers/create-yarn-workspaces/compare/create-yarn-workspaces@1.0.111...create-yarn-workspaces@1.0.112) (2021-07-23)
+
+
+### 📦　Code Refactoring
+
+* `@yarn-tool/static-file` ([f642c0e](https://github.com/bluelovers/create-yarn-workspaces/commit/f642c0e3cd4ad5ffa6b7639557283c8fdc90ab54))
+
+
+### ♻️　Chores
+
+* update deps ([e4d3819](https://github.com/bluelovers/create-yarn-workspaces/commit/e4d3819baeacc944ddb39e3218f247edb17f0eb0))
+
+
+
+
+
 ## [1.0.111](https://github.com/bluelovers/create-yarn-workspaces/compare/create-yarn-workspaces@1.0.109...create-yarn-workspaces@1.0.111) (2021-07-16)
 
 
