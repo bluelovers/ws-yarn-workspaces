@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PackageJsonLoader = void 0;
 const tslib_1 = require("tslib");
-const fs_extra_1 = (0, tslib_1.__importDefault)(require("fs-extra"));
+const fs_extra_1 = require("fs-extra");
 const sort_package_json3_1 = (0, tslib_1.__importDefault)(require("sort-package-json3"));
 const pkg_up_1 = (0, tslib_1.__importDefault)(require("pkg-up"));
 const bind_decorator_1 = (0, tslib_1.__importDefault)(require("bind-decorator"));
@@ -63,7 +63,7 @@ class PackageJsonLoader {
     }
     read(reload) {
         if (!this.loaded || reload) {
-            this.json = fs_extra_1.default.readJSONSync(this.file);
+            this.json = (0, fs_extra_1.readJSONSync)(this.file);
         }
         this.loaded = true;
         return this;
@@ -100,7 +100,7 @@ class PackageJsonLoader {
     autofix() {
         let self = this;
         let dir;
-        if (self.file && fs_extra_1.default.existsSync(dir = self.dir)) {
+        if (self.file && (0, fs_extra_1.pathExistsSync)(dir = self.dir)) {
             if (self.data) {
                 if (self.data.bin) {
                     if (typeof self.data.bin === 'string') {
@@ -141,7 +141,7 @@ class PackageJsonLoader {
         return this;
     }
     exists() {
-        return fs_extra_1.default.existsSync(this.file);
+        return (0, fs_extra_1.pathExistsSync)(this.file);
     }
     stringify() {
         return JSON.stringify(this.json, null, 2);
@@ -157,7 +157,7 @@ class PackageJsonLoader {
         if (!this.file) {
             throw new Error(`file is undefined`);
         }
-        fs_extra_1.default.writeFileSync(this.file, this.stringify());
+        (0, fs_extra_1.writeFileSync)(this.file, this.stringify());
         return this;
     }
     writeOnlyWhenLoaded() {

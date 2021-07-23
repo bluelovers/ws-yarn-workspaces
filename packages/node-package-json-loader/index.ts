@@ -1,13 +1,10 @@
-import fs from 'fs-extra';
+import { pathExistsSync, readJSONSync, writeFileSync } from 'fs-extra';
 import sortPackageJson from 'sort-package-json3';
 import pkgUp from 'pkg-up';
 import bind from 'bind-decorator';
 import { fixBinPath } from './util';
 import path from 'path';
 import { IPackageJson } from '@ts-type/package-dts';
-import * as TsTypePackageDts from '@ts-type/package-dts';
-
-export { IPackageJson }
 
 type IFileOrJson = Buffer | string | object | IPackageJson
 
@@ -108,7 +105,7 @@ export class PackageJsonLoader<T extends IPackageJsonLike<IPackageJson> = IPacka
 	{
 		if (!this.loaded || reload)
 		{
-			this.json = fs.readJSONSync(this.file);
+			this.json = readJSONSync(this.file);
 		}
 
 		this.loaded = true;
@@ -165,7 +162,7 @@ export class PackageJsonLoader<T extends IPackageJsonLike<IPackageJson> = IPacka
 		let self = this;
 		let dir: string;
 
-		if (self.file && fs.existsSync(dir = self.dir))
+		if (self.file && pathExistsSync(dir = self.dir))
 		{
 			if (self.data)
 			{
@@ -230,7 +227,7 @@ export class PackageJsonLoader<T extends IPackageJsonLike<IPackageJson> = IPacka
 
 	exists()
 	{
-		return fs.existsSync(this.file)
+		return pathExistsSync(this.file)
 	}
 
 	stringify()
@@ -257,7 +254,7 @@ export class PackageJsonLoader<T extends IPackageJsonLike<IPackageJson> = IPacka
 			throw new Error(`file is undefined`)
 		}
 
-		fs.writeFileSync(this.file, this.stringify());
+		writeFileSync(this.file, this.stringify());
 
 		return this;
 	}
@@ -271,11 +268,6 @@ export class PackageJsonLoader<T extends IPackageJsonLike<IPackageJson> = IPacka
 
 		return this.loaded;
 	}
-}
-
-export declare module PackageJsonLoader
-{
-	export type IPackageJson = TsTypePackageDts.IPackageJson;
 }
 
 export default PackageJsonLoader

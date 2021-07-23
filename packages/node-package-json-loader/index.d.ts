@@ -1,7 +1,5 @@
 /// <reference types="node" />
 import { IPackageJson } from '@ts-type/package-dts';
-import * as TsTypePackageDts from '@ts-type/package-dts';
-export { IPackageJson };
 declare type IFileOrJson = Buffer | string | object | IPackageJson;
 declare type IPackageJsonLike<T> = Partial<T> | Record<string, any>;
 declare type IItemOrItemArray<T> = T | T[];
@@ -40,8 +38,5 @@ export declare class PackageJsonLoader<T extends IPackageJsonLike<IPackageJson> 
     sort(): this;
     write(): this;
     writeOnlyWhenLoaded(): boolean;
-}
-export declare module PackageJsonLoader {
-    type IPackageJson = TsTypePackageDts.IPackageJson;
 }
 export default PackageJsonLoader;
