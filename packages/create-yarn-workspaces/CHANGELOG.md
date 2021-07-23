@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.115](https://github.com/bluelovers/create-yarn-workspaces/compare/create-yarn-workspaces@1.0.114...create-yarn-workspaces@1.0.115) (2021-07-23)
+
+
+### 🔖　Miscellaneous
+
+* . ([57ae931](https://github.com/bluelovers/create-yarn-workspaces/commit/57ae931bfa037f9deef3fd05519190c3ec37b1f4))
+
+
+
+
+
 ## [1.0.114](https://github.com/bluelovers/create-yarn-workspaces/compare/create-yarn-workspaces@1.0.113...create-yarn-workspaces@1.0.114) (2021-07-23)
 
 
