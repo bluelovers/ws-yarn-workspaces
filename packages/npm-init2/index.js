@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 "use strict";
-var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
-var _l, _m, _o;
+var _a, _b, _c, _d, _e, _f;
+var _g;
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const yargs_1 = (0, tslib_1.__importDefault)(require("yargs"));
@@ -25,6 +25,8 @@ const is_builtin_module_1 = require("@yarn-tool/is-builtin-module");
 const initWithPreserveDeps_1 = require("./lib/initWithPreserveDeps");
 const const_1 = require("@yarn-tool/static-file/lib/const");
 const static_file_1 = require("@yarn-tool/static-file");
+const logger_1 = (0, tslib_1.__importDefault)(require("debug-color2/logger"));
+const nameExistsInWorkspaces_1 = require("ws-pkg-list/lib/nameExistsInWorkspaces");
 //updateNotifier(__dirname);
 let cli = (0, yargs_setting_1.default)(yargs_1.default);
 let argv = cli.argv._;
@@ -80,6 +82,18 @@ const pkg_file_path = (0, upath2_1.join)(targetDir, 'package.json');
 let old_pkg_name;
 let oldExists = (0, fs_1.existsSync)(pkg_file_path);
 let old_pkg;
+if (oldExists && (targetName === null || targetName === void 0 ? void 0 : targetName.length)) {
+    logger_1.default.error(`對於已存在的 Package 而言，禁止同時指定名稱`, targetName);
+    logger_1.default.error(pkg_file_path);
+    process.exit(1);
+}
+if (!oldExists && hasWorkspace) {
+    if ((0, nameExistsInWorkspaces_1.nameExistsInWorkspaces)(targetName)) {
+        logger_1.default.error(`root:`, rootData.root);
+        logger_1.default.error(`目標名稱已存在於 Workspaces 內，請更換名稱:`, targetName);
+        process.exit(1);
+    }
+}
 if (!oldExists && targetName && scopedPackagePattern && (0, is_builtin_module_1.isBuiltinModule)((0, path_1.basename)(targetDir))) {
     (0, fs_extra_1.outputJSONSync)(pkg_file_path, {
         name: targetName,
@@ -152,27 +166,17 @@ if (!cp.error) {
             "ncu": "yarn-tool ncu -u",
             "sort-package-json": "yarn-tool sort",
             "test": `echo "Error: no test specified"`,
-            "preversion": `echo preversion && yarn run test`,
         };
-        let prepublishOnly = "yarn run prepublishOnly:check-bin && yarn run prepublishOnly:update && yarn run test";
-        if (hasWorkspace) {
-            if ((_c = (_b = wsProject === null || wsProject === void 0 ? void 0 : wsProject.manifest) === null || _b === void 0 ? void 0 : _b.scripts) === null || _c === void 0 ? void 0 : _c['prepublishOnly:check-bin']) {
-                prepublishOnly = "yarn run test";
-            }
-            else {
-                prepublishOnly = "yarn run prepublishOnly:check-bin && yarn run test";
-            }
-            let preversion = "yarn run prepublishOnly";
-            if (!oldExists || !((_d = pkg.data.scripts) === null || _d === void 0 ? void 0 : _d.prepublishOnly)) {
-                preversion = prepublishOnly;
-                prepublishOnly = "echo prepublishOnly";
-            }
-            sharedScript = {
-                ...sharedScript,
-                preversion,
-            };
+        let preScripts = ["echo preversion"];
+        if (rootData.isRoot || hasWorkspace && !((_b = wsProject.manifest.scripts) === null || _b === void 0 ? void 0 : _b['prepublishOnly:check-bin'])) {
+            preScripts.push('yarn run prepublishOnly:check-bin');
         }
-        else {
+        if (rootData.isRoot && !isWorkspace) {
+            sharedScript.prepublishOnly = "yarn run preversion";
+        }
+        if (hasWorkspace) {
+        }
+        else if (rootData.isRoot) {
             sharedScript = {
                 ...sharedScript,
                 "npm:publish": "npm publish",
@@ -181,31 +185,28 @@ if (!cp.error) {
                 "postpublish:git:tag": `ynpx --quiet @yarn-tool/tag`,
                 "postpublish:changelog": `ynpx --quiet @yarn-tool/changelog && git add ./CHANGELOG.md`,
                 "postpublish:git:push": `git push --follow-tags`,
-                "postpublish_": `yarn run postpublish:changelog && yarn run postpublish:git:commit && yarn run postpublish:git:tag && yarn run postpublish:git:push`,
+                "postpublish": `yarn run postpublish:changelog && yarn run postpublish:git:commit && yarn run postpublish:git:tag && yarn run postpublish:git:push`,
             };
             if (!oldExists) {
                 sharedScript = {
                     ...sharedScript,
-                    "coverage": "nyc npm run test",
+                    "coverage": "yarn run test -- --coverage",
                     "tsc:default": "tsc -p tsconfig.json",
                     "tsc:esm": "tsc -p tsconfig.esm.json",
                 };
             }
         }
-        if (oldExists) {
-            sharedScript.prepublishOnly_ = prepublishOnly;
-        }
-        else {
-            sharedScript.prepublishOnly = prepublishOnly;
-        }
+        preScripts.push("yarn run test");
+        sharedScript.preversion = preScripts.join(' & ');
+        (_c = (_g = pkg.data).scripts) !== null && _c !== void 0 ? _c : (_g.scripts = {});
         if (!oldExists) {
-            if (((_e = pkg.data.scripts) === null || _e === void 0 ? void 0 : _e.test) === "echo \"Error: no test specified\" && exit 1" && ((_f = sharedScript.test) === null || _f === void 0 ? void 0 : _f.length) > 0) {
+            if (((_d = pkg.data.scripts) === null || _d === void 0 ? void 0 : _d.test) === "echo \"Error: no test specified\" && exit 1" && ((_e = sharedScript.test) === null || _e === void 0 ? void 0 : _e.length) > 0) {
                 delete pkg.data.scripts.test;
             }
             Object
                 .entries({
                 "test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
-                "test:jest": "ynpx --quiet jest -- --coverage --passWithNoTests",
+                "test:jest": "jest --passWithNoTests",
                 "lint": "ynpx --quiet eslint -- **/*.ts",
                 ...sharedScript,
             })
@@ -216,9 +217,6 @@ if (!cp.error) {
             });
         }
         else {
-            (_g = (_l = pkg.data).scripts) !== null && _g !== void 0 ? _g : (_l.scripts = {});
-            (_h = (_m = pkg.data.scripts).test) !== null && _h !== void 0 ? _h : (_m.test = "echo \"Error: no test specified\"");
-            (_j = (_o = pkg.data.scripts).preversion) !== null && _j !== void 0 ? _j : (_o.preversion = "echo preversion && yarn run test");
             Object
                 .entries(sharedScript)
                 .forEach(([k, v]) => {
@@ -266,7 +264,7 @@ if (!cp.error) {
         }
         if (wsProject && !isWorkspace) {
             const rootKeywords = wsProject.manifest.toJSON().keywords;
-            if (!((_k = pkg.data.keywords) === null || _k === void 0 ? void 0 : _k.length) && (rootKeywords === null || rootKeywords === void 0 ? void 0 : rootKeywords.length)) {
+            if (!((_f = pkg.data.keywords) === null || _f === void 0 ? void 0 : _f.length) && (rootKeywords === null || rootKeywords === void 0 ? void 0 : rootKeywords.length)) {
                 pkg.data.keywords = rootKeywords.slice();
             }
         }

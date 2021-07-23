@@ -28,6 +28,8 @@ import { initWithPreserveDeps } from './lib/initWithPreserveDeps';
 import { IStaticFilesMapArray } from '@yarn-tool/static-file/lib/types';
 import { defaultCopyStaticFiles, defaultCopyStaticFilesRootOnly } from '@yarn-tool/static-file/lib/const';
 import { copyStaticFiles } from '@yarn-tool/static-file';
+import console from 'debug-color2/logger';
+import { nameExistsInWorkspaces } from 'ws-pkg-list/lib/nameExistsInWorkspaces';
 
 //updateNotifier(__dirname);
 
@@ -112,6 +114,23 @@ const pkg_file_path = join(targetDir, 'package.json');
 let old_pkg_name: string;
 let oldExists = existsSync(pkg_file_path);
 let old_pkg: IPackageJson;
+
+if (oldExists && targetName?.length)
+{
+	console.error(`對於已存在的 Package 而言，禁止同時指定名稱`, targetName);
+	console.error(pkg_file_path);
+	process.exit(1);
+}
+
+if (!oldExists && hasWorkspace)
+{
+	if (nameExistsInWorkspaces(targetName))
+	{
+		console.error(`root:`, rootData.root)
+		console.error(`目標名稱已存在於 Workspaces 內，請更換名稱:`, targetName);
+		process.exit(1);
+	}
+}
 
 if (!oldExists && targetName && scopedPackagePattern && isBuiltinModule(basename(targetDir)))
 {
@@ -216,40 +235,27 @@ if (!cp.error)
 			"prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
 			"prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
 			"ncu": "yarn-tool ncu -u",
-
 			"sort-package-json": "yarn-tool sort",
 			"test": `echo "Error: no test specified"`,
-
-			"preversion": `echo preversion && yarn run test`,
 		}
 
-		let prepublishOnly = "yarn run prepublishOnly:check-bin && yarn run prepublishOnly:update && yarn run test";
+		let preScripts: string[] = ["echo preversion"];
+
+		if (rootData.isRoot || hasWorkspace && !wsProject.manifest.scripts?.['prepublishOnly:check-bin'])
+		{
+			preScripts.push('yarn run prepublishOnly:check-bin');
+		}
+
+		if (rootData.isRoot && !isWorkspace)
+		{
+			sharedScript.prepublishOnly = "yarn run preversion"
+		}
 
 		if (hasWorkspace)
 		{
-			if (wsProject?.manifest?.scripts?.['prepublishOnly:check-bin'])
-			{
-				prepublishOnly = "yarn run test";
-			}
-			else
-			{
-				prepublishOnly = "yarn run prepublishOnly:check-bin && yarn run test";
-			}
 
-			let preversion = "yarn run prepublishOnly";
-
-			if (!oldExists || !pkg.data.scripts?.prepublishOnly)
-			{
-				preversion = prepublishOnly
-				prepublishOnly = "echo prepublishOnly"
-			}
-
-			sharedScript = {
-				...sharedScript,
-				preversion,
-			}
 		}
-		else
+		else if (rootData.isRoot)
 		{
 			sharedScript = {
 				...sharedScript,
@@ -259,28 +265,24 @@ if (!cp.error)
 				"postpublish:git:tag": `ynpx --quiet @yarn-tool/tag`,
 				"postpublish:changelog": `ynpx --quiet @yarn-tool/changelog && git add ./CHANGELOG.md`,
 				"postpublish:git:push": `git push --follow-tags`,
-				"postpublish_": `yarn run postpublish:changelog && yarn run postpublish:git:commit && yarn run postpublish:git:tag && yarn run postpublish:git:push`,
+				"postpublish": `yarn run postpublish:changelog && yarn run postpublish:git:commit && yarn run postpublish:git:tag && yarn run postpublish:git:push`,
 			}
 
 			if (!oldExists)
 			{
 				sharedScript = {
 					...sharedScript,
-					"coverage": "nyc npm run test",
+					"coverage": "yarn run test -- --coverage",
 					"tsc:default": "tsc -p tsconfig.json",
 					"tsc:esm": "tsc -p tsconfig.esm.json",
 				}
 			}
 		}
 
-		if (oldExists)
-		{
-			sharedScript.prepublishOnly_ = prepublishOnly
-		}
-		else
-		{
-			sharedScript.prepublishOnly = prepublishOnly
-		}
+		preScripts.push("yarn run test");
+		sharedScript.preversion = preScripts.join(' & ')
+
+		pkg.data.scripts ??= {};
 
 		if (!oldExists)
 		{
@@ -292,7 +294,7 @@ if (!cp.error)
 			Object
 				.entries({
 					"test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
-					"test:jest": "ynpx --quiet jest -- --coverage --passWithNoTests",
+					"test:jest": "jest --passWithNoTests",
 					"lint": "ynpx --quiet eslint -- **/*.ts",
 
 					...sharedScript,
@@ -308,10 +310,6 @@ if (!cp.error)
 		}
 		else
 		{
-			pkg.data.scripts ??= {};
-			pkg.data.scripts.test ??= "echo \"Error: no test specified\""
-			pkg.data.scripts.preversion ??= "echo preversion && yarn run test";
-
 			Object
 				.entries(sharedScript)
 				.forEach(([k, v]) =>
