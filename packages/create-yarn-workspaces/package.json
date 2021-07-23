@@ -35,7 +35,8 @@
   "scripts": {
     "coverage": "npx nyc npm run test",
     "lint": "npx eslint **/*.ts",
-    "test": "node ./bin/yarn-ws-init --debug --ignoreExistsPackage --ignoreParentWorkspaces ./test/temp",
+    "test": "echo test",
+    "test_": "node ./bin/yarn-ws-init --debug --ignoreExistsPackage --ignoreParentWorkspaces ./test/temp",
     "npm:publish": "npm publish",
     "preversion": "yarn run test",
     "prepublishOnly": "echo prepublishOnly",
