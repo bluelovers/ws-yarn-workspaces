@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import { IPackageJson } from '@ts-type/package-dts';
 export declare function initWithPreserveDeps({ npmClient, cwd, args, old_pkg, pkg_file_path }: {
     npmClient: string;

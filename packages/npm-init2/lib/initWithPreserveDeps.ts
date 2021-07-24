@@ -19,6 +19,10 @@ export function initWithPreserveDeps({
 	const cp = sync(npmClient, args, {
 		stdio: 'inherit',
 		cwd,
+		env: {
+			FORCE_COLOR: "0",
+			NO_COLOR: "1",
+		}
 	});
 
 	if (!cp.error && old_pkg)

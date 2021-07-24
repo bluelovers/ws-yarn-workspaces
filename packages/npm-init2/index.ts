@@ -33,6 +33,9 @@ import { nameExistsInWorkspaces } from 'ws-pkg-list/lib/nameExistsInWorkspaces';
 
 //updateNotifier(__dirname);
 
+// avoid buf for idea
+console.length;
+
 let cli = setupToYargs(yargs);
 
 let argv = cli.argv._;
@@ -46,24 +49,21 @@ let rootData = findRoot({
 	skipCheckWorkspace: cli.argv.skipCheckWorkspace,
 });
 
-let hasWorkspace: string = rootData.ws;
-let isWorkspace = rootData.isWorkspace;
-
 let workspacePrefix: string;
 let workspacesConfig: ReturnType<typeof parseStaticPackagesPaths>
 
 let wsProject: WorkspacesProject;
 
-if (hasWorkspace)
+if (rootData?.hasWorkspace)
 {
-	workspacesConfig = parseStaticPackagesPaths(getConfig(hasWorkspace));
+	workspacesConfig = parseStaticPackagesPaths(getConfig(rootData.ws));
 
 	if (workspacesConfig.prefix.length)
 	{
 		workspacePrefix = workspacesConfig.prefix[0];
 	}
 
-	wsProject = new WorkspacesProject(hasWorkspace)
+	wsProject = new WorkspacesProject(rootData.ws)
 }
 
 let { targetDir, targetName, scopedPackagePattern } = getTargetDir({
@@ -71,17 +71,12 @@ let { targetDir, targetName, scopedPackagePattern } = getTargetDir({
 	inputName: argv.length && argv[0],
 	cwd,
 	targetName: cli.argv.name || null,
-	hasWorkspace,
+	hasWorkspace: rootData?.ws,
 	workspacePrefix,
 	workspacesConfig,
 });
 
 ensureDirSync(targetDir);
-
-if (rootData.root)
-{
-	isWorkspace = pathIsSame(targetDir, rootData.root);
-}
 
 let flags = Object.keys(cli.argv)
 	.reduce(function (a, f)
@@ -112,7 +107,7 @@ let args = [
 const pkg_file_path = join(targetDir, 'package.json');
 
 let old_pkg_name: string;
-let oldExists = existsSync(pkg_file_path);
+const oldExists = existsSync(pkg_file_path);
 let old_pkg: IPackageJson;
 
 if (oldExists && targetName?.length)
@@ -122,7 +117,7 @@ if (oldExists && targetName?.length)
 	process.exit(1);
 }
 
-if (!oldExists && hasWorkspace)
+if (!oldExists && rootData?.hasWorkspace)
 {
 	if (nameExistsInWorkspaces(targetName))
 	{
@@ -164,6 +159,18 @@ let { cp } = initWithPreserveDeps({
 
 if (!cp.error)
 {
+	rootData = findRoot({
+		cwd: targetDir,
+		skipCheckWorkspace: cli.argv.skipCheckWorkspace,
+	});
+
+	if (!rootData?.root)
+	{
+		console.error(`發生錯誤，初始化失敗`, targetName);
+		console.error(targetDir);
+		process.exit(1);
+	}
+
 	let pkg = new PackageJsonLoader(pkg_file_path);
 
 	if (pkg.exists())
@@ -206,11 +213,11 @@ if (!cp.error)
 				// @ts-ignore
 				pkg.data.homepage = pkg.data.homepage || info.homepage
 
-				if (hasWorkspace)
+				if (rootData.hasWorkspace)
 				{
 					let u = new URL(pkg.data.homepage as string);
 
-					u.pathname += '/tree/master/' + relative(hasWorkspace, targetDir);
+					u.pathname += '/tree/master/' + relative(rootData.ws, targetDir);
 
 					// @ts-ignore
 					pkg.data.homepage = u.toString();
@@ -241,17 +248,17 @@ if (!cp.error)
 
 		let preScripts: string[] = ["echo preversion"];
 
-		if (rootData.isRoot || hasWorkspace && !wsProject.manifest.scripts?.['prepublishOnly:check-bin'])
+		if (rootData.isRoot || rootData.hasWorkspace && !wsProject.manifest.scripts?.['prepublishOnly:check-bin'])
 		{
 			preScripts.push('yarn run prepublishOnly:check-bin');
 		}
 
-		if (rootData.isRoot && !isWorkspace)
+		if (rootData.isRoot && !rootData.isWorkspace)
 		{
 			sharedScript.prepublishOnly = "yarn run preversion"
 		}
 
-		if (hasWorkspace)
+		if (rootData.hasWorkspace)
 		{
 
 		}
@@ -266,17 +273,22 @@ if (!cp.error)
 				"postpublish:changelog": `ynpx --quiet @yarn-tool/changelog && git add ./CHANGELOG.md`,
 				"postpublish:git:push": `git push --follow-tags`,
 				"postpublish": `yarn run postpublish:changelog && yarn run postpublish:git:commit && yarn run postpublish:git:tag && yarn run postpublish:git:push`,
+
 			}
 
 			if (!oldExists)
 			{
 				sharedScript = {
 					...sharedScript,
-					"coverage": "yarn run test -- --coverage",
 					"tsc:default": "tsc -p tsconfig.json",
 					"tsc:esm": "tsc -p tsconfig.esm.json",
 				}
 			}
+		}
+
+		if (!oldExists)
+		{
+			sharedScript.coverage = "yarn run test -- --coverage"
 		}
 
 		preScripts.push("yarn run test");
@@ -359,6 +371,16 @@ if (!cp.error)
 			}
 		}
 
+		/*
+		console.dir({
+			sharedScript,
+			scripts: pkg.data.scripts,
+			oldExists,
+			rootData,
+			preScripts,
+		})
+		 */
+
 		if (!oldExists)
 		{
 			const cpkg = require('./package.json') as IPackageJson;
@@ -372,7 +394,7 @@ if (!cp.error)
 			pkg.data.devDependencies = pkg.data.devDependencies || {};
 			pkg.data.peerDependencies = pkg.data.peerDependencies || {};
 
-			if (!hasWorkspace || hasWorkspace && isWorkspace)
+			if (rootData.isRoot)
 			{
 				pkg.data.devDependencies['@bluelovers/tsconfig'] = findVersion('@bluelovers/tsconfig');
 				pkg.data.devDependencies['@types/node'] = findVersion('@types/node');
@@ -381,7 +403,7 @@ if (!cp.error)
 			pkg.data.dependencies['tslib'] = findVersion('tslib');
 		}
 
-		if (wsProject && !isWorkspace)
+		if (wsProject && !rootData.isWorkspace)
 		{
 			const rootKeywords = wsProject.manifest.toJSON().keywords;
 
@@ -448,7 +470,7 @@ if (!cp.error)
 			})
 		}
 
-		if (wsProject && !isWorkspace)
+		if (wsProject && !rootData.isWorkspace)
 		{
 			linkToNodeModules({
 				cwd: targetDir,
