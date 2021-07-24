@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.170](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.169...npm-init2@1.0.170) (2021-07-24)
+
+
+### 🐛　Bug Fixes
+
+* 修正當 不存在 workspaces 時，初始化 會判定錯誤的問題 ([5316a52](https://github.com/bluelovers/npm-init2/commit/5316a52f405777a09176df13cb0087c0f18d1c19))
+
+
+
+
+
 ## [1.0.169](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.168...npm-init2@1.0.169) (2021-07-23)
 
 **Note:** Version bump only for package npm-init2

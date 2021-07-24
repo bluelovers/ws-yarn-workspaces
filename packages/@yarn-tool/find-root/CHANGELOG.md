@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.49](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-root@1.0.48...@yarn-tool/find-root@1.0.49) (2021-07-24)
+
+
+### 🐛　Bug Fixes
+
+* 當不存在 root 時回傳 null ([d428986](https://github.com/bluelovers/ws-yarn-workspaces/commit/d428986930ad907942ef04e76811ad15027209ff))
+
+
+### BREAKING CHANGE
+
+* 當不存在 root 時回傳 null
+
+
+
+
+
 ## [1.0.48](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-root@1.0.47...@yarn-tool/find-root@1.0.48) (2021-07-23)
 
 
