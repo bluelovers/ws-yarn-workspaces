@@ -79,10 +79,18 @@ export function findRoot(options: IFindRootOptions, _throwError?: boolean): IFin
 		pkg = pathNormalize(pkg);
 	}
 
+	pkg ??= void 0;
+	ws ??= void 0;
+
 	const hasWorkspace = ws?.length > 0;
 	const isWorkspace = hasWorkspace && pathEqual(ws, pkg);
 	const root = hasWorkspace ? ws : pkg;
 	const isRoot = pathEqual(root, pkg);
+
+	if (!root?.length)
+	{
+		return null;
+	}
 
 	const rootData = {
 		pkg,
@@ -90,7 +98,7 @@ export function findRoot(options: IFindRootOptions, _throwError?: boolean): IFin
 		hasWorkspace,
 		isWorkspace,
 		root,
-		isRoot
+		isRoot,
 	};
 
 	if (options.shouldHasWorkspaces)

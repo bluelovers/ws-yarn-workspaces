@@ -42,17 +42,22 @@ function findRoot(options, _throwError) {
     if (typeof pkg === 'string') {
         pkg = (0, upath2_1.normalize)(pkg);
     }
+    pkg !== null && pkg !== void 0 ? pkg : (pkg = void 0);
+    ws !== null && ws !== void 0 ? ws : (ws = void 0);
     const hasWorkspace = (ws === null || ws === void 0 ? void 0 : ws.length) > 0;
     const isWorkspace = hasWorkspace && pathEqual(ws, pkg);
     const root = hasWorkspace ? ws : pkg;
     const isRoot = pathEqual(root, pkg);
+    if (!(root === null || root === void 0 ? void 0 : root.length)) {
+        return null;
+    }
     const rootData = {
         pkg,
         ws,
         hasWorkspace,
         isWorkspace,
         root,
-        isRoot
+        isRoot,
     };
     if (options.shouldHasWorkspaces) {
         assertHasWorkspaces(rootData);
