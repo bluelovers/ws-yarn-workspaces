@@ -205,7 +205,7 @@ if (!cp.error) {
             sharedScript.coverage = "yarn run test -- --coverage";
         }
         preScripts.push("yarn run test");
-        sharedScript.preversion = preScripts.join(' & ');
+        sharedScript.preversion = preScripts.join(' && ');
         (_c = (_g = pkg.data).scripts) !== null && _c !== void 0 ? _c : (_g.scripts = {});
         if (!oldExists) {
             if (((_d = pkg.data.scripts) === null || _d === void 0 ? void 0 : _d.test) === "echo \"Error: no test specified\" && exit 1" && ((_e = sharedScript.test) === null || _e === void 0 ? void 0 : _e.length) > 0) {

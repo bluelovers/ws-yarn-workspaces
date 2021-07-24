@@ -292,7 +292,7 @@ if (!cp.error)
 		}
 
 		preScripts.push("yarn run test");
-		sharedScript.preversion = preScripts.join(' & ')
+		sharedScript.preversion = preScripts.join(' && ')
 
 		pkg.data.scripts ??= {};
 
