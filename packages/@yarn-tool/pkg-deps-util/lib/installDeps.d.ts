@@ -1,10 +1,11 @@
 import { IOptionsInstallDepsFromWorkspaces } from './types';
+import { IPackageJson } from '@ts-type/package-dts';
 export interface IOptionsInstallDeps extends IOptionsInstallDepsFromWorkspaces {
 }
 export declare function filterInstallDeps(packageNames: string[], options?: IOptionsInstallDeps): {
     cwd: string;
     packageNames: string[];
-    pkg: import("npm-package-json-loader").IPackageJson<any>;
+    pkg: IPackageJson<any>;
     rootData: import("@yarn-tool/find-root").IFindRootReturnType;
     added: [name: string, semver: string][];
     exists: string[];

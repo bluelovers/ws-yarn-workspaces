@@ -1,6 +1,7 @@
 import { IOptionsCheckInstallTarget, IOptionsInstallDepsFromWorkspaces } from './types';
 import { installDepsFromWorkspaces } from './installDepsFromWorkspaces';
 import { findRoot, IFindRootOptions } from '@yarn-tool/find-root';
+import { IPackageJson } from '@ts-type/package-dts';
 
 export interface IOptionsInstallDeps extends IOptionsInstallDepsFromWorkspaces
 {
@@ -27,7 +28,7 @@ export function filterInstallDeps(packageNames: string[], options: IOptionsInsta
 			return {
 				cwd,
 				packageNames,
-				pkg: data.pkg,
+				pkg: data.pkg as IPackageJson,
 				rootData,
 				added: data.added,
 				exists: data.exists,
