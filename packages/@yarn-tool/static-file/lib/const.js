@@ -24,6 +24,7 @@ const _defaultCopyStaticFilesRootOnly = [
     ['lerna.json.tpl', 'file/lerna.json.tpl', 'lerna.json'],
     ['pnpm-workspace.yaml.tpl', 'file/pnpm-workspace.yaml', 'pnpm-workspace.yaml'],
     ['.github/workflows/coverage.yml', 'file/github/workflows/coverage.yml'],
+    ['.github/workflows/action-yarnlock-dedupe.yml', 'file/github/workflows/action-yarnlock-dedupe.yml'],
     ['tsconfig.json', 'file/tsconfig.json.tpl', 'tsconfig.json'],
 ];
 exports.defaultCopyStaticFiles = Object.freeze(_defaultCopyStaticFiles);
