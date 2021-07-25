@@ -1,6 +1,6 @@
 {
   "name": "create-yarn-workspaces",
-  "version": "1.0.115",
+  "version": "1.0.116",
   "description": "yarn create yarn-workspaces     npx create-yarn-workspaces",
   "keywords": [
     "cli",
@@ -48,7 +48,7 @@
   "resolutions": {},
   "dependencies": {
     "@ts-type/package-dts": "^1.0.50",
-    "@yarn-tool/static-file": "^1.0.71",
+    "@yarn-tool/static-file": "^1.0.72",
     "debug-color2": "^1.2.7",
     "find-yarn-workspace-root2": "^1.2.31",
     "fs-extra": "^10.0.0",

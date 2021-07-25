@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.72](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.71...@yarn-tool/static-file@1.0.72) (2021-07-25)
+
+
+### ✨　Features
+
+* add action-yarnlock-dedupe ([c1502f0](https://github.com/bluelovers/ws-yarn-workspaces/commit/c1502f0b0844f5ae1864588a38fe9c6e0aa14ca4))
+
+
+
+
+
 ## [1.0.71](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.70...@yarn-tool/static-file@1.0.71) (2021-07-23)
 
 
