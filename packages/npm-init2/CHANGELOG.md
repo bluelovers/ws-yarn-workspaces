@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.173](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.172...npm-init2@1.0.173) (2021-08-13)
+
+
+### 🐛　Bug Fixes
+
+* support overwrite symlink ([a1ed30a](https://github.com/bluelovers/npm-init2/commit/a1ed30a8274b85302ac94bbd124ced4456b64c95))
+
+
+
+
+
 ## [1.0.172](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.171...npm-init2@1.0.172) (2021-07-25)
 
 **Note:** Version bump only for package npm-init2

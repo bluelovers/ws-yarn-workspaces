@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/shebang",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Extract normalized shebang command token",
   "keywords": [
     "shebang",

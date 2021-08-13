@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarnlock-ncu",
-  "version": "1.0.24",
+  "version": "1.0.25",
   "description": "",
   "keywords": [
     "yarn",
@@ -37,11 +37,11 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@yarn-tool/pkg-version-query": "^1.0.32",
-    "@yarn-tool/semver-diff": "^1.0.24",
-    "@yarn-tool/table": "^1.0.32",
-    "@yarn-tool/yarnlock-diff": "^1.0.25",
-    "@yarn-tool/yarnlock-entries": "^1.0.21",
+    "@yarn-tool/pkg-version-query": "^1.0.33",
+    "@yarn-tool/semver-diff": "^1.0.25",
+    "@yarn-tool/table": "^1.0.33",
+    "@yarn-tool/yarnlock-diff": "^1.0.26",
+    "@yarn-tool/yarnlock-entries": "^1.0.22",
     "debug-color2": "^1.2.7",
     "semver": "^7.3.5",
     "tslib": "^2.3.1"
