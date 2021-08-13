@@ -5,6 +5,7 @@ export interface IOptions extends Partial<IFindRootOptions> {
     sourcePackagePath: string;
     cwd?: string;
     targetNodeModulesName?: string;
+    overwrite?: boolean;
 }
 export declare function linkToNodeModulesCore<T extends IOptions>(options: T): T & {
     resultPath: string;

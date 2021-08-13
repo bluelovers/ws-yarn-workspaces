@@ -5,22 +5,22 @@ import yargs from 'yargs';
 import crossSpawn from 'cross-spawn-extra';
 import { ensureDirSync, CopyOptionsSync, copySync, pathExistsSync, outputJSON, outputJSONSync } from 'fs-extra';
 import { resolve, join, relative } from 'upath2';
-import getConfig, { parseStaticPackagesPaths } from 'workspaces-config';
+import{ getConfig, parseStaticPackagesPaths } from 'workspaces-config';
 import PackageJsonLoader from 'npm-package-json-loader';
 import { IPackageJson } from '@ts-type/package-dts';
 import { updateNotifier } from '@yarn-tool/update-notifier';
 import pkg = require( './package.json' );
-import setupToYargs from './lib/yargs-setting';
+import { setupToYargs } from './lib/yargs-setting';
 import { findRoot } from '@yarn-tool/find-root';
 import { npmHostedGitInfo } from '@yarn-tool/pkg-git-info';
 import { existsSync, readFileSync, writeFileSync } from 'fs';
 import lodashTemplate from 'lodash/template';
 import { writeReadme } from './lib/writeReadme';
-import sortPackageJsonScripts from 'sort-package-json-scripts';
+import { sortPackageJsonScripts } from 'sort-package-json-scripts';
 import WorkspacesProject from '@yarn-tool/workspaces-project';
 import { parse } from 'upath2';
-import pathIsSame from 'path-is-same';
-import linkToNodeModules from '@yarn-tool/node-modules-link';
+import { pathIsSame } from 'path-is-same';
+import { linkToNodeModules } from '@yarn-tool/node-modules-link';
 import { getTargetDir } from '@yarn-tool/init-path';
 import { basename } from 'path';
 import { isBuiltinModule } from '@yarn-tool/is-builtin-module';
@@ -239,19 +239,21 @@ if (!cp.error)
 		}
 
 		let sharedScript: IPackageJson['scripts'] = {
-			"prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
 			"prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
 			"ncu": "yarn-tool ncu -u",
 			"sort-package-json": "yarn-tool sort",
 			"test": `echo "Error: no test specified"`,
+			"tsc:showConfig": "ynpx get-current-tsconfig -p",
 		}
 
 		let preScripts: string[] = ["echo preversion"];
 
+		/*
 		if (rootData.isRoot || rootData.hasWorkspace && !wsProject.manifest.scripts?.['prepublishOnly:check-bin'])
 		{
 			preScripts.push('yarn run prepublishOnly:check-bin');
 		}
+		 */
 
 		if (rootData.isRoot && !rootData.isWorkspace)
 		{
@@ -266,6 +268,7 @@ if (!cp.error)
 		{
 			sharedScript = {
 				...sharedScript,
+				"prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
 				"npm:publish": "npm publish",
 				"npm:publish:bump": "yarn-tool version && npm publish",
 				"postpublish:git:commit": `git commit -m "chore(release): publish" . & echo postpublish:git:commit`,
@@ -301,6 +304,11 @@ if (!cp.error)
 			if (pkg.data.scripts?.test === "echo \"Error: no test specified\" && exit 1" && sharedScript.test?.length > 0)
 			{
 				delete pkg.data.scripts.test
+			}
+
+			if (_findDeps(wsProject?.manifest, '@types/jest') || _findDeps(wsProject?.manifest, 'jest') || _findDeps(wsProject?.manifest, 'ts-jest'))
+			{
+				sharedScript.test = "jest --passWithNoTests";
 			}
 
 			Object
@@ -475,6 +483,7 @@ if (!cp.error)
 			linkToNodeModules({
 				cwd: targetDir,
 				sourcePackagePath: targetDir,
+				overwrite: true,
 			})
 		}
 
@@ -494,4 +503,10 @@ if (!cp.error)
 else
 {
 	process.exitCode = 1;
+}
+
+function _findDeps(pkg: IPackageJson, name: string)
+{
+	pkg ??= {};
+	return pkg.dependencies?.[name] ?? pkg.devDependencies?.[name]
 }

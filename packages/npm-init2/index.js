@@ -1,24 +1,24 @@
 #!/usr/bin/env node
 "use strict";
-var _a, _b, _c, _d, _e, _f;
-var _g;
+var _a, _b, _c, _d, _e;
+var _f;
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const yargs_1 = (0, tslib_1.__importDefault)(require("yargs"));
 const fs_extra_1 = require("fs-extra");
 const upath2_1 = require("upath2");
-const workspaces_config_1 = (0, tslib_1.__importStar)(require("workspaces-config"));
+const workspaces_config_1 = require("workspaces-config");
 const npm_package_json_loader_1 = (0, tslib_1.__importDefault)(require("npm-package-json-loader"));
-const yargs_setting_1 = (0, tslib_1.__importDefault)(require("./lib/yargs-setting"));
+const yargs_setting_1 = require("./lib/yargs-setting");
 const find_root_1 = require("@yarn-tool/find-root");
 const pkg_git_info_1 = require("@yarn-tool/pkg-git-info");
 const fs_1 = require("fs");
 const writeReadme_1 = require("./lib/writeReadme");
-const sort_package_json_scripts_1 = (0, tslib_1.__importDefault)(require("sort-package-json-scripts"));
+const sort_package_json_scripts_1 = require("sort-package-json-scripts");
 const workspaces_project_1 = (0, tslib_1.__importDefault)(require("@yarn-tool/workspaces-project"));
 const upath2_2 = require("upath2");
-const path_is_same_1 = (0, tslib_1.__importDefault)(require("path-is-same"));
-const node_modules_link_1 = (0, tslib_1.__importDefault)(require("@yarn-tool/node-modules-link"));
+const path_is_same_1 = require("path-is-same");
+const node_modules_link_1 = require("@yarn-tool/node-modules-link");
 const init_path_1 = require("@yarn-tool/init-path");
 const path_1 = require("path");
 const is_builtin_module_1 = require("@yarn-tool/is-builtin-module");
@@ -30,7 +30,7 @@ const nameExistsInWorkspaces_1 = require("ws-pkg-list/lib/nameExistsInWorkspaces
 //updateNotifier(__dirname);
 // avoid buf for idea
 logger_1.default.length;
-let cli = (0, yargs_setting_1.default)(yargs_1.default);
+let cli = (0, yargs_setting_1.setupToYargs)(yargs_1.default);
 let argv = cli.argv._;
 //console.dir(cli.argv);
 let cwd = (0, upath2_1.resolve)(cli.argv.cwd || process.cwd());
@@ -42,7 +42,7 @@ let workspacePrefix;
 let workspacesConfig;
 let wsProject;
 if (rootData === null || rootData === void 0 ? void 0 : rootData.hasWorkspace) {
-    workspacesConfig = (0, workspaces_config_1.parseStaticPackagesPaths)((0, workspaces_config_1.default)(rootData.ws));
+    workspacesConfig = (0, workspaces_config_1.parseStaticPackagesPaths)((0, workspaces_config_1.getConfig)(rootData.ws));
     if (workspacesConfig.prefix.length) {
         workspacePrefix = workspacesConfig.prefix[0];
     }
@@ -167,16 +167,19 @@ if (!cp.error) {
             }
         }
         let sharedScript = {
-            "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
             "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
             "ncu": "yarn-tool ncu -u",
             "sort-package-json": "yarn-tool sort",
             "test": `echo "Error: no test specified"`,
+            "tsc:showConfig": "ynpx get-current-tsconfig -p",
         };
         let preScripts = ["echo preversion"];
-        if (rootData.isRoot || rootData.hasWorkspace && !((_b = wsProject.manifest.scripts) === null || _b === void 0 ? void 0 : _b['prepublishOnly:check-bin'])) {
+        /*
+        if (rootData.isRoot || rootData.hasWorkspace && !wsProject.manifest.scripts?.['prepublishOnly:check-bin'])
+        {
             preScripts.push('yarn run prepublishOnly:check-bin');
         }
+         */
         if (rootData.isRoot && !rootData.isWorkspace) {
             sharedScript.prepublishOnly = "yarn run preversion";
         }
@@ -185,6 +188,7 @@ if (!cp.error) {
         else if (rootData.isRoot) {
             sharedScript = {
                 ...sharedScript,
+                "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
                 "npm:publish": "npm publish",
                 "npm:publish:bump": "yarn-tool version && npm publish",
                 "postpublish:git:commit": `git commit -m "chore(release): publish" . & echo postpublish:git:commit`,
@@ -206,10 +210,13 @@ if (!cp.error) {
         }
         preScripts.push("yarn run test");
         sharedScript.preversion = preScripts.join(' && ');
-        (_c = (_g = pkg.data).scripts) !== null && _c !== void 0 ? _c : (_g.scripts = {});
+        (_b = (_f = pkg.data).scripts) !== null && _b !== void 0 ? _b : (_f.scripts = {});
         if (!oldExists) {
-            if (((_d = pkg.data.scripts) === null || _d === void 0 ? void 0 : _d.test) === "echo \"Error: no test specified\" && exit 1" && ((_e = sharedScript.test) === null || _e === void 0 ? void 0 : _e.length) > 0) {
+            if (((_c = pkg.data.scripts) === null || _c === void 0 ? void 0 : _c.test) === "echo \"Error: no test specified\" && exit 1" && ((_d = sharedScript.test) === null || _d === void 0 ? void 0 : _d.length) > 0) {
                 delete pkg.data.scripts.test;
+            }
+            if (_findDeps(wsProject === null || wsProject === void 0 ? void 0 : wsProject.manifest, '@types/jest') || _findDeps(wsProject === null || wsProject === void 0 ? void 0 : wsProject.manifest, 'jest') || _findDeps(wsProject === null || wsProject === void 0 ? void 0 : wsProject.manifest, 'ts-jest')) {
+                sharedScript.test = "jest --passWithNoTests";
             }
             Object
                 .entries({
@@ -240,7 +247,7 @@ if (!cp.error) {
                 if (pkg.data.main && !pkg.data.types) {
                     let file = (0, upath2_1.join)(targetDir, pkg.data.main);
                     let parsed = (0, upath2_2.parse)(file);
-                    if (!(0, path_is_same_1.default)(targetDir, parsed.dir) && (0, fs_extra_1.pathExistsSync)((0, upath2_1.join)(parsed.dir, parsed.name + '.d.ts'))) {
+                    if (!(0, path_is_same_1.pathIsSame)(targetDir, parsed.dir) && (0, fs_extra_1.pathExistsSync)((0, upath2_1.join)(parsed.dir, parsed.name + '.d.ts'))) {
                         pkg.data.types = (0, upath2_1.relative)(targetDir, parsed.dir).replace(/^\.\//, '') + '/' + parsed.name + '.d.ts';
                     }
                 }
@@ -281,11 +288,11 @@ if (!cp.error) {
         }
         if (wsProject && !rootData.isWorkspace) {
             const rootKeywords = wsProject.manifest.toJSON().keywords;
-            if (!((_f = pkg.data.keywords) === null || _f === void 0 ? void 0 : _f.length) && (rootKeywords === null || rootKeywords === void 0 ? void 0 : rootKeywords.length)) {
+            if (!((_e = pkg.data.keywords) === null || _e === void 0 ? void 0 : _e.length) && (rootKeywords === null || rootKeywords === void 0 ? void 0 : rootKeywords.length)) {
                 pkg.data.keywords = rootKeywords.slice();
             }
         }
-        pkg.data.scripts = (0, sort_package_json_scripts_1.default)(pkg.data.scripts);
+        pkg.data.scripts = (0, sort_package_json_scripts_1.sortPackageJsonScripts)(pkg.data.scripts);
         pkg.autofix();
         if (cli.argv.sort) {
             pkg.sort();
@@ -329,9 +336,10 @@ if (!cp.error) {
             });
         }
         if (wsProject && !rootData.isWorkspace) {
-            (0, node_modules_link_1.default)({
+            (0, node_modules_link_1.linkToNodeModules)({
                 cwd: targetDir,
                 sourcePackagePath: targetDir,
+                overwrite: true,
             });
         }
         /*
@@ -348,5 +356,10 @@ if (!cp.error) {
 }
 else {
     process.exitCode = 1;
+}
+function _findDeps(pkg, name) {
+    var _a, _b, _c;
+    pkg !== null && pkg !== void 0 ? pkg : (pkg = {});
+    return (_b = (_a = pkg.dependencies) === null || _a === void 0 ? void 0 : _a[name]) !== null && _b !== void 0 ? _b : (_c = pkg.devDependencies) === null || _c === void 0 ? void 0 : _c[name];
 }
 //# sourceMappingURL=index.js.map

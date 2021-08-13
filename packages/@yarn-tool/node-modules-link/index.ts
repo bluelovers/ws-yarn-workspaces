@@ -4,6 +4,7 @@ import { join, dirname } from 'upath2';
 import { IPackageJson } from '@ts-type/package-dts';
 import { findRoot, IFindRootOptions } from '@yarn-tool/find-root';
 import { readPackageJSON } from 'find-yarn-workspace-root2/core';
+import { fsSymlinkSync } from 'fs-symlink-extra';
 
 export interface IOptions extends Partial<IFindRootOptions>
 {
@@ -12,15 +13,16 @@ export interface IOptions extends Partial<IFindRootOptions>
 	sourcePackagePath: string,
 	cwd?: string,
 	targetNodeModulesName?: string,
+	overwrite?: boolean,
 }
 
 export function linkToNodeModulesCore<T extends IOptions>(options: T)
 {
 	let resultPath = join(options.targetNodeModulesPath, options.name);
 
-	ensureDirSync(dirname(resultPath))
-
-	ensureSymlinkSync(options.sourcePackagePath, resultPath)
+	fsSymlinkSync(options.sourcePackagePath, resultPath, {
+		overwrite: options.overwrite ?? true,
+	});
 
 	return {
 		...options,
