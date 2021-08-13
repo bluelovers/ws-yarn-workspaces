@@ -17,7 +17,7 @@
   "dependencies": {
     "@types/yargs": "*",
     "core-decorators": "*",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.1"
   },
   "gitHead": "328ff729b860029dcda4e919f58e3ccb5e111d1f"
 }

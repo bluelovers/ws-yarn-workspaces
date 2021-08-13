@@ -16,6 +16,13 @@ jobs:
       CI_JOB_NUMBER: 1
     steps:
       - uses: actions/checkout@v1
+      - uses: actions/setup-node@master
+        with:
+          node-version: 16
+      - name: install
+        run: |
+          npm i -g typescript@next ts-jest
+          yarn install --frozen-lockfile
       - uses: artiomtr/jest-coverage-report-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}

@@ -40,7 +40,7 @@
     "cross-spawn-extra": "^2.1.0",
     "debug-color2": "^1.2.7",
     "fs-extra": "^10.0.0",
-    "tslib": "^2.3.0",
+    "tslib": "^2.3.1",
     "ws-pkg-list": "^1.0.61",
     "yarn-list-link": "^1.0.25"
   },

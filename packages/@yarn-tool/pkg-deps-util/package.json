@@ -50,7 +50,7 @@
     "err-code": "^3.0.1",
     "lodash": "^4.17.21",
     "sort-object-keys2": "^2.0.3",
-    "tslib": "^2.3.0",
+    "tslib": "^2.3.1",
     "ws-pkg-list": "^1.0.61"
   },
   "peerDependencies": {

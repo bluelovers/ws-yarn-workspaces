@@ -54,10 +54,10 @@
     "package-json": "<7 >=6.5",
     "semver": "^7.3.5",
     "ts-type": "^1.2.39",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.1"
   },
   "peerDependencies": {
-    "yargs": "^17.0.1"
+    "yargs": "^17.1.0"
   },
   "publishConfig": {
     "access": "public"

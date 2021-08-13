@@ -84,3 +84,4 @@ npm-shrinkwrap.json
 *.stat
 .vercel
 tsdx.config.js
+/report.json

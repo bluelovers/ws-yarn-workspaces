@@ -52,8 +52,8 @@
     "find-yarn-workspace-root2": "^1.2.31",
     "fs-extra": "^10.0.0",
     "micromatch": "^4.0.4",
-    "tslib": "^2.3.0",
-    "upath2": "^3.1.9",
+    "tslib": "^2.3.1",
+    "upath2": "^3.1.10",
     "workspaces-config": "^1.0.34"
   },
   "gitHead": "67f2bf3be478106378700eb513da557943b2f9f3"

@@ -135,3 +135,4 @@ jest.config.js.map
 .vercel
 /test/tsconfig.json.tpl
 /tsconfig.json.tpl
+/report.json

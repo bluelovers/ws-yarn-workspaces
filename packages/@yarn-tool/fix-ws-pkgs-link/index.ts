@@ -5,6 +5,7 @@ import { ensureSymlinkSync, lstatSync, pathExists, pathExistsSync, realpathSync,
 import { join } from 'path';
 import { fsSameRealpath } from 'path-is-same';
 import { isSymbolicLinkSync } from 'fs-stat';
+import fsSymlinkSync from 'fs-symlink-extra';
 
 export function fixWorkspacesPackageLinks(cwd?: string)
 {
@@ -27,7 +28,9 @@ export function fixWorkspacesPackageLinks(cwd?: string)
 				renameSync(target, target + '.old_' + Math.random())
 			}
 
-			ensureSymlinkSync(entry.location, target);
+			fsSymlinkSync(entry.location, target, {
+				overwrite: true,
+			});
 
 			return true
 		}

@@ -19,6 +19,7 @@ export function getDefaultPackageJson(name?: string): IPackageJson
 			"prepublishOnly:lockfile": "ynpx --quiet sync-lockfile",
 			"prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
 			"prepare:fix-ws-links": "ynpx --quiet @yarn-tool/fix-ws-links",
+			"prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
 			"ncu": "yarn run ncu:root && yarn run ncu:ws",
 			"ncu:root": "yarn-tool ncu -u",
 			"ncu:ws": "yarn-tool ws exec yarn-tool ncu -- -u",
@@ -28,11 +29,14 @@ export function getDefaultPackageJson(name?: string): IPackageJson
 			"postpublishOnly": "echo postpublishOnly",
 			"test": "yarn-tool ws run test",
 			"install:reset-lockfile": "yarn-tool install --reset-lockfile",
+			"tsc:showConfig": "ynpx get-current-tsconfig -p",
 		},
 		"dependencies": {
+			"ts-type":"^1.2.32",
 			"tslib": "^2.3.0"
 		},
 		"devDependencies": {
+			"@types/jest": "^26.0.24",
 			"@bluelovers/tsconfig": "^1.0.20",
 			"@types/node": "*",
 		},

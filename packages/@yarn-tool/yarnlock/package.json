@@ -53,13 +53,13 @@
     "@yarn-tool/yarnlock-fs": "^1.0.14",
     "@yarn-tool/yarnlock-stringify": "^1.0.8",
     "@yarnpkg/lockfile": "^1.1.0",
-    "@yarnpkg/parsers": "^2.3.0",
+    "@yarnpkg/parsers": "^2.4.0",
     "debug-color2": "^1.2.7",
     "fs-extra": "^10.0.0",
     "semver": "^7.3.5",
     "ts-type": "^1.2.39",
-    "tslib": "^2.3.0",
-    "upath2": "^3.1.9"
+    "tslib": "^2.3.1",
+    "upath2": "^3.1.10"
   },
   "publishConfig": {
     "access": "public"

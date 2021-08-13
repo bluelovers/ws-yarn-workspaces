@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@yarn-tool/pkg-deps-util": "^1.0.31",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.1"
   },
   "publishConfig": {
     "access": "public"

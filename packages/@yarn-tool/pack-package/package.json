@@ -34,8 +34,8 @@
     "@lerna/log-packed": "^4.0.0",
     "@ts-type/package-dts": "^1.0.50",
     "npm-packlist": "^2.2.2",
-    "tar": "^6.1.0",
-    "tslib": "^2.3.0"
+    "tar": "^6.1.8",
+    "tslib": "^2.3.1"
   },
   "publishConfig": {
     "access": "public"

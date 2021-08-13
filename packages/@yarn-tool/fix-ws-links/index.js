@@ -9,6 +9,7 @@ const fs_extra_1 = require("fs-extra");
 const cross_spawn_extra_1 = (0, tslib_1.__importDefault)(require("cross-spawn-extra"));
 const util_1 = require("./lib/util");
 const logger_1 = (0, tslib_1.__importDefault)(require("debug-color2/logger"));
+const fs_symlink_extra_1 = require("fs-symlink-extra");
 function fixYarnWorkspaceLinks(cwd, options) {
     let listable = (0, listable_1.wsPkgListable)(cwd);
     let links = (0, core_1.default)(cwd) || [];
@@ -42,8 +43,9 @@ function fixYarnWorkspaceLinks(cwd, options) {
                     }
                     else {
                         try {
-                            (0, fs_extra_1.unlinkSync)(row.location);
-                            (0, fs_extra_1.symlinkSync)(location, row.location);
+                            (0, fs_symlink_extra_1.fsSymlinkSync)(location, row.location, {
+                                overwrite: true,
+                            });
                             logger_1.default.success(`create link`, row.name, `=>`, location);
                         }
                         catch (e) {

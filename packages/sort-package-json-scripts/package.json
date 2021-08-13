@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "sort-object-keys2": "^2.0.3",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.1"
   },
   "gitHead": "445ff249d9e89ede8c67a41af7f967bdc9dd50aa"
 }

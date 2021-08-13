@@ -1,12 +1,12 @@
 name: yarn.lock deduplication
 
 on:
-  push:
-    branches:
-      - master
-      - main
-      - next
-      - canary
+#  push:
+#    branches:
+#      - master
+#      - main
+#      - next
+#      - canary
   pull_request:
     branches:
       - master

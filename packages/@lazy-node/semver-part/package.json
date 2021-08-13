@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "semver": "^7",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.1"
   },
   "peerDependencies": {
     "semver": "^7"

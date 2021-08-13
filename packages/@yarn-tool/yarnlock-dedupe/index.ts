@@ -3,6 +3,7 @@ import detectYarnLockVersion from '@yarn-tool/detect-yarnlock-version/lib/detect
 import { EnumDetectYarnLock } from '@yarn-tool/detect-yarnlock-version/lib/types';
 import v2 from './lib/v2';
 import v1 from './lib/v1';
+import { readFileSync, writeFileSync, existsSync } from 'fs';
 
 export function listDuplicates(yarnlock_old: Buffer | string, options?: IOptionsDedupe): string[]
 {
@@ -34,6 +35,11 @@ export function fixDuplicates(yarnlock_old: Buffer | string, options?: IOptionsD
 	}
 
 	throw new TypeError(`can't detect yarn.lock version`)
+}
+
+export function yarnDedupeFile(yarnlock_old_file: string, options?: IOptionsDedupe)
+{
+	return yarnDedupe(readFileSync(yarnlock_old_file) as any, options)
 }
 
 export function yarnDedupe(yarnlock_old: string, options?: IOptionsDedupe)

@@ -1,20 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isSymbolicLink = exports.sameRealpath = void 0;
-const fs_extra_1 = require("fs-extra");
-function sameRealpath(dir0, dir1) {
-    try {
-        let real01 = (0, fs_extra_1.realpathSync)(dir0);
-        let real02 = (0, fs_extra_1.realpathSync)(dir1);
-        return real01 === real02;
-    }
-    catch (e) {
-    }
-}
-exports.sameRealpath = sameRealpath;
-function isSymbolicLink(dir0) {
-    let stats = (0, fs_extra_1.lstatSync)(dir0);
-    return stats.isSymbolicLink();
-}
-exports.isSymbolicLink = isSymbolicLink;
+exports.sameRealpath = exports.isSymbolicLink = void 0;
+var fs_stat_1 = require("fs-stat");
+Object.defineProperty(exports, "isSymbolicLink", { enumerable: true, get: function () { return fs_stat_1.isSymbolicLinkSync; } });
+var path_is_same_1 = require("path-is-same");
+Object.defineProperty(exports, "sameRealpath", { enumerable: true, get: function () { return path_is_same_1.fsSameRealpath; } });
 //# sourceMappingURL=util.js.map

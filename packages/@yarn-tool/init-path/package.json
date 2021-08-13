@@ -29,7 +29,7 @@
     "@yarn-tool/search-workspace-prefix-by-name": "^1.0.16",
     "@yarn-tool/validate-npm-package-name": "^3.0.6",
     "fs-extra": "^10.0.0",
-    "tslib": "^2.3.0",
+    "tslib": "^2.3.1",
     "workspaces-config": "^1.0.34"
   },
   "publishConfig": {

@@ -44,7 +44,7 @@
     "package-json": "<7 >=6.5",
     "semver": "^7.3.5",
     "ts-type": "^1.2.39",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.1"
   },
   "publishConfig": {
     "access": "public"

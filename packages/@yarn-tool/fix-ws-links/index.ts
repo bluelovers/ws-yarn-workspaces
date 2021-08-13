@@ -10,6 +10,7 @@ import { linkSync, realpathSync, removeSync, pathExistsSync, symlinkSync, unlink
 import crossSpawn from 'cross-spawn-extra';
 import { sameRealpath, isSymbolicLink } from './lib/util';
 import console from 'debug-color2/logger';
+import { fsSymlinkSync } from 'fs-symlink-extra';
 
 export function fixYarnWorkspaceLinks(cwd?: string, options?: {
 	dir?: string,
@@ -75,8 +76,9 @@ export function fixYarnWorkspaceLinks(cwd?: string, options?: {
 						{
 							try
 							{
-								unlinkSync(row.location);
-								symlinkSync(location, row.location);
+								fsSymlinkSync(location, row.location, {
+									overwrite: true,
+								});
 
 								console.success(`create link`, row.name, `=>`, location)
 							}

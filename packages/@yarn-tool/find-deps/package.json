@@ -33,7 +33,7 @@
   "dependencies": {
     "@ts-type/package-dts": "^1.0.50",
     "array-hyper-unique": "^1.1.10",
-    "tslib": "^2.3.0",
+    "tslib": "^2.3.1",
     "ws-pkg-list": "^1.0.61"
   },
   "publishConfig": {
