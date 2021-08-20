@@ -3273,20 +3273,20 @@ fs-minipass@^2.0.0, fs-minipass@^2.1.0:
   dependencies:
     minipass "^3.0.0"
 
-fs-stat@^1.0.12:
-  version "1.0.12"
-  resolved "https://registry.npmjs.org/fs-stat/-/fs-stat-1.0.12.tgz#27a20ff7c13cf76d298281cfb681f567e806f704"
-  integrity sha512-npT+DZ3p9BawX9TialetW+VE9LPUcaIMYsaG7KtDK3yYJA/p/5JZr3JH1+D+AD/glD0QzKCswYxELlCX0tSCHQ==
+fs-stat@^1.0.13:
+  version "1.0.13"
+  resolved "https://registry.npmjs.org/fs-stat/-/fs-stat-1.0.13.tgz#d46241b126817718a89464aada17a67afd61485a"
+  integrity sha512-A+TTRt+2SnUkicFcBI0cPlVJXYm7TMgiGQYdCdPX9ZrJd/xq/keHaJ2+89ceGQktuZTmhaqo45ZNxZVS8C7Sug==
   dependencies:
     tslib "^2.3.1"
 
-fs-symlink-extra@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.npmjs.org/fs-symlink-extra/-/fs-symlink-extra-1.0.5.tgz#e766fb01827ab78dc338c36d22fe1f319a85c870"
-  integrity sha512-ChkQDU/MXKDt1xw2AGImpPnpEHz349i7Oee/YqqjE4BaTLAhi+rAqWVqmJZlM0+oikp9ochEg2MiT6mpNrnNsg==
+fs-symlink-extra@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.npmjs.org/fs-symlink-extra/-/fs-symlink-extra-1.0.6.tgz#9f910f36bc42188ccd7123be7b8da2c2dd8e2d36"
+  integrity sha512-SMT2uWba7G61pJeG39GOSWUGEk1Bcry5YydwXquy8ESuJwkSLZWkpZLyf6/TiNfYhF29w2cJfnoRTutMxiNL+w==
   dependencies:
     fs-extra "^10.0.0"
-    fs-stat "^1.0.12"
+    fs-stat "^1.0.13"
     path-is-same "^1.0.15"
     ts-type "^1.2.39"
     tslib "^2.3.1"
@@ -5417,10 +5417,10 @@ mkdirp@^1.0.3, mkdirp@^1.0.4:
   resolved "https://registry.npmjs.org/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
 
-mocha@^9.0.3:
-  version "9.0.3"
-  resolved "https://registry.npmjs.org/mocha/-/mocha-9.0.3.tgz#128cd6bbd3ee0adcdaef715f357f76ec1e6227c7"
-  integrity sha512-hnYFrSefHxYS2XFGtN01x8un0EwNu2bzKvhpRFhgoybIvMaOkkL60IVPmkb5h6XDmUl4IMSB+rT5cIO4/4bJgg==
+mocha@^9.1.0:
+  version "9.1.0"
+  resolved "https://registry.npmjs.org/mocha/-/mocha-9.1.0.tgz#0a7aa6fc4f59d1015d4e11747d9104b752553c67"
+  integrity sha512-Kjg/XxYOFFUi0h/FwMOeb6RoroiZ+P1yOfya6NK7h3dNhahrJx1r2XIT3ge4ZQvJM86mdjNA+W5phqRQh7DwCg==
   dependencies:
     "@ungap/promise-all-settled" "1.1.2"
     ansi-colors "4.1.1"

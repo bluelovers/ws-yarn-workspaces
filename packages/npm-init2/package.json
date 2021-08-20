@@ -58,6 +58,7 @@
     "@yarn-tool/update-notifier": "^1.0.21",
     "@yarn-tool/workspaces-project": "^1.0.53",
     "cross-spawn-extra": "^2.1.0",
+    "debug-color2": "^1.2.7",
     "find-yarn-workspace-root2": "^1.2.32",
     "fs-extra": "^10.0.0",
     "json5": "^2.2.0",
@@ -70,6 +71,7 @@
     "upath2": "^3.1.10",
     "validate-npm-package-name": "^3.0.0",
     "workspaces-config": "^1.0.35",
+    "ws-pkg-list": "^1.0.62",
     "yargs": "^17.1.1"
   },
   "devDependencies": {

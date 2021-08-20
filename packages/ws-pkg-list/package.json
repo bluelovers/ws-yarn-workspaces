@@ -52,6 +52,7 @@
     "find-yarn-workspace-root2": "^1.2.32",
     "fs-extra": "^10.0.0",
     "micromatch": "^4.0.4",
+    "ts-type": "^1.2.39",
     "tslib": "^2.3.1",
     "upath2": "^3.1.10",
     "workspaces-config": "^1.0.35"
