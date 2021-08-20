@@ -86,7 +86,7 @@
     "chai": "^4.3.4",
     "jest": "^27.0.6",
     "jest-console": "^0.1.0",
-    "mocha": "^9.0.3",
+    "mocha": "^9.1.0",
     "ts-jest": "^27.0.5"
   },
   "peerDependencies": {

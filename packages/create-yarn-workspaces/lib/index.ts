@@ -25,7 +25,7 @@ export function getDefaultPackageJson(name?: string): IPackageJson
 			"ncu:ws": "yarn-tool ws exec yarn-tool ncu -- -u",
 			"sort-package-json": "yarn run sort-package-json:root && yarn run sort-package-json:ws",
 			"sort-package-json:root": "yarn-tool sort",
-			"sort-package-json:ws": "yarn-tool ws exec yarn-tool sort",
+			"sort-package-json:ws": "yarn-tool ws sort",
 			"postpublishOnly": "echo postpublishOnly",
 			"test": "yarn-tool ws run test",
 			"install:reset-lockfile": "yarn-tool install --reset-lockfile",
