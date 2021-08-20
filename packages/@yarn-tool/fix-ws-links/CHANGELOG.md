@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.61](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-ws-links@1.0.60...@yarn-tool/fix-ws-links@1.0.61) (2021-08-20)
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([4b01839](https://github.com/bluelovers/ws-yarn-workspaces/commit/4b01839ade668cd686b53757627b1ca847debfa5))
+
+
+
+
+
 ## [1.0.60](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-ws-links@1.0.59...@yarn-tool/fix-ws-links@1.0.60) (2021-08-20)
 
 **Note:** Version bump only for package @yarn-tool/fix-ws-links
