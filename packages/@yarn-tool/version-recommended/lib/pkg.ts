@@ -6,6 +6,7 @@ import { INextVersionRecommendedOptions } from './types';
 import { IPackageJson } from '@ts-type/package-dts/package-json';
 
 export function nextVersionRecommendedByPackage<T extends {
+	name?: string
 	version?: string
 }>(pkg: T, options?: INextVersionRecommendedOptions)
 {
@@ -21,6 +22,7 @@ export function nextVersionRecommendedByPackage<T extends {
 }
 
 export function nextVersionRecommendedByPackageFindUp<T extends {
+	name?: string
 	version?: string
 	// @ts-ignore
 } = IPackageJson>(options?: INextVersionRecommendedOptions)

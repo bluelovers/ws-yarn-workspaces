@@ -34,10 +34,10 @@
     "@yarn-tool/find-root": "^1.0.50",
     "find-yarn-workspace-root2": "^1.2.32",
     "fs-extra": "^10.0.0",
-    "fs-symlink-extra": "^1.0.4",
+    "fs-symlink-extra": "^1.0.5",
     "tslib": "^2.3.1",
     "upath2": "^3.1.10",
-    "yargs": "^17.1.0"
+    "yargs": "^17.1.1"
   },
   "publishConfig": {
     "access": "public"
