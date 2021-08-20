@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/tag",
-  "version": "1.0.38",
+  "version": "1.0.39",
   "description": "git tag a package",
   "keywords": [],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/tag#readme",

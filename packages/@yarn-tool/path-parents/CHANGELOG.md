@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.12](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/path-parents@1.0.11...@yarn-tool/path-parents@1.0.12) (2021-08-20)
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([229518f](https://github.com/bluelovers/ws-yarn-workspaces/commit/229518fd6215e83fd964c07a62ba666c358f7f64))
+
+
+
+
+
 ## [1.0.11](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/path-parents@1.0.10...@yarn-tool/path-parents@1.0.11) (2021-08-13)
 
 
