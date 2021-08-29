@@ -1,4 +1,4 @@
-import wsPkgListable from './listable';
+import { wsPkgListable } from './listable';
 
 export function nameExistsInWorkspaces(name: string)
 {

@@ -1,14 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.wsFindPackageHasModules = exports.wsFindPackageHasModulesCore = void 0;
-const tslib_1 = require("tslib");
-const find_paths_1 = (0, tslib_1.__importDefault)(require("./find-paths"));
-const listable_1 = (0, tslib_1.__importDefault)(require("ws-pkg-list/lib/listable"));
-const core_1 = (0, tslib_1.__importDefault)(require("find-yarn-workspace-root2/core"));
+const find_paths_1 = require("./find-paths");
+const listable_1 = require("ws-pkg-list/lib/listable");
+const core_1 = require("find-yarn-workspace-root2/core");
 function wsFindPackageHasModulesCore(list, cwd, dir) {
     return list
         .map(row => {
-        let modules = (0, find_paths_1.default)(row.location, dir).modules;
+        let modules = (0, find_paths_1.findModulesPackagePaths)(row.location, dir).modules;
         return {
             ...row,
             modules,
@@ -18,8 +17,8 @@ function wsFindPackageHasModulesCore(list, cwd, dir) {
 }
 exports.wsFindPackageHasModulesCore = wsFindPackageHasModulesCore;
 function wsFindPackageHasModules(cwd, dir) {
-    cwd = (0, core_1.default)(cwd);
-    return wsFindPackageHasModulesCore((0, listable_1.default)(cwd), cwd, dir);
+    cwd = (0, core_1.findWorkspaceRoot)(cwd);
+    return wsFindPackageHasModulesCore((0, listable_1.wsPkgListable)(cwd), cwd, dir);
 }
 exports.wsFindPackageHasModules = wsFindPackageHasModules;
 exports.default = wsFindPackageHasModules;

@@ -6,7 +6,7 @@ import { IListableRowExtra, IOptionsPkgListable, IListableRowWithDeps, IListable
 import IPackageJson from '@ts-type/package-dts';
 import { normalizeListableRowExtra, listableToRecord } from './util';
 import { findRoot } from '@yarn-tool/find-root';
-import wsPkgListable from './listable';
+import { wsPkgListable } from './listable';
 
 export function wsPkgDepsListable<R extends IListableRowExtraWithDeps>(cwd?: string,
 	options?: IOptionsPkgListable<R>,

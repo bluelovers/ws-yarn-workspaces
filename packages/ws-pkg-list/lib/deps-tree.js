@@ -4,10 +4,9 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.wsPkgDepsListableRecord = exports.wsPkgDepsListable = void 0;
-const tslib_1 = require("tslib");
 const util_1 = require("./util");
 const find_root_1 = require("@yarn-tool/find-root");
-const listable_1 = (0, tslib_1.__importDefault)(require("./listable"));
+const listable_1 = require("./listable");
 function wsPkgDepsListable(cwd, options) {
     cwd = (0, find_root_1.findRoot)({
         cwd: cwd !== null && cwd !== void 0 ? cwd : process.cwd(),
@@ -30,7 +29,7 @@ function wsPkgDepsListable(cwd, options) {
             return _handler_old(_old(row, pkg), pkg);
         };
     }
-    return (0, listable_1.default)(cwd, {
+    return (0, listable_1.wsPkgListable)(cwd, {
         ...options,
         handler,
     });
