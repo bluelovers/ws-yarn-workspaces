@@ -2,7 +2,8 @@
 /// <reference types="node" />
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getModuleByID = exports.getMainModule = exports.getRequireCache = exports.getModuleByFile = exports.getModuleByExports = exports._createError = exports.requireFromParentUp = exports.requireParent = exports.requireUp = exports.upRequire = exports.requireFromModuleList = exports.getAllModule = exports.requireFromTopParent = exports.MODULE_NOT_FOUND = void 0;
-exports.MODULE_NOT_FOUND = 'MODULE_NOT_FOUND';
+const MODULE_NOT_FOUND = 'MODULE_NOT_FOUND';
+exports.MODULE_NOT_FOUND = MODULE_NOT_FOUND;
 /**
  * Require package module from highest module.
  */
@@ -97,7 +98,7 @@ function _createError(err, data) {
     let msg = `Cannot find module '${data.id}'`;
     if (!err) {
         err = new Error(msg);
-        err.code = data.code || exports.MODULE_NOT_FOUND;
+        err.code = data.code || MODULE_NOT_FOUND;
         Error.captureStackTrace(err, _createError);
     }
     else {

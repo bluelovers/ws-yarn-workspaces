@@ -1,5 +1,6 @@
 /// <reference types="node" />
-export declare const MODULE_NOT_FOUND = "MODULE_NOT_FOUND";
+declare const MODULE_NOT_FOUND: "MODULE_NOT_FOUND";
+export { MODULE_NOT_FOUND };
 export interface IErrnoException extends NodeJS.ErrnoException, Error {
     code?: string | typeof MODULE_NOT_FOUND;
     module?: NodeModule;
