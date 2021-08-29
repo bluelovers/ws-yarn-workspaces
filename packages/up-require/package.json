@@ -1,0 +1,40 @@
+{
+  "name": "up-require",
+  "version": "1.0.2",
+  "description": "Require package module from highest or list of module.",
+  "keywords": [
+    "export",
+    "exports",
+    "highest",
+    "module",
+    "modules",
+    "package",
+    "parent",
+    "parent-require",
+    "parents",
+    "pkg",
+    "require",
+    "resolve"
+  ],
+  "homepage": "https://github.com/bluelovers/node-up-require#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/node-up-require/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/node-up-require.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "main": "./index",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "npx mocha --reporter spec --require test/bootstrap/node test/*.test.js test/**/*.test.js"
+  },
+  "dependencies": {
+    "@types/node": "^10"
+  },
+  "devDependencies": {}
+}

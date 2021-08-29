@@ -1,0 +1,71 @@
+build
+reports
+
+# Mac OS X
+.DS_Store
+
+# Node.js
+node_modules
+npm-debug.log
+
+# InteliJ
+.idea
+
+### Example user template template
+
+### Example user template
+
+# IntelliJ project files
+*.iml
+out
+gen
+### git_ts_bin template
+bin/*.d.ts
+### temp template
+/~*
+~ci.list.txt
+~ci.log.txt
+~ci.errors.txt
+
+*.stackdump
+*.bak
+*.old
+
+/*.log
+/*.lock
+
+*.tmp
+### git2 template
+
+
+
+package-lock.json
+
+test/**/*.js
+test/**/*.d.ts
+test/*.js
+test/*.d.ts
+test/temp*
+
+tests/**/*.js
+tests/**/*.d.ts
+tests/*.js
+tests/*.d.ts
+tests/temp*
+
+!/.gitignore
+### test template
+*.spec.ts
+*.spec.js
+*.spec.js.map
+*.test.ts
+*.test.js
+*.test.js.map
+### tsonly_test template
+
+
+__test__/*.js
+__test__/*.d.ts
+
+__tests__/*.js
+__tests__/*.d.ts
