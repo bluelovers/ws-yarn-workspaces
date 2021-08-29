@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.64](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-pkg-list@1.0.63...ws-pkg-list@1.0.64) (2021-08-29)
+
+
+### 📦　Code Refactoring
+
+* use named import for avoid use tslib ([ccfb039](https://github.com/bluelovers/ws-yarn-workspaces/commit/ccfb03927bed3808099a9d1a97d36c205eff64dd))
+
+
+
+
+
 ## [1.0.63](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-pkg-list@1.0.62...ws-pkg-list@1.0.63) (2021-08-20)
 
 

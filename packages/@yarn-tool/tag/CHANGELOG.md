@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.40](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/tag@1.0.39...@yarn-tool/tag@1.0.40) (2021-08-29)
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([adc101c](https://github.com/bluelovers/ws-yarn-workspaces/commit/adc101c360838f8b15561c6d6a7855bb3d3fc35d))
+
+
+
+
+
 ## [1.0.39](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/tag@1.0.38...@yarn-tool/tag@1.0.39) (2021-08-20)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.54](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/node-modules@1.0.53...@yarn-tool/node-modules@1.0.54) (2021-08-29)
+
+
+### 📦　Code Refactoring
+
+* use named import for avoid use tslib ([ccfb039](https://github.com/bluelovers/ws-yarn-workspaces/commit/ccfb03927bed3808099a9d1a97d36c205eff64dd))
+
+
+
+
+
 ## [1.0.53](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/node-modules@1.0.52...@yarn-tool/node-modules@1.0.53) (2021-08-20)
 
 **Note:** Version bump only for package @yarn-tool/node-modules

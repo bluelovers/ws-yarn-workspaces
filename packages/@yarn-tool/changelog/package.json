@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/changelog",
-  "version": "1.0.55",
+  "version": "1.0.56",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/changelog#readme",
   "bugs": {
@@ -50,7 +50,7 @@
     "ts-type": "^1.2.39",
     "tslib": "^2.3.1",
     "upath2": "^3.1.10",
-    "ws-pkg-list": "^1.0.63",
+    "ws-pkg-list": "^1.0.64",
     "yargs": "*"
   },
   "peerDependencies": {

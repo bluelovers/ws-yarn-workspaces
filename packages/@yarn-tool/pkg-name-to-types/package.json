@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/pkg-name-to-types",
-  "version": "1.0.33",
+  "version": "1.0.34",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/pkg-name-to-types#readme",
   "bugs": {
@@ -31,7 +31,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@yarn-tool/pkg-deps-util": "^1.0.33",
+    "@yarn-tool/pkg-deps-util": "^1.0.34",
     "tslib": "^2.3.1"
   },
   "publishConfig": {

@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/pkg-deps-util",
-  "version": "1.0.33",
+  "version": "1.0.34",
   "description": "",
   "keywords": [
     "yarn",
@@ -51,7 +51,7 @@
     "lodash": "^4.17.21",
     "sort-object-keys2": "^2.0.3",
     "tslib": "^2.3.1",
-    "ws-pkg-list": "^1.0.63"
+    "ws-pkg-list": "^1.0.64"
   },
   "peerDependencies": {
     "yargs": "*"
