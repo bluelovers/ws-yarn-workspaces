@@ -1,0 +1,9 @@
+require:
+#  - esm
+  - ts-node/register
+  - ./test/bootstrap/node
+timeout: 0
+color: true
+extension:
+  - ts
+

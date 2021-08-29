@@ -1,7 +1,7 @@
 try {
   var framework = require('framework');
 } catch (_) {
-  var prequire = require('../../..')
+  var prequire = require('../../..').default
     , framework = prequire('framework');
 }
 

@@ -65,7 +65,7 @@ export interface INodeRequireCache {
 export declare function getRequireCache(req?: NodeRequire): INodeRequireCache;
 export interface INodeModule<T = any> extends NodeModule {
     exports: T;
-    require: NodeRequireFunction;
+    require: NodeRequire;
     id: string;
     filename: string;
     loaded: boolean;

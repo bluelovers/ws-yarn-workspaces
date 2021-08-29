@@ -1,6 +1,7 @@
 "use strict";
 /// <reference types="node" />
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.getModuleByID = exports.getMainModule = exports.getRequireCache = exports.getModuleByFile = exports.getModuleByExports = exports._createError = exports.requireFromParentUp = exports.requireParent = exports.requireUp = exports.upRequire = exports.requireFromModuleList = exports.getAllModule = exports.requireFromTopParent = exports.MODULE_NOT_FOUND = void 0;
 exports.MODULE_NOT_FOUND = 'MODULE_NOT_FOUND';
 /**
  * Require package module from highest module.
@@ -45,15 +46,6 @@ function requireFromModuleList(id, ls, startModule) {
         }
         catch (e) {
             err = e;
-            if (err.code != exports.MODULE_NOT_FOUND) {
-                err = _createError(err, {
-                    id,
-                    module: pm,
-                    startModule,
-                    list: ls,
-                });
-                throw err;
-            }
         }
     }
     err = _createError(err, {
@@ -106,6 +98,7 @@ function _createError(err, data) {
     if (!err) {
         err = new Error(msg);
         err.code = data.code || exports.MODULE_NOT_FOUND;
+        Error.captureStackTrace(err, _createError);
     }
     else {
         //err.message = msg;
@@ -170,7 +163,7 @@ exports.getRequireCache = getRequireCache;
 function getMainModule(id = '.') {
     let pm = module;
     do {
-        if (pm.id == id) {
+        if (pm.id === id) {
             return pm;
         }
     } while (pm = pm.parent);
@@ -181,12 +174,11 @@ exports.getMainModule = getMainModule;
  * get module by package id like require(id)
  */
 function getModuleByID(id, requireIfNotExists, req = require) {
-    if (id == '.') {
+    if (id === '.') {
         return getMainModule(id);
     }
     return getModuleByFile(req.resolve(id), requireIfNotExists, req);
 }
 exports.getModuleByID = getModuleByID;
 exports.default = requireFromTopParent;
-// @ts-ignore
-module.exports = Object.freeze(module.exports);
+//# sourceMappingURL=index.js.map

@@ -74,17 +74,6 @@ export function requireFromModuleList<T = any>(id: string, ls: NodeModule[], sta
 		catch (e)
 		{
 			err = e;
-			if (err.code != MODULE_NOT_FOUND)
-			{
-				err = _createError(err, {
-					id,
-					module: pm,
-					startModule,
-					list: ls,
-				});
-
-				throw err;
-			}
 		}
 	}
 
@@ -155,6 +144,8 @@ export function _createError(err: IErrnoException, data: {
 	{
 		err = new Error(msg);
 		err.code = data.code || MODULE_NOT_FOUND;
+
+		Error.captureStackTrace(err, _createError)
 	}
 	else
 	{
@@ -245,7 +236,7 @@ export function getRequireCache(req = require): INodeRequireCache
 export interface INodeModule<T = any> extends NodeModule
 {
 	exports: T;
-	require: NodeRequireFunction;
+	require: NodeRequire;
 	id: string;
 	filename: string;
 	loaded: boolean;
@@ -263,7 +254,7 @@ export function getMainModule<T = any>(id = '.'): INodeModule<T>
 
 	do
 	{
-		if (pm.id == id)
+		if (pm.id === id)
 		{
 			return pm;
 		}
@@ -278,7 +269,7 @@ export function getMainModule<T = any>(id = '.'): INodeModule<T>
  */
 export function getModuleByID<T = any>(id: string, requireIfNotExists?: boolean, req = require)
 {
-	if (id == '.')
+	if (id === '.')
 	{
 		return getMainModule<T>(id);
 	}
@@ -287,6 +278,3 @@ export function getModuleByID<T = any>(id: string, requireIfNotExists?: boolean,
 }
 
 export default requireFromTopParent
-
-// @ts-ignore
-module.exports = Object.freeze(module.exports);

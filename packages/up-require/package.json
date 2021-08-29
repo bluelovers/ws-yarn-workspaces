@@ -1,6 +1,6 @@
 {
   "name": "up-require",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "Require package module from highest or list of module.",
   "keywords": [
     "export",
@@ -16,25 +16,30 @@
     "require",
     "resolve"
   ],
-  "homepage": "https://github.com/bluelovers/node-up-require#readme",
+  "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/up-require#readme",
   "bugs": {
-    "url": "https://github.com/bluelovers/node-up-require/issues"
+    "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bluelovers/node-up-require.git"
+    "url": "git+https://github.com/bluelovers/ws-yarn-workspaces.git"
   },
   "license": "ISC",
-  "author": "",
+  "author": "bluelovers",
   "main": "./index",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "npx mocha --reporter spec --require test/bootstrap/node test/*.test.js test/**/*.test.js"
+    "test": "ynpx mocha test/*.test.js test/**/*.test.js",
+    "preversion": "yarn run test",
+    "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
+    "ncu": "yarn-tool ncu -u",
+    "sort-package-json": "yarn-tool sort",
+    "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@types/node": "^10"
+    "tslib": "^2.3.1"
   },
   "devDependencies": {}
 }
