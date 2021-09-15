@@ -6,6 +6,7 @@ export function getDefaultPackageJson(name?: string): IPackageJson
 		"name": name,
 		"version": "1.0.0",
 		"private": true,
+		"packageManager": "yarn@^1.22.11",
 		"workspaces": [
 			"packages/*",
 		],

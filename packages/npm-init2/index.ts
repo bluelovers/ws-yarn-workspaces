@@ -210,20 +210,7 @@ if (!cp.error)
 			rootData,
 		});
 
-				pkg.data.bugs = pkg.data.bugs || {
-					url: info.bugs,
-				}
-
-				pkg.data.repository = pkg.data.repository || {
-					"type": "git",
-					url: info.repository,
-				}
-			}
-			catch (e)
-			{
-
-			}
-		}
+		pkg.data.packageManager ??= "yarn@^1.22.11";
 
 		let sharedScript: IPackageJson['scripts'] = {
 			"prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",

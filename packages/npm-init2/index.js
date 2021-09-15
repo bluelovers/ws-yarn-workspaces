@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 "use strict";
-var _a, _b, _c, _d, _e;
-var _f;
+var _a, _b, _c, _d, _e, _f;
+var _g, _h;
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const yargs_1 = (0, tslib_1.__importDefault)(require("yargs"));
@@ -11,7 +11,6 @@ const workspaces_config_1 = require("workspaces-config");
 const npm_package_json_loader_1 = (0, tslib_1.__importDefault)(require("npm-package-json-loader"));
 const yargs_setting_1 = require("./lib/yargs-setting");
 const find_root_1 = require("@yarn-tool/find-root");
-const pkg_git_info_1 = require("@yarn-tool/pkg-git-info");
 const fs_1 = require("fs");
 const writeReadme_1 = require("./lib/writeReadme");
 const sort_package_json_scripts_1 = require("sort-package-json-scripts");
@@ -27,6 +26,7 @@ const const_1 = require("@yarn-tool/static-file/lib/const");
 const static_file_1 = require("@yarn-tool/static-file");
 const logger_1 = (0, tslib_1.__importDefault)(require("debug-color2/logger"));
 const nameExistsInWorkspaces_1 = require("ws-pkg-list/lib/nameExistsInWorkspaces");
+const index_1 = require("@yarn-tool/pkg-hosted-info/index");
 //updateNotifier(__dirname);
 // avoid buf for idea
 logger_1.default.length;
@@ -144,28 +144,11 @@ if (!cp.error) {
         if (!pkg.data.scripts) {
             pkg.data.scripts = {};
         }
-        if (!pkg.data.homepage || !pkg.data.bugs || !pkg.data.repository) {
-            try {
-                let info = (0, pkg_git_info_1.npmHostedGitInfo)(targetDir);
-                // @ts-ignore
-                pkg.data.homepage = pkg.data.homepage || info.homepage;
-                if (rootData.hasWorkspace) {
-                    let u = new URL(pkg.data.homepage);
-                    u.pathname += '/tree/master/' + (0, upath2_1.relative)(rootData.ws, targetDir);
-                    // @ts-ignore
-                    pkg.data.homepage = u.toString();
-                }
-                pkg.data.bugs = pkg.data.bugs || {
-                    url: info.bugs,
-                };
-                pkg.data.repository = pkg.data.repository || {
-                    "type": "git",
-                    url: info.repository,
-                };
-            }
-            catch (e) {
-            }
-        }
+        (0, index_1.fillPkgHostedInfo)(pkg.data, {
+            targetDir,
+            rootData,
+        });
+        (_b = (_g = pkg.data).packageManager) !== null && _b !== void 0 ? _b : (_g.packageManager = "yarn@^1.22.11");
         let sharedScript = {
             "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
             "ncu": "yarn-tool ncu -u",
@@ -211,9 +194,9 @@ if (!cp.error) {
         }
         preScripts.push("yarn run test");
         sharedScript.preversion = preScripts.join(' && ');
-        (_b = (_f = pkg.data).scripts) !== null && _b !== void 0 ? _b : (_f.scripts = {});
+        (_c = (_h = pkg.data).scripts) !== null && _c !== void 0 ? _c : (_h.scripts = {});
         if (!oldExists) {
-            if (((_c = pkg.data.scripts) === null || _c === void 0 ? void 0 : _c.test) === "echo \"Error: no test specified\" && exit 1" && ((_d = sharedScript.test) === null || _d === void 0 ? void 0 : _d.length) > 0) {
+            if (((_d = pkg.data.scripts) === null || _d === void 0 ? void 0 : _d.test) === "echo \"Error: no test specified\" && exit 1" && ((_e = sharedScript.test) === null || _e === void 0 ? void 0 : _e.length) > 0) {
                 delete pkg.data.scripts.test;
             }
             if (_findDeps(wsProject === null || wsProject === void 0 ? void 0 : wsProject.manifest, '@types/jest') || _findDeps(wsProject === null || wsProject === void 0 ? void 0 : wsProject.manifest, 'jest') || _findDeps(wsProject === null || wsProject === void 0 ? void 0 : wsProject.manifest, 'ts-jest')) {
@@ -289,7 +272,7 @@ if (!cp.error) {
         }
         if (wsProject && !rootData.isWorkspace) {
             const rootKeywords = wsProject.manifest.toJSON().keywords;
-            if (!((_e = pkg.data.keywords) === null || _e === void 0 ? void 0 : _e.length) && (rootKeywords === null || rootKeywords === void 0 ? void 0 : rootKeywords.length)) {
+            if (!((_f = pkg.data.keywords) === null || _f === void 0 ? void 0 : _f.length) && (rootKeywords === null || rootKeywords === void 0 ? void 0 : rootKeywords.length)) {
                 pkg.data.keywords = rootKeywords.slice();
             }
         }
