@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.178](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.177...npm-init2@1.0.178) (2021-09-15)
+
+
+### ✨　Features
+
+* corepack packageManager ([5391c0e](https://github.com/bluelovers/npm-init2/commit/5391c0e75509c31559d12e20b7787b77320bd1c2)), closes [/github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V16.md#2021-09-07-version-1690](https://github.com//github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V16.md/issues/2021-09-07-version-1690)
+
+
+### 📦　Code Refactoring
+
+* use `@yarn-tool/pkg-hosted-info` ([2975197](https://github.com/bluelovers/npm-init2/commit/297519795f592fe52efa561c3027409fc48acf9e))
+
+
+
+
+
 ## [1.0.177](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.176...npm-init2@1.0.177) (2021-08-29)
 
 **Note:** Version bump only for package npm-init2

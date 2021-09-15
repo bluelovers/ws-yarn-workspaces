@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.35](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/resolve-package@1.0.34...@yarn-tool/resolve-package@1.0.35) (2021-09-15)
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([21fdb59](https://github.com/bluelovers/ws-yarn-workspaces/commit/21fdb59f6c45c6beee68cd77259664b308fc7a38))
+
+
+
+
+
 ## [1.0.34](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/resolve-package@1.0.33...@yarn-tool/resolve-package@1.0.34) (2021-08-13)
 
 

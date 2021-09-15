@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/run-script-lifecycle",
-  "version": "1.0.37",
+  "version": "1.0.38",
   "description": "run script lifecycle",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/run-script-lifecycle#readme",
   "bugs": {
@@ -34,7 +34,7 @@
   "dependencies": {
     "@npmcli/run-script": "^1.8.6",
     "@ts-type/package-dts": "^1.0.51",
-    "@yarn-tool/script-lifecycle": "^1.0.10",
+    "@yarn-tool/script-lifecycle": "^1.0.11",
     "tslib": "^2.3.1"
   },
   "peerDependencies": {

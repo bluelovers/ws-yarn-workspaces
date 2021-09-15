@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.120](https://github.com/bluelovers/create-yarn-workspaces/compare/create-yarn-workspaces@1.0.119...create-yarn-workspaces@1.0.120) (2021-09-15)
+
+
+### ✨　Features
+
+* corepack packageManager ([5391c0e](https://github.com/bluelovers/create-yarn-workspaces/commit/5391c0e75509c31559d12e20b7787b77320bd1c2)), closes [/github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V16.md#2021-09-07-version-1690](https://github.com//github.com/nodejs/node/blob/master/doc/changelogs/CHANGELOG_V16.md/issues/2021-09-07-version-1690)
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([21fdb59](https://github.com/bluelovers/create-yarn-workspaces/commit/21fdb59f6c45c6beee68cd77259664b308fc7a38))
+
+
+
+
+
 ## [1.0.119](https://github.com/bluelovers/create-yarn-workspaces/compare/create-yarn-workspaces@1.0.118...create-yarn-workspaces@1.0.119) (2021-08-20)
 
 
