@@ -30,6 +30,7 @@ import { defaultCopyStaticFiles, defaultCopyStaticFilesRootOnly } from '@yarn-to
 import { copyStaticFiles } from '@yarn-tool/static-file';
 import console from 'debug-color2/logger';
 import { nameExistsInWorkspaces } from 'ws-pkg-list/lib/nameExistsInWorkspaces';
+import { fillPkgHostedInfo } from '@yarn-tool/pkg-hosted-info/index';
 
 //updateNotifier(__dirname);
 
@@ -204,24 +205,10 @@ if (!cp.error)
 			pkg.data.scripts = {};
 		}
 
-		if (!pkg.data.homepage || !pkg.data.bugs || !pkg.data.repository)
-		{
-			try
-			{
-				let info = npmHostedGitInfo(targetDir);
-
-				// @ts-ignore
-				pkg.data.homepage = pkg.data.homepage || info.homepage
-
-				if (rootData.hasWorkspace)
-				{
-					let u = new URL(pkg.data.homepage as string);
-
-					u.pathname += '/tree/master/' + relative(rootData.ws, targetDir);
-
-					// @ts-ignore
-					pkg.data.homepage = u.toString();
-				}
+		fillPkgHostedInfo(pkg.data, {
+			targetDir,
+			rootData,
+		});
 
 				pkg.data.bugs = pkg.data.bugs || {
 					url: info.bugs,
