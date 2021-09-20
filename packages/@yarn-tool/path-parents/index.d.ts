@@ -1,5 +1,6 @@
-export declare function pathUpToWorkspacesGenerator(cwd?: string, options?: {
+export interface IOptions {
     ignoreCurrentDirectory?: boolean;
-}): Generator<string, void, unknown>;
-export declare function pathUpToWorkspaces(cwd?: string): string[];
+}
+export declare function pathUpToWorkspacesGenerator(cwd?: string, options?: IOptions): Generator<string, void, unknown>;
+export declare function pathUpToWorkspaces(cwd?: string, options?: IOptions): string[];
 export default pathUpToWorkspaces;

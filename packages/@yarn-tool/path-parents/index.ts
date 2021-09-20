@@ -1,18 +1,16 @@
 import { handleOptions, pathParentsGenerator } from 'path-parents';
 import { findRoot } from '@yarn-tool/find-root';
 import { resolve } from 'upath2';
-import pathIsSame from 'path-is-same';
+import { pathIsSame } from 'path-is-same';
 
-export function* pathUpToWorkspacesGenerator(cwd?: string, options?: {
-	ignoreCurrentDirectory?: boolean
-})
+export interface IOptions
+{
+	ignoreCurrentDirectory?: boolean;
+}
+
+export function* pathUpToWorkspacesGenerator(cwd?: string, options?: IOptions)
 {
 	cwd = resolve(cwd ?? process.cwd())
-
-	if (!options?.ignoreCurrentDirectory)
-	{
-		yield cwd
-	}
 
 	let {
 		root,
@@ -22,7 +20,12 @@ export function* pathUpToWorkspacesGenerator(cwd?: string, options?: {
 		cwd,
 	});
 
-	if (hasWorkspace && !isWorkspace)
+	if (!options?.ignoreCurrentDirectory)
+	{
+		yield cwd
+	}
+
+	if (root.length && !pathIsSame(cwd, root))
 	{
 		for (let current of pathParentsGenerator(cwd))
 		{
@@ -39,9 +42,9 @@ export function* pathUpToWorkspacesGenerator(cwd?: string, options?: {
 	}
 }
 
-export function pathUpToWorkspaces(cwd?: string)
+export function pathUpToWorkspaces(cwd?: string, options?: IOptions)
 {
-	return [...pathUpToWorkspacesGenerator(cwd)]
+	return [...pathUpToWorkspacesGenerator(cwd, options)]
 }
 
 export default pathUpToWorkspaces

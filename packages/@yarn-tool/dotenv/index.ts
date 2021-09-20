@@ -47,7 +47,6 @@ export function wsEnvConfig<E = typeof process.env>(cwd?: string, options?: IDot
 
 	for (current of pathUpToWorkspacesGenerator(cwd))
 	{
-
 		for (let file of files)
 		{
 			path = join(current, file);
