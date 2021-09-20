@@ -1,10 +1,6 @@
 /// <reference types="node" />
-export declare const SymbolCurrentDirectory: unique symbol;
-export declare const SymbolGlobal: unique symbol;
-export declare const SymbolGlobalNpm: unique symbol;
-export declare const SymbolGlobalYarn: unique symbol;
-export declare const SymbolModuleMain: unique symbol;
-declare type IPathItem = typeof SymbolCurrentDirectory | typeof SymbolGlobal | typeof SymbolGlobalNpm | typeof SymbolGlobalYarn | typeof SymbolModuleMain;
+import { IPathItem, SymbolCurrentDirectory, SymbolGlobal, SymbolGlobalNpm, SymbolGlobalYarn, SymbolModuleMain } from '@yarn-tool/get-paths-by-type/index';
+export { IPathItem, SymbolCurrentDirectory, SymbolGlobal, SymbolGlobalNpm, SymbolGlobalYarn, SymbolModuleMain, };
 export interface IOptionsCore {
     paths?: (string | IPathItem)[];
 }

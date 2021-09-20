@@ -1,21 +1,24 @@
-import { yarn, npm } from 'global-dirs';
+import getPathsByType, {
+	IPathItem,
+	SymbolCurrentDirectory,
+	SymbolGlobal,
+	SymbolGlobalNpm,
+	SymbolGlobalYarn,
+	SymbolModuleMain,
+} from '@yarn-tool/get-paths-by-type/index';
 
 const defaultMap: Record<string, string> = {
 	tsdx: 'tsdx/dist/index',
 }
 
-export const SymbolCurrentDirectory = Symbol.for('cwd');
-export const SymbolGlobal = Symbol.for('global');
-export const SymbolGlobalNpm = Symbol.for('npm');
-export const SymbolGlobalYarn = Symbol.for('yarn');
-export const SymbolModuleMain = Symbol.for('module.main');
-
-type IPathItem =
-	typeof SymbolCurrentDirectory
-	| typeof SymbolGlobal
-	| typeof SymbolGlobalNpm
-	| typeof SymbolGlobalYarn
-	| typeof SymbolModuleMain;
+export {
+	IPathItem,
+	SymbolCurrentDirectory,
+	SymbolGlobal,
+	SymbolGlobalNpm,
+	SymbolGlobalYarn,
+	SymbolModuleMain,
+}
 
 export interface IOptionsCore
 {
@@ -91,23 +94,11 @@ export function handleOptionsPaths(paths: IOptionsCore["paths"], cwd?: string): 
 			switch (value)
 			{
 				case SymbolGlobal:
-					paths.push(yarn.packages)
-					paths.push(npm.packages)
-					break;
 				case SymbolCurrentDirectory:
-					paths.push(cwd ?? process.cwd())
-					break;
 				case SymbolGlobalNpm:
-					paths.push(npm.packages)
-					break;
 				case SymbolGlobalYarn:
-					paths.push(yarn.packages)
-					break;
 				case SymbolModuleMain:
-					if (typeof module !== 'undefined' && require.main !== module)
-					{
-						paths.push(require.main.path)
-					}
+					paths.push(...getPathsByType(value, cwd))
 					break;
 				default:
 					if (value ?? false)
