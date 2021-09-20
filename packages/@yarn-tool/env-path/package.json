@@ -1,0 +1,53 @@
+{
+  "name": "@yarn-tool/env-path",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "yarn",
+    "yarn-tool",
+    "npm",
+    "lerna",
+    "workspaces",
+    "pkg",
+    "dependencies",
+    "monorepo",
+    "yarnlock",
+    "node-modules",
+    "packages",
+    "package"
+  ],
+  "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/env-path#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/ws-yarn-workspaces.git"
+  },
+  "license": "ISC",
+  "author": "bluelovers",
+  "main": "index.js",
+  "scripts": {
+    "coverage": "yarn run test -- --coverage",
+    "lint": "ynpx --quiet eslint -- **/*.ts",
+    "test": "jest --passWithNoTests",
+    "test:jest": "jest --passWithNoTests",
+    "test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
+    "preversion": "echo preversion && yarn run test",
+    "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
+    "ncu": "yarn-tool ncu -u",
+    "sort-package-json": "yarn-tool sort",
+    "tsc:showConfig": "ynpx get-current-tsconfig -p"
+  },
+  "dependencies": {
+    "path-env": "^0.0.12",
+    "tslib": "^2.3.1",
+    "value-from-record": "^2.0.2"
+  },
+  "devDependencies": {},
+  "peerDependencies": {},
+  "publishConfig": {
+    "access": "public"
+  },
+  "packageManager": "yarn@^1.22.11"
+}
