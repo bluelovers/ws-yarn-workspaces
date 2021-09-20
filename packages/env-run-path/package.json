@@ -29,9 +29,9 @@
     "sort-package-json": "npx yarn-tool sort"
   },
   "dependencies": {
+    "@yarn-tool/env-path": "^1.0.0",
     "@yarn-tool/find-root": "^1.0.51",
     "debug-color2": "^1.2.7",
-    "path-key": "^4.0.0",
     "tslib": "^2.3.1"
   },
   "publishConfig": {

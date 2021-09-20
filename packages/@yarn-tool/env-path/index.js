@@ -17,8 +17,8 @@ function processEnv(ignoreErrors) {
     }
 }
 exports.processEnv = processEnv;
-function envPathKey(env = processEnv()) {
-    return (0, value_from_record_1.keyFromRecord)('PATH', env);
+function envPathKey(env) {
+    return (0, value_from_record_1.keyFromRecord)('PATH', env !== null && env !== void 0 ? env : processEnv());
 }
 exports.envPathKey = envPathKey;
 function envPathObject(env, key, delim) {

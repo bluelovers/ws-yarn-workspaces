@@ -23,12 +23,12 @@ export function processEnv(ignoreErrors?: boolean)
 	}
 }
 
-export function envPathKey(env: IRecordLike<string, any> = processEnv()): string
+export function envPathKey(env?: IRecordLike<string, any>): string
 {
-	return keyFromRecord('PATH', env)
+	return keyFromRecord('PATH', env ?? processEnv())
 }
 
-export function envPathObject(env: IRecordLike<string, any>,
+export function envPathObject(env?: IRecordLike<string, any>,
 	key?: string,
 	delim?: IPathDelimiter,
 )

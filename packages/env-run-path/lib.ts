@@ -2,7 +2,7 @@ import { resolve, delimiter } from "path";
 import findRoot from '@yarn-tool/find-root';
 import findBinPathCore from './core';
 import { IOptionsGetRunPathCore, IOptionsFindBinPath, ProcessEnv } from './index';
-import PathKey from 'path-key';
+import { envPathKey, processEnv as _processEnv } from '@yarn-tool/env-path/index';
 
 export function findBinPath(options: IOptionsFindBinPath = {})
 {
@@ -56,9 +56,8 @@ export function getExePath(options: IOptionsGetRunPathCore)
 
 export function processRunPathCore<P = ProcessEnv>(options: IOptionsGetRunPathCore<P> = {})
 {
-	const pathKey = PathKey();
-
-	let processEnv = (options.processEnv || process.env) as any as P;
+	let processEnv = (options.processEnv || _processEnv()) as any as P;
+	const pathKey = envPathKey(processEnv);
 
 	let {
 		cwd = process.cwd(),

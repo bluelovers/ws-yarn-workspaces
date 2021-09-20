@@ -1,4 +1,4 @@
-import PathKey from 'path-key';
+
 import { resolve, delimiter } from "path";
 import { Stats, statSync } from "fs";
 
