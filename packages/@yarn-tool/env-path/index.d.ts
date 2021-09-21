@@ -5,6 +5,8 @@ declare const delimiter: IPathDelimiter;
 export { delimiter };
 export declare function processEnv(ignoreErrors?: boolean): NodeJS.ProcessEnv;
 export declare function envPathKey(env?: IRecordLike<string, any>): string;
+export declare function getEnvPathValue(env?: IRecordLike<string, any>, key?: string): string;
+export declare function setEnvPathValue(value: string | string[], env?: IRecordLike<string, string>, key?: string, delim?: IPathDelimiter): IRecordLike<string, string>;
 export declare function envPathObject(env?: IRecordLike<string, any>, key?: string, delim?: IPathDelimiter): {
     get: {
         factory: () => import("path-env").PathFactory;

@@ -1,4 +1,10 @@
-import { valueFromRecord, IRecordLike, keyFromRecord } from 'value-from-record';
+import {
+	valueFromRecord,
+	IRecordLike,
+	keyFromRecord,
+	entriesOfRecord,
+	setRecordValue,
+} from 'value-from-record';
 import { pathEnv } from 'path-env';
 import { delimiter as _delimiter } from 'path';
 
@@ -28,6 +34,32 @@ export function envPathKey(env?: IRecordLike<string, any>): string
 	return keyFromRecord('PATH', env ?? processEnv())
 }
 
+export function getEnvPathValue(env?: IRecordLike<string, any>,
+	key?: string,
+): string
+{
+	env ??= processEnv();
+	key ??= envPathKey(env);
+
+	return valueFromRecord(key, env)
+}
+
+export function setEnvPathValue(value: string | string[], env?: IRecordLike<string, string>,
+	key?: string,
+	delim?: IPathDelimiter,
+)
+{
+	env ??= processEnv();
+	key ??= envPathKey(env);
+
+	if (typeof value !== 'string')
+	{
+		value = [...value].join(delim ?? delimiter);
+	}
+
+	return setRecordValue(value, key, env)
+}
+
 export function envPathObject(env?: IRecordLike<string, any>,
 	key?: string,
 	delim?: IPathDelimiter,
@@ -47,7 +79,7 @@ export function envObject(env?: IRecordLike<string, any>,
 
 	if (typeof (env as Map<any, any>).entries === 'function')
 	{
-		env = (env as Map<any, any>).entries()
+		env = Object.fromEntries(entriesOfRecord(env))
 	}
 
 	return pathEnv(env as Record<any, any>, key, delim)
