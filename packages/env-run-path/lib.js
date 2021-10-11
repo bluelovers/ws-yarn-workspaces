@@ -1,15 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.processRunPathCore = exports.getExePath = exports.findBinPath = void 0;
-const tslib_1 = require("tslib");
 const path_1 = require("path");
-const find_root_1 = (0, tslib_1.__importDefault)(require("@yarn-tool/find-root"));
-const core_1 = (0, tslib_1.__importDefault)(require("./core"));
+const find_root_1 = require("@yarn-tool/find-root");
+const core_1 = require("./core");
 const index_1 = require("@yarn-tool/env-path/index");
 function findBinPath(options = {}) {
     let { cwd = process.cwd(), stopPath, } = options;
     if (!options.cwd || typeof stopPath === 'boolean' || !stopPath) {
-        let rootData = (0, find_root_1.default)({
+        let rootData = (0, find_root_1.findRoot)({
             cwd,
         });
         if (stopPath === true || stopPath == null) {
@@ -22,7 +21,7 @@ function findBinPath(options = {}) {
             cwd = rootData.pkg;
         }
     }
-    let { history, result } = (0, core_1.default)({
+    let { history, result } = (0, core_1.findBinPathCore)({
         ...options,
         cwd,
         stopPath,
