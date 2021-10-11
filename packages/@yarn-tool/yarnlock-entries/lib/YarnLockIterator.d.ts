@@ -24,6 +24,6 @@ export declare class YarnLockIterator<T extends IYarnLockParsedV1 | IYarnLockPar
     map<U, D extends IUnpackYarnLockDataRow<T> = DD>(fn: (value: IYarnLockIteratorWrap<D>, key: string, _this: this) => U): U[];
     mapAsync<U, D extends IUnpackYarnLockDataRow<T> = DD>(fn: (value: IYarnLockIteratorWrap<D>, key: string, _this: this) => ITSResolvable<U>): Promise<U[]>;
     reduce<U = unknown, D extends IUnpackYarnLockDataRow<T> = DD>(fn: (initValue: U, value: IYarnLockIteratorWrap<D>, key: string, _this: this) => U, initValue?: U): U;
-    reduceAsync<U = unknown, D extends IUnpackYarnLockDataRow<T> = DD>(fn: (initValue: U, value: IYarnLockIteratorWrap<D>, key: string, _this: this) => ITSResolvable<U>, initValue?: U): Promise<Awaited<U>>;
+    reduceAsync<U = unknown, D extends IUnpackYarnLockDataRow<T> = DD>(fn: (initValue: U, value: IYarnLockIteratorWrap<D>, key: string, _this: this) => ITSResolvable<U>, initValue?: U): Promise<U>;
 }
 export default YarnLockIterator;

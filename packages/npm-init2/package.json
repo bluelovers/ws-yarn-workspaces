@@ -73,7 +73,7 @@
     "validate-npm-package-name": "^3.0.0",
     "workspaces-config": "^1.0.35",
     "ws-pkg-list": "^1.0.65",
-    "yargs": "^17.1.1"
+    "yargs": "^17.2.1"
   },
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.25",

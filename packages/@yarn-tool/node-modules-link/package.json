@@ -37,7 +37,7 @@
     "fs-symlink-extra": "^1.0.6",
     "tslib": "^2.3.1",
     "upath2": "^3.1.10",
-    "yargs": "^17.1.1"
+    "yargs": "^17.2.1"
   },
   "publishConfig": {
     "access": "public"

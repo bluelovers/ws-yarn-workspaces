@@ -35,7 +35,7 @@
     "tslib": "^2.3.1"
   },
   "peerDependencies": {
-    "sort-package-json": "^1.51.0"
+    "sort-package-json": "^1.52.0"
   },
   "gitHead": "445ff249d9e89ede8c67a41af7f967bdc9dd50aa"
 }
