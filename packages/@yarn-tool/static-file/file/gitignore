@@ -136,3 +136,10 @@ jest.config.js.map
 /test/tsconfig.json.tpl
 /tsconfig.json.tpl
 /report.json
+
+.opt-in
+.opt-out
+/gradle
+.gradle
+/out
+/build
