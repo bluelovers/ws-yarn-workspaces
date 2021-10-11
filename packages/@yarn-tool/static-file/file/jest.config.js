@@ -25,16 +25,36 @@ function _requireResolve(name)
 	return result || require.resolve(name)
 }
 
+const testExt = 'ts|tsx';
+
 /**
  * @type { import('@jest/types').Config.InitialOptions }
  */
 module.exports = {
 	clearMocks: true,
-	moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+	moduleFileExtensions: [
+		'ts',
+		'tsx',
+		'js',
+		'jsx',
+		'json',
+		'node',
+	],
 	testEnvironment: 'node',
 	//testMatch: ['**/*.test.ts', '**/*.spec.ts'],
 	testMatch: void 0,
-	testRegex: ['\\.(tests?|spec)\\.(ts|tsx)$'],
+	testRegex: [
+		`\\.(tests?|spec)\\.(${testExt})$`,
+		`__tests__\/\.*\\.(${testExt})$`,
+	],
+	testPathIgnorePatterns: [
+		'/node_modules/',
+		'/__fixtures__/',
+		'/fixtures/',
+		'/__tests__/helpers/',
+		'/__tests__/utils/',
+		'__mocks__',
+	],
 	//testRunner: 'jest-circus/runner',
 	setupFilesAfterEnv: [
 		//"jest-chain",
@@ -52,6 +72,12 @@ module.exports = {
 	 */
 	coverageProvider: 'v8',
 	collectCoverage: false,
+	coveragePathIgnorePatterns: [
+		'/node_modules/',
+		'**/node_modules/',
+		'**/__snapshots__/',
+		'**/__tests__/',
+	],
 	/**
 	 * https://github.com/facebook/jest/issues/9771#issuecomment-872764344
 	 */
