@@ -33,6 +33,8 @@
     "prepare:fix-ws-links": "ynpx @yarn-tool/fix-ws-links",
     "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
     "postpublish:subrepo": "git subrepo push --all & git push",
+    "postpublish": "yarn run postpublishOnly:ws-root-changelog",
+    "postpublishOnly:ws-root-changelog": "ynpx ws-root-changelog & git commit ./CHANGELOG.md -m \"chore(changelog): update changelog toc in workspaces root\" & echo update changelog toc in workspaces root",
     "ncu": "yarn run ncu:root && yarn run ncu:ws",
     "ncu:root": "npx yarn-tool ncu -u",
     "ncu:ws": "npx yarn-tool ws exec yarn-tool ncu -- -u",
