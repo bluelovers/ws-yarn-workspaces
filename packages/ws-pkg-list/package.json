@@ -1,6 +1,6 @@
 {
   "name": "ws-pkg-list",
-  "version": "1.0.65",
+  "version": "1.0.66",
   "description": "get Yarn Workspaces Packages List and can help create `paths` for `tsconfig.json`",
   "keywords": [
     "monorepos",
@@ -47,15 +47,15 @@
   "dependencies": {
     "@bluelovers/fast-glob": "^3.0.4",
     "@ts-type/package-dts": "^1.0.51",
-    "@yarn-tool/find-root": "^1.0.51",
+    "@yarn-tool/find-root": "^1.0.53",
     "array-hyper-unique": "^1.1.10",
-    "find-yarn-workspace-root2": "^1.2.32",
+    "find-yarn-workspace-root2": "^1.2.34",
     "fs-extra": "^10.0.0",
     "micromatch": "^4.0.4",
     "ts-type": "^1.2.40",
     "tslib": "^2.3.1",
     "upath2": "^3.1.10",
-    "workspaces-config": "^1.0.35"
+    "workspaces-config": "^1.0.36"
   },
   "gitHead": "67f2bf3be478106378700eb513da557943b2f9f3"
 }

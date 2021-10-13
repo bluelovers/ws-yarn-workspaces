@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.66](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-pkg-list@1.0.65...ws-pkg-list@1.0.66) (2021-10-13)
+
+
+### 🐛　Bug Fixes
+
+* **type:** wsPkgListableFromPaths ([36e0e44](https://github.com/bluelovers/ws-yarn-workspaces/commit/36e0e44dca4dabc21b6913a52b48c6544fa02735))
+
+
+
+
+
 ## [1.0.65](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-pkg-list@1.0.64...ws-pkg-list@1.0.65) (2021-09-15)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.5](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/require-resolve@1.0.4...@yarn-tool/require-resolve@1.0.5) (2021-10-13)
+
+
+### 📦　Code Refactoring
+
+* `@yarn-tool/get-paths-by-type` ([9596dbe](https://github.com/bluelovers/ws-yarn-workspaces/commit/9596dbe324ec66e2d7959a43e861e4b886a61e18))
+
+
+
+
+
 ## [1.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/require-resolve@1.0.3...@yarn-tool/require-resolve@1.0.4) (2021-08-13)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.14](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/path-parents@1.0.13...@yarn-tool/path-parents@1.0.14) (2021-10-13)
+
+
+### ✨　Features
+
+* update pathUpToWorkspaces ([a8577e6](https://github.com/bluelovers/ws-yarn-workspaces/commit/a8577e62a93c1928b0f7661a1a49b4e05ee200fe))
+
+
+
+
+
 ## [1.0.13](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/path-parents@1.0.12...@yarn-tool/path-parents@1.0.13) (2021-09-15)
 
 **Note:** Version bump only for package @yarn-tool/path-parents

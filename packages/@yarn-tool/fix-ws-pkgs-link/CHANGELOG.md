@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.11](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-ws-pkgs-link@1.0.10...@yarn-tool/fix-ws-pkgs-link@1.0.11) (2021-10-13)
+
+**Note:** Version bump only for package @yarn-tool/fix-ws-pkgs-link
+
+
+
+
+
 ## [1.0.10](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-ws-pkgs-link@1.0.9...@yarn-tool/fix-ws-pkgs-link@1.0.10) (2021-09-15)
 
 **Note:** Version bump only for package @yarn-tool/fix-ws-pkgs-link

@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/require-resolve",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "require.resolve with search on extra paths",
   "keywords": [
     "yarn",
@@ -37,7 +37,7 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@yarn-tool/get-paths-by-type": "^1.0.0",
+    "@yarn-tool/get-paths-by-type": "^1.0.2",
     "global-dirs": "^3.0.0",
     "tslib": "^2.3.1"
   },
