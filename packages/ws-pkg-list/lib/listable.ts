@@ -41,7 +41,7 @@ export function wsPkgListableFromReaded<R extends IListableRow = IListableRow, T
 	;
 }
 
-export function wsPkgListableFromPaths<R extends IListableRow = IListableRow>(paths: string[], cwd?: string, options?: IOptionsPkgListable<R>): IListableRow[]
+export function wsPkgListableFromPaths<R extends IListableRow = IListableRow>(paths: string[], cwd?: string, options?: IOptionsPkgListable<R>): R[]
 {
 	cwd = cwd ?? process.cwd();
 
