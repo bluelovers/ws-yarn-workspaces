@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.74](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.73...@yarn-tool/static-file@1.0.74) (2021-10-13)
+
+
+### ♻️　Chores
+
+* update jest configuration ([a391312](https://github.com/bluelovers/ws-yarn-workspaces/commit/a391312479cf70690fd14406abcadc9ef761c13b))
+
+
+### 🔖　Miscellaneous
+
+* . ([07823f6](https://github.com/bluelovers/ws-yarn-workspaces/commit/07823f6759656a40c54a436c3e9b88e97f8d5b8c))
+* . ([209d7d9](https://github.com/bluelovers/ws-yarn-workspaces/commit/209d7d9a18562f2ff201899c728c1fe326d16de6))
+
+
+
+
+
 ## [1.0.73](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.72...@yarn-tool/static-file@1.0.73) (2021-08-13)
 
 

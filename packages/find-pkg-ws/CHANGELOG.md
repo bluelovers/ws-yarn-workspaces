@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.30](https://github.com/bluelovers/find-pkg-ws/compare/find-pkg-ws@1.0.29...find-pkg-ws@1.0.30) (2021-10-13)
+
+**Note:** Version bump only for package find-pkg-ws
+
+
+
+
+
 ## [1.0.29](https://github.com/bluelovers/find-pkg-ws/compare/find-pkg-ws@1.0.28...find-pkg-ws@1.0.29) (2021-08-13)
 
 

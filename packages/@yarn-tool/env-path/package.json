@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/env-path",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "keywords": [
     "yarn",
@@ -44,8 +44,6 @@
     "tslib": "^2.3.1",
     "value-from-record": "^2.0.4"
   },
-  "devDependencies": {},
-  "peerDependencies": {},
   "publishConfig": {
     "access": "public"
   },
