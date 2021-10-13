@@ -1,3 +1,10 @@
+// @ts-check
+
+/**
+ * @param {string} name
+ * @returns {string}
+ * @private
+ */
 function _requireResolve(name)
 {
 	let result;
@@ -25,7 +32,12 @@ function _requireResolve(name)
 	return result || require.resolve(name)
 }
 
-const testExt = 'ts|tsx';
+const testExt = [
+	'ts',
+	'tsx',
+	//'js',
+	//'jsx',
+].join('|');
 
 /**
  * @type { import('@jest/types').Config.InitialOptions }
