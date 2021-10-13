@@ -58,7 +58,7 @@
   },
   "devDependencies": {
     "@bluelovers/fast-glob": "^3.0.4",
-    "@bluelovers/tsconfig": "^1.0.25",
+    "@bluelovers/tsconfig": "^1.0.26",
     "@types/bluebird": "^3.5.36",
     "@types/chai": "^4.2.22",
     "@types/chalk": "^2.2.0",
@@ -75,7 +75,7 @@
     "@types/lodash": "^4.14.175",
     "@types/micromatch": "^4.0.2",
     "@types/mocha": "^9.0.0",
-    "@types/node": "^16.10.3",
+    "@types/node": "^16.10.5",
     "@types/npm-package-arg": "^6.1.1",
     "@types/npm-packlist": "^1.1.2",
     "@types/parse-git-config": "^3.0.1",
