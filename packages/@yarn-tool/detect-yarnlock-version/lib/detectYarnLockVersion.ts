@@ -1,6 +1,6 @@
 import { EnumDetectYarnLock } from './types';
 import { parseSyml } from '@yarnpkg/parsers';
-import detectYarnLockVersionByObject from './detectYarnLockVersionByObject';
+import { detectYarnLockVersionByObject } from './detectYarnLockVersionByObject';
 
 export function detectYarnLockVersion(buf: Buffer | string)
 {
@@ -10,7 +10,7 @@ export function detectYarnLockVersion(buf: Buffer | string)
 	{
 		return EnumDetectYarnLock.v1
 	}
-	else if (/^__metadata:\s*version: 4(?:\r|\n)/m.test(head))
+	else if (/^__metadata:\s*version: (4|5)(?:\r|\n)/m.test(head))
 	{
 		return EnumDetectYarnLock.berry
 	}
