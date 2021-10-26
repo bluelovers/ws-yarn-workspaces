@@ -35,7 +35,7 @@
     "@yarn-tool/table": "^1.0.34",
     "@yarn-tool/yarnlock-parse": "^1.0.17",
     "@yarn-tool/yarnlock-util": "^1.0.24",
-    "@yarnpkg/parsers": "^2.4.0",
+    "@yarnpkg/parsers": "^2.4.1",
     "array-hyper-unique": "^1.1.10",
     "debug-color2": "^1.2.7",
     "npm-package-arg": "^8.1.5",
@@ -44,7 +44,7 @@
     "tslib": "^2.3.1"
   },
   "devDependencies": {
-    "just-diff": "^3.1.1"
+    "just-diff": "^4.0.0"
   },
   "publishConfig": {
     "access": "public"
