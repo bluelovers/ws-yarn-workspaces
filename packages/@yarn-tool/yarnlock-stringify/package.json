@@ -1,7 +1,7 @@
 {
   "name": "@yarn-tool/yarnlock-stringify",
   "version": "1.0.9",
-  "description": "",
+  "description": "stringify yarnlock v1 and berry",
   "keywords": [
     "yarn",
     "yarn-tool",

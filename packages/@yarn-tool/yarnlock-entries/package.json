@@ -1,7 +1,7 @@
 {
   "name": "@yarn-tool/yarnlock-entries",
   "version": "1.0.25",
-  "description": "",
+  "description": "entries from yarnlock v1 and berry",
   "keywords": [
     "yarn",
     "yarn-tool",
