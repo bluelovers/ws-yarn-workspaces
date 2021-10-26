@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarnlock",
-  "version": "1.0.61",
+  "version": "1.0.62",
   "description": "util for yarn.lock",
   "keywords": [
     "data deduplication",
@@ -45,13 +45,13 @@
   },
   "dependencies": {
     "@ts-type/package-dts": "^1.0.51",
-    "@yarn-tool/detect-yarnlock-version": "^1.0.10",
+    "@yarn-tool/detect-yarnlock-version": "^1.0.11",
     "@yarn-tool/find-root": "^1.0.53",
     "@yarn-tool/table": "^1.0.34",
-    "@yarn-tool/yarnlock-dedupe": "^1.0.9",
-    "@yarn-tool/yarnlock-diff": "^1.0.27",
-    "@yarn-tool/yarnlock-fs": "^1.0.16",
-    "@yarn-tool/yarnlock-stringify": "^1.0.9",
+    "@yarn-tool/yarnlock-dedupe": "^1.0.10",
+    "@yarn-tool/yarnlock-diff": "^1.0.28",
+    "@yarn-tool/yarnlock-fs": "^1.0.17",
+    "@yarn-tool/yarnlock-stringify": "^1.0.10",
     "@yarnpkg/lockfile": "^1.1.0",
     "@yarnpkg/parsers": "^2.4.1",
     "debug-color2": "^1.2.7",

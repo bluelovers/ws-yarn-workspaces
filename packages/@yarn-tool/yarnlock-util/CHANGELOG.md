@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.25](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-util@1.0.24...@yarn-tool/yarnlock-util@1.0.25) (2021-10-26)
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([0c208fe](https://github.com/bluelovers/ws-yarn-workspaces/commit/0c208fe114a4f8a369e60d7f37f9cae645fc31b4))
+
+
+
+
+
 ## [1.0.24](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-util@1.0.23...@yarn-tool/yarnlock-util@1.0.24) (2021-09-15)
 
 **Note:** Version bump only for package @yarn-tool/yarnlock-util
