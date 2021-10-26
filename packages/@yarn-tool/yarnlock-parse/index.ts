@@ -3,7 +3,7 @@ import { detectYarnLockVersion } from '@yarn-tool/detect-yarnlock-version/lib/de
 import { EnumDetectYarnLock } from '@yarn-tool/detect-yarnlock-version/lib/types';
 import { parseSyml } from '@yarnpkg/parsers';
 import { IDependency } from '@ts-type/package-dts/lib/package-json/types';
-import newYarnLockParsedVersionError from '@yarn-tool/yarnlock-error';
+import { newYarnLockParsedVersionError } from '@yarn-tool/yarnlock-error';
 
 export type IYarnLockParsed = IYarnLockParsedV1 | IYarnLockParsedV2;
 
