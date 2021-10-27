@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.76](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.75...@yarn-tool/static-file@1.0.76) (2021-10-27)
+
+
+### ✨　Features
+
+* add ignore snowpack ([336478c](https://github.com/bluelovers/ws-yarn-workspaces/commit/336478c31e1ab17114798589ff7a7f4e72b998f9))
+
+
+
+
+
 ## [1.0.75](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.73...@yarn-tool/static-file@1.0.75) (2021-10-13)
 
 

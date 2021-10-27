@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.181](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.180...npm-init2@1.0.181) (2021-10-27)
+
+**Note:** Version bump only for package npm-init2
+
+
+
+
+
 ## [1.0.180](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.179...npm-init2@1.0.180) (2021-10-26)
 
 **Note:** Version bump only for package npm-init2
