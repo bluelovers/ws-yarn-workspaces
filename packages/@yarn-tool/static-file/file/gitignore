@@ -143,3 +143,7 @@ jest.config.js.map
 .gradle
 /out
 /build
+
+/_*/
+_snowpack
+web_modules

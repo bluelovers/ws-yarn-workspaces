@@ -85,3 +85,10 @@ npm-shrinkwrap.json
 .vercel
 tsdx.config.js
 /report.json
+
+/_*/
+_snowpack
+
+/snowpack.config.js
+web_modules
+cz-adapter
