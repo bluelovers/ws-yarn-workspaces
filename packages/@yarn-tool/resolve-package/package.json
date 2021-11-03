@@ -1,7 +1,31 @@
 {
   "name": "@yarn-tool/resolve-package",
   "version": "1.0.35",
-  "description": "",
+  "description": "resolve package root and package.json paths",
+  "keywords": [
+    "resolve",
+    "package",
+    "json",
+    "root",
+    "npm",
+    "entry",
+    "find",
+    "up",
+    "find-up",
+    "findup",
+    "look-up",
+    "look",
+    "file",
+    "search",
+    "match",
+    "parent",
+    "parents",
+    "folder",
+    "directory",
+    "walk",
+    "walking",
+    "path"
+  ],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/resolve-package#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"
@@ -30,6 +54,7 @@
   },
   "dependencies": {
     "@ts-type/package-dts": "^1.0.51",
+    "pkg-dir": "< 6 >= 5",
     "tslib": "^2.3.1",
     "upath2": "^3.1.10"
   },
