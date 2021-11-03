@@ -1374,10 +1374,10 @@
   resolved "https://registry.npmjs.org/@types/yargs-parser/-/yargs-parser-20.2.1.tgz#3b9ce2489919d9e4fea439b76916abc34b2df129"
   integrity sha512-7tFImggNeNBVMsn0vLrpn1H1uPrUBdnARPTpZoitY37ZrdJREzf7I16tMrlK3hen349gr1NYh8CmZQa7CTG6Aw==
 
-"@types/yargs@*", "@types/yargs@^17.0.4":
-  version "17.0.4"
-  resolved "https://registry.npmjs.org/@types/yargs/-/yargs-17.0.4.tgz#d7ad5c311aaca3d7daebba169e1ecf35be97ceee"
-  integrity sha512-D/wihO9WFYqwsmJI0e0qS+U09wIQtYRSBJlXWjTFGjouEuOCy0BU4N/ZK5utb00S5lW/9LO7vOpvGDd8M06NvQ==
+"@types/yargs@*", "@types/yargs@^17.0.5":
+  version "17.0.5"
+  resolved "https://registry.npmjs.org/@types/yargs/-/yargs-17.0.5.tgz#1e7e59a88420872875842352b73618f5e77e835f"
+  integrity sha512-4HNq144yhaVjJs+ON6A07NEoi9Hh0Rhl/jI9Nt/l/YRjt+T6St/QK3meFARWZ8IgkzoD1LC0PdTdJenlQQi2WQ==
   dependencies:
     "@types/yargs-parser" "*"
 
@@ -4911,10 +4911,10 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
-just-diff@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.npmjs.org/just-diff/-/just-diff-4.0.0.tgz#5e6596f0f069f623a3a0614cad7b262bd06dfbae"
-  integrity sha512-7Fiuw5EqWKlfCG+MK6n5RWXwGZV907PtRyxnab6WgO+RYRyrLlL120w+//udogLrY5lOrnGIVQ5HmM8vHKETxQ==
+just-diff@^4.1.2:
+  version "4.1.2"
+  resolved "https://registry.npmjs.org/just-diff/-/just-diff-4.1.2.tgz#15a3df23553b550d6430d98632c4a4f12b280978"
+  integrity sha512-zfbu6etAdrfoqcuMJcCQBRi8IC4qUIy5knR6eFfqzOeP3S3ZOmnTYSta6RFbFinFazFpR9BoXX+SJwZkrXCvGA==
 
 keyv@^3.0.0:
   version "3.1.0"
