@@ -1,18 +1,43 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.resolvePackage = void 0;
+exports.resolvePackage = exports.readModulePackageJson = exports.createResolveLocationFn = exports.resolvePackageJsonLocation = exports.resolvePackageRoot = exports.resolvePackageCore = void 0;
 const upath2_1 = require("upath2");
 const pkg_dir_1 = require("pkg-dir");
-function resolvePackage(name, options) {
-    const entryPointLocation = require.resolve(name, options);
+function resolvePackageCore(moduleName, options) {
+    const entryPointLocation = require.resolve(moduleName, options);
     const pkgRoot = (0, pkg_dir_1.sync)(entryPointLocation);
-    const pkgConfigLocation = (0, upath2_1.resolve)(pkgRoot, 'package.json');
     return {
-        name,
+        name: moduleName,
         pkgRoot,
-        pkg: require(pkgConfigLocation),
-        pkgConfigLocation,
         entryPointLocation,
+    };
+}
+exports.resolvePackageCore = resolvePackageCore;
+function resolvePackageRoot(moduleName, options) {
+    return resolvePackageCore(moduleName, options).pkgRoot;
+}
+exports.resolvePackageRoot = resolvePackageRoot;
+function resolvePackageJsonLocation(moduleName, options) {
+    return (0, upath2_1.resolve)(resolvePackageCore(moduleName, options).pkgRoot, 'package.json');
+}
+exports.resolvePackageJsonLocation = resolvePackageJsonLocation;
+function createResolveLocationFn(moduleName, options) {
+    const { pkgRoot } = resolvePackageCore(moduleName, options);
+    return (path, ...paths) => (0, upath2_1.resolve)(pkgRoot, path, ...paths);
+}
+exports.createResolveLocationFn = createResolveLocationFn;
+function readModulePackageJson(moduleName, options) {
+    return require(resolvePackageJsonLocation(moduleName, options));
+}
+exports.readModulePackageJson = readModulePackageJson;
+function resolvePackage(moduleName, options) {
+    const _ = resolvePackageCore(moduleName, options);
+    const { pkgRoot } = _;
+    const pkgJsonLocation = (0, upath2_1.resolve)(pkgRoot, 'package.json');
+    return {
+        ..._,
+        pkg: require(pkgJsonLocation),
+        pkgJsonLocation,
         resolveLocation(path, ...paths) {
             return (0, upath2_1.resolve)(pkgRoot, path, ...paths);
         },
