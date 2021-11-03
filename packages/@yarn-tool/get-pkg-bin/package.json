@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/get-pkg-bin",
-  "version": "1.0.39",
+  "version": "1.0.40",
   "description": "get bin script from package.json",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/get-pkg-bin#readme",
   "bugs": {
@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@ts-type/package-dts": "^1.0.51",
-    "@yarn-tool/resolve-package": "^1.0.36",
+    "@yarn-tool/resolve-package": "^1.0.37",
     "tslib": "^2.3.1",
     "upath2": "^3.1.10"
   },

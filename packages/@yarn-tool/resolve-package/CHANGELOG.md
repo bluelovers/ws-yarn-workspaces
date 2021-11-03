@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.37](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/resolve-package@1.0.36...@yarn-tool/resolve-package@1.0.37) (2021-11-03)
+
+
+### ✨　Features
+
+* split methods ([8c3871f](https://github.com/bluelovers/ws-yarn-workspaces/commit/8c3871f1c4a983d72b6a26bedc8e26bf323256d9))
+
+
+### BREAKING CHANGE
+
+* rename `pkgConfigLocation` => `pkgJsonLocation`
+
+
+
+
+
 ## [1.0.36](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/resolve-package@1.0.35...@yarn-tool/resolve-package@1.0.36) (2021-11-03)
 
 
