@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.36](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/resolve-package@1.0.35...@yarn-tool/resolve-package@1.0.36) (2021-11-03)
+
+
+### 📦　Code Refactoring
+
+* avoid https://github.com/ezolenko/rollup-plugin-typescript2/issues/286 ([627d0cc](https://github.com/bluelovers/ws-yarn-workspaces/commit/627d0cc2a183a6be43a9d05c1ae6da3d8edd5e2e))
+
+
+
+
+
 ## [1.0.35](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/resolve-package@1.0.34...@yarn-tool/resolve-package@1.0.35) (2021-09-15)
 
 

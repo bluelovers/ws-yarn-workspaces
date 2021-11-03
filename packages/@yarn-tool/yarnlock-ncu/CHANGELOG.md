@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.29](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-ncu@1.0.28...@yarn-tool/yarnlock-ncu@1.0.29) (2021-11-03)
+
+**Note:** Version bump only for package @yarn-tool/yarnlock-ncu
+
+
+
+
+
 ## [1.0.28](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-ncu@1.0.27...@yarn-tool/yarnlock-ncu@1.0.28) (2021-10-26)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarnlock-ncu",
-  "version": "1.0.28",
+  "version": "1.0.29",
   "description": "update yarnlock v1 and berry",
   "keywords": [
     "yarn",
@@ -40,7 +40,7 @@
     "@yarn-tool/pkg-version-query": "^1.0.35",
     "@yarn-tool/semver-diff": "^1.0.26",
     "@yarn-tool/table": "^1.0.34",
-    "@yarn-tool/yarnlock-diff": "^1.0.28",
+    "@yarn-tool/yarnlock-diff": "^1.0.29",
     "@yarn-tool/yarnlock-entries": "^1.0.26",
     "debug-color2": "^1.2.7",
     "semver": "^7.3.5",
