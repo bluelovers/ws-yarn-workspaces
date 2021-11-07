@@ -52,7 +52,7 @@
     "jest-console": "^0.1.0",
     "level": "^7.0.1",
     "package-json": "<7 >=6.5",
-    "pkg-up": "^3.1.0",
+    "pkg-up": "< 4 >= 3.1.0",
     "semver": "^7.3.5",
     "tslib": "^2.3.1"
   },

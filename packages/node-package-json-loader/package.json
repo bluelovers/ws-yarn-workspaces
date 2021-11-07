@@ -45,9 +45,9 @@
   "resolutions": {},
   "dependencies": {
     "@ts-type/package-dts": "^1.0.51",
+    "@yarn-tool/resolve-package": "^1.0.37",
     "bind-decorator": "^1.0.11",
     "fs-extra": "^10.0.0",
-    "pkg-up": "^3.1.0",
     "sort-package-json": "^1.52.0",
     "sort-package-json3": "^1.0.41",
     "ts-type": "^1.2.40",

@@ -3,11 +3,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.PackageJsonLoader = void 0;
 const tslib_1 = require("tslib");
 const fs_extra_1 = require("fs-extra");
-const sort_package_json3_1 = (0, tslib_1.__importDefault)(require("sort-package-json3"));
-const pkg_up_1 = (0, tslib_1.__importDefault)(require("pkg-up"));
+const sort_package_json3_1 = require("sort-package-json3");
 const bind_decorator_1 = (0, tslib_1.__importDefault)(require("bind-decorator"));
 const util_1 = require("./util");
 const path_1 = (0, tslib_1.__importDefault)(require("path"));
+const resolve_package_1 = require("@yarn-tool/resolve-package");
 class PackageJsonLoader {
     constructor(fileOrJson, ...argv) {
         this._use = [];
@@ -31,9 +31,7 @@ class PackageJsonLoader {
         return new this(json, ...argv);
     }
     static findPackageJsonPath(name) {
-        return pkg_up_1.default.sync({
-            cwd: require.resolve(name),
-        });
+        return (0, resolve_package_1.resolvePackageJsonLocation)(name);
     }
     static loadByModuleName(name) {
         let file = this.findPackageJsonPath(name);
@@ -150,7 +148,7 @@ class PackageJsonLoader {
         if (typeof this.data === 'undefined' || this.data === null) {
             throw new Error(`data is undefined`);
         }
-        this.data = (0, sort_package_json3_1.default)(this.data);
+        this.data = (0, sort_package_json3_1.sortPackageJson)(this.data);
         return this;
     }
     write() {

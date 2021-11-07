@@ -1,10 +1,10 @@
 import { pathExistsSync, readJSONSync, writeFileSync } from 'fs-extra';
-import sortPackageJson from 'sort-package-json3';
-import pkgUp from 'pkg-up';
+import { sortPackageJson } from 'sort-package-json3';
 import bind from 'bind-decorator';
 import { fixBinPath } from './util';
 import path from 'path';
 import { IPackageJson } from '@ts-type/package-dts';
+import { resolvePackageJsonLocation } from '@yarn-tool/resolve-package';
 
 type IFileOrJson = Buffer | string | object | IPackageJson
 
@@ -33,9 +33,7 @@ export class PackageJsonLoader<T extends IPackageJsonLike<IPackageJson> = IPacka
 
 	static findPackageJsonPath(name: string): string
 	{
-		return pkgUp.sync({
-			cwd: require.resolve(name),
-		});
+		return resolvePackageJsonLocation(name);
 	}
 
 	@bind
