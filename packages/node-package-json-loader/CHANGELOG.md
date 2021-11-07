@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.58](https://github.com/bluelovers/node-package-json-loader/compare/npm-package-json-loader@1.0.57...npm-package-json-loader@1.0.58) (2021-11-07)
+
+
+### 📦　Code Refactoring
+
+* **deps:** { pkg-up => @yarn-tool/resolve-package } ([9b37756](https://github.com/bluelovers/node-package-json-loader/commit/9b3775652a54169050f1dfb7a2bd52bbf34ef088))
+
+
+
+
+
 ## [1.0.57](https://github.com/bluelovers/node-package-json-loader/compare/npm-package-json-loader@1.0.56...npm-package-json-loader@1.0.57) (2021-10-13)
 
 

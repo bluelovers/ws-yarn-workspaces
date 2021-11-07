@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.182](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.181...npm-init2@1.0.182) (2021-11-07)
+
+
+### ✨　Features
+
+* echo script event ([4a4df6d](https://github.com/bluelovers/npm-init2/commit/4a4df6d281331deb35be8cff2f0b5a84add6dca3))
+
+
+
+
+
 ## [1.0.181](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.180...npm-init2@1.0.181) (2021-10-27)
 
 **Note:** Version bump only for package npm-init2

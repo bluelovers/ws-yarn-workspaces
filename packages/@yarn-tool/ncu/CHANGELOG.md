@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.81](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ncu@1.0.80...@yarn-tool/ncu@1.0.81) (2021-11-07)
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([14369ce](https://github.com/bluelovers/ws-yarn-workspaces/commit/14369ce43171eb63a64eecb7b1dead0c8ef5b423))
+
+
+
+
+
 ## [1.0.80](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ncu@1.0.79...@yarn-tool/ncu@1.0.80) (2021-11-03)
 
 **Note:** Version bump only for package @yarn-tool/ncu
