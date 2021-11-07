@@ -2,7 +2,7 @@ import { IPackageJson } from '@ts-type/package-dts/package-json';
 
 export function getDefaultPackageJson(name?: string): IPackageJson
 {
-	return (<IPackageJson>{
+	let json: IPackageJson = {
 		"name": name,
 		"version": "1.0.0",
 		"private": true,
@@ -15,7 +15,6 @@ export function getDefaultPackageJson(name?: string): IPackageJson
 			"preversion": "yt ws run test",
 			"lerna:publish": "yarn run prepublishOnly:root && lerna publish && yarn run postpublishOnly",
 			"lerna:publish:yes": "yarn run prepublishOnly:root && lerna publish --yes --bump patch && yarn run postpublishOnly",
-			"prepublishOnly": "echo prepublishOnly",
 			"prepublishOnly:root": "yarn run prepublishOnly:check-bin && yarn run prepare:fix-ws-links",
 			"prepublishOnly:lockfile": "ynpx --quiet sync-lockfile",
 			"prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
@@ -34,8 +33,8 @@ export function getDefaultPackageJson(name?: string): IPackageJson
 			"tsc:showConfig": "ynpx get-current-tsconfig -p",
 		},
 		"dependencies": {
-			"ts-type":"^1.2.32",
-			"tslib": "^2.3.0"
+			"ts-type": "^1.2.32",
+			"tslib": "^2.3.0",
 		},
 		"devDependencies": {
 			"@types/jest": "^26.0.24",
@@ -51,7 +50,23 @@ export function getDefaultPackageJson(name?: string): IPackageJson
 			"@bluelovers/conventional-changelog-bluelovers": "*",
 		},
 		"resolutions": {},
-	}) as any;
+	} as any;
+
+	[
+		'preversion',
+		'version',
+		'prepublishOnly',
+		'postversion',
+		'publish',
+		'prepublish',
+		'postpublish',
+		'postpublishOnly',
+	].forEach(k =>
+	{
+		json.scripts[k] ??= `echo workspaces ${k}`
+	});
+
+	return json;
 }
 
 export function getDefaultTsconfig()

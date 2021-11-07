@@ -5,7 +5,7 @@ import yargs from 'yargs';
 import crossSpawn from 'cross-spawn-extra';
 import { ensureDirSync, CopyOptionsSync, copySync, pathExistsSync, outputJSON, outputJSONSync } from 'fs-extra';
 import { resolve, join, relative } from 'upath2';
-import{ getConfig, parseStaticPackagesPaths } from 'workspaces-config';
+import { getConfig, parseStaticPackagesPaths } from 'workspaces-config';
 import PackageJsonLoader from 'npm-package-json-loader';
 import { IPackageJson } from '@ts-type/package-dts';
 import { updateNotifier } from '@yarn-tool/update-notifier';
@@ -218,7 +218,21 @@ if (!cp.error)
 			"sort-package-json": "yarn-tool sort",
 			"test": `echo "Error: no test specified"`,
 			"tsc:showConfig": "ynpx get-current-tsconfig -p",
-		}
+		};
+
+		[
+			'preversion',
+			'version',
+			'prepublishOnly',
+			'postversion',
+			'publish',
+			'prepublish',
+			'postpublish',
+			'postpublishOnly',
+		].forEach(k =>
+		{
+			sharedScript[k] ??= `echo ${k}`
+		});
 
 		let preScripts: string[] = ["echo preversion"];
 

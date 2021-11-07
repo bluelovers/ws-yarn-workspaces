@@ -156,6 +156,19 @@ if (!cp.error) {
             "test": `echo "Error: no test specified"`,
             "tsc:showConfig": "ynpx get-current-tsconfig -p",
         };
+        [
+            'preversion',
+            'version',
+            'prepublishOnly',
+            'postversion',
+            'publish',
+            'prepublish',
+            'postpublish',
+            'postpublishOnly',
+        ].forEach(k => {
+            var _a;
+            (_a = sharedScript[k]) !== null && _a !== void 0 ? _a : (sharedScript[k] = `echo ${k}`);
+        });
         let preScripts = ["echo preversion"];
         /*
         if (rootData.isRoot || rootData.hasWorkspace && !wsProject.manifest.scripts?.['prepublishOnly:check-bin'])

@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getDefaultTsconfig = exports.getDefaultPackageJson = void 0;
 function getDefaultPackageJson(name) {
-    return {
+    let json = {
         "name": name,
         "version": "1.0.0",
         "private": true,
@@ -15,7 +15,6 @@ function getDefaultPackageJson(name) {
             "preversion": "yt ws run test",
             "lerna:publish": "yarn run prepublishOnly:root && lerna publish && yarn run postpublishOnly",
             "lerna:publish:yes": "yarn run prepublishOnly:root && lerna publish --yes --bump patch && yarn run postpublishOnly",
-            "prepublishOnly": "echo prepublishOnly",
             "prepublishOnly:root": "yarn run prepublishOnly:check-bin && yarn run prepare:fix-ws-links",
             "prepublishOnly:lockfile": "ynpx --quiet sync-lockfile",
             "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
@@ -35,7 +34,7 @@ function getDefaultPackageJson(name) {
         },
         "dependencies": {
             "ts-type": "^1.2.32",
-            "tslib": "^2.3.0"
+            "tslib": "^2.3.0",
         },
         "devDependencies": {
             "@types/jest": "^26.0.24",
@@ -52,6 +51,21 @@ function getDefaultPackageJson(name) {
         },
         "resolutions": {},
     };
+    [
+        'preversion',
+        'version',
+        'prepublishOnly',
+        'postversion',
+        'publish',
+        'prepublish',
+        'postpublish',
+        'postpublishOnly',
+    ].forEach(k => {
+        var _a;
+        var _b;
+        (_a = (_b = json.scripts)[k]) !== null && _a !== void 0 ? _a : (_b[k] = `echo workspaces ${k}`);
+    });
+    return json;
 }
 exports.getDefaultPackageJson = getDefaultPackageJson;
 function getDefaultTsconfig() {
