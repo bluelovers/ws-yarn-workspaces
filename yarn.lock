@@ -5683,10 +5683,10 @@ npm-bundled@^1.1.1:
   dependencies:
     npm-normalize-package-bin "^1.0.1"
 
-npm-check-updates@^12.0.0:
-  version "12.0.0"
-  resolved "https://registry.npmjs.org/npm-check-updates/-/npm-check-updates-12.0.0.tgz#b4aac8de411dcc8a4584fcfda1a52e11a2433710"
-  integrity sha512-KkUu9W5BWE4JmNeuPEwDz5a5yBOoWSrWl4DbT1/jBm+ytpVzjO9NN2jAD0GydhHZV/Brgh4xgWtBiMZJi5dUxQ==
+npm-check-updates@^11.8.5:
+  version "11.8.5"
+  resolved "https://registry.npmjs.org/npm-check-updates/-/npm-check-updates-11.8.5.tgz#8dec7fd255a437264742c15f9c0bb29f4eceaf55"
+  integrity sha512-IYSHjlWe8UEugDy7X0qjBeJwcni4DlcWdBK4QQEbwgkNlEDlXyd4yQJYWFumKaJzrp/n5/EcvaboXsBD1Er/pw==
   dependencies:
     chalk "^4.1.2"
     cint "^8.2.1"
@@ -5707,13 +5707,12 @@ npm-check-updates@^12.0.0:
     pacote "^11.3.5"
     parse-github-url "^1.0.2"
     progress "^2.0.3"
-    prompts "^2.4.2"
+    prompts "^2.4.1"
     rc-config-loader "^4.0.0"
     remote-git-tags "^3.0.0"
     rimraf "^3.0.2"
     semver "^7.3.5"
     semver-utils "^1.1.4"
-    source-map-support "^0.5.19"
     spawn-please "^1.0.0"
     update-notifier "^5.1.0"
 
@@ -6216,7 +6215,7 @@ pkg-dir@^4.2.0:
   dependencies:
     find-up "^4.0.0"
 
-"pkg-up@< 4 >= 3.1.0":
+pkg-up@^3.1.0:
   version "3.1.0"
   resolved "https://registry.npmjs.org/pkg-up/-/pkg-up-3.1.0.tgz#100ec235cc150e4fd42519412596a28512a0def5"
   integrity sha512-nDywThFk1i4BQK4twPQ6TA4RT8bDY96yeuCVBWL3ePARCiEKDRSrNGbFIgUJpLp+XeIR65v8ra7WuJOFUBtkMA==
@@ -6281,10 +6280,10 @@ promise-retry@^2.0.1:
     err-code "^2.0.2"
     retry "^0.12.0"
 
-prompts@^2.0.1, prompts@^2.4.2:
-  version "2.4.2"
-  resolved "https://registry.npmjs.org/prompts/-/prompts-2.4.2.tgz#7b57e73b3a48029ad10ebd44f74b01722a4cb069"
-  integrity sha512-NxNv/kLguCA7p3jE8oL2aEBsrJWgAakBpgmgK6lpPWV+WuOmY6r2/zbAVnP+T8bQlA0nzHXSJSJW0Hq7ylaD2Q==
+prompts@^2.0.1, prompts@^2.4.1:
+  version "2.4.1"
+  resolved "https://registry.npmjs.org/prompts/-/prompts-2.4.1.tgz#befd3b1195ba052f9fd2fde8a486c4e82ee77f61"
+  integrity sha512-EQyfIuO2hPDsX1L/blblV+H7I0knhgAd82cVneCwcdND9B8AuCDuRcBH6yIcG4dFzlOUqbazQqwGjx5xmsNLuQ==
   dependencies:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
@@ -6900,7 +6899,7 @@ source-map-resolve@^0.5.0:
     source-map-url "^0.4.0"
     urix "^0.1.0"
 
-source-map-support@^0.5.19, source-map-support@^0.5.20, source-map-support@^0.5.6:
+source-map-support@^0.5.20, source-map-support@^0.5.6:
   version "0.5.20"
   resolved "https://registry.npmjs.org/source-map-support/-/source-map-support-0.5.20.tgz#12166089f8f5e5e8c56926b377633392dd2cb6c9"
   integrity sha512-n1lZZ8Ve4ksRqizaBQgxXDgKwttHDhyfQjA6YZZn8+AroHbsIz+JjwxQDxbp+7y5OYCI8t1Yk7etjD9CRd2hIw==
