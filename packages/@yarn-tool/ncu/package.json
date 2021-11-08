@@ -49,7 +49,7 @@
     "@yarn-tool/table": "^1.0.34",
     "@yarn-tool/yarnlock": "^1.0.63",
     "bluebird": "^3.7.2",
-    "npm-check-updates": "^11.8.5",
+    "npm-check-updates": "< 12 >= 11.8.5",
     "npm-package-arg": "^8.1.5",
     "package-json": "<7 >=6.5",
     "semver": "^7.3.5",
