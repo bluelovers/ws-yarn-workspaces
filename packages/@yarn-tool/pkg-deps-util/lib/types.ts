@@ -4,6 +4,9 @@ import { IFindRootOptions } from '@yarn-tool/find-root';
 import { IGroupYarnLockParsedEntriesOptions } from '@yarn-tool/yarnlock-util/lib/util/groupYarnLockParsedEntries';
 import { IOptionsQueryVersion } from '@yarn-tool/pkg-version-query/lib/types';
 import { Options } from 'package-json';
+import { IOptionsAddDepsToPackageJson as IOptionsInstallDepsFromWorkspaces } from '@yarn-tool/pkg-deps-add';
+
+export type { IOptionsInstallDepsFromWorkspaces }
 
 export interface IOptionsCheckInstallTarget
 {
@@ -18,15 +21,6 @@ export interface IReturnTypeCheckInstallTarget
 	target: string;
 	error: EnumInstallTypesErrorCode;
 	msg: string;
-}
-
-export interface IOptionsInstallDepsFromWorkspaces extends Partial<IFindRootOptions>
-{
-	cwd?: string,
-	pkg?: IPackageJson,
-	dev?: boolean,
-	peer?: boolean,
-	optional?: boolean,
 }
 
 export interface IOptionsInstallDepsFromQuery extends IOptionsInstallDepsFromWorkspaces
