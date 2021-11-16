@@ -1,4 +1,4 @@
-import { AliasResult, FileResult, RegistryResult, HostedGitResult, URLResult } from 'npm-package-arg';
+import { AliasResult, FileResult, HostedGitResult, RegistryResult, URLResult } from 'npm-package-arg';
 import { IResult, IResultType } from './lib/types';
 export type { AliasResult, FileResult, RegistryResult, HostedGitResult, URLResult };
 export type { IResult, IResultType };
