@@ -1,11 +1,11 @@
-import { IOptionsInstallDepsFromWorkspaces } from './types';
+import { IAddedList, IOptionsInstallDepsFromWorkspaces } from './types';
 export declare function installDepsFromWorkspaces(packageNames: string[], options?: IOptionsInstallDepsFromWorkspaces): {
     cwd: string;
     rootData: import("@yarn-tool/find-root").IFindRootReturnType & {
         hasWorkspace: true;
         isWorkspace: false;
     };
-    added: [name: string, semver: string][];
+    added: IAddedList;
     exists: string[];
     others: string[];
     pkg: import("@ts-type/package-dts").IPackageJson<any>;

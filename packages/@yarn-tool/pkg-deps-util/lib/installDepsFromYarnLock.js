@@ -56,7 +56,7 @@ async function installDepsFromYarnLockCore(packageNames, parsedOldPackage, optio
     if (updated) {
         (0, sortDependencies_1.sortDependencies)(pkg);
     }
-    return {
+    const result = {
         cwd,
         rootData,
         added,
@@ -65,6 +65,8 @@ async function installDepsFromYarnLockCore(packageNames, parsedOldPackage, optio
         pkg,
         updated,
     };
+    result;
+    return result;
 }
 exports.installDepsFromYarnLockCore = installDepsFromYarnLockCore;
 /**

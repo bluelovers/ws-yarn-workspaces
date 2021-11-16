@@ -1,12 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.installDepsFromWorkspaces = void 0;
-const tslib_1 = require("tslib");
 const listable_1 = require("ws-pkg-list/lib/listable");
 const find_root_1 = require("@yarn-tool/find-root");
 const package_dts_1 = require("@ts-type/package-dts");
 const path_1 = require("path");
-const npm_package_arg_util_1 = (0, tslib_1.__importDefault)(require("@yarn-tool/npm-package-arg-util"));
+const npm_package_arg_util_1 = require("@yarn-tool/npm-package-arg-util");
 const addDependenciesIfNotExists_1 = require("./addDependenciesIfNotExists");
 const sortDependencies_1 = require("./util/sortDependencies");
 function installDepsFromWorkspaces(packageNames, options = {}) {
@@ -32,7 +31,7 @@ function installDepsFromWorkspaces(packageNames, options = {}) {
     const exists = [];
     const others = packageNames
         .filter(packageName => {
-        const result = (0, npm_package_arg_util_1.default)(packageName);
+        const result = (0, npm_package_arg_util_1.npa)(packageName);
         const { name } = result;
         const row = record[name];
         if (row) {
@@ -54,7 +53,7 @@ function installDepsFromWorkspaces(packageNames, options = {}) {
     if (updated) {
         (0, sortDependencies_1.sortDependencies)(pkg);
     }
-    return {
+    const result = {
         cwd,
         rootData,
         added,
@@ -63,6 +62,8 @@ function installDepsFromWorkspaces(packageNames, options = {}) {
         pkg,
         updated,
     };
+    result;
+    return result;
 }
 exports.installDepsFromWorkspaces = installDepsFromWorkspaces;
 //# sourceMappingURL=installDepsFromWorkspaces.js.map

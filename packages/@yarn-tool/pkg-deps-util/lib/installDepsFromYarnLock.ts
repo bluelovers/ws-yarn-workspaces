@@ -16,7 +16,7 @@ import { fsYarnLockSafe } from '@yarn-tool/yarnlock-fs/lib/read';
 import { array_unique_overwrite } from 'array-hyper-unique/core';
 import { sortDependencies } from './util/sortDependencies';
 import { fetchRemoteInfo } from './util/fetchRemoteInfo';
-import { IFilteredRecord, IOptionsInstallDepsFromYarnLock } from './types';
+import { IAddedList, IFilteredRecord, IOptionsInstallDepsFromYarnLock, IResultInstallDeps } from './types';
 
 export function filterDepsFromYarnLock<T extends string>(packageNames: T[],
 	parsedOldPackage: IYarnLockParsedV1 | IYarnLockParsedV2,
@@ -48,7 +48,7 @@ export async function installDepsFromYarnLockCore<T extends string>(packageNames
 
 	const pkg = options.pkg ?? readPackageJson(join(rootData.pkg, 'package.json'));
 
-	const added = [] as [name: string, semver: string][];
+	const added = [] as IAddedList;
 	const exists = [] as string[];
 
 	let others: T[] = packageNames.filter((packageName) =>
@@ -88,7 +88,7 @@ export async function installDepsFromYarnLockCore<T extends string>(packageNames
 		sortDependencies(pkg)
 	}
 
-	return {
+	const result = {
 		cwd,
 		rootData,
 		added,
@@ -96,7 +96,11 @@ export async function installDepsFromYarnLockCore<T extends string>(packageNames
 		others,
 		pkg,
 		updated,
-	}
+	};
+
+	<IResultInstallDeps>result;
+
+	return result
 }
 
 /**

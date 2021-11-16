@@ -2,11 +2,11 @@ import { wsPkgListable } from 'ws-pkg-list/lib/listable';
 import { assertHasAndNotWorkspacesRoot, findRoot } from '@yarn-tool/find-root';
 import { readPackageJson } from '@ts-type/package-dts';
 import { join } from 'path';
-import npa from '@yarn-tool/npm-package-arg-util';
+import { npa } from '@yarn-tool/npm-package-arg-util';
 import { IListableRow } from 'ws-pkg-list';
 import { addDependenciesIfNotExists } from './addDependenciesIfNotExists';
 import { sortDependencies } from './util/sortDependencies';
-import { IOptionsInstallDepsFromWorkspaces } from './types';
+import { IAddedList, IOptionsInstallDepsFromWorkspaces, IResultInstallDeps } from './types';
 
 export function installDepsFromWorkspaces(packageNames: string[], options: IOptionsInstallDepsFromWorkspaces = {})
 {
@@ -37,7 +37,7 @@ export function installDepsFromWorkspaces(packageNames: string[], options: IOpti
 		}, {} as Record<string, IListableRow>)
 	;
 
-	const added = [] as [name: string, semver: string][];
+	const added = [] as IAddedList;
 	const exists = [] as string[];
 
 	const others = packageNames
@@ -78,7 +78,7 @@ export function installDepsFromWorkspaces(packageNames: string[], options: IOpti
 		sortDependencies(pkg)
 	}
 
-	return {
+	const result = {
 		cwd,
 		rootData,
 		added,
@@ -86,5 +86,9 @@ export function installDepsFromWorkspaces(packageNames: string[], options: IOpti
 		others,
 		pkg,
 		updated,
-	}
+	};
+
+	<IResultInstallDeps>result;
+
+	return result
 }
