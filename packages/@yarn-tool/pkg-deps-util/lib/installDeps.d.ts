@@ -7,7 +7,7 @@ export declare function filterInstallDeps(packageNames: string[], options?: IOpt
     packageNames: string[];
     pkg: IPackageJson<any>;
     rootData: import("@yarn-tool/find-root").IFindRootReturnType;
-    added: [name: string, semver: string][];
+    added: import("./types").IAddedList;
     exists: string[];
     updated: boolean;
 } | {
