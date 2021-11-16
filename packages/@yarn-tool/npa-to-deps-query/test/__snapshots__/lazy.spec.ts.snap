@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`jest@<=12 1`] = `
+Object {
+  "name": "jest",
+  "value": "<=12",
+}
+`;
+
+exports[`jest@<12 1`] = `
+Object {
+  "name": "jest",
+  "value": "<12",
+}
+`;
+
+exports[`jest@>=12 1`] = `
+Object {
+  "name": "jest",
+  "value": ">=12",
+}
+`;
+
+exports[`jest@>12 1`] = `
+Object {
+  "name": "jest",
+  "value": ">12",
+}
+`;
+
+exports[`jest@^12 1`] = `
+Object {
+  "name": "jest",
+  "value": "^12.1.1",
+}
+`;
+
+exports[`jest@12 1`] = `
+Object {
+  "name": "jest",
+  "value": "12.1.1",
+}
+`;

@@ -1,0 +1,63 @@
+{
+  "name": "@yarn-tool/npa-to-deps-query",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "yarn",
+    "yarn-tool",
+    "npm",
+    "lerna",
+    "workspaces",
+    "pkg",
+    "dependencies",
+    "monorepo",
+    "yarnlock",
+    "node-modules",
+    "packages",
+    "package"
+  ],
+  "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/npa-to-deps-query#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/ws-yarn-workspaces.git"
+  },
+  "license": "ISC",
+  "author": "bluelovers",
+  "main": "index.js",
+  "scripts": {
+    "coverage": "yarn run test -- --coverage",
+    "lint": "ynpx --quiet eslint -- **/*.ts",
+    "test": "jest --passWithNoTests",
+    "test:jest": "jest --passWithNoTests",
+    "test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
+    "preversion": "echo preversion && yarn run test",
+    "version": "echo version",
+    "postversion": "echo postversion",
+    "prepublish": "echo prepublish",
+    "prepublishOnly": "echo prepublishOnly",
+    "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
+    "publish": "echo publish",
+    "postpublish": "echo postpublish",
+    "postpublishOnly": "echo postpublishOnly",
+    "ncu": "yarn-tool ncu -u",
+    "sort-package-json": "yarn-tool sort",
+    "tsc:showConfig": "ynpx get-current-tsconfig -p"
+  },
+  "dependencies": {
+    "@yarn-tool/npa-to-deps": "^1.0.0",
+    "@yarn-tool/pkg-version-query": "^1.0.35",
+    "bluebird": "^3.7.2",
+    "package-json": "<7 >=6.5",
+    "ts-type": "^1.2.40",
+    "tslib": "^2.3.1"
+  },
+  "devDependencies": {},
+  "peerDependencies": {},
+  "publishConfig": {
+    "access": "public"
+  },
+  "packageManager": "yarn@^1.22.11"
+}

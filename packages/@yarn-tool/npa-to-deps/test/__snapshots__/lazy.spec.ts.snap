@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should return semver botkit@12 1`] = `
+Object {
+  "fetchQuery": true,
+  "name": "botkit",
+  "operator": undefined,
+  "result": Object {
+    "escapedName": "botkit",
+    "fetchSpec": "12",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "name": "botkit",
+    "raw": "botkit@12",
+    "rawSpec": "12",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "range",
+    "where": undefined,
+  },
+  "semver": "12",
+}
+`;
+
+exports[`should return semver botkit@jonchurch/botkit#multi-hears 1`] = `
+Object {
+  "fetchQuery": undefined,
+  "name": "botkit",
+  "operator": undefined,
+  "result": Object {
+    "escapedName": "botkit",
+    "fetchSpec": null,
+    "gitCommittish": "multi-hears",
+    "gitRange": undefined,
+    "name": "botkit",
+    "raw": "botkit@jonchurch/botkit#multi-hears",
+    "rawSpec": "jonchurch/botkit#multi-hears",
+    "registry": undefined,
+    "saveSpec": "github:jonchurch/botkit#multi-hears",
+    "scope": undefined,
+    "type": "git",
+    "where": undefined,
+  },
+  "semver": "github:jonchurch/botkit#multi-hears",
+}
+`;
+
+exports[`should return undefined botkit 1`] = `
+Object {
+  "fetchQuery": true,
+  "name": "botkit",
+  "operator": "^",
+  "result": Object {
+    "escapedName": "botkit",
+    "fetchSpec": "latest",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "name": "botkit",
+    "raw": "botkit",
+    "rawSpec": "",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "tag",
+    "where": undefined,
+  },
+  "semver": undefined,
+}
+`;
+
+exports[`should return undefined botkit@^12 1`] = `
+Object {
+  "fetchQuery": true,
+  "name": "botkit",
+  "operator": "^",
+  "result": Object {
+    "escapedName": "botkit",
+    "fetchSpec": "^12",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "name": "botkit",
+    "raw": "botkit@^12",
+    "rawSpec": "^12",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "range",
+    "where": undefined,
+  },
+  "semver": undefined,
+}
+`;
