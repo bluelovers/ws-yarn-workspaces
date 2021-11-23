@@ -15,7 +15,6 @@ const fs_1 = require("fs");
 const writeReadme_1 = require("./lib/writeReadme");
 const sort_package_json_scripts_1 = require("sort-package-json-scripts");
 const workspaces_project_1 = (0, tslib_1.__importDefault)(require("@yarn-tool/workspaces-project"));
-const upath2_2 = require("upath2");
 const path_is_same_1 = require("path-is-same");
 const node_modules_link_1 = require("@yarn-tool/node-modules-link");
 const init_path_1 = require("@yarn-tool/init-path");
@@ -219,6 +218,9 @@ if (!cp.error) {
                 .entries({
                 "test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
                 "test:jest": "jest --passWithNoTests",
+                "test:tsdx": "ynpx @bluelovers/tsdx test --passWithNoTests",
+                "build:dts": "ynpx @bluelovers/tsdx dts -o ./dist/index.d.ts ./src/index.ts --no-banner & echo build:dts",
+                "build:tsdx": "ynpx @bluelovers/tsdx build --target node --name index",
                 "lint": "ynpx --quiet eslint -- **/*.ts",
                 ...sharedScript,
             })
@@ -243,7 +245,7 @@ if (!cp.error) {
                 pkg.data.types = pkg.data.types || pkg.data.typings;
                 if (pkg.data.main && !pkg.data.types) {
                     let file = (0, upath2_1.join)(targetDir, pkg.data.main);
-                    let parsed = (0, upath2_2.parse)(file);
+                    let parsed = (0, upath2_1.parse)(file);
                     if (!(0, path_is_same_1.pathIsSame)(targetDir, parsed.dir) && (0, fs_extra_1.pathExistsSync)((0, upath2_1.join)(parsed.dir, parsed.name + '.d.ts'))) {
                         pkg.data.types = (0, upath2_1.relative)(targetDir, parsed.dir).replace(/^\.\//, '') + '/' + parsed.name + '.d.ts';
                     }

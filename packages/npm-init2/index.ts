@@ -1,24 +1,17 @@
 #!/usr/bin/env node
 
-import findYarnWorkspaceRoot from 'find-yarn-workspace-root2';
 import yargs from 'yargs';
-import crossSpawn from 'cross-spawn-extra';
-import { ensureDirSync, CopyOptionsSync, copySync, pathExistsSync, outputJSON, outputJSONSync } from 'fs-extra';
-import { resolve, join, relative } from 'upath2';
+import { ensureDirSync, outputJSONSync, pathExistsSync } from 'fs-extra';
+import { join, parse, relative, resolve } from 'upath2';
 import { getConfig, parseStaticPackagesPaths } from 'workspaces-config';
 import PackageJsonLoader from 'npm-package-json-loader';
 import { IPackageJson } from '@ts-type/package-dts';
-import { updateNotifier } from '@yarn-tool/update-notifier';
-import pkg = require( './package.json' );
 import { setupToYargs } from './lib/yargs-setting';
 import { findRoot } from '@yarn-tool/find-root';
-import { npmHostedGitInfo } from '@yarn-tool/pkg-git-info';
-import { existsSync, readFileSync, writeFileSync } from 'fs';
-import lodashTemplate from 'lodash/template';
+import { existsSync } from 'fs';
 import { writeReadme } from './lib/writeReadme';
 import { sortPackageJsonScripts } from 'sort-package-json-scripts';
 import WorkspacesProject from '@yarn-tool/workspaces-project';
-import { parse } from 'upath2';
 import { pathIsSame } from 'path-is-same';
 import { linkToNodeModules } from '@yarn-tool/node-modules-link';
 import { getTargetDir } from '@yarn-tool/init-path';
@@ -304,6 +297,9 @@ if (!cp.error)
 				.entries({
 					"test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
 					"test:jest": "jest --passWithNoTests",
+					"test:tsdx": "ynpx @bluelovers/tsdx test --passWithNoTests",
+					"build:dts": "ynpx @bluelovers/tsdx dts -o ./dist/index.d.ts ./src/index.ts --no-banner & echo build:dts",
+					"build:tsdx": "ynpx @bluelovers/tsdx build --target node --name index",
 					"lint": "ynpx --quiet eslint -- **/*.ts",
 
 					...sharedScript,
