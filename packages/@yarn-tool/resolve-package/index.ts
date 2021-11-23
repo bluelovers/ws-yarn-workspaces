@@ -12,7 +12,17 @@ export interface IOptions
 
 export function resolvePackageCore(moduleName: string, options?: IOptions)
 {
-	const entryPointLocation = require.resolve(moduleName, options);
+	let entryPointLocation: string;
+
+	try
+	{
+		entryPointLocation = require.resolve(moduleName, options);
+	}
+	catch (e)
+	{
+		entryPointLocation = require.resolve(moduleName + '/package.json', options);
+	}
+
 	const pkgRoot = pkgDir(entryPointLocation);
 
 	return {

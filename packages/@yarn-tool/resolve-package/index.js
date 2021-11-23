@@ -4,7 +4,13 @@ exports.resolvePackage = exports.readModulePackageJson = exports.createResolveLo
 const upath2_1 = require("upath2");
 const pkg_dir_1 = require("pkg-dir");
 function resolvePackageCore(moduleName, options) {
-    const entryPointLocation = require.resolve(moduleName, options);
+    let entryPointLocation;
+    try {
+        entryPointLocation = require.resolve(moduleName, options);
+    }
+    catch (e) {
+        entryPointLocation = require.resolve(moduleName + '/package.json', options);
+    }
     const pkgRoot = (0, pkg_dir_1.sync)(entryPointLocation);
     return {
         name: moduleName,
