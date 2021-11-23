@@ -40,11 +40,11 @@
     "debug-color2": "^1.2.7",
     "npm-package-arg": "^8.1.5",
     "semver": "^7.3.5",
-    "ts-type": "^1.2.40",
+    "ts-type": "^2.0.1",
     "tslib": "^2.3.1"
   },
   "devDependencies": {
-    "just-diff": "^4.1.2"
+    "just-diff": "^5.0.1"
   },
   "publishConfig": {
     "access": "public"
