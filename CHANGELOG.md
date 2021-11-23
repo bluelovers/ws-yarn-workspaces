@@ -20,9 +20,12 @@ Please see the individual package changelogs for what's new:
 * 🌏 [`@yarn-tool/ncu`](./packages/@yarn-tool/ncu/CHANGELOG.md "packages/@yarn-tool/ncu") *packages/@yarn-tool/ncu*
 * 🌏 [`@yarn-tool/node-modules`](./packages/@yarn-tool/node-modules/CHANGELOG.md "packages/@yarn-tool/node-modules") *packages/@yarn-tool/node-modules*
 * 🌏 [`@yarn-tool/node-modules-link`](./packages/@yarn-tool/node-modules-link/CHANGELOG.md "packages/@yarn-tool/node-modules-link") *packages/@yarn-tool/node-modules-link*
+* 🌏 [`@yarn-tool/npa-to-deps`](./packages/@yarn-tool/npa-to-deps/CHANGELOG.md "packages/@yarn-tool/npa-to-deps") *packages/@yarn-tool/npa-to-deps*
+* 🌏 [`@yarn-tool/npa-to-deps-query`](./packages/@yarn-tool/npa-to-deps-query/CHANGELOG.md "packages/@yarn-tool/npa-to-deps-query") *packages/@yarn-tool/npa-to-deps-query*
 * 🌏 [`@yarn-tool/npm-package-arg-util`](./packages/@yarn-tool/npm-package-arg-util/CHANGELOG.md "packages/@yarn-tool/npm-package-arg-util") *packages/@yarn-tool/npm-package-arg-util*
 * 🌏 [`@yarn-tool/pack-package`](./packages/@yarn-tool/pack-package/CHANGELOG.md "packages/@yarn-tool/pack-package") *packages/@yarn-tool/pack-package*
 * 🌏 [`@yarn-tool/path-parents`](./packages/@yarn-tool/path-parents/CHANGELOG.md "packages/@yarn-tool/path-parents") *packages/@yarn-tool/path-parents*
+* 🌏 [`@yarn-tool/pkg-deps-add`](./packages/@yarn-tool/pkg-deps-add/CHANGELOG.md "packages/@yarn-tool/pkg-deps-add") *packages/@yarn-tool/pkg-deps-add*
 * 🌏 [`@yarn-tool/pkg-deps-util`](./packages/@yarn-tool/pkg-deps-util/CHANGELOG.md "packages/@yarn-tool/pkg-deps-util") *packages/@yarn-tool/pkg-deps-util*
 * 🌏 [`@yarn-tool/pkg-git-info`](./packages/@yarn-tool/pkg-git-info/CHANGELOG.md "packages/@yarn-tool/pkg-git-info") *packages/@yarn-tool/pkg-git-info*
 * 🌏 [`@yarn-tool/pkg-hosted-info`](./packages/@yarn-tool/pkg-hosted-info/CHANGELOG.md "packages/@yarn-tool/pkg-hosted-info") *packages/@yarn-tool/pkg-hosted-info*
