@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarnlock-util",
-  "version": "1.0.25",
+  "version": "1.0.26",
   "description": "",
   "keywords": [
     "yarn",
@@ -37,8 +37,8 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@yarn-tool/npm-package-arg-util": "^1.0.19",
-    "@yarn-tool/yarnlock-parse": "^1.0.18",
+    "@yarn-tool/npm-package-arg-util": "^1.0.21",
+    "@yarn-tool/yarnlock-parse": "^1.0.19",
     "@yarnpkg/parsers": "^2.4.1",
     "npm-package-arg": "^8.1.5",
     "tslib": "^2.3.1"

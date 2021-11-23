@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.21](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/npm-package-arg-util@1.0.19...@yarn-tool/npm-package-arg-util@1.0.21) (2021-11-23)
+
+
+### 🐛　Bug Fixes
+
+* check npa result exists name ([9c183e8](https://github.com/bluelovers/ws-yarn-workspaces/commit/9c183e85116f63c04a23cf9a77c51edb8b7a51c0))
+
+
+### 🚨　Tests
+
+* check npa result exists name ([112bf87](https://github.com/bluelovers/ws-yarn-workspaces/commit/112bf8721dd4e0e3605a958a5a1c0cacc89f8cd3))
+
+
+### 🔖　Miscellaneous
+
+* . ([8a56e2f](https://github.com/bluelovers/ws-yarn-workspaces/commit/8a56e2fcef7e287e56f0a9de997a1dc473dbe188))
+
+
+
+
+
 ## [1.0.20](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/npm-package-arg-util@1.0.19...@yarn-tool/npm-package-arg-util@1.0.20) (2021-11-23)
 
 

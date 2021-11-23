@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/npa-to-deps-query",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "keywords": [
     "yarn",
@@ -47,15 +47,13 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/npa-to-deps": "^1.0.0",
-    "@yarn-tool/pkg-version-query": "^1.0.35",
+    "@yarn-tool/npa-to-deps": "^1.0.1",
+    "@yarn-tool/pkg-version-query": "^1.0.36",
     "bluebird": "^3.7.2",
     "package-json": "<7 >=6.5",
     "ts-type": "^2.0.1",
     "tslib": "^2.3.1"
   },
-  "devDependencies": {},
-  "peerDependencies": {},
   "publishConfig": {
     "access": "public"
   },

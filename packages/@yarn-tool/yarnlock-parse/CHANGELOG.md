@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-parse@1.0.18...@yarn-tool/yarnlock-parse@1.0.19) (2021-11-23)
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([8d1f2fb](https://github.com/bluelovers/ws-yarn-workspaces/commit/8d1f2fbb2782cdcdcf72e56131ea047bc0c30298))
+
+
+
+
+
 ## [1.0.18](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-parse@1.0.17...@yarn-tool/yarnlock-parse@1.0.18) (2021-10-26)
 
 

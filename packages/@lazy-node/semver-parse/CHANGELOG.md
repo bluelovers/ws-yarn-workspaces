@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/@lazy-node/semver-simple-parse@1.1.17...@lazy-node/semver-simple-parse@1.1.19) (2021-11-23)
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([8d1f2fb](https://github.com/bluelovers/ws-yarn-workspaces/commit/8d1f2fbb2782cdcdcf72e56131ea047bc0c30298))
+
+
+### 🔖　Miscellaneous
+
+* . ([8a56e2f](https://github.com/bluelovers/ws-yarn-workspaces/commit/8a56e2fcef7e287e56f0a9de997a1dc473dbe188))
+
+
+
+
+
 ## [1.1.18](https://github.com/bluelovers/ws-yarn-workspaces/compare/@lazy-node/semver-simple-parse@1.1.17...@lazy-node/semver-simple-parse@1.1.18) (2021-11-23)
 
 
