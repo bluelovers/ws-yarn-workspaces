@@ -1,6 +1,6 @@
 import { sync as pkgDirSync } from 'pkg-dir';
 import { parsePackageName } from '@yarn-tool/npm-package-arg-util/lib/parseArgvPkgName';
-import { resolvePackage } from '@yarn-tool/resolve-package';
+import { resolvePackage, resolvePackageCore } from '@yarn-tool/resolve-package';
 import { basename, dirname, isAbsolute, normalize } from 'upath2';
 
 export function assertIsAbsolutePath(absolutePath: string): asserts absolutePath is string
@@ -49,7 +49,7 @@ export function parseModulePathIsAlias(absolutePath: string)
 
 export function parseModulePathIsAliasUnsafe(absolutePath: string)
 {
-	return parseModulePathIsAlias(resolvePackage(absolutePath).pkgRoot)
+	return parseModulePathIsAlias(resolvePackageCore(absolutePath).pkgRoot)
 }
 
 export function modulePathIsAlias(dir: string)

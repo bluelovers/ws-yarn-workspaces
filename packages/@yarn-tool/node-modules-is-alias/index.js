@@ -41,7 +41,7 @@ function parseModulePathIsAlias(absolutePath) {
 }
 exports.parseModulePathIsAlias = parseModulePathIsAlias;
 function parseModulePathIsAliasUnsafe(absolutePath) {
-    return parseModulePathIsAlias((0, resolve_package_1.resolvePackage)(absolutePath).pkgRoot);
+    return parseModulePathIsAlias((0, resolve_package_1.resolvePackageCore)(absolutePath).pkgRoot);
 }
 exports.parseModulePathIsAliasUnsafe = parseModulePathIsAliasUnsafe;
 function modulePathIsAlias(dir) {
