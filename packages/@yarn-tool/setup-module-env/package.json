@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/setup-module-env",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "keywords": [
     "yarn",
@@ -52,8 +52,6 @@
   "dependencies": {
     "tslib": "^2.3.1"
   },
-  "devDependencies": {},
-  "peerDependencies": {},
   "publishConfig": {
     "access": "public"
   },

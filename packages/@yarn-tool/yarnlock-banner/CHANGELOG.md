@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.5](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-banner@1.0.4...@yarn-tool/yarnlock-banner@1.0.5) (2021-11-28)
+
+
+### 📦　Code Refactoring
+
+* update import remove `/index` ([8324cd8](https://github.com/bluelovers/ws-yarn-workspaces/commit/8324cd8cbbc9b63bf8659058659da9cff44e87be))
+
+
+
+
+
 ## [1.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-banner@1.0.3...@yarn-tool/yarnlock-banner@1.0.4) (2021-08-13)
 
 

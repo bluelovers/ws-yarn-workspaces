@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/require-resolve",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "require.resolve with search on extra paths",
   "keywords": [
     "yarn",

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.10](https://github.com/bluelovers/ws-yarn-workspaces/compare/sort-package-json-scripts@1.1.9...sort-package-json-scripts@1.1.10) (2021-11-28)
+
+
+### 📦　Code Refactoring
+
+* update import remove `/core` ([9d3dc5f](https://github.com/bluelovers/ws-yarn-workspaces/commit/9d3dc5f13e521f88d4e214bf6278bd47064cd1d6))
+
+
+
+
+
 ## [1.1.9](https://github.com/bluelovers/ws-yarn-workspaces/compare/sort-package-json-scripts@1.1.8...sort-package-json-scripts@1.1.9) (2021-08-13)
 
 

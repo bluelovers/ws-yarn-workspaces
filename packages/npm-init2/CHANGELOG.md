@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.184](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.183...npm-init2@1.0.184) (2021-11-28)
+
+
+### ✨　Features
+
+* support create tsdx project ([12984e6](https://github.com/bluelovers/npm-init2/commit/12984e63422f8a495e8c55cda2f3862a6b12ba26))
+
+
+### 📦　Code Refactoring
+
+* update import remove `/index` ([8324cd8](https://github.com/bluelovers/npm-init2/commit/8324cd8cbbc9b63bf8659058659da9cff44e87be))
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([35d2bc5](https://github.com/bluelovers/npm-init2/commit/35d2bc557a8f73fd8638b073dedc189e5423c52e))
+
+
+
+
+
 ## [1.0.183](https://github.com/bluelovers/npm-init2/compare/npm-init2@1.0.182...npm-init2@1.0.183) (2021-11-23)
 
 

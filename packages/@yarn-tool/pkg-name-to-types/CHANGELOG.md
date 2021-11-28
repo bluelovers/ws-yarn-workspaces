@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.39](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-name-to-types@1.0.38...@yarn-tool/pkg-name-to-types@1.0.39) (2021-11-28)
+
+
+### 📦　Code Refactoring
+
+* update import remove `/core` ([9d3dc5f](https://github.com/bluelovers/ws-yarn-workspaces/commit/9d3dc5f13e521f88d4e214bf6278bd47064cd1d6))
+
+
+
+
+
 ## [1.0.38](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-name-to-types@1.0.37...@yarn-tool/pkg-name-to-types@1.0.38) (2021-11-23)
 
 **Note:** Version bump only for package @yarn-tool/pkg-name-to-types

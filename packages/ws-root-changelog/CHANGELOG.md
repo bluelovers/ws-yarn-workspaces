@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-root-changelog@1.0.2...ws-root-changelog@1.0.3) (2021-11-28)
+
+
+### 📦　Code Refactoring
+
+* update import remove `/index` ([8324cd8](https://github.com/bluelovers/ws-yarn-workspaces/commit/8324cd8cbbc9b63bf8659058659da9cff44e87be))
+
+
+
+
+
 ## [1.0.2](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-root-changelog@1.0.1...ws-root-changelog@1.0.2) (2021-11-23)
 
 **Note:** Version bump only for package ws-root-changelog

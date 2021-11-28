@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.24](https://github.com/bluelovers/ws-yarn-workspaces/compare/cache-path@2.0.23...cache-path@2.0.24) (2021-11-28)
+
+
+### 📦　Code Refactoring
+
+* update import remove `/index` ([8324cd8](https://github.com/bluelovers/ws-yarn-workspaces/commit/8324cd8cbbc9b63bf8659058659da9cff44e87be))
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([35d2bc5](https://github.com/bluelovers/ws-yarn-workspaces/commit/35d2bc557a8f73fd8638b073dedc189e5423c52e))
+
+
+
+
+
 ## [2.0.23](https://github.com/bluelovers/ws-yarn-workspaces/compare/cache-path@2.0.22...cache-path@2.0.23) (2021-11-23)
 
 **Note:** Version bump only for package cache-path

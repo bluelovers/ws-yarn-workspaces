@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.54](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ws-changed@1.0.53...@yarn-tool/ws-changed@1.0.54) (2021-11-28)
+
+
+### 📦　Code Refactoring
+
+* update import remove `/core` ([9d3dc5f](https://github.com/bluelovers/ws-yarn-workspaces/commit/9d3dc5f13e521f88d4e214bf6278bd47064cd1d6))
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([35d2bc5](https://github.com/bluelovers/ws-yarn-workspaces/commit/35d2bc557a8f73fd8638b073dedc189e5423c52e))
+
+
+
+
+
 ## [1.0.53](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ws-changed@1.0.52...@yarn-tool/ws-changed@1.0.53) (2021-11-23)
 
 **Note:** Version bump only for package @yarn-tool/ws-changed

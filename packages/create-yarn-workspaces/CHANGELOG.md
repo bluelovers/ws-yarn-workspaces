@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.125](https://github.com/bluelovers/create-yarn-workspaces/compare/create-yarn-workspaces@1.0.124...create-yarn-workspaces@1.0.125) (2021-11-28)
+
+
+### ✨　Features
+
+* support create tsdx project ([12984e6](https://github.com/bluelovers/create-yarn-workspaces/commit/12984e63422f8a495e8c55cda2f3862a6b12ba26))
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([35d2bc5](https://github.com/bluelovers/create-yarn-workspaces/commit/35d2bc557a8f73fd8638b073dedc189e5423c52e))
+
+
+
+
+
 ## [1.0.124](https://github.com/bluelovers/create-yarn-workspaces/compare/create-yarn-workspaces@1.0.123...create-yarn-workspaces@1.0.124) (2021-11-23)
 
 
