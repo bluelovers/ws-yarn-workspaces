@@ -19,6 +19,7 @@ Please see the individual package changelogs for what's new:
 * 🌏 [`@yarn-tool/is-npx`](./packages/@yarn-tool/is-npx/CHANGELOG.md "packages/@yarn-tool/is-npx") *packages/@yarn-tool/is-npx*
 * 🌏 [`@yarn-tool/ncu`](./packages/@yarn-tool/ncu/CHANGELOG.md "packages/@yarn-tool/ncu") *packages/@yarn-tool/ncu*
 * 🌏 [`@yarn-tool/node-modules`](./packages/@yarn-tool/node-modules/CHANGELOG.md "packages/@yarn-tool/node-modules") *packages/@yarn-tool/node-modules*
+* 🌏 [`@yarn-tool/node-modules-is-alias`](./packages/@yarn-tool/node-modules-is-alias/CHANGELOG.md "packages/@yarn-tool/node-modules-is-alias") *packages/@yarn-tool/node-modules-is-alias*
 * 🌏 [`@yarn-tool/node-modules-link`](./packages/@yarn-tool/node-modules-link/CHANGELOG.md "packages/@yarn-tool/node-modules-link") *packages/@yarn-tool/node-modules-link*
 * 🌏 [`@yarn-tool/npa-to-deps`](./packages/@yarn-tool/npa-to-deps/CHANGELOG.md "packages/@yarn-tool/npa-to-deps") *packages/@yarn-tool/npa-to-deps*
 * 🌏 [`@yarn-tool/npa-to-deps-query`](./packages/@yarn-tool/npa-to-deps-query/CHANGELOG.md "packages/@yarn-tool/npa-to-deps-query") *packages/@yarn-tool/npa-to-deps-query*
@@ -38,6 +39,7 @@ Please see the individual package changelogs for what's new:
 * 🌏 [`@yarn-tool/script-lifecycle`](./packages/@yarn-tool/script-lifecycle/CHANGELOG.md "packages/@yarn-tool/script-lifecycle") *packages/@yarn-tool/script-lifecycle*
 * 🌏 [`@yarn-tool/search-workspace-prefix-by-name`](./packages/@yarn-tool/search-workspace-prefix-by-name/CHANGELOG.md "packages/@yarn-tool/search-workspace-prefix-by-name") *packages/@yarn-tool/search-workspace-prefix-by-name*
 * 🌏 [`@yarn-tool/semver-diff`](./packages/@yarn-tool/semver-diff/CHANGELOG.md "packages/@yarn-tool/semver-diff") *packages/@yarn-tool/semver-diff*
+* 🌏 [`@yarn-tool/setup-module-env`](./packages/@yarn-tool/setup-module-env/CHANGELOG.md "packages/@yarn-tool/setup-module-env") *packages/@yarn-tool/setup-module-env*
 * 🌏 [`@yarn-tool/shebang`](./packages/@yarn-tool/shebang/CHANGELOG.md "packages/@yarn-tool/shebang") *packages/@yarn-tool/shebang*
 * 🌏 [`@yarn-tool/static-file`](./packages/@yarn-tool/static-file/CHANGELOG.md "packages/@yarn-tool/static-file") *packages/@yarn-tool/static-file*
 * 🌏 [`@yarn-tool/table`](./packages/@yarn-tool/table/CHANGELOG.md "packages/@yarn-tool/table") *packages/@yarn-tool/table*
