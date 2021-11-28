@@ -60,6 +60,9 @@ export function setupToYargs<T>(yargs: Argv<T>)
 		.option('copyStatic', {
 			type: 'boolean',
 		})
+		.option('tsdx', {
+			type: 'boolean',
+		})
 	;
 
 	return _return as any as IYargsSync<typeof _return>

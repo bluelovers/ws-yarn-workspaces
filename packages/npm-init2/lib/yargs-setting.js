@@ -56,6 +56,9 @@ function setupToYargs(yargs) {
     })
         .option('copyStatic', {
         type: 'boolean',
+    })
+        .option('tsdx', {
+        type: 'boolean',
     });
     return _return;
 }

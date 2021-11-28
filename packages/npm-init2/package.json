@@ -54,6 +54,7 @@
     "@yarn-tool/node-modules-link": "^1.0.29",
     "@yarn-tool/pkg-git-info": "^1.0.22",
     "@yarn-tool/pkg-hosted-info": "^1.0.3",
+    "@yarn-tool/setup-module-env": "^1.0.0",
     "@yarn-tool/static-file": "^1.0.76",
     "@yarn-tool/types": "^1.0.6",
     "@yarn-tool/update-notifier": "^1.0.22",

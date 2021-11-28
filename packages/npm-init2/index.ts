@@ -24,6 +24,7 @@ import { copyStaticFiles } from '@yarn-tool/static-file';
 import console from 'debug-color2/logger';
 import { nameExistsInWorkspaces } from 'ws-pkg-list/lib/nameExistsInWorkspaces';
 import { fillPkgHostedInfo } from '@yarn-tool/pkg-hosted-info/index';
+import { setup as setupTsdx } from '@yarn-tool/setup-module-env/lib/preset/tsdx/index';
 
 //updateNotifier(__dirname);
 
@@ -404,6 +405,16 @@ if (!cp.error)
 			{
 				pkg.data.keywords = rootKeywords.slice()
 			}
+		}
+
+		pkg.data.keywords ??= [];
+		pkg.data.keywords.push('create-by-yarn-tool');
+
+		if (cli.argv.tsdx)
+		{
+			setupTsdx({
+				pkg: pkg.data,
+			});
 		}
 
 		pkg.data.scripts = sortPackageJsonScripts(pkg.data.scripts);

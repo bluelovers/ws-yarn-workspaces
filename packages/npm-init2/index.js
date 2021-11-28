@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 "use strict";
-var _a, _b, _c, _d, _e, _f;
-var _g, _h;
+var _a, _b, _c, _d, _e, _f, _g;
+var _h, _j, _k;
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const yargs_1 = (0, tslib_1.__importDefault)(require("yargs"));
@@ -26,6 +26,7 @@ const static_file_1 = require("@yarn-tool/static-file");
 const logger_1 = (0, tslib_1.__importDefault)(require("debug-color2/logger"));
 const nameExistsInWorkspaces_1 = require("ws-pkg-list/lib/nameExistsInWorkspaces");
 const index_1 = require("@yarn-tool/pkg-hosted-info/index");
+const index_2 = require("@yarn-tool/setup-module-env/lib/preset/tsdx/index");
 //updateNotifier(__dirname);
 // avoid buf for idea
 logger_1.default.length;
@@ -147,7 +148,7 @@ if (!cp.error) {
             targetDir,
             rootData,
         });
-        (_b = (_g = pkg.data).packageManager) !== null && _b !== void 0 ? _b : (_g.packageManager = "yarn@^1.22.11");
+        (_b = (_h = pkg.data).packageManager) !== null && _b !== void 0 ? _b : (_h.packageManager = "yarn@^1.22.11");
         let sharedScript = {
             "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
             "ncu": "yarn-tool ncu -u",
@@ -206,7 +207,7 @@ if (!cp.error) {
         }
         preScripts.push("yarn run test");
         sharedScript.preversion = preScripts.join(' && ');
-        (_c = (_h = pkg.data).scripts) !== null && _c !== void 0 ? _c : (_h.scripts = {});
+        (_c = (_j = pkg.data).scripts) !== null && _c !== void 0 ? _c : (_j.scripts = {});
         if (!oldExists) {
             if (((_d = pkg.data.scripts) === null || _d === void 0 ? void 0 : _d.test) === "echo \"Error: no test specified\" && exit 1" && ((_e = sharedScript.test) === null || _e === void 0 ? void 0 : _e.length) > 0) {
                 delete pkg.data.scripts.test;
@@ -290,6 +291,13 @@ if (!cp.error) {
             if (!((_f = pkg.data.keywords) === null || _f === void 0 ? void 0 : _f.length) && (rootKeywords === null || rootKeywords === void 0 ? void 0 : rootKeywords.length)) {
                 pkg.data.keywords = rootKeywords.slice();
             }
+        }
+        (_g = (_k = pkg.data).keywords) !== null && _g !== void 0 ? _g : (_k.keywords = []);
+        pkg.data.keywords.push('create-by-yarn-tool');
+        if (cli.argv.tsdx) {
+            (0, index_2.setup)({
+                pkg: pkg.data,
+            });
         }
         pkg.data.scripts = (0, sort_package_json_scripts_1.sortPackageJsonScripts)(pkg.data.scripts);
         pkg.autofix();

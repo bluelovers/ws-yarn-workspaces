@@ -10,7 +10,9 @@ function getDefaultPackageJson(name) {
         "workspaces": [
             "packages/*",
         ],
-        keywords: [],
+        keywords: [
+            "create-by-yarn-tool",
+        ],
         "scripts": {
             "test:all": "lerna run test --concurrency 1",
             "build:all": "lerna run build --concurrency 1",

@@ -24,5 +24,7 @@ export declare function setupToYargs<T>(yargs: Argv<T>): IYargsSync<yargs.Argv<y
     name: string;
 } & {
     copyStatic: boolean;
+} & {
+    tsdx: boolean;
 }>>;
 export default setupToYargs;
