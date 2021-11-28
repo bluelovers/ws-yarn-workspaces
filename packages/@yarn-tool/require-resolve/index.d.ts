@@ -1,5 +1,5 @@
 /// <reference types="node" />
-import { IPathItem, SymbolCurrentDirectory, SymbolGlobal, SymbolGlobalNpm, SymbolGlobalYarn, SymbolModuleMain } from '@yarn-tool/get-paths-by-type/index';
+import { IPathItem, SymbolCurrentDirectory, SymbolGlobal, SymbolGlobalNpm, SymbolGlobalYarn, SymbolModuleMain } from '@yarn-tool/get-paths-by-type';
 export { IPathItem, SymbolCurrentDirectory, SymbolGlobal, SymbolGlobalNpm, SymbolGlobalYarn, SymbolModuleMain, };
 export interface IOptionsCore {
     paths?: (string | IPathItem)[];

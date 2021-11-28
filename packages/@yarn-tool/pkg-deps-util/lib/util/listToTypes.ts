@@ -1,4 +1,4 @@
-import { array_unique_overwrite } from 'array-hyper-unique/index';
+import { array_unique_overwrite } from 'array-hyper-unique';
 import { packageNameToTypes } from '@yarn-tool/npm-package-arg-util/lib/packageNameToTypes';
 import { generatePackageArg } from '@yarn-tool/npm-package-arg-util/lib/generatePackageArg';
 

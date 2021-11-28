@@ -5,7 +5,7 @@ import getPathsByType, {
 	SymbolGlobalNpm,
 	SymbolGlobalYarn,
 	SymbolModuleMain,
-} from '@yarn-tool/get-paths-by-type/index';
+} from '@yarn-tool/get-paths-by-type';
 
 const defaultMap: Record<string, string> = {
 	tsdx: 'tsdx/dist/index',

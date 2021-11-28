@@ -4,10 +4,10 @@ import Table from 'cli-table';
 import chalk from 'chalk';
 import { _formatVersion } from './formatVersion';
 import { _diffArray } from './diffArray002';
-import { colorizeDiff, IOptionsParseVersionsDiff } from '@yarn-tool/semver-diff/index';
+import { colorizeDiff, IOptionsParseVersionsDiff } from '@yarn-tool/semver-diff';
 import { createDependencyTable } from '@yarn-tool/table/lib/core';
-import { IChalk } from 'debug-color2/index'
-import { console, chalkByConsoleMaybe } from 'debug-color2/index';
+import { IChalk } from 'debug-color2'
+import { console, chalkByConsoleMaybe } from 'debug-color2';
 import stripAnsi from 'strip-ansi';
 
 export function buildDiffTable(diff: IDiffNode<IComputedPackage, IComputedPackage>[], options?: IOptionsParseVersionsDiff): string

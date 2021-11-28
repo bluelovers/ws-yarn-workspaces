@@ -25,8 +25,8 @@ const const_1 = require("@yarn-tool/static-file/lib/const");
 const static_file_1 = require("@yarn-tool/static-file");
 const logger_1 = (0, tslib_1.__importDefault)(require("debug-color2/logger"));
 const nameExistsInWorkspaces_1 = require("ws-pkg-list/lib/nameExistsInWorkspaces");
-const index_1 = require("@yarn-tool/pkg-hosted-info/index");
-const index_2 = require("@yarn-tool/setup-module-env/lib/preset/tsdx/index");
+const pkg_hosted_info_1 = require("@yarn-tool/pkg-hosted-info");
+const index_1 = require("@yarn-tool/setup-module-env/lib/preset/tsdx/index");
 //updateNotifier(__dirname);
 // avoid buf for idea
 logger_1.default.length;
@@ -144,7 +144,7 @@ if (!cp.error) {
         if (!pkg.data.scripts) {
             pkg.data.scripts = {};
         }
-        (0, index_1.fillPkgHostedInfo)(pkg.data, {
+        (0, pkg_hosted_info_1.fillPkgHostedInfo)(pkg.data, {
             targetDir,
             rootData,
         });
@@ -295,7 +295,7 @@ if (!cp.error) {
         (_g = (_k = pkg.data).keywords) !== null && _g !== void 0 ? _g : (_k.keywords = []);
         pkg.data.keywords.push('create-by-yarn-tool');
         if (cli.argv.tsdx) {
-            (0, index_2.setup)({
+            (0, index_1.setup)({
                 pkg: pkg.data,
             });
         }

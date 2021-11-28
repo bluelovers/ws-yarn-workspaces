@@ -3,13 +3,13 @@ import {
 	IYarnLockParsedV2,
 	IUnpackYarnLockDataRow,
 	IYarnLockSourceV1, IYarnLockSourceV2, IYarnLockSource,
-} from '@yarn-tool/yarnlock-parse/index';
-import { EnumDetectYarnLock } from '@yarn-tool/detect-yarnlock-version/index';
+} from '@yarn-tool/yarnlock-parse';
+import { EnumDetectYarnLock } from '@yarn-tool/detect-yarnlock-version';
 import { merge } from 'lodash';
 import { IYarnLockIteratorWrap, IYarnLockIteratorWrapValue } from './types';
-import { parseYarnLockRowV2, parseYarnLockRowV1 } from '@yarn-tool/yarnlock-util/index';
-import yarnLockStringify from '@yarn-tool/yarnlock-stringify/index';
-import { ITSResolvable } from 'ts-type/index';
+import { parseYarnLockRowV2, parseYarnLockRowV1 } from '@yarn-tool/yarnlock-util';
+import yarnLockStringify from '@yarn-tool/yarnlock-stringify';
+import { ITSResolvable } from 'ts-type';
 import newYarnLockParsedVersionError from '@yarn-tool/yarnlock-error';
 
 export class YarnLockIterator<T extends IYarnLockParsedV1 | IYarnLockParsedV2, DD extends IUnpackYarnLockDataRow<T> = IUnpackYarnLockDataRow<T>>

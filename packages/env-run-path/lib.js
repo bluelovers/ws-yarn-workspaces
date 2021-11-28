@@ -4,7 +4,7 @@ exports.processRunPathCore = exports.getExePath = exports.findBinPath = void 0;
 const path_1 = require("path");
 const find_root_1 = require("@yarn-tool/find-root");
 const core_1 = require("./core");
-const index_1 = require("@yarn-tool/env-path/index");
+const env_path_1 = require("@yarn-tool/env-path");
 function findBinPath(options = {}) {
     let { cwd = process.cwd(), stopPath, } = options;
     if (!options.cwd || typeof stopPath === 'boolean' || !stopPath) {
@@ -38,8 +38,8 @@ function getExePath(options) {
 }
 exports.getExePath = getExePath;
 function processRunPathCore(options = {}) {
-    let processEnv = (options.processEnv || (0, index_1.processEnv)());
-    const pathKey = (0, index_1.envPathKey)(processEnv);
+    let processEnv = (options.processEnv || (0, env_path_1.processEnv)());
+    const pathKey = (0, env_path_1.envPathKey)(processEnv);
     let { cwd = process.cwd(), execPath = process.execPath, envPath = processEnv[pathKey], } = options;
     let { result } = findBinPath(options);
     const execPathDir = getExePath({

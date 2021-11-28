@@ -1,9 +1,9 @@
 import { defaultOrder, findPkgModuleCachePath } from './finder';
-import { array_unique_overwrite } from 'array-hyper-unique/index';
+import { array_unique_overwrite } from 'array-hyper-unique';
 import { findPkgModulePath, findPkgPath } from './finder/findPkgModuleCachePath';
 import { existsSync } from "fs";
 import { ensureDirSync } from 'fs-extra';
-import { isWritableDirectorySync } from '@lazy-node/is-writeable-path/index';
+import { isWritableDirectorySync } from '@lazy-node/is-writeable-path';
 import { resolve } from "upath2";
 import { IOptions } from './types';
 

@@ -1,4 +1,4 @@
-import { IYarnLockParsedV1, IYarnLockParsedV2, yarnLockParse } from '@yarn-tool/yarnlock-parse/index';
+import { IYarnLockParsedV1, IYarnLockParsedV2, yarnLockParse } from '@yarn-tool/yarnlock-parse';
 import { handleContentObject } from './handleContentObject';
 
 export function fromContent<T extends IYarnLockParsedV1 | IYarnLockParsedV2>(yarnlock_old: Buffer | string)

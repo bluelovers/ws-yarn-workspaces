@@ -1,7 +1,7 @@
 import { join } from "path";
 import { readFileSync } from 'fs';
 import { listDuplicates, fixDuplicates } from '../index';
-import { detectYarnLockVersion, EnumDetectYarnLock } from '@yarn-tool/detect-yarnlock-version/index';
+import { detectYarnLockVersion, EnumDetectYarnLock } from '@yarn-tool/detect-yarnlock-version';
 import FastGlob from '@bluelovers/fast-glob/bluebird';
 import { crlf } from 'crlf-normalize';
 

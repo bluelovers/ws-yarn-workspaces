@@ -2,10 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.YarnLockIterator = void 0;
 const tslib_1 = require("tslib");
-const index_1 = require("@yarn-tool/detect-yarnlock-version/index");
+const detect_yarnlock_version_1 = require("@yarn-tool/detect-yarnlock-version");
 const lodash_1 = require("lodash");
-const index_2 = require("@yarn-tool/yarnlock-util/index");
-const index_3 = (0, tslib_1.__importDefault)(require("@yarn-tool/yarnlock-stringify/index"));
+const yarnlock_util_1 = require("@yarn-tool/yarnlock-util");
+const yarnlock_stringify_1 = (0, tslib_1.__importDefault)(require("@yarn-tool/yarnlock-stringify"));
 const yarnlock_error_1 = (0, tslib_1.__importDefault)(require("@yarn-tool/yarnlock-error"));
 class YarnLockIterator {
     constructor(object) {
@@ -15,10 +15,10 @@ class YarnLockIterator {
         }
     }
     isV1() {
-        return (this.object.verType === index_1.EnumDetectYarnLock.v1);
+        return (this.object.verType === detect_yarnlock_version_1.EnumDetectYarnLock.v1);
     }
     isV2() {
-        return (this.object.verType === index_1.EnumDetectYarnLock.berry);
+        return (this.object.verType === detect_yarnlock_version_1.EnumDetectYarnLock.berry);
     }
     v1() {
         if (this.isV1()) {
@@ -68,10 +68,10 @@ class YarnLockIterator {
     }
     _normalize(raw, key) {
         if (this.isV2()) {
-            return (0, index_2.parseYarnLockRowV2)(key, raw);
+            return (0, yarnlock_util_1.parseYarnLockRowV2)(key, raw);
         }
         else {
-            return (0, index_2.parseYarnLockRowV1)(key, raw);
+            return (0, yarnlock_util_1.parseYarnLockRowV1)(key, raw);
         }
     }
     *[Symbol.iterator]() {
@@ -84,7 +84,7 @@ class YarnLockIterator {
         }
     }
     stringify() {
-        return (0, index_3.default)(this.toJSON());
+        return (0, yarnlock_stringify_1.default)(this.toJSON());
     }
     toJSON() {
         if (this.isV2()) {

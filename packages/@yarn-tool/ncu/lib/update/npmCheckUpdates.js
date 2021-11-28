@@ -11,7 +11,7 @@ const queryVersion_1 = require("@yarn-tool/pkg-version-query/lib/queryVersion");
 const mergeSimpleSemVer_1 = require("@lazy-node/semver-simple-parse/lib/mergeSimpleSemVer");
 const parseSimpleSemVer_1 = require("@lazy-node/semver-simple-parse/lib/parseSimpleSemVer");
 const stringifySimpleSemVer_1 = require("@lazy-node/semver-simple-parse/lib/stringifySimpleSemVer");
-const index_1 = require("@yarn-tool/pkg-version-query/index");
+const pkg_version_query_1 = require("@yarn-tool/pkg-version-query");
 const deps_table_1 = (0, tslib_1.__importDefault)(require("@yarn-tool/table/lib/deps-table"));
 async function npmCheckUpdates(cache, ncuOptions) {
     //ncuOptions.silent = false;
@@ -75,7 +75,7 @@ async function npmCheckUpdates(cache, ncuOptions) {
             }
         });
     });
-    await (0, index_1.getCache)().fsDump();
+    await (0, pkg_version_query_1.getCache)().fsDump();
     ncuOptions.json_changed = json_changed;
     ncuOptions.list_updated = list_updated;
     ncuOptions.current = current;

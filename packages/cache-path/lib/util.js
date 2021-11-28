@@ -2,11 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports._check = exports._createAble = exports.handleOptions = void 0;
 const finder_1 = require("./finder");
-const index_1 = require("array-hyper-unique/index");
+const array_hyper_unique_1 = require("array-hyper-unique");
 const findPkgModuleCachePath_1 = require("./finder/findPkgModuleCachePath");
 const fs_1 = require("fs");
 const fs_extra_1 = require("fs-extra");
-const index_2 = require("@lazy-node/is-writeable-path/index");
+const is_writeable_path_1 = require("@lazy-node/is-writeable-path");
 const upath2_1 = require("upath2");
 function handleOptions(options) {
     var _a;
@@ -20,7 +20,7 @@ function handleOptions(options) {
     if (!options.disableDefaultFailback && options.fnOrder && fnOrder !== finder_1.defaultOrder) {
         // @ts-ignore
         fnOrder = fnOrder.concat(finder_1.defaultOrder);
-        (0, index_1.array_unique_overwrite)(fnOrder);
+        (0, array_hyper_unique_1.array_unique_overwrite)(fnOrder);
     }
     options.cwd = (0, upath2_1.resolve)(cwd);
     options.fnOrder = fnOrder;
@@ -48,7 +48,7 @@ function _check(dir, options) {
             throw new Error(`path not exists '${dir}'`);
         }
     }
-    if (!(0, index_2.isWritableDirectorySync)(dir)) {
+    if (!(0, is_writeable_path_1.isWritableDirectorySync)(dir)) {
         throw new Error(`path is not writeable '${dir}'`);
     }
     return true;

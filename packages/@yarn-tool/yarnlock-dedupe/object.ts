@@ -1,6 +1,6 @@
 import { IOptionsDedupe } from './lib/types';
 import { listDuplicates as _listDuplicates, fixDuplicates as _fixDuplicates, yarnDedupe as _yarnDedupe } from './index';
-import stringify from '@yarn-tool/yarnlock-stringify/index';
+import stringify from '@yarn-tool/yarnlock-stringify';
 
 /**
  * @deprecated

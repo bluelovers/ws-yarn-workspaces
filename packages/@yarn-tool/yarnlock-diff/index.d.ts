@@ -1,7 +1,7 @@
 /// <reference types="node" />
 import { buildDiff } from './lib/diff-service';
 import { buildDiffTable } from './lib/formatter';
-import { IOptionsParseVersionsDiff } from '@yarn-tool/semver-diff/index';
+import { IOptionsParseVersionsDiff } from '@yarn-tool/semver-diff';
 import { ITSValueOrArray } from 'ts-type/lib/type/base';
 export { buildDiff };
 export { buildDiffTable };

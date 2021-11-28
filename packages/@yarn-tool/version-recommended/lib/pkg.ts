@@ -1,6 +1,6 @@
 import { nextVersionRecommendedByWorkspacesProject, nextVersionRecommendedByWorkspacesFindUp } from './ws';
-import { findRoot } from '@yarn-tool/find-root/index';
-import { readPackageJson } from '@ts-type/package-dts/index';
+import { findRoot } from '@yarn-tool/find-root';
+import { readPackageJson } from '@ts-type/package-dts';
 import { join } from 'path';
 import { INextVersionRecommendedOptions } from './types';
 import { IPackageJson } from '@ts-type/package-dts/package-json';

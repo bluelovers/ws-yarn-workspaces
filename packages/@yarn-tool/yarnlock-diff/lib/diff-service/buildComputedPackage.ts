@@ -1,5 +1,5 @@
 import { IComputedPackage } from './types';
-import { yarnLockParse } from '@yarn-tool/yarnlock-parse/index';
+import { yarnLockParse } from '@yarn-tool/yarnlock-parse';
 import { computeHashmapOfPackageAndVersionList } from './computeHashmapOfPackageAndVersionList';
 import { ITSValueOrArray } from 'ts-type/lib/type/base';
 

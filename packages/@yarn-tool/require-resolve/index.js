@@ -2,12 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports._unshiftArray = exports.requireResolveExtra = exports.importExtra = exports.requireExtra = exports.isErrorModuleNotFound = exports.handleOptionsPaths = exports.requireResolveCore = exports.SymbolModuleMain = exports.SymbolGlobalYarn = exports.SymbolGlobalNpm = exports.SymbolGlobal = exports.SymbolCurrentDirectory = void 0;
 const tslib_1 = require("tslib");
-const index_1 = (0, tslib_1.__importStar)(require("@yarn-tool/get-paths-by-type/index"));
-Object.defineProperty(exports, "SymbolCurrentDirectory", { enumerable: true, get: function () { return index_1.SymbolCurrentDirectory; } });
-Object.defineProperty(exports, "SymbolGlobal", { enumerable: true, get: function () { return index_1.SymbolGlobal; } });
-Object.defineProperty(exports, "SymbolGlobalNpm", { enumerable: true, get: function () { return index_1.SymbolGlobalNpm; } });
-Object.defineProperty(exports, "SymbolGlobalYarn", { enumerable: true, get: function () { return index_1.SymbolGlobalYarn; } });
-Object.defineProperty(exports, "SymbolModuleMain", { enumerable: true, get: function () { return index_1.SymbolModuleMain; } });
+const get_paths_by_type_1 = (0, tslib_1.__importStar)(require("@yarn-tool/get-paths-by-type"));
+Object.defineProperty(exports, "SymbolCurrentDirectory", { enumerable: true, get: function () { return get_paths_by_type_1.SymbolCurrentDirectory; } });
+Object.defineProperty(exports, "SymbolGlobal", { enumerable: true, get: function () { return get_paths_by_type_1.SymbolGlobal; } });
+Object.defineProperty(exports, "SymbolGlobalNpm", { enumerable: true, get: function () { return get_paths_by_type_1.SymbolGlobalNpm; } });
+Object.defineProperty(exports, "SymbolGlobalYarn", { enumerable: true, get: function () { return get_paths_by_type_1.SymbolGlobalYarn; } });
+Object.defineProperty(exports, "SymbolModuleMain", { enumerable: true, get: function () { return get_paths_by_type_1.SymbolModuleMain; } });
 const defaultMap = {
     tsdx: 'tsdx/dist/index',
 };
@@ -22,22 +22,22 @@ function requireResolveCore(name, options) {
             (options.includeGlobal)
                 .forEach(value => {
                 switch (value) {
-                    case index_1.SymbolGlobalYarn:
-                    case index_1.SymbolGlobalNpm:
-                    case index_1.SymbolCurrentDirectory:
-                    case index_1.SymbolGlobal:
-                    case index_1.SymbolModuleMain:
+                    case get_paths_by_type_1.SymbolGlobalYarn:
+                    case get_paths_by_type_1.SymbolGlobalNpm:
+                    case get_paths_by_type_1.SymbolCurrentDirectory:
+                    case get_paths_by_type_1.SymbolGlobal:
+                    case get_paths_by_type_1.SymbolModuleMain:
                         _unshiftArray(paths, value);
                         break;
                 }
             });
         }
         else {
-            _unshiftArray(paths, index_1.SymbolGlobal);
+            _unshiftArray(paths, get_paths_by_type_1.SymbolGlobal);
         }
     }
     if (options.includeCurrentDirectory) {
-        _unshiftArray(paths, index_1.SymbolCurrentDirectory);
+        _unshiftArray(paths, get_paths_by_type_1.SymbolCurrentDirectory);
     }
     return ((_d = options.require) !== null && _d !== void 0 ? _d : require).resolve(target, {
         ...options,
@@ -49,12 +49,12 @@ function handleOptionsPaths(paths, cwd) {
     if (paths === null || paths === void 0 ? void 0 : paths.length) {
         paths = paths.reduce((paths, value) => {
             switch (value) {
-                case index_1.SymbolGlobal:
-                case index_1.SymbolCurrentDirectory:
-                case index_1.SymbolGlobalNpm:
-                case index_1.SymbolGlobalYarn:
-                case index_1.SymbolModuleMain:
-                    paths.push(...(0, index_1.default)(value, cwd));
+                case get_paths_by_type_1.SymbolGlobal:
+                case get_paths_by_type_1.SymbolCurrentDirectory:
+                case get_paths_by_type_1.SymbolGlobalNpm:
+                case get_paths_by_type_1.SymbolGlobalYarn:
+                case get_paths_by_type_1.SymbolModuleMain:
+                    paths.push(...(0, get_paths_by_type_1.default)(value, cwd));
                     break;
                 default:
                     if (value !== null && value !== void 0 ? value : false) {

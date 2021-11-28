@@ -10,8 +10,8 @@ import { mergeSimpleSemVer } from '@lazy-node/semver-simple-parse/lib/mergeSimpl
 import { parseSimpleSemVer } from '@lazy-node/semver-simple-parse/lib/parseSimpleSemVer';
 import { stringifySemverFull } from '@lazy-node/semver-simple-parse/lib/stringifySimpleSemVer';
 import { IWrapDedupeCache } from '@yarn-tool/yarnlock/lib/types';
-import { ITSRequireAtLeastOne } from 'ts-type/index';
-import { getCache } from '@yarn-tool/pkg-version-query/index';
+import { ITSRequireAtLeastOne } from 'ts-type';
+import { getCache } from '@yarn-tool/pkg-version-query';
 import toDependencyTable from '@yarn-tool/table/lib/deps-table';
 
 export async function npmCheckUpdates<C extends IWrapDedupeCache>(cache: Partial<C>,

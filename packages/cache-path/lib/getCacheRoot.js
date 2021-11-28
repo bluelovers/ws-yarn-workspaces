@@ -5,7 +5,7 @@ const tslib_1 = require("tslib");
 const fs_extra_1 = require("fs-extra");
 const upath2_1 = require("upath2");
 const bluebird_1 = (0, tslib_1.__importDefault)(require("bluebird"));
-const index_1 = require("@lazy-node/is-writeable-path/index");
+const is_writeable_path_1 = require("@lazy-node/is-writeable-path");
 const util_1 = require("./util");
 function getCacheRoot(_options) {
     let options = (0, util_1.handleOptions)(_options);
@@ -21,7 +21,7 @@ function getCacheRoot(_options) {
                 }
                 catch (err) { }
             }
-            return (0, index_1.isWritableDirectorySync)(dir);
+            return (0, is_writeable_path_1.isWritableDirectorySync)(dir);
         }
     });
     (0, util_1._check)(dir, options);
@@ -43,7 +43,7 @@ function getCacheRootAsync(options) {
                     }
                     catch (err) { }
                 }
-                if (await (0, index_1.isWritableDirectoryAsync)(dir)) {
+                if (await (0, is_writeable_path_1.isWritableDirectoryAsync)(dir)) {
                     break;
                 }
             }

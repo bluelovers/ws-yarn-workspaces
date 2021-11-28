@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.nextVersionRecommendedByPackageFindUp = exports.nextVersionRecommendedByPackage = void 0;
 const ws_1 = require("./ws");
-const index_1 = require("@yarn-tool/find-root/index");
-const index_2 = require("@ts-type/package-dts/index");
+const find_root_1 = require("@yarn-tool/find-root");
+const package_dts_1 = require("@ts-type/package-dts");
 const path_1 = require("path");
 function nextVersionRecommendedByPackage(pkg, options) {
     if (typeof pkg.version !== 'string' || !pkg.version.length) {
@@ -19,8 +19,8 @@ function nextVersionRecommendedByPackageFindUp(options) {
     var _a;
     options !== null && options !== void 0 ? options : (options = {});
     (_a = options.cwd) !== null && _a !== void 0 ? _a : (options.cwd = process.cwd());
-    let rootData = (0, index_1.findRoot)(options);
-    let pkg = (0, index_2.readPackageJson)((0, path_1.join)(rootData.pkg, 'package.json'));
+    let rootData = (0, find_root_1.findRoot)(options);
+    let pkg = (0, package_dts_1.readPackageJson)((0, path_1.join)(rootData.pkg, 'package.json'));
     options.cwd = rootData.root;
     // @ts-ignore
     return nextVersionRecommendedByPackage(pkg, options);

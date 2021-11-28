@@ -1,7 +1,7 @@
 import { IYarnLockUpdateReport } from './types';
 import { createDependencyTable } from '@yarn-tool/table/lib/core';
-import { colorizeDiff, IOptionsParseVersionsDiff } from '@yarn-tool/semver-diff/index';
-import { IChalk, chalkByConsoleMaybe } from 'debug-color2/index';
+import { colorizeDiff, IOptionsParseVersionsDiff } from '@yarn-tool/semver-diff';
+import { IChalk, chalkByConsoleMaybe } from 'debug-color2';
 import { _formatVersion } from '@yarn-tool/yarnlock-diff/lib/formatter/formatVersion';
 
 export function printReport(report: IYarnLockUpdateReport, options?: {

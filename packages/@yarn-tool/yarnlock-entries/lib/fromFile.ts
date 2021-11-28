@@ -1,4 +1,4 @@
-import type { IYarnLockParsedV1, IYarnLockParsedV2 } from '@yarn-tool/yarnlock-parse/index';
+import type { IYarnLockParsedV1, IYarnLockParsedV2 } from '@yarn-tool/yarnlock-parse';
 import { PathLike, readFileSync } from "fs";
 import fromContent from './fromContent';
 

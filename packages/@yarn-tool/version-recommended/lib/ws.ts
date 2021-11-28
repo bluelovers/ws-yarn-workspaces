@@ -1,4 +1,4 @@
-import WorkspacesProject from '@yarn-tool/workspaces-project/index';
+import WorkspacesProject from '@yarn-tool/workspaces-project';
 import { nextVersionRecommended } from './nextVersionRecommended';
 import { INextVersionRecommendedOptions } from './types';
 

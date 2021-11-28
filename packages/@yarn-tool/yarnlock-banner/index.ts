@@ -1,4 +1,4 @@
-import { crlf, chkcrlf, R_CRLF, LF } from 'crlf-normalize/index';
+import { crlf, chkcrlf, R_CRLF, LF } from 'crlf-normalize';
 
 export enum EnumYaenLockBanner
 {

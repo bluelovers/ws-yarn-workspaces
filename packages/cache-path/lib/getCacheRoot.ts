@@ -1,7 +1,7 @@
 import { ensureDirSync, ensureDir } from 'fs-extra';
 import { resolve } from "upath2";
 import Bluebird from 'bluebird';
-import { isWritableDirectorySync, isWritableDirectoryAsync } from '@lazy-node/is-writeable-path/index';
+import { isWritableDirectorySync, isWritableDirectoryAsync } from '@lazy-node/is-writeable-path';
 import { _check, _createAble, handleOptions } from './util';
 import { IOptions } from './types';
 

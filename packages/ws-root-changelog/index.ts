@@ -1,6 +1,6 @@
 import { wsPkgListable } from 'ws-pkg-list/lib/listable';
 import { normalizeListableRowExtra } from 'ws-pkg-list/lib/util';
-import { findRootLazy } from '@yarn-tool/find-root/index';
+import { findRootLazy } from '@yarn-tool/find-root';
 import { writeFileSync, promises } from 'fs';
 import { resolve } from 'upath2';
 

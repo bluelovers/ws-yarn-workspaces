@@ -1,6 +1,6 @@
-import { IYarnLockParsedV1, IYarnLockParsedV2, IUnpackYarnLockDataRow, IYarnLockSource } from '@yarn-tool/yarnlock-parse/index';
+import { IYarnLockParsedV1, IYarnLockParsedV2, IUnpackYarnLockDataRow, IYarnLockSource } from '@yarn-tool/yarnlock-parse';
 import { IYarnLockIteratorWrap, IYarnLockIteratorWrapValue } from './types';
-import { ITSResolvable } from 'ts-type/index';
+import { ITSResolvable } from 'ts-type';
 export declare class YarnLockIterator<T extends IYarnLockParsedV1 | IYarnLockParsedV2, DD extends IUnpackYarnLockDataRow<T> = IUnpackYarnLockDataRow<T>> {
     object: T;
     constructor(object: T);

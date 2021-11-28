@@ -23,7 +23,7 @@ import { defaultCopyStaticFiles, defaultCopyStaticFilesRootOnly } from '@yarn-to
 import { copyStaticFiles } from '@yarn-tool/static-file';
 import console from 'debug-color2/logger';
 import { nameExistsInWorkspaces } from 'ws-pkg-list/lib/nameExistsInWorkspaces';
-import { fillPkgHostedInfo } from '@yarn-tool/pkg-hosted-info/index';
+import { fillPkgHostedInfo } from '@yarn-tool/pkg-hosted-info';
 import { setup as setupTsdx } from '@yarn-tool/setup-module-env/lib/preset/tsdx/index';
 
 //updateNotifier(__dirname);

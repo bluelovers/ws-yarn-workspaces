@@ -1,6 +1,6 @@
 import { basename, dirname, extname } from 'path';
 import { packPackage } from '../index';
-import { resolvePackage } from '@yarn-tool/resolve-package/index';
+import { resolvePackage } from '@yarn-tool/resolve-package';
 
 test(`packPackage`, async () =>
 {

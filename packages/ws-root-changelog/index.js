@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.createWorkspacesRootChangelog = exports.outputWorkspacesRootChangelogAsync = exports.outputWorkspacesRootChangelog = exports.getWorkspacesRootChangelogPath = exports._findWorkspacesRootPath = exports.listChangelog = void 0;
 const listable_1 = require("ws-pkg-list/lib/listable");
 const util_1 = require("ws-pkg-list/lib/util");
-const index_1 = require("@yarn-tool/find-root/index");
+const find_root_1 = require("@yarn-tool/find-root");
 const fs_1 = require("fs");
 const upath2_1 = require("upath2");
 function listChangelog(cwd) {
@@ -25,7 +25,7 @@ function listChangelog(cwd) {
 }
 exports.listChangelog = listChangelog;
 function _findWorkspacesRootPath(cwd) {
-    return (0, index_1.findRootLazy)({
+    return (0, find_root_1.findRootLazy)({
         cwd: cwd !== null && cwd !== void 0 ? cwd : process.cwd(),
         throwError: true,
         shouldHasWorkspaces: true,

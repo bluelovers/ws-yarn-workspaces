@@ -1,6 +1,6 @@
 import { DiffArray, EnumKinds } from '@bluelovers/deep-diff';
 import { _formatVersion } from './formatVersion';
-import { IChalk } from 'debug-color2/index'
+import { IChalk } from 'debug-color2'
 
 export function _diffArray(array: DiffArray<{}, {}>, chalk: IChalk)
 {

@@ -1,5 +1,5 @@
 import { basename, extname } from 'path';
-import { findRootLazy } from '@yarn-tool/find-root/index';
+import { findRootLazy } from '@yarn-tool/find-root';
 import { _findWorkspacesRootPath, listChangelog } from '../index';
 
 const cwd = _findWorkspacesRootPath();

@@ -2,7 +2,7 @@ import { resolve, delimiter } from "path";
 import { findRoot } from '@yarn-tool/find-root';
 import { findBinPathCore } from './core';
 import { IOptionsGetRunPathCore, IOptionsFindBinPath, ProcessEnv } from './index';
-import { envPathKey, processEnv as _processEnv } from '@yarn-tool/env-path/index';
+import { envPathKey, processEnv as _processEnv } from '@yarn-tool/env-path';
 
 export function findBinPath(options: IOptionsFindBinPath = {})
 {
