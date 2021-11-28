@@ -1,4 +1,4 @@
-import { array_unique_overwrite } from 'array-hyper-unique/core';
+import { array_unique_overwrite } from 'array-hyper-unique';
 import { parseArgvPkgName } from '@yarn-tool/npm-package-arg-util/lib/parseArgvPkgName';
 import { listToTypes } from '@yarn-tool/pkg-deps-util/lib/util/listToTypes';
 

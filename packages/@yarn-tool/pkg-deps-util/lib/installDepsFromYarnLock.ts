@@ -13,7 +13,7 @@ import { pick } from 'lodash';
 import { join } from 'path';
 import { addDependenciesIfNotExists } from './addDependenciesIfNotExists';
 import { fsYarnLockSafe } from '@yarn-tool/yarnlock-fs/lib/read';
-import { array_unique_overwrite } from 'array-hyper-unique/core';
+import { array_unique_overwrite } from 'array-hyper-unique';
 import { sortDependencies } from './util/sortDependencies';
 import { fetchRemoteInfo } from './util/fetchRemoteInfo';
 import { IAddedList, IFilteredRecord, IOptionsInstallDepsFromYarnLock, IResultInstallDeps } from './types';

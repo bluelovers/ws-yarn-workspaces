@@ -3,7 +3,7 @@ import { wsGitDiffStagedDir } from './git-util';
 import getConfig from 'workspaces-config';
 import micromatch from 'micromatch';
 import globRegex from 'glob-regex';
-import { array_unique_overwrite } from 'array-hyper-unique/core';
+import { array_unique_overwrite } from 'array-hyper-unique';
 import { normalizeListableExtra } from 'ws-pkg-list/lib/util';
 import { IListableRowExtra, IListableRow } from 'ws-pkg-list';
 

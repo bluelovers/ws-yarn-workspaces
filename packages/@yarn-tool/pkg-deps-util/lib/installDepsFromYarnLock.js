@@ -11,7 +11,7 @@ const lodash_1 = require("lodash");
 const path_1 = require("path");
 const addDependenciesIfNotExists_1 = require("./addDependenciesIfNotExists");
 const read_1 = require("@yarn-tool/yarnlock-fs/lib/read");
-const core_1 = require("array-hyper-unique/core");
+const array_hyper_unique_1 = require("array-hyper-unique");
 const sortDependencies_1 = require("./util/sortDependencies");
 const fetchRemoteInfo_1 = require("./util/fetchRemoteInfo");
 function filterDepsFromYarnLock(packageNames, parsedOldPackage, options) {
@@ -74,7 +74,7 @@ exports.installDepsFromYarnLockCore = installDepsFromYarnLockCore;
  */
 async function installDepsFromYarnLock(packageNames, options = {}) {
     var _a, _b;
-    packageNames = (0, core_1.array_unique_overwrite)(packageNames.filter(v => v === null || v === void 0 ? void 0 : v.length));
+    packageNames = (0, array_hyper_unique_1.array_unique_overwrite)(packageNames.filter(v => v === null || v === void 0 ? void 0 : v.length));
     if (packageNames.length) {
         (_a = options.cwd) !== null && _a !== void 0 ? _a : (options.cwd = process.cwd());
         const rootData = (0, find_root_1.findRootLazy)(options);

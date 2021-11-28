@@ -1,6 +1,6 @@
 import { IListableRowExtraWithDeps } from 'ws-pkg-list';
 import { packageJsonDependenciesFields } from '@ts-type/package-dts/lib/package-json/types';
-import { array_unique_overwrite } from 'array-hyper-unique/core';
+import { array_unique_overwrite } from 'array-hyper-unique';
 import { findDepsAllDeepRecordCore } from './find';
 
 export function findUpDepsDeepRecordCore<R extends IListableRowExtraWithDeps>(target: string,

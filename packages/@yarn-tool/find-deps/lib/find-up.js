@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.findUpDepsAllDeep = exports.findUpDepsAllDeepRecordCore = exports.findUpDepsDeepRecordCore = void 0;
 const types_1 = require("@ts-type/package-dts/lib/package-json/types");
-const core_1 = require("array-hyper-unique/core");
+const array_hyper_unique_1 = require("array-hyper-unique");
 const find_1 = require("./find");
 function findUpDepsDeepRecordCore(target, record, map = {}) {
     var _a, _b;
@@ -24,7 +24,7 @@ function findUpDepsDeepRecordCore(target, record, map = {}) {
         }
         return map;
     }, map);
-    (0, core_1.array_unique_overwrite)(map[target]);
+    (0, array_hyper_unique_1.array_unique_overwrite)(map[target]);
     return map;
 }
 exports.findUpDepsDeepRecordCore = findUpDepsDeepRecordCore;
