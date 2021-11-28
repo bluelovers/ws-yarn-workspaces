@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@npmcli/run-script": "^2.0.0",
-    "@ts-type/package-dts": "^1.0.53",
+    "@ts-type/package-dts": "^1.0.54",
     "@yarn-tool/script-lifecycle": "^1.0.12",
     "tslib": "^2.3.1"
   },

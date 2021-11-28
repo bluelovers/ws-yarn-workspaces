@@ -54,7 +54,7 @@
     "@lazy-node/is-writeable-path": "^1.0.7",
     "@types/bluebird": "*",
     "@yarn-tool/find-root": "^1.0.55",
-    "array-hyper-unique": "^1.1.10",
+    "array-hyper-unique": "^2.0.6",
     "bluebird": "^3.7.2",
     "cross-spawn-extra": "^2.1.0",
     "fs-extra": "^10.0.0",

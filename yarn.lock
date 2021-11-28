@@ -325,13 +325,21 @@
     bluebird "^3"
     fast-glob "^3"
 
-"@bluelovers/string-natural-compare@^1.1.2", "@bluelovers/string-natural-compare@^1.1.3":
+"@bluelovers/string-natural-compare@^1.1.2":
   version "1.1.3"
   resolved "https://registry.npmjs.org/@bluelovers/string-natural-compare/-/string-natural-compare-1.1.3.tgz#aad0f1a444432b947a3dcd2ec61cdff2489dfb73"
   integrity sha512-QCRTYvl0ci+D38WT7Vdr+RlQKYq24K7TVQDMQGwpDKC6iPOv/EIXdeOh1xrI048m+Gg2XBPJO5wWdmPE7M4ouA==
   dependencies:
     string-natural-compare "^3.0.1"
     tslib "^2.3.0"
+
+"@bluelovers/string-natural-compare@^2.0.5":
+  version "2.0.5"
+  resolved "https://registry.npmjs.org/@bluelovers/string-natural-compare/-/string-natural-compare-2.0.5.tgz#738f629b468b18032447c3c4bcc994d0d919342f"
+  integrity sha512-InkBMUOE74fXNyZmx/BtgXK3rsCncsfHLgsTihyss5/Qe9u/+wbP8TAXIDghLlVODPl/aoK8Lfjwg2Z+w1i5OA==
+  dependencies:
+    string-natural-compare "^3.0.1"
+    tslib "^2.3.1"
 
 "@bluelovers/tsconfig@^1.0.26":
   version "1.0.26"
@@ -1009,13 +1017,13 @@
   resolved "https://registry.npmjs.org/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
   integrity sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==
 
-"@ts-type/package-dts@^1.0.53":
-  version "1.0.53"
-  resolved "https://registry.npmjs.org/@ts-type/package-dts/-/package-dts-1.0.53.tgz#bb577e93e7f3deb0910479550014728f4bfd36a8"
-  integrity sha512-P8bMcjqaUsaBbXOCxBtzT4/pvhQSHTMc91WrpErVfB52zpNRVw2evOYWMe6q3c087+wpvITB7HtppYDnQe1RwA==
+"@ts-type/package-dts@^1.0.54":
+  version "1.0.54"
+  resolved "https://registry.npmjs.org/@ts-type/package-dts/-/package-dts-1.0.54.tgz#c6bcf02464bb4bfb4bfdd1bd12c400458082af75"
+  integrity sha512-lJWJBVfPCbPBdSWM3PGkooYl9p273n7A1nXB93vyHQIO+LWVXFi70ajj5GdgLU0cs+pwjdCE+1RoK/1EfC6a/A==
   dependencies:
     "@types/semver" "^7.3.9"
-    ts-type "^1.2.40"
+    ts-type "^2.0.3"
 
 "@types/abstract-leveldown@*":
   version "5.0.2"
@@ -1624,6 +1632,15 @@ array-hyper-unique@^1.1.10:
     deep-eql "^4.0.0"
     lodash "^4.17.21"
     tslib "^2.3.0"
+
+array-hyper-unique@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.npmjs.org/array-hyper-unique/-/array-hyper-unique-2.0.6.tgz#ce3560cab27853f21f86b7eaff1891eaab8a5d77"
+  integrity sha512-OYYVt7iFcj/EMoJ5ujas6AsFYybpsdjF9qQB1I7Xt9c80cg09raPdDV03Y5+XwXmGVQ8z0XlfZ8koy0Gm5dlHw==
+  dependencies:
+    deep-eql "^4.0.0"
+    lodash "^4.17.21"
+    tslib "^2.3.1"
 
 array-ify@^1.0.0:
   version "1.0.0"
@@ -7404,10 +7421,10 @@ ts-type@^1, ts-type@^1.2.32, ts-type@^1.2.35, ts-type@^1.2.39, ts-type@^1.2.40:
     tslib "^2.3.0"
     typedarray-dts "^1.0.0"
 
-ts-type@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.npmjs.org/ts-type/-/ts-type-2.0.1.tgz#584445f7132cee526237b3664588be4fa244c8e0"
-  integrity sha512-hhtYSO1SBgVH5C7iGwb/QQKP+SbLyqJULc93ia7CTBp9w+WXXvuFo3JbHXBAHUL0RLU73+2f23MY0iuuj3728A==
+ts-type@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.npmjs.org/ts-type/-/ts-type-2.0.3.tgz#1e9002dcf8d5052e27e77a8f6c9565030c4bd3c3"
+  integrity sha512-Cc2kgkUwmCK/h2m/sVbr2piqOGE+Hs4qAgJ7CiI4OSMJFWorE6f6yoisjSBE5izGb2/VZnHSN2CcOQR6/Yfazw==
   dependencies:
     tslib "^2.3.1"
     typedarray-dts "^1.0.0"

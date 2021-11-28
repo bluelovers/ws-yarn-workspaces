@@ -37,7 +37,7 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^1.0.53",
+    "@ts-type/package-dts": "^1.0.54",
     "@yarn-tool/detect-yarnlock-version": "^1.0.11",
     "@yarn-tool/yarnlock-error": "^1.0.6",
     "@yarnpkg/lockfile": "^1.1.0",

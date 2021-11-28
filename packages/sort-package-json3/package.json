@@ -29,7 +29,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^1.0.53",
+    "@ts-type/package-dts": "^1.0.54",
     "is-plain-obj": "< 4",
     "sort-package-json-scripts": "^1.1.9",
     "tslib": "^2.3.1"

@@ -37,7 +37,7 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^1.0.53",
+    "@ts-type/package-dts": "^1.0.54",
     "@yarn-tool/find-root": "^1.0.55",
     "@yarn-tool/npm-package-arg-util": "^1.0.21",
     "@yarn-tool/pkg-deps-add": "^1.0.1",
@@ -45,7 +45,7 @@
     "@yarn-tool/yarnlock-fs": "^1.0.18",
     "@yarn-tool/yarnlock-parse": "^1.0.19",
     "@yarn-tool/yarnlock-util": "^1.0.26",
-    "array-hyper-unique": "^1.1.10",
+    "array-hyper-unique": "^2.0.6",
     "cross-spawn-extra": "^2.1.0",
     "debug-color2": "^1.2.7",
     "err-code": "^3.0.1",
