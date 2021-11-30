@@ -220,7 +220,7 @@ if (!cp.error) {
                 "test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
                 "test:jest": "jest --passWithNoTests",
                 "test:tsdx": "ynpx @bluelovers/tsdx test --passWithNoTests",
-                "build:dts": "ynpx @bluelovers/tsdx dts -o ./dist/index.d.ts ./src/index.ts --no-banner & echo build:dts",
+                "build:dts": "ynpx dts-bundle-generator -o ./dist/index.d.ts ./src/index.ts --no-banner & echo build:dts",
                 "build:tsdx": "ynpx @bluelovers/tsdx build --target node --name index",
                 "lint": "ynpx --quiet eslint -- **/*.ts",
                 ...sharedScript,
