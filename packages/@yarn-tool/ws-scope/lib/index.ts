@@ -4,7 +4,6 @@ import { ScopeJson } from './format/json';
 import { ScopeYaml } from './format/yaml';
 import { array_unique_overwrite } from 'array-hyper-unique';
 import { assertScopePath } from './util/check-scope';
-import { string } from 'yargs';
 
 export class WorkspacesScope
 {
