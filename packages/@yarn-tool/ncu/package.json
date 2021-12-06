@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/ncu",
-  "version": "1.0.87",
+  "version": "1.0.88",
   "description": "",
   "keywords": [
     "cli",
@@ -42,7 +42,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@lazy-node/semver-simple-parse": "^1.1.23",
+    "@lazy-node/semver-simple-parse": "^1.1.24",
     "@ts-type/package-dts": "^1.0.56",
     "@yarn-tool/pkg-version-query": "^1.0.38",
     "@yarn-tool/semver-diff": "^1.0.29",
