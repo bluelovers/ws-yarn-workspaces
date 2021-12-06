@@ -58,7 +58,7 @@
   },
   "devDependencies": {
     "@bluelovers/fast-glob": "^3.0.4",
-    "@bluelovers/tsconfig": "^1.0.26",
+    "@bluelovers/tsconfig": "^1.0.27",
     "@types/bluebird": "^3.5.36",
     "@types/chai": "^4.2.22",
     "@types/chalk": "^2.2.0",

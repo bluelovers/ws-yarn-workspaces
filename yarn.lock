@@ -341,10 +341,10 @@
     string-natural-compare "^3.0.1"
     tslib "^2.3.1"
 
-"@bluelovers/tsconfig@^1.0.26":
-  version "1.0.26"
-  resolved "https://registry.npmjs.org/@bluelovers/tsconfig/-/tsconfig-1.0.26.tgz#8c6ad5b51618044246135ef6c806bf429b26b640"
-  integrity sha512-j++mkh/TKt9spEkWy4Rtmwc6kYq0vz+utztFyuwDuZybCuKYL+lhpqQg4xo9pRIoFX8ZIl8/GAcpb6SAjADPhQ==
+"@bluelovers/tsconfig@^1.0.27":
+  version "1.0.27"
+  resolved "https://registry.npmjs.org/@bluelovers/tsconfig/-/tsconfig-1.0.27.tgz#38130986bb2f6596433d65de886958e1a4ee718f"
+  integrity sha512-vr+f2gPiA4h8N0fL5C2e1Kuot2aV5zVRkigjZRn5J1oYSDzAnqlcDVXihoa2qLfnlsQInLqTY2NjG7jvj1d7wA==
   dependencies:
     tslib "^2.3.0"
 
