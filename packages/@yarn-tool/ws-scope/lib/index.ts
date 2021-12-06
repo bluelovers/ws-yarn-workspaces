@@ -1,9 +1,11 @@
 import { findRootLazy, IFindRootReturnType } from '@yarn-tool/find-root';
-import { resolve } from 'upath2';
+import { join, resolve } from 'upath2';
 import { ScopeJson } from './format/json';
 import { ScopeYaml } from './format/yaml';
 import { array_unique_overwrite } from 'array-hyper-unique';
 import { assertScopePath } from './util/check-scope';
+import { basename } from 'upath2';
+import { ensureDirSync } from 'fs-extra';
 
 export class WorkspacesScope
 {
@@ -53,20 +55,34 @@ export class WorkspacesScope
 
 	add(scope: string)
 	{
+		if (scope === basename(scope))
+		{
+			scope = `packages/${scope}/*`
+		}
+
 		assertScopePath(scope, this.rootData.ws);
 
 		this._root_package_json.add(scope);
 		this._root_lerna_json.add(scope);
 		this._root_pnpm_workspace_yaml.add(scope);
+
+		return scope
 	}
 
 	remove(scope: string)
 	{
+		if (scope === basename(scope))
+		{
+			scope = `packages/${scope}/*`
+		}
+
 		assertScopePath(scope, this.rootData.ws);
 
 		this._root_package_json.remove(scope);
 		this._root_lerna_json.remove(scope);
 		this._root_pnpm_workspace_yaml.remove(scope);
+
+		return scope
 	}
 
 	save()

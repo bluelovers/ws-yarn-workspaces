@@ -8,8 +8,8 @@ export declare class WorkspacesScope {
     constructor(cwd?: string);
     get changed(): boolean;
     resolvePath(...paths: [string, ...string[]]): string;
-    add(scope: string): void;
-    remove(scope: string): void;
+    add(scope: string): string;
+    remove(scope: string): string;
     save(): void;
     get value(): string[];
     syncValue(): string[];
