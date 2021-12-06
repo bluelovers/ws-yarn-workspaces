@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.78](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.77...@yarn-tool/static-file@1.0.78) (2021-12-06)
+
+
+### ✨　Features
+
+* mts cts ([15e3a9e](https://github.com/bluelovers/ws-yarn-workspaces/commit/15e3a9e756ce144a16f6410309ba83aa82a16ec8))
+* update tsdx ([c46cfb0](https://github.com/bluelovers/ws-yarn-workspaces/commit/c46cfb054238f238c1a6735cb8b6b9b3ac09728a))
+
+
+
+
+
 ## [1.0.77](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.76...@yarn-tool/static-file@1.0.77) (2021-11-28)
 
 

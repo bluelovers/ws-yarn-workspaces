@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/npa-to-deps",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "keywords": [
     "yarn",
@@ -47,7 +47,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@lazy-node/semver-simple-parse": "^1.1.22",
+    "@lazy-node/semver-simple-parse": "^1.1.23",
     "@yarn-tool/npm-package-arg-util": "^1.0.21",
     "tslib": "^2.3.1"
   },
