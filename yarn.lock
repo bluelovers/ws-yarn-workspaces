@@ -3432,15 +3432,15 @@ fs-stat@^1.0.13:
   dependencies:
     tslib "^2.3.1"
 
-fs-symlink-extra@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.npmjs.org/fs-symlink-extra/-/fs-symlink-extra-1.0.6.tgz#9f910f36bc42188ccd7123be7b8da2c2dd8e2d36"
-  integrity sha512-SMT2uWba7G61pJeG39GOSWUGEk1Bcry5YydwXquy8ESuJwkSLZWkpZLyf6/TiNfYhF29w2cJfnoRTutMxiNL+w==
+fs-symlink-extra@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/fs-symlink-extra/-/fs-symlink-extra-1.0.7.tgz#56958f40a8ba5f8ec204e7f3ffb443ef27b37ac6"
+  integrity sha512-ly9oHE0DbpWh4mQdhIWiZwvytlk3RuSJ/pxXWQfEIS/K7hSHT8486hWrDURk8jYTC5DaJXKKuGa8l1wur2Z8Zg==
   dependencies:
     fs-extra "^10.0.0"
     fs-stat "^1.0.13"
     path-is-same "^1.0.15"
-    ts-type "^1.2.39"
+    ts-type "^2.1.2"
     tslib "^2.3.1"
 
 fs.realpath@^1.0.0:
@@ -6232,6 +6232,15 @@ path-exists@^4.0.0:
   resolved "https://registry.npmjs.org/path-exists/-/path-exists-4.0.0.tgz#513bdbe2d3b95d7762e8c1137efa195c6c61b5b3"
   integrity sha512-ak9Qy5Q7jYb2Wwcey5Fpvg2KoAc/ZIhLSLOSBmRmygPsGwkVVt0fZa0qrtMz+m6tJTAHfZQ8FnmB4MG4LWy7/w==
 
+path-in-dir@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/path-in-dir/-/path-in-dir-1.0.1.tgz#c15e4da9fbc4e9016a55a3b8f8cdb058597d6ed9"
+  integrity sha512-iOORngcNR3rdUP6OVpjNkmfnHW/1pWboem9pcytzxpRDFUludCTzOTkLg6jFPhQENhGJCZS2W6p1Pgy+Yk4fow==
+  dependencies:
+    path-dir-normalize "^1.0.21"
+    tslib "^2.3.1"
+    upath2 "^3.1.10"
+
 path-is-absolute@^1.0.0:
   version "1.0.1"
   resolved "https://registry.npmjs.org/path-is-absolute/-/path-is-absolute-1.0.1.tgz#174b9268735534ffbc7ace6bf53a5a9e1b5c5f5f"
@@ -6257,10 +6266,10 @@ path-key@^3.0.0, path-key@^3.1.0:
   resolved "https://registry.npmjs.org/path-key/-/path-key-3.1.1.tgz#581f6ade658cbba65a0d3380de7753295054f375"
   integrity sha512-ojmeN0qd+y0jszEtoY48r0Peq5dwMEkIlCOu6Q5f41lfkswXuKtYrhgoTpLnyIcHm24Uhqx+5Tqm2InSwLhE6Q==
 
-path-parents@^1.0.16:
-  version "1.0.16"
-  resolved "https://registry.npmjs.org/path-parents/-/path-parents-1.0.16.tgz#4d3927960fee4945b6c7054e85931c976fb7d281"
-  integrity sha512-FloPwZ3kJN6xZU2kKK8rmnM2GqrKDfixtaqjyt5PeiZT+KDN05ERJREAHjn9oGRyABv3+7Iw+J6pBjATzZcpRQ==
+path-parents@^1.0.17:
+  version "1.0.17"
+  resolved "https://registry.npmjs.org/path-parents/-/path-parents-1.0.17.tgz#81911a16c5ceedc12b90d6749b926da50d2d16b8"
+  integrity sha512-g4zFKOpLbMOOgy5tBqTWXkHiOz77BaNdlPr6rapNDNgoOoH/QpW/EwWG75PSEHKMPLSEZ6sYipiWvLrTehNNZQ==
   dependencies:
     path-is-same "^1.0.15"
     tslib "^2.3.1"
