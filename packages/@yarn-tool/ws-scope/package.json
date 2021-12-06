@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/ws-scope",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "update workspaces scope setting",
   "keywords": [
     "scope",
@@ -54,7 +54,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/find-root": "^1.0.56",
+    "@yarn-tool/find-root": "^1.0.57",
     "array-hyper-unique": "^2.0.6",
     "fs-extra": "^10.0.0",
     "tslib": "^2.3.1",
@@ -64,7 +64,6 @@
   "devDependencies": {
     "@types/yawn-yaml": "^1.4.0"
   },
-  "peerDependencies": {},
   "publishConfig": {
     "access": "public"
   },

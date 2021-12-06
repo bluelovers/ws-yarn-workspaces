@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/find-deps",
-  "version": "1.0.45",
+  "version": "1.0.46",
   "description": "find deps tree in workspaces",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/find-deps-up#readme",
   "bugs": {
@@ -34,7 +34,7 @@
     "@ts-type/package-dts": "^1.0.56",
     "array-hyper-unique": "^2.0.6",
     "tslib": "^2.3.1",
-    "ws-pkg-list": "^1.0.68"
+    "ws-pkg-list": "^1.0.69"
   },
   "publishConfig": {
     "access": "public"

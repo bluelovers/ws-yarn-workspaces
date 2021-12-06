@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/resolve-package",
-  "version": "1.0.39",
+  "version": "1.0.40",
   "description": "resolve package root and package.json paths , work on node 17 too",
   "keywords": [
     "resolve",

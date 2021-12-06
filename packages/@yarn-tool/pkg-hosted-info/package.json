@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/pkg-hosted-info",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "keywords": [
     "yarn",
@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "@ts-type/package-dts": "^1.0.56",
-    "@yarn-tool/find-root": "^1.0.56",
+    "@yarn-tool/find-root": "^1.0.57",
     "@yarn-tool/pkg-git-info": "^1.0.22",
     "tslib": "^2.3.1",
     "upath2": "^3.1.10"
