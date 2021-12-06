@@ -5,6 +5,7 @@ const find_root_1 = require("@yarn-tool/find-root");
 const upath2_1 = require("upath2");
 const json_1 = require("./format/json");
 const yaml_1 = require("./format/yaml");
+const array_hyper_unique_1 = require("array-hyper-unique");
 class WorkspacesScope {
     constructor(cwd) {
         this.rootData = (0, find_root_1.findRootLazy)({
@@ -48,6 +49,21 @@ class WorkspacesScope {
         this._root_package_json.saveFile();
         this._root_lerna_json.saveFile();
         this._root_pnpm_workspace_yaml.saveFile();
+    }
+    get value() {
+        const value = [
+            this._root_package_json.value,
+            this._root_lerna_json.value,
+            this._root_pnpm_workspace_yaml.value,
+        ].flat().filter(v => v === null || v === void 0 ? void 0 : v.length);
+        return (0, array_hyper_unique_1.array_unique_overwrite)(value);
+    }
+    syncValue() {
+        const value = this.value
+            .filter(v => (v === null || v === void 0 ? void 0 : v.length) && !v.startsWith('!'));
+        (0, array_hyper_unique_1.array_unique_overwrite)(value);
+        value.forEach(scope => this.add(scope));
+        return value;
     }
 }
 exports.WorkspacesScope = WorkspacesScope;

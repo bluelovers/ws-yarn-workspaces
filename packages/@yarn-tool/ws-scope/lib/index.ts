@@ -2,6 +2,7 @@ import { findRootLazy, IFindRootReturnType } from '@yarn-tool/find-root';
 import { resolve } from 'upath2';
 import { ScopeJson } from './format/json';
 import { ScopeYaml } from './format/yaml';
+import { array_unique_overwrite } from 'array-hyper-unique';
 
 export class WorkspacesScope
 {
@@ -68,6 +69,30 @@ export class WorkspacesScope
 		this._root_package_json.saveFile();
 		this._root_lerna_json.saveFile();
 		this._root_pnpm_workspace_yaml.saveFile();
+	}
+
+	get value()
+	{
+		const value = [
+			this._root_package_json.value,
+			this._root_lerna_json.value,
+			this._root_pnpm_workspace_yaml.value,
+		].flat().filter(v => v?.length)
+
+		return array_unique_overwrite(value)
+	}
+
+	syncValue()
+	{
+		const value = this.value
+			.filter(v => v?.length && !v.startsWith('!'))
+		;
+
+		array_unique_overwrite(value);
+
+		value.forEach(scope => this.add(scope));
+
+		return value
 	}
 
 }

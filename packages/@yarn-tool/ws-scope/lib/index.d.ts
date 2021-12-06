@@ -11,5 +11,7 @@ export declare class WorkspacesScope {
     add(scope: string): void;
     remove(scope: string): void;
     save(): void;
+    get value(): string[];
+    syncValue(): string[];
 }
 export default WorkspacesScope;

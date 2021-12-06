@@ -32,7 +32,8 @@ class ScopeJsonObject {
         return this.changed;
     }
     get value() {
-        return this.json[this.field];
+        var _a;
+        return (_a = this.json) === null || _a === void 0 ? void 0 : _a[this.field];
     }
     set value(value) {
         this.json[this.field] = value;

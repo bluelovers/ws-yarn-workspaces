@@ -54,7 +54,7 @@ export class ScopeJsonObject<K extends string = 'workspaces'>
 
 	get value()
 	{
-		return this.json[this.field]
+		return this.json?.[this.field]
 	}
 
 	set value(value: string[])
