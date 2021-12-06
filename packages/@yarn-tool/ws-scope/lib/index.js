@@ -6,6 +6,7 @@ const upath2_1 = require("upath2");
 const json_1 = require("./format/json");
 const yaml_1 = require("./format/yaml");
 const array_hyper_unique_1 = require("array-hyper-unique");
+const check_scope_1 = require("./util/check-scope");
 class WorkspacesScope {
     constructor(cwd) {
         this.rootData = (0, find_root_1.findRootLazy)({
@@ -36,11 +37,13 @@ class WorkspacesScope {
         return (0, upath2_1.resolve)(this.rootData.ws, ...paths);
     }
     add(scope) {
+        (0, check_scope_1.assertScopePath)(scope, this.rootData.ws);
         this._root_package_json.add(scope);
         this._root_lerna_json.add(scope);
         this._root_pnpm_workspace_yaml.add(scope);
     }
     remove(scope) {
+        (0, check_scope_1.assertScopePath)(scope, this.rootData.ws);
         this._root_package_json.remove(scope);
         this._root_lerna_json.remove(scope);
         this._root_pnpm_workspace_yaml.remove(scope);
