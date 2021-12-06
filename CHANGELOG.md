@@ -51,6 +51,7 @@ Please see the individual package changelogs for what's new:
 * 🌏 [`@yarn-tool/version-recommended`](./packages/@yarn-tool/version-recommended/CHANGELOG.md "packages/@yarn-tool/version-recommended") *packages/@yarn-tool/version-recommended*
 * 🌏 [`@yarn-tool/workspaces-project`](./packages/@yarn-tool/workspaces-project/CHANGELOG.md "packages/@yarn-tool/workspaces-project") *packages/@yarn-tool/workspaces-project*
 * 🌏 [`@yarn-tool/ws-changed`](./packages/@yarn-tool/ws-changed/CHANGELOG.md "packages/@yarn-tool/ws-changed") *packages/@yarn-tool/ws-changed*
+* 🌏 [`@yarn-tool/ws-scope`](./packages/@yarn-tool/ws-scope/CHANGELOG.md "packages/@yarn-tool/ws-scope") *packages/@yarn-tool/ws-scope*
 * 🌏 [`@yarn-tool/yarnlock`](./packages/@yarn-tool/yarnlock/CHANGELOG.md "packages/@yarn-tool/yarnlock") *packages/@yarn-tool/yarnlock*
 * 🌏 [`@yarn-tool/yarnlock-banner`](./packages/@yarn-tool/yarnlock-banner/CHANGELOG.md "packages/@yarn-tool/yarnlock-banner") *packages/@yarn-tool/yarnlock-banner*
 * 🌏 [`@yarn-tool/yarnlock-dedupe`](./packages/@yarn-tool/yarnlock-dedupe/CHANGELOG.md "packages/@yarn-tool/yarnlock-dedupe") *packages/@yarn-tool/yarnlock-dedupe*
