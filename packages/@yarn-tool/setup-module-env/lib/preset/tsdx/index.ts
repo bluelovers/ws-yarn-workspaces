@@ -13,6 +13,12 @@ export function updatePackageJson<P extends IPackageJson>(pkg: P)
 	pkg.module = "dist/index.esm.mjs";
 	pkg.types = pkg.typings = "dist/index.d.ts";
 
+	pkg.exports ??= {};
+	pkg.exports['.'] ??= {};
+	pkg.exports['.'].import = "./dist/index.esm.mjs";
+	pkg.exports['.'].require = "./dist/index.cjs";
+	pkg.exports['.'].types = "./dist/index.d.ts";
+
 	pkg.keywords ??= [];
 	pkg.keywords.push('create-by-tsdx');
 
