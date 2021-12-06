@@ -9,8 +9,8 @@ export function updatePackageJson<P extends IPackageJson>(pkg: P)
 	pkg.scripts["build:dts"] ??= "ynpx dts-bundle-generator -o ./dist/index.d.ts ./src/index.ts --no-banner & echo build:dts";
 	pkg.scripts["build:tsdx"] ??= "ynpx @bluelovers/tsdx build --target node --name index";
 
-	pkg.main = "dist/index.js";
-	pkg.module = "dist/index.esm.js";
+	pkg.main = "dist/index.cjs";
+	pkg.module = "dist/index.esm.mjs";
 	pkg.types = pkg.typings = "dist/index.d.ts";
 
 	pkg.keywords ??= [];
