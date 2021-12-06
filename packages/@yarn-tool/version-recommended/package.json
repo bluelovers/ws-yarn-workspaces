@@ -26,13 +26,13 @@
     "sort-package-json": "ynpx --quiet yarn-tool -- sort"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^1.0.54",
+    "@ts-type/package-dts": "^1.0.56",
     "@types/semver": "*",
     "@yarn-tool/find-root": "^1.0.56",
     "@yarn-tool/types": "^1.0.6",
     "@yarn-tool/workspaces-project": "^1.0.59",
     "semver": "^7.3.5",
-    "ts-type": "^2.0.3",
+    "ts-type": "^2.1.2",
     "tslib": "^2.3.1"
   },
   "publishConfig": {

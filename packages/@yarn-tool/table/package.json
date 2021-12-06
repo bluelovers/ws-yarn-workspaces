@@ -31,7 +31,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^1.0.54",
+    "@ts-type/package-dts": "^1.0.56",
     "@yarn-tool/semver-diff": "^1.0.28",
     "cli-table3": "^0.6.0",
     "tslib": "^2.3.1"

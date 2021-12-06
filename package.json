@@ -75,7 +75,7 @@
     "@types/lodash": "^4.14.177",
     "@types/micromatch": "^4.0.2",
     "@types/mocha": "^9.0.0",
-    "@types/node": "^16.11.10",
+    "@types/node": "^16.11.11",
     "@types/npm-package-arg": "^6.1.1",
     "@types/npm-packlist": "^1.1.2",
     "@types/parse-git-config": "^3.0.1",
@@ -87,10 +87,10 @@
     "@types/yargs": "^17.0.7",
     "@types/yarnpkg__lockfile": "^1.1.5",
     "chai": "^4.3.4",
-    "jest": "^27.3.1",
+    "jest": "^27.4.3",
     "jest-console": "^0.1.0",
     "mocha": "^9.1.3",
-    "ts-jest": "^27.0.7"
+    "ts-jest": "^27.1.0"
   },
   "peerDependencies": {
     "lerna": "^4"

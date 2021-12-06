@@ -37,7 +37,7 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^1.0.54",
+    "@ts-type/package-dts": "^1.0.56",
     "@yarn-tool/find-root": "^1.0.56",
     "@yarn-tool/npm-package-arg-util": "^1.0.21",
     "@yarn-tool/pkg-deps-add": "^1.0.2",
