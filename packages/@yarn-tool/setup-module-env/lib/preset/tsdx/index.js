@@ -14,9 +14,9 @@ function updatePackageJson(pkg) {
     pkg.types = pkg.typings = "dist/index.d.ts";
     (_e = pkg.exports) !== null && _e !== void 0 ? _e : (pkg.exports = {});
     (_f = (_l = pkg.exports)['.']) !== null && _f !== void 0 ? _f : (_l['.'] = {});
+    pkg.exports['.'].types = "./dist/index.d.ts";
     pkg.exports['.'].import = "./dist/index.esm.mjs";
     pkg.exports['.'].require = "./dist/index.cjs";
-    pkg.exports['.'].types = "./dist/index.d.ts";
     (_g = pkg.keywords) !== null && _g !== void 0 ? _g : (pkg.keywords = []);
     pkg.keywords.push('create-by-tsdx');
     return pkg;
