@@ -6,6 +6,19 @@ export function sortPackageJsonExports(exports: IPackageJson["exports"])
 {
 	if (isPlainObject(exports))
 	{
+		sortObjectKeys(exports, {
+			keys: [
+				'types',
+				'require',
+				'import',
+				'node',
+				'default',
+				'.',
+				'./',
+			],
+			useSource: true,
+		});
+
 		Object.keys(exports)
 			.forEach(key =>
 			{

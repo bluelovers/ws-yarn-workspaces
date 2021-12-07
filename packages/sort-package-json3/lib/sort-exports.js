@@ -6,6 +6,18 @@ const sort_object_keys2_1 = (0, tslib_1.__importDefault)(require("sort-object-ke
 const is_plain_obj_1 = (0, tslib_1.__importDefault)(require("is-plain-obj"));
 function sortPackageJsonExports(exports) {
     if ((0, is_plain_obj_1.default)(exports)) {
+        (0, sort_object_keys2_1.default)(exports, {
+            keys: [
+                'types',
+                'require',
+                'import',
+                'node',
+                'default',
+                '.',
+                './',
+            ],
+            useSource: true,
+        });
         Object.keys(exports)
             .forEach(key => {
             let value = exports[key];
