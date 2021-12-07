@@ -20,6 +20,7 @@ const _defaultCopyStaticFiles = [
     ['now.json.tpl', 'file/now.json.tpl', 'now.json'],
     ['.npmrc.tpl', 'file/npmrc', '.npmrc'],
     ['tsdx.config.js.tpl', 'file/tsdx.config.js', 'tsdx.config.js'],
+    ['tsc-multi.json.tpl', 'file/tsc-multi.json.tpl', 'tsc-multi.json'],
 ];
 const _defaultCopyStaticFilesRootOnly = [
     ['lerna.json.tpl', 'file/lerna.json.tpl', 'lerna.json'],

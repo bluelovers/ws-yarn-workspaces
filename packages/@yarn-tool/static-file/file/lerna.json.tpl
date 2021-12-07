@@ -29,14 +29,17 @@
       "conventionalGraduate": false
     },
     "version": {
+      "concurrency": 1,
       "noPrivate": true,
       "conventionalCommits": true,
       "changelogPreset": "@bluelovers/conventional-changelog-bluelovers"
     },
     "run": {
+      "concurrency": 1,
       "stream": true
     },
     "exec": {
+      "concurrency": 1,
       "stream": true
     },
     "add": {

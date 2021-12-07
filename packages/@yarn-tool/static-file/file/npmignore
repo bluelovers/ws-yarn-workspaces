@@ -110,3 +110,6 @@ _snowpack
 /snowpack.config.js
 web_modules
 cz-adapter
+
+tsc-multi.json.tpl
+tsc-multi.json

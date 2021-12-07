@@ -35,6 +35,8 @@ const _defaultCopyStaticFiles = [
 
 	['tsdx.config.js.tpl', 'file/tsdx.config.js', 'tsdx.config.js'],
 
+	['tsc-multi.json.tpl', 'file/tsc-multi.json.tpl', 'tsc-multi.json'],
+
 ] as const;
 
 const _defaultCopyStaticFilesRootOnly = [

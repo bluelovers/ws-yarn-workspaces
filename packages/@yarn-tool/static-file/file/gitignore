@@ -206,3 +206,4 @@ jest.config.js.map
 /_*/
 _snowpack
 web_modules
+tsc-multi.json.tpl
