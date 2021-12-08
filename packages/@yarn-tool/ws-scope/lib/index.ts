@@ -1,11 +1,9 @@
 import { findRootLazy, IFindRootReturnType } from '@yarn-tool/find-root';
-import { join, resolve } from 'upath2';
+import { basename, resolve } from 'upath2';
 import { ScopeJson } from './format/json';
 import { ScopeYaml } from './format/yaml';
 import { array_unique_overwrite } from 'array-hyper-unique';
 import { assertScopePath } from './util/check-scope';
-import { basename } from 'upath2';
-import { ensureDirSync } from 'fs-extra';
 
 export class WorkspacesScope
 {
@@ -33,9 +31,9 @@ export class WorkspacesScope
 			field: 'packages',
 		});
 
-		this._root_package_json.existsFile() && this._root_package_json.loadFile();
-		this._root_lerna_json.existsFile() && this._root_lerna_json.loadFile();
-		this._root_pnpm_workspace_yaml.existsFile() && this._root_pnpm_workspace_yaml.loadFile();
+		this._root_package_json.loadFileLazy();
+		this._root_lerna_json.loadFileLazy();
+		this._root_pnpm_workspace_yaml.loadFileLazy();
 	}
 
 	get changed()
@@ -62,9 +60,9 @@ export class WorkspacesScope
 
 		assertScopePath(scope, this.rootData.ws);
 
-		this._root_package_json.add(scope);
-		this._root_lerna_json.add(scope);
-		this._root_pnpm_workspace_yaml.add(scope);
+		this._root_package_json.addLazy(scope);
+		this._root_lerna_json.addLazy(scope);
+		this._root_pnpm_workspace_yaml.addLazy(scope);
 
 		return scope
 	}
@@ -78,9 +76,9 @@ export class WorkspacesScope
 
 		assertScopePath(scope, this.rootData.ws);
 
-		this._root_package_json.remove(scope);
-		this._root_lerna_json.remove(scope);
-		this._root_pnpm_workspace_yaml.remove(scope);
+		this._root_package_json.removeLazy(scope);
+		this._root_lerna_json.removeLazy(scope);
+		this._root_pnpm_workspace_yaml.removeLazy(scope);
 
 		return scope
 	}

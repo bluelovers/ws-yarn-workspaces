@@ -26,4 +26,9 @@ export class ScopeJson<K extends string = 'workspaces'> extends ScopeJsonObject<
 		})
 	}
 
+	loadFileLazy(reload?: boolean)
+	{
+		return this.existsFile() && this.loadFile(reload)
+	}
+
 }

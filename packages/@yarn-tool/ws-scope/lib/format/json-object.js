@@ -23,6 +23,9 @@ class ScopeJsonObject {
         this.changed || (this.changed = changed);
         return this.changed;
     }
+    addLazy(scope) {
+        return this.opened && this.add(scope);
+    }
     remove(scope) {
         if (this.opened) {
             let { changed, value } = (0, arrayAdd_1.arrayRemove)(scope, this.value);
@@ -30,6 +33,9 @@ class ScopeJsonObject {
             this.changed || (this.changed = changed);
         }
         return this.changed;
+    }
+    removeLazy(scope) {
+        return this.opened && this.remove(scope);
     }
     get value() {
         var _a;

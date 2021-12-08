@@ -3,4 +3,5 @@ export declare class ScopeJson<K extends string = 'workspaces'> extends ScopeJso
     existsFile(): boolean;
     loadFile(reload?: boolean): import("./json-object").IJsonObject<K>;
     saveFile(): void;
+    loadFileLazy(reload?: boolean): import("./json-object").IJsonObject<K>;
 }

@@ -1,9 +1,9 @@
 import { arrayAdd, arrayRemove } from '../util/arrayAdd';
 
 export type IJsonObject<K extends string> =
-{
-	[p in K]: string[]
-}
+	{
+		[p in K]: string[]
+	}
 
 export class ScopeJsonObject<K extends string = 'workspaces'>
 {
@@ -39,6 +39,11 @@ export class ScopeJsonObject<K extends string = 'workspaces'>
 		return this.changed
 	}
 
+	addLazy(scope: string)
+	{
+		return this.opened && this.add(scope)
+	}
+
 	remove(scope: string)
 	{
 		if (this.opened)
@@ -50,6 +55,11 @@ export class ScopeJsonObject<K extends string = 'workspaces'>
 		}
 
 		return this.changed
+	}
+
+	removeLazy(scope: string)
+	{
+		return this.opened && this.remove(scope)
 	}
 
 	get value()

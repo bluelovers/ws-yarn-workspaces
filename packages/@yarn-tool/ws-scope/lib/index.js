@@ -7,7 +7,6 @@ const json_1 = require("./format/json");
 const yaml_1 = require("./format/yaml");
 const array_hyper_unique_1 = require("array-hyper-unique");
 const check_scope_1 = require("./util/check-scope");
-const upath2_2 = require("upath2");
 class WorkspacesScope {
     constructor(cwd) {
         this.rootData = (0, find_root_1.findRootLazy)({
@@ -24,9 +23,9 @@ class WorkspacesScope {
         this._root_pnpm_workspace_yaml = new yaml_1.ScopeYaml(this.resolvePath('pnpm-workspace.yaml'), {
             field: 'packages',
         });
-        this._root_package_json.existsFile() && this._root_package_json.loadFile();
-        this._root_lerna_json.existsFile() && this._root_lerna_json.loadFile();
-        this._root_pnpm_workspace_yaml.existsFile() && this._root_pnpm_workspace_yaml.loadFile();
+        this._root_package_json.loadFileLazy();
+        this._root_lerna_json.loadFileLazy();
+        this._root_pnpm_workspace_yaml.loadFileLazy();
     }
     get changed() {
         return this._root_package_json.changed || this._root_lerna_json.changed || this._root_pnpm_workspace_yaml.changed;
@@ -38,23 +37,23 @@ class WorkspacesScope {
         return (0, upath2_1.resolve)(this.rootData.ws, ...paths);
     }
     add(scope) {
-        if (scope === (0, upath2_2.basename)(scope)) {
+        if (scope === (0, upath2_1.basename)(scope)) {
             scope = `packages/${scope}/*`;
         }
         (0, check_scope_1.assertScopePath)(scope, this.rootData.ws);
-        this._root_package_json.add(scope);
-        this._root_lerna_json.add(scope);
-        this._root_pnpm_workspace_yaml.add(scope);
+        this._root_package_json.addLazy(scope);
+        this._root_lerna_json.addLazy(scope);
+        this._root_pnpm_workspace_yaml.addLazy(scope);
         return scope;
     }
     remove(scope) {
-        if (scope === (0, upath2_2.basename)(scope)) {
+        if (scope === (0, upath2_1.basename)(scope)) {
             scope = `packages/${scope}/*`;
         }
         (0, check_scope_1.assertScopePath)(scope, this.rootData.ws);
-        this._root_package_json.remove(scope);
-        this._root_lerna_json.remove(scope);
-        this._root_pnpm_workspace_yaml.remove(scope);
+        this._root_package_json.removeLazy(scope);
+        this._root_lerna_json.removeLazy(scope);
+        this._root_pnpm_workspace_yaml.removeLazy(scope);
         return scope;
     }
     save() {

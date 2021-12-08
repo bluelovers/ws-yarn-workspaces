@@ -2,7 +2,9 @@ import { pathExistsSync, readFileSync, writeFileSync } from 'fs-extra';
 import { IJsonObject, ScopeJsonObject } from './json-object';
 import YAWN from 'yawn-yaml/cjs';
 
-export const SymRaw = Symbol.for('raw');
+const SymRaw = Symbol.for('raw');
+
+export { SymRaw }
 
 export class ScopeYaml<K extends string = 'packages'> extends ScopeJsonObject<K>
 {
@@ -53,6 +55,11 @@ export class ScopeYaml<K extends string = 'packages'> extends ScopeJsonObject<K>
 		{
 			writeFileSync(this.file, this[SymRaw].yaml)
 		}
+	}
+
+	loadFileLazy(reload?: boolean)
+	{
+		return this.existsFile() && this.loadFile(reload)
 	}
 
 }

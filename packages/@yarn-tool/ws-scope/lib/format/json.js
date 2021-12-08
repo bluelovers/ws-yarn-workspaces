@@ -18,6 +18,9 @@ class ScopeJson extends json_object_1.ScopeJsonObject {
             spaces: 2,
         });
     }
+    loadFileLazy(reload) {
+        return this.existsFile() && this.loadFile(reload);
+    }
 }
 exports.ScopeJson = ScopeJson;
 //# sourceMappingURL=json.js.map
