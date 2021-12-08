@@ -10,7 +10,7 @@ export function assertScopePath(scope: string, __root: string): asserts scope is
 
 	const __dir = resolve(__root, scope);
 
-	if (pathInsideDirectory(__dir, __root))
+	if (!pathInsideDirectory(__dir, __root))
 	{
 		throw new Error(`Invalid path: ${__dir}`)
 	}

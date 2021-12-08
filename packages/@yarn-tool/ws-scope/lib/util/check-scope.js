@@ -8,7 +8,7 @@ function assertScopePath(scope, __root) {
         throw new Error(`Invalid scope: ${scope}`);
     }
     const __dir = (0, upath2_1.resolve)(__root, scope);
-    if ((0, path_in_dir_1.pathInsideDirectory)(__dir, __root)) {
+    if (!(0, path_in_dir_1.pathInsideDirectory)(__dir, __root)) {
         throw new Error(`Invalid path: ${__dir}`);
     }
 }
