@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ws-scope@1.0.3...@yarn-tool/ws-scope@1.0.4) (2021-12-08)
+
+
+### 🐛　Bug Fixes
+
+* bug of `assertScopePath` ([b22face](https://github.com/bluelovers/ws-yarn-workspaces/commit/b22face81a050e30eaa2f358b659640be101b9e5))
+
+
+
+
+
 ## [1.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ws-scope@1.0.2...@yarn-tool/ws-scope@1.0.3) (2021-12-06)
 
 

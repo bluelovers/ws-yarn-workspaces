@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/ws-scope",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "update workspaces scope setting",
   "keywords": [
     "scope",
