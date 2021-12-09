@@ -5,7 +5,7 @@ import { ensureSymlinkSync, lstatSync, pathExists, pathExistsSync, realpathSync,
 import { join } from 'path';
 import { fsSameRealpath } from 'path-is-same';
 import { isSymbolicLinkSync } from 'fs-stat';
-import fsSymlinkSync from 'fs-symlink-extra';
+import { fsSymlinkSync } from 'fs-symlink-extra';
 
 export function fixWorkspacesPackageLinks(cwd?: string)
 {
