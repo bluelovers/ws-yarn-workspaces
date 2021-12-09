@@ -3,6 +3,10 @@
   "compilerOptions": {
     "module": "CommonJS",
     "noEmit": true,
-    "declaration": false
+    "declaration": false,
+    "noUnusedParameters": false,
+    "allowUnusedLabels": true,
+    "noUnusedLocals": false,
+    "noPropertyAccessFromIndexSignature": false
   }
 }
