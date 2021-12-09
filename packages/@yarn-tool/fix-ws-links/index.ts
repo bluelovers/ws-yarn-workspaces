@@ -5,7 +5,7 @@ import { wsFindPackageHasModules } from '@yarn-tool/node-modules';
 import { wsPkgListable } from 'ws-pkg-list/lib/listable';
 import { wsFindPackageHasModulesCore } from '@yarn-tool/node-modules/lib/ws-find-paths';
 import { IListableRow } from 'ws-pkg-list';
-import yarnListLink from 'yarn-list-link/core';
+import { yarnListLink } from 'yarn-list-link/core';
 import { linkSync, realpathSync, removeSync, pathExistsSync, symlinkSync, unlinkSync } from 'fs-extra';
 import crossSpawn from 'cross-spawn-extra';
 import { sameRealpath, isSymbolicLink } from './lib/util';

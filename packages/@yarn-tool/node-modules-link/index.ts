@@ -1,10 +1,9 @@
-
-import { ensureLinkSync, ensureDirSync, symlink, ensureSymlinkSync } from 'fs-extra';
-import { join, dirname } from 'upath2';
+import { join } from 'upath2';
 import { IPackageJson } from '@ts-type/package-dts';
 import { findRoot, IFindRootOptions } from '@yarn-tool/find-root';
 import { readPackageJSON } from 'find-yarn-workspace-root2/core';
 import { fsSymlinkSync } from 'fs-symlink-extra';
+import { getModulesDir } from '@yarn-tool/node-modules/lib/util';
 
 export interface IOptions extends Partial<IFindRootOptions>
 {
@@ -40,7 +39,7 @@ export function linkToNodeModules<T extends Partial<IOptions>>(options?: T)
 		let rootData = findRoot(options as IFindRootOptions);
 
 		options.sourcePackagePath ??= rootData.pkg;
-		options.targetNodeModulesPath ??= join(rootData.root, options.targetNodeModulesName ?? 'node_modules')
+		options.targetNodeModulesPath ??= getModulesDir(rootData.root, options.targetNodeModulesName)
 	}
 
 	options.name ??= readPackageJSON<IPackageJson>(options.sourcePackagePath).name;
