@@ -1,6 +1,6 @@
 {
   "name": "npm-init2",
-  "version": "1.0.191",
+  "version": "1.0.192",
   "private": false,
   "description": "a lazy npm init for create new package, support yarn workspace. make we without use `mkdir xxx && cd xxx && [npm|yarn] init` with `npx npm-init2 xxx`",
   "keywords": [
@@ -51,7 +51,7 @@
     "@yarn-tool/find-root": "^1.0.57",
     "@yarn-tool/init-path": "^1.0.16",
     "@yarn-tool/is-builtin-module": "^1.0.10",
-    "@yarn-tool/node-modules-link": "^1.0.32",
+    "@yarn-tool/node-modules-link": "^1.0.33",
     "@yarn-tool/pkg-git-info": "^1.0.22",
     "@yarn-tool/pkg-hosted-info": "^1.0.5",
     "@yarn-tool/setup-module-env": "^1.0.4",

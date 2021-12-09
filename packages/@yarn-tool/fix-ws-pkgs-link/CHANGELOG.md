@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.16](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-ws-pkgs-link@1.0.15...@yarn-tool/fix-ws-pkgs-link@1.0.16) (2021-12-09)
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([b85029f](https://github.com/bluelovers/ws-yarn-workspaces/commit/b85029f4c0943e70373c4990597147b7f939600a))
+
+
+### 🔖　Miscellaneous
+
+* . ([739b0aa](https://github.com/bluelovers/ws-yarn-workspaces/commit/739b0aa55640b513c236244331f027532f7bcd6d))
+
+
+
+
+
 ## [1.0.15](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-ws-pkgs-link@1.0.14...@yarn-tool/fix-ws-pkgs-link@1.0.15) (2021-12-06)
 
 

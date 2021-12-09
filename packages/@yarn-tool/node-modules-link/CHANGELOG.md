@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.33](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/node-modules-link@1.0.32...@yarn-tool/node-modules-link@1.0.33) (2021-12-09)
+
+
+### ✨　Features
+
+* add `rebuildYarnWorkspaceLinks` ([7c2a237](https://github.com/bluelovers/ws-yarn-workspaces/commit/7c2a237d4ea58eda3aec9149272f7466336351bb))
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([b85029f](https://github.com/bluelovers/ws-yarn-workspaces/commit/b85029f4c0943e70373c4990597147b7f939600a))
+
+
+
+
+
 ## [1.0.32](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/node-modules-link@1.0.31...@yarn-tool/node-modules-link@1.0.32) (2021-12-06)
 
 

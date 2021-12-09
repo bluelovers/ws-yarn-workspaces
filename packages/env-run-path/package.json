@@ -1,6 +1,6 @@
 {
   "name": "env-run-path",
-  "version": "1.0.58",
+  "version": "1.0.59",
   "description": "add locally installed binaries paths into process.env",
   "keywords": [],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/env-run-path#readme",
@@ -29,7 +29,7 @@
     "sort-package-json": "npx yarn-tool sort"
   },
   "dependencies": {
-    "@yarn-tool/env-path": "^1.0.2",
+    "@yarn-tool/env-path": "^1.0.3",
     "@yarn-tool/find-root": "^1.0.57",
     "debug-color2": "^1.2.7",
     "tslib": "^2.3.1"

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/env-path@1.0.2...@yarn-tool/env-path@1.0.3) (2021-12-09)
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([b85029f](https://github.com/bluelovers/ws-yarn-workspaces/commit/b85029f4c0943e70373c4990597147b7f939600a))
+
+
+
+
+
 ## 1.0.2 (2021-10-13)
 
 
