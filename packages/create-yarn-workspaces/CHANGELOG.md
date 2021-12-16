@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.131](https://github.com/bluelovers/create-yarn-workspaces/compare/create-yarn-workspaces@1.0.130...create-yarn-workspaces@1.0.131) (2021-12-16)
+
+
+### ✨　Features
+
+* add `defaultCopyStaticFilesWsRootOnly` ([80c9b8f](https://github.com/bluelovers/create-yarn-workspaces/commit/80c9b8fc3c47b830b22b9a10cec3b0181d751650))
+
+
+### 🔖　Miscellaneous
+
+* . ([104475f](https://github.com/bluelovers/create-yarn-workspaces/commit/104475f2baa62e53dcc4cd6f3fb3a425cba1c88d))
+
+
+
+
+
 ## [1.0.130](https://github.com/bluelovers/create-yarn-workspaces/compare/create-yarn-workspaces@1.0.129...create-yarn-workspaces@1.0.130) (2021-12-07)
 
 **Note:** Version bump only for package create-yarn-workspaces

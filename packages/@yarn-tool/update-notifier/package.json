@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/update-notifier",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "",
   "license": "ISC",
   "author": "",
@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@npmcli/ci-detect": "^1.4.0",
-    "@yarn-tool/is-npx": "^1.0.8",
+    "@yarn-tool/is-npx": "^1.0.9",
     "tslib": "^2.3.1",
     "update-notifier": "^5.1.0"
   },

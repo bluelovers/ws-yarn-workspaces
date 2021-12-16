@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarnlock-diff",
-  "version": "1.0.32",
+  "version": "1.0.33",
   "description": "given one or many old yarn.lock, and one or many new yarn.lock, compute the diff for v1 and berry",
   "keywords": [
     "oclif"
@@ -31,10 +31,10 @@
   },
   "dependencies": {
     "@bluelovers/deep-diff": "^1.0.2",
-    "@yarn-tool/semver-diff": "^1.0.29",
-    "@yarn-tool/table": "^1.0.37",
-    "@yarn-tool/yarnlock-parse": "^1.0.21",
-    "@yarn-tool/yarnlock-util": "^1.0.28",
+    "@yarn-tool/semver-diff": "^1.0.30",
+    "@yarn-tool/table": "^1.0.38",
+    "@yarn-tool/yarnlock-parse": "^1.0.22",
+    "@yarn-tool/yarnlock-util": "^1.0.29",
     "@yarnpkg/parsers": "^2.4.1",
     "array-hyper-unique": "^2.0.6",
     "debug-color2": "^1.2.7",

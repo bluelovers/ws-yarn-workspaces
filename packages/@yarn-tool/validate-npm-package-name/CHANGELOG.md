@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.8](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/validate-npm-package-name@3.0.7...@yarn-tool/validate-npm-package-name@3.0.8) (2021-12-16)
+
+
+### 🔖　Miscellaneous
+
+* . ([104475f](https://github.com/bluelovers/ws-yarn-workspaces/commit/104475f2baa62e53dcc4cd6f3fb3a425cba1c88d))
+
+
+
+
+
 ## [3.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/validate-npm-package-name@3.0.6...@yarn-tool/validate-npm-package-name@3.0.7) (2021-08-13)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "sort-package-json3",
-  "version": "1.0.47",
+  "version": "1.0.48",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/sort-package-json3#readme",
   "bugs": {
@@ -31,7 +31,7 @@
   "dependencies": {
     "@ts-type/package-dts": "^1.0.56",
     "is-plain-obj": "< 4",
-    "sort-package-json-scripts": "^1.1.10",
+    "sort-package-json-scripts": "^1.1.11",
     "tslib": "^2.3.1"
   },
   "peerDependencies": {
