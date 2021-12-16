@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getCache = exports.initCache = void 0;
 const tslib_1 = require("tslib");
-const lru_cache_fs2_1 = (0, tslib_1.__importDefault)(require("lru-cache-fs2"));
+const lru_cache_fs2_1 = tslib_1.__importDefault(require("lru-cache-fs2"));
 const cache_path_1 = require("cache-path");
 let cache;
 function initCache(options) {

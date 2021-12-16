@@ -5,7 +5,7 @@ const tslib_1 = require("tslib");
 const stringifySimpleSemVer_1 = require("./stringifySimpleSemVer");
 const pruned_1 = require("./util/pruned");
 const checker_1 = require("./checker");
-const parseSimpleSemVer_1 = (0, tslib_1.__importDefault)(require("./parseSimpleSemVer"));
+const parseSimpleSemVer_1 = tslib_1.__importDefault(require("./parseSimpleSemVer"));
 class SimpleSemVer {
     constructor(obj) {
         (0, checker_1.assertSimpleSemVerObjectOrOperatorLike)(obj);

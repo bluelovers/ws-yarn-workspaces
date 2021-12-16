@@ -7,7 +7,7 @@ exports.yarnListLink = exports.yarnListLinkCore = exports.getYarnIntegrityPath =
 const tslib_1 = require("tslib");
 const fs_extra_1 = require("fs-extra");
 const upath2_1 = require("upath2");
-const core_1 = (0, tslib_1.__importDefault)(require("find-yarn-workspace-root2/core"));
+const core_1 = tslib_1.__importDefault(require("find-yarn-workspace-root2/core"));
 function getYarnIntegrityPath(cwd) {
     return (0, upath2_1.join)(cwd, 'node_modules', '.yarn-integrity');
 }

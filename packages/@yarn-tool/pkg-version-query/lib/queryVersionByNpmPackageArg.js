@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.queryVersionByNpmPackageArgWithCache = exports.parseVersionByNpmPackageArg = void 0;
 const tslib_1 = require("tslib");
-const npm_package_arg_1 = (0, tslib_1.__importDefault)(require("npm-package-arg"));
-const queryVersion_1 = (0, tslib_1.__importDefault)(require("./queryVersion"));
+const npm_package_arg_1 = tslib_1.__importDefault(require("npm-package-arg"));
+const queryVersion_1 = tslib_1.__importDefault(require("./queryVersion"));
 function parseVersionByNpmPackageArg(input) {
     const { name, fetchSpec: version } = (0, npm_package_arg_1.default)(input);
     return {

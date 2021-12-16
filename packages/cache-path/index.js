@@ -20,6 +20,6 @@ Object.defineProperty(exports, "getCacheRoot", { enumerable: true, get: function
 Object.defineProperty(exports, "getCacheRootAsync", { enumerable: true, get: function () { return getCacheRoot_1.getCacheRootAsync; } });
 var normalizeName_1 = require("./lib/normalizeName");
 Object.defineProperty(exports, "normalizeName", { enumerable: true, get: function () { return normalizeName_1.normalizeName; } });
-(0, tslib_1.__exportStar)(require("./lib/types"), exports);
+tslib_1.__exportStar(require("./lib/types"), exports);
 exports.default = getCachePath_1.getCachePath;
 //# sourceMappingURL=index.js.map

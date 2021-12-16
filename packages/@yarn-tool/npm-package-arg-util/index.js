@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.npaTry = exports.npa = exports.getSemverFromNpaResult = void 0;
 const tslib_1 = require("tslib");
-const npm_package_arg_1 = (0, tslib_1.__importDefault)(require("npm-package-arg"));
+const npm_package_arg_1 = tslib_1.__importDefault(require("npm-package-arg"));
 const assert_1 = require("./lib/assert");
 var getSemverFromNpaResult_1 = require("./lib/getSemverFromNpaResult");
 Object.defineProperty(exports, "getSemverFromNpaResult", { enumerable: true, get: function () { return getSemverFromNpaResult_1.getSemverFromNpaResult; } });

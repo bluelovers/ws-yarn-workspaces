@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.queryVersion = exports.queryVersionWithCache = void 0;
 const tslib_1 = require("tslib");
 const package_json_1 = require("package-json");
-const bluebird_1 = (0, tslib_1.__importDefault)(require("bluebird"));
+const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
 const cacheAgent_1 = require("./cacheAgent");
 const createCacheKey_1 = require("./createCacheKey");
 const core_1 = require("./core");

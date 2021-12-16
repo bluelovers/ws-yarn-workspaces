@@ -2,10 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.yarnDedupe = exports.yarnDedupeFile = exports.fixDuplicates = exports.listDuplicates = void 0;
 const tslib_1 = require("tslib");
-const detectYarnLockVersion_1 = (0, tslib_1.__importDefault)(require("@yarn-tool/detect-yarnlock-version/lib/detectYarnLockVersion"));
+const detectYarnLockVersion_1 = tslib_1.__importDefault(require("@yarn-tool/detect-yarnlock-version/lib/detectYarnLockVersion"));
 const types_1 = require("@yarn-tool/detect-yarnlock-version/lib/types");
-const v2_1 = (0, tslib_1.__importDefault)(require("./lib/v2"));
-const v1_1 = (0, tslib_1.__importDefault)(require("./lib/v1"));
+const v2_1 = tslib_1.__importDefault(require("./lib/v2"));
+const v1_1 = tslib_1.__importDefault(require("./lib/v1"));
 const fs_1 = require("fs");
 function listDuplicates(yarnlock_old, options) {
     yarnlock_old = yarnlock_old.toString();

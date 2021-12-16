@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EnumPackageManagersNpmMethod = void 0;
 const tslib_1 = require("tslib");
-(0, tslib_1.__exportStar)(require("@ts-type/package-dts/lib/package-json/types"), exports);
+tslib_1.__exportStar(require("@ts-type/package-dts/lib/package-json/types"), exports);
 var EnumPackageManagersNpmMethod;
 (function (EnumPackageManagersNpmMethod) {
     EnumPackageManagersNpmMethod["major"] = "greatestMajor";

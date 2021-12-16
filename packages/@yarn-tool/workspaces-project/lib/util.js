@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.checkPaths = exports.EnumCheckPaths = void 0;
 const tslib_1 = require("tslib");
-const path_dir_normalize_1 = (0, tslib_1.__importDefault)(require("path-dir-normalize"));
+const path_dir_normalize_1 = tslib_1.__importDefault(require("path-dir-normalize"));
 var EnumCheckPaths;
 (function (EnumCheckPaths) {
     EnumCheckPaths[EnumCheckPaths["root"] = 1] = "root";

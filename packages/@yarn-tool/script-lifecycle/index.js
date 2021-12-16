@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.isKnownLifecycleKey = exports.entryToList = exports.getLifecycleList = exports.getLifecycle = exports.getLifecycleCore = void 0;
 const tslib_1 = require("tslib");
-const lifecycle_1 = (0, tslib_1.__importDefault)(require("./lib/lifecycle"));
+const lifecycle_1 = tslib_1.__importDefault(require("./lib/lifecycle"));
 function getLifecycleCore(scriptName) {
     if (isKnownLifecycleKey(scriptName)) {
         return lifecycle_1.default[scriptName];

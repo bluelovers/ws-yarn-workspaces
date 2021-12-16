@@ -5,7 +5,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.findPkg = exports.parseStaticPackagesPaths = exports.parseWorkspaces = exports.getConfig = void 0;
 const tslib_1 = require("tslib");
-const find_pkg_ws_1 = (0, tslib_1.__importDefault)(require("find-pkg-ws"));
+const find_pkg_ws_1 = tslib_1.__importDefault(require("find-pkg-ws"));
 exports.findPkg = find_pkg_ws_1.default;
 const fs_extra_1 = require("fs-extra");
 const path_1 = require("path");

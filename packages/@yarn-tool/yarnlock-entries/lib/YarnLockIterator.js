@@ -5,8 +5,8 @@ const tslib_1 = require("tslib");
 const detect_yarnlock_version_1 = require("@yarn-tool/detect-yarnlock-version");
 const lodash_1 = require("lodash");
 const yarnlock_util_1 = require("@yarn-tool/yarnlock-util");
-const yarnlock_stringify_1 = (0, tslib_1.__importDefault)(require("@yarn-tool/yarnlock-stringify"));
-const yarnlock_error_1 = (0, tslib_1.__importDefault)(require("@yarn-tool/yarnlock-error"));
+const yarnlock_stringify_1 = tslib_1.__importDefault(require("@yarn-tool/yarnlock-stringify"));
+const yarnlock_error_1 = tslib_1.__importDefault(require("@yarn-tool/yarnlock-error"));
 class YarnLockIterator {
     constructor(object) {
         this.object = object;

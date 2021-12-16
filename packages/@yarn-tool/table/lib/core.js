@@ -5,7 +5,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createDependencyTable = void 0;
 const tslib_1 = require("tslib");
-const cli_table3_1 = (0, tslib_1.__importDefault)(require("cli-table3"));
+const cli_table3_1 = tslib_1.__importDefault(require("cli-table3"));
 function createDependencyTable(options) {
     return new cli_table3_1.default({
         colAligns: ['left', 'right', 'right', 'right'],

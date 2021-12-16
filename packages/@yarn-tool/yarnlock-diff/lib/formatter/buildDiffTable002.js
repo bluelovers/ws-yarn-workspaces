@@ -7,7 +7,7 @@ const diffArray002_1 = require("./diffArray002");
 const semver_diff_1 = require("@yarn-tool/semver-diff");
 const core_1 = require("@yarn-tool/table/lib/core");
 const debug_color2_1 = require("debug-color2");
-const strip_ansi_1 = (0, tslib_1.__importDefault)(require("strip-ansi"));
+const strip_ansi_1 = tslib_1.__importDefault(require("strip-ansi"));
 function buildDiffTable(diff, options) {
     var _a;
     // @ts-ignore

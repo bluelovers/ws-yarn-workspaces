@@ -6,8 +6,8 @@ const tslib_1 = require("tslib");
  * Created by user on 2020/6/11.
  */
 const _core_1 = require("./_core");
-const compare_1 = (0, tslib_1.__importDefault)(require("semver/functions/compare"));
-const cmp_1 = (0, tslib_1.__importDefault)(require("semver/functions/cmp"));
+const compare_1 = tslib_1.__importDefault(require("semver/functions/compare"));
+const cmp_1 = tslib_1.__importDefault(require("semver/functions/cmp"));
 function compare(part1, part2, optionsOrLoose) {
     return (0, compare_1.default)(...(0, _core_1._part)(part1, part2), optionsOrLoose);
 }

@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.isSamePath = void 0;
 const tslib_1 = require("tslib");
 const path_1 = require("path");
-const path_is_same_1 = (0, tslib_1.__importDefault)(require("path-is-same"));
+const path_is_same_1 = tslib_1.__importDefault(require("path-is-same"));
 function isSamePath(p1, p2) {
     if (!p1 || !p2) {
         return false;

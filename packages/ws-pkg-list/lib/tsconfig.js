@@ -8,7 +8,7 @@ const tslib_1 = require("tslib");
 const readpkg_1 = require("./readpkg");
 const array_hyper_unique_1 = require("array-hyper-unique");
 const upath2_1 = require("upath2");
-const listpkg_1 = (0, tslib_1.__importDefault)(require("./listpkg"));
+const listpkg_1 = tslib_1.__importDefault(require("./listpkg"));
 function tsConfigPaths(ls) {
     let cwd;
     if (typeof ls == 'string') {

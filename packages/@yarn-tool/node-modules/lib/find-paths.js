@@ -5,9 +5,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.findModulesPackagePaths = exports.findModulesPackagePathsCore = void 0;
 const tslib_1 = require("tslib");
-const pkg_dir_1 = (0, tslib_1.__importDefault)(require("pkg-dir"));
+const pkg_dir_1 = tslib_1.__importDefault(require("pkg-dir"));
 const upath2_1 = require("upath2");
-const fast_glob_1 = (0, tslib_1.__importDefault)(require("@bluelovers/fast-glob"));
+const fast_glob_1 = tslib_1.__importDefault(require("@bluelovers/fast-glob"));
 const util_1 = require("./util");
 function findModulesPackagePathsCore(cwd, dir) {
     let root = (0, util_1.getModulesDir)(cwd, dir);

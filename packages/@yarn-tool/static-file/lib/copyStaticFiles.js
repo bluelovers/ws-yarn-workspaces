@@ -6,7 +6,7 @@ const fs_extra_1 = require("fs-extra");
 const const_1 = require("./const");
 const parseStaticMap_1 = require("./parseStaticMap");
 const copyStaticFilesEntry_1 = require("./copyStaticFilesEntry");
-const __root_1 = (0, tslib_1.__importDefault)(require("../__root"));
+const __root_1 = tslib_1.__importDefault(require("../__root"));
 function copyStaticFiles(options) {
     var _a, _b;
     if (typeof options.cwd !== 'string' || !((_a = options.cwd) === null || _a === void 0 ? void 0 : _a.length) || !options.cwd) {

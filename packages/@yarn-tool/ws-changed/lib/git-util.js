@@ -7,7 +7,7 @@ exports.wsGitDiffStagedDir = exports.wsGitDiffStagedFiles = exports.wsRootWithGi
 const tslib_1 = require("tslib");
 const find_root_1 = require("@yarn-tool/find-root");
 const diff_staged_1 = require("@git-lazy/diff-staged");
-const core_1 = (0, tslib_1.__importDefault)(require("git-root2/core"));
+const core_1 = tslib_1.__importDefault(require("git-root2/core"));
 function wsRootWithGitRoot(cwd) {
     let rooData = (0, find_root_1.findRoot)({
         cwd,

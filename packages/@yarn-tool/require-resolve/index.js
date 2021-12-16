@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports._unshiftArray = exports.requireResolveExtra = exports.importExtra = exports.requireExtra = exports.isErrorModuleNotFound = exports.handleOptionsPaths = exports.requireResolveCore = exports.SymbolModuleMain = exports.SymbolGlobalYarn = exports.SymbolGlobalNpm = exports.SymbolGlobal = exports.SymbolCurrentDirectory = void 0;
 const tslib_1 = require("tslib");
-const get_paths_by_type_1 = (0, tslib_1.__importStar)(require("@yarn-tool/get-paths-by-type"));
+const get_paths_by_type_1 = tslib_1.__importStar(require("@yarn-tool/get-paths-by-type"));
 Object.defineProperty(exports, "SymbolCurrentDirectory", { enumerable: true, get: function () { return get_paths_by_type_1.SymbolCurrentDirectory; } });
 Object.defineProperty(exports, "SymbolGlobal", { enumerable: true, get: function () { return get_paths_by_type_1.SymbolGlobal; } });
 Object.defineProperty(exports, "SymbolGlobalNpm", { enumerable: true, get: function () { return get_paths_by_type_1.SymbolGlobalNpm; } });
@@ -79,7 +79,7 @@ function requireExtra(name, options) {
 }
 exports.requireExtra = requireExtra;
 function importExtra(name, options) {
-    return Promise.resolve().then(() => (0, tslib_1.__importStar)(require(requireResolveCore(name, options))));
+    return Promise.resolve().then(() => tslib_1.__importStar(require(requireResolveCore(name, options))));
 }
 exports.importExtra = importExtra;
 function requireResolveExtra(name, options) {

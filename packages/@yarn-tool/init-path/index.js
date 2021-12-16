@@ -5,7 +5,7 @@ const tslib_1 = require("tslib");
 const validate_npm_package_name_1 = require("@yarn-tool/validate-npm-package-name");
 const path_1 = require("path");
 const fs_extra_1 = require("fs-extra");
-const search_workspace_prefix_by_name_1 = (0, tslib_1.__importDefault)(require("@yarn-tool/search-workspace-prefix-by-name"));
+const search_workspace_prefix_by_name_1 = tslib_1.__importDefault(require("@yarn-tool/search-workspace-prefix-by-name"));
 function getTargetDir(options) {
     var _a;
     let targetDir;

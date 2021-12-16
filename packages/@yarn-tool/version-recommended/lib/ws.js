@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.nextVersionRecommendedByWorkspacesFindUp = exports.nextVersionRecommendedByWorkspacesProject = void 0;
 const tslib_1 = require("tslib");
-const workspaces_project_1 = (0, tslib_1.__importDefault)(require("@yarn-tool/workspaces-project"));
+const workspaces_project_1 = tslib_1.__importDefault(require("@yarn-tool/workspaces-project"));
 const nextVersionRecommended_1 = require("./nextVersionRecommended");
 function nextVersionRecommendedByWorkspacesProject(oldVersion, wsProject) {
     return (0, nextVersionRecommended_1.nextVersionRecommended)(oldVersion, wsProject);

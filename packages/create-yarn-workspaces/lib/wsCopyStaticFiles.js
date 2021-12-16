@@ -12,6 +12,7 @@ function getWsCopyStaticFiles() {
     return (0, reMapStaticFilesMapArray_1.reMapStaticFilesMapArray)([
         ...const_1.defaultCopyStaticFiles,
         ...const_1.defaultCopyStaticFilesRootOnly,
+        ...const_1.defaultCopyStaticFilesWsRootOnly,
     ], remap);
 }
 exports.getWsCopyStaticFiles = getWsCopyStaticFiles;

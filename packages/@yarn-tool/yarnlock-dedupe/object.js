@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.yarnDedupe = exports.fixDuplicates = exports.listDuplicates = void 0;
 const tslib_1 = require("tslib");
 const index_1 = require("./index");
-const yarnlock_stringify_1 = (0, tslib_1.__importDefault)(require("@yarn-tool/yarnlock-stringify"));
+const yarnlock_stringify_1 = tslib_1.__importDefault(require("@yarn-tool/yarnlock-stringify"));
 /**
  * @deprecated
  */

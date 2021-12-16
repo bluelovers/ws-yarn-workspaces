@@ -5,8 +5,8 @@ const tslib_1 = require("tslib");
 /**
  * Created by user on 2020/4/9.
  */
-const run_script_1 = (0, tslib_1.__importDefault)(require("@npmcli/run-script"));
-const run_script_pkg_1 = (0, tslib_1.__importDefault)(require("@npmcli/run-script/lib/run-script-pkg"));
+const run_script_1 = tslib_1.__importDefault(require("@npmcli/run-script"));
+const run_script_pkg_1 = tslib_1.__importDefault(require("@npmcli/run-script/lib/run-script-pkg"));
 function formatOutput(result) {
     return `> ${result.pkgid} ${result.event}\n> ${result.script}\n${result.stdout}`;
 }

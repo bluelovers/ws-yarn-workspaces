@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.updateNotifier = exports.notNpxMaybe = void 0;
 const tslib_1 = require("tslib");
 const path_1 = require("path");
-const ci_detect_1 = (0, tslib_1.__importDefault)(require("@npmcli/ci-detect"));
+const ci_detect_1 = tslib_1.__importDefault(require("@npmcli/ci-detect"));
 function notNpxMaybe(__dirname) {
     if (__dirname && /ypx_|_npx/i.test(__dirname)) {
         return false;

@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.parseYarnLockRowV2 = exports.parseYarnLockRowV1 = void 0;
 const tslib_1 = require("tslib");
-(0, tslib_1.__exportStar)(require("./lib/types"), exports);
+tslib_1.__exportStar(require("./lib/types"), exports);
 const parseYarnLockRowV1_1 = require("./lib/v1/parseYarnLockRowV1");
 Object.defineProperty(exports, "parseYarnLockRowV1", { enumerable: true, get: function () { return parseYarnLockRowV1_1.parseYarnLockRowV1; } });
 const parseYarnLockRowV2_1 = require("./lib/v2/parseYarnLockRowV2");

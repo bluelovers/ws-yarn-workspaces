@@ -3,11 +3,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.queryRemoteVersions = void 0;
 const tslib_1 = require("tslib");
 const types_1 = require("../types");
-const bluebird_1 = (0, tslib_1.__importDefault)(require("bluebird"));
+const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
 const options_1 = require("../options");
 const store_1 = require("../store");
 const util_1 = require("../util");
-const semver_1 = (0, tslib_1.__importDefault)(require("semver"));
+const semver_1 = tslib_1.__importDefault(require("semver"));
 const remote_1 = require("../remote");
 const versionmanager_1 = require("npm-check-updates/lib/versionmanager");
 function queryRemoteVersions(packageMap, options = {}) {

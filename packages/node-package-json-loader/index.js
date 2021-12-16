@@ -4,9 +4,9 @@ exports.PackageJsonLoader = void 0;
 const tslib_1 = require("tslib");
 const fs_extra_1 = require("fs-extra");
 const sort_package_json3_1 = require("sort-package-json3");
-const bind_decorator_1 = (0, tslib_1.__importDefault)(require("bind-decorator"));
+const bind_decorator_1 = tslib_1.__importDefault(require("bind-decorator"));
 const util_1 = require("./util");
-const path_1 = (0, tslib_1.__importDefault)(require("path"));
+const path_1 = tslib_1.__importDefault(require("path"));
 const resolve_package_1 = require("@yarn-tool/resolve-package");
 class PackageJsonLoader {
     constructor(fileOrJson, ...argv) {
@@ -165,17 +165,17 @@ class PackageJsonLoader {
         return this.loaded;
     }
 }
-(0, tslib_1.__decorate)([
+tslib_1.__decorate([
     bind_decorator_1.default,
-    (0, tslib_1.__metadata)("design:type", Function),
-    (0, tslib_1.__metadata)("design:paramtypes", [Object, Object]),
-    (0, tslib_1.__metadata)("design:returntype", void 0)
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [Object, Object]),
+    tslib_1.__metadata("design:returntype", void 0)
 ], PackageJsonLoader, "create", null);
-(0, tslib_1.__decorate)([
+tslib_1.__decorate([
     bind_decorator_1.default,
-    (0, tslib_1.__metadata)("design:type", Function),
-    (0, tslib_1.__metadata)("design:paramtypes", [String]),
-    (0, tslib_1.__metadata)("design:returntype", void 0)
+    tslib_1.__metadata("design:type", Function),
+    tslib_1.__metadata("design:paramtypes", [String]),
+    tslib_1.__metadata("design:returntype", void 0)
 ], PackageJsonLoader, "loadByModuleName", null);
 exports.PackageJsonLoader = PackageJsonLoader;
 exports.default = PackageJsonLoader;

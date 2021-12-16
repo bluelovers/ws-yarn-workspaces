@@ -5,18 +5,18 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createDirByPackages = exports._createYarnWorkspaces = exports.createYarnWorkspaces = void 0;
 const tslib_1 = require("tslib");
-const core_1 = (0, tslib_1.__importDefault)(require("find-yarn-workspace-root2/core"));
+const core_1 = tslib_1.__importDefault(require("find-yarn-workspace-root2/core"));
 const path_1 = require("path");
-const pkg_dir_1 = (0, tslib_1.__importDefault)(require("pkg-dir"));
-const logger_1 = (0, tslib_1.__importDefault)(require("debug-color2/logger"));
+const pkg_dir_1 = tslib_1.__importDefault(require("pkg-dir"));
+const logger_1 = tslib_1.__importDefault(require("debug-color2/logger"));
 const static_file_1 = require("@yarn-tool/static-file");
 const fs_extra_1 = require("fs-extra");
-const sort_package_json3_1 = (0, tslib_1.__importDefault)(require("sort-package-json3"));
+const sort_package_json3_1 = tslib_1.__importDefault(require("sort-package-json3"));
 const lib_1 = require("./lib");
 const util_1 = require("./lib/util");
-const wsCopyStaticFiles_1 = (0, tslib_1.__importDefault)(require("./lib/wsCopyStaticFiles"));
-(0, tslib_1.__exportStar)(require("./lib/index"), exports);
-(0, tslib_1.__exportStar)(require("./lib/util"), exports);
+const wsCopyStaticFiles_1 = tslib_1.__importDefault(require("./lib/wsCopyStaticFiles"));
+tslib_1.__exportStar(require("./lib/index"), exports);
+tslib_1.__exportStar(require("./lib/util"), exports);
 function createYarnWorkspaces(cwd, options = {}) {
     if (cwd && typeof cwd != 'string') {
         options = cwd;

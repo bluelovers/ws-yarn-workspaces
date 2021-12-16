@@ -6,9 +6,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.syncLockfile = void 0;
 const tslib_1 = require("tslib");
 const ws_pkg_list_1 = require("ws-pkg-list");
-const find_root_1 = (0, tslib_1.__importDefault)(require("@yarn-tool/find-root"));
-const fs_extra_1 = (0, tslib_1.__importDefault)(require("fs-extra"));
-const path_1 = (0, tslib_1.__importDefault)(require("path"));
+const find_root_1 = tslib_1.__importDefault(require("@yarn-tool/find-root"));
+const fs_extra_1 = tslib_1.__importDefault(require("fs-extra"));
+const path_1 = tslib_1.__importDefault(require("path"));
 function syncLockfile(cwd, options = {}) {
     const { print, noThrowError } = options;
     const ws = (0, find_root_1.default)({

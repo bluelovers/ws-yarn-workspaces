@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.handleWrapDedupeOptions = void 0;
 const tslib_1 = require("tslib");
 const upath2_1 = require("upath2");
-const find_root_1 = (0, tslib_1.__importDefault)(require("@yarn-tool/find-root"));
+const find_root_1 = tslib_1.__importDefault(require("@yarn-tool/find-root"));
 const read_1 = require("@yarn-tool/yarnlock-fs/lib/read");
 function handleWrapDedupeOptions(yarg, argv, options) {
     let cache = options.cache || {};

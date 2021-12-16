@@ -4,7 +4,7 @@ exports.copyStaticFilesEntry = void 0;
 const tslib_1 = require("tslib");
 const path_1 = require("path");
 const fs_extra_1 = require("fs-extra");
-const __root_1 = (0, tslib_1.__importDefault)(require("../__root"));
+const __root_1 = tslib_1.__importDefault(require("../__root"));
 function copyStaticFilesEntry(entry, cwd, staticRoot = __root_1.default, overwrite) {
     const [targetFile, staticFile, detectFile] = entry;
     if (detectFile === null || detectFile === void 0 ? void 0 : detectFile.length) {

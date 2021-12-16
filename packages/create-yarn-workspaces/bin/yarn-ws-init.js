@@ -2,11 +2,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-const __1 = (0, tslib_1.__importDefault)(require(".."));
-const logger_1 = (0, tslib_1.__importDefault)(require("debug-color2/logger"));
-const yargs_1 = (0, tslib_1.__importDefault)(require("yargs"));
+const __1 = tslib_1.__importDefault(require(".."));
+const logger_1 = tslib_1.__importDefault(require("debug-color2/logger"));
+const yargs_1 = tslib_1.__importDefault(require("yargs"));
 const path_1 = require("path");
-const yargs_setting_1 = (0, tslib_1.__importDefault)(require("../yargs-setting"));
+const yargs_setting_1 = tslib_1.__importDefault(require("../yargs-setting"));
 const CWD = process.cwd();
 let cli = (0, yargs_setting_1.default)(yargs_1.default)
     // @ts-ignore

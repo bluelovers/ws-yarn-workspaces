@@ -7,7 +7,7 @@ exports.getPackageInfo = exports.firstPackageBin = exports.handlePackageBins = e
 const tslib_1 = require("tslib");
 const upath2_1 = require("upath2");
 const resolve_package_1 = require("@yarn-tool/resolve-package");
-(0, tslib_1.__exportStar)(require("./lib/types"), exports);
+tslib_1.__exportStar(require("./lib/types"), exports);
 function getPackageBins(pkg) {
     if (pkg.bin != null) {
         if (typeof pkg.bin === 'string') {

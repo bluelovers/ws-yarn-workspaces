@@ -2,11 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.rebuildYarnWorkspaceLinks = exports.rebuildYarnWorkspaceLinksFromPkgListable = exports._checkOptions = void 0;
 const tslib_1 = require("tslib");
-const node_modules_link_1 = (0, tslib_1.__importDefault)(require("@yarn-tool/node-modules-link"));
+const node_modules_link_1 = tslib_1.__importDefault(require("@yarn-tool/node-modules-link"));
 const find_root_1 = require("@yarn-tool/find-root");
 const path_is_same_1 = require("path-is-same");
 const util_1 = require("@yarn-tool/node-modules/lib/util");
-const listable_1 = (0, tslib_1.__importDefault)(require("ws-pkg-list/lib/listable"));
+const listable_1 = tslib_1.__importDefault(require("ws-pkg-list/lib/listable"));
 function _checkOptions(options, auto) {
     options.shouldHasWorkspaces = true;
     options.skipCheckWorkspace = false;

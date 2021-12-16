@@ -4,7 +4,7 @@ exports.installDepsFromYarnLock = exports.installDepsFromYarnLockCore = exports.
 const tslib_1 = require("tslib");
 const find_root_1 = require("@yarn-tool/find-root");
 const package_dts_1 = require("@ts-type/package-dts");
-const npm_package_arg_util_1 = (0, tslib_1.__importDefault)(require("@yarn-tool/npm-package-arg-util"));
+const npm_package_arg_util_1 = tslib_1.__importDefault(require("@yarn-tool/npm-package-arg-util"));
 const yarnlock_parse_1 = require("@yarn-tool/yarnlock-parse");
 const groupYarnLockParsedEntries_1 = require("@yarn-tool/yarnlock-util/lib/util/groupYarnLockParsedEntries");
 const lodash_1 = require("lodash");

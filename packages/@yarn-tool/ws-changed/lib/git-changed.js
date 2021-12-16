@@ -4,8 +4,8 @@ exports.wsGitChanged = exports.wsGitChangedPrefix = void 0;
 const tslib_1 = require("tslib");
 const listable_1 = require("ws-pkg-list/lib/listable");
 const git_util_1 = require("./git-util");
-const workspaces_config_1 = (0, tslib_1.__importDefault)(require("workspaces-config"));
-const glob_regex_1 = (0, tslib_1.__importDefault)(require("glob-regex"));
+const workspaces_config_1 = tslib_1.__importDefault(require("workspaces-config"));
+const glob_regex_1 = tslib_1.__importDefault(require("glob-regex"));
 const array_hyper_unique_1 = require("array-hyper-unique");
 const util_1 = require("ws-pkg-list/lib/util");
 function wsGitChangedPrefix(cwd, options) {

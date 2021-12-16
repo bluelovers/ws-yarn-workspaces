@@ -5,9 +5,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sortPackageJsonScripts = exports.sortPackageJsonScriptsOld = exports._core = void 0;
 const tslib_1 = require("tslib");
-const handleOptions_1 = (0, tslib_1.__importDefault)(require("./handleOptions"));
+const handleOptions_1 = tslib_1.__importDefault(require("./handleOptions"));
 const handleKeyOrdersCore_1 = require("./handleKeyOrdersCore");
-const sort_object_keys2_1 = (0, tslib_1.__importDefault)(require("sort-object-keys2"));
+const sort_object_keys2_1 = tslib_1.__importDefault(require("sort-object-keys2"));
 const util_1 = require("./util");
 /**
  * a better sort package.json scripts, by default is follow npm lifecycle scripts

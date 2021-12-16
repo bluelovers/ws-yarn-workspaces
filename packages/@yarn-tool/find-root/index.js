@@ -5,7 +5,7 @@ const tslib_1 = require("tslib");
 const upath2_1 = require("upath2");
 Object.defineProperty(exports, "pathNormalize", { enumerable: true, get: function () { return upath2_1.normalize; } });
 const core_1 = require("find-yarn-workspace-root2/core");
-const err_code_1 = (0, tslib_1.__importDefault)(require("err-code"));
+const err_code_1 = tslib_1.__importDefault(require("err-code"));
 const pkg_dir_1 = require("pkg-dir");
 function findRootLazy(options, _throwError) {
     var _a;

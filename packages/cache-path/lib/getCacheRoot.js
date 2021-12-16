@@ -4,7 +4,7 @@ exports.getCacheRootAsync = exports.getCacheRoot = void 0;
 const tslib_1 = require("tslib");
 const fs_extra_1 = require("fs-extra");
 const upath2_1 = require("upath2");
-const bluebird_1 = (0, tslib_1.__importDefault)(require("bluebird"));
+const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
 const is_writeable_path_1 = require("@lazy-node/is-writeable-path");
 const util_1 = require("./util");
 function getCacheRoot(_options) {

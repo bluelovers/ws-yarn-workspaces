@@ -6,9 +6,9 @@ const listable_1 = require("ws-pkg-list/lib/listable");
 const ws_find_paths_1 = require("@yarn-tool/node-modules/lib/ws-find-paths");
 const core_1 = require("yarn-list-link/core");
 const fs_extra_1 = require("fs-extra");
-const cross_spawn_extra_1 = (0, tslib_1.__importDefault)(require("cross-spawn-extra"));
+const cross_spawn_extra_1 = tslib_1.__importDefault(require("cross-spawn-extra"));
 const util_1 = require("./lib/util");
-const logger_1 = (0, tslib_1.__importDefault)(require("debug-color2/logger"));
+const logger_1 = tslib_1.__importDefault(require("debug-color2/logger"));
 const fs_symlink_extra_1 = require("fs-symlink-extra");
 function fixYarnWorkspaceLinks(cwd, options) {
     let listable = (0, listable_1.wsPkgListable)(cwd);

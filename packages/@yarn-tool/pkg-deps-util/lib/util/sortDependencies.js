@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sortDependencies = void 0;
 const tslib_1 = require("tslib");
-const core_1 = (0, tslib_1.__importDefault)(require("sort-object-keys2/core"));
+const core_1 = tslib_1.__importDefault(require("sort-object-keys2/core"));
 function sortDependencies(pkg) {
     var _a, _b, _c, _d;
     let opts = {

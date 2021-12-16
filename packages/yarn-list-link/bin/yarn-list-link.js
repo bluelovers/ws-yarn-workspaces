@@ -2,7 +2,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-const core_1 = (0, tslib_1.__importDefault)(require("../core"));
+const core_1 = tslib_1.__importDefault(require("../core"));
 let cwd = process.cwd();
 let ls = (0, core_1.default)(cwd);
 if (ls && ls.length) {

@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.yarnLockStringify = void 0;
 const tslib_1 = require("tslib");
-const detectYarnLockVersionByObject_1 = (0, tslib_1.__importDefault)(require("@yarn-tool/detect-yarnlock-version/lib/detectYarnLockVersionByObject"));
+const detectYarnLockVersionByObject_1 = tslib_1.__importDefault(require("@yarn-tool/detect-yarnlock-version/lib/detectYarnLockVersionByObject"));
 const lockfile_1 = require("@yarnpkg/lockfile");
-const detectYarnLockVersion_1 = (0, tslib_1.__importDefault)(require("@yarn-tool/detect-yarnlock-version/lib/detectYarnLockVersion"));
+const detectYarnLockVersion_1 = tslib_1.__importDefault(require("@yarn-tool/detect-yarnlock-version/lib/detectYarnLockVersion"));
 const types_1 = require("@yarn-tool/detect-yarnlock-version/lib/types");
 const parsers_1 = require("@yarnpkg/parsers");
 function yarnLockStringify(yarnlock_old) {

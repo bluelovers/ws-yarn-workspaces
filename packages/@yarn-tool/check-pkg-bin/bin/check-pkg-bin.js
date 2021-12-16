@@ -3,12 +3,12 @@
 var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-const yargs_1 = (0, tslib_1.__importDefault)(require("yargs"));
+const yargs_1 = tslib_1.__importDefault(require("yargs"));
 const __1 = require("..");
 const debug_color2_1 = require("debug-color2");
-const cli_table3_1 = (0, tslib_1.__importDefault)(require("cli-table3"));
-const pkg_dir_1 = (0, tslib_1.__importDefault)(require("pkg-dir"));
-const string_natural_compare_1 = (0, tslib_1.__importDefault)(require("@bluelovers/string-natural-compare"));
+const cli_table3_1 = tslib_1.__importDefault(require("cli-table3"));
+const pkg_dir_1 = tslib_1.__importDefault(require("pkg-dir"));
+const string_natural_compare_1 = tslib_1.__importDefault(require("@bluelovers/string-natural-compare"));
 const table_1 = require("@yarn-tool/table");
 const find_root_1 = require("@yarn-tool/find-root");
 const cli = yargs_1.default

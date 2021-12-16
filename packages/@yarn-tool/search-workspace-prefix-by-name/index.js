@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.searchWorkspacePrefixByName = void 0;
 const tslib_1 = require("tslib");
-const micromatch_1 = (0, tslib_1.__importDefault)(require("micromatch"));
+const micromatch_1 = tslib_1.__importDefault(require("micromatch"));
 function searchWorkspacePrefixByName({ inputName, workspacesConfig, }) {
     let workspacePrefix;
     if (workspacesConfig.prefix.includes("packages/*")) {

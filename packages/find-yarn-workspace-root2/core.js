@@ -3,9 +3,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.readPackageJSON = exports.extractWorkspaces = exports.isMatchWorkspaces = exports.checkWorkspaces = exports.findWorkspaceRoot = void 0;
 const tslib_1 = require("tslib");
 const upath2_1 = require("upath2");
-const pkg_dir_1 = (0, tslib_1.__importDefault)(require("pkg-dir"));
+const pkg_dir_1 = tslib_1.__importDefault(require("pkg-dir"));
 const fs_1 = require("fs");
-const micromatch_1 = (0, tslib_1.__importDefault)(require("micromatch"));
+const micromatch_1 = tslib_1.__importDefault(require("micromatch"));
 /**
  * Adapted from:
  * https://github.com/yarnpkg/yarn/blob/ddf2f9ade211195372236c2f39a75b00fa18d4de/src/config.js#L612

@@ -4,8 +4,8 @@ exports.defaultPackageBin = exports.normalizePackageBins = void 0;
 const tslib_1 = require("tslib");
 const upath2_1 = require("upath2");
 const util_1 = require("./util");
-(0, tslib_1.__exportStar)(require("./lib/types"), exports);
-(0, tslib_1.__exportStar)(require("./util"), exports);
+tslib_1.__exportStar(require("./lib/types"), exports);
+tslib_1.__exportStar(require("./util"), exports);
 function normalizePackageBins(options) {
     let { pkgRoot, pkg, name } = (0, util_1.getPackageInfo)(options);
     let bins = (0, util_1.getPackageBins)(pkg) || {};

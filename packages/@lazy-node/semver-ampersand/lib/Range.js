@@ -2,11 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Range = exports.SemverRange = void 0;
 const tslib_1 = require("tslib");
-const range_1 = (0, tslib_1.__importDefault)(require("semver/classes/range"));
+const range_1 = tslib_1.__importDefault(require("semver/classes/range"));
 const handleAmpersandAndSpaces_1 = require("./handleAmpersandAndSpaces");
 const stringifyComparators_1 = require("./util/stringifyComparators");
-const semver_1 = (0, tslib_1.__importDefault)(require("semver/classes/semver"));
-const class_without_call_parent_constructor_1 = (0, tslib_1.__importDefault)(require("class-without-call-parent-constructor"));
+const semver_1 = tslib_1.__importDefault(require("semver/classes/semver"));
+const class_without_call_parent_constructor_1 = tslib_1.__importDefault(require("class-without-call-parent-constructor"));
 const semver_2 = require("semver");
 const options_1 = require("./range/options");
 const toRangeString_1 = require("./range/toRangeString");

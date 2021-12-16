@@ -1,1 +1,1 @@
-{"version":3,"file":"index.js","sourceRoot":"","sources":["index.ts"],"names":[],"mappings":";AAAA;;GAEG;;AAEH,+DAAkC;AAElC,iBAAS,cAAY,CAAC","sourcesContent":["/**\n * Created by user on 2018/9/20/020.\n */\n\nimport yarnListLink from './core';\n\nexport = yarnListLink;\n"]}
+{"version":3,"file":"index.js","sourceRoot":"","sources":["index.ts"],"names":[],"mappings":";AAAA;;GAEG;;AAEH,0DAAkC;AAElC,iBAAS,cAAY,CAAC","sourcesContent":["/**\n * Created by user on 2018/9/20/020.\n */\n\nimport yarnListLink from './core';\n\nexport = yarnListLink;\n"]}

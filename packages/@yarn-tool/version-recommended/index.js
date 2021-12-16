@@ -10,6 +10,6 @@ Object.defineProperty(exports, "nextVersionRecommendedByWorkspacesFindUp", { enu
 const pkg_1 = require("./lib/pkg");
 Object.defineProperty(exports, "nextVersionRecommendedByPackage", { enumerable: true, get: function () { return pkg_1.nextVersionRecommendedByPackage; } });
 Object.defineProperty(exports, "nextVersionRecommendedByPackageFindUp", { enumerable: true, get: function () { return pkg_1.nextVersionRecommendedByPackageFindUp; } });
-(0, tslib_1.__exportStar)(require("./lib/types"), exports);
+tslib_1.__exportStar(require("./lib/types"), exports);
 exports.default = pkg_1.nextVersionRecommendedByPackageFindUp;
 //# sourceMappingURL=index.js.map

@@ -4,9 +4,9 @@ exports.getCachePathAsync = exports.getCachePath = exports.defaultBase = void 0;
 const tslib_1 = require("tslib");
 const getCacheRoot_1 = require("./getCacheRoot");
 const normalizeName_1 = require("./normalizeName");
-const upath2_1 = (0, tslib_1.__importStar)(require("upath2"));
+const upath2_1 = tslib_1.__importStar(require("upath2"));
 const fs_extra_1 = require("fs-extra");
-const bluebird_1 = (0, tslib_1.__importDefault)(require("bluebird"));
+const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
 const tmp_1 = require("tmp");
 /**
  * a base dir name at cache root

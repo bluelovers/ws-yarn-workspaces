@@ -5,7 +5,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.packTargetPackage = exports.packTargetDirectory = void 0;
 const tslib_1 = require("tslib");
-const npm_packlist_1 = (0, tslib_1.__importDefault)(require("npm-packlist"));
+const npm_packlist_1 = tslib_1.__importDefault(require("npm-packlist"));
 const tar_1 = require("tar");
 const fs_1 = require("fs");
 const path_1 = require("path");

@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.checkResolutionsUpdate = void 0;
 const tslib_1 = require("tslib");
-const bluebird_1 = (0, tslib_1.__importDefault)(require("bluebird"));
+const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
 const util_1 = require("../util");
-const semver_1 = (0, tslib_1.__importDefault)(require("semver"));
+const semver_1 = tslib_1.__importDefault(require("semver"));
 const parse_1 = require("@yarn-tool/yarnlock/lib/parse");
 const core_1 = require("@yarn-tool/yarnlock/lib/core");
 const queryRemoteVersions_1 = require("../remote/queryRemoteVersions");

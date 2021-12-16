@@ -10,6 +10,6 @@ Object.defineProperty(exports, "fromContent", { enumerable: true, get: function 
 const fromFile_1 = require("./lib/fromFile");
 Object.defineProperty(exports, "fromFileAsync", { enumerable: true, get: function () { return fromFile_1.fromFileAsync; } });
 Object.defineProperty(exports, "fromFile", { enumerable: true, get: function () { return fromFile_1.fromFile; } });
-(0, tslib_1.__exportStar)(require("./lib/types"), exports);
+tslib_1.__exportStar(require("./lib/types"), exports);
 exports.default = fromContent_1.fromContent;
 //# sourceMappingURL=index.js.map

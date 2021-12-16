@@ -5,7 +5,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.npmHostedGitInfoCore = exports.npmHostedGitInfo = exports.getHostedGitInfo = void 0;
 const tslib_1 = require("tslib");
-const hosted_git_info_1 = (0, tslib_1.__importDefault)(require("hosted-git-info"));
+const hosted_git_info_1 = tslib_1.__importDefault(require("hosted-git-info"));
 const info_1 = require("@git-lazy/info");
 function getHostedGitInfo(o) {
     return hosted_git_info_1.default.fromUrl((0, info_1.filterRemoteUrl)(o));

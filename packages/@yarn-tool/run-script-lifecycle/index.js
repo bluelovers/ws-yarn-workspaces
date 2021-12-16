@@ -5,12 +5,12 @@ const tslib_1 = require("tslib");
 /**
  * Created by user on 2020/4/8.
  */
-const run_script_pkg_1 = (0, tslib_1.__importDefault)(require("@npmcli/run-script/lib/run-script-pkg"));
+const run_script_pkg_1 = tslib_1.__importDefault(require("@npmcli/run-script/lib/run-script-pkg"));
 const fs_extra_1 = require("fs-extra");
 const path_1 = require("path");
 const script_lifecycle_1 = require("@yarn-tool/script-lifecycle");
 const util_1 = require("./lib/util");
-const read_package_json_fast_1 = (0, tslib_1.__importDefault)(require("read-package-json-fast"));
+const read_package_json_fast_1 = tslib_1.__importDefault(require("read-package-json-fast"));
 async function runLifecycleScript(options) {
     const pkg_path = (0, path_1.join)(options.path, 'package.json');
     if ((0, fs_extra_1.pathExistsSync)(pkg_path)) {

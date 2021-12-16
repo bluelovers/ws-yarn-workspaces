@@ -5,7 +5,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.exportYarnLock = exports.filterDuplicateYarnLock = exports.removeResolutionsCore = exports.removeResolutions = exports.filterResolutions = void 0;
 const tslib_1 = require("tslib");
-const semver_1 = (0, tslib_1.__importDefault)(require("semver"));
+const semver_1 = tslib_1.__importDefault(require("semver"));
 const util_1 = require("./util");
 function filterResolutions(pkg, yarnlock) {
     if (pkg.resolutions) {

@@ -5,10 +5,10 @@ exports.WorkspacesProject = void 0;
 const tslib_1 = require("tslib");
 const project_1 = require("@lerna/project");
 const upath2_1 = require("upath2");
-const core_1 = (0, tslib_1.__importDefault)(require("find-yarn-workspace-root2/core"));
+const core_1 = tslib_1.__importDefault(require("find-yarn-workspace-root2/core"));
 const util_1 = require("./lib/util");
 const lodash_1 = require("lodash");
-const sort_object_keys2_1 = (0, tslib_1.__importDefault)(require("sort-object-keys2"));
+const sort_object_keys2_1 = tslib_1.__importDefault(require("sort-object-keys2"));
 const fs_extra_1 = require("fs-extra");
 class WorkspacesProject {
     constructor(cwd, options) {
@@ -38,13 +38,13 @@ class WorkspacesProject {
         this._project.rootConfigLocation = (0, upath2_1.normalize)(this._project.rootConfigLocation);
     }
     _hasInternal(field) {
-        return field in (0, tslib_1.__classPrivateFieldGet)(this, _WorkspacesProject_internal, "f");
+        return field in tslib_1.__classPrivateFieldGet(this, _WorkspacesProject_internal, "f");
     }
     _getInternal(field) {
-        return (0, tslib_1.__classPrivateFieldGet)(this, _WorkspacesProject_internal, "f")[field];
+        return tslib_1.__classPrivateFieldGet(this, _WorkspacesProject_internal, "f")[field];
     }
     _setInternal(field, value) {
-        return (0, tslib_1.__classPrivateFieldGet)(this, _WorkspacesProject_internal, "f")[field] = value;
+        return tslib_1.__classPrivateFieldGet(this, _WorkspacesProject_internal, "f")[field] = value;
     }
     get rootPath() {
         return this._project.rootPath;
@@ -89,7 +89,7 @@ class WorkspacesProject {
         if (!this.workspaces.includes(value)) {
             throw new RangeError(`${value} not exists in ${this.workspaces}`);
         }
-        (0, tslib_1.__classPrivateFieldGet)(this, _WorkspacesProject_internal, "f").defaultWorkspace = value;
+        tslib_1.__classPrivateFieldGet(this, _WorkspacesProject_internal, "f").defaultWorkspace = value;
     }
     isIndependent() {
         return this.version === "independent" /* independent */;
@@ -139,13 +139,13 @@ class WorkspacesProject {
     get releaseConfig() {
         var _a, _b, _c;
         const command = this._project.config.command;
-        (0, tslib_1.__classPrivateFieldGet)(this, _WorkspacesProject_internal, "f").releaseConfig = (0, lodash_1.merge)((0, tslib_1.__classPrivateFieldGet)(this, _WorkspacesProject_internal, "f").releaseConfig, command === null || command === void 0 ? void 0 : command.version, command === null || command === void 0 ? void 0 : command.publish, {
+        tslib_1.__classPrivateFieldGet(this, _WorkspacesProject_internal, "f").releaseConfig = (0, lodash_1.merge)(tslib_1.__classPrivateFieldGet(this, _WorkspacesProject_internal, "f").releaseConfig, command === null || command === void 0 ? void 0 : command.version, command === null || command === void 0 ? void 0 : command.publish, {
             changelogPreset: this.changelogPreset,
             bump: this.bump,
             conventionalGraduate: (_b = (_a = command === null || command === void 0 ? void 0 : command.publish) === null || _a === void 0 ? void 0 : _a.conventionalGraduate) !== null && _b !== void 0 ? _b : (_c = command === null || command === void 0 ? void 0 : command.version) === null || _c === void 0 ? void 0 : _c.conventionalGraduate,
         });
-        (0, tslib_1.__classPrivateFieldGet)(this, _WorkspacesProject_internal, "f").releaseConfig = (0, sort_object_keys2_1.default)((0, tslib_1.__classPrivateFieldGet)(this, _WorkspacesProject_internal, "f").releaseConfig);
-        return (0, tslib_1.__classPrivateFieldGet)(this, _WorkspacesProject_internal, "f").releaseConfig;
+        tslib_1.__classPrivateFieldGet(this, _WorkspacesProject_internal, "f").releaseConfig = (0, sort_object_keys2_1.default)(tslib_1.__classPrivateFieldGet(this, _WorkspacesProject_internal, "f").releaseConfig);
+        return tslib_1.__classPrivateFieldGet(this, _WorkspacesProject_internal, "f").releaseConfig;
     }
     existsLernaConfigFile() {
         return (0, fs_extra_1.pathExistsSync)(this.lernaConfigLocation);

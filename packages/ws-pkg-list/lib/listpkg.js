@@ -5,10 +5,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.workspacesPackagesList = void 0;
 const tslib_1 = require("tslib");
-const core_1 = (0, tslib_1.__importDefault)(require("find-yarn-workspace-root2/core"));
+const core_1 = tslib_1.__importDefault(require("find-yarn-workspace-root2/core"));
 const workspaces_config_1 = require("workspaces-config");
 const upath2_1 = require("upath2");
-const fast_glob_1 = (0, tslib_1.__importDefault)(require("@bluelovers/fast-glob"));
+const fast_glob_1 = tslib_1.__importDefault(require("@bluelovers/fast-glob"));
 function workspacesPackagesList(cwd, absolute) {
     if (typeof cwd === 'boolean') {
         // @ts-ignore

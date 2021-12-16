@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.lernaChanged = void 0;
 const tslib_1 = require("tslib");
-const cross_spawn_extra_1 = (0, tslib_1.__importDefault)(require("cross-spawn-extra"));
+const cross_spawn_extra_1 = tslib_1.__importDefault(require("cross-spawn-extra"));
 const find_root_1 = require("@yarn-tool/find-root");
 const util_1 = require("ws-pkg-list/lib/util");
 function lernaChanged(cwd, options) {

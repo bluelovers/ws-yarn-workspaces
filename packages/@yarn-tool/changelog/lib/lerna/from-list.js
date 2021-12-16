@@ -4,7 +4,7 @@ exports.updateChangelogByCwd = void 0;
 const tslib_1 = require("tslib");
 const ws_pkg_list_1 = require("ws-pkg-list");
 const find_root_1 = require("@yarn-tool/find-root");
-const update_1 = (0, tslib_1.__importDefault)(require("./update"));
+const update_1 = tslib_1.__importDefault(require("./update"));
 const lodash_1 = require("lodash");
 function updateChangelogByCwd(cwd, options) {
     let rootData = (0, find_root_1.findRoot)({

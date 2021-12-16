@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.isBuiltinModule = exports.builtins = exports.createNewIsBuiltinModule = void 0;
 const tslib_1 = require("tslib");
-const builtins_1 = (0, tslib_1.__importDefault)(require("builtins"));
+const builtins_1 = tslib_1.__importDefault(require("builtins"));
 function createNewIsBuiltinModule(options) {
     const builtins = (0, builtins_1.default)(options === null || options === void 0 ? void 0 : options.targetNodeJSVersion);
     return {

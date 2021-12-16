@@ -2,11 +2,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-const yargs_1 = (0, tslib_1.__importDefault)(require("yargs"));
-const yargs_setting_1 = (0, tslib_1.__importDefault)(require("../lib/yargs-setting"));
-const from_list_1 = (0, tslib_1.__importDefault)(require("../lib/lerna/from-list"));
+const yargs_1 = tslib_1.__importDefault(require("yargs"));
+const yargs_setting_1 = tslib_1.__importDefault(require("../lib/yargs-setting"));
+const from_list_1 = tslib_1.__importDefault(require("../lib/lerna/from-list"));
 const table_1 = require("@yarn-tool/table");
-const path_is_same_1 = (0, tslib_1.__importDefault)(require("path-is-same"));
+const path_is_same_1 = tslib_1.__importDefault(require("path-is-same"));
 const semver_diff_1 = require("@yarn-tool/semver-diff");
 const argv = (0, yargs_setting_1.default)(yargs_1.default)
     .option('cwd', {

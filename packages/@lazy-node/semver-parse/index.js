@@ -16,6 +16,6 @@ const parseSimpleSemVerRange_1 = require("./lib/parseSimpleSemVerRange");
 Object.defineProperty(exports, "parseRange", { enumerable: true, get: function () { return parseSimpleSemVerRange_1.parseSimpleSemVerRange; } });
 const parseSimpleSemVer_1 = require("./lib/parseSimpleSemVer");
 Object.defineProperty(exports, "parse", { enumerable: true, get: function () { return parseSimpleSemVer_1.parseSimpleSemVer; } });
-(0, tslib_1.__exportStar)(require("./lib/checker"), exports);
+tslib_1.__exportStar(require("./lib/checker"), exports);
 exports.default = stringifySimpleSemVerRange_1.stringifySimpleSemVerRange;
 //# sourceMappingURL=index.js.map
