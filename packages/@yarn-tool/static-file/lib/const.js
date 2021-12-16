@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.defaultCopyStaticFilesRootOnly = exports.defaultCopyStaticFiles = void 0;
+exports.defaultCopyStaticFilesWsRootOnly = exports.defaultCopyStaticFilesRootOnly = exports.defaultCopyStaticFiles = void 0;
 const _defaultCopyStaticFiles = [
     ['.npmignore', 'file/npmignore'],
     ['.gitignore', 'file/gitignore'],
@@ -21,6 +21,7 @@ const _defaultCopyStaticFiles = [
     ['.npmrc.tpl', 'file/npmrc', '.npmrc'],
     ['tsdx.config.js.tpl', 'file/tsdx.config.js', 'tsdx.config.js'],
     ['tsc-multi.json.tpl', 'file/tsc-multi.json.tpl', 'tsc-multi.json'],
+    ['test/__root.ts', 'file/test/__root.ts'],
 ];
 const _defaultCopyStaticFilesRootOnly = [
     ['lerna.json.tpl', 'file/lerna.json.tpl', 'lerna.json'],
@@ -29,6 +30,14 @@ const _defaultCopyStaticFilesRootOnly = [
     ['.github/workflows/action-yarnlock-dedupe.yml', 'file/github/workflows/action-yarnlock-dedupe.yml'],
     ['tsconfig.json', 'file/tsconfig.json.tpl', 'tsconfig.json'],
 ];
+const _defaultCopyStaticFilesWsRootOnly = [
+    ['lerna.json.tpl', 'file/lerna.json.tpl'],
+    ['pnpm-workspace.yaml', 'file/pnpm-workspace.yaml'],
+    ['tsconfig.json', 'file/tsconfig.json.tpl'],
+    ['tsc-multi.json.tpl', 'file/tsc-multi.json.tpl', 'tsc-multi.json'],
+    ['__root_ws.ts', 'file/ws-root/__root_ws.ts'],
+];
 exports.defaultCopyStaticFiles = Object.freeze(_defaultCopyStaticFiles);
 exports.defaultCopyStaticFilesRootOnly = Object.freeze(_defaultCopyStaticFilesRootOnly);
+exports.defaultCopyStaticFilesWsRootOnly = Object.freeze(_defaultCopyStaticFilesWsRootOnly);
 //# sourceMappingURL=const.js.map

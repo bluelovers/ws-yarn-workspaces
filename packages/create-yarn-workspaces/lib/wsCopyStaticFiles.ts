@@ -1,4 +1,8 @@
-import { defaultCopyStaticFiles, defaultCopyStaticFilesRootOnly } from '@yarn-tool/static-file/lib/const';
+import {
+	defaultCopyStaticFiles,
+	defaultCopyStaticFilesRootOnly,
+	defaultCopyStaticFilesWsRootOnly,
+} from '@yarn-tool/static-file/lib/const';
 import { IStaticFiles, IStaticFilesKey, IStaticFilesMapArray } from '@yarn-tool/static-file/lib/types';
 import { reMapStaticFilesMapArray } from '@yarn-tool/static-file/lib/reMapStaticFilesMapArray';
 
@@ -13,6 +17,7 @@ export function getWsCopyStaticFiles(): IStaticFiles<IStaticFilesKey<typeof defa
 	return reMapStaticFilesMapArray([
 		...defaultCopyStaticFiles,
 		...defaultCopyStaticFilesRootOnly,
+		...defaultCopyStaticFilesWsRootOnly,
 	], remap);
 }
 

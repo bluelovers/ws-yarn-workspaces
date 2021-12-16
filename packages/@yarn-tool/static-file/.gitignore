@@ -68,3 +68,12 @@ coverage
 !.gitlab
 .git
 
+/file/ws-root/__ws_root.d.ts
+/file/ws-root/__ws_root.js
+/file/ws-root/__ws_root.js.map
+/file/test/__root.d.ts
+/file/test/__root.js
+/file/test/__root.js.map
+/file/ws-root/__root_ws.d.ts
+/file/ws-root/__root_ws.js
+/file/ws-root/__root_ws.js.map

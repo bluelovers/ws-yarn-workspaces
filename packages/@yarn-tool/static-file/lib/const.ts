@@ -37,6 +37,8 @@ const _defaultCopyStaticFiles = [
 
 	['tsc-multi.json.tpl', 'file/tsc-multi.json.tpl', 'tsc-multi.json'],
 
+	['test/__root.ts', 'file/test/__root.ts'],
+
 ] as const;
 
 const _defaultCopyStaticFilesRootOnly = [
@@ -53,6 +55,22 @@ const _defaultCopyStaticFilesRootOnly = [
 
 ] as const;
 
+const _defaultCopyStaticFilesWsRootOnly = [
+
+	['lerna.json.tpl', 'file/lerna.json.tpl'],
+
+	['pnpm-workspace.yaml', 'file/pnpm-workspace.yaml'],
+
+	['tsconfig.json', 'file/tsconfig.json.tpl'],
+
+	['tsc-multi.json.tpl', 'file/tsc-multi.json.tpl', 'tsc-multi.json'],
+
+	['__root_ws.ts', 'file/ws-root/__root_ws.ts'],
+
+] as const;
+
 export const defaultCopyStaticFiles = Object.freeze(_defaultCopyStaticFiles) as any as IStaticFilesMapArray<_Key<typeof _defaultCopyStaticFiles>>;
 
 export const defaultCopyStaticFilesRootOnly = Object.freeze(_defaultCopyStaticFilesRootOnly) as any as IStaticFilesMapArray<_Key<typeof _defaultCopyStaticFilesRootOnly>>;
+
+export const defaultCopyStaticFilesWsRootOnly = Object.freeze(_defaultCopyStaticFilesWsRootOnly) as any as IStaticFilesMapArray<_Key<typeof _defaultCopyStaticFilesWsRootOnly>>;

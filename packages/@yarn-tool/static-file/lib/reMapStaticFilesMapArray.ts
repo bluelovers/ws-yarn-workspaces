@@ -2,6 +2,7 @@ import { IStaticFiles, IStaticFilesKey, IStaticFilesMapArray, IStaticFilesMapArr
 import { parseStaticMap } from './parseStaticMap';
 import { getRowOfStaticFilesMapArray } from './getRowOfStaticFilesMapArray';
 import { replaceTargetOfStaticFilesMapArrayEntry } from './replaceTargetOfStaticFilesMapArrayEntry';
+import { array_unique_overwrite } from 'array-hyper-unique';
 
 export function reMapStaticFilesMapArray<T extends IStaticFiles<string>, N extends string>(file_map: T,
 	replaceMap: Record<N, IStaticFilesKey<T>>,
@@ -23,5 +24,5 @@ export function reMapStaticFilesMapArray<T extends IStaticFiles<string>, N exten
 		}, [] as IStaticFilesMapArray<N>)
 	;
 
-	return arr.concat(ls as any) as IStaticFilesMapArray<IStaticFilesKey<T> | N>
+	return array_unique_overwrite(arr.concat(ls as any)) as IStaticFilesMapArray<IStaticFilesKey<T> | N>
 }

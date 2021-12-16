@@ -1,7 +1,7 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "module": "CommonJS",
+    "module": "node12",
     "noEmit": true,
     "declaration": false,
     "noUnusedParameters": false,
