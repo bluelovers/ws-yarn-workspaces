@@ -28,6 +28,7 @@ Please see the individual package changelogs for what's new:
 * 🌏 [`@yarn-tool/path-parents`](./packages/@yarn-tool/path-parents/CHANGELOG.md "packages/@yarn-tool/path-parents") *packages/@yarn-tool/path-parents*
 * 🌏 [`@yarn-tool/pkg-deps-add`](./packages/@yarn-tool/pkg-deps-add/CHANGELOG.md "packages/@yarn-tool/pkg-deps-add") *packages/@yarn-tool/pkg-deps-add*
 * 🌏 [`@yarn-tool/pkg-deps-util`](./packages/@yarn-tool/pkg-deps-util/CHANGELOG.md "packages/@yarn-tool/pkg-deps-util") *packages/@yarn-tool/pkg-deps-util*
+* 🌏 [`@yarn-tool/pkg-entry-util`](./packages/@yarn-tool/pkg-entry-util/CHANGELOG.md "packages/@yarn-tool/pkg-entry-util") *packages/@yarn-tool/pkg-entry-util*
 * 🌏 [`@yarn-tool/pkg-git-info`](./packages/@yarn-tool/pkg-git-info/CHANGELOG.md "packages/@yarn-tool/pkg-git-info") *packages/@yarn-tool/pkg-git-info*
 * 🌏 [`@yarn-tool/pkg-hosted-info`](./packages/@yarn-tool/pkg-hosted-info/CHANGELOG.md "packages/@yarn-tool/pkg-hosted-info") *packages/@yarn-tool/pkg-hosted-info*
 * 🌏 [`@yarn-tool/pkg-name-to-types`](./packages/@yarn-tool/pkg-name-to-types/CHANGELOG.md "packages/@yarn-tool/pkg-name-to-types") *packages/@yarn-tool/pkg-name-to-types*
