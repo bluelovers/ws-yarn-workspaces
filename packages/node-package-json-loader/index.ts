@@ -207,6 +207,11 @@ export class PackageJsonLoader<T extends IPackageJsonLike<IPackageJson> = IPacka
 				}
 			}
 		}
+
+		if (typeof self.data?.exports === 'object')
+		{
+			self.data.exports['./package.json'] ??= './package.json';
+		}
 	}
 
 	run(options: {

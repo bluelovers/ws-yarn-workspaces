@@ -96,6 +96,8 @@ class PackageJsonLoader {
         return this;
     }
     autofix() {
+        var _a, _b;
+        var _c;
         let self = this;
         let dir;
         if (self.file && (0, fs_extra_1.pathExistsSync)(dir = self.dir)) {
@@ -129,6 +131,9 @@ class PackageJsonLoader {
                     };
                 }
             }
+        }
+        if (typeof ((_a = self.data) === null || _a === void 0 ? void 0 : _a.exports) === 'object') {
+            (_b = (_c = self.data.exports)['./package.json']) !== null && _b !== void 0 ? _b : (_c['./package.json'] = './package.json');
         }
     }
     run(options = {}) {
