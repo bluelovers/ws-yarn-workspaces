@@ -5,6 +5,7 @@ import { fixBinPath } from './util';
 import path from 'path';
 import { IPackageJson } from '@ts-type/package-dts';
 import { resolvePackageJsonLocation } from '@yarn-tool/resolve-package';
+import { _pkgExportsAddPJsonEntryCore } from '@yarn-tool/pkg-entry-util/lib/field/exports';
 
 type IFileOrJson = Buffer | string | object | IPackageJson
 
@@ -208,10 +209,7 @@ export class PackageJsonLoader<T extends IPackageJsonLike<IPackageJson> = IPacka
 			}
 		}
 
-		if (typeof self.data?.exports === 'object')
-		{
-			self.data.exports['./package.json'] ??= './package.json';
-		}
+		_pkgExportsAddPJsonEntryCore(self.data?.exports);
 	}
 
 	run(options: {

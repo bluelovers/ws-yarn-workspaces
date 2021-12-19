@@ -8,13 +8,13 @@ const yargs_1 = tslib_1.__importDefault(require("yargs"));
 const fs_extra_1 = require("fs-extra");
 const upath2_1 = require("upath2");
 const workspaces_config_1 = require("workspaces-config");
-const npm_package_json_loader_1 = tslib_1.__importDefault(require("npm-package-json-loader"));
+const npm_package_json_loader_1 = require("npm-package-json-loader");
 const yargs_setting_1 = require("./lib/yargs-setting");
 const find_root_1 = require("@yarn-tool/find-root");
 const fs_1 = require("fs");
 const writeReadme_1 = require("./lib/writeReadme");
 const sort_package_json_scripts_1 = require("sort-package-json-scripts");
-const workspaces_project_1 = tslib_1.__importDefault(require("@yarn-tool/workspaces-project"));
+const workspaces_project_1 = require("@yarn-tool/workspaces-project");
 const path_is_same_1 = require("path-is-same");
 const node_modules_link_1 = require("@yarn-tool/node-modules-link");
 const init_path_1 = require("@yarn-tool/init-path");
@@ -23,13 +23,13 @@ const is_builtin_module_1 = require("@yarn-tool/is-builtin-module");
 const initWithPreserveDeps_1 = require("./lib/initWithPreserveDeps");
 const const_1 = require("@yarn-tool/static-file/lib/const");
 const static_file_1 = require("@yarn-tool/static-file");
-const logger_1 = tslib_1.__importDefault(require("debug-color2/logger"));
+const logger_1 = require("debug-color2/logger");
 const nameExistsInWorkspaces_1 = require("ws-pkg-list/lib/nameExistsInWorkspaces");
 const pkg_hosted_info_1 = require("@yarn-tool/pkg-hosted-info");
 const index_1 = require("@yarn-tool/setup-module-env/lib/preset/tsdx/index");
 //updateNotifier(__dirname);
 // avoid buf for idea
-logger_1.default.length;
+logger_1.consoleLogger.length;
 let cli = (0, yargs_setting_1.setupToYargs)(yargs_1.default);
 let argv = cli.argv._;
 //console.dir(cli.argv);
@@ -46,7 +46,7 @@ if (rootData === null || rootData === void 0 ? void 0 : rootData.hasWorkspace) {
     if (workspacesConfig.prefix.length) {
         workspacePrefix = workspacesConfig.prefix[0];
     }
-    wsProject = new workspaces_project_1.default(rootData.ws);
+    wsProject = new workspaces_project_1.WorkspacesProject(rootData.ws);
 }
 let { targetDir, targetName, scopedPackagePattern } = (0, init_path_1.getTargetDir)({
     // @ts-ignore
@@ -80,14 +80,14 @@ let old_pkg_name;
 const oldExists = (0, fs_1.existsSync)(pkg_file_path);
 let old_pkg;
 if (oldExists && (targetName === null || targetName === void 0 ? void 0 : targetName.length)) {
-    logger_1.default.error(`對於已存在的 Package 而言，禁止同時指定名稱`, targetName);
-    logger_1.default.error(pkg_file_path);
+    logger_1.consoleLogger.error(`對於已存在的 Package 而言，禁止同時指定名稱`, targetName);
+    logger_1.consoleLogger.error(pkg_file_path);
     process.exit(1);
 }
 if (!oldExists && (rootData === null || rootData === void 0 ? void 0 : rootData.hasWorkspace)) {
     if ((0, nameExistsInWorkspaces_1.nameExistsInWorkspaces)(targetName)) {
-        logger_1.default.error(`root:`, rootData.root);
-        logger_1.default.error(`目標名稱已存在於 Workspaces 內，請更換名稱:`, targetName);
+        logger_1.consoleLogger.error(`root:`, rootData.root);
+        logger_1.consoleLogger.error(`目標名稱已存在於 Workspaces 內，請更換名稱:`, targetName);
         process.exit(1);
     }
 }
@@ -100,7 +100,7 @@ if (!oldExists && targetName && scopedPackagePattern && (0, is_builtin_module_1.
 }
 else if (!targetName) {
     try {
-        old_pkg = (_a = new npm_package_json_loader_1.default(pkg_file_path)) === null || _a === void 0 ? void 0 : _a.data;
+        old_pkg = (_a = new npm_package_json_loader_1.PackageJsonLoader(pkg_file_path)) === null || _a === void 0 ? void 0 : _a.data;
         old_pkg_name = old_pkg.name;
     }
     catch (e) {
@@ -119,11 +119,11 @@ if (!cp.error) {
         skipCheckWorkspace: cli.argv.skipCheckWorkspace,
     });
     if (!(rootData === null || rootData === void 0 ? void 0 : rootData.root)) {
-        logger_1.default.error(`發生錯誤，初始化失敗`, targetName);
-        logger_1.default.error(targetDir);
+        logger_1.consoleLogger.error(`發生錯誤，初始化失敗`, targetName);
+        logger_1.consoleLogger.error(targetDir);
         process.exit(1);
     }
-    let pkg = new npm_package_json_loader_1.default(pkg_file_path);
+    let pkg = new npm_package_json_loader_1.PackageJsonLoader(pkg_file_path);
     if (pkg.exists()) {
         if (cli.argv.p && cli.argv.npmClient !== 'yarn') {
             pkg.data.private = true;

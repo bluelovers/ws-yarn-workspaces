@@ -8,6 +8,7 @@ const bind_decorator_1 = tslib_1.__importDefault(require("bind-decorator"));
 const util_1 = require("./util");
 const path_1 = tslib_1.__importDefault(require("path"));
 const resolve_package_1 = require("@yarn-tool/resolve-package");
+const exports_1 = require("@yarn-tool/pkg-entry-util/lib/field/exports");
 class PackageJsonLoader {
     constructor(fileOrJson, ...argv) {
         this._use = [];
@@ -96,8 +97,7 @@ class PackageJsonLoader {
         return this;
     }
     autofix() {
-        var _a, _b;
-        var _c;
+        var _a;
         let self = this;
         let dir;
         if (self.file && (0, fs_extra_1.pathExistsSync)(dir = self.dir)) {
@@ -132,9 +132,7 @@ class PackageJsonLoader {
                 }
             }
         }
-        if (typeof ((_a = self.data) === null || _a === void 0 ? void 0 : _a.exports) === 'object') {
-            (_b = (_c = self.data.exports)['./package.json']) !== null && _b !== void 0 ? _b : (_c['./package.json'] = './package.json');
-        }
+        (0, exports_1._pkgExportsAddPJsonEntryCore)((_a = self.data) === null || _a === void 0 ? void 0 : _a.exports);
     }
     run(options = {}) {
         if (options.autofix == null || options.autofix) {
