@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.65](https://github.com/bluelovers/node-package-json-loader/compare/npm-package-json-loader@1.0.64...npm-package-json-loader@1.0.65) (2021-12-19)
+
+
+### ✨　Features
+
+* auto add `./package.json` into `exports` ([f10b75d](https://github.com/bluelovers/node-package-json-loader/commit/f10b75d28a409b5651974e0682a074f93af6bf35))
+
+
+### 📦　Code Refactoring
+
+* `@yarn-tool/pkg-entry-util` ([b450ad0](https://github.com/bluelovers/node-package-json-loader/commit/b450ad0e274785b6d4d76e8b1bc47a1eeb65fc37))
+
+
+
+
+
 ## [1.0.64](https://github.com/bluelovers/node-package-json-loader/compare/npm-package-json-loader@1.0.63...npm-package-json-loader@1.0.64) (2021-12-16)
 
 
