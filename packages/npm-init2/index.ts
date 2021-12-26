@@ -300,7 +300,10 @@ if (!cp.error)
 					"test:jest": "jest --passWithNoTests",
 					"test:tsdx": "ynpx @bluelovers/tsdx test --passWithNoTests",
 					"build:dts": "ynpx dts-bundle-generator -o ./dist/index.d.ts ./src/index.ts --no-banner & echo build:dts",
+					"build:dts:copy": "copy .\\src\\index.d.ts .\\dist\\index.d.ts & echo build:dts",
+					"build:dts:tsc": "tsc --emitDeclarationOnly --declaration --noEmit false",
 					"build:tsdx": "ynpx @bluelovers/tsdx build --target node --name index",
+					"build:microbundle": "ynpx microbundle --target node",
 					"lint": "ynpx --quiet eslint -- **/*.ts",
 
 					...sharedScript,

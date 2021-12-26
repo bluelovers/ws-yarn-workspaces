@@ -35,8 +35,12 @@ function _requireResolve(name)
 const testExt = [
 	'ts',
 	'tsx',
+	'mts',
+	'cts',
 	//'js',
 	//'jsx',
+//	'mjs',
+//	'cjs',
 ].join('|');
 
 /**
@@ -47,8 +51,12 @@ module.exports = {
 	moduleFileExtensions: [
 		'ts',
 		'tsx',
+		'mts',
+		'cts',
 		'js',
 		'jsx',
+		'mjs',
+		'cjs',
 		'json',
 		'node',
 	],
@@ -75,7 +83,7 @@ module.exports = {
 		//"jest-num-close-with",
 	],
 	transform: {
-		'.(ts|tsx)$': _requireResolve('ts-jest'),
+		'.(ts|tsx|mts|cts)$': _requireResolve('ts-jest'),
 	},
 	verbose: true,
 	/**
