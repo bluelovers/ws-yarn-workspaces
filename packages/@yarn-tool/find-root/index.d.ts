@@ -1,5 +1,6 @@
 import { normalize as pathNormalize } from 'upath2';
 export interface IFindRootReturnType {
+    cwd: string;
     pkg: string;
     ws: string;
     hasWorkspace: boolean;

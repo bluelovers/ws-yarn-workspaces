@@ -11,6 +11,7 @@ import { sync as pkgDir } from 'pkg-dir';
 
 export interface IFindRootReturnType
 {
+	cwd: string,
 	pkg: string;
 	ws: string;
 	hasWorkspace: boolean;
@@ -44,11 +45,13 @@ export function findRoot(options: IFindRootOptions, _throwError?: boolean): IFin
 		throw new RangeError(`options.cwd is '${options.cwd}'`)
 	}
 
+	const cwd = pathNormalize(options.cwd);
+
 	let ws: string;
 
 	if (!options.skipCheckWorkspace)
 	{
-		ws = findYarnWorkspaceRoot(options.cwd);
+		ws = findYarnWorkspaceRoot(cwd);
 	}
 	else if (options.shouldHasWorkspaces)
 	{
@@ -57,13 +60,13 @@ export function findRoot(options: IFindRootOptions, _throwError?: boolean): IFin
 		})
 	}
 
-	let pkg = pkgDir(options.cwd);
+	let pkg = pkgDir(cwd);
 
 	const { throwError = _throwError } = options;
 
 	if (pkg == null && (throwError || options.shouldHasWorkspaces))
 	{
-		const err = errcode(new RangeError(`can't found package root from target directory '${options.cwd}'`), {
+		const err = errcode(new RangeError(`can't found package root from target directory '${cwd}'`), {
 			options,
 		});
 		throw err;
@@ -93,6 +96,7 @@ export function findRoot(options: IFindRootOptions, _throwError?: boolean): IFin
 	}
 
 	const rootData = {
+		cwd,
 		pkg,
 		ws,
 		hasWorkspace,

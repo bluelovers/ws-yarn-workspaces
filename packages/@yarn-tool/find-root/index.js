@@ -19,19 +19,20 @@ function findRoot(options, _throwError) {
     if (!((_a = options.cwd) === null || _a === void 0 ? void 0 : _a.length)) {
         throw new RangeError(`options.cwd is '${options.cwd}'`);
     }
+    const cwd = (0, upath2_1.normalize)(options.cwd);
     let ws;
     if (!options.skipCheckWorkspace) {
-        ws = (0, core_1.findWorkspaceRoot)(options.cwd);
+        ws = (0, core_1.findWorkspaceRoot)(cwd);
     }
     else if (options.shouldHasWorkspaces) {
         throw (0, err_code_1.default)(new RangeError(`shouldHasWorkspaces and skipCheckWorkspace should not enable at same time`), {
             options,
         });
     }
-    let pkg = (0, pkg_dir_1.sync)(options.cwd);
+    let pkg = (0, pkg_dir_1.sync)(cwd);
     const { throwError = _throwError } = options;
     if (pkg == null && (throwError || options.shouldHasWorkspaces)) {
-        const err = (0, err_code_1.default)(new RangeError(`can't found package root from target directory '${options.cwd}'`), {
+        const err = (0, err_code_1.default)(new RangeError(`can't found package root from target directory '${cwd}'`), {
             options,
         });
         throw err;
@@ -52,6 +53,7 @@ function findRoot(options, _throwError) {
         return null;
     }
     const rootData = {
+        cwd,
         pkg,
         ws,
         hasWorkspace,
