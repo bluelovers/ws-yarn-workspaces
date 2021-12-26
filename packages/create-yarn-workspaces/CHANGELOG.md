@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.134](https://github.com/bluelovers/create-yarn-workspaces/compare/create-yarn-workspaces@1.0.133...create-yarn-workspaces@1.0.134) (2021-12-26)
+
+
+### 🐛　Bug Fixes
+
+* bug when cwd not exists any ws or root ([52d00ad](https://github.com/bluelovers/create-yarn-workspaces/commit/52d00ad47e776bf8fdc9fc2b228fd7e405701ea1))
+
+
+
+
+
 ## [1.0.133](https://github.com/bluelovers/create-yarn-workspaces/compare/create-yarn-workspaces@1.0.132...create-yarn-workspaces@1.0.133) (2021-12-26)
 
 
