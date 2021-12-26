@@ -21,6 +21,15 @@ class ScopeYaml extends json_object_1.ScopeJsonObject {
     set json(json) {
         this[SymRaw].json = json;
     }
+    get value() {
+        var _a;
+        return (_a = this.json) === null || _a === void 0 ? void 0 : _a[this.field];
+    }
+    set value(value) {
+        const json = this.json;
+        json[this.field] = value;
+        this.json = json;
+    }
     existsFile() {
         return (0, fs_extra_1.pathExistsSync)(this.file);
     }

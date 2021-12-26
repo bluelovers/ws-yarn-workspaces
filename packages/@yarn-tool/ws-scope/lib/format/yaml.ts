@@ -27,6 +27,18 @@ export class ScopeYaml<K extends string = 'packages'> extends ScopeJsonObject<K>
 		this[SymRaw].json = json;
 	}
 
+	override get value()
+	{
+		return this.json?.[this.field]
+	}
+
+	override set value(value: string[])
+	{
+		const json = this.json;
+		json[this.field] = value;
+		this.json = json;
+	}
+
 	existsFile()
 	{
 		return pathExistsSync(this.file)
