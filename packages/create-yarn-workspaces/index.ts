@@ -3,17 +3,18 @@
  */
 
 import findYarnWorkspaceRoot from 'find-yarn-workspace-root2/core';
-import { resolve, join, basename } from 'path';
+import { resolve, join, basename } from 'upath2';
 import pkgDir from 'pkg-dir';
-import console from 'debug-color2/logger';
+import { consoleLogger as console } from 'debug-color2/logger';
 import { copyStaticFiles } from '@yarn-tool/static-file';
 import { existsSync, readFileSync, mkdirSync, writeFileSync } from 'fs-extra';
-import sortPackageJson from 'sort-package-json3';
+import { sortPackageJson } from 'sort-package-json3';
 import { getDefaultPackageJson } from './lib';
 import { isSamePath } from './lib/util';
 import { ILernaJson } from '@ts-type/package-dts/lerna-json';
 import { IPackageJson } from '@ts-type/package-dts/package-json';
-import getWsCopyStaticFiles from './lib/wsCopyStaticFiles';
+import { getWsCopyStaticFiles } from './lib/wsCopyStaticFiles';
+import { findRootLazy } from '@yarn-tool/find-root';
 
 export * from './lib/index';
 export * from './lib/util';
@@ -38,28 +39,15 @@ export function createYarnWorkspaces(cwd?: string, options: IOptions = {})
 		cwd = options.cwd;
 	}
 
-	if (!cwd)
-	{
-		cwd = process.cwd();
-	}
+	const rootData = findRootLazy({
+		cwd,
+	});
 
-	cwd = resolve(cwd);
+	cwd = rootData.cwd;
 
-	let root: string = pkgDir.sync(cwd);
+	let root: string = rootData.pkg;
 
-	let ws: string;
-
-	try
-	{
-		// @FIXME 一個奇怪的BUG 不使用 try 的話 在 NPX 底下就會出現無訊息的停止
-		ws = findYarnWorkspaceRoot(root);
-	}
-	catch (e)
-	{
-		console.log(e.toString());
-
-		ws = null;
-	}
+	let ws: string = rootData.ws;
 
 	let targetPath = resolve(root || cwd);
 
@@ -82,17 +70,16 @@ export function createYarnWorkspaces(cwd?: string, options: IOptions = {})
 
 	if (ws)
 	{
-		let bool: boolean = true;
+		let bool: boolean = !isSamePath(targetPath, ws);
 
 		console.warn(`detect exists workspace "${ws}"`);
 
-		if (options.ignoreParentWorkspaces)
+		if (bool)
 		{
-			bool = isSamePath(targetPath, ws);
-
-			if (!bool)
+			if (options.ignoreParentWorkspaces)
 			{
 				console.warn(`ignoreParentWorkspaces = true`);
+				bool = false;
 			}
 			else
 			{
@@ -188,6 +175,26 @@ export function _createYarnWorkspaces(targetPath: string, options: IOptions = {}
 		});
 
 		pkg.resolutions = pkg.resolutions || {};
+
+		Object.entries(getDefaultPackageJson(json.name))
+			.forEach(([field, value]) => {
+
+				if (field === 'scripts')
+				{
+					pkg.scripts ??= {};
+					pkg.scripts = {
+						...value,
+						...pkg.scripts,
+					}
+				}
+				else
+				{
+					pkg[field] ??= value
+				}
+
+			})
+		;
+
 	}
 
 	let s = JSON.stringify(sortPackageJson(pkg), null, 2);

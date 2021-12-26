@@ -48,6 +48,7 @@
   "resolutions": {},
   "dependencies": {
     "@ts-type/package-dts": "^1.0.56",
+    "@yarn-tool/find-root": "^1.0.58",
     "@yarn-tool/static-file": "^1.0.81",
     "debug-color2": "^1.2.7",
     "find-yarn-workspace-root2": "^1.2.35",
@@ -57,6 +58,7 @@
     "sort-package-json": "^1.53.1",
     "sort-package-json3": "^1.0.48",
     "tslib": "^2.3.1",
+    "upath2": "^3.1.10",
     "yargs": "^17.3.0"
   },
   "gitHead": "02f74c14e885366e9be773564ea43f7425f9d97a"
