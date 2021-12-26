@@ -15,6 +15,7 @@ import { ILernaJson } from '@ts-type/package-dts/lerna-json';
 import { IPackageJson } from '@ts-type/package-dts/package-json';
 import { getWsCopyStaticFiles } from './lib/wsCopyStaticFiles';
 import { findRootLazy } from '@yarn-tool/find-root';
+import { normalize as pathNormalize } from 'upath2';
 
 export * from './lib/index';
 export * from './lib/util';
@@ -39,15 +40,16 @@ export function createYarnWorkspaces(cwd?: string, options: IOptions = {})
 		cwd = options.cwd;
 	}
 
+	cwd ??= process.cwd();
+
 	const rootData = findRootLazy({
 		cwd,
 	});
 
-	cwd = rootData.cwd;
+	cwd = pathNormalize(rootData?.cwd ?? cwd);
 
-	let root: string = rootData.pkg;
-
-	let ws: string = rootData.ws;
+	let root: string = rootData?.pkg;
+	let ws: string = rootData?.ws;
 
 	let targetPath = resolve(root || cwd);
 

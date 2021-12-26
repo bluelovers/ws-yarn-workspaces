@@ -14,19 +14,22 @@ const lib_1 = require("./lib");
 const util_1 = require("./lib/util");
 const wsCopyStaticFiles_1 = require("./lib/wsCopyStaticFiles");
 const find_root_1 = require("@yarn-tool/find-root");
+const upath2_2 = require("upath2");
 tslib_1.__exportStar(require("./lib/index"), exports);
 tslib_1.__exportStar(require("./lib/util"), exports);
 function createYarnWorkspaces(cwd, options = {}) {
+    var _a;
     if (cwd && typeof cwd != 'string') {
         options = cwd;
         cwd = options.cwd;
     }
+    cwd !== null && cwd !== void 0 ? cwd : (cwd = process.cwd());
     const rootData = (0, find_root_1.findRootLazy)({
         cwd,
     });
-    cwd = rootData.cwd;
-    let root = rootData.pkg;
-    let ws = rootData.ws;
+    cwd = (0, upath2_2.normalize)((_a = rootData === null || rootData === void 0 ? void 0 : rootData.cwd) !== null && _a !== void 0 ? _a : cwd);
+    let root = rootData === null || rootData === void 0 ? void 0 : rootData.pkg;
+    let ws = rootData === null || rootData === void 0 ? void 0 : rootData.ws;
     let targetPath = (0, upath2_1.resolve)(root || cwd);
     options.debug && logger_1.consoleLogger.debug({
         targetPath,
