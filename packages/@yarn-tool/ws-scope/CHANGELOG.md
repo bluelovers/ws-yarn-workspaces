@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.8](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ws-scope@1.0.7...@yarn-tool/ws-scope@1.0.8) (2021-12-26)
+
+
+### 🐛　Bug Fixes
+
+* yaml not updated ([d05e0fb](https://github.com/bluelovers/ws-yarn-workspaces/commit/d05e0fb116ee1c5ff37698794d79efd1b00cc9db))
+
+
+
+
+
 ## [1.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ws-scope@1.0.6...@yarn-tool/ws-scope@1.0.7) (2021-12-26)
 
 **Note:** Version bump only for package @yarn-tool/ws-scope
