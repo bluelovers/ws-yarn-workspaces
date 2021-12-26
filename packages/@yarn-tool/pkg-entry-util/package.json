@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/pkg-entry-util",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "keywords": [
     "yarn",
@@ -52,7 +52,7 @@
   },
   "dependencies": {
     "@ts-type/package-dts": "^1.0.56",
-    "@yarn-tool/find-root": "^1.0.58",
+    "@yarn-tool/find-root": "^1.0.59",
     "fs-extra": "^10.0.0",
     "tslib": "^2.3.1"
   },

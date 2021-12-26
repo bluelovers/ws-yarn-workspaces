@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.133](https://github.com/bluelovers/create-yarn-workspaces/compare/create-yarn-workspaces@1.0.132...create-yarn-workspaces@1.0.133) (2021-12-26)
+
+
+### 🐛　Bug Fixes
+
+* `ignoreExistsPackage` not work ([5865591](https://github.com/bluelovers/create-yarn-workspaces/commit/5865591fe10fd5b29c4d8b010fa97dce65ffa199))
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([2915799](https://github.com/bluelovers/create-yarn-workspaces/commit/2915799b24c73c0116d5bd48eeb724944bb39fbe))
+
+
+
+
+
 ## [1.0.132](https://github.com/bluelovers/create-yarn-workspaces/compare/create-yarn-workspaces@1.0.131...create-yarn-workspaces@1.0.132) (2021-12-26)
 
 **Note:** Version bump only for package create-yarn-workspaces

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.57](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ws-changed@1.0.56...@yarn-tool/ws-changed@1.0.57) (2021-12-26)
+
+**Note:** Version bump only for package @yarn-tool/ws-changed
+
+
+
+
+
 ## [1.0.56](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ws-changed@1.0.55...@yarn-tool/ws-changed@1.0.56) (2021-12-16)
 
 
