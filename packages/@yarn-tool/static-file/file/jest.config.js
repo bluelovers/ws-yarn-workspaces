@@ -81,6 +81,11 @@ module.exports = {
 		//"jest-extended",
 		//"jest-extended-extra",
 		//"jest-num-close-with",
+		/**
+		 * https://medium.com/doctolib/how-to-run-the-same-jest-test-suite-across-several-platforms-jest-os-detection-plugin-included-f8113832482b
+		 * https://github.com/doctolib/jest-os-detection
+		 */
+		//'jest-os-detection',
 	],
 	transform: {
 		'.(ts|tsx|mts|cts)$': _requireResolve('ts-jest'),
