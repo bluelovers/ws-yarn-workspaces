@@ -69,3 +69,5 @@ jest.config.js
 !/file/test/*
 !/file/github
 !/file/github/*
+!/file/**/*.ts
+!/file/test/
