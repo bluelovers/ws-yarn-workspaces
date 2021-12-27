@@ -84,6 +84,11 @@ export class WorkspacesScope
 		return scope
 	}
 
+	sync()
+	{
+		return this.value.forEach(scope => this.add(scope))
+	}
+
 	save()
 	{
 		if (this._root_lerna_json.opened)

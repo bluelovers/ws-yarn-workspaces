@@ -57,6 +57,9 @@ class WorkspacesScope {
         this._root_pnpm_workspace_yaml.removeLazy(scope);
         return scope;
     }
+    sync() {
+        return this.value.forEach(scope => this.add(scope));
+    }
     save() {
         if (this._root_lerna_json.opened) {
             (0, sort_lerna_json_1.sortLernaJson)(this._root_lerna_json.json);
