@@ -42,6 +42,7 @@ Please see the individual package changelogs for what's new:
 * 🌏 [`@yarn-tool/semver-diff`](./packages/@yarn-tool/semver-diff/CHANGELOG.md "packages/@yarn-tool/semver-diff") *packages/@yarn-tool/semver-diff*
 * 🌏 [`@yarn-tool/setup-module-env`](./packages/@yarn-tool/setup-module-env/CHANGELOG.md "packages/@yarn-tool/setup-module-env") *packages/@yarn-tool/setup-module-env*
 * 🌏 [`@yarn-tool/shebang`](./packages/@yarn-tool/shebang/CHANGELOG.md "packages/@yarn-tool/shebang") *packages/@yarn-tool/shebang*
+* 🌏 [`@yarn-tool/sort-lerna-json`](./packages/@yarn-tool/sort-lerna-json/CHANGELOG.md "packages/@yarn-tool/sort-lerna-json") *packages/@yarn-tool/sort-lerna-json*
 * 🌏 [`@yarn-tool/static-file`](./packages/@yarn-tool/static-file/CHANGELOG.md "packages/@yarn-tool/static-file") *packages/@yarn-tool/static-file*
 * 🌏 [`@yarn-tool/table`](./packages/@yarn-tool/table/CHANGELOG.md "packages/@yarn-tool/table") *packages/@yarn-tool/table*
 * 🌏 [`@yarn-tool/tag`](./packages/@yarn-tool/tag/CHANGELOG.md "packages/@yarn-tool/tag") *packages/@yarn-tool/tag*
