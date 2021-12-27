@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.9](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ws-scope@1.0.8...@yarn-tool/ws-scope@1.0.9) (2021-12-27)
+
+
+### ✨　Features
+
+* sort lerna.json ([18d1872](https://github.com/bluelovers/ws-yarn-workspaces/commit/18d1872fd3412114ab197787c8dfd51bc0760a84))
+
+
+
+
+
 ## [1.0.8](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ws-scope@1.0.7...@yarn-tool/ws-scope@1.0.8) (2021-12-26)
 
 

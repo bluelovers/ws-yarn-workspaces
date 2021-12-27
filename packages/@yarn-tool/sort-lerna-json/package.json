@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/sort-lerna-json",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "sort lerna.json",
   "keywords": [
     "yarn",
@@ -59,8 +59,6 @@
     "sort-object-keys2": "^2.0.3",
     "tslib": "^2.3.1"
   },
-  "devDependencies": {},
-  "peerDependencies": {},
   "publishConfig": {
     "access": "public"
   },
