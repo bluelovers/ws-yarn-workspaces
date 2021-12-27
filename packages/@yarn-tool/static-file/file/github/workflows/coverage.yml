@@ -21,10 +21,11 @@ jobs:
           node-version: 16
       - name: install
         run: |
-          npm i -g typescript@next ts-jest
           yarn install --frozen-lockfile
-      - uses: artiomtr/jest-coverage-report-action@master
+          yarn add -W typescript@next jest ts-jest ts-node ynpx lerna
+      - uses: artiomtr/jest-coverage-report-action@v2.0-rc.6
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           package-manager: yarn
           #   threshold: 80 # optional parameter
+          test-script: npx jest --silent --ci --coverage=false --coverageReporters="text" --coverageReporters="text-summary"

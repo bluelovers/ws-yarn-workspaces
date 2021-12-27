@@ -94,9 +94,11 @@ module.exports = {
 	collectCoverage: false,
 	coveragePathIgnorePatterns: [
 		'/node_modules/',
-		'**/node_modules/',
-		'**/__snapshots__/',
-		'**/__tests__/',
+		'/__snapshots__/',
+		'/__tests__/',
+		//'**/node_modules/',
+		//'**/__snapshots__/',
+		//'**/__tests__/',
 	],
 	/**
 	 * https://github.com/facebook/jest/issues/9771#issuecomment-872764344
