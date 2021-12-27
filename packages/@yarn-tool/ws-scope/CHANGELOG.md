@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.10](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ws-scope@1.0.9...@yarn-tool/ws-scope@1.0.10) (2021-12-27)
+
+
+### ✨　Features
+
+* add `sync` method ([c58cb45](https://github.com/bluelovers/ws-yarn-workspaces/commit/c58cb45ef8aabd07bb2a1d8b461f1cae34a06ccb))
+
+
+
+
+
 ## [1.0.9](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ws-scope@1.0.8...@yarn-tool/ws-scope@1.0.9) (2021-12-27)
 
 
