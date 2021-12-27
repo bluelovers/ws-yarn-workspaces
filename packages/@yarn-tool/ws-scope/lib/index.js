@@ -7,6 +7,7 @@ const json_1 = require("./format/json");
 const yaml_1 = require("./format/yaml");
 const array_hyper_unique_1 = require("array-hyper-unique");
 const check_scope_1 = require("./util/check-scope");
+const sort_lerna_json_1 = require("@yarn-tool/sort-lerna-json");
 class WorkspacesScope {
     constructor(cwd) {
         this.rootData = (0, find_root_1.findRootLazy)({
@@ -57,6 +58,9 @@ class WorkspacesScope {
         return scope;
     }
     save() {
+        if (this._root_lerna_json.opened) {
+            (0, sort_lerna_json_1.sortLernaJson)(this._root_lerna_json.json);
+        }
         this._root_package_json.saveFile();
         this._root_lerna_json.saveFile();
         this._root_pnpm_workspace_yaml.saveFile();

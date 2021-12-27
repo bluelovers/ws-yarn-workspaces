@@ -4,6 +4,7 @@ import { ScopeJson } from './format/json';
 import { ScopeYaml } from './format/yaml';
 import { array_unique_overwrite } from 'array-hyper-unique';
 import { assertScopePath } from './util/check-scope';
+import { sortLernaJson } from '@yarn-tool/sort-lerna-json';
 
 export class WorkspacesScope
 {
@@ -85,6 +86,11 @@ export class WorkspacesScope
 
 	save()
 	{
+		if (this._root_lerna_json.opened)
+		{
+			sortLernaJson(this._root_lerna_json.json);
+		}
+
 		this._root_package_json.saveFile();
 		this._root_lerna_json.saveFile();
 		this._root_pnpm_workspace_yaml.saveFile();
