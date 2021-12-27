@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.82](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.81...@yarn-tool/static-file@1.0.82) (2021-12-27)
+
+
+### 🐛　Bug Fixes
+
+* Error: file not exists. `file\ws-root\__root_ws.ts` ([b472cef](https://github.com/bluelovers/ws-yarn-workspaces/commit/b472cefbce11fa67ade3f4c2922e1ec3e2c27dc6))
+
+
+
+
+
 ## [1.0.81](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.80...@yarn-tool/static-file@1.0.81) (2021-12-26)
 
 
