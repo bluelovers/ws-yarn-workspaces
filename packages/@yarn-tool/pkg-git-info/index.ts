@@ -10,6 +10,14 @@ export function getHostedGitInfo(o: ReturnType<typeof parseConfig>)
 	return HostedGitInfo.fromUrl(filterRemoteUrl(o))
 }
 
+export interface INpmHostedGitInfo
+{
+	bugs: string;
+	repository: string;
+	homepage: string;
+	_: HostedGitInfo;
+}
+
 export function npmHostedGitInfo(cwd?: string)
 {
 	let file = findConfigPathLocal(cwd)
@@ -24,7 +32,7 @@ export function npmHostedGitInfo(cwd?: string)
 	}
 }
 
-export function npmHostedGitInfoCore(info: HostedGitInfo)
+export function npmHostedGitInfoCore(info: HostedGitInfo): INpmHostedGitInfo
 {
 	return {
 		homepage: info.docs({

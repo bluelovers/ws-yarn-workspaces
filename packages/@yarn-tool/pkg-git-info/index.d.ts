@@ -4,16 +4,12 @@
 import HostedGitInfo from 'hosted-git-info';
 import { parseConfig } from '@git-lazy/info';
 export declare function getHostedGitInfo(o: ReturnType<typeof parseConfig>): HostedGitInfo;
-export declare function npmHostedGitInfo(cwd?: string): {
-    homepage: string;
+export interface INpmHostedGitInfo {
     bugs: string;
     repository: string;
-    _: HostedGitInfo;
-};
-export declare function npmHostedGitInfoCore(info: HostedGitInfo): {
     homepage: string;
-    bugs: string;
-    repository: string;
     _: HostedGitInfo;
-};
+}
+export declare function npmHostedGitInfo(cwd?: string): INpmHostedGitInfo;
+export declare function npmHostedGitInfoCore(info: HostedGitInfo): INpmHostedGitInfo;
 export default npmHostedGitInfo;
