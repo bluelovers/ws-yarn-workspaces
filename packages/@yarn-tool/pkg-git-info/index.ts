@@ -3,7 +3,7 @@
  */
 
 import HostedGitInfo from 'hosted-git-info';
-import { parseConfig, filterRemoteUrl, findConfigPathLocal } from '@git-lazy/info';
+import { filterRemoteUrl, findConfigPathLocal, parseConfig } from '@git-lazy/info';
 
 export function getHostedGitInfo(o: ReturnType<typeof parseConfig>)
 {
@@ -16,6 +16,18 @@ export interface INpmHostedGitInfo
 	repository: string;
 	homepage: string;
 	_: HostedGitInfo;
+}
+
+export function npmHostedGitInfoLazy(cwd?: string)
+{
+	try
+	{
+		return npmHostedGitInfo(cwd)
+	}
+	catch (e)
+	{
+
+	}
 }
 
 export function npmHostedGitInfo(cwd?: string)

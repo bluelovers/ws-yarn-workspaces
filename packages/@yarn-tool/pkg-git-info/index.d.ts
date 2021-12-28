@@ -10,6 +10,7 @@ export interface INpmHostedGitInfo {
     homepage: string;
     _: HostedGitInfo;
 }
+export declare function npmHostedGitInfoLazy(cwd?: string): INpmHostedGitInfo;
 export declare function npmHostedGitInfo(cwd?: string): INpmHostedGitInfo;
 export declare function npmHostedGitInfoCore(info: HostedGitInfo): INpmHostedGitInfo;
 export default npmHostedGitInfo;

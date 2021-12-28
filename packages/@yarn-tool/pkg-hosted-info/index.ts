@@ -1,7 +1,7 @@
 import { IPackageJson } from '@ts-type/package-dts/package-json';
 import { findRootLazy, IFindRootReturnType } from '@yarn-tool/find-root';
 import { relative } from 'upath2';
-import { INpmHostedGitInfo, npmHostedGitInfo } from '@yarn-tool/pkg-git-info';
+import { INpmHostedGitInfo, npmHostedGitInfoLazy } from '@yarn-tool/pkg-git-info';
 import { ITSPickExtra } from 'ts-type/lib/type/record';
 
 export interface IFillPkgHostedInfoOptions
@@ -10,6 +10,7 @@ export interface IFillPkgHostedInfoOptions
 	rootData?: IFindRootReturnType;
 	branch?: string;
 	hostedGitInfo?: INpmHostedGitInfo;
+	overwriteHostedGitInfo?: boolean;
 }
 
 export type IFillPkgHostedInfoFields = {
@@ -23,24 +24,39 @@ export type IFillPkgHostedInfoFields = {
 	}
 }
 
-export function _hostedGitInfoToFields<P extends Partial<IPackageJson>>(pkg: P, options: ITSPickExtra<IFillPkgHostedInfoOptions, 'hostedGitInfo' | 'rootData' | 'targetDir'>,
+export function _hostedGitInfoToFields<P extends Partial<IPackageJson>>(pkg: P,
+	options: ITSPickExtra<IFillPkgHostedInfoOptions, 'hostedGitInfo' | 'rootData' | 'targetDir'>,
 ): P & IFillPkgHostedInfoFields
 {
-	let { targetDir, rootData, branch, hostedGitInfo } = options;
+	let { targetDir, rootData, branch, hostedGitInfo, overwriteHostedGitInfo } = options;
 
-// @ts-ignore
-	pkg.homepage ||= hostedGitInfo.homepage;
+	if (overwriteHostedGitInfo)
+	{
+		pkg.homepage = hostedGitInfo.homepage;
+		pkg.bugs = {
+			url: hostedGitInfo.bugs,
+		};
+		pkg.repository = {
+			"type": "git",
+			url: hostedGitInfo.repository,
+		};
+	}
+	else
+	{
+		// @ts-ignore
+		pkg.homepage ||= hostedGitInfo.homepage;
 
-	// @ts-ignore
-	pkg.bugs ||= {
-		url: hostedGitInfo.bugs,
-	};
+		// @ts-ignore
+		pkg.bugs ||= {
+			url: hostedGitInfo.bugs,
+		};
 
-	// @ts-ignore
-	pkg.repository ||= {
-		"type": "git",
-		url: hostedGitInfo.repository,
-	};
+		// @ts-ignore
+		pkg.repository ||= {
+			"type": "git",
+			url: hostedGitInfo.repository,
+		};
+	}
 
 	if (rootData?.hasWorkspace)
 	{
@@ -61,7 +77,7 @@ export function fillPkgHostedInfo<P extends IPackageJson>(pkg: P,
 	options?: IFillPkgHostedInfoOptions,
 ): P & IFillPkgHostedInfoFields
 {
-	if (!pkg.homepage || !pkg.bugs || !pkg.repository)
+	if (options?.overwriteHostedGitInfo || !pkg.homepage || !pkg.bugs || !pkg.repository)
 	{
 		let { targetDir, rootData, branch, hostedGitInfo } = options ?? {};
 
@@ -71,21 +87,15 @@ export function fillPkgHostedInfo<P extends IPackageJson>(pkg: P,
 
 		targetDir ??= rootData.pkg;
 
-		try
-		{
-			hostedGitInfo ??= npmHostedGitInfo(targetDir);
+		hostedGitInfo ??= npmHostedGitInfoLazy(targetDir);
 
-			_hostedGitInfoToFields(pkg, {
-				hostedGitInfo,
-				rootData,
-				branch,
-				targetDir,
-			});
-		}
-		catch (e)
-		{
-
-		}
+		hostedGitInfo && _hostedGitInfoToFields(pkg, {
+			hostedGitInfo,
+			rootData,
+			branch,
+			targetDir,
+			overwriteHostedGitInfo: options?.overwriteHostedGitInfo,
+		});
 	}
 
 	return pkg as any

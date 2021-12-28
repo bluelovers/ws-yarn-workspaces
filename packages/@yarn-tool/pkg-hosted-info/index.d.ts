@@ -7,6 +7,7 @@ export interface IFillPkgHostedInfoOptions {
     rootData?: IFindRootReturnType;
     branch?: string;
     hostedGitInfo?: INpmHostedGitInfo;
+    overwriteHostedGitInfo?: boolean;
 }
 export declare type IFillPkgHostedInfoFields = {
     homepage: string;
