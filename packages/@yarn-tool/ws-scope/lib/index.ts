@@ -86,7 +86,7 @@ export class WorkspacesScope
 
 	sync()
 	{
-		return this.value.forEach(scope => this.add(scope))
+		return this.syncValue()
 	}
 
 	save()
