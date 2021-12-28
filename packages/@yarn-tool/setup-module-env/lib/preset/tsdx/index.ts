@@ -12,6 +12,7 @@ export function updatePackageJson<P extends IPackageJson>(pkg: P)
 	pkg.main = "dist/index.cjs";
 	pkg.module = "dist/index.esm.mjs";
 	pkg.types = pkg.typings = "dist/index.d.ts";
+	pkg.unpkg ??= "dist/index.umd.js";
 
 	pkg.exports ??= {};
 	pkg.exports['.'] ??= {};
