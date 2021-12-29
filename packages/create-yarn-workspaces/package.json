@@ -12,13 +12,13 @@
     "yarn",
     "yarn-ws-init"
   ],
-  "homepage": "https://github.com/bluelovers/create-yarn-workspaces#readme",
+  "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/create-yarn-workspaces#readme",
   "bugs": {
-    "url": "https://github.com/bluelovers/create-yarn-workspaces/issues"
+    "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bluelovers/create-yarn-workspaces.git"
+    "url": "git+https://github.com/bluelovers/ws-yarn-workspaces.git"
   },
   "license": "ISC",
   "author": "",

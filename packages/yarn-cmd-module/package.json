@@ -2,6 +2,14 @@
   "name": "yarn-cmd-module",
   "version": "1.0.12",
   "description": "",
+  "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/yarn-cmd-module#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/ws-yarn-workspaces.git"
+  },
   "license": "ISC",
   "author": "",
   "main": "index.js",

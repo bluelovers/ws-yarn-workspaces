@@ -2,6 +2,14 @@
   "name": "@yarn-tool/update-notifier",
   "version": "1.0.23",
   "description": "",
+  "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/update-notifier#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/ws-yarn-workspaces.git"
+  },
   "license": "ISC",
   "author": "",
   "main": "index.js",

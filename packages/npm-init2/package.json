@@ -14,13 +14,13 @@
     "workspaces",
     "yarn"
   ],
-  "homepage": "https://github.com/bluelovers/npm-init2#readme",
+  "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/npm-init2#readme",
   "bugs": {
-    "url": "https://github.com/bluelovers/npm-init2/issues"
+    "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bluelovers/npm-init2.git"
+    "url": "git+https://github.com/bluelovers/ws-yarn-workspaces.git"
   },
   "license": "ISC",
   "author": "bluelovers",

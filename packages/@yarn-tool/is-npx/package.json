@@ -2,7 +2,7 @@
   "name": "@yarn-tool/is-npx",
   "version": "1.0.9",
   "description": "",
-  "homepage": "https://github.com/bluelovers/ws-yarn-workspaces#readme",
+  "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/is-npx#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"
   },

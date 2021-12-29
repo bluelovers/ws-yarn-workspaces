@@ -10,13 +10,13 @@
     "workspaces",
     "yarn"
   ],
-  "homepage": "https://github.com/bluelovers/find-pkg-ws#readme",
+  "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/find-pkg-ws#readme",
   "bugs": {
-    "url": "https://github.com/bluelovers/find-pkg-ws/issues"
+    "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bluelovers/find-pkg-ws.git"
+    "url": "git+https://github.com/bluelovers/ws-yarn-workspaces.git"
   },
   "license": "ISC",
   "author": "",

@@ -16,13 +16,13 @@
     "sort",
     "yarn"
   ],
-  "homepage": "https://github.com/bluelovers/node-package-json-loader#readme",
+  "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/node-package-json-loader#readme",
   "bugs": {
-    "url": "https://github.com/bluelovers/node-package-json-loader/issues"
+    "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bluelovers/node-package-json-loader.git"
+    "url": "git+https://github.com/bluelovers/ws-yarn-workspaces.git"
   },
   "license": "ISC",
   "author": "",

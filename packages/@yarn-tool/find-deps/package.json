@@ -2,7 +2,7 @@
   "name": "@yarn-tool/find-deps",
   "version": "1.0.48",
   "description": "find deps tree in workspaces",
-  "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/find-deps-up#readme",
+  "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/find-deps#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"
   },
