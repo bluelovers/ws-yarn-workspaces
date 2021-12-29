@@ -10,6 +10,7 @@ Please see the individual package changelogs for what's new:
 * 🌏 [`@yarn-tool/find-deps`](./packages/@yarn-tool/find-deps/CHANGELOG.md "packages/@yarn-tool/find-deps") *packages/@yarn-tool/find-deps*
 * 🌏 [`@yarn-tool/find-root`](./packages/@yarn-tool/find-root/CHANGELOG.md "packages/@yarn-tool/find-root") *packages/@yarn-tool/find-root*
 * 🌏 [`@yarn-tool/find-tsconfig`](./packages/@yarn-tool/find-tsconfig/CHANGELOG.md "packages/@yarn-tool/find-tsconfig") *packages/@yarn-tool/find-tsconfig*
+* 🌏 [`@yarn-tool/fix-all`](./packages/@yarn-tool/fix-all/CHANGELOG.md "packages/@yarn-tool/fix-all") *packages/@yarn-tool/fix-all*
 * 🌏 [`@yarn-tool/fix-ws-links`](./packages/@yarn-tool/fix-ws-links/CHANGELOG.md "packages/@yarn-tool/fix-ws-links") *packages/@yarn-tool/fix-ws-links*
 * 🌏 [`@yarn-tool/fix-ws-pkgs-link`](./packages/@yarn-tool/fix-ws-pkgs-link/CHANGELOG.md "packages/@yarn-tool/fix-ws-pkgs-link") *packages/@yarn-tool/fix-ws-pkgs-link*
 * 🌏 [`@yarn-tool/get-paths-by-type`](./packages/@yarn-tool/get-paths-by-type/CHANGELOG.md "packages/@yarn-tool/get-paths-by-type") *packages/@yarn-tool/get-paths-by-type*
