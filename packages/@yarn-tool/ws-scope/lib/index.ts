@@ -84,6 +84,10 @@ export class WorkspacesScope
 		return scope
 	}
 
+	/**
+	 * @deprecated
+	 * @alias syncValue
+	 */
 	sync()
 	{
 		return this.syncValue()

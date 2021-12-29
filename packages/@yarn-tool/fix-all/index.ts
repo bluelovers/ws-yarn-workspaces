@@ -1,6 +1,7 @@
 import { findRootLazy } from '@yarn-tool/find-root';
 import { npmHostedGitInfoLazy } from '@yarn-tool/pkg-git-info';
 import { _fixRoot, _fixWsRoot } from './lib/root/index';
+import { _initPkgListableByRootData, _runEachPackages } from './lib/pkg/index';
 
 export interface INpmAutoFixAll
 {
@@ -46,6 +47,10 @@ export function npmAutoFixAll(cwd: string, options?: INpmAutoFixAll)
 			targetDir: rootData.root,
 		})
 	}
+
+	const list = _initPkgListableByRootData(rootData);
+
+	return _runEachPackages(list)
 }
 
 export default npmAutoFixAll

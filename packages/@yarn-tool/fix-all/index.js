@@ -4,6 +4,7 @@ exports.npmAutoFixAll = void 0;
 const find_root_1 = require("@yarn-tool/find-root");
 const pkg_git_info_1 = require("@yarn-tool/pkg-git-info");
 const index_1 = require("./lib/root/index");
+const index_2 = require("./lib/pkg/index");
 function npmAutoFixAll(cwd, options) {
     cwd !== null && cwd !== void 0 ? cwd : (cwd = process.cwd());
     const rootData = (0, find_root_1.findRootLazy)({
@@ -32,6 +33,8 @@ function npmAutoFixAll(cwd, options) {
             targetDir: rootData.root,
         });
     }
+    const list = (0, index_2._initPkgListableByRootData)(rootData);
+    return (0, index_2._runEachPackages)(list);
 }
 exports.npmAutoFixAll = npmAutoFixAll;
 exports.default = npmAutoFixAll;

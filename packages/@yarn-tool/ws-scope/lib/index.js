@@ -57,6 +57,10 @@ class WorkspacesScope {
         this._root_pnpm_workspace_yaml.removeLazy(scope);
         return scope;
     }
+    /**
+     * @deprecated
+     * @alias syncValue
+     */
     sync() {
         return this.syncValue();
     }
