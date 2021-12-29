@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.67](https://github.com/bluelovers/node-package-json-loader/compare/npm-package-json-loader@1.0.66...npm-package-json-loader@1.0.67) (2021-12-29)
+
+
+### ✨　Features
+
+* sort-package-json ([f4d5aeb](https://github.com/bluelovers/node-package-json-loader/commit/f4d5aebd088b1887781fb225fb5022266d80012f))
+
+
+
+
+
 ## [1.0.66](https://github.com/bluelovers/node-package-json-loader/compare/npm-package-json-loader@1.0.65...npm-package-json-loader@1.0.66) (2021-12-26)
 
 **Note:** Version bump only for package npm-package-json-loader

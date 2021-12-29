@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.5](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/setup-module-env@1.0.4...@yarn-tool/setup-module-env@1.0.5) (2021-12-29)
+
+
+### ✨　Features
+
+* unpkg ([a033315](https://github.com/bluelovers/ws-yarn-workspaces/commit/a0333156ace648ee4a7fa874bf910022e5f242c1))
+
+
+
+
+
 ## [1.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/setup-module-env@1.0.3...@yarn-tool/setup-module-env@1.0.4) (2021-12-06)
 
 

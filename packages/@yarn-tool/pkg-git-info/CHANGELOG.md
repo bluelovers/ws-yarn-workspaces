@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.24](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-git-info@1.0.23...@yarn-tool/pkg-git-info@1.0.24) (2021-12-29)
+
+
+### ✨　Features
+
+* add `overwriteHostedGitInfo` ([e3e9f50](https://github.com/bluelovers/ws-yarn-workspaces/commit/e3e9f5003b72cfabb851c96a3f5fa35735966ce3))
+
+
+### 📦　Code Refactoring
+
+* code splitting ([9f40a45](https://github.com/bluelovers/ws-yarn-workspaces/commit/9f40a455e2a355387f98949fb9dd002d4c54330f))
+
+
+
+
+
 ## [1.0.23](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-git-info@1.0.22...@yarn-tool/pkg-git-info@1.0.23) (2021-12-16)
 
 

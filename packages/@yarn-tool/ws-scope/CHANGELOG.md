@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.11](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ws-scope@1.0.10...@yarn-tool/ws-scope@1.0.11) (2021-12-29)
+
+
+### ✨　Features
+
+* sort-package-json ([f4d5aeb](https://github.com/bluelovers/ws-yarn-workspaces/commit/f4d5aebd088b1887781fb225fb5022266d80012f))
+
+
+### 🔖　Miscellaneous
+
+* . ([4c696ff](https://github.com/bluelovers/ws-yarn-workspaces/commit/4c696ffe958b9177b75c8c79a3ca9bf0d639ed64))
+* . ([6cef43e](https://github.com/bluelovers/ws-yarn-workspaces/commit/6cef43eebbaddf5278f005ff06125359fc8042f8))
+
+
+
+
+
 ## [1.0.10](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ws-scope@1.0.9...@yarn-tool/ws-scope@1.0.10) (2021-12-27)
 
 
