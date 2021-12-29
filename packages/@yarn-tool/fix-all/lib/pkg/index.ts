@@ -10,6 +10,7 @@ import { console } from 'debug-color2';
 import { ProgressEstimator } from 'progress-estimator';
 import { fillPkgHostedInfo, IFillPkgHostedInfoOptions } from '@yarn-tool/pkg-hosted-info';
 import { ITSRequiredPick } from 'ts-type/lib/type/record';
+import { sortPackageJson } from 'sort-package-json3';
 
 export function _handler(cwd: string, ...argv: Parameters<IOptionsPkgListable["handler"]>)
 {
@@ -67,6 +68,8 @@ export function _runEachPackagesAsync(list: IEntry[],
 					hostedGitInfo,
 					branch,
 				});
+
+				pkg.data = sortPackageJson(pkg.data);
 
 				pkg.autofix();
 				pkg.write();

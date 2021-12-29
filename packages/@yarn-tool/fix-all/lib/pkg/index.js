@@ -11,6 +11,7 @@ const cli_progress_1 = require("../util/cli-progress");
 const logger_1 = require("debug-color2/logger");
 const debug_color2_1 = require("debug-color2");
 const pkg_hosted_info_1 = require("@yarn-tool/pkg-hosted-info");
+const sort_package_json3_1 = require("sort-package-json3");
 function _handler(cwd, ...argv) {
     return {
         ...(0, ws_pkg_list_1.normalizeListableRowExtra)(argv[0], cwd),
@@ -43,6 +44,7 @@ function _runEachPackagesAsync(list, options) {
                 hostedGitInfo,
                 branch,
             });
+            pkg.data = (0, sort_package_json3_1.sortPackageJson)(pkg.data);
             pkg.autofix();
             pkg.write();
         })().catch(e => err.push(e)), row.name);

@@ -58,7 +58,7 @@ export function _hostedGitInfoToFields<P extends Partial<IPackageJson>>(pkg: P,
 		};
 	}
 
-	if (rootData?.hasWorkspace)
+	if (rootData?.hasWorkspace && !rootData?.isWorkspace)
 	{
 		branch ??= 'master';
 

@@ -1,4 +1,4 @@
-import { findRootLazy } from '@yarn-tool/find-root';
+import { findRoot, findRootLazy } from '@yarn-tool/find-root';
 import { npmHostedGitInfoLazy } from '@yarn-tool/pkg-git-info';
 import { _fixRoot, _fixWsRoot } from './lib/root/index';
 import { _initPkgListableByRootData, _runEachPackagesAsync } from './lib/pkg/index';
@@ -19,13 +19,20 @@ export function npmAutoFixAll(cwd: string, options?: INpmAutoFixAll)
 
 		consoleLogger.info(`cwd: ${cwd}`);
 
-		const rootData = findRootLazy({
+		let rootData = findRootLazy({
 			cwd,
 		});
 
 		if (!rootData?.root)
 		{
 			throw new Error(`Invalid workspaces / package: ${cwd}`)
+		}
+
+		if (rootData.hasWorkspace && !rootData.isWorkspace)
+		{
+			rootData = findRoot({
+				cwd: rootData.root,
+			});
 		}
 
 		console.log(`root:`, rootData.root);

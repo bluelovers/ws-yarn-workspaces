@@ -29,7 +29,7 @@ function _hostedGitInfoToFields(pkg, options) {
             url: hostedGitInfo.repository,
         });
     }
-    if (rootData === null || rootData === void 0 ? void 0 : rootData.hasWorkspace) {
+    if ((rootData === null || rootData === void 0 ? void 0 : rootData.hasWorkspace) && !(rootData === null || rootData === void 0 ? void 0 : rootData.isWorkspace)) {
         branch !== null && branch !== void 0 ? branch : (branch = 'master');
         let u = new URL(pkg.homepage);
         u.pathname += `/tree/${branch}/` + (0, upath2_1.relative)(rootData.ws, targetDir);

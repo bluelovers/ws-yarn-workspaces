@@ -12,11 +12,16 @@ function npmAutoFixAll(cwd, options) {
     return bluebird_1.default.resolve().then(() => {
         cwd !== null && cwd !== void 0 ? cwd : (cwd = process.cwd());
         logger_1.consoleLogger.info(`cwd: ${cwd}`);
-        const rootData = (0, find_root_1.findRootLazy)({
+        let rootData = (0, find_root_1.findRootLazy)({
             cwd,
         });
         if (!(rootData === null || rootData === void 0 ? void 0 : rootData.root)) {
             throw new Error(`Invalid workspaces / package: ${cwd}`);
+        }
+        if (rootData.hasWorkspace && !rootData.isWorkspace) {
+            rootData = (0, find_root_1.findRoot)({
+                cwd: rootData.root,
+            });
         }
         console.log(`root:`, rootData.root);
         console.log(`hasWorkspace:`, rootData.hasWorkspace);
