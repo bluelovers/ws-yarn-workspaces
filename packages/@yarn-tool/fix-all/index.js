@@ -46,7 +46,12 @@ function npmAutoFixAll(cwd, options) {
             });
         }
         const list = (0, index_2._initPkgListableByRootData)(rootData);
-        return (0, index_2._runEachPackagesAsync)(list, rootData);
+        return (0, index_2._runEachPackagesAsync)(list, {
+            rootData,
+            overwriteHostedGitInfo,
+            branch,
+            hostedGitInfo,
+        });
     }).then(() => void 0);
 }
 exports.npmAutoFixAll = npmAutoFixAll;

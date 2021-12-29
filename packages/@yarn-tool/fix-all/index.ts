@@ -68,7 +68,12 @@ export function npmAutoFixAll(cwd: string, options?: INpmAutoFixAll)
 
 		const list = _initPkgListableByRootData(rootData);
 
-		return _runEachPackagesAsync(list, rootData)
+		return _runEachPackagesAsync(list, {
+			rootData,
+			overwriteHostedGitInfo,
+			branch,
+			hostedGitInfo,
+		})
 	}).then(() => void 0 as void)
 }
 

@@ -54,12 +54,6 @@ export function _fixWsRoot(options: ITSRequiredPick<IFillPkgHostedInfoOptions, '
 		targetDir: options.rootData.ws,
 	});
 
-	if (runtime.hostedGitInfo?.homepage && options?.overwriteHostedGitInfo)
-	{
-		runtime.root_pkg_json.data.homepage = runtime.hostedGitInfo?.homepage;
-		runtime.root_pkg_json.write();
-	}
-
 	let wss = new WorkspacesScope(runtime.rootData.ws);
 	wss.syncValue();
 	wss.save();

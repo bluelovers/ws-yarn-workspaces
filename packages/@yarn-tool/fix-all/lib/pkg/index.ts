@@ -8,6 +8,8 @@ import { createProgressEstimator } from '../util/cli-progress';
 import { consoleLogger } from 'debug-color2/logger';
 import { console } from 'debug-color2';
 import { ProgressEstimator } from 'progress-estimator';
+import { fillPkgHostedInfo, IFillPkgHostedInfoOptions } from '@yarn-tool/pkg-hosted-info';
+import { ITSRequiredPick } from 'ts-type/lib/type/record';
 
 export function _handler(cwd: string, ...argv: Parameters<IOptionsPkgListable["handler"]>)
 {
@@ -19,8 +21,17 @@ export function _handler(cwd: string, ...argv: Parameters<IOptionsPkgListable["h
 
 export type IEntry = ReturnType<typeof _handler>
 
-export function _runEachPackagesAsync(list: IEntry[], rootData: IFindRootReturnType)
+export function _runEachPackagesAsync(list: IEntry[],
+	options: ITSRequiredPick<IFillPkgHostedInfoOptions, 'overwriteHostedGitInfo' | 'branch' | 'rootData' | 'hostedGitInfo'>,
+)
 {
+	const {
+		rootData,
+		overwriteHostedGitInfo,
+		hostedGitInfo,
+		branch,
+	} = options;
+
 	let logger: ProgressEstimator;
 
 	return Bluebird.resolve(list)
@@ -49,6 +60,13 @@ export function _runEachPackagesAsync(list: IEntry[], rootData: IFindRootReturnT
 				{
 					err.push(e);
 				}
+
+				fillPkgHostedInfo(pkg.data, {
+					targetDir: row.location,
+					overwriteHostedGitInfo,
+					hostedGitInfo,
+					branch,
+				});
 
 				pkg.autofix();
 				pkg.write();

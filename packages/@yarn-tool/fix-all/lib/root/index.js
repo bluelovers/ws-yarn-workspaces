@@ -35,7 +35,7 @@ function _fixRoot(options) {
 }
 exports._fixRoot = _fixRoot;
 function _fixWsRoot(options) {
-    var _a, _b, _c;
+    var _a;
     if (!((_a = options.rootData.ws) === null || _a === void 0 ? void 0 : _a.length)) {
         throw new Error(`Invalid workspaces`);
     }
@@ -43,10 +43,6 @@ function _fixWsRoot(options) {
         ...options,
         targetDir: options.rootData.ws,
     });
-    if (((_b = runtime.hostedGitInfo) === null || _b === void 0 ? void 0 : _b.homepage) && (options === null || options === void 0 ? void 0 : options.overwriteHostedGitInfo)) {
-        runtime.root_pkg_json.data.homepage = (_c = runtime.hostedGitInfo) === null || _c === void 0 ? void 0 : _c.homepage;
-        runtime.root_pkg_json.write();
-    }
     let wss = new ws_scope_1.WorkspacesScope(runtime.rootData.ws);
     wss.syncValue();
     wss.save();

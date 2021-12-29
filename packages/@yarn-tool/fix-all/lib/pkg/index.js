@@ -10,6 +10,7 @@ const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
 const cli_progress_1 = require("../util/cli-progress");
 const logger_1 = require("debug-color2/logger");
 const debug_color2_1 = require("debug-color2");
+const pkg_hosted_info_1 = require("@yarn-tool/pkg-hosted-info");
 function _handler(cwd, ...argv) {
     return {
         ...(0, ws_pkg_list_1.normalizeListableRowExtra)(argv[0], cwd),
@@ -17,7 +18,8 @@ function _handler(cwd, ...argv) {
     };
 }
 exports._handler = _handler;
-function _runEachPackagesAsync(list, rootData) {
+function _runEachPackagesAsync(list, options) {
+    const { rootData, overwriteHostedGitInfo, hostedGitInfo, branch, } = options;
     let logger;
     return bluebird_1.default.resolve(list)
         .tap(() => {
@@ -35,6 +37,12 @@ function _runEachPackagesAsync(list, rootData) {
             catch (e) {
                 err.push(e);
             }
+            (0, pkg_hosted_info_1.fillPkgHostedInfo)(pkg.data, {
+                targetDir: row.location,
+                overwriteHostedGitInfo,
+                hostedGitInfo,
+                branch,
+            });
             pkg.autofix();
             pkg.write();
         })().catch(e => err.push(e)), row.name);
