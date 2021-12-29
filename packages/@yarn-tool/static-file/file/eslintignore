@@ -24,3 +24,9 @@ bin/**/*
 
 *.tsbuildinfo
 
+/_*/
+/.pnp
+/.next/
+/out/
+/build
+/.*/
