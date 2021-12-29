@@ -1,4 +1,4 @@
-import { pathExistsSync, readJSONSync, writeFileSync } from 'fs-extra';
+import { pathExistsSync, writeFileSync } from 'fs-extra';
 import { sortPackageJson } from 'sort-package-json3';
 import bind from 'bind-decorator';
 import { fixBinPath } from './util';
@@ -6,6 +6,7 @@ import path from 'path';
 import { IPackageJson } from '@ts-type/package-dts';
 import { resolvePackageJsonLocation } from '@yarn-tool/resolve-package';
 import { _pkgExportsAddPJsonEntryCore } from '@yarn-tool/pkg-entry-util/lib/field/exports';
+import { readJSONSync, writeJSONSync } from '@bluelovers/fs-json';
 
 type IFileOrJson = Buffer | string | object | IPackageJson
 
@@ -255,7 +256,7 @@ export class PackageJsonLoader<T extends IPackageJsonLike<IPackageJson> = IPacka
 			throw new Error(`file is undefined`)
 		}
 
-		writeFileSync(this.file, this.stringify());
+		writeFileSync(this.file, this.stringify() + '\n');
 
 		return this;
 	}

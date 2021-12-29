@@ -1,5 +1,5 @@
 import { join } from "path";
-import findRoot from '@yarn-tool/find-root';
+import { findRoot } from '@yarn-tool/find-root';
 
 export function findPkgPath(cwd?: string): string
 {
@@ -8,15 +8,25 @@ export function findPkgPath(cwd?: string): string
 	}).root
 }
 
+export function findPkgModulePathCore(root: string): string
+{
+	return join(root, 'node_modules');
+}
+
+export function findPkgModuleCachePathCore(root: string): string
+{
+	return join(findPkgModulePathCore(root), '.cache');
+}
+
 /**
  * try get a pkg/node_modules
  */
 export function findPkgModulePath(cwd?: string): string
 {
-	return join(findPkgPath(cwd), 'node_modules');
+	return findPkgModulePathCore(findPkgPath(cwd));
 }
 
 export function findPkgModuleCachePath(cwd?: string): string
 {
-	return join(findPkgModulePath(cwd), '.cache');
+	return findPkgModuleCachePathCore(findPkgPath(cwd));
 }

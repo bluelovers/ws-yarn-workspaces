@@ -1,5 +1,6 @@
-import { pathExistsSync, readJSONSync, writeJSONSync } from 'fs-extra';
+import { pathExistsSync } from 'fs-extra';
 import { ScopeJsonObject } from './json-object';
+import { readJSONSync, writeJSONSync } from '@bluelovers/fs-json';
 
 export class ScopeJson<K extends string = 'workspaces'> extends ScopeJsonObject<K>
 {
@@ -23,6 +24,8 @@ export class ScopeJson<K extends string = 'workspaces'> extends ScopeJsonObject<
 	{
 		return this.opened && writeJSONSync(this.file, this.json, {
 			spaces: 2,
+			// @ts-ignore
+			finalEOL: true,
 		})
 	}
 

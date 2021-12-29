@@ -9,6 +9,7 @@ const util_1 = require("./util");
 const path_1 = tslib_1.__importDefault(require("path"));
 const resolve_package_1 = require("@yarn-tool/resolve-package");
 const exports_1 = require("@yarn-tool/pkg-entry-util/lib/field/exports");
+const fs_json_1 = require("@bluelovers/fs-json");
 class PackageJsonLoader {
     constructor(fileOrJson, ...argv) {
         this._use = [];
@@ -62,7 +63,7 @@ class PackageJsonLoader {
     }
     read(reload) {
         if (!this.loaded || reload) {
-            this.json = (0, fs_extra_1.readJSONSync)(this.file);
+            this.json = (0, fs_json_1.readJSONSync)(this.file);
         }
         this.loaded = true;
         return this;
@@ -158,7 +159,7 @@ class PackageJsonLoader {
         if (!this.file) {
             throw new Error(`file is undefined`);
         }
-        (0, fs_extra_1.writeFileSync)(this.file, this.stringify());
+        (0, fs_extra_1.writeFileSync)(this.file, this.stringify() + '\n');
         return this;
     }
     writeOnlyWhenLoaded() {

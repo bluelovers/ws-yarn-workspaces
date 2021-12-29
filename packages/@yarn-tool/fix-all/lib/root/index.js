@@ -6,6 +6,7 @@ const upath2_1 = require("upath2");
 const pkg_git_info_1 = require("@yarn-tool/pkg-git-info");
 const npm_package_json_loader_1 = require("npm-package-json-loader");
 const ws_scope_1 = require("@yarn-tool/ws-scope");
+const sort_package_json3_1 = require("sort-package-json3");
 function _fixRoot(options) {
     let { rootData, branch, overwriteHostedGitInfo, hostedGitInfo, targetDir } = options;
     const root_file_package_json = (0, upath2_1.join)(targetDir, 'package.json');
@@ -19,6 +20,7 @@ function _fixRoot(options) {
             branch,
             overwriteHostedGitInfo,
         });
+        root_pkg_json.data = (0, sort_package_json3_1.sortPackageJson)(root_pkg_json.data);
         root_pkg_json.write();
     }
     return {
@@ -33,7 +35,7 @@ function _fixRoot(options) {
 }
 exports._fixRoot = _fixRoot;
 function _fixWsRoot(options) {
-    var _a;
+    var _a, _b, _c;
     if (!((_a = options.rootData.ws) === null || _a === void 0 ? void 0 : _a.length)) {
         throw new Error(`Invalid workspaces`);
     }
@@ -41,6 +43,10 @@ function _fixWsRoot(options) {
         ...options,
         targetDir: options.rootData.ws,
     });
+    if (((_b = runtime.hostedGitInfo) === null || _b === void 0 ? void 0 : _b.homepage) && (options === null || options === void 0 ? void 0 : options.overwriteHostedGitInfo)) {
+        runtime.root_pkg_json.data.homepage = (_c = runtime.hostedGitInfo) === null || _c === void 0 ? void 0 : _c.homepage;
+        runtime.root_pkg_json.write();
+    }
     let wss = new ws_scope_1.WorkspacesScope(runtime.rootData.ws);
     wss.syncValue();
     wss.save();

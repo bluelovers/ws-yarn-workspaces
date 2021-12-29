@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sortLernaJsonFile = exports.sortLernaJson = exports.sortLernaJsonCommand = exports.sortLernaJsonCommandEntry = void 0;
 const sort_object_keys2_1 = require("sort-object-keys2");
-const fs_extra_1 = require("fs-extra");
+const fs_json_1 = require("@bluelovers/fs-json");
 function sortLernaJsonCommandEntry(value) {
     return (0, sort_object_keys2_1.sortObjectKeys)(value, {
         keys: [
@@ -50,7 +50,7 @@ function sortLernaJson(json) {
 }
 exports.sortLernaJson = sortLernaJson;
 function sortLernaJsonFile(file) {
-    return (0, fs_extra_1.writeJSONSync)(file, sortLernaJson((0, fs_extra_1.readJSONSync)(file)), {
+    return (0, fs_json_1.writeJSONSync)(file, sortLernaJson((0, fs_json_1.readJSONSync)(file)), {
         spaces: 2,
     });
 }

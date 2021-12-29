@@ -1,7 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports._initPkgListableByRootData = exports._runEachPackages = exports._handler = void 0;
+exports._initPkgListableByRootData = exports._runEachPackagesAsync = exports._handler = void 0;
+const tslib_1 = require("tslib");
 const ws_pkg_list_1 = require("ws-pkg-list");
+const npm_package_json_loader_1 = require("npm-package-json-loader");
+const pkg_entry_util_1 = require("@yarn-tool/pkg-entry-util");
+const lazy_aggregate_error_1 = require("lazy-aggregate-error");
+const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
+const cli_progress_1 = require("../util/cli-progress");
+const logger_1 = require("debug-color2/logger");
+const debug_color2_1 = require("debug-color2");
 function _handler(cwd, ...argv) {
     return {
         ...(0, ws_pkg_list_1.normalizeListableRowExtra)(argv[0], cwd),
@@ -9,13 +17,37 @@ function _handler(cwd, ...argv) {
     };
 }
 exports._handler = _handler;
-function _runEachPackages(list) {
-    return list.slice(0, 1)
-        .forEach(row => {
-        console.dir(row);
+function _runEachPackagesAsync(list, rootData) {
+    let logger;
+    return bluebird_1.default.resolve(list)
+        .tap(() => {
+        logger = (0, cli_progress_1.createProgressEstimator)(rootData.root);
+        logger_1.consoleLogger.info(`auto check/fix packages`);
+    })
+        .mapSeries(async (row) => {
+        //console.dir(row);
+        const err = new lazy_aggregate_error_1.AggregateErrorExtra();
+        const promiseLogger = logger((async () => {
+            const pkg = new npm_package_json_loader_1.PackageJsonLoader(row.manifestLocation);
+            try {
+                (0, pkg_entry_util_1.pkgExportsVerify)(pkg.data);
+            }
+            catch (e) {
+                err.push(e);
+            }
+            pkg.autofix();
+            pkg.write();
+        })().catch(e => err.push(e)), row.name);
+        return promiseLogger
+            .catch(e => err.push(e))
+            .then(() => {
+            if (err.length) {
+                debug_color2_1.console.error(err.toString());
+            }
+        });
     });
 }
-exports._runEachPackages = _runEachPackages;
+exports._runEachPackagesAsync = _runEachPackagesAsync;
 function _initPkgListableByRootData(rootData) {
     let cwd = rootData.root;
     if (rootData.hasWorkspace) {

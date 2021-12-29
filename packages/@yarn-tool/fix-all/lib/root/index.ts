@@ -4,6 +4,7 @@ import { join } from 'upath2';
 import { npmHostedGitInfoLazy } from '@yarn-tool/pkg-git-info';
 import { PackageJsonLoader } from 'npm-package-json-loader';
 import { WorkspacesScope } from '@yarn-tool/ws-scope';
+import { sortPackageJson } from 'sort-package-json3';
 
 export function _fixRoot(options: Required<IFillPkgHostedInfoOptions>)
 {
@@ -24,6 +25,8 @@ export function _fixRoot(options: Required<IFillPkgHostedInfoOptions>)
 			branch,
 			overwriteHostedGitInfo,
 		});
+
+		root_pkg_json.data = sortPackageJson(root_pkg_json.data);
 
 		root_pkg_json.write();
 	}
@@ -50,6 +53,12 @@ export function _fixWsRoot(options: ITSRequiredPick<IFillPkgHostedInfoOptions, '
 		...options,
 		targetDir: options.rootData.ws,
 	});
+
+	if (runtime.hostedGitInfo?.homepage && options?.overwriteHostedGitInfo)
+	{
+		runtime.root_pkg_json.data.homepage = runtime.hostedGitInfo?.homepage;
+		runtime.root_pkg_json.write();
+	}
 
 	let wss = new WorkspacesScope(runtime.rootData.ws);
 	wss.syncValue();

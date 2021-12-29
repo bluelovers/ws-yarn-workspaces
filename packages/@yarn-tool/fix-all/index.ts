@@ -1,7 +1,9 @@
 import { findRootLazy } from '@yarn-tool/find-root';
 import { npmHostedGitInfoLazy } from '@yarn-tool/pkg-git-info';
 import { _fixRoot, _fixWsRoot } from './lib/root/index';
-import { _initPkgListableByRootData, _runEachPackages } from './lib/pkg/index';
+import { _initPkgListableByRootData, _runEachPackagesAsync } from './lib/pkg/index';
+import { consoleLogger } from 'debug-color2/logger';
+import Bluebird from 'bluebird';
 
 export interface INpmAutoFixAll
 {
@@ -11,46 +13,63 @@ export interface INpmAutoFixAll
 
 export function npmAutoFixAll(cwd: string, options?: INpmAutoFixAll)
 {
-	cwd ??= process.cwd();
-
-	const rootData = findRootLazy({
-		cwd,
-	});
-
-	if (!rootData?.root)
+	return Bluebird.resolve().then(() =>
 	{
-		throw new Error(`Invalid workspaces / package: ${cwd}`)
-	}
+		cwd ??= process.cwd();
 
-	let { branch, overwriteHostedGitInfo } = options ?? {};
+		consoleLogger.info(`cwd: ${cwd}`);
 
-	cwd = rootData.cwd;
+		const rootData = findRootLazy({
+			cwd,
+		});
 
-	const hostedGitInfo = npmHostedGitInfoLazy(cwd);
+		if (!rootData?.root)
+		{
+			throw new Error(`Invalid workspaces / package: ${cwd}`)
+		}
 
-	if (rootData.hasWorkspace)
-	{
-		_fixWsRoot({
-			rootData,
-			hostedGitInfo,
-			branch,
-			overwriteHostedGitInfo,
-		})
-	}
-	else
-	{
-		_fixRoot({
-			rootData,
-			hostedGitInfo,
-			branch,
-			overwriteHostedGitInfo,
-			targetDir: rootData.root,
-		})
-	}
+		console.log(`root:`, rootData.root);
+		console.log(`hasWorkspace:`, rootData.hasWorkspace);
 
-	const list = _initPkgListableByRootData(rootData);
+		let { branch, overwriteHostedGitInfo } = options ?? {};
 
-	return _runEachPackages(list)
+		cwd = rootData.cwd;
+
+		consoleLogger.info(`check git info`);
+
+		const hostedGitInfo = npmHostedGitInfoLazy(cwd);
+
+		console.log(`homepage:`, hostedGitInfo.homepage);
+		console.log(`repository:`, hostedGitInfo.repository);
+
+		consoleLogger.info(`auto fix root of workspaces / package`);
+
+		console.log(`root:`, rootData.root);
+
+		if (rootData.hasWorkspace)
+		{
+			_fixWsRoot({
+				rootData,
+				hostedGitInfo,
+				branch,
+				overwriteHostedGitInfo,
+			})
+		}
+		else
+		{
+			_fixRoot({
+				rootData,
+				hostedGitInfo,
+				branch,
+				overwriteHostedGitInfo,
+				targetDir: rootData.root,
+			})
+		}
+
+		const list = _initPkgListableByRootData(rootData);
+
+		return _runEachPackagesAsync(list, rootData)
+	}).then(() => void 0 as void)
 }
 
 export default npmAutoFixAll
