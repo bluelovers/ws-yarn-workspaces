@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-all@1.0.1...@yarn-tool/fix-all@1.0.2) (2021-12-29)
+
+
+### 🐛　Bug Fixes
+
+* root ([998d010](https://github.com/bluelovers/ws-yarn-workspaces/commit/998d010dff5e6203f7fc8228f1591b9c9b9e0c09))
+* homepage ([c606ec3](https://github.com/bluelovers/ws-yarn-workspaces/commit/c606ec33881919df58b5319cb4ef06974cf0d8bd))
+
+
+
+
+
 ## 1.0.1 (2021-12-29)
 
 

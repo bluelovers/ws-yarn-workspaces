@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.33](https://github.com/bluelovers/ws-yarn-workspaces/compare/find-pkg-ws@1.0.32...find-pkg-ws@1.0.33) (2021-12-29)
+
+
+### ♻️　Chores
+
+* update package.json ([391e340](https://github.com/bluelovers/ws-yarn-workspaces/commit/391e340b2d0f763f766d59ff15cf78f5a869c163))
+
+
+
+
+
 ## [1.0.32](https://github.com/bluelovers/find-pkg-ws/compare/find-pkg-ws@1.0.31...find-pkg-ws@1.0.32) (2021-12-16)
 
 

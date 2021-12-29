@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.9](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-hosted-info@1.0.8...@yarn-tool/pkg-hosted-info@1.0.9) (2021-12-29)
+
+
+### 🐛　Bug Fixes
+
+* root ([998d010](https://github.com/bluelovers/ws-yarn-workspaces/commit/998d010dff5e6203f7fc8228f1591b9c9b9e0c09))
+
+
+
+
+
 ## [1.0.8](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-hosted-info@1.0.7...@yarn-tool/pkg-hosted-info@1.0.8) (2021-12-29)
 
 

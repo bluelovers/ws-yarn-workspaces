@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.66](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/check-pkg-bin@1.0.65...@yarn-tool/check-pkg-bin@1.0.66) (2021-12-29)
+
+**Note:** Version bump only for package @yarn-tool/check-pkg-bin
+
+
+
+
+
 ## [1.0.65](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/check-pkg-bin@1.0.64...@yarn-tool/check-pkg-bin@1.0.65) (2021-12-26)
 
 

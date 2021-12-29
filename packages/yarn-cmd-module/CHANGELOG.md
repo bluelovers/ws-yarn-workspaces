@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.13](https://github.com/bluelovers/ws-yarn-workspaces/compare/yarn-cmd-module@1.0.12...yarn-cmd-module@1.0.13) (2021-12-29)
+
+
+### ♻️　Chores
+
+* update package.json ([391e340](https://github.com/bluelovers/ws-yarn-workspaces/commit/391e340b2d0f763f766d59ff15cf78f5a869c163))
+
+
+
+
+
 ## [1.0.12](https://github.com/bluelovers/ws-yarn-workspaces/compare/yarn-cmd-module@1.0.11...yarn-cmd-module@1.0.12) (2021-12-16)
 
 
