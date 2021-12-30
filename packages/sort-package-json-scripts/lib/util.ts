@@ -55,6 +55,7 @@ export const defaultNpmScriptsOrder = new Set([
 	'restart',
 	'stop',
 
+	'review',
 	'coverage',
 	'lint',
 	'test',

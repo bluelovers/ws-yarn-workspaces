@@ -16,6 +16,9 @@ function getDefaultPackageJson(name) {
         "scripts": {
             "test:all": "lerna run test --concurrency 1",
             "build:all": "lerna run build --concurrency 1",
+            "review:all": "lerna run review --concurrency 1",
+            "coverage:all": "lerna run coverage --concurrency 1",
+            "lint:all": "lerna run lint --concurrency 1",
             "preversion": "yt ws run test",
             "lerna:publish": "yarn run prepublishOnly:root && lerna publish && yarn run postpublishOnly",
             "lerna:publish:yes": "yarn run prepublishOnly:root && lerna publish --yes --bump patch && yarn run postpublishOnly",

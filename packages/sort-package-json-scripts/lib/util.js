@@ -48,6 +48,7 @@ exports.defaultNpmScriptsOrder = new Set([
     'dev',
     'restart',
     'stop',
+    'review',
     'coverage',
     'lint',
     'test',

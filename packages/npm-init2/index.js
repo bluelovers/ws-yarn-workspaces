@@ -162,6 +162,10 @@ if (!cp.error) {
             'prepublishOnly',
             'postversion',
             'publish',
+            'prepare',
+            'prepack',
+            'pack',
+            'postpack',
             'prepublish',
             'postpublish',
             'postpublishOnly',
@@ -225,7 +229,11 @@ if (!cp.error) {
                 "build:dts:tsc": "tsc --emitDeclarationOnly --declaration --noEmit false",
                 "build:tsdx": "ynpx @bluelovers/tsdx build --target node --name index",
                 "build:microbundle": "ynpx microbundle --target node",
-                "lint": "ynpx --quiet eslint -- **/*.ts",
+                "lint": "yarn run lint:eslint",
+                "lint:eslint": "ynpx eslint --ext .ts,.tsx,.mts,.cts ./",
+                "review": "yarn run review:coverage",
+                "review:test": "yarn run lint && yarn run test",
+                "review:coverage": "yarn run lint && yarn run coverage",
                 ...sharedScript,
             })
                 .forEach(([k, v]) => {
