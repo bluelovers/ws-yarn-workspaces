@@ -59,7 +59,7 @@
     "semver": "^7.3.5",
     "ts-type": "^2.1.2",
     "tslib": "^2.3.1",
-    "upath2": "^3.1.10"
+    "upath2": "^3.1.12"
   },
   "publishConfig": {
     "access": "public"

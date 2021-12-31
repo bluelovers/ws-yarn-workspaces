@@ -1,12 +1,13 @@
 import { pathExistsSync, writeFileSync } from 'fs-extra';
 import { sortPackageJson } from 'sort-package-json3';
 import bind from 'bind-decorator';
-import { fixBinPath } from './util';
 import path from 'path';
 import { IPackageJson } from '@ts-type/package-dts';
 import { resolvePackageJsonLocation } from '@yarn-tool/resolve-package';
 import { _pkgExportsAddPJsonEntryCore } from '@yarn-tool/pkg-entry-util/lib/field/exports';
 import { readJSONSync, writeJSONSync } from '@bluelovers/fs-json';
+import { fixPublishConfig } from '@yarn-tool/pkg-entry-util/lib/field/publishConfig';
+import { fixBinPath, fixPkgBinField } from '@yarn-tool/pkg-entry-util/lib/field/bin';
 
 type IFileOrJson = Buffer | string | object | IPackageJson
 
@@ -166,47 +167,8 @@ export class PackageJsonLoader<T extends IPackageJsonLike<IPackageJson> = IPacka
 		{
 			if (self.data)
 			{
-				if (self.data.bin)
-				{
-					if (typeof self.data.bin === 'string')
-					{
-						let bin_new = fixBinPath(self.data.bin, dir);
-
-						if (bin_new)
-						{
-							// @ts-ignore
-							self.data.bin = bin_new;
-						}
-					}
-					else if (typeof self.data.bin === 'object' && !Array.isArray(self.data.bin))
-					{
-						Object.keys(self.data.bin)
-							.forEach(function (key)
-							{
-								if (typeof self.data.bin[key] === 'string')
-								{
-									let bin_new = fixBinPath(self.data.bin[key], dir);
-
-									if (bin_new)
-									{
-										self.data.bin[key] = bin_new;
-									}
-								}
-							})
-						;
-					}
-				}
-
-				if (!self.data.publishConfig
-					&& self.data.name
-					&& /\//.test(self.data.name)
-					&& !self.data.private
-				)
-				{
-					self.data.publishConfig = {
-						access: "public",
-					};
-				}
+				fixPkgBinField(self.data, dir);
+				fixPublishConfig(self.data);
 			}
 		}
 

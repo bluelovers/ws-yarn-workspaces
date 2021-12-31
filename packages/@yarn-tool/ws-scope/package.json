@@ -59,9 +59,9 @@
     "@yarn-tool/sort-lerna-json": "^1.0.2",
     "array-hyper-unique": "^2.0.6",
     "fs-extra": "^10.0.0",
-    "path-in-dir": "^1.0.1",
+    "path-in-dir": "^1.0.3",
     "tslib": "^2.3.1",
-    "upath2": "^3.1.10",
+    "upath2": "^3.1.12",
     "yawn-yaml": "^1.5.0"
   },
   "devDependencies": {

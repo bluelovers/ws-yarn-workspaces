@@ -32,7 +32,7 @@
     "@ts-type/package-dts": "^1.0.56",
     "@yarn-tool/resolve-package": "^1.0.40",
     "tslib": "^2.3.1",
-    "upath2": "^3.1.10"
+    "upath2": "^3.1.12"
   },
   "publishConfig": {
     "access": "public"

@@ -5,11 +5,12 @@ const tslib_1 = require("tslib");
 const fs_extra_1 = require("fs-extra");
 const sort_package_json3_1 = require("sort-package-json3");
 const bind_decorator_1 = tslib_1.__importDefault(require("bind-decorator"));
-const util_1 = require("./util");
 const path_1 = tslib_1.__importDefault(require("path"));
 const resolve_package_1 = require("@yarn-tool/resolve-package");
 const exports_1 = require("@yarn-tool/pkg-entry-util/lib/field/exports");
 const fs_json_1 = require("@bluelovers/fs-json");
+const publishConfig_1 = require("@yarn-tool/pkg-entry-util/lib/field/publishConfig");
+const bin_1 = require("@yarn-tool/pkg-entry-util/lib/field/bin");
 class PackageJsonLoader {
     constructor(fileOrJson, ...argv) {
         this._use = [];
@@ -103,34 +104,8 @@ class PackageJsonLoader {
         let dir;
         if (self.file && (0, fs_extra_1.pathExistsSync)(dir = self.dir)) {
             if (self.data) {
-                if (self.data.bin) {
-                    if (typeof self.data.bin === 'string') {
-                        let bin_new = (0, util_1.fixBinPath)(self.data.bin, dir);
-                        if (bin_new) {
-                            // @ts-ignore
-                            self.data.bin = bin_new;
-                        }
-                    }
-                    else if (typeof self.data.bin === 'object' && !Array.isArray(self.data.bin)) {
-                        Object.keys(self.data.bin)
-                            .forEach(function (key) {
-                            if (typeof self.data.bin[key] === 'string') {
-                                let bin_new = (0, util_1.fixBinPath)(self.data.bin[key], dir);
-                                if (bin_new) {
-                                    self.data.bin[key] = bin_new;
-                                }
-                            }
-                        });
-                    }
-                }
-                if (!self.data.publishConfig
-                    && self.data.name
-                    && /\//.test(self.data.name)
-                    && !self.data.private) {
-                    self.data.publishConfig = {
-                        access: "public",
-                    };
-                }
+                (0, bin_1.fixPkgBinField)(self.data, dir);
+                (0, publishConfig_1.fixPublishConfig)(self.data);
             }
         }
         (0, exports_1._pkgExportsAddPJsonEntryCore)((_a = self.data) === null || _a === void 0 ? void 0 : _a.exports);
