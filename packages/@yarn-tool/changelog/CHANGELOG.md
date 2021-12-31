@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.65](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/changelog@1.0.64...@yarn-tool/changelog@1.0.65) (2021-12-31)
+
+
+### 📦　Code Refactoring
+
+* code splitting ([3236306](https://github.com/bluelovers/ws-yarn-workspaces/commit/323630687dcfaa851cd65176d446d55f74a1dd3b))
+
+
+
+
+
 ## [1.0.64](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/changelog@1.0.63...@yarn-tool/changelog@1.0.64) (2021-12-29)
 
 **Note:** Version bump only for package @yarn-tool/changelog

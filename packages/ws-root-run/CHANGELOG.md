@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.29](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-root-spawn@1.0.28...ws-root-spawn@1.0.29) (2021-12-31)
+
+**Note:** Version bump only for package ws-root-spawn
+
+
+
+
+
 ## [1.0.28](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-root-spawn@1.0.27...ws-root-spawn@1.0.28) (2021-12-16)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/fix-all",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "auto check/fix workspaces/package",
   "keywords": [
     "yarn",
@@ -54,22 +54,22 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/find-root": "^1.0.59",
+    "@yarn-tool/find-root": "^1.0.60",
     "@yarn-tool/pkg-git-info": "^1.0.24",
-    "@yarn-tool/pkg-hosted-info": "^1.0.9",
-    "@yarn-tool/ws-scope": "^1.0.11",
+    "@yarn-tool/pkg-hosted-info": "^1.0.10",
+    "@yarn-tool/ws-scope": "^1.0.12",
     "bluebird": "^3.7.2",
-    "cache-path": "^2.0.28",
+    "cache-path": "^2.0.29",
     "debug-color2": "^1.2.7",
     "fs-extra": "^10.0.0",
     "lazy-aggregate-error": "^1.0.6",
-    "npm-package-json-loader": "^1.0.69",
+    "npm-package-json-loader": "^1.0.70",
     "progress-estimator": "^0.3.0",
     "sort-package-json3": "^1.0.49",
     "ts-type": "^2.1.2",
     "tslib": "^2.3.1",
     "upath2": "^3.1.12",
-    "ws-pkg-list": "^1.0.72"
+    "ws-pkg-list": "^1.0.73"
   },
   "publishConfig": {
     "access": "public"

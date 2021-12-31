@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.204](https://github.com/bluelovers/ws-yarn-workspaces/compare/npm-init2@1.0.203...npm-init2@1.0.204) (2021-12-31)
+
+
+### 📦　Code Refactoring
+
+* code splitting ([3236306](https://github.com/bluelovers/ws-yarn-workspaces/commit/323630687dcfaa851cd65176d446d55f74a1dd3b))
+
+
+
+
+
 ## [1.0.203](https://github.com/bluelovers/ws-yarn-workspaces/compare/npm-init2@1.0.202...npm-init2@1.0.203) (2021-12-30)
 
 
