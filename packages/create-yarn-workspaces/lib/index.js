@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getDefaultTsconfig = exports.getDefaultPackageJson = void 0;
+const ws_root_scripts_1 = require("@yarn-tool/pkg-entry-util/lib/preset/ws-root-scripts");
+const dummy_1 = require("@yarn-tool/pkg-entry-util/lib/preset/dummy");
 function getDefaultPackageJson(name) {
     let json = {
         "name": name,
@@ -13,32 +15,7 @@ function getDefaultPackageJson(name) {
         keywords: [
             "create-by-yarn-tool",
         ],
-        "scripts": {
-            "test:all": "lerna run test --concurrency 1",
-            "build:all": "lerna run build --concurrency 1",
-            "review:all": "lerna run review --concurrency 1",
-            "coverage:all": "lerna run coverage --concurrency 1",
-            "lint:all": "lerna run lint --concurrency 1",
-            "preversion": "yt ws run test",
-            "lerna:publish": "yarn run prepublishOnly:root && lerna publish && yarn run postpublishOnly",
-            "lerna:publish:yes": "yarn run prepublishOnly:root && lerna publish --yes --bump patch && yarn run postpublishOnly",
-            "prepublishOnly:root": "yarn run prepublishOnly:check-bin && yarn run prepare:fix-ws-links",
-            "prepublishOnly:lockfile": "ynpx --quiet sync-lockfile",
-            "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
-            "prepare:fix-ws-links": "ynpx --quiet @yarn-tool/fix-ws-links",
-            "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
-            "ncu": "yarn run ncu:root && yarn run ncu:ws",
-            "ncu:root": "yarn-tool ncu -u",
-            "ncu:ws": "yarn-tool ws exec yarn-tool ncu -- -u",
-            "sort-package-json": "yarn run sort-package-json:root && yarn run sort-package-json:ws",
-            "sort-package-json:root": "yarn-tool sort",
-            "sort-package-json:ws": "yarn-tool ws sort",
-            "postpublishOnly": "yarn run postpublishOnly:ws-root-changelog & echo postpublishOnly",
-            "postpublishOnly:ws-root-changelog": "ynpx ws-root-changelog & git add ./CHANGELOG.md & git commit ./CHANGELOG.md -m \"chore(changelog): update changelog toc in workspaces root\" & echo update changelog toc in workspaces root",
-            "test": "yarn-tool ws run test",
-            "install:reset-lockfile": "yarn-tool install --reset-lockfile",
-            "tsc:showConfig": "ynpx get-current-tsconfig -p",
-        },
+        "scripts": (0, ws_root_scripts_1.defaultWorkspaceRootScripts)(),
         "dependencies": {
             "ts-type": "^1.2.32",
             "tslib": "^2.3.0",
@@ -60,20 +37,7 @@ function getDefaultPackageJson(name) {
         },
         "resolutions": {},
     };
-    [
-        'preversion',
-        'version',
-        'prepublishOnly',
-        'postversion',
-        'publish',
-        'prepublish',
-        'postpublish',
-        'postpublishOnly',
-    ].forEach(k => {
-        var _a;
-        var _b;
-        (_a = (_b = json.scripts)[k]) !== null && _a !== void 0 ? _a : (_b[k] = `echo workspaces ${k}`);
-    });
+    (0, dummy_1.fillDummyScripts)(json.scripts, 'workspaces');
     return json;
 }
 exports.getDefaultPackageJson = getDefaultPackageJson;

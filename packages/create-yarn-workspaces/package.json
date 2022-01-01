@@ -49,6 +49,7 @@
   "dependencies": {
     "@ts-type/package-dts": "^1.0.56",
     "@yarn-tool/find-root": "^1.0.60",
+    "@yarn-tool/pkg-entry-util": "^1.0.3",
     "@yarn-tool/static-file": "^1.0.87",
     "debug-color2": "^1.2.7",
     "find-yarn-workspace-root2": "^1.2.36",

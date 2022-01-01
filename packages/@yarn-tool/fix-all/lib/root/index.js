@@ -7,6 +7,8 @@ const pkg_git_info_1 = require("@yarn-tool/pkg-git-info");
 const npm_package_json_loader_1 = require("npm-package-json-loader");
 const ws_scope_1 = require("@yarn-tool/ws-scope");
 const sort_package_json3_1 = require("sort-package-json3");
+const ws_root_scripts_1 = require("@yarn-tool/pkg-entry-util/lib/preset/ws-root-scripts");
+const dummy_1 = require("@yarn-tool/pkg-entry-util/lib/preset/dummy");
 function _fixRoot(options) {
     let { rootData, branch, overwriteHostedGitInfo, hostedGitInfo, targetDir } = options;
     const root_file_package_json = (0, upath2_1.join)(targetDir, 'package.json');
@@ -43,6 +45,12 @@ function _fixWsRoot(options) {
         ...options,
         targetDir: options.rootData.ws,
     });
+    Object.entries((0, dummy_1.fillDummyScripts)((0, ws_root_scripts_1.defaultWorkspaceRootScripts)())).forEach(([key, value]) => {
+        var _a;
+        var _b;
+        (_a = (_b = runtime.root_pkg_json.data.scripts)[key]) !== null && _a !== void 0 ? _a : (_b[key] = value);
+    });
+    runtime.root_pkg_json.write();
     let wss = new ws_scope_1.WorkspacesScope(runtime.rootData.ws);
     wss.syncValue();
     wss.save();

@@ -27,6 +27,7 @@ const logger_1 = require("debug-color2/logger");
 const nameExistsInWorkspaces_1 = require("ws-pkg-list/lib/nameExistsInWorkspaces");
 const pkg_hosted_info_1 = require("@yarn-tool/pkg-hosted-info");
 const index_1 = require("@yarn-tool/setup-module-env/lib/preset/tsdx/index");
+const dummy_1 = require("@yarn-tool/pkg-entry-util/lib/preset/dummy");
 //updateNotifier(__dirname);
 // avoid buf for idea
 logger_1.consoleLogger.length;
@@ -156,23 +157,7 @@ if (!cp.error) {
             "test": `echo "Error: no test specified"`,
             "tsc:showConfig": "ynpx get-current-tsconfig -p",
         };
-        [
-            'preversion',
-            'version',
-            'prepublishOnly',
-            'postversion',
-            'publish',
-            'prepare',
-            'prepack',
-            'pack',
-            'postpack',
-            'prepublish',
-            'postpublish',
-            'postpublishOnly',
-        ].forEach(k => {
-            var _a;
-            (_a = sharedScript[k]) !== null && _a !== void 0 ? _a : (sharedScript[k] = `echo ${k}`);
-        });
+        (0, dummy_1.fillDummyScripts)(sharedScript);
         let preScripts = ["echo preversion"];
         /*
         if (rootData.isRoot || rootData.hasWorkspace && !wsProject.manifest.scripts?.['prepublishOnly:check-bin'])

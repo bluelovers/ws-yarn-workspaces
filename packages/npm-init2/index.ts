@@ -25,6 +25,7 @@ import { consoleLogger as console } from 'debug-color2/logger';
 import { nameExistsInWorkspaces } from 'ws-pkg-list/lib/nameExistsInWorkspaces';
 import { fillPkgHostedInfo } from '@yarn-tool/pkg-hosted-info';
 import { setup as setupTsdx } from '@yarn-tool/setup-module-env/lib/preset/tsdx/index';
+import { fillDummyScripts } from '@yarn-tool/pkg-entry-util/lib/preset/dummy';
 
 //updateNotifier(__dirname);
 
@@ -214,23 +215,7 @@ if (!cp.error)
 			"tsc:showConfig": "ynpx get-current-tsconfig -p",
 		};
 
-		[
-			'preversion',
-			'version',
-			'prepublishOnly',
-			'postversion',
-			'publish',
-			'prepare',
-			'prepack',
-			'pack',
-			'postpack',
-			'prepublish',
-			'postpublish',
-			'postpublishOnly',
-		].forEach(k =>
-		{
-			sharedScript[k] ??= `echo ${k}`
-		});
+		fillDummyScripts(sharedScript);
 
 		let preScripts: string[] = ["echo preversion"];
 

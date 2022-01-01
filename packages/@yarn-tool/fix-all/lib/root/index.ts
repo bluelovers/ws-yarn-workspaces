@@ -5,6 +5,8 @@ import { npmHostedGitInfoLazy } from '@yarn-tool/pkg-git-info';
 import { PackageJsonLoader } from 'npm-package-json-loader';
 import { WorkspacesScope } from '@yarn-tool/ws-scope';
 import { sortPackageJson } from 'sort-package-json3';
+import { defaultWorkspaceRootScripts } from '@yarn-tool/pkg-entry-util/lib/preset/ws-root-scripts';
+import { fillDummyScripts } from '@yarn-tool/pkg-entry-util/lib/preset/dummy';
 
 export function _fixRoot(options: Required<IFillPkgHostedInfoOptions>)
 {
@@ -53,6 +55,13 @@ export function _fixWsRoot(options: ITSRequiredPick<IFillPkgHostedInfoOptions, '
 		...options,
 		targetDir: options.rootData.ws,
 	});
+
+	Object.entries(fillDummyScripts(defaultWorkspaceRootScripts())).forEach(([key, value]) =>
+	{
+		runtime.root_pkg_json.data.scripts[key] ??= value;
+	});
+
+	runtime.root_pkg_json.write();
 
 	let wss = new WorkspacesScope(runtime.rootData.ws);
 	wss.syncValue();

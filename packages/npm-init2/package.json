@@ -52,6 +52,7 @@
     "@yarn-tool/init-path": "^1.0.19",
     "@yarn-tool/is-builtin-module": "^1.0.11",
     "@yarn-tool/node-modules-link": "^1.0.38",
+    "@yarn-tool/pkg-entry-util": "^1.0.3",
     "@yarn-tool/pkg-git-info": "^1.0.24",
     "@yarn-tool/pkg-hosted-info": "^1.0.10",
     "@yarn-tool/setup-module-env": "^1.0.5",
