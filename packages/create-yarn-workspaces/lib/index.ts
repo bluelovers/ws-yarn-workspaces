@@ -52,6 +52,8 @@ export function getDefaultPackageJson(name?: string): IPackageJson
 			"lerna": "*",
 			"yarn": "*",
 			"ynpx": "*",
+			"typescript": "*",
+			"ts-node": "*",
 			"@yarn-tool/require-resolve": "*",
 			"yarn-tool": "*",
 			"@bluelovers/conventional-changelog-bluelovers": "*",

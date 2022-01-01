@@ -52,6 +52,8 @@ function getDefaultPackageJson(name) {
             "lerna": "*",
             "yarn": "*",
             "ynpx": "*",
+            "typescript": "*",
+            "ts-node": "*",
             "@yarn-tool/require-resolve": "*",
             "yarn-tool": "*",
             "@bluelovers/conventional-changelog-bluelovers": "*",
