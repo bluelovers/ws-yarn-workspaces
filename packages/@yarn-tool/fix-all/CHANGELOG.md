@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.5](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-all@1.0.4...@yarn-tool/fix-all@1.0.5) (2022-01-01)
+
+
+### 📦　Code Refactoring
+
+* code splitting ([fa83e8f](https://github.com/bluelovers/ws-yarn-workspaces/commit/fa83e8f47a10a5ad7ed1ac5337d8a2d20c556df9))
+
+
+
+
+
 ## [1.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-all@1.0.3...@yarn-tool/fix-all@1.0.4) (2021-12-31)
 
 
