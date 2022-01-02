@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.206](https://github.com/bluelovers/ws-yarn-workspaces/compare/npm-init2@1.0.205...npm-init2@1.0.206) (2022-01-02)
+
+
+### ✨　Features
+
+* support `defaultCopyStaticFilesTsdx` ([4efc0fa](https://github.com/bluelovers/ws-yarn-workspaces/commit/4efc0fa6df9fe4c356844224c11f68aa047ecbcc))
+
+
+
+
+
 ## [1.0.205](https://github.com/bluelovers/ws-yarn-workspaces/compare/npm-init2@1.0.204...npm-init2@1.0.205) (2022-01-01)
 
 
