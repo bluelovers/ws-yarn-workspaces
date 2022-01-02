@@ -22,6 +22,7 @@ const _defaultCopyStaticFiles = [
     ['tsdx.config.js.tpl', 'file/tsdx.config.js', 'tsdx.config.js'],
     ['tsc-multi.json.tpl', 'file/tsc-multi.json.tpl', 'tsc-multi.json'],
     ['test/__root.ts', 'file/test/__root.ts'],
+    ['.editorconfig.tpl', 'file/tpl.editorconfig'],
 ];
 const _defaultCopyStaticFilesRootOnly = [
     ['lerna.json.tpl', 'file/lerna.json.tpl', 'lerna.json'],
@@ -29,6 +30,7 @@ const _defaultCopyStaticFilesRootOnly = [
     ['.github/workflows/coverage.yml', 'file/github/workflows/coverage.yml'],
     ['.github/workflows/action-yarnlock-dedupe.yml', 'file/github/workflows/action-yarnlock-dedupe.yml'],
     ['tsconfig.json', 'file/tsconfig.json.tpl', 'tsconfig.json'],
+    ['.eslintrc.json', 'file/eslintrc.json.tpl', '.eslintrc.json'],
 ];
 const _defaultCopyStaticFilesWsRootOnly = [
     ['lerna.json.tpl', 'file/lerna.json.tpl'],

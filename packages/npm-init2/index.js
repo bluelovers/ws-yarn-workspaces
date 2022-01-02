@@ -290,10 +290,30 @@ if (!cp.error) {
         }
         (_g = (_k = pkg.data).keywords) !== null && _g !== void 0 ? _g : (_k.keywords = []);
         pkg.data.keywords.push('create-by-yarn-tool');
+        let file_map = [
+            ...const_1.defaultCopyStaticFiles,
+        ];
+        if (!wsProject) {
+            file_map = [
+                ...const_1.defaultCopyStaticFilesRootOnly,
+                ...file_map,
+            ];
+        }
+        let mdFile = (0, upath2_1.join)(targetDir, 'README.md');
+        let existsReadme = !oldExists || !(0, fs_1.existsSync)(mdFile);
         if (cli.argv.tsdx) {
-            (0, index_1.setup)({
+            ({
+                file_map,
+                existsReadme,
+            } = (0, index_1.setup)({
+                targetDir,
+                rootData,
                 pkg: pkg.data,
-            });
+                file_map,
+                mdFile,
+                existsReadme,
+                oldExists,
+            }));
         }
         pkg.data.scripts = (0, sort_package_json_scripts_1.sortPackageJsonScripts)(pkg.data.scripts);
         pkg.autofix();
@@ -317,17 +337,6 @@ if (!cp.error) {
 
         }
          */
-        let mdFile = (0, upath2_1.join)(targetDir, 'README.md');
-        let existsReadme = !oldExists || !(0, fs_1.existsSync)(mdFile);
-        let file_map = [
-            ...const_1.defaultCopyStaticFiles,
-        ];
-        if (!wsProject) {
-            file_map = [
-                ...const_1.defaultCopyStaticFilesRootOnly,
-                ...file_map,
-            ];
-        }
         (0, static_file_1.copyStaticFiles)({
             cwd: targetDir,
             file_map,

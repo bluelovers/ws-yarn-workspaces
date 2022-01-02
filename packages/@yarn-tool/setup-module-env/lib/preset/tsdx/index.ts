@@ -1,4 +1,6 @@
 import { IPackageJson } from '@ts-type/package-dts/package-json';
+import { IFindRootReturnType } from '@yarn-tool/find-root';
+import { _Key, IStaticFilesMapArray } from '@yarn-tool/static-file/lib/types';
 
 export function updatePackageJson<P extends IPackageJson>(pkg: P)
 {
@@ -26,16 +28,43 @@ export function updatePackageJson<P extends IPackageJson>(pkg: P)
 	return pkg
 }
 
-export function setup<P extends IPackageJson>(config: {
-	pkg: P,
+const _defaultCopyStaticFilesTsdx = [
 
-})
+	['tsconfig.json', 'file/tsconfig.tsdx.json.tpl', 'tsconfig.json'],
+	['test/tsconfig.json', 'file/test/tsconfig.json.tpl', 'test/tsconfig.json'],
+
+] as const;
+
+export const defaultCopyStaticFilesTsdx = Object.freeze(_defaultCopyStaticFilesTsdx) as any as IStaticFilesMapArray<_Key<typeof _defaultCopyStaticFilesTsdx>>;
+
+export interface ISetupTsdxOptions<P extends IPackageJson>
 {
-	let { pkg } = config;
+	targetDir: string,
+	pkg: P,
+	rootData: IFindRootReturnType,
+	file_map: IStaticFilesMapArray<string>,
+	mdFile: string,
+	existsReadme: boolean,
+	oldExists: boolean,
+}
+
+export function setup<P extends IPackageJson>(config: ISetupTsdxOptions<P>)
+{
+	let {
+		pkg,
+		file_map,
+	} = config;
 
 	pkg = updatePackageJson(pkg);
 
+	file_map = [
+		...defaultCopyStaticFilesTsdx,
+		...file_map,
+	];
+
 	return {
+		...config,
 		pkg,
+		file_map,
 	}
 }

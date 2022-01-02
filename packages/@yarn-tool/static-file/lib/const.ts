@@ -39,6 +39,8 @@ const _defaultCopyStaticFiles = [
 
 	['test/__root.ts', 'file/test/__root.ts'],
 
+	['.editorconfig.tpl', 'file/tpl.editorconfig'],
+
 ] as const;
 
 const _defaultCopyStaticFilesRootOnly = [
@@ -52,6 +54,8 @@ const _defaultCopyStaticFilesRootOnly = [
 	['.github/workflows/action-yarnlock-dedupe.yml', 'file/github/workflows/action-yarnlock-dedupe.yml'],
 
 	['tsconfig.json', 'file/tsconfig.json.tpl', 'tsconfig.json'],
+
+	['.eslintrc.json', 'file/eslintrc.json.tpl', '.eslintrc.json'],
 
 ] as const;
 

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.setup = exports.updatePackageJson = void 0;
+exports.setup = exports.defaultCopyStaticFilesTsdx = exports.updatePackageJson = void 0;
 function updatePackageJson(pkg) {
     var _a, _b, _c, _d, _e, _f, _g, _h;
     var _j, _k, _l, _m;
@@ -23,11 +23,22 @@ function updatePackageJson(pkg) {
     return pkg;
 }
 exports.updatePackageJson = updatePackageJson;
+const _defaultCopyStaticFilesTsdx = [
+    ['tsconfig.json', 'file/tsconfig.tsdx.json.tpl', 'tsconfig.json'],
+    ['test/tsconfig.json', 'file/test/tsconfig.json.tpl', 'test/tsconfig.json'],
+];
+exports.defaultCopyStaticFilesTsdx = Object.freeze(_defaultCopyStaticFilesTsdx);
 function setup(config) {
-    let { pkg } = config;
+    let { pkg, file_map, } = config;
     pkg = updatePackageJson(pkg);
+    file_map = [
+        ...exports.defaultCopyStaticFilesTsdx,
+        ...file_map,
+    ];
     return {
+        ...config,
         pkg,
+        file_map,
     };
 }
 exports.setup = setup;

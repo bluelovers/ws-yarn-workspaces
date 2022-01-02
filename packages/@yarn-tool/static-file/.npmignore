@@ -71,3 +71,4 @@ jest.config.js
 !/file/github/*
 !/file/**/*.ts
 !/file/test/
+!/file/tpl.editorconfig

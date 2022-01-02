@@ -405,11 +405,36 @@ if (!cp.error)
 		pkg.data.keywords ??= [];
 		pkg.data.keywords.push('create-by-yarn-tool');
 
+		let file_map: IStaticFilesMapArray<string> = [
+			...defaultCopyStaticFiles,
+		];
+
+		if (!wsProject)
+		{
+			file_map = [
+				...defaultCopyStaticFilesRootOnly,
+				...file_map,
+			];
+		}
+
+		let mdFile = join(targetDir, 'README.md');
+
+		let existsReadme = !oldExists || !existsSync(mdFile);
+
 		if (cli.argv.tsdx)
 		{
-			setupTsdx({
+			({
+				file_map,
+				existsReadme,
+			} = setupTsdx({
+				targetDir,
+				rootData,
 				pkg: pkg.data,
-			});
+				file_map,
+				mdFile,
+				existsReadme,
+				oldExists,
+			}));
 		}
 
 		pkg.data.scripts = sortPackageJsonScripts(pkg.data.scripts);
@@ -439,22 +464,6 @@ if (!cp.error)
 
 		}
 		 */
-
-		let mdFile = join(targetDir, 'README.md');
-
-		let existsReadme = !oldExists || !existsSync(mdFile);
-
-		let file_map: IStaticFilesMapArray<string> = [
-			...defaultCopyStaticFiles,
-		]
-
-		if (!wsProject)
-		{
-			file_map = [
-				...defaultCopyStaticFilesRootOnly,
-				...file_map,
-			];
-		}
 
 		copyStaticFiles({
 			cwd: targetDir,
