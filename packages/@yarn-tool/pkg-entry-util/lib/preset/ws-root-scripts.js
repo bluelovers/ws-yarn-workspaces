@@ -1,8 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.defaultWorkspaceRootScripts = void 0;
+const shared_root_scripts_1 = require("./shared-root-scripts");
 function defaultWorkspaceRootScripts() {
     return {
+        ...(0, shared_root_scripts_1.defaultSharedRootScripts)(),
         "test:all": "lerna run test --concurrency 1",
         "build:all": "lerna run build --concurrency 1",
         "review:all": "lerna run review --concurrency 1",

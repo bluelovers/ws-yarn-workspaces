@@ -18,6 +18,9 @@ function fillDummyScripts(scripts, prefix) {
         'prepack',
         'pack',
         'postpack',
+        'pretest',
+        'ci:build',
+        'ci:install',
     ].forEach(k => {
         var _a;
         // @ts-ignore

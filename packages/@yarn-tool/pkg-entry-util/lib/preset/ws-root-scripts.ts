@@ -1,6 +1,9 @@
+import { defaultSharedRootScripts } from './shared-root-scripts';
+
 export function defaultWorkspaceRootScripts()
 {
 	return {
+		...defaultSharedRootScripts(),
 		"test:all": "lerna run test --concurrency 1",
 		"build:all": "lerna run build --concurrency 1",
 		"review:all": "lerna run review --concurrency 1",

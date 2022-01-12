@@ -18,6 +18,9 @@ export function fillDummyScripts<T extends Record<string, string>>(scripts?: T, 
 		'prepack',
 		'pack',
 		'postpack',
+		'pretest',
+		'ci:build',
+		'ci:install',
 	] as const).forEach(k =>
 	{
 		// @ts-ignore

@@ -28,6 +28,7 @@ const nameExistsInWorkspaces_1 = require("ws-pkg-list/lib/nameExistsInWorkspaces
 const pkg_hosted_info_1 = require("@yarn-tool/pkg-hosted-info");
 const index_1 = require("@yarn-tool/setup-module-env/lib/preset/tsdx/index");
 const dummy_1 = require("@yarn-tool/pkg-entry-util/lib/preset/dummy");
+const root_scripts_1 = require("@yarn-tool/pkg-entry-util/lib/preset/root-scripts");
 //updateNotifier(__dirname);
 // avoid buf for idea
 logger_1.consoleLogger.length;
@@ -173,15 +174,7 @@ if (!cp.error) {
         else if (rootData.isRoot) {
             sharedScript = {
                 ...sharedScript,
-                "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
-                "version:bump": "yarn-tool version",
-                "npm:publish": "npm publish",
-                "npm:publish:bump": "yarn run version:bump && npm publish",
-                "postpublish:git:commit": `git commit -m "chore(release): publish" . & echo postpublish:git:commit`,
-                "postpublish:git:tag": `ynpx --quiet @yarn-tool/tag`,
-                "postpublish:changelog": `ynpx --quiet @yarn-tool/changelog && git add ./CHANGELOG.md`,
-                "postpublish:git:push": `git push --follow-tags`,
-                "postpublish": `yarn run postpublish:changelog && yarn run postpublish:git:commit && yarn run postpublish:git:tag && yarn run postpublish:git:push`,
+                ...(0, root_scripts_1.defaultRootScripts)(),
             };
             if (!oldExists) {
                 sharedScript = {

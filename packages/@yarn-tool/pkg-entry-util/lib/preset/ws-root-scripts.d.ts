@@ -24,4 +24,5 @@ export declare function defaultWorkspaceRootScripts(): {
     "install:reset-lockfile": string;
     "ws:fix-all": string;
     "tsc:showConfig": string;
+    "ci:install": string;
 };
