@@ -47,7 +47,7 @@
   },
   "resolutions": {},
   "dependencies": {
-    "@ts-type/package-dts": "^1.0.56",
+    "@ts-type/package-dts": "^1.0.58",
     "@yarn-tool/find-root": "^1.0.60",
     "@yarn-tool/pkg-entry-util": "^1.0.4",
     "@yarn-tool/static-file": "^1.0.88",
