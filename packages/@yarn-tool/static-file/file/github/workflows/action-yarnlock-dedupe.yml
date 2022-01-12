@@ -1,6 +1,7 @@
 name: yarn.lock deduplication
 
 on:
+  workflow_dispatch:
 #  push:
 #    branches:
 #      - master

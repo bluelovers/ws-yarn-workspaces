@@ -53,6 +53,8 @@ const _defaultCopyStaticFilesRootOnly = [
 
 	['.github/workflows/action-yarnlock-dedupe.yml', 'file/github/workflows/action-yarnlock-dedupe.yml'],
 
+	['.github/workflows/build.yml', 'file/github/workflows/build.yml'],
+
 	['tsconfig.json', 'file/tsconfig.json.tpl', 'tsconfig.json'],
 
 	['.eslintrc.json', 'file/eslintrc.json.tpl', '.eslintrc.json'],
