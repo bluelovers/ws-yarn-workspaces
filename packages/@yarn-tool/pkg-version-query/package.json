@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/pkg-version-query",
-  "version": "1.0.42",
+  "version": "1.0.43",
   "description": "",
   "keywords": [
     "yarn",
@@ -37,13 +37,13 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@lazy-node/semver-ampersand": "^1.0.20",
-    "cache-path": "^2.0.29",
+    "@lazy-node/semver-ampersand": "^1.0.21",
+    "cache-path": "^2.0.30",
     "lru-cache-fs2": "^2.0.8",
     "npm-package-arg": "^8.1.5",
     "package-json": "<7 >=6.5",
     "semver": "^7.3.5",
-    "ts-type": "^2.1.2",
+    "ts-type": "^2.1.4",
     "tslib": "^2.3.1"
   },
   "publishConfig": {

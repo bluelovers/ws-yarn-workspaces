@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.22](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/path-parents@1.0.21...@yarn-tool/path-parents@1.0.22) (2022-01-13)
+
+**Note:** Version bump only for package @yarn-tool/path-parents
+
+
+
+
+
 ## [1.0.21](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/path-parents@1.0.20...@yarn-tool/path-parents@1.0.21) (2021-12-31)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@lazy-node/semver-simple-parse",
-  "version": "1.1.25",
+  "version": "1.1.26",
   "description": "Tools for manipulating semver strings and objects",
   "keywords": [
     "semver",
@@ -33,7 +33,7 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "ts-type": "^2.1.2",
+    "ts-type": "^2.1.4",
     "tslib": "^2.3.1"
   },
   "publishConfig": {

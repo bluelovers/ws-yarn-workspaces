@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.89](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.88...@yarn-tool/static-file@1.0.89) (2022-01-13)
+
+
+### ✨　Features
+
+* add `workflow_dispatch` and `build.yml` ([7687f90](https://github.com/bluelovers/ws-yarn-workspaces/commit/7687f90b66504a1c7d7c55dae3456dcf235ecd05))
+
+
+
+
+
 ## [1.0.88](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.87...@yarn-tool/static-file@1.0.88) (2022-01-02)
 
 

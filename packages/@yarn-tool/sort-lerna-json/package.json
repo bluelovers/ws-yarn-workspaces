@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/sort-lerna-json",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "sort lerna.json",
   "keywords": [
     "yarn",

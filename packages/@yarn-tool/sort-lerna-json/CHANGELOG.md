@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/sort-lerna-json@1.0.2...@yarn-tool/sort-lerna-json@1.0.3) (2022-01-13)
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([7658604](https://github.com/bluelovers/ws-yarn-workspaces/commit/7658604e5cabfa61ed92c2579ecae3d37d3fd737))
+
+
+
+
+
 ## [1.0.2](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/sort-lerna-json@1.0.1...@yarn-tool/sort-lerna-json@1.0.2) (2021-12-29)
 
 
