@@ -1,6 +1,7 @@
-import { config, DotenvConfigOutput } from 'dotenv';
+import { config, DotenvConfigOutput, DotenvParseOutput } from 'dotenv';
 import { pathUpToWorkspacesGenerator } from '@yarn-tool/path-parents';
 import { resolve, join } from 'upath2';
+import { pathExistsSync } from 'fs-extra';
 
 export interface IDotenvFilesParams
 {
@@ -36,14 +37,22 @@ export function dotEnvFiles(options?: IDotenvFilesParams)
 	}
 }
 
-export function wsEnvConfig<E = typeof process.env>(cwd?: string, options?: IDotenvFilesParams)
+export function wsEnvConfig<E extends {
+	[key: string]: any,
+} = typeof process.env>(cwd?: string, options?: IDotenvFilesParams)
 {
 	cwd = resolve(cwd ?? process.cwd());
 	const files = dotEnvFiles(options).dotenvFiles;
 
-	let ret: DotenvConfigOutput;
+	let ret: DotenvConfigOutput & {
+		parsed?: E;
+		error?: {
+			code?: string,
+		};
+	};
 	let current: string;
 	let path: string;
+	let fileExists: boolean;
 
 	for (current of pathUpToWorkspacesGenerator(cwd))
 	{
@@ -51,6 +60,9 @@ export function wsEnvConfig<E = typeof process.env>(cwd?: string, options?: IDot
 		{
 			path = join(current, file);
 
+			fileExists = pathExistsSync(path);
+
+			// @ts-ignore
 			ret = config({
 				path,
 			});
@@ -62,16 +74,20 @@ export function wsEnvConfig<E = typeof process.env>(cwd?: string, options?: IDot
 					path,
 					cwd,
 					current,
+					fileExists,
 				}
 			}
 		}
 	}
+
+	fileExists = pathExistsSync(path);
 
 	return {
 		...ret,
 		path,
 		cwd,
 		current,
+		fileExists,
 	}
 }
 

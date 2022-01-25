@@ -23,8 +23,9 @@ jobs:
       - name: install
         run: |
           yarn install --frozen-lockfile
-          yarn add -W typescript@next jest ts-jest ts-node ynpx lerna
-      - uses: artiomtr/jest-coverage-report-action@v2.0-rc.6
+          yarn run ci:install
+#          yarn add -W typescript@next jest ts-jest ts-node ynpx lerna
+      - uses: artiomtr/jest-coverage-report-action@v2.0.2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           package-manager: yarn

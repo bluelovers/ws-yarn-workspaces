@@ -6,8 +6,8 @@ function updatePackageJson(pkg) {
     var _j, _k, _l, _m;
     (_a = pkg.scripts) !== null && _a !== void 0 ? _a : (pkg.scripts = {});
     (_b = (_j = pkg.scripts)["posttest"]) !== null && _b !== void 0 ? _b : (_j["posttest"] = "yarn run build");
-    pkg.scripts["build"] = "yarn run build:tsdx && yarn run build:dts";
-    (_c = (_k = pkg.scripts)["build:dts"]) !== null && _c !== void 0 ? _c : (_k["build:dts"] = "ynpx dts-bundle-generator -o ./dist/index.d.ts ./src/index.ts --no-banner & echo build:dts");
+    pkg.scripts["build"] = "yarn run build:tsdx && yarn run build:dts:bundle";
+    (_c = (_k = pkg.scripts)["build:dts:bundle"]) !== null && _c !== void 0 ? _c : (_k["build:dts:bundle"] = "ynpx dts-bundle-generator -o ./dist/index.d.ts ./src/index.ts --no-banner & echo build:dts");
     (_d = (_l = pkg.scripts)["build:tsdx"]) !== null && _d !== void 0 ? _d : (_l["build:tsdx"] = "ynpx @bluelovers/tsdx build --target node --name index");
     pkg.main = "dist/index.cjs";
     pkg.module = "dist/index.esm.mjs";

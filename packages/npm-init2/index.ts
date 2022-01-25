@@ -27,6 +27,7 @@ import { fillPkgHostedInfo } from '@yarn-tool/pkg-hosted-info';
 import { setup as setupTsdx } from '@yarn-tool/setup-module-env/lib/preset/tsdx/index';
 import { fillDummyScripts } from '@yarn-tool/pkg-entry-util/lib/preset/dummy';
 import { defaultRootScripts } from '@yarn-tool/pkg-entry-util/lib/preset/root-scripts';
+import { defaultPkgNotOldExists } from '@yarn-tool/pkg-entry-util/lib/preset/pkg-scripts';
 
 //updateNotifier(__dirname);
 
@@ -277,19 +278,7 @@ if (!cp.error)
 
 			Object
 				.entries({
-					"test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
-					"test:jest": "jest --passWithNoTests",
-					"test:tsdx": "ynpx @bluelovers/tsdx test --passWithNoTests",
-					"build:dts": "ynpx dts-bundle-generator -o ./dist/index.d.ts ./src/index.ts --no-banner & echo build:dts",
-					"build:dts:copy": "copy .\\src\\index.d.ts .\\dist\\index.d.ts & echo build:dts",
-					"build:dts:tsc": "tsc --emitDeclarationOnly --declaration --noEmit false",
-					"build:tsdx": "ynpx @bluelovers/tsdx build --target node --name index",
-					"build:microbundle": "ynpx microbundle --target node",
-					"lint": "yarn run lint:eslint",
-					"lint:eslint": "ynpx eslint --ext .ts,.tsx,.mts,.cts ./",
-					"review": "yarn run review:coverage",
-					"review:test": "yarn run lint && yarn run test",
-					"review:coverage": "yarn run lint && yarn run coverage",
+					...defaultPkgNotOldExists(),
 					...sharedScript,
 				})
 				.forEach(([k, v]) =>

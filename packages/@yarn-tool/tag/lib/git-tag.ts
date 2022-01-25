@@ -3,7 +3,7 @@ import { formatPackageTag, handleOptions } from './core';
 import { gitTag, gitTagSync, IOptions } from '@git-lazy/tag';
 import { crossSpawnGitSync, crossSpawnGitAsync, ISpawnGitAsyncOptions, ISpawnGitSyncOptions } from '@git-lazy/spawn';
 import pkgDir from 'pkg-dir';
-import pathIsSame from 'path-is-same';
+import { pathIsSame } from 'path-is-same';
 import { findRoot } from '@yarn-tool/find-root';
 import { join } from 'path';
 

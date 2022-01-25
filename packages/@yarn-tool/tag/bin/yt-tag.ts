@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-import setupToYargs from '../lib/yargs-setting';
+import { setupToYargs } from '../lib/yargs-setting';
 import yargs, { Argv, Omit } from 'yargs';
-import gitPackageTag from '../lib/git-tag';
+import { gitPackageTag } from '../lib/git-tag';
 
 let argv = setupToYargs(yargs)
 	.option('cwd', {

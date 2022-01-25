@@ -7,8 +7,8 @@ export function updatePackageJson<P extends IPackageJson>(pkg: P)
 	pkg.scripts ??= {};
 
 	pkg.scripts["posttest"] ??= "yarn run build";
-	pkg.scripts["build"] = "yarn run build:tsdx && yarn run build:dts";
-	pkg.scripts["build:dts"] ??= "ynpx dts-bundle-generator -o ./dist/index.d.ts ./src/index.ts --no-banner & echo build:dts";
+	pkg.scripts["build"] = "yarn run build:tsdx && yarn run build:dts:bundle";
+	pkg.scripts["build:dts:bundle"] ??= "ynpx dts-bundle-generator -o ./dist/index.d.ts ./src/index.ts --no-banner & echo build:dts";
 	pkg.scripts["build:tsdx"] ??= "ynpx @bluelovers/tsdx build --target node --name index";
 
 	pkg.main = "dist/index.cjs";

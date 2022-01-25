@@ -4,6 +4,7 @@ exports.wsEnvConfig = exports.dotEnvFiles = void 0;
 const dotenv_1 = require("dotenv");
 const path_parents_1 = require("@yarn-tool/path-parents");
 const upath2_1 = require("upath2");
+const fs_extra_1 = require("fs-extra");
 function dotEnvFiles(options) {
     let { isTest, dev, } = options !== null && options !== void 0 ? options : {};
     isTest = isTest !== null && isTest !== void 0 ? isTest : process.env.NODE_ENV === 'test';
@@ -31,9 +32,12 @@ function wsEnvConfig(cwd, options) {
     let ret;
     let current;
     let path;
+    let fileExists;
     for (current of (0, path_parents_1.pathUpToWorkspacesGenerator)(cwd)) {
         for (let file of files) {
             path = (0, upath2_1.join)(current, file);
+            fileExists = (0, fs_extra_1.pathExistsSync)(path);
+            // @ts-ignore
             ret = (0, dotenv_1.config)({
                 path,
             });
@@ -43,15 +47,18 @@ function wsEnvConfig(cwd, options) {
                     path,
                     cwd,
                     current,
+                    fileExists,
                 };
             }
         }
     }
+    fileExists = (0, fs_extra_1.pathExistsSync)(path);
     return {
         ...ret,
         path,
         cwd,
         current,
+        fileExists,
     };
 }
 exports.wsEnvConfig = wsEnvConfig;
