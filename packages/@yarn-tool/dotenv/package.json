@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/dotenv",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "description": "load dotenv from workspaces",
   "keywords": [
     "yarn",
