@@ -41,6 +41,8 @@ const _defaultCopyStaticFiles = [
 
 	['.editorconfig.tpl', 'file/tpl.editorconfig'],
 
+	['changelog-option.js.tpl', 'file/changelog-option.js', 'changelog-option.js'],
+
 ] as const;
 
 const _defaultCopyStaticFilesRootOnly = [
@@ -58,6 +60,8 @@ const _defaultCopyStaticFilesRootOnly = [
 	['tsconfig.json', 'file/tsconfig.json.tpl', 'tsconfig.json'],
 
 	['.eslintrc.json', 'file/eslintrc.json.tpl', '.eslintrc.json'],
+
+	['changelog-option.js', 'file/changelog-option.js'],
 
 ] as const;
 

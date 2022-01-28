@@ -23,6 +23,7 @@ const _defaultCopyStaticFiles = [
     ['tsc-multi.json.tpl', 'file/tsc-multi.json.tpl', 'tsc-multi.json'],
     ['test/__root.ts', 'file/test/__root.ts'],
     ['.editorconfig.tpl', 'file/tpl.editorconfig'],
+    ['changelog-option.js.tpl', 'file/changelog-option.js', 'changelog-option.js'],
 ];
 const _defaultCopyStaticFilesRootOnly = [
     ['lerna.json.tpl', 'file/lerna.json.tpl', 'lerna.json'],
@@ -32,6 +33,7 @@ const _defaultCopyStaticFilesRootOnly = [
     ['.github/workflows/build.yml', 'file/github/workflows/build.yml'],
     ['tsconfig.json', 'file/tsconfig.json.tpl', 'tsconfig.json'],
     ['.eslintrc.json', 'file/eslintrc.json.tpl', '.eslintrc.json'],
+    ['changelog-option.js', 'file/changelog-option.js'],
 ];
 const _defaultCopyStaticFilesWsRootOnly = [
     ['lerna.json.tpl', 'file/lerna.json.tpl'],

@@ -1,8 +1,12 @@
+/// <reference types="node" />
 declare const _default: {
     path: string;
     cwd: string;
     current: string;
-    error?: Error;
-    parsed?: import("dotenv").DotenvParseOutput;
+    fileExists: boolean;
+    error?: Error & {
+        code?: string;
+    };
+    parsed?: import("dotenv").DotenvParseOutput & NodeJS.ProcessEnv;
 };
 export default _default;

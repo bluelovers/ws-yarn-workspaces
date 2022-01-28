@@ -72,3 +72,4 @@ jest.config.js
 !/file/**/*.ts
 !/file/test/
 !/file/tpl.editorconfig
+!/file/changelog-option.js
