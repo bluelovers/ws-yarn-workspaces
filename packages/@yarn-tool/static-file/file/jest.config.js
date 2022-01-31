@@ -11,6 +11,7 @@ function _requireResolve(name)
 
 	try
 	{
+		// @ts-ignore
 		const { requireResolveExtra, requireResolveCore } = require('@yarn-tool/require-resolve');
 
 		const paths = [
