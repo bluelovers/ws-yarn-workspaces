@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.92](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.91...@yarn-tool/static-file@1.0.92) (2022-01-31)
+
+
+### ✨　Features
+
+* add `[@ts-ignore](https://github.com/ts-ignore)` for `jest.config.js` ([6393bad](https://github.com/bluelovers/ws-yarn-workspaces/commit/6393bad7b5d59f69fcc28d5653fac92e971eecf8))
+
+
+
+
+
 ## [1.0.91](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.90...@yarn-tool/static-file@1.0.91) (2022-01-28)
 
 
