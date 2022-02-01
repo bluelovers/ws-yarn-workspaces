@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.93](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.92...@yarn-tool/static-file@1.0.93) (2022-02-01)
+
+
+### ♻️　Chores
+
+* use import('ts-jest').InitialOptionsTsJest ([13a111b](https://github.com/bluelovers/ws-yarn-workspaces/commit/13a111b1427dd128732b3c40341efdee43212cf1))
+
+
+### 🔖　Miscellaneous
+
+* . ([c3a1167](https://github.com/bluelovers/ws-yarn-workspaces/commit/c3a116723a031e4b8ed68e659d7643e418f4ba37))
+
+
+
+
+
 ## [1.0.92](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.91...@yarn-tool/static-file@1.0.92) (2022-01-31)
 
 
