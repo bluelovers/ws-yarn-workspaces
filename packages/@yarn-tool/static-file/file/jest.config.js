@@ -45,9 +45,13 @@ const testExt = [
 ].join('|');
 
 /**
- * @type { import('@jest/types').Config.InitialOptions }
+ * // @type { import('@jest/types').Config.InitialOptions }
+ * @type { import('ts-jest').InitialOptionsTsJest }
  */
 module.exports = {
+	globals: {
+		'ts-jest': {},
+	},
 	clearMocks: true,
 	passWithNoTests: true,
 	moduleFileExtensions: [
