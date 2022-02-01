@@ -30,7 +30,11 @@ function _requireResolve(name)
 
 	}
 
-	return result || require.resolve(name)
+	result = result || require.resolve(name);
+
+	console.info('[require.resolve]', name, '=>', result)
+
+	return result
 }
 
 const testExt = [
@@ -44,13 +48,19 @@ const testExt = [
 //	'cjs',
 ].join('|');
 
+console.info(`jest.config`);
+console.info(`- file: ${__filename}`);
+console.info(`-  cwd: ${process.cwd()}`);
+
 /**
  * // @type { import('@jest/types').Config.InitialOptions }
  * @type { import('ts-jest').InitialOptionsTsJest }
  */
 module.exports = {
 	globals: {
-		'ts-jest': {},
+		'ts-jest': {
+
+		},
 	},
 	clearMocks: true,
 	passWithNoTests: true,
