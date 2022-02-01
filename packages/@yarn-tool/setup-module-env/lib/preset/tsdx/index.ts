@@ -11,6 +11,10 @@ export function updatePackageJson<P extends IPackageJson>(pkg: P)
 	pkg.scripts["build:dts:bundle"] ??= "ynpx dts-bundle-generator -o ./dist/index.d.ts ./src/index.ts --no-banner & echo build:dts";
 	pkg.scripts["build:tsdx"] ??= "ynpx @bluelovers/tsdx build --target node --name index";
 
+	pkg.scripts["build:dts:copy"] ??= "copy .\\src\\index.d.ts .\\dist\\index.d.ts & echo build:dts";
+	pkg.scripts["build:dts:tsc:emit"] ??= "tsc --emitDeclarationOnly --declaration --noEmit false";
+	pkg.scripts["build:dts:tsc"] ??= "yarn run build:dts:tsc:emit && yarn run build:dts:copy";
+
 	pkg.main = "dist/index.cjs";
 	pkg.module = "dist/index.esm.mjs";
 	pkg.types = pkg.typings = "dist/index.d.ts";
