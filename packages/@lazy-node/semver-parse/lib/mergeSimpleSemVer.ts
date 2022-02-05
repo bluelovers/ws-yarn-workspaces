@@ -1,18 +1,27 @@
 /**
  * Created by user on 2020/8/12.
  */
-import { ISimpleSemVer, ISimpleSemVerObjectBase } from './types';
+import { ISimpleSemVer, ISimpleSemVerObjectBase, IToSimpleSemVerObject } from './types';
 import { assertSimpleSemVerObjectLike, assertSimpleSemVerObjectOrOperatorLike } from './checker';
 import { isAllowedMergeAbleValue } from './util/isAllowedMergeAbleValue';
 import parseSimpleSemVer from './parseSimpleSemVer';
-import { ITSRequiredWith, ITSPickExtra, ITSPartialRecord, ITSRequiredPick, ITSPartialPick  } from 'ts-type/lib/type/record';
+import {
+	ITSRequiredWith,
+	ITSPickExtra,
+	ITSPartialRecord,
+	ITSRequiredPick,
+	ITSPartialPick,
+} from 'ts-type/lib/type/record';
 
-export function mergeSimpleSemVer<T extends ISimpleSemVer>(target: T, b: ISimpleSemVerObjectBase)
+export function mergeSimpleSemVer<T extends ISimpleSemVer>(target: T, b: ISimpleSemVerObjectBase): {
+	target: IToSimpleSemVerObject<T>;
+	changed: ITSPartialPick<ISimpleSemVerObjectBase, 'major' | 'minor' | 'patch' | 'release' | 'build'>;
+}
 {
 	assertSimpleSemVerObjectLike(target);
 	assertSimpleSemVerObjectLike(b);
 
-	let changed: ITSPartialPick<ISimpleSemVerObjectBase, 'major'|'minor'|'patch' | 'release' | 'build'>;
+	let changed: ITSPartialPick<ISimpleSemVerObjectBase, 'major' | 'minor' | 'patch' | 'release' | 'build'>;
 
 	([
 		'major',
@@ -20,7 +29,8 @@ export function mergeSimpleSemVer<T extends ISimpleSemVer>(target: T, b: ISimple
 		'patch',
 		'release',
 		'build',
-	] as (keyof typeof changed)[]).forEach(key => {
+	] as (keyof typeof changed)[]).forEach(key =>
+	{
 
 		let value1: string = target[key];
 		let value2: string = b[key];
