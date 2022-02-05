@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.29](https://github.com/bluelovers/ws-yarn-workspaces/compare/@lazy-node/semver-simple-parse@1.1.28...@lazy-node/semver-simple-parse@1.1.29) (2022-02-05)
+
+
+### 💎　Styles
+
+* **typescript:** 固定 type 順序 來防止 typescript 隨機排序 ([abacff2](https://github.com/bluelovers/ws-yarn-workspaces/commit/abacff2c40456b9306c2e00680544a32a83e94a1))
+
+
+
+
+
 ## [1.1.28](https://github.com/bluelovers/ws-yarn-workspaces/compare/@lazy-node/semver-simple-parse@1.1.27...@lazy-node/semver-simple-parse@1.1.28) (2022-02-01)
 
 
