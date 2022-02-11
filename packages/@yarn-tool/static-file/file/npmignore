@@ -120,3 +120,5 @@ cz-adapter
 
 tsc-multi.json.tpl
 tsc-multi.json
+
+changelog-option.js
