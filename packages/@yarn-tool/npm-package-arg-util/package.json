@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@types/npm-package-arg": "*",
-    "npm-package-arg": "^8.1.5",
+    "npm-package-arg": "^9.0.0",
     "tslib": "^2.3.1"
   },
   "publishConfig": {

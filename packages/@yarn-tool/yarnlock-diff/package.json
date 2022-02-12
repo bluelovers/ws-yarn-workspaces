@@ -38,7 +38,7 @@
     "@yarnpkg/parsers": "^2.4.1",
     "array-hyper-unique": "^2.0.6",
     "debug-color2": "^1.2.7",
-    "npm-package-arg": "^8.1.5",
+    "npm-package-arg": "^9.0.0",
     "semver": "^7.3.5",
     "ts-type": "^2.1.4",
     "tslib": "^2.3.1"
