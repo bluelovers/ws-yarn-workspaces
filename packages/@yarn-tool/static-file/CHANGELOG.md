@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.95](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.94...@yarn-tool/static-file@1.0.95) (2022-02-12)
+
+
+### 🐛　Bug Fixes
+
+* `npmignore` add `changelog-option.js` ([36bcd85](https://github.com/bluelovers/ws-yarn-workspaces/commit/36bcd857fb9b369146b4d8e3637b099a39497023))
+
+
+### 🔖　Miscellaneous
+
+* . ([18b0ed5](https://github.com/bluelovers/ws-yarn-workspaces/commit/18b0ed5ea9e5a5b350e3d541b13aff468297c8de))
+
+
+
+
+
 ## [1.0.94](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.93...@yarn-tool/static-file@1.0.94) (2022-02-05)
 
 
