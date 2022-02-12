@@ -61,7 +61,7 @@ const _defaultCopyStaticFilesRootOnly = [
 
 	['.eslintrc.json', 'file/eslintrc.json.tpl', '.eslintrc.json'],
 
-	['changelog-option.js', 'file/changelog-option.js'],
+	['changelog-option.js', 'file/changelog-option.js', 'changelog-option.js.tpl'],
 
 ] as const;
 
