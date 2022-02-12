@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.74](https://github.com/bluelovers/ws-yarn-workspaces/compare/npm-package-json-loader@1.0.73...npm-package-json-loader@1.0.74) (2022-02-12)
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([478dfbf](https://github.com/bluelovers/ws-yarn-workspaces/commit/478dfbfbe7b9424d6a7068a4a578acd2d75fa07d))
+
+
+
+
+
 ## [1.0.73](https://github.com/bluelovers/ws-yarn-workspaces/compare/npm-package-json-loader@1.0.72...npm-package-json-loader@1.0.73) (2022-01-25)
 
 **Note:** Version bump only for package npm-package-json-loader

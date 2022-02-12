@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.26](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/dotenv@1.0.25...@yarn-tool/dotenv@1.0.26) (2022-02-12)
+
+
+### 🚨　Tests
+
+* add test for `@yarn-tool/dotenv` ([66f221e](https://github.com/bluelovers/ws-yarn-workspaces/commit/66f221e1480e6b093b7e2ac6e5d49caf2af0d33d))
+
+
+
+
+
 ## [1.0.25](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/dotenv@1.0.24...@yarn-tool/dotenv@1.0.25) (2022-01-31)
 
 

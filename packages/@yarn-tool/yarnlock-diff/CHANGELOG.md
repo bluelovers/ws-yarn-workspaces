@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.35](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-diff@1.0.34...@yarn-tool/yarnlock-diff@1.0.35) (2022-02-12)
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([478dfbf](https://github.com/bluelovers/ws-yarn-workspaces/commit/478dfbfbe7b9424d6a7068a4a578acd2d75fa07d))
+
+
+
+
+
 ## [1.0.34](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-diff@1.0.33...@yarn-tool/yarnlock-diff@1.0.34) (2022-01-13)
 
 **Note:** Version bump only for package @yarn-tool/yarnlock-diff

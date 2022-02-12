@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.8](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-all@1.0.7...@yarn-tool/fix-all@1.0.8) (2022-02-12)
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([478dfbf](https://github.com/bluelovers/ws-yarn-workspaces/commit/478dfbfbe7b9424d6a7068a4a578acd2d75fa07d))
+
+
+
+
+
 ## [1.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-all@1.0.6...@yarn-tool/fix-all@1.0.7) (2022-01-25)
 
 **Note:** Version bump only for package @yarn-tool/fix-all
