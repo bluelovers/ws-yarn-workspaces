@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/fix-all",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "auto check/fix workspaces/package",
   "keywords": [
     "yarn",
@@ -63,7 +63,7 @@
     "debug-color2": "^1.2.7",
     "fs-extra": "^10.0.0",
     "lazy-aggregate-error": "^1.0.9",
-    "npm-package-json-loader": "^1.0.74",
+    "npm-package-json-loader": "^1.0.75",
     "progress-estimator": "^0.3.0",
     "sort-package-json3": "^1.0.52",
     "ts-type": "^2.1.4",

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.43](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/resolve-package@1.0.42...@yarn-tool/resolve-package@1.0.43) (2022-02-19)
+
+
+### 🔖　Miscellaneous
+
+* Use `@types` packages as dev dependency ([37c495d](https://github.com/bluelovers/ws-yarn-workspaces/commit/37c495d4becddc788bd29e72e40a59a4fabcf7e3))
+
+
+
+
+
 ## [1.0.42](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/resolve-package@1.0.41...@yarn-tool/resolve-package@1.0.42) (2022-01-13)
 
 

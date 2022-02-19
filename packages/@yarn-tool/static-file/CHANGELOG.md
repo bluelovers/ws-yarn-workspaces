@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.96](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.95...@yarn-tool/static-file@1.0.96) (2022-02-19)
+
+
+### ✨　Features
+
+* add `fetch-depth` ([2be8500](https://github.com/bluelovers/ws-yarn-workspaces/commit/2be8500b42010151204744a7f52cb5248e5c7b06))
+
+
+
+
+
 ## [1.0.95](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.94...@yarn-tool/static-file@1.0.95) (2022-02-12)
 
 
