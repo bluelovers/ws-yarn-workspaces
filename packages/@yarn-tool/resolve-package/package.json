@@ -53,12 +53,12 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^1.0.58",
     "pkg-dir": "< 6 >= 5",
     "tslib": "^2.3.1",
     "upath2": "^3.1.12"
   },
-  "peerDependencies": {
+  "devDependencies": {
+    "@ts-type/package-dts": "^1.0.58",
     "@types/node": "*"
   },
   "publishConfig": {
