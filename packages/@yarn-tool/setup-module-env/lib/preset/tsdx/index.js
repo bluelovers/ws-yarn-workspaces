@@ -17,7 +17,7 @@ function updatePackageJson(pkg) {
     pkg.main = "dist/index.cjs";
     pkg.module = "dist/index.esm.mjs";
     pkg.types = pkg.typings = "dist/index.d.ts";
-    (_j = pkg.unpkg) !== null && _j !== void 0 ? _j : (pkg.unpkg = "dist/index.umd.js");
+    (_j = pkg.unpkg) !== null && _j !== void 0 ? _j : (pkg.unpkg = "dist/index.umd.production.min.cjs");
     (_k = pkg.exports) !== null && _k !== void 0 ? _k : (pkg.exports = {});
     (_l = (_u = pkg.exports)['.']) !== null && _l !== void 0 ? _l : (_u['.'] = {});
     pkg.exports['.'].types = "./dist/index.d.ts";
