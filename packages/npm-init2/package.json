@@ -47,7 +47,7 @@
   "config": {},
   "resolutions": {},
   "dependencies": {
-    "@ts-type/package-dts": "^1.0.58",
+    "@ts-type/package-dts": "^1.0.59",
     "@yarn-tool/find-root": "^1.0.61",
     "@yarn-tool/init-path": "^1.0.19",
     "@yarn-tool/is-builtin-module": "^1.0.11",
@@ -63,7 +63,7 @@
     "cross-spawn-extra": "^2.1.0",
     "debug-color2": "^1.2.7",
     "find-yarn-workspace-root2": "^1.2.36",
-    "fs-extra": "^10.0.0",
+    "fs-extra": "^10.0.1",
     "json5": "^2.2.0",
     "lodash": "^4.17.21",
     "micromatch": "^4.0.4",

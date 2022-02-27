@@ -35,12 +35,12 @@
     "@yarn-tool/table": "^1.0.39",
     "@yarn-tool/yarnlock-parse": "^1.0.23",
     "@yarn-tool/yarnlock-util": "^1.0.31",
-    "@yarnpkg/parsers": "^2.4.1",
+    "@yarnpkg/parsers": "^2.5.0",
     "array-hyper-unique": "^2.0.6",
     "debug-color2": "^1.2.7",
     "npm-package-arg": "^9.0.0",
     "semver": "^7.3.5",
-    "ts-type": "^2.1.4",
+    "ts-type": "^2.1.5",
     "tslib": "^2.3.1"
   },
   "devDependencies": {

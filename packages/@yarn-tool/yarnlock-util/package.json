@@ -39,7 +39,7 @@
   "dependencies": {
     "@yarn-tool/npm-package-arg-util": "^1.0.23",
     "@yarn-tool/yarnlock-parse": "^1.0.23",
-    "@yarnpkg/parsers": "^2.4.1",
+    "@yarnpkg/parsers": "^2.5.0",
     "npm-package-arg": "^9.0.0",
     "tslib": "^2.3.1"
   },

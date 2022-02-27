@@ -55,8 +55,8 @@
   },
   "dependencies": {
     "@bluelovers/fs-json": "^1.0.3",
-    "@ts-type/package-dts": "^1.0.58",
-    "fs-extra": "^10.0.0",
+    "@ts-type/package-dts": "^1.0.59",
+    "fs-extra": "^10.0.1",
     "sort-object-keys2": "^2.0.3",
     "tslib": "^2.3.1"
   },

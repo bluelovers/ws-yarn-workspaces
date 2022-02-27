@@ -43,7 +43,7 @@
     "@yarn-tool/yarnlock-stringify": "^1.0.11",
     "@yarn-tool/yarnlock-util": "^1.0.31",
     "lodash": "^4.17.21",
-    "ts-type": "^2.1.4",
+    "ts-type": "^2.1.5",
     "tslib": "^2.3.1"
   },
   "publishConfig": {

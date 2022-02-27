@@ -25,7 +25,7 @@
     "sort-package-json": "npx yarn-tool sort"
   },
   "dependencies": {
-    "fs-extra": "^10.0.0",
+    "fs-extra": "^10.0.1",
     "tslib": "^2.3.1"
   },
   "publishConfig": {
