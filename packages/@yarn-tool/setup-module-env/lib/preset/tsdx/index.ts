@@ -31,6 +31,9 @@ export function updatePackageJson<P extends IPackageJson>(pkg: P)
 	pkg.exports['.'].import = "./dist/index.esm.mjs";
 	pkg.exports['.'].require = "./dist/index.cjs";
 
+	pkg.exports['./src/*'] = './src/*';
+	pkg.exports['./package.json'] ??= './package.json';
+
 	pkg.keywords ??= [];
 	pkg.keywords.push('create-by-tsdx');
 
