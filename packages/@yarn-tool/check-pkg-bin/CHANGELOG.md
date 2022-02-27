@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.71](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/check-pkg-bin@1.0.69...@yarn-tool/check-pkg-bin@1.0.71) (2022-02-27)
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([109c9d1](https://github.com/bluelovers/ws-yarn-workspaces/commit/109c9d1b437063d069a9aaf5f5b9b15da4d5c76f))
+
+
+
+
+
+## [1.0.70](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/check-pkg-bin@1.0.69...@yarn-tool/check-pkg-bin@1.0.70) (2022-02-27)
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([109c9d1](https://github.com/bluelovers/ws-yarn-workspaces/commit/109c9d1b437063d069a9aaf5f5b9b15da4d5c76f))
+
+
+
+
+
 ## [1.0.69](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/check-pkg-bin@1.0.68...@yarn-tool/check-pkg-bin@1.0.69) (2022-02-19)
 
 **Note:** Version bump only for package @yarn-tool/check-pkg-bin
