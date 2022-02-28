@@ -12,5 +12,7 @@ export declare function handleOptions(options: IOptionsPackageTagInput): {
     message?: string;
     forceGitTag?: boolean;
     signGitTag?: boolean;
+    annotated?: boolean;
+    target?: string;
 };
 export declare function formatPackageTag(options: IOptionsPackageTagInput): string;

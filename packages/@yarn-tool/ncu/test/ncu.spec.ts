@@ -4,6 +4,8 @@ import { basename, join } from 'path';
 import { readJSONSync } from 'fs-extra';
 import { npmCheckUpdates } from '../lib/update/npmCheckUpdates';
 
+jest.setTimeout(60 * 1000);
+
 describe(`should not update`, () =>
 {
 
