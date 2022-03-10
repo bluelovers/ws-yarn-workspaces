@@ -16,8 +16,8 @@ jobs:
     env:
       CI_JOB_NUMBER: 1
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@master
+      - uses: actions/checkout@main
+      - uses: actions/setup-node@main
         with:
           node-version: 16
       - name: install
@@ -25,9 +25,14 @@ jobs:
           yarn install --frozen-lockfile
           yarn run ci:install
 #          yarn add -W typescript@next jest ts-jest ts-node ynpx lerna
-      - uses: artiomtr/jest-coverage-report-action@v2.0.2
+      - uses: artiomtr/jest-coverage-report-action@main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           package-manager: yarn
           #   threshold: 80 # optional parameter
           test-script: npx jest --silent --ci --coverage=false --coverageReporters="text" --coverageReporters="text-summary"
+      - name: Upload coverage to Codecov
+          uses: codecov/codecov-action@master
+          with:
+            token: ${{ secrets.CODECOV_TOKEN }}
+            verbose: true
