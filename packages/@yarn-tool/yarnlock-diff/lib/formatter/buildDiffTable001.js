@@ -22,21 +22,21 @@ function buildDiffTable(diff) {
     diff.map(packageDiff => {
         const path = packageDiff.path.find(() => true);
         switch (packageDiff.kind) {
-            case "D" /* DiffDeleted */:
+            case "D" /* EnumKinds.DiffDeleted */:
                 formatedDiff[path] = [
                     path,
                     chalk_1.default.red((0, formatVersion_1._formatVersion)(packageDiff.lhs)),
                     "-",
                 ];
                 break;
-            case "N" /* DiffNew */:
+            case "N" /* EnumKinds.DiffNew */:
                 formatedDiff[path] = [
                     path,
                     "-",
                     chalk_1.default.green((0, formatVersion_1._formatVersion)(packageDiff.rhs)),
                 ];
                 break;
-            case "E" /* DiffEdit */:
+            case "E" /* EnumKinds.DiffEdit */:
                 const lhs = chalk_1.default.yellow((0, formatVersion_1._formatVersion)(packageDiff.lhs));
                 const rhs = chalk_1.default.yellow((0, formatVersion_1._formatVersion)(packageDiff.rhs));
                 if (formatedDiff[path]) {
@@ -50,7 +50,7 @@ function buildDiffTable(diff) {
                     formatedDiff[path] = [path, lhs, rhs];
                 }
                 break;
-            case "A" /* DiffArray */:
+            case "A" /* EnumKinds.DiffArray */:
                 const diffArray = (0, diffArray001_1._diffArray)(packageDiff);
                 formatedDiff[path] = [path, diffArray[0], diffArray[1]];
         }

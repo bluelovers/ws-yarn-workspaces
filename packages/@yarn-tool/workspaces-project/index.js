@@ -21,10 +21,10 @@ class WorkspacesProject {
             root,
             rootPath,
         }, options)) {
-            case 1 /* root */:
+            case 1 /* EnumCheckPaths.root */:
                 this._project = new project_1.Project(root);
                 break;
-            case -1 /* failed */:
+            case -1 /* EnumCheckPaths.failed */:
                 throw new Error(`lerna root is not match yarn workspaces root.\ncwd: ${cwd}\nyarn: ${root}\nlerna: ${rootPath}`);
                 break;
         }
@@ -70,7 +70,7 @@ class WorkspacesProject {
             catch (e) {
             }
             if (!(ws === null || ws === void 0 ? void 0 : ws.length)) {
-                ws = ["packages/*" /* workspace */];
+                ws = ["packages/*" /* EnumWorkspacesProject.workspace */];
             }
             this._setInternal('workspaces', ws);
         }
@@ -80,8 +80,8 @@ class WorkspacesProject {
         if (this._hasInternal('defaultWorkspace')) {
             return this._getInternal('defaultWorkspace');
         }
-        if (this.workspaces.includes("packages/*" /* workspace */)) {
-            return "packages/*" /* workspace */;
+        if (this.workspaces.includes("packages/*" /* EnumWorkspacesProject.workspace */)) {
+            return "packages/*" /* EnumWorkspacesProject.workspace */;
         }
         return this.workspaces[0];
     }
@@ -92,11 +92,11 @@ class WorkspacesProject {
         tslib_1.__classPrivateFieldGet(this, _WorkspacesProject_internal, "f").defaultWorkspace = value;
     }
     isIndependent() {
-        return this.version === "independent" /* independent */;
+        return this.version === "independent" /* EnumWorkspacesProject.independent */;
     }
     get version() {
         var _a;
-        return (_a = this._project.config.version) !== null && _a !== void 0 ? _a : "independent" /* independent */;
+        return (_a = this._project.config.version) !== null && _a !== void 0 ? _a : "independent" /* EnumWorkspacesProject.independent */;
     }
     set version(val) {
         this._project.config.version = val;

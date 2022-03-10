@@ -8,11 +8,11 @@ const formatVersion_1 = require("./formatVersion");
 function _diffArray(array) {
     const item = array.item;
     switch (item.kind) {
-        case "N" /* DiffNew */:
+        case "N" /* EnumKinds.DiffNew */:
             return [`[...]`, `[..., ${(0, formatVersion_1._formatVersion)(item.rhs)}]`];
-        case "D" /* DiffDeleted */:
+        case "D" /* EnumKinds.DiffDeleted */:
             return [`[..., ${(0, formatVersion_1._formatVersion)(item.lhs)}]`, `[...]`];
-        case "E" /* DiffEdit */:
+        case "E" /* EnumKinds.DiffEdit */:
             return [
                 `[...], ${(0, formatVersion_1._formatVersion)(item.lhs)}]`,
                 `[..., ${(0, formatVersion_1._formatVersion)(item.lhs)}]`,

@@ -193,11 +193,11 @@ function replaceXRange(comp, options) {
         if (xM) {
             if (gtlt === '>' || gtlt === '<') {
                 // nothing is allowed
-                ret = "<0.0.0-0" /* NULL */;
+                ret = "<0.0.0-0" /* EnumSemverVersion.NULL */;
             }
             else {
                 // nothing is forbidden
-                ret = "*" /* STAR */;
+                ret = "*" /* EnumSemverVersion.STAR */;
             }
         }
         else if (gtlt && anyX) {

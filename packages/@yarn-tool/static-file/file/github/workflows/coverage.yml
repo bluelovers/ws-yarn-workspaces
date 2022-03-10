@@ -15,11 +15,17 @@ jobs:
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
     env:
       CI_JOB_NUMBER: 1
+      
+    strategy:
+      matrix:
+        node-version: [ 17 ]
+      
     steps:
       - uses: actions/checkout@main
-      - uses: actions/setup-node@main
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@main
         with:
-          node-version: 16
+          node-version: ${{ matrix.node-version }}
       - name: install
         run: |
           yarn install --frozen-lockfile

@@ -16,18 +16,18 @@ function checkPaths(input, options) {
         rootPath = (0, path_dir_normalize_1.default)(rootPath);
         if (root !== rootPath) {
             if (rootPath.indexOf(root) === 0) {
-                return 1 /* root */;
+                return 1 /* EnumCheckPaths.root */;
             }
             else if (!(options === null || options === void 0 ? void 0 : options.skipStrictCheck)) {
-                return -1 /* failed */;
+                return -1 /* EnumCheckPaths.failed */;
             }
         }
-        return 0 /* rootPath */;
+        return 0 /* EnumCheckPaths.rootPath */;
     }
     else if (rootPath === null || rootPath === void 0 ? void 0 : rootPath.length) {
-        return 0 /* rootPath */;
+        return 0 /* EnumCheckPaths.rootPath */;
     }
-    return -1 /* failed */;
+    return -1 /* EnumCheckPaths.failed */;
 }
 exports.checkPaths = checkPaths;
 //# sourceMappingURL=util.js.map

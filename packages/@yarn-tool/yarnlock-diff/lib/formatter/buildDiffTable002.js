@@ -36,21 +36,21 @@ function buildDiffTable(diff, options) {
         _ok = true;
         let _arr;
         switch (packageDiff.kind) {
-            case "A" /* DiffArray */:
+            case "A" /* EnumKinds.DiffArray */:
                 let diffArray = (0, diffArray002_1._diffArray)(packageDiff, chalk);
                 _arr = [path, chalk.gray(diffArray[0]), ARROW, chalk.gray(diffArray[1])];
                 break;
-            case "D" /* DiffDeleted */:
+            case "D" /* EnumKinds.DiffDeleted */:
                 _arr = [chalk.red(path), chalk.red((0, formatVersion_1._formatVersion)(packageDiff.lhs)), ARROW, NONE];
                 break;
-            case "E" /* DiffEdit */:
+            case "E" /* EnumKinds.DiffEdit */:
                 let lhs0 = (0, formatVersion_1._formatVersion)(packageDiff.lhs);
                 let rhs0 = (0, formatVersion_1._formatVersion)(packageDiff.rhs);
                 let lhs = chalk.yellow(lhs0);
                 let rhs = chalk.yellow((0, semver_diff_1.colorizeDiff)(lhs0, rhs0, options));
                 _arr = [chalk.yellow(path), lhs, ARROW, rhs];
                 break;
-            case "N" /* DiffNew */:
+            case "N" /* EnumKinds.DiffNew */:
                 _arr = [chalk.green(path), NONE, ARROW, chalk.green((0, formatVersion_1._formatVersion)(packageDiff.rhs))];
                 break;
         }

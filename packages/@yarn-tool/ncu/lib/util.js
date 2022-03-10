@@ -14,7 +14,7 @@ function isBadVersion(version) {
         case types_1.EnumVersionValue.newest:
         case types_1.EnumVersionValue.latest:
         case types_1.EnumVersionValue.greatest:
-        case "*" /* any */:
+        case "*" /* EnumVersionValue2.any */:
             bool = true;
             break;
         default:
@@ -45,7 +45,7 @@ function keyObjectToPackageMap(obj, useVarsionNew) {
 }
 exports.keyObjectToPackageMap = keyObjectToPackageMap;
 function allowUpdateVersion(version) {
-    return (version === null || version === void 0 ? void 0 : version.length) && version !== "*" /* any */ && version !== types_1.EnumVersionValue.latest && !/^\s*(?:[><])|&|=|\|/.test(version);
+    return (version === null || version === void 0 ? void 0 : version.length) && version !== "*" /* EnumVersionValue2.any */ && version !== types_1.EnumVersionValue.latest && !/^\s*(?:[><])|&|=|\|/.test(version);
 }
 exports.allowUpdateVersion = allowUpdateVersion;
 //# sourceMappingURL=util.js.map

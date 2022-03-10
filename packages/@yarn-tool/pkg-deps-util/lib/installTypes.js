@@ -17,7 +17,7 @@ async function checkInstallTargetTypes(packageName, options) {
         return {
             name,
             target,
-            error: 3 /* SKIP */,
+            error: 3 /* EnumInstallTypesErrorCode.SKIP */,
             msg: `${name} already exists in package dependencies`,
         };
     }
@@ -30,7 +30,7 @@ async function checkInstallTargetTypes(packageName, options) {
         return {
             name,
             target,
-            error: 1 /* NOT_EXISTS */,
+            error: 1 /* EnumInstallTypesErrorCode.NOT_EXISTS */,
             msg: `${name} not exists`,
         };
     }
@@ -38,14 +38,14 @@ async function checkInstallTargetTypes(packageName, options) {
         return {
             name,
             target,
-            error: 2 /* DEPRECATED */,
+            error: 2 /* EnumInstallTypesErrorCode.DEPRECATED */,
             msg: info.deprecated,
         };
     }
     return {
         name,
         target,
-        error: 0 /* SUCCESS */,
+        error: 0 /* EnumInstallTypesErrorCode.SUCCESS */,
         msg: `add ${target} to dependency`,
     };
 }

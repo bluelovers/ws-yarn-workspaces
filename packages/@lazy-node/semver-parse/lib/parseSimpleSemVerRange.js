@@ -14,10 +14,10 @@ function parseSimpleSemVerRange(str) {
             minor: m[8],
             patch: m[10],
         };
-        if ("+" /* build */ === m[12]) {
+        if ("+" /* EnumVersionExtra.build */ === m[12]) {
             obj.build = m[13];
         }
-        if ("-" /* release */ === m[12]) {
+        if ("-" /* EnumVersionExtra.release */ === m[12]) {
             obj.release = m[13];
         }
         arr.push(new SimpleSemVer_1.SimpleSemVer(obj));
