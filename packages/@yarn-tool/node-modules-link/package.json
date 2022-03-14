@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/node-modules-link",
-  "version": "1.0.41",
+  "version": "1.0.42",
   "description": "link package to node_modules",
   "keywords": [],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/node-modules-link#readme",
@@ -30,9 +30,9 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^1.0.59",
-    "@yarn-tool/find-root": "^1.0.63",
-    "@yarn-tool/node-modules": "^1.0.66",
+    "@ts-type/package-dts": "^1.0.60",
+    "@yarn-tool/find-root": "^1.0.64",
+    "@yarn-tool/node-modules": "^1.0.67",
     "find-yarn-workspace-root2": "^1.2.36",
     "fs-extra": "^10.0.1",
     "fs-symlink-extra": "^1.0.10",

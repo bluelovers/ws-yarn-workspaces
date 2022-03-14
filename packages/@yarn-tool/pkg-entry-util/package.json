@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/pkg-entry-util",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "",
   "keywords": [
     "yarn",
@@ -51,8 +51,8 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^1.0.59",
-    "@yarn-tool/find-root": "^1.0.63",
+    "@ts-type/package-dts": "^1.0.60",
+    "@yarn-tool/find-root": "^1.0.64",
     "fs-extra": "^10.0.1",
     "tslib": "^2.3.1",
     "upath2": "^3.1.12"

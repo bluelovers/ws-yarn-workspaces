@@ -1,6 +1,6 @@
 {
   "name": "sort-package-json3",
-  "version": "1.0.54",
+  "version": "1.0.55",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/sort-package-json3#readme",
   "bugs": {
@@ -29,7 +29,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^1.0.59",
+    "@ts-type/package-dts": "^1.0.60",
     "is-plain-obj": "< 4",
     "sort-package-json-scripts": "^1.1.12",
     "tslib": "^2.3.1"

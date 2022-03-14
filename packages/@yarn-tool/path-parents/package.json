@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/path-parents",
-  "version": "1.0.24",
+  "version": "1.0.25",
   "description": "",
   "keywords": [
     "yarn",
@@ -37,7 +37,7 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@yarn-tool/find-root": "^1.0.63",
+    "@yarn-tool/find-root": "^1.0.64",
     "path-is-same": "^1.0.17",
     "path-parents": "^1.0.19",
     "tslib": "^2.3.1",

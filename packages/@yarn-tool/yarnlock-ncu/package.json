@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarnlock-ncu",
-  "version": "1.0.40",
+  "version": "1.0.41",
   "description": "update yarnlock v1 and berry",
   "keywords": [
     "yarn",
@@ -37,11 +37,11 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@yarn-tool/pkg-version-query": "^1.0.46",
-    "@yarn-tool/semver-diff": "^1.0.33",
-    "@yarn-tool/table": "^1.0.41",
-    "@yarn-tool/yarnlock-diff": "^1.0.37",
-    "@yarn-tool/yarnlock-entries": "^1.0.34",
+    "@yarn-tool/pkg-version-query": "^1.0.47",
+    "@yarn-tool/semver-diff": "^1.0.34",
+    "@yarn-tool/table": "^1.0.42",
+    "@yarn-tool/yarnlock-diff": "^1.0.38",
+    "@yarn-tool/yarnlock-entries": "^1.0.35",
     "debug-color2": "^1.2.7",
     "semver": "^7.3.5",
     "tslib": "^2.3.1"

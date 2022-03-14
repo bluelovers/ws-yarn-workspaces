@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.50](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-deps-util@1.0.49...@yarn-tool/pkg-deps-util@1.0.50) (2022-03-14)
+
+
+### 🔖　Miscellaneous
+
+* . ([7e31733](https://github.com/bluelovers/ws-yarn-workspaces/commit/7e31733febde1a879ded2feba01ff679874c4b4b))
+
+
+
+
+
 ## [1.0.49](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-deps-util@1.0.47...@yarn-tool/pkg-deps-util@1.0.49) (2022-02-27)
 
 

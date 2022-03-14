@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/sort-lerna-json",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "sort lerna.json",
   "keywords": [
     "yarn",
@@ -55,7 +55,7 @@
   },
   "dependencies": {
     "@bluelovers/fs-json": "^1.0.3",
-    "@ts-type/package-dts": "^1.0.59",
+    "@ts-type/package-dts": "^1.0.60",
     "fs-extra": "^10.0.1",
     "sort-object-keys2": "^2.0.3",
     "tslib": "^2.3.1"

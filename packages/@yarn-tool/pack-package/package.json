@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/pack-package",
-  "version": "1.0.46",
+  "version": "1.0.47",
   "description": "pack package, and print information about packed tar",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/pack-package#readme",
   "bugs": {
@@ -25,8 +25,8 @@
   "dependencies": {
     "@lerna/get-packed": "^4.0.0",
     "@lerna/log-packed": "^4.0.0",
-    "@ts-type/package-dts": "^1.0.59",
-    "npm-packlist": "^3.0.0",
+    "@ts-type/package-dts": "^1.0.60",
+    "npm-packlist": "^4.0.0",
     "tar": "^6.1.11",
     "tslib": "^2.3.1"
   },

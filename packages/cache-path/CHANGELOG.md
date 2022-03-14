@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.33](https://github.com/bluelovers/ws-yarn-workspaces/compare/cache-path@2.0.32...cache-path@2.0.33) (2022-03-14)
+
+**Note:** Version bump only for package cache-path
+
+
+
+
+
 ## [2.0.32](https://github.com/bluelovers/ws-yarn-workspaces/compare/cache-path@2.0.30...cache-path@2.0.32) (2022-02-27)
 
 
