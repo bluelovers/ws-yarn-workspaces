@@ -4,7 +4,7 @@ export function defaultPkgNotOldExists()
 		"test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
 		"test:jest": "jest --passWithNoTests",
 		"test:tsdx": "ynpx @bluelovers/tsdx test --passWithNoTests",
-		"build:dts:bundle": "ynpx dts-bundle-generator -o ./dist/index.d.ts ./src/index.ts --no-banner & echo build:dts",
+		"build:dts:bundle": "ynpx dts-bundle-generator -o ./dist/index.d.ts ./src/index.ts --no-banner --inline-declare-global & echo build:dts:bundle",
 		"build:dts:copy": "copy .\\src\\index.d.ts .\\dist\\index.d.ts & echo build:dts",
 		"build:dts:tsc:emit": "tsc --emitDeclarationOnly --declaration --noEmit false",
 		"build:dts:tsc": "yarn run build:dts:tsc:emit && yarn run build:dts:copy",

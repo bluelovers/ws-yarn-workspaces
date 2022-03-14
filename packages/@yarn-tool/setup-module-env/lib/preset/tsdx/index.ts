@@ -13,7 +13,7 @@ export function updatePackageJson<P extends IPackageJson>(pkg: P)
 		pkg.scripts["build"] = "yarn run build:tsdx && yarn run build:dts:bundle";
 	}
 
-	pkg.scripts["build:dts:bundle"] ??= "ynpx dts-bundle-generator -o ./dist/index.d.ts ./src/index.ts --no-banner & echo build:dts";
+	pkg.scripts["build:dts:bundle"] ??= "ynpx dts-bundle-generator -o ./dist/index.d.ts ./src/index.ts --no-banner --inline-declare-global & echo build:dts:bundle";
 	pkg.scripts["build:tsdx"] ??= "ynpx @bluelovers/tsdx build --target node --name index";
 
 	pkg.scripts["build:dts:copy"] ??= "copy .\\src\\index.d.ts .\\dist\\index.d.ts & echo build:dts";
