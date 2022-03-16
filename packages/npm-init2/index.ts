@@ -420,6 +420,11 @@ if (!cp.error)
 
 		pkg.data.scripts = sortPackageJsonScripts(pkg.data.scripts);
 
+		/**
+		 * https://juejin.cn/post/6844903640533041159
+		 */
+		pkg.data.sideEffects ??= false;
+
 		pkg.autofix();
 
 		if (cli.argv.sort)

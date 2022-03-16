@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 "use strict";
-var _a, _b, _c, _d, _e, _f, _g;
-var _h, _j, _k;
+var _a, _b, _c, _d, _e, _f, _g, _h;
+var _j, _k, _l, _m;
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const yargs_1 = tslib_1.__importDefault(require("yargs"));
@@ -151,7 +151,7 @@ if (!cp.error) {
             targetDir,
             rootData,
         });
-        (_b = (_h = pkg.data).packageManager) !== null && _b !== void 0 ? _b : (_h.packageManager = "yarn@^1.22.11");
+        (_b = (_j = pkg.data).packageManager) !== null && _b !== void 0 ? _b : (_j.packageManager = "yarn@^1.22.11");
         let sharedScript = {
             "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
             "ncu": "yarn-tool ncu -u",
@@ -190,7 +190,7 @@ if (!cp.error) {
         }
         preScripts.push("yarn run test");
         sharedScript.preversion = preScripts.join(' && ');
-        (_c = (_j = pkg.data).scripts) !== null && _c !== void 0 ? _c : (_j.scripts = {});
+        (_c = (_k = pkg.data).scripts) !== null && _c !== void 0 ? _c : (_k.scripts = {});
         if (!oldExists) {
             if (((_d = pkg.data.scripts) === null || _d === void 0 ? void 0 : _d.test) === "echo \"Error: no test specified\" && exit 1" && ((_e = sharedScript.test) === null || _e === void 0 ? void 0 : _e.length) > 0) {
                 delete pkg.data.scripts.test;
@@ -270,7 +270,7 @@ if (!cp.error) {
                 pkg.data.keywords = rootKeywords.slice();
             }
         }
-        (_g = (_k = pkg.data).keywords) !== null && _g !== void 0 ? _g : (_k.keywords = []);
+        (_g = (_l = pkg.data).keywords) !== null && _g !== void 0 ? _g : (_l.keywords = []);
         pkg.data.keywords.push('create-by-yarn-tool');
         let file_map = [
             ...const_1.defaultCopyStaticFiles,
@@ -298,6 +298,10 @@ if (!cp.error) {
             }));
         }
         pkg.data.scripts = (0, sort_package_json_scripts_1.sortPackageJsonScripts)(pkg.data.scripts);
+        /**
+         * https://juejin.cn/post/6844903640533041159
+         */
+        (_h = (_m = pkg.data).sideEffects) !== null && _h !== void 0 ? _h : (_m.sideEffects = false);
         pkg.autofix();
         if (cli.argv.sort) {
             pkg.sort();
