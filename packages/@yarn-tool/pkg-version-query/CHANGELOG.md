@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.48](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-version-query@1.0.47...@yarn-tool/pkg-version-query@1.0.48) (2022-03-16)
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([560c950](https://github.com/bluelovers/ws-yarn-workspaces/commit/560c9509821b9c7b8e2f63779e4a88f53a1f2d2f))
+
+
+
+
+
 ## [1.0.47](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-version-query@1.0.46...@yarn-tool/pkg-version-query@1.0.47) (2022-03-14)
 
 **Note:** Version bump only for package @yarn-tool/pkg-version-query

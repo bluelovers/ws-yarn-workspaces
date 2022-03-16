@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarnlock-entries",
-  "version": "1.0.35",
+  "version": "1.0.36",
   "description": "entries from yarnlock v1 and berry",
   "keywords": [
     "yarn",
@@ -41,7 +41,7 @@
     "@yarn-tool/yarnlock-error": "^1.0.6",
     "@yarn-tool/yarnlock-parse": "^1.0.26",
     "@yarn-tool/yarnlock-stringify": "^1.0.13",
-    "@yarn-tool/yarnlock-util": "^1.0.34",
+    "@yarn-tool/yarnlock-util": "^1.0.35",
     "lodash": "^4.17.21",
     "ts-type": "^2.1.6",
     "tslib": "^2.3.1"
