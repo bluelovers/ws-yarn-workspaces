@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.49](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-version-query@1.0.48...@yarn-tool/pkg-version-query@1.0.49) (2022-03-29)
+
+**Note:** Version bump only for package @yarn-tool/pkg-version-query
+
+
+
+
+
 ## [1.0.48](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-version-query@1.0.47...@yarn-tool/pkg-version-query@1.0.48) (2022-03-16)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "find-yarn-workspace-root2",
-  "version": "1.2.36",
+  "version": "1.2.37",
   "description": "Algorithm for finding the root of a yarn workspace, extracted from yarnpkg.com",
   "keywords": [],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/find-yarn-workspace-root2#readme",

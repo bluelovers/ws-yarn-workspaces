@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.24](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/search-workspace-prefix-by-name@1.0.23...@yarn-tool/search-workspace-prefix-by-name@1.0.24) (2022-03-29)
+
+**Note:** Version bump only for package @yarn-tool/search-workspace-prefix-by-name
+
+
+
+
+
 ## [1.0.23](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/search-workspace-prefix-by-name@1.0.21...@yarn-tool/search-workspace-prefix-by-name@1.0.23) (2022-02-27)
 
 **Note:** Version bump only for package @yarn-tool/search-workspace-prefix-by-name
