@@ -18,11 +18,11 @@ function getDefaultPackageJson(name) {
         "scripts": (0, ws_root_scripts_1.defaultWorkspaceRootScripts)(),
         "dependencies": {
             "ts-type": "^1.2.32",
-            "tslib": "^2.3.0",
+            "tslib": "^2.3.1",
         },
         "devDependencies": {
-            "@types/jest": "^26.0.24",
-            "@bluelovers/tsconfig": "^1.0.20",
+            "@types/jest": "^27.4.1",
+            "@bluelovers/tsconfig": "^1.0.28",
             "@types/node": "*",
         },
         "peerDependencies": {
