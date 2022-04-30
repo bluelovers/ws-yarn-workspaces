@@ -9,4 +9,5 @@ export declare function defaultRootScripts(): {
     "postpublish:git:push": string;
     postpublish: string;
     "ci:install": string;
+    "test:jest:clearCache": string;
 };

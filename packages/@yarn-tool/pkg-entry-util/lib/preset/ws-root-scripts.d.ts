@@ -25,4 +25,5 @@ export declare function defaultWorkspaceRootScripts(): {
     "ws:fix-all": string;
     "tsc:showConfig": string;
     "ci:install": string;
+    "test:jest:clearCache": string;
 };
