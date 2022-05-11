@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/find-root",
-  "version": "1.0.65",
+  "version": "1.0.66",
   "description": "",
   "keywords": [],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/find-root#readme",
@@ -30,7 +30,7 @@
   "dependencies": {
     "@ts-type/package-dts": "^1.0.60",
     "err-code": "^3.0.1",
-    "find-yarn-workspace-root2": "^1.2.37",
+    "find-yarn-workspace-root2": "^1.2.38",
     "pkg-dir": "< 6 >= 5",
     "tslib": "^2",
     "upath2": "^3.1.13"

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.17](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-hosted-info@1.0.16...@yarn-tool/pkg-hosted-info@1.0.17) (2022-05-11)
+
+
+### ♻️　Chores
+
+* update deps ([6f226ac](https://github.com/bluelovers/ws-yarn-workspaces/commit/6f226acfd22f0b213eaa8a84886f8391284b1fcf))
+
+
+
+
+
 ## [1.0.16](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-hosted-info@1.0.15...@yarn-tool/pkg-hosted-info@1.0.16) (2022-03-29)
 
 **Note:** Version bump only for package @yarn-tool/pkg-hosted-info

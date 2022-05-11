@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.100](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.99...@yarn-tool/static-file@1.0.100) (2022-05-11)
+
+
+### ✨　Features
+
+* set jest maxWorkers = 1 ([0600624](https://github.com/bluelovers/ws-yarn-workspaces/commit/0600624f9e606215d7cb178e3c9fc95d39eb398f))
+
+
+### ♻️　Chores
+
+* update deps ([6f226ac](https://github.com/bluelovers/ws-yarn-workspaces/commit/6f226acfd22f0b213eaa8a84886f8391284b1fcf))
+
+
+
+
+
 ## [1.0.99](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.98...@yarn-tool/static-file@1.0.99) (2022-03-14)
 
 

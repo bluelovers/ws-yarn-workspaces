@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.10](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/validate-npm-package-name@3.0.9...@yarn-tool/validate-npm-package-name@3.0.10) (2022-05-11)
+
+
+### ♻️　Chores
+
+* update deps ([6f226ac](https://github.com/bluelovers/ws-yarn-workspaces/commit/6f226acfd22f0b213eaa8a84886f8391284b1fcf))
+
+
+
+
+
 ## [3.0.9](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/validate-npm-package-name@3.0.8...@yarn-tool/validate-npm-package-name@3.0.9) (2022-03-29)
 
 **Note:** Version bump only for package @yarn-tool/validate-npm-package-name

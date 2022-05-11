@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/bluelovers/ws-yarn-workspaces/compare/up-require@2.0.1...up-require@2.0.2) (2022-05-11)
+
+
+### ♻️　Chores
+
+* update deps ([6f226ac](https://github.com/bluelovers/ws-yarn-workspaces/commit/6f226acfd22f0b213eaa8a84886f8391284b1fcf))
+
+
+
+
+
 ## 2.0.1 (2021-08-29)
 
 

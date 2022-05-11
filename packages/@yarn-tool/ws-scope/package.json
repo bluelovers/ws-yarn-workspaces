@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/ws-scope",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "description": "update workspaces scope setting",
   "keywords": [
     "scope",
@@ -55,8 +55,8 @@
   },
   "dependencies": {
     "@bluelovers/fs-json": "^1.0.5",
-    "@yarn-tool/find-root": "^1.0.65",
-    "@yarn-tool/sort-lerna-json": "^1.0.6",
+    "@yarn-tool/find-root": "^1.0.66",
+    "@yarn-tool/sort-lerna-json": "^1.0.7",
     "array-hyper-unique": "^2.0.6",
     "fs-extra": "^10.1.0",
     "path-in-dir": "^1.0.4",

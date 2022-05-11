@@ -1,6 +1,6 @@
 {
   "name": "ws-root-changelog",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "output changelog toc in workspaces root ",
   "keywords": [
     "workspaces",
@@ -50,10 +50,10 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/find-root": "^1.0.65",
+    "@yarn-tool/find-root": "^1.0.66",
     "tslib": "^2",
     "upath2": "^3.1.13",
-    "ws-pkg-list": "^1.0.78"
+    "ws-pkg-list": "^1.0.79"
   },
   "packageManager": "yarn@^1.22.11"
 }
