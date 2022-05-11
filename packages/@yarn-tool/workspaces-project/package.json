@@ -31,13 +31,13 @@
     "@types/npm-package-arg": "*",
     "@yarn-tool/changelog": "^1.0.70",
     "find-yarn-workspace-root2": "^1.2.37",
-    "fs-extra": "^10.0.1",
+    "fs-extra": "^10.1.0",
     "lodash": "^4.17.21",
-    "path-dir-normalize": "^1.0.23",
+    "path-dir-normalize": "^1.0.24",
     "sort-object-keys2": "^2.0.3",
     "ts-type": "^2.1.6",
-    "tslib": "^2.3.1",
-    "upath2": "^3.1.12"
+    "tslib": "^2",
+    "upath2": "^3.1.13"
   },
   "publishConfig": {
     "access": "public"

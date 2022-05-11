@@ -55,11 +55,11 @@
     "@yarnpkg/lockfile": "^1.1.0",
     "@yarnpkg/parsers": "^2.5.0",
     "debug-color2": "^1.2.7",
-    "fs-extra": "^10.0.1",
-    "semver": "^7.3.5",
+    "fs-extra": "^10.1.0",
+    "semver": "^7.3.7",
     "ts-type": "^2.1.6",
-    "tslib": "^2.3.1",
-    "upath2": "^3.1.12"
+    "tslib": "^2",
+    "upath2": "^3.1.13"
   },
   "publishConfig": {
     "access": "public"

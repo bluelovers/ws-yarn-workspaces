@@ -32,10 +32,10 @@
     "@ts-type/package-dts": "^1.0.60",
     "is-plain-obj": "< 4",
     "sort-package-json-scripts": "^1.1.12",
-    "tslib": "^2.3.1"
+    "tslib": "^2"
   },
   "peerDependencies": {
-    "sort-package-json": "^1.55.0"
+    "sort-package-json": "^1.57.0"
   },
   "gitHead": "445ff249d9e89ede8c67a41af7f967bdc9dd50aa"
 }

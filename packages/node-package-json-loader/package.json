@@ -44,16 +44,16 @@
   "config": {},
   "resolutions": {},
   "dependencies": {
-    "@bluelovers/fs-json": "^1.0.3",
+    "@bluelovers/fs-json": "^1.0.5",
     "@ts-type/package-dts": "^1.0.60",
     "@yarn-tool/pkg-entry-util": "^1.0.10",
     "@yarn-tool/resolve-package": "^1.0.46",
     "bind-decorator": "^1.0.11",
-    "fs-extra": "^10.0.1",
-    "sort-package-json": "^1.55.0",
+    "fs-extra": "^10.1.0",
+    "sort-package-json": "^1.57.0",
     "sort-package-json3": "^1.0.56",
     "ts-type": "^2.1.6",
-    "tslib": "^2.3.1"
+    "tslib": "^2"
   },
   "bundleDependencies": [],
   "preferGlobal": true,

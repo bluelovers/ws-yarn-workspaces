@@ -35,7 +35,7 @@
     "@git-lazy/info": "^1.0.32",
     "@types/hosted-git-info": "^3.0.2",
     "hosted-git-info": "^5.0.0",
-    "tslib": "^2.3.1"
+    "tslib": "^2"
   },
   "publishConfig": {
     "access": "public"

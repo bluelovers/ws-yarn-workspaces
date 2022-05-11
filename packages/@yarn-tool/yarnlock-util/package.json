@@ -40,8 +40,8 @@
     "@yarn-tool/npm-package-arg-util": "^1.0.24",
     "@yarn-tool/yarnlock-parse": "^1.0.26",
     "@yarnpkg/parsers": "^2.5.0",
-    "npm-package-arg": "^9.0.1",
-    "tslib": "^2.3.1"
+    "npm-package-arg": "^9.0.2",
+    "tslib": "^2"
   },
   "publishConfig": {
     "access": "public"

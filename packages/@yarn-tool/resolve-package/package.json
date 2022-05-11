@@ -54,8 +54,8 @@
   },
   "dependencies": {
     "pkg-dir": "< 6 >= 5",
-    "tslib": "^2.3.1",
-    "upath2": "^3.1.12"
+    "tslib": "^2",
+    "upath2": "^3.1.13"
   },
   "devDependencies": {
     "@ts-type/package-dts": "^1.0.60",

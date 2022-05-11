@@ -45,14 +45,14 @@
     "@yarn-tool/get-pkg-bin": "^1.0.50",
     "@yarn-tool/shebang": "^1.0.9",
     "@yarn-tool/table": "^1.0.42",
-    "cli-table3": "^0.6.1",
+    "cli-table3": "^0.6.2",
     "debug-color2": "^1.2.7",
-    "fs-extra": "^10.0.1",
+    "fs-extra": "^10.1.0",
     "pkg-dir": "< 6 >= 5",
-    "tslib": "^2.3.1",
-    "upath2": "^3.1.12",
+    "tslib": "^2",
+    "upath2": "^3.1.13",
     "ws-pkg-list": "^1.0.78",
-    "yargs": "^17.4.0"
+    "yargs": "^17.4.1"
   },
   "publishConfig": {
     "access": "public"

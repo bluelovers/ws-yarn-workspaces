@@ -43,8 +43,8 @@
     "@yarn-tool/yarnlock-diff": "^1.0.39",
     "@yarn-tool/yarnlock-entries": "^1.0.36",
     "debug-color2": "^1.2.7",
-    "semver": "^7.3.5",
-    "tslib": "^2.3.1"
+    "semver": "^7.3.7",
+    "tslib": "^2"
   },
   "publishConfig": {
     "access": "public"

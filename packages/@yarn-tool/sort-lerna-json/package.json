@@ -54,11 +54,11 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@bluelovers/fs-json": "^1.0.3",
+    "@bluelovers/fs-json": "^1.0.5",
     "@ts-type/package-dts": "^1.0.60",
-    "fs-extra": "^10.0.1",
+    "fs-extra": "^10.1.0",
     "sort-object-keys2": "^2.0.3",
-    "tslib": "^2.3.1"
+    "tslib": "^2"
   },
   "publishConfig": {
     "access": "public"

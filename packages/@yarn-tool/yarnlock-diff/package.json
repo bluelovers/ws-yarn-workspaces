@@ -38,13 +38,13 @@
     "@yarnpkg/parsers": "^2.5.0",
     "array-hyper-unique": "^2.0.6",
     "debug-color2": "^1.2.7",
-    "npm-package-arg": "^9.0.1",
-    "semver": "^7.3.5",
+    "npm-package-arg": "^9.0.2",
+    "semver": "^7.3.7",
     "ts-type": "^2.1.6",
-    "tslib": "^2.3.1"
+    "tslib": "^2"
   },
   "devDependencies": {
-    "just-diff": "^5.0.1"
+    "just-diff": "^5.0.2"
   },
   "publishConfig": {
     "access": "public"
