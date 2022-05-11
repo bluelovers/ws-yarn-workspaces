@@ -59,9 +59,10 @@ console.info(`-  cwd: ${process.cwd()}`);
 module.exports = {
 	globals: {
 		'ts-jest': {
-
+			//tsconfig: 'tsconfig.spec.json',
 		},
 	},
+	maxWorkers: 1,
 	clearMocks: true,
 	passWithNoTests: true,
 	moduleFileExtensions: [
