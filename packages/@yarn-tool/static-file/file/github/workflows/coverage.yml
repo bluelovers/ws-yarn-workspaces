@@ -38,7 +38,7 @@ jobs:
           #   threshold: 80 # optional parameter
           test-script: npx jest --silent --ci --coverage=false --coverageReporters="text" --coverageReporters="text-summary"
       - name: Upload coverage to Codecov
-          uses: codecov/codecov-action@master
-          with:
-            token: ${{ secrets.CODECOV_TOKEN }}
-            verbose: true
+        uses: codecov/codecov-action@master
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          verbose: true
