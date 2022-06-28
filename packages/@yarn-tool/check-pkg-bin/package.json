@@ -39,7 +39,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@bluelovers/string-natural-compare": "^2.0.5",
+    "@bluelovers/string-natural-compare": "^2.0.7",
     "@ts-type/package-dts": "^1.0.60",
     "@yarn-tool/find-root": "^1.0.66",
     "@yarn-tool/get-pkg-bin": "^1.0.51",
@@ -52,7 +52,7 @@
     "tslib": "^2",
     "upath2": "^3.1.13",
     "ws-pkg-list": "^1.0.79",
-    "yargs": "^17.4.1"
+    "yargs": "^17.5.1"
   },
   "publishConfig": {
     "access": "public"

@@ -26,7 +26,7 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@yarnpkg/parsers": "^2.5.0",
+    "@yarnpkg/parsers": "^2.5.1",
     "tslib": "^2"
   },
   "publishConfig": {

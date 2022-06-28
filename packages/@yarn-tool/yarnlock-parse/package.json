@@ -41,7 +41,7 @@
     "@yarn-tool/detect-yarnlock-version": "^1.0.15",
     "@yarn-tool/yarnlock-error": "^1.0.7",
     "@yarnpkg/lockfile": "^1.1.0",
-    "@yarnpkg/parsers": "^2.5.0",
+    "@yarnpkg/parsers": "^2.5.1",
     "tslib": "^2"
   },
   "publishConfig": {

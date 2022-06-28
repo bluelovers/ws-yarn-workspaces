@@ -10,7 +10,7 @@ function updatePackageJson(pkg) {
         pkg.scripts["build"] = "yarn run build:tsdx && yarn run build:dts:bundle";
     }
     (_d = (_q = pkg.scripts)["build:dts:bundle"]) !== null && _d !== void 0 ? _d : (_q["build:dts:bundle"] = "ynpx dts-bundle-generator -o ./dist/index.d.ts ./src/index.ts --no-banner --inline-declare-global & echo build:dts:bundle");
-    (_e = (_r = pkg.scripts)["build:tsdx"]) !== null && _e !== void 0 ? _e : (_r["build:tsdx"] = "ynpx @bluelovers/tsdx build --target node --name index");
+    (_e = (_r = pkg.scripts)["build:tsdx"]) !== null && _e !== void 0 ? _e : (_r["build:tsdx"] = "ynpx @bluelovers/tsdx build --target node");
     (_f = (_s = pkg.scripts)["build:dts:copy"]) !== null && _f !== void 0 ? _f : (_s["build:dts:copy"] = "copy .\\src\\index.d.ts .\\dist\\index.d.ts & echo build:dts");
     (_g = (_t = pkg.scripts)["build:dts:tsc:emit"]) !== null && _g !== void 0 ? _g : (_t["build:dts:tsc:emit"] = "tsc --emitDeclarationOnly --declaration --noEmit false");
     (_h = (_u = pkg.scripts)["build:dts:tsc"]) !== null && _h !== void 0 ? _h : (_u["build:dts:tsc"] = "yarn run build:dts:tsc:emit && yarn run build:dts:copy");

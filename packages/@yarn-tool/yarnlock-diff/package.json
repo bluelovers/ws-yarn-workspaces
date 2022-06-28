@@ -35,16 +35,16 @@
     "@yarn-tool/table": "^1.0.43",
     "@yarn-tool/yarnlock-parse": "^1.0.27",
     "@yarn-tool/yarnlock-util": "^1.0.36",
-    "@yarnpkg/parsers": "^2.5.0",
-    "array-hyper-unique": "^2.0.6",
+    "@yarnpkg/parsers": "^2.5.1",
+    "array-hyper-unique": "^2.0.8",
     "debug-color2": "^1.2.7",
-    "npm-package-arg": "^9.0.2",
+    "npm-package-arg": "^9.1.0",
     "semver": "^7.3.7",
     "ts-type": "^2.1.6",
     "tslib": "^2"
   },
   "devDependencies": {
-    "just-diff": "^5.0.2"
+    "just-diff": "^5.0.3"
   },
   "publishConfig": {
     "access": "public"

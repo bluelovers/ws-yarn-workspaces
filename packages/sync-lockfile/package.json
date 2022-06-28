@@ -38,7 +38,7 @@
     "fs-extra": "^10.1.0",
     "tslib": "^2",
     "ws-pkg-list": "^1.0.79",
-    "yargs": "^17.4.1"
+    "yargs": "^17.5.1"
   },
   "gitHead": "67f2bf3be478106378700eb513da557943b2f9f3"
 }

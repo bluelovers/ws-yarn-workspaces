@@ -39,7 +39,7 @@
   "dependencies": {
     "@yarn-tool/detect-yarnlock-version": "^1.0.15",
     "@yarnpkg/lockfile": "^1.1.0",
-    "@yarnpkg/parsers": "^2.5.0",
+    "@yarnpkg/parsers": "^2.5.1",
     "tslib": "^2"
   },
   "publishConfig": {
