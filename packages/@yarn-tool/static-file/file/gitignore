@@ -213,3 +213,5 @@ jest.config.js.map
 _snowpack
 web_modules
 tsc-multi.json.tpl
+
+dist/*.umd.*.*s

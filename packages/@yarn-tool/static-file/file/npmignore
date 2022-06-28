@@ -122,3 +122,6 @@ tsc-multi.json.tpl
 tsc-multi.json
 
 changelog-option.js
+
+bin/tsconfig.json
+bin/tsconfig.*.json

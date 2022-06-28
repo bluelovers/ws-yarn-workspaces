@@ -41,7 +41,7 @@ const _defaultCopyStaticFiles = [
 
 	['.editorconfig.tpl', 'file/tpl.editorconfig'],
 
-	['changelog-option.js.tpl', 'file/changelog-option.js', 'changelog-option.js'],
+	//['changelog-option.js.tpl', 'file/changelog-option.js', 'changelog-option.js'],
 
 ] as const;
 
@@ -61,7 +61,7 @@ const _defaultCopyStaticFilesRootOnly = [
 
 	['.eslintrc.json', 'file/eslintrc.json.tpl', '.eslintrc.json'],
 
-	['changelog-option.js', 'file/changelog-option.js', 'changelog-option.js.tpl'],
+	//['changelog-option.js', 'file/changelog-option.js', 'changelog-option.js.tpl'],
 
 ] as const;
 
