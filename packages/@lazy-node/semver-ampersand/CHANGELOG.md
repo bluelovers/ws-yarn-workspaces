@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.29](https://github.com/bluelovers/ws-yarn-workspaces/compare/@lazy-node/semver-ampersand@1.0.25...@lazy-node/semver-ampersand@1.0.29) (2022-06-28)
+
+
+### 🔖　Miscellaneous
+
+* . ([80be3f2](https://github.com/bluelovers/ws-yarn-workspaces/commit/80be3f28b36c30cad697d291a26b4c4fa523efc5))
+* . ([a28d30b](https://github.com/bluelovers/ws-yarn-workspaces/commit/a28d30bbb9879efbf0483c362b56eb6fd1f1108b))
+* . ([a0e3432](https://github.com/bluelovers/ws-yarn-workspaces/commit/a0e3432865c19812d08f4bd481f9835a097d1158))
+
+
+
+
+
 ## [1.0.28](https://github.com/bluelovers/ws-yarn-workspaces/compare/@lazy-node/semver-ampersand@1.0.25...@lazy-node/semver-ampersand@1.0.28) (2022-06-28)
 
 

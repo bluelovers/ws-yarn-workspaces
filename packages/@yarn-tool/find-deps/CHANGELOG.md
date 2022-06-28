@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.58](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-deps@1.0.56...@yarn-tool/find-deps@1.0.58) (2022-06-28)
+
+
+### 🔖　Miscellaneous
+
+* . ([80be3f2](https://github.com/bluelovers/ws-yarn-workspaces/commit/80be3f28b36c30cad697d291a26b4c4fa523efc5))
+* . ([a0e3432](https://github.com/bluelovers/ws-yarn-workspaces/commit/a0e3432865c19812d08f4bd481f9835a097d1158))
+
+
+
+
+
 ## [1.0.57](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-deps@1.0.56...@yarn-tool/find-deps@1.0.57) (2022-06-28)
 
 

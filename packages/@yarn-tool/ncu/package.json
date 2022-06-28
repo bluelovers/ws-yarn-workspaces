@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/ncu",
-  "version": "1.0.102",
+  "version": "1.0.103",
   "description": "",
   "keywords": [
     "cli",
@@ -44,10 +44,10 @@
   "dependencies": {
     "@lazy-node/semver-simple-parse": "^1.1.33",
     "@ts-type/package-dts": "^1.0.60",
-    "@yarn-tool/pkg-version-query": "^1.0.50",
+    "@yarn-tool/pkg-version-query": "^1.0.52",
     "@yarn-tool/semver-diff": "^1.0.35",
     "@yarn-tool/table": "^1.0.43",
-    "@yarn-tool/yarnlock": "^1.0.78",
+    "@yarn-tool/yarnlock": "^1.0.79",
     "bluebird": "^3.7.2",
     "npm-check-updates": "< 12 >= 11.8.5",
     "npm-package-arg": "^9.1.0",

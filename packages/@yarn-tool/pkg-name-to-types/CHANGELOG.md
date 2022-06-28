@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.54](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-name-to-types@1.0.53...@yarn-tool/pkg-name-to-types@1.0.54) (2022-06-28)
+
+**Note:** Version bump only for package @yarn-tool/pkg-name-to-types
+
+
+
+
+
 ## [1.0.53](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-name-to-types@1.0.52...@yarn-tool/pkg-name-to-types@1.0.53) (2022-05-11)
 
 

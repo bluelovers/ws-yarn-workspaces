@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/pack-package",
-  "version": "1.0.51",
+  "version": "1.0.52",
   "description": "pack package, and print information about packed tar",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/pack-package#readme",
   "bugs": {
