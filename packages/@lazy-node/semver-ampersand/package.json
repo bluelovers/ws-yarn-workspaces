@@ -1,6 +1,6 @@
 {
   "name": "@lazy-node/semver-ampersand",
-  "version": "1.0.26",
+  "version": "1.0.27",
   "description": "semver with support (&)ampersand",
   "keywords": [
     "semver",
