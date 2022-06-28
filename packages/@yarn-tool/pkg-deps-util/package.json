@@ -45,7 +45,7 @@
     "@yarn-tool/yarnlock-fs": "^1.0.26",
     "@yarn-tool/yarnlock-parse": "^1.0.27",
     "@yarn-tool/yarnlock-util": "^1.0.36",
-    "array-hyper-unique": "^2.0.6",
+    "array-hyper-unique": "^2.0.8",
     "cross-spawn-extra": "^2.1.0",
     "debug-color2": "^1.2.7",
     "err-code": "^3.0.1",

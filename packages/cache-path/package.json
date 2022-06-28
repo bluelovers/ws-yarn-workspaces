@@ -1,6 +1,6 @@
 {
   "name": "cache-path",
-  "version": "2.0.35",
+  "version": "2.0.36",
   "description": "return a cache directory, like `find-cache-dir` do",
   "keywords": [
     "cache",
@@ -54,7 +54,7 @@
     "@lazy-node/is-writeable-path": "^1.0.12",
     "@types/bluebird": "*",
     "@yarn-tool/find-root": "^1.0.66",
-    "array-hyper-unique": "^2.0.6",
+    "array-hyper-unique": "^2.0.8",
     "bluebird": "^3.7.2",
     "cross-spawn-extra": "^2.1.0",
     "fs-extra": "^10.1.0",

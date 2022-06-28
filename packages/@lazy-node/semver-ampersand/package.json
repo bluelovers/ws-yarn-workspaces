@@ -1,6 +1,6 @@
 {
   "name": "@lazy-node/semver-ampersand",
-  "version": "1.0.25",
+  "version": "1.0.26",
   "description": "semver with support (&)ampersand",
   "keywords": [
     "semver",
@@ -38,7 +38,7 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "array-hyper-unique": "^2.0.6",
+    "array-hyper-unique": "^2.0.8",
     "class-without-call-parent-constructor": "^2.0.4",
     "lru-cache2": "^6.0.7",
     "split-smartly2": "^1.1.11",
