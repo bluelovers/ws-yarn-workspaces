@@ -52,7 +52,7 @@
     "chalk": "< 3 && >= 2",
     "crlf-normalize": "^1.0.7",
     "debug-color2": "^1.2.7",
-    "inquirer": "^9.0.0",
+    "inquirer": "< 9 >= 8.2.4",
     "jest-console": "^0.1.0",
     "level": "^8.0.0",
     "package-json": "<7 >=6.5",

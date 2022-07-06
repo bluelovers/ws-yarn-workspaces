@@ -34,6 +34,7 @@ const _defaultCopyStaticFilesRootOnly = [
     ['tsconfig.json', 'file/tsconfig.json.tpl', 'tsconfig.json'],
     ['.eslintrc.json', 'file/eslintrc.json.tpl', '.eslintrc.json'],
     //['changelog-option.js', 'file/changelog-option.js', 'changelog-option.js.tpl'],
+    ['.yarnrc.yml.tpl', 'file/root/yarnrc.yml', '.yarnrc.yml'],
 ];
 const _defaultCopyStaticFilesWsRootOnly = [
     ['lerna.json.tpl', 'file/lerna.json.tpl'],

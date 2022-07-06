@@ -63,6 +63,8 @@ const _defaultCopyStaticFilesRootOnly = [
 
 	//['changelog-option.js', 'file/changelog-option.js', 'changelog-option.js.tpl'],
 
+	['.yarnrc.yml.tpl', 'file/root/yarnrc.yml', '.yarnrc.yml'],
+
 ] as const;
 
 const _defaultCopyStaticFilesWsRootOnly = [
