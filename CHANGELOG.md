@@ -13,6 +13,7 @@ Please see the individual package changelogs for what's new:
 * 🌏 [`@yarn-tool/fix-all`](./packages/@yarn-tool/fix-all/CHANGELOG.md "packages/@yarn-tool/fix-all") *packages/@yarn-tool/fix-all*
 * 🌏 [`@yarn-tool/fix-ws-links`](./packages/@yarn-tool/fix-ws-links/CHANGELOG.md "packages/@yarn-tool/fix-ws-links") *packages/@yarn-tool/fix-ws-links*
 * 🌏 [`@yarn-tool/fix-ws-pkgs-link`](./packages/@yarn-tool/fix-ws-pkgs-link/CHANGELOG.md "packages/@yarn-tool/fix-ws-pkgs-link") *packages/@yarn-tool/fix-ws-pkgs-link*
+* 🌏 [`@yarn-tool/fix-ws-versions`](./packages/@yarn-tool/fix-ws-versions/CHANGELOG.md "packages/@yarn-tool/fix-ws-versions") *packages/@yarn-tool/fix-ws-versions*
 * 🌏 [`@yarn-tool/get-paths-by-type`](./packages/@yarn-tool/get-paths-by-type/CHANGELOG.md "packages/@yarn-tool/get-paths-by-type") *packages/@yarn-tool/get-paths-by-type*
 * 🌏 [`@yarn-tool/get-pkg-bin`](./packages/@yarn-tool/get-pkg-bin/CHANGELOG.md "packages/@yarn-tool/get-pkg-bin") *packages/@yarn-tool/get-pkg-bin*
 * 🌏 [`@yarn-tool/init-path`](./packages/@yarn-tool/init-path/CHANGELOG.md "packages/@yarn-tool/init-path") *packages/@yarn-tool/init-path*
