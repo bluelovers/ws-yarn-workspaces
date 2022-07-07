@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "@lazy-node/semver-simple-parse": "^1.1.33",
-    "@ts-type/package-dts": "^1.0.60",
+    "@ts-type/package-dts": "^2.0.2",
     "@yarn-tool/pkg-version-query": "^1.0.52",
     "@yarn-tool/semver-diff": "^1.0.35",
     "@yarn-tool/table": "^1.0.43",
@@ -53,7 +53,7 @@
     "npm-package-arg": "^9.1.0",
     "package-json": "<7 >=6.5",
     "semver": "^7.3.7",
-    "ts-type": "^2.1.6",
+    "ts-type": "^2.1.8",
     "tslib": "^2"
   },
   "peerDependencies": {

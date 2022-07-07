@@ -45,14 +45,14 @@
   "resolutions": {},
   "dependencies": {
     "@bluelovers/fs-json": "^1.0.5",
-    "@ts-type/package-dts": "^1.0.60",
+    "@ts-type/package-dts": "^2.0.2",
     "@yarn-tool/pkg-entry-util": "^1.0.11",
     "@yarn-tool/resolve-package": "^1.0.47",
     "bind-decorator": "^1.0.11",
     "fs-extra": "^10.1.0",
     "sort-package-json": "^1.57.0",
     "sort-package-json3": "^1.0.57",
-    "ts-type": "^2.1.6",
+    "ts-type": "^2.1.8",
     "tslib": "^2"
   },
   "bundleDependencies": [],

@@ -151,7 +151,7 @@ if (!cp.error) {
             targetDir,
             rootData,
         });
-        (_b = (_j = pkg.data).packageManager) !== null && _b !== void 0 ? _b : (_j.packageManager = "yarn@^1.22.11");
+        (_b = (_j = pkg.data).packageManager) !== null && _b !== void 0 ? _b : (_j.packageManager = "yarn@1.22.19");
         let sharedScript = {
             "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
             "ncu": "yarn-tool ncu -u",

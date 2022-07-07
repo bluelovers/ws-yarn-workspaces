@@ -1,9 +1,9 @@
 import { IListableRow } from 'ws-pkg-list/lib/types';
-import linkToNodeModules, { IOptions } from '@yarn-tool/node-modules-link';
+import { linkToNodeModules, IOptions } from '@yarn-tool/node-modules-link';
 import { findRoot, IFindRootOptions } from '@yarn-tool/find-root';
 import { pathIsSame } from 'path-is-same';
 import { getModulesDir } from '@yarn-tool/node-modules/lib/util';
-import wsPkgListable from 'ws-pkg-list/lib/listable';
+import { wsPkgListable } from 'ws-pkg-list/lib/listable';
 
 export function _checkOptions(options: Partial<IOptions>, auto?: boolean): asserts options is IOptions
 {

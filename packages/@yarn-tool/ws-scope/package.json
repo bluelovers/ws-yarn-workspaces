@@ -67,8 +67,8 @@
   "devDependencies": {
     "@types/yawn-yaml": "^1.4.0"
   },
+  "packageManager": "yarn@1.22.19",
   "publishConfig": {
     "access": "public"
-  },
-  "packageManager": "yarn@^1.22.11"
+  }
 }

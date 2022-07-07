@@ -10,6 +10,7 @@ export function defaultWorkspaceRootScripts()
 		"coverage:all": "lerna run coverage --concurrency 1",
 		"lint:all": "lerna run lint --concurrency 1",
 		"preversion": "yt ws run test",
+		"postversion": "yt fix-all",
 		"lerna:publish": "yarn run prepublishOnly:root && lerna publish && yarn run postpublishOnly",
 		"lerna:publish:yes": "yarn run prepublishOnly:root && lerna publish --yes --bump patch && yarn run postpublishOnly",
 		"prepublishOnly:root": "yarn run prepublishOnly:check-bin && yarn run prepare:fix-ws-links",

@@ -51,14 +51,14 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^1.0.60",
+    "@ts-type/package-dts": "^2.0.2",
     "@yarn-tool/find-root": "^1.0.66",
     "fs-extra": "^10.1.0",
     "tslib": "^2",
     "upath2": "^3.1.13"
   },
+  "packageManager": "yarn@1.22.19",
   "publishConfig": {
     "access": "public"
-  },
-  "packageManager": "yarn@^1.22.11"
+  }
 }

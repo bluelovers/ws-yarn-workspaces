@@ -44,7 +44,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^1.0.60",
+    "@ts-type/package-dts": "^2.0.2",
     "@yarn-tool/detect-yarnlock-version": "^1.0.19",
     "@yarn-tool/find-root": "^1.0.66",
     "@yarn-tool/table": "^1.0.43",
@@ -57,7 +57,7 @@
     "debug-color2": "^1.2.7",
     "fs-extra": "^10.1.0",
     "semver": "^7.3.7",
-    "ts-type": "^2.1.6",
+    "ts-type": "^2.1.8",
     "tslib": "^2",
     "upath2": "^3.1.13"
   },

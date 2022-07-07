@@ -17,13 +17,14 @@ export function _add_to_deps_field(pkg: IPackageJson,
 	semver: string,
 	override: boolean,
 	bool: boolean,
+	existsOnly?: boolean,
 )
 {
 	const record = pkg[field] ?? {};
 
-	if (record[name] !== semver)
+	if (record[name] !== semver && existsOnly !== true)
 	{
-		if (!record[name]?.length || override === true)
+		if (!record[name]?.length && (existsOnly) || override === true)
 		{
 			pkg[field] ??= {};
 			pkg[field][name] = semver;
@@ -44,6 +45,7 @@ export function addDependencies(pkg: IPackageJson,
 	semver: string,
 	options: IOptionsAddDepsToPackageJson = {},
 	override?: boolean,
+	existsOnly?: boolean,
 )
 {
 	let bool: boolean = null;
@@ -56,6 +58,7 @@ export function addDependencies(pkg: IPackageJson,
 			semver,
 			override,
 			bool,
+			existsOnly,
 		);
 	}
 
@@ -67,6 +70,7 @@ export function addDependencies(pkg: IPackageJson,
 			semver,
 			override,
 			bool,
+			existsOnly,
 		);
 	}
 
@@ -78,6 +82,7 @@ export function addDependencies(pkg: IPackageJson,
 			semver,
 			override,
 			bool,
+			existsOnly,
 		);
 	}
 
@@ -89,6 +94,7 @@ export function addDependencies(pkg: IPackageJson,
 			semver,
 			override,
 			bool,
+			existsOnly,
 		);
 	}
 

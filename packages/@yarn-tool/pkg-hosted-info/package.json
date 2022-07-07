@@ -40,7 +40,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^1.0.60",
+    "@ts-type/package-dts": "^2.0.2",
     "@yarn-tool/find-root": "^1.0.66",
     "@yarn-tool/pkg-git-info": "^1.0.30",
     "tslib": "^2",

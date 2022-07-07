@@ -47,7 +47,7 @@
   "config": {},
   "resolutions": {},
   "dependencies": {
-    "@ts-type/package-dts": "^1.0.60",
+    "@ts-type/package-dts": "^2.0.2",
     "@yarn-tool/find-root": "^1.0.66",
     "@yarn-tool/init-path": "^1.0.23",
     "@yarn-tool/is-builtin-module": "^1.0.13",

@@ -58,7 +58,7 @@
     "upath2": "^3.1.13"
   },
   "devDependencies": {
-    "@ts-type/package-dts": "^1.0.60",
+    "@ts-type/package-dts": "^2.0.2",
     "@types/node": "*"
   },
   "publishConfig": {

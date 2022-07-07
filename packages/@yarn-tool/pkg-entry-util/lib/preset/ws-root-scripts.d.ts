@@ -5,6 +5,7 @@ export declare function defaultWorkspaceRootScripts(): {
     "coverage:all": string;
     "lint:all": string;
     preversion: string;
+    postversion: string;
     "lerna:publish": string;
     "lerna:publish:yes": string;
     "prepublishOnly:root": string;

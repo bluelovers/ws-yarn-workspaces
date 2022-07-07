@@ -9,7 +9,7 @@ import { yarnListLink } from 'yarn-list-link/core';
 import { linkSync, realpathSync, removeSync, pathExistsSync, symlinkSync, unlinkSync } from 'fs-extra';
 import crossSpawn from 'cross-spawn-extra';
 import { sameRealpath, isSymbolicLink } from './lib/util';
-import console from 'debug-color2/logger';
+import { default as console } from 'debug-color2/logger';
 import { fsSymlinkSync } from 'fs-symlink-extra';
 
 export function fixYarnWorkspaceLinks(cwd?: string, options?: {
@@ -140,4 +140,3 @@ export function fixYarnWorkspaceLinks(cwd?: string, options?: {
 }
 
 export default fixYarnWorkspaceLinks
-

@@ -8,8 +8,8 @@ export interface IOptionsAddDepsToPackageJson extends Partial<IFindRootOptions> 
     peer?: boolean;
     optional?: boolean;
 }
-export declare function _add_to_deps_field(pkg: IPackageJson, field: IPackageJsonDependenciesField, name: string, semver: string, override: boolean, bool: boolean): boolean;
-export declare function addDependencies(pkg: IPackageJson, name: string, semver: string, options?: IOptionsAddDepsToPackageJson, override?: boolean): {
+export declare function _add_to_deps_field(pkg: IPackageJson, field: IPackageJsonDependenciesField, name: string, semver: string, override: boolean, bool: boolean, existsOnly?: boolean): boolean;
+export declare function addDependencies(pkg: IPackageJson, name: string, semver: string, options?: IOptionsAddDepsToPackageJson, override?: boolean, existsOnly?: boolean): {
     pkg: IPackageJson<any>;
     bool: boolean;
 };

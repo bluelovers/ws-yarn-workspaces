@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import fixYarnWorkspaceLinks from '../index';
-import fixWorkspacesPackageLinks from '@yarn-tool/fix-ws-pkgs-link';
+import { fixYarnWorkspaceLinks } from '../index';
+import { fixWorkspacesPackageLinks } from '@yarn-tool/fix-ws-pkgs-link';
 
 let cwd = process.cwd();
 

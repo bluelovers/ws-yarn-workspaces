@@ -44,8 +44,8 @@
     "tslib": "^2",
     "value-from-record": "^3.0.1"
   },
+  "packageManager": "yarn@1.22.19",
   "publishConfig": {
     "access": "public"
-  },
-  "packageManager": "yarn@^1.22.11"
+  }
 }

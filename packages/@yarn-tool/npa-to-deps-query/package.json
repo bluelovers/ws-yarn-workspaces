@@ -51,11 +51,11 @@
     "@yarn-tool/pkg-version-query": "^1.0.52",
     "bluebird": "^3.7.2",
     "package-json": "<7 >=6.5",
-    "ts-type": "^2.1.6",
+    "ts-type": "^2.1.8",
     "tslib": "^2"
   },
+  "packageManager": "yarn@1.22.19",
   "publishConfig": {
     "access": "public"
-  },
-  "packageManager": "yarn@^1.22.11"
+  }
 }

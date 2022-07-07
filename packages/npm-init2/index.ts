@@ -207,7 +207,7 @@ if (!cp.error)
 			rootData,
 		});
 
-		pkg.data.packageManager ??= "yarn@^1.22.11";
+		pkg.data.packageManager ??= "yarn@1.22.19";
 
 		let sharedScript: IPackageJson['scripts'] = {
 			"prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
