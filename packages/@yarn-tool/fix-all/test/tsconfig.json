@@ -1,7 +1,7 @@
 {
   "extends": "../../../../tsconfig.json",
   "compilerOptions": {
-    "module": "node12",
+    "module": "node16",
     "noEmit": true,
     "declaration": false,
     "noUnusedParameters": false,

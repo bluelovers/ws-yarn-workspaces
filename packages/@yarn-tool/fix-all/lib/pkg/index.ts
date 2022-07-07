@@ -11,6 +11,7 @@ import { ProgressEstimator } from 'progress-estimator';
 import { fillPkgHostedInfo, IFillPkgHostedInfoOptions } from '@yarn-tool/pkg-hosted-info';
 import { ITSRequiredPick } from 'ts-type/lib/type/record';
 import { sortPackageJson } from 'sort-package-json3';
+import { fixPkgDepsVersionsCore, ICache, ICacheInput } from '@yarn-tool/fix-ws-versions';
 
 export function _handler(cwd: string, ...argv: Parameters<IOptionsPkgListable["handler"]>)
 {
@@ -34,13 +35,17 @@ export function _runEachPackagesAsync(list: IEntry[],
 	} = options;
 
 	let logger: ProgressEstimator;
+	let cache: ICacheInput<IEntry> = {} as any;
 
 	return Bluebird.resolve(list)
-		.tap(() =>
+		.tap((listable) =>
 		{
 			logger = createProgressEstimator(rootData.root);
 
 			consoleLogger.info(`auto check/fix packages`);
+
+			cache.listable = listable;
+
 		})
 		.mapSeries(async (row) =>
 		{
@@ -68,6 +73,8 @@ export function _runEachPackagesAsync(list: IEntry[],
 					hostedGitInfo,
 					branch,
 				});
+
+				fixPkgDepsVersionsCore(pkg.data, cache);
 
 				pkg.data = sortPackageJson(pkg.data);
 

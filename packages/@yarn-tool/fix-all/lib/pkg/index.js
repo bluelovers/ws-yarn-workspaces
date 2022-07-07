@@ -12,6 +12,7 @@ const logger_1 = require("debug-color2/logger");
 const debug_color2_1 = require("debug-color2");
 const pkg_hosted_info_1 = require("@yarn-tool/pkg-hosted-info");
 const sort_package_json3_1 = require("sort-package-json3");
+const fix_ws_versions_1 = require("@yarn-tool/fix-ws-versions");
 function _handler(cwd, ...argv) {
     return {
         ...(0, ws_pkg_list_1.normalizeListableRowExtra)(argv[0], cwd),
@@ -22,10 +23,12 @@ exports._handler = _handler;
 function _runEachPackagesAsync(list, options) {
     const { rootData, overwriteHostedGitInfo, hostedGitInfo, branch, } = options;
     let logger;
+    let cache = {};
     return bluebird_1.default.resolve(list)
-        .tap(() => {
+        .tap((listable) => {
         logger = (0, cli_progress_1.createProgressEstimator)(rootData.root);
         logger_1.consoleLogger.info(`auto check/fix packages`);
+        cache.listable = listable;
     })
         .mapSeries(async (row) => {
         //console.dir(row);
@@ -44,6 +47,7 @@ function _runEachPackagesAsync(list, options) {
                 hostedGitInfo,
                 branch,
             });
+            (0, fix_ws_versions_1.fixPkgDepsVersionsCore)(pkg.data, cache);
             pkg.data = (0, sort_package_json3_1.sortPackageJson)(pkg.data);
             pkg.autofix();
             pkg.write();

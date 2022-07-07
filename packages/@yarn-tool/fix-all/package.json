@@ -55,6 +55,7 @@
   },
   "dependencies": {
     "@yarn-tool/find-root": "^1.0.66",
+    "@yarn-tool/fix-ws-versions": "^1.0.0",
     "@yarn-tool/pkg-git-info": "^1.0.30",
     "@yarn-tool/pkg-hosted-info": "^1.0.17",
     "@yarn-tool/ws-scope": "^1.0.20",
@@ -66,13 +67,13 @@
     "npm-package-json-loader": "^1.0.80",
     "progress-estimator": "^0.3.0",
     "sort-package-json3": "^1.0.57",
-    "ts-type": "^2.1.6",
+    "ts-type": "^2.1.8",
     "tslib": "^2",
     "upath2": "^3.1.13",
     "ws-pkg-list": "^1.0.83"
   },
+  "packageManager": "yarn@1.22.19",
   "publishConfig": {
     "access": "public"
-  },
-  "packageManager": "yarn@^1.22.11"
+  }
 }
