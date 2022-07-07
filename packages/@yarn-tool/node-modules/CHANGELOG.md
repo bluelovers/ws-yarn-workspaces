@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/node-modules@1.0.71...@yarn-tool/node-modules@2.0.0) (2022-07-07)
+
+**Note:** Version bump only for package @yarn-tool/node-modules
+
+
+
+
+
 ## [1.0.71](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/node-modules@1.0.69...@yarn-tool/node-modules@1.0.71) (2022-06-28)
 
 

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/require-resolve@1.0.8...@yarn-tool/require-resolve@2.0.0) (2022-07-07)
+
+**Note:** Version bump only for package @yarn-tool/require-resolve
+
+
+
+
+
 ## [1.0.8](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/require-resolve@1.0.7...@yarn-tool/require-resolve@1.0.8) (2022-05-11)
 
 

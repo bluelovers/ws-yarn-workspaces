@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.103...@yarn-tool/static-file@2.0.0) (2022-07-07)
+
+
+### ✨　Features
+
+* add `.yarnrc.yml` ([e611e7c](https://github.com/bluelovers/ws-yarn-workspaces/commit/e611e7ccf502b603b47a630d6266c56084875e81))
+
+
+
+
+
 ## [1.0.103](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.100...@yarn-tool/static-file@1.0.103) (2022-06-28)
 
 
