@@ -57,7 +57,7 @@ const _defaultCopyStaticFilesRootOnly = [
 
 	['.github/workflows/build.yml', 'file/github/workflows/build.yml'],
 
-	['.github/workflows/yarn-lock-changes.yml', 'file/github/workflows/yarn-lock-changes.yml'],
+//	['.github/workflows/yarn-lock-changes.yml', 'file/github/workflows/yarn-lock-changes.yml'],
 
 	['.github/commit-convention.md', 'file/github/commit-convention.md'],
 
