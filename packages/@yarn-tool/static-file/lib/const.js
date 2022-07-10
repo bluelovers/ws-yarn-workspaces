@@ -31,6 +31,8 @@ const _defaultCopyStaticFilesRootOnly = [
     ['.github/workflows/coverage.yml', 'file/github/workflows/coverage.yml'],
     ['.github/workflows/action-yarnlock-dedupe.yml', 'file/github/workflows/action-yarnlock-dedupe.yml'],
     ['.github/workflows/build.yml', 'file/github/workflows/build.yml'],
+    ['.github/workflows/yarn-lock-changes.yml', 'file/github/workflows/yarn-lock-changes.yml'],
+    ['.github/commit-convention.md', 'file/github/commit-convention.md'],
     ['tsconfig.json', 'file/tsconfig.json.tpl', 'tsconfig.json'],
     ['.eslintrc.json', 'file/eslintrc.json.tpl', '.eslintrc.json'],
     //['changelog-option.js', 'file/changelog-option.js', 'changelog-option.js.tpl'],
