@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@2.0.0...@yarn-tool/static-file@2.0.1) (2022-07-11)
+
+
+### ✨　Features
+
+* Yarn Lock Changes ([0c3f6fc](https://github.com/bluelovers/ws-yarn-workspaces/commit/0c3f6fc1ec95dc310007958008e39b1d09b22e86))
+
+
+### 🔖　Miscellaneous
+
+* . ([eb33254](https://github.com/bluelovers/ws-yarn-workspaces/commit/eb33254943fd54d5fe54f9c36989670ec0e44d1b))
+* . ([9bf581b](https://github.com/bluelovers/ws-yarn-workspaces/commit/9bf581bf4951c76d9556e04f3c8c84989b217ba4))
+
+
+
+
+
 # [2.0.0](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@1.0.103...@yarn-tool/static-file@2.0.0) (2022-07-07)
 
 
