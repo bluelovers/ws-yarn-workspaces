@@ -30,7 +30,9 @@
     "packages/*"
   ],
   "scripts": {
-    "test": "yarn-tool ws run test",
+    "test": "yarn run test:since",
+    "test:all": "yarn-tool ws run test --concurrency 1",
+    "test:since": "yarn run test:all -- --since",
     "lerna:publish": "npx lerna publish",
     "lerna:publish:yes": "yarn run prepublishOnly:check-bin && npx lerna publish --yes --bump patch",
     "prepublish:lockfile": "ynpx sync-lockfile",
@@ -47,7 +49,6 @@
     "sort-package-json:ws": "npx yarn-tool ws exec yarn-tool sort",
     "ci:install": "yarn install --frozen-lockfile && yarn add -W typescript@next jest ts-jest ts-node ynpx lerna yarn-tool",
     "test:jest:clearCache": "jest --clearCache",
-    "test:all": "lerna run test --concurrency 1",
     "build:all": "lerna run build --concurrency 1",
     "review:all": "lerna run review --concurrency 1",
     "coverage:all": "lerna run coverage --concurrency 1",

@@ -1,5 +1,6 @@
 export declare function defaultWorkspaceRootScripts(): {
     "test:all": string;
+    "test:since": string;
     "build:all": string;
     "review:all": string;
     "coverage:all": string;
