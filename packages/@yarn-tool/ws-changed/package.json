@@ -40,11 +40,11 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@git-lazy/diff-staged": "^1.0.33",
+    "@git-lazy/diff-staged": "^1.0.34",
     "@yarn-tool/find-root": "^2.0.0",
     "array-hyper-unique": "^2.0.8",
     "cross-spawn-extra": "^2.1.0",
-    "git-root2": "^1.0.29",
+    "git-root2": "^1.0.30",
     "glob-regex": "^0.3.2",
     "micromatch": "^4.0.5",
     "tslib": "^2",
