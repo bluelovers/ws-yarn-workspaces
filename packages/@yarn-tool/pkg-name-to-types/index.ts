@@ -1,6 +1,4 @@
-import { array_unique_overwrite } from 'array-hyper-unique';
 import { parseArgvPkgName } from '@yarn-tool/npm-package-arg-util/lib/parseArgvPkgName';
-import { listToTypes } from '@yarn-tool/pkg-deps-util/lib/util/listToTypes';
 
 const sep = '__';
 const reNamespacedName = /^(?:(@[^\/]+)\/)?([^@]+)$/;
@@ -22,8 +20,6 @@ export function escapePackageName(packageName: string)
 		.replace(/[/\\]/, '__')
 	;
 }
-
-export { listToTypes }
 
 export function extractName(packageName: string)
 {

@@ -13,3 +13,5 @@ export function listToTypes(input: string[], includeVersion?: boolean)
 		return a;
 	}, [] as string[]));
 }
+
+export default listToTypes

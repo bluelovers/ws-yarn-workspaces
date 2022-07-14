@@ -12,4 +12,5 @@ function listToTypes(input, includeVersion) {
     }, []));
 }
 exports.listToTypes = listToTypes;
-//# sourceMappingURL=listToTypes.js.map
+exports.default = listToTypes;
+//# sourceMappingURL=index.js.map

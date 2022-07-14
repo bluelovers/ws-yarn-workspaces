@@ -1,10 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.pkgNameToTypes = exports.extractName = exports.listToTypes = exports.escapePackageName = exports.isNamespacedName = exports.parseArgvPkgName = exports.reNamespacedNameWithVersion = exports.reNamespacedName = exports.sep = void 0;
+exports.pkgNameToTypes = exports.extractName = exports.escapePackageName = exports.isNamespacedName = exports.parseArgvPkgName = exports.reNamespacedNameWithVersion = exports.reNamespacedName = exports.sep = void 0;
 const parseArgvPkgName_1 = require("@yarn-tool/npm-package-arg-util/lib/parseArgvPkgName");
 Object.defineProperty(exports, "parseArgvPkgName", { enumerable: true, get: function () { return parseArgvPkgName_1.parseArgvPkgName; } });
-const listToTypes_1 = require("@yarn-tool/pkg-deps-util/lib/util/listToTypes");
-Object.defineProperty(exports, "listToTypes", { enumerable: true, get: function () { return listToTypes_1.listToTypes; } });
 const sep = '__';
 exports.sep = sep;
 const reNamespacedName = /^(?:(@[^\/]+)\/)?([^@]+)$/;

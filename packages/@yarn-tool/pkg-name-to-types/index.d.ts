@@ -1,5 +1,4 @@
 import { parseArgvPkgName } from '@yarn-tool/npm-package-arg-util/lib/parseArgvPkgName';
-import { listToTypes } from '@yarn-tool/pkg-deps-util/lib/util/listToTypes';
 declare const sep = "__";
 declare const reNamespacedName: RegExp;
 declare const reNamespacedNameWithVersion: RegExp;
@@ -7,7 +6,6 @@ export { sep, reNamespacedName, reNamespacedNameWithVersion };
 export { parseArgvPkgName };
 export declare function isNamespacedName(packageName: string): boolean;
 export declare function escapePackageName(packageName: string): string;
-export { listToTypes };
 export declare function extractName(packageName: string): string;
 export declare function pkgNameToTypes(packageName: string, includeVersion?: boolean): string;
 export default pkgNameToTypes;
