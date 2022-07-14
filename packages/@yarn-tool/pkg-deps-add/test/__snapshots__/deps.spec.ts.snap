@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`deps.spec addDependenciesIfNotExists 1`] = `
+Object {
+  "bool": 2,
+  "pkg": Object {
+    "dependencies": Object {
+      "tslib": "^2",
+      "tslib2": "^2.3.1",
+    },
+  },
+}
+`;

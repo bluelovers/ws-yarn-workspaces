@@ -11,7 +11,7 @@ import { IParseNameAndVersion } from '@yarn-tool/yarnlock-util/lib/types';
 
 import { pick } from 'lodash';
 import { join } from 'path';
-import { addDependenciesIfNotExists } from './addDependenciesIfNotExists';
+import { addDependenciesIfNotExists, EnumResultAddDependencies } from '@yarn-tool/pkg-deps-add';
 import { fsYarnLockSafe } from '@yarn-tool/yarnlock-fs/lib/read';
 import { array_unique_overwrite } from 'array-hyper-unique';
 import { sortDependencies } from './util/sortDependencies';
@@ -63,9 +63,9 @@ export async function installDepsFromYarnLockCore<T extends string>(packageNames
 		if (version?.length)
 		{
 			const semver = `^${version}`;
-			let bool: boolean = addDependenciesIfNotExists(pkg, name, semver, options).bool;
+			let bool = addDependenciesIfNotExists(pkg, name, semver, options).bool;
 
-			if (bool === false)
+			if (bool === EnumResultAddDependencies.changed)
 			{
 				added.push([name, semver]);
 

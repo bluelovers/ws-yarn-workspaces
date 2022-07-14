@@ -9,7 +9,7 @@ const yarnlock_parse_1 = require("@yarn-tool/yarnlock-parse");
 const groupYarnLockParsedEntries_1 = require("@yarn-tool/yarnlock-util/lib/util/groupYarnLockParsedEntries");
 const lodash_1 = require("lodash");
 const path_1 = require("path");
-const addDependenciesIfNotExists_1 = require("./addDependenciesIfNotExists");
+const pkg_deps_add_1 = require("@yarn-tool/pkg-deps-add");
 const read_1 = require("@yarn-tool/yarnlock-fs/lib/read");
 const array_hyper_unique_1 = require("array-hyper-unique");
 const sortDependencies_1 = require("./util/sortDependencies");
@@ -40,8 +40,8 @@ async function installDepsFromYarnLockCore(packageNames, parsedOldPackage, optio
         let version = (_c = (_b = (_a = filteredYarnLock[name]) === null || _a === void 0 ? void 0 : _a.find) === null || _b === void 0 ? void 0 : _b.call(_a, (value) => value[0] === target.versionQuery)) === null || _c === void 0 ? void 0 : _c[0];
         if (version === null || version === void 0 ? void 0 : version.length) {
             const semver = `^${version}`;
-            let bool = (0, addDependenciesIfNotExists_1.addDependenciesIfNotExists)(pkg, name, semver, options).bool;
-            if (bool === false) {
+            let bool = (0, pkg_deps_add_1.addDependenciesIfNotExists)(pkg, name, semver, options).bool;
+            if (bool === 2 /* EnumResultAddDependencies.changed */) {
                 added.push([name, semver]);
                 return false;
             }

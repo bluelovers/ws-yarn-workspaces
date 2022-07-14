@@ -4,7 +4,7 @@ import { readPackageJson } from '@ts-type/package-dts';
 import { join } from 'path';
 import { npa } from '@yarn-tool/npm-package-arg-util';
 import { IListableRow } from 'ws-pkg-list';
-import { addDependenciesIfNotExists } from './addDependenciesIfNotExists';
+import { addDependenciesIfNotExists, EnumResultAddDependencies } from '@yarn-tool/pkg-deps-add';
 import { sortDependencies } from './util/sortDependencies';
 import { IAddedList, IOptionsInstallDepsFromWorkspaces, IResultInstallDeps } from './types';
 
@@ -51,9 +51,9 @@ export function installDepsFromWorkspaces(packageNames: string[], options: IOpti
 			if (row)
 			{
 				const semver = `^${row.version}`;
-				let bool: boolean = addDependenciesIfNotExists(pkg, name, semver, options).bool;
+				let bool = addDependenciesIfNotExists(pkg, name, semver, options).bool;
 
-				if (bool === false)
+				if (bool === EnumResultAddDependencies.changed)
 				{
 					added.push([name, semver]);
 				}

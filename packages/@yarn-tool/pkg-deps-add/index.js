@@ -1,17 +1,44 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.addDependenciesOverwrite = exports.addDependenciesIfNotExists = exports.addDependencies = exports._add_to_deps_field = void 0;
+exports.addDependenciesOverwrite = exports.addDependenciesIfNotExists = exports.addDependencies = exports._add_to_deps_field = exports._add_to_deps_field_core = exports.EnumResultAddDependencies = void 0;
+var EnumResultAddDependencies;
+(function (EnumResultAddDependencies) {
+    EnumResultAddDependencies[EnumResultAddDependencies["changed"] = 2] = "changed";
+    EnumResultAddDependencies[EnumResultAddDependencies["exists"] = 1] = "exists";
+})(EnumResultAddDependencies = exports.EnumResultAddDependencies || (exports.EnumResultAddDependencies = {}));
+function _add_to_deps_field_core(pkg, field, name, semver) {
+    var _a;
+    (_a = pkg[field]) !== null && _a !== void 0 ? _a : (pkg[field] = {});
+    pkg[field][name] = semver;
+    return pkg;
+}
+exports._add_to_deps_field_core = _add_to_deps_field_core;
 function _add_to_deps_field(pkg, field, name, semver, override, bool, existsOnly) {
-    var _a, _b, _c;
+    var _a;
     const record = (_a = pkg[field]) !== null && _a !== void 0 ? _a : {};
-    if (record[name] !== semver && existsOnly !== true) {
-        if (!((_b = record[name]) === null || _b === void 0 ? void 0 : _b.length) && (existsOnly) || override === true) {
-            (_c = pkg[field]) !== null && _c !== void 0 ? _c : (pkg[field] = {});
-            pkg[field][name] = semver;
-            bool = false;
+    const current = record[name];
+    if (current !== semver) {
+        const length = current === null || current === void 0 ? void 0 : current.length;
+        if (existsOnly === true) {
+            if (length) {
+                _add_to_deps_field_core(pkg, field, name, semver);
+                bool = 2 /* EnumResultAddDependencies.changed */;
+            }
+        }
+        else if (existsOnly === false) {
+            if (!length) {
+                _add_to_deps_field_core(pkg, field, name, semver);
+                bool = 2 /* EnumResultAddDependencies.changed */;
+            }
         }
         else {
-            bool !== null && bool !== void 0 ? bool : (bool = true);
+            if (!length || override === true) {
+                _add_to_deps_field_core(pkg, field, name, semver);
+                bool = 2 /* EnumResultAddDependencies.changed */;
+            }
+        }
+        if (length) {
+            bool !== null && bool !== void 0 ? bool : (bool = 1 /* EnumResultAddDependencies.exists */);
         }
     }
     return bool;

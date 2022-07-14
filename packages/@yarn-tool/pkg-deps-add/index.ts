@@ -2,6 +2,12 @@ import { IFindRootOptions } from '@yarn-tool/find-root';
 import { IPackageJson } from '@ts-type/package-dts/package-json';
 import { IPackageJsonDependenciesField } from '@ts-type/package-dts/lib/package-json/types';
 
+export const enum EnumResultAddDependencies
+{
+	changed = 2,
+	exists = 1,
+}
+
 export interface IOptionsAddDepsToPackageJson extends Partial<IFindRootOptions>
 {
 	cwd?: string,
@@ -11,29 +17,65 @@ export interface IOptionsAddDepsToPackageJson extends Partial<IFindRootOptions>
 	optional?: boolean,
 }
 
+export function _add_to_deps_field_core<T extends IPackageJson>(pkg: T,
+	field: IPackageJsonDependenciesField,
+	name: string,
+	semver: string,
+)
+{
+	pkg[field] ??= {};
+	pkg[field][name] = semver;
+
+	return pkg;
+}
+
 export function _add_to_deps_field(pkg: IPackageJson,
 	field: IPackageJsonDependenciesField,
 	name: string,
 	semver: string,
 	override: boolean,
-	bool: boolean,
+	bool: EnumResultAddDependencies,
 	existsOnly?: boolean,
 )
 {
 	const record = pkg[field] ?? {};
+	const current = record[name];
 
-	if (record[name] !== semver && existsOnly !== true)
+	if (current !== semver)
 	{
-		if (!record[name]?.length && (existsOnly) || override === true)
-		{
-			pkg[field] ??= {};
-			pkg[field][name] = semver;
+		const length = current?.length;
 
-			bool = false;
+		if (existsOnly === true)
+		{
+			if (length)
+			{
+				_add_to_deps_field_core(pkg, field, name, semver);
+
+				bool = EnumResultAddDependencies.changed;
+			}
+		}
+		else if (existsOnly === false)
+		{
+			if (!length)
+			{
+				_add_to_deps_field_core(pkg, field, name, semver);
+
+				bool = EnumResultAddDependencies.changed;
+			}
 		}
 		else
 		{
-			bool ??= true;
+			if (!length || override === true)
+			{
+				_add_to_deps_field_core(pkg, field, name, semver);
+
+				bool = EnumResultAddDependencies.changed;
+			}
+		}
+
+		if (length)
+		{
+			bool ??= EnumResultAddDependencies.exists;
 		}
 	}
 
@@ -48,7 +90,7 @@ export function addDependencies(pkg: IPackageJson,
 	existsOnly?: boolean,
 )
 {
-	let bool: boolean = null;
+	let bool: EnumResultAddDependencies = null;
 
 	if (options.dev)
 	{

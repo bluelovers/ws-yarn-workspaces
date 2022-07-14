@@ -6,7 +6,7 @@ const find_root_1 = require("@yarn-tool/find-root");
 const package_dts_1 = require("@ts-type/package-dts");
 const path_1 = require("path");
 const npm_package_arg_util_1 = require("@yarn-tool/npm-package-arg-util");
-const addDependenciesIfNotExists_1 = require("./addDependenciesIfNotExists");
+const pkg_deps_add_1 = require("@yarn-tool/pkg-deps-add");
 const sortDependencies_1 = require("./util/sortDependencies");
 function installDepsFromWorkspaces(packageNames, options = {}) {
     var _a, _b;
@@ -36,8 +36,8 @@ function installDepsFromWorkspaces(packageNames, options = {}) {
         const row = record[name];
         if (row) {
             const semver = `^${row.version}`;
-            let bool = (0, addDependenciesIfNotExists_1.addDependenciesIfNotExists)(pkg, name, semver, options).bool;
-            if (bool === false) {
+            let bool = (0, pkg_deps_add_1.addDependenciesIfNotExists)(pkg, name, semver, options).bool;
+            if (bool === 2 /* EnumResultAddDependencies.changed */) {
                 added.push([name, semver]);
             }
             else {
