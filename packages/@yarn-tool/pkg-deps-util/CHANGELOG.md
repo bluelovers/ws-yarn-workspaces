@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-deps-util@2.0.0...@yarn-tool/pkg-deps-util@2.0.1) (2022-07-14)
+
+
+### 🐛　Bug Fixes
+
+* 修正無法添加 deps 的錯誤 ([990161c](https://github.com/bluelovers/ws-yarn-workspaces/commit/990161c189b9a8dac87b6dcc4542c72b4dfdf2ac))
+
+
+### BREAKING CHANGES
+
+* refactor return type of bool from { boolean => EnumResultAddDependencies }
+
+
+
+
+
 # [2.0.0](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-deps-util@1.0.54...@yarn-tool/pkg-deps-util@2.0.0) (2022-07-07)
 
 
