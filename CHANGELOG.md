@@ -33,6 +33,7 @@ Please see the individual package changelogs for what's new:
 * 🌏 [`@yarn-tool/pkg-entry-util`](./packages/@yarn-tool/pkg-entry-util/CHANGELOG.md "packages/@yarn-tool/pkg-entry-util") *packages/@yarn-tool/pkg-entry-util*
 * 🌏 [`@yarn-tool/pkg-git-info`](./packages/@yarn-tool/pkg-git-info/CHANGELOG.md "packages/@yarn-tool/pkg-git-info") *packages/@yarn-tool/pkg-git-info*
 * 🌏 [`@yarn-tool/pkg-hosted-info`](./packages/@yarn-tool/pkg-hosted-info/CHANGELOG.md "packages/@yarn-tool/pkg-hosted-info") *packages/@yarn-tool/pkg-hosted-info*
+* 🌏 [`@yarn-tool/pkg-list-to-types`](./packages/@yarn-tool/pkg-list-to-types/CHANGELOG.md "packages/@yarn-tool/pkg-list-to-types") *packages/@yarn-tool/pkg-list-to-types*
 * 🌏 [`@yarn-tool/pkg-name-to-types`](./packages/@yarn-tool/pkg-name-to-types/CHANGELOG.md "packages/@yarn-tool/pkg-name-to-types") *packages/@yarn-tool/pkg-name-to-types*
 * 🌏 [`@yarn-tool/pkg-version-query`](./packages/@yarn-tool/pkg-version-query/CHANGELOG.md "packages/@yarn-tool/pkg-version-query") *packages/@yarn-tool/pkg-version-query*
 * 🌏 [`@yarn-tool/require-resolve`](./packages/@yarn-tool/require-resolve/CHANGELOG.md "packages/@yarn-tool/require-resolve") *packages/@yarn-tool/require-resolve*
