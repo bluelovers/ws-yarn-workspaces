@@ -1,4 +1,5 @@
 import { normalize as pathNormalize } from 'upath2';
+import { pathIsSame as pathEqual } from 'path-is-same';
 export interface IFindRootReturnType {
     cwd: string;
     pkg: string;
@@ -27,7 +28,6 @@ export declare function assertHasAndNotWorkspacesRoot<T extends IFindRootReturnT
     hasWorkspace: true;
     isWorkspace: false;
 };
-export { pathNormalize };
-export declare function pathEqual(a: string, b: string): boolean;
+export { pathNormalize, pathEqual };
 export declare function listMatchedPatternByPath(ws: string, pkg: string): any;
 export default findRoot;

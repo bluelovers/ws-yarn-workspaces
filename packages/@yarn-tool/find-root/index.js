@@ -6,6 +6,8 @@ const upath2_1 = require("upath2");
 Object.defineProperty(exports, "pathNormalize", { enumerable: true, get: function () { return upath2_1.normalize; } });
 const core_1 = require("find-yarn-workspace-root2/core");
 const err_code_1 = tslib_1.__importDefault(require("err-code"));
+const path_is_same_1 = require("path-is-same");
+Object.defineProperty(exports, "pathEqual", { enumerable: true, get: function () { return path_is_same_1.pathIsSame; } });
 const pkg_dir_1 = require("pkg-dir");
 function findRootLazy(options, _throwError) {
     var _a;
@@ -46,9 +48,9 @@ function findRoot(options, _throwError) {
     pkg !== null && pkg !== void 0 ? pkg : (pkg = void 0);
     ws !== null && ws !== void 0 ? ws : (ws = void 0);
     const hasWorkspace = (ws === null || ws === void 0 ? void 0 : ws.length) > 0;
-    const isWorkspace = hasWorkspace && pathEqual(ws, pkg);
+    const isWorkspace = hasWorkspace && (0, path_is_same_1.pathIsSame)(ws, pkg);
     const root = hasWorkspace ? ws : pkg;
-    const isRoot = pathEqual(root, pkg);
+    const isRoot = (0, path_is_same_1.pathIsSame)(root, pkg);
     if (!(root === null || root === void 0 ? void 0 : root.length)) {
         return null;
     }
@@ -94,12 +96,6 @@ function assertHasAndNotWorkspacesRoot(rootData) {
     assertNotWorkspacesRoot(rootData);
 }
 exports.assertHasAndNotWorkspacesRoot = assertHasAndNotWorkspacesRoot;
-function pathEqual(a, b) {
-    if (!(a === null || a === void 0 ? void 0 : a.length) || !(b === null || b === void 0 ? void 0 : b.length))
-        return null;
-    return (0, upath2_1.normalize)(a) === (0, upath2_1.normalize)(b);
-}
-exports.pathEqual = pathEqual;
 function listMatchedPatternByPath(ws, pkg) {
     const manifest = (0, core_1.readPackageJSON)(ws);
     if (!manifest || !manifest.workspaces) {

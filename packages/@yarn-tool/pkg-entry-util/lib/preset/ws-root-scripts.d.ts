@@ -28,4 +28,5 @@ export declare function defaultWorkspaceRootScripts(): {
     "tsc:showConfig": string;
     "ci:install": string;
     "test:jest:clearCache": string;
+    "install:resetLockfile": string;
 };

@@ -2,9 +2,10 @@
  * Created by user on 2020/6/9.
  */
 
-import { findRoot, pathEqual } from '@yarn-tool/find-root';
+import { findRoot } from '@yarn-tool/find-root';
 import { gitDiffStaged, gitDiffStagedDir } from '@git-lazy/diff-staged';
-import gitRoot from 'git-root2/core';
+import { gitRoot } from 'git-root2/core';
+import { pathIsSame as pathEqual } from 'path-is-same';
 
 export function wsRootWithGitRoot(cwd: string)
 {

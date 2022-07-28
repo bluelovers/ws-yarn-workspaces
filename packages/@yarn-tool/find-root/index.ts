@@ -6,6 +6,7 @@ import {
 	findWorkspaceRoot as findYarnWorkspaceRoot,
 } from 'find-yarn-workspace-root2/core';
 import errcode from 'err-code';
+import { pathIsSame as pathEqual } from 'path-is-same';
 
 import { sync as pkgDir } from 'pkg-dir';
 
@@ -154,13 +155,7 @@ export function assertHasAndNotWorkspacesRoot<T extends IFindRootReturnType>(roo
 	assertNotWorkspacesRoot(rootData)
 }
 
-export { pathNormalize }
-
-export function pathEqual(a: string, b: string)
-{
-	if (!a?.length || !b?.length) return null
-	return pathNormalize(a) === pathNormalize(b)
-}
+export { pathNormalize, pathEqual }
 
 export function listMatchedPatternByPath(ws: string, pkg: string)
 {

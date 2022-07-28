@@ -31,6 +31,7 @@
     "@ts-type/package-dts": "^2.0.2",
     "err-code": "^3.0.1",
     "find-yarn-workspace-root2": "^1.2.38",
+    "path-is-same": "^1.0.18",
     "pkg-dir": "< 6 >= 5",
     "tslib": "^2",
     "upath2": "^3.1.13"

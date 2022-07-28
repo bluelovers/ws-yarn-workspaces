@@ -10,4 +10,5 @@ export declare function defaultRootScripts(): {
     postpublish: string;
     "ci:install": string;
     "test:jest:clearCache": string;
+    "install:resetLockfile": string;
 };

@@ -32,7 +32,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@git-lazy/info": "^1.0.33",
+    "@git-lazy/info": "^1.0.35",
     "@types/hosted-git-info": "^3.0.2",
     "hosted-git-info": "^5.0.0",
     "tslib": "^2"
