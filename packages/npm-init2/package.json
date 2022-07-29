@@ -60,6 +60,7 @@
     "@yarn-tool/types": "^1.0.7",
     "@yarn-tool/update-notifier": "^1.0.28",
     "@yarn-tool/workspaces-project": "^2.0.1",
+    "@yarn-tool/write-package-json": "^1.0.0",
     "cross-spawn-extra": "^2.1.0",
     "debug-color2": "^1.2.7",
     "find-yarn-workspace-root2": "^1.2.38",

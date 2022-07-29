@@ -1,6 +1,7 @@
 import { ILernaJson } from '@ts-type/package-dts/lerna-json';
 import { sortObjectKeys } from 'sort-object-keys2';
 import { readJSONSync, writeJSONSync } from '@bluelovers/fs-json';
+import { writePackageJSONSync } from '@yarn-tool/write-package-json';
 
 export function sortLernaJsonCommandEntry<T extends Record<string, any>>(value: T)
 {
@@ -55,9 +56,7 @@ export function sortLernaJson<T extends ILernaJson>(json: T)
 
 export function sortLernaJsonFile<T extends ILernaJson>(file: string)
 {
-	return writeJSONSync(file, sortLernaJson(readJSONSync(file)), {
-		spaces: 2,
-	})
+	return writePackageJSONSync(file, sortLernaJson(readJSONSync(file)))
 }
 
 export default sortLernaJson

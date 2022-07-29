@@ -28,6 +28,7 @@ import { setup as setupTsdx } from '@yarn-tool/setup-module-env/lib/preset/tsdx/
 import { fillDummyScripts } from '@yarn-tool/pkg-entry-util/lib/preset/dummy';
 import { defaultRootScripts } from '@yarn-tool/pkg-entry-util/lib/preset/root-scripts';
 import { defaultPkgNotOldExists } from '@yarn-tool/pkg-entry-util/lib/preset/pkg-scripts';
+import { outputPackageJSONSync } from '@yarn-tool/write-package-json';
 
 //updateNotifier(__dirname);
 
@@ -127,10 +128,8 @@ if (!oldExists && rootData?.hasWorkspace)
 
 if (!oldExists && targetName && scopedPackagePattern && isBuiltinModule(basename(targetDir)))
 {
-	outputJSONSync(pkg_file_path, {
+	outputPackageJSONSync(pkg_file_path, {
 		name: targetName,
-	}, {
-		spaces: 2,
 	})
 }
 else if (!targetName)

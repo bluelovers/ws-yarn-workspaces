@@ -317,11 +317,12 @@
     bluebird "^3"
     fast-glob "^3"
 
-"@bluelovers/fs-json@^1.0.6":
-  version "1.0.6"
-  resolved "https://registry.npmjs.org/@bluelovers/fs-json/-/fs-json-1.0.6.tgz#c9ee992b7069ed923781228f68af2632a928e630"
-  integrity sha512-/afiyvutwBOU1DzM39xSpGrbVdWkdMCHnLDf8AbHt7lWlvqI7Be3urkE5LdZGaQyybz27dZPV+3LGIpAJ8xKOg==
+"@bluelovers/fs-json@^1.0.6", "@bluelovers/fs-json@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/@bluelovers/fs-json/-/fs-json-1.0.7.tgz#244fcc1ac808234f19da4af5ea22e058b2228dd8"
+  integrity sha512-4FdzXZeDmB/f0cEoS8PDKXPGEKbCslhnkOWN4nKj2ucrfV5+TNJSL9Eas+49TJiheP4KuaRPgheEpJZ+MPMB+A==
   dependencies:
+    "@types/jsonfile" "^6"
     fs-extra "^10.1.0"
     jsonfile "^6.1.0"
     tslib "^2"
@@ -1376,6 +1377,13 @@
   version "0.0.30"
   resolved "https://registry.npmjs.org/@types/json5/-/json5-0.0.30.tgz#44cb52f32a809734ca562e685c6473b5754a7818"
   integrity sha512-sqm9g7mHlPY/43fcSNrCYfOeX9zkTTK+euO5E6+CVijSMm5tTjkVdwdqRkY3ljjIAf8679vps5jKUoJBCLsMDA==
+
+"@types/jsonfile@^6", "@types/jsonfile@^6.1.0":
+  version "6.1.0"
+  resolved "https://registry.npmjs.org/@types/jsonfile/-/jsonfile-6.1.0.tgz#c413d113ae28619f418b8a6ce7a1dec29e8f8a1c"
+  integrity sha512-zQPywzif9EycCkvECjYT9dbbttT0dkk657zcLb/803ZOXHsBA963jzEPF/Jnh1zOdBbgFJvUE8kcvZverAoK1w==
+  dependencies:
+    "@types/node" "*"
 
 "@types/level-codec@*":
   version "9.0.1"

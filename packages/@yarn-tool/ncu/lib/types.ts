@@ -7,10 +7,11 @@ import { IVersionValue, EnumVersionValue, IDependency } from '@ts-type/package-d
 
 import setupNcuToYargs from './cli';
 import { FullMetadata, AbbreviatedMetadata } from 'package-json';
+import { IUnpackYargsArgv } from '@yarn-tool/yargs-util';
 
 export * from '@ts-type/package-dts/lib/package-json/types';
 
-export type IUnpackYargsArgv<T extends Argv> = T extends Argv<infer U> ? U : never;
+export type { IUnpackYargsArgv }
 
 export enum EnumPackageManagersNpmMethod
 {

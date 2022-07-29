@@ -30,6 +30,7 @@ const index_1 = require("@yarn-tool/setup-module-env/lib/preset/tsdx/index");
 const dummy_1 = require("@yarn-tool/pkg-entry-util/lib/preset/dummy");
 const root_scripts_1 = require("@yarn-tool/pkg-entry-util/lib/preset/root-scripts");
 const pkg_scripts_1 = require("@yarn-tool/pkg-entry-util/lib/preset/pkg-scripts");
+const write_package_json_1 = require("@yarn-tool/write-package-json");
 //updateNotifier(__dirname);
 // avoid buf for idea
 logger_1.consoleLogger.length;
@@ -95,10 +96,8 @@ if (!oldExists && (rootData === null || rootData === void 0 ? void 0 : rootData.
     }
 }
 if (!oldExists && targetName && scopedPackagePattern && (0, is_builtin_module_1.isBuiltinModule)((0, path_1.basename)(targetDir))) {
-    (0, fs_extra_1.outputJSONSync)(pkg_file_path, {
+    (0, write_package_json_1.outputPackageJSONSync)(pkg_file_path, {
         name: targetName,
-    }, {
-        spaces: 2,
     });
 }
 else if (!targetName) {

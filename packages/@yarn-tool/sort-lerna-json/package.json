@@ -54,8 +54,9 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@bluelovers/fs-json": "^1.0.6",
+    "@bluelovers/fs-json": "^1.0.7",
     "@ts-type/package-dts": "^2.0.2",
+    "@yarn-tool/write-package-json": "^1.0.0",
     "fs-extra": "^10.1.0",
     "sort-object-keys2": "^2.0.3",
     "tslib": "^2"

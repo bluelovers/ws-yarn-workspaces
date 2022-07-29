@@ -1,13 +1,10 @@
-/**
- * Created by user on 2020/6/12.
- */
-import { Argv } from 'yargs';
 import IPackageJson from '@ts-type/package-dts/package-json';
 import { IVersionValue, EnumVersionValue, IDependency } from '@ts-type/package-dts/lib/package-json/types';
 import setupNcuToYargs from './cli';
 import { FullMetadata, AbbreviatedMetadata } from 'package-json';
+import { IUnpackYargsArgv } from '@yarn-tool/yargs-util';
 export * from '@ts-type/package-dts/lib/package-json/types';
-export declare type IUnpackYargsArgv<T extends Argv> = T extends Argv<infer U> ? U : never;
+export type { IUnpackYargsArgv };
 export declare enum EnumPackageManagersNpmMethod {
     'major' = "greatestMajor",
     'minor' = "greatestMinor",
