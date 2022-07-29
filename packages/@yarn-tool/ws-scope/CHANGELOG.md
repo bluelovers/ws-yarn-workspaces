@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ws-scope@2.0.0...@yarn-tool/ws-scope@2.0.1) (2022-07-29)
+
+
+### 📌　Dependencies
+
+* update deps ([bf206b6](https://github.com/bluelovers/ws-yarn-workspaces/commit/bf206b62f422d03b0691d9082736acd183a59548))
+* update deps ([1c8ebb1](https://github.com/bluelovers/ws-yarn-workspaces/commit/1c8ebb1aac482280e369bd92387ee1d18fa6b073))
+
+
+
+
+
 # [2.0.0](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ws-scope@1.0.20...@yarn-tool/ws-scope@2.0.0) (2022-07-07)
 
 

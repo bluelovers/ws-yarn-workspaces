@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/write-package-json",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "keywords": [
     "yarn",
@@ -70,8 +70,6 @@
     "@bluelovers/fs-json": "^1.0.7",
     "tslib": "^2"
   },
-  "devDependencies": {},
-  "peerDependencies": {},
   "packageManager": "yarn@1.22.19",
   "publishConfig": {
     "access": "public"

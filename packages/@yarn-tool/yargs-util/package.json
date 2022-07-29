@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yargs-util",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "keywords": [
     "yarn",
@@ -69,7 +69,6 @@
   "dependencies": {
     "@types/yargs": "^17"
   },
-  "peerDependencies": {},
   "packageManager": "yarn@1.22.19",
   "publishConfig": {
     "access": "public"
