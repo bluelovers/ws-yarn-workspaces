@@ -29,7 +29,6 @@ function _handleNcuArgvAuto(argv, runtimeInput, isWorkspace, includeRoot) {
                 }, {
                     ...runtimeInput,
                     printRootData() {
-                        runtimeInput.consoleDebug.info(`Workspace: ${rootData.root}`);
                         (0, debug_color2_1.chalkByConsole)((chalk, console) => {
                             console.info([
                                 chalk.white(`Workspace:`),

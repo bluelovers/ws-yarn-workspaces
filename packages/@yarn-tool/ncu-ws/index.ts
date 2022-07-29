@@ -34,8 +34,6 @@ export function _handleNcuArgvAuto(argv: IArgvRuntime, runtimeInput: IRuntimeInp
 						...runtimeInput,
 						printRootData()
 						{
-							runtimeInput.consoleDebug.info(`Workspace: ${rootData.root}`);
-
 							chalkByConsole((chalk, console) =>
 							{
 								console.info([
@@ -44,7 +42,6 @@ export function _handleNcuArgvAuto(argv: IArgvRuntime, runtimeInput: IRuntimeInp
 								].join(' '));
 
 							}, runtimeInput.consoleDebug);
-
 						},
 					}, isWorkspace);
 				}
