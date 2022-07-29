@@ -21,7 +21,7 @@ export function defaultWorkspaceRootScripts()
 		"prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
 		"ncu": "yarn run ncu:ws",
 		"ncu:root": "yarn-tool ncu -u",
-		"ncu:ws": "yarn-tool ncu --AA",
+		"ncu:ws": "yarn-tool ncu -u --AA",
 		"sort-package-json": "yarn run sort-package-json:root && yarn run sort-package-json:ws",
 		"sort-package-json:root": "yarn-tool sort",
 		"sort-package-json:ws": "yarn-tool ws sort",
