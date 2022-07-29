@@ -17,6 +17,12 @@ export function _handleNcuArgvAuto(argv: IArgvRuntime, runtimeInput: IRuntimeInp
 			runtimeInput.console ??= console;
 			runtimeInput.consoleDebug ??= console;
 
+			if (argv.AA)
+			{
+				isWorkspace ??= true;
+				includeRoot ??= true;
+			}
+
 			if (isWorkspace && rootData.hasWorkspace)
 			{
 				if (includeRoot)

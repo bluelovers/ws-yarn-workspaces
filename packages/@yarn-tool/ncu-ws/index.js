@@ -17,6 +17,10 @@ function _handleNcuArgvAuto(argv, runtimeInput, isWorkspace, includeRoot) {
         var _a, _b, _c;
         (_a = runtimeInput.console) !== null && _a !== void 0 ? _a : (runtimeInput.console = debug_color2_1.console);
         (_b = runtimeInput.consoleDebug) !== null && _b !== void 0 ? _b : (runtimeInput.consoleDebug = debug_color2_1.console);
+        if (argv.AA) {
+            isWorkspace !== null && isWorkspace !== void 0 ? isWorkspace : (isWorkspace = true);
+            includeRoot !== null && includeRoot !== void 0 ? includeRoot : (includeRoot = true);
+        }
         if (isWorkspace && rootData.hasWorkspace) {
             if (includeRoot) {
                 await (0, ncu_main_1._handleNcuArgv)({

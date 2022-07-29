@@ -53,7 +53,7 @@
     "review:all": "lerna run review --concurrency 1",
     "coverage:all": "lerna run coverage --concurrency 1",
     "lint:all": "lerna run lint --concurrency 1",
-    "preversion": "yarn run test:all",
+    "preversion": "yarn run test",
     "postversion": "yarn-tool fix-all",
     "prepublishOnly:root": "yarn run prepublishOnly:check-bin && yarn run prepare:fix-ws-links",
     "prepublishOnly:lockfile": "ynpx --quiet sync-lockfile",

@@ -29,4 +29,6 @@ export declare function setupNcuToYargs2<T extends any>(yargs: Argv<T & {
     resolutions: boolean;
 } & {
     "no-safe": boolean;
+} & {
+    AA: boolean;
 }>;

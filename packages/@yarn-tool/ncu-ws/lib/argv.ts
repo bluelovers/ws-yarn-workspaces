@@ -14,6 +14,10 @@ export function setupNcuToYargs2<T extends any>(yargs: Argv<T & {
 		.option('no-safe', {
 			boolean: true,
 		})
+		.option('AA', {
+			desc: 'all packages',
+			boolean: true,
+		})
 		.example(`$0 ncu -u`, `check new version and update package.json`)
 		.example(`$0 ncu -R`, `check new version of resolutions in package.json`)
 		.example(`$0 ncu -u -R`, `check new version of resolutions in package.json and update package.json`)
