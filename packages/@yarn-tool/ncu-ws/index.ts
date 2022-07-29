@@ -3,29 +3,61 @@ import { findRoot } from '@yarn-tool/find-root';
 import { wsPkgListable } from 'ws-pkg-list';
 import { _handleNcuArgv } from './lib/ncu-main';
 import Bluebird from 'bluebird';
-import { console } from 'debug-color2';
+import { chalkByConsole, console } from 'debug-color2';
 import { relative } from 'upath2';
 import { _handleNcuYarnLock } from './lib/ncu-yarnlock';
 
-export function _handleNcuArgvAuto(argv: IArgvRuntime, runtimeInput: IRuntimeInput, isWorkspace?: boolean)
+export function _handleNcuArgvAuto(argv: IArgvRuntime, runtimeInput: IRuntimeInput, isWorkspace?: boolean, includeRoot?: boolean)
 {
 	return Bluebird.resolve()
 		.then(() => findRoot(argv, true))
 		// @ts-ignore
-		.then<void>(rootData =>
+		.then<void>(async (rootData) =>
 		{
 			runtimeInput.console ??= console;
 			runtimeInput.consoleDebug ??= console;
 
 			if (isWorkspace && rootData.hasWorkspace)
 			{
+				if (includeRoot)
+				{
+					await _handleNcuArgv({
+						...argv,
+						cwd: rootData.root,
+					}, {
+						...runtimeInput,
+						printRootData()
+						{
+							runtimeInput.consoleDebug.info(`Workspace: ${rootData.root}`);
+
+							chalkByConsole((chalk, console) =>
+							{
+								console.info([
+									chalk.white(`Workspace:`),
+									chalk.red(rootData.root),
+								].join(' '));
+
+							}, runtimeInput.consoleDebug);
+
+						},
+					}, isWorkspace);
+				}
+
 				return Bluebird.mapSeries(wsPkgListable(rootData.root), (row) =>
 				{
 					const runtime: IRuntimeInput = {
 						...runtimeInput,
 						printRootData()
 						{
-							runtimeInput.consoleDebug.info(`${row.name}@${row.version}`, relative(rootData.root, row.location));
+							chalkByConsole((chalk, console) =>
+							{
+								console.info([
+									chalk.white(`Package:`),
+									`${row.name}@${row.version}`,
+									chalk.red(relative(rootData.root, row.location)),
+								].join(' '));
+
+							}, runtimeInput.consoleDebug);
 						},
 					};
 

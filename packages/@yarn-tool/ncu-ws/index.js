@@ -9,20 +9,43 @@ const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
 const debug_color2_1 = require("debug-color2");
 const upath2_1 = require("upath2");
 const ncu_yarnlock_1 = require("./lib/ncu-yarnlock");
-function _handleNcuArgvAuto(argv, runtimeInput, isWorkspace) {
+function _handleNcuArgvAuto(argv, runtimeInput, isWorkspace, includeRoot) {
     return bluebird_1.default.resolve()
         .then(() => (0, find_root_1.findRoot)(argv, true))
         // @ts-ignore
-        .then(rootData => {
+        .then(async (rootData) => {
         var _a, _b, _c;
         (_a = runtimeInput.console) !== null && _a !== void 0 ? _a : (runtimeInput.console = debug_color2_1.console);
         (_b = runtimeInput.consoleDebug) !== null && _b !== void 0 ? _b : (runtimeInput.consoleDebug = debug_color2_1.console);
         if (isWorkspace && rootData.hasWorkspace) {
+            if (includeRoot) {
+                await (0, ncu_main_1._handleNcuArgv)({
+                    ...argv,
+                    cwd: rootData.root,
+                }, {
+                    ...runtimeInput,
+                    printRootData() {
+                        runtimeInput.consoleDebug.info(`Workspace: ${rootData.root}`);
+                        (0, debug_color2_1.chalkByConsole)((chalk, console) => {
+                            console.info([
+                                chalk.white(`Workspace:`),
+                                chalk.red(rootData.root),
+                            ].join(' '));
+                        }, runtimeInput.consoleDebug);
+                    },
+                }, isWorkspace);
+            }
             return bluebird_1.default.mapSeries((0, ws_pkg_list_1.wsPkgListable)(rootData.root), (row) => {
                 const runtime = {
                     ...runtimeInput,
                     printRootData() {
-                        runtimeInput.consoleDebug.info(`${row.name}@${row.version}`, (0, upath2_1.relative)(rootData.root, row.location));
+                        (0, debug_color2_1.chalkByConsole)((chalk, console) => {
+                            console.info([
+                                chalk.white(`Package:`),
+                                `${row.name}@${row.version}`,
+                                chalk.red((0, upath2_1.relative)(rootData.root, row.location)),
+                            ].join(' '));
+                        }, runtimeInput.consoleDebug);
                     },
                 };
                 return (0, ncu_main_1._handleNcuArgv)({
