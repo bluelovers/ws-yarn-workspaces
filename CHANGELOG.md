@@ -20,6 +20,7 @@ Please see the individual package changelogs for what's new:
 * 🌏 [`@yarn-tool/is-builtin-module`](./packages/@yarn-tool/is-builtin-module/CHANGELOG.md "packages/@yarn-tool/is-builtin-module") *packages/@yarn-tool/is-builtin-module*
 * 🌏 [`@yarn-tool/is-npx`](./packages/@yarn-tool/is-npx/CHANGELOG.md "packages/@yarn-tool/is-npx") *packages/@yarn-tool/is-npx*
 * 🌏 [`@yarn-tool/ncu`](./packages/@yarn-tool/ncu/CHANGELOG.md "packages/@yarn-tool/ncu") *packages/@yarn-tool/ncu*
+* 🌏 [`@yarn-tool/ncu-ws`](./packages/@yarn-tool/ncu-ws/CHANGELOG.md "packages/@yarn-tool/ncu-ws") *packages/@yarn-tool/ncu-ws*
 * 🌏 [`@yarn-tool/node-modules`](./packages/@yarn-tool/node-modules/CHANGELOG.md "packages/@yarn-tool/node-modules") *packages/@yarn-tool/node-modules*
 * 🌏 [`@yarn-tool/node-modules-is-alias`](./packages/@yarn-tool/node-modules-is-alias/CHANGELOG.md "packages/@yarn-tool/node-modules-is-alias") *packages/@yarn-tool/node-modules-is-alias*
 * 🌏 [`@yarn-tool/node-modules-link`](./packages/@yarn-tool/node-modules-link/CHANGELOG.md "packages/@yarn-tool/node-modules-link") *packages/@yarn-tool/node-modules-link*
@@ -38,7 +39,6 @@ Please see the individual package changelogs for what's new:
 * 🌏 [`@yarn-tool/pkg-version-query`](./packages/@yarn-tool/pkg-version-query/CHANGELOG.md "packages/@yarn-tool/pkg-version-query") *packages/@yarn-tool/pkg-version-query*
 * 🌏 [`@yarn-tool/require-resolve`](./packages/@yarn-tool/require-resolve/CHANGELOG.md "packages/@yarn-tool/require-resolve") *packages/@yarn-tool/require-resolve*
 * 🌏 [`@yarn-tool/resolve-package`](./packages/@yarn-tool/resolve-package/CHANGELOG.md "packages/@yarn-tool/resolve-package") *packages/@yarn-tool/resolve-package*
-* 🌏 [`@yarn-tool/run-bin`](./packages/@yarn-tool/run-bin/CHANGELOG.md "packages/@yarn-tool/run-bin") *packages/@yarn-tool/run-bin*
 * 🌏 [`@yarn-tool/run-script-lifecycle`](./packages/@yarn-tool/run-script-lifecycle/CHANGELOG.md "packages/@yarn-tool/run-script-lifecycle") *packages/@yarn-tool/run-script-lifecycle*
 * 🌏 [`@yarn-tool/script-lifecycle`](./packages/@yarn-tool/script-lifecycle/CHANGELOG.md "packages/@yarn-tool/script-lifecycle") *packages/@yarn-tool/script-lifecycle*
 * 🌏 [`@yarn-tool/search-workspace-prefix-by-name`](./packages/@yarn-tool/search-workspace-prefix-by-name/CHANGELOG.md "packages/@yarn-tool/search-workspace-prefix-by-name") *packages/@yarn-tool/search-workspace-prefix-by-name*
@@ -51,12 +51,13 @@ Please see the individual package changelogs for what's new:
 * 🌏 [`@yarn-tool/tag`](./packages/@yarn-tool/tag/CHANGELOG.md "packages/@yarn-tool/tag") *packages/@yarn-tool/tag*
 * 🌏 [`@yarn-tool/types`](./packages/@yarn-tool/types/CHANGELOG.md "packages/@yarn-tool/types") *packages/@yarn-tool/types*
 * 🌏 [`@yarn-tool/update-notifier`](./packages/@yarn-tool/update-notifier/CHANGELOG.md "packages/@yarn-tool/update-notifier") *packages/@yarn-tool/update-notifier*
-* 🌏 [`@yarn-tool/update-version-range`](./packages/@yarn-tool/update-version-range/CHANGELOG.md "packages/@yarn-tool/update-version-range") *packages/@yarn-tool/update-version-range*
 * 🌏 [`@yarn-tool/validate-npm-package-name`](./packages/@yarn-tool/validate-npm-package-name/CHANGELOG.md "packages/@yarn-tool/validate-npm-package-name") *packages/@yarn-tool/validate-npm-package-name*
 * 🌏 [`@yarn-tool/version-recommended`](./packages/@yarn-tool/version-recommended/CHANGELOG.md "packages/@yarn-tool/version-recommended") *packages/@yarn-tool/version-recommended*
 * 🌏 [`@yarn-tool/workspaces-project`](./packages/@yarn-tool/workspaces-project/CHANGELOG.md "packages/@yarn-tool/workspaces-project") *packages/@yarn-tool/workspaces-project*
+* 🌏 [`@yarn-tool/write-package-json`](./packages/@yarn-tool/write-package-json/CHANGELOG.md "packages/@yarn-tool/write-package-json") *packages/@yarn-tool/write-package-json*
 * 🌏 [`@yarn-tool/ws-changed`](./packages/@yarn-tool/ws-changed/CHANGELOG.md "packages/@yarn-tool/ws-changed") *packages/@yarn-tool/ws-changed*
 * 🌏 [`@yarn-tool/ws-scope`](./packages/@yarn-tool/ws-scope/CHANGELOG.md "packages/@yarn-tool/ws-scope") *packages/@yarn-tool/ws-scope*
+* 🌏 [`@yarn-tool/yargs-util`](./packages/@yarn-tool/yargs-util/CHANGELOG.md "packages/@yarn-tool/yargs-util") *packages/@yarn-tool/yargs-util*
 * 🌏 [`@yarn-tool/yarnlock`](./packages/@yarn-tool/yarnlock/CHANGELOG.md "packages/@yarn-tool/yarnlock") *packages/@yarn-tool/yarnlock*
 * 🌏 [`@yarn-tool/yarnlock-banner`](./packages/@yarn-tool/yarnlock-banner/CHANGELOG.md "packages/@yarn-tool/yarnlock-banner") *packages/@yarn-tool/yarnlock-banner*
 * 🌏 [`@yarn-tool/yarnlock-dedupe`](./packages/@yarn-tool/yarnlock-dedupe/CHANGELOG.md "packages/@yarn-tool/yarnlock-dedupe") *packages/@yarn-tool/yarnlock-dedupe*
