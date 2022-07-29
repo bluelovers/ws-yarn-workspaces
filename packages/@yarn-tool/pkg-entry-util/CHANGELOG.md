@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.5](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-entry-util@2.0.4...@yarn-tool/pkg-entry-util@2.0.5) (2022-07-29)
+
+
+### 🐛　Bug Fixes
+
+* missing `-u` ([1cb0341](https://github.com/bluelovers/ws-yarn-workspaces/commit/1cb03415837f0ac9bcd75865c100b08524ef2300))
+
+
+
+
+
 ## [2.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-entry-util@2.0.3...@yarn-tool/pkg-entry-util@2.0.4) (2022-07-29)
 
 
