@@ -1,4 +1,5 @@
-export interface IOptions {
+import { IOptions as IOptionsPathParents } from 'path-parents';
+export interface IOptions extends IOptionsPathParents {
     ignoreCurrentDirectory?: boolean;
 }
 export declare function pathUpToWorkspacesGenerator(cwd?: string, options?: IOptions): Generator<string, void, unknown>;

@@ -14,7 +14,7 @@ function* pathUpToWorkspacesGenerator(cwd, options) {
         yield cwd;
     }
     if (root.length && !(0, path_is_same_1.pathIsSame)(cwd, root)) {
-        for (let current of (0, path_parents_1.pathParentsGenerator)(cwd)) {
+        for (let current of (0, path_parents_1.pathParentsGenerator)(cwd, options)) {
             if (current === null || current === void 0 ? void 0 : current.length) {
                 yield current;
                 if ((0, path_is_same_1.pathIsSame)(current, root)) {

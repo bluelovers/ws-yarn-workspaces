@@ -1,9 +1,13 @@
-import { handleOptions, pathParentsGenerator } from 'path-parents';
+import {
+	handleOptions,
+	pathParentsGenerator,
+	IOptions as IOptionsPathParents
+} from 'path-parents';
 import { findRoot } from '@yarn-tool/find-root';
 import { resolve } from 'upath2';
 import { pathIsSame } from 'path-is-same';
 
-export interface IOptions
+export interface IOptions extends IOptionsPathParents
 {
 	ignoreCurrentDirectory?: boolean;
 }
@@ -27,7 +31,7 @@ export function* pathUpToWorkspacesGenerator(cwd?: string, options?: IOptions)
 
 	if (root.length && !pathIsSame(cwd, root))
 	{
-		for (let current of pathParentsGenerator(cwd))
+		for (let current of pathParentsGenerator(cwd, options))
 		{
 			if (current?.length)
 			{
