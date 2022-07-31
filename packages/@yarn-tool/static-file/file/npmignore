@@ -35,12 +35,18 @@ node_modules
 /bin/**/*.d.cts
 /bin/*.d.cts
 
+!./src/**/*.ts
+!./src/**/*.cts
+!./src/**/*.mts
+!./src/**/*.tsx
+
 /src/**/*.d.ts
 /src/**/*.js
 /src/**/*.d.cts
 /src/**/*.d.mts
 /src/**/*.cjs
 /src/**/*.mjs
+/src/**/*.jsx
 
 *.tgz
 /tsconfig.json.tpl
@@ -99,7 +105,9 @@ now.json
 *.spec.mjs
 *.spec.mts
 
+*.spec.d.tsx
 *.spec.tsx
+
 __mocks__
 __tests__
 __snapshots__

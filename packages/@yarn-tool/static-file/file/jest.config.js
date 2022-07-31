@@ -1,5 +1,9 @@
 // @ts-check
 
+const { join } = require('path');
+const { tryRealpath } = require('jest-util');
+const { tmpdir } = require('os');
+
 /**
  * @param {string} name
  * @returns {string}
@@ -37,6 +41,27 @@ function _requireResolve(name)
 	return result
 }
 
+/**
+ * @returns {string}
+ * @see https://github.com/facebook/jest/blob/main/packages/jest-config/src/getCacheDirectory.ts
+ */
+function getCacheDirectory()
+{
+	const { getuid } = process;
+	const tmpdirPath = process.env['JEST_CACHE_DIRECTORY'] || join(tryRealpath(tmpdir()), 'jest');
+	if (getuid == null)
+	{
+		return tmpdirPath;
+	}
+	else
+	{
+		// On some platforms tmpdir() is `/tmp`, causing conflicts between different
+		// users and permission issues. Adding an additional subdivision by UID can
+		// help.
+		return `${tmpdirPath}_${getuid.call(process).toString(36)}`;
+	}
+}
+
 const testExt = [
 	'ts',
 	'tsx',
@@ -48,20 +73,24 @@ const testExt = [
 //	'cjs',
 ].join('|');
 
+const cacheDirectory = getCacheDirectory();
+
 console.info(`jest.config`);
 console.info(`- file: ${__filename}`);
 console.info(`-  cwd: ${process.cwd()}`);
+console.info(`- cacheDirectory: ${cacheDirectory}`);
 
 /**
  * // @type { import('@jest/types').Config.InitialOptions }
  * @type { import('ts-jest').InitialOptionsTsJest }
  */
-module.exports = {
+const jestConfig = {
 	globals: {
 		'ts-jest': {
 			//tsconfig: 'tsconfig.spec.json',
 		},
 	},
+	cacheDirectory,
 	maxWorkers: 1,
 	clearMocks: true,
 	passWithNoTests: true,
@@ -91,6 +120,7 @@ module.exports = {
 		'/__tests__/helpers/',
 		'/__tests__/utils/',
 		'__mocks__',
+		'/dist/',
 	],
 	//testRunner: 'jest-circus/runner',
 	setupFilesAfterEnv: [
@@ -118,12 +148,31 @@ module.exports = {
 		'/node_modules/',
 		'/__snapshots__/',
 		'/__tests__/',
+		'/__test__/',
 		//'**/node_modules/',
 		//'**/__snapshots__/',
 		//'**/__tests__/',
+		'/dist/',
+		'/test/',
+		'/fixture/',
 	],
 	/**
 	 * https://github.com/facebook/jest/issues/9771#issuecomment-872764344
 	 */
 	//resolver: 'jest-node-exports-resolver',
 }
+
+try
+{
+	let result = require.resolve('@bluelovers/jest-config');
+	if (result && !jestConfig.preset)
+	{
+		jestConfig.preset = result;
+	}
+}
+catch (e)
+{
+
+}
+
+module.exports = jestConfig
