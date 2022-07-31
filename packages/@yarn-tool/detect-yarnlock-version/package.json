@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/detect-yarnlock-version",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "detect yarn.lock version",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/detect-yarnlock-version#readme",
   "bugs": {

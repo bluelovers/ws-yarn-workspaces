@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.11](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/shebang@1.0.10...@yarn-tool/shebang@1.0.11) (2022-07-31)
+
+
+### 🚨　Tests
+
+* **preset:** use `@bluelovers/jest-config` ([e239ecf](https://github.com/bluelovers/ws-yarn-workspaces/commit/e239ecf606d82930c6036ec1241bf3b4a1095423))
+
+
+
+
+
 ## [1.0.10](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/shebang@1.0.9...@yarn-tool/shebang@1.0.10) (2022-05-11)
 
 

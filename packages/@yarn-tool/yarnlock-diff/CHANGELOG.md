@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-diff@2.0.0...@yarn-tool/yarnlock-diff@2.0.1) (2022-07-31)
+
+
+### 🚨　Tests
+
+* **fixtures:** 集中管理測試用的 yarn.lock ([de39845](https://github.com/bluelovers/ws-yarn-workspaces/commit/de398451865fff355ba80300d0e432456052ee46))
+* **fixtures:** 集中管理測試用的 yarn.lock ([1958635](https://github.com/bluelovers/ws-yarn-workspaces/commit/1958635c223e22ed10a00a3bfa94166991e6d891))
+* **preset:** use `@bluelovers/jest-config` ([e239ecf](https://github.com/bluelovers/ws-yarn-workspaces/commit/e239ecf606d82930c6036ec1241bf3b4a1095423))
+
+
+### 📌　Dependencies
+
+* update deps ([138af6b](https://github.com/bluelovers/ws-yarn-workspaces/commit/138af6b1e69373e04539badb61127172d9938e55))
+
+
+
+
+
 # [2.0.0](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-diff@1.0.41...@yarn-tool/yarnlock-diff@2.0.0) (2022-07-07)
 
 

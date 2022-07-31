@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.39](https://github.com/bluelovers/ws-yarn-workspaces/compare/find-yarn-workspace-root2@1.2.38...find-yarn-workspace-root2@1.2.39) (2022-07-31)
+
+
+### 🚨　Tests
+
+* **preset:** use `@bluelovers/jest-config` ([e239ecf](https://github.com/bluelovers/ws-yarn-workspaces/commit/e239ecf606d82930c6036ec1241bf3b4a1095423))
+
+
+
+
+
 ## [1.2.38](https://github.com/bluelovers/ws-yarn-workspaces/compare/find-yarn-workspace-root2@1.2.37...find-yarn-workspace-root2@1.2.38) (2022-05-11)
 
 

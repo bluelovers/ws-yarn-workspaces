@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/bluelovers/ws-yarn-workspaces/compare/@lazy-node/semver-ampersand@2.0.0...@lazy-node/semver-ampersand@2.0.1) (2022-07-31)
+
+
+### 🚨　Tests
+
+* **preset:** use `@bluelovers/jest-config` ([e239ecf](https://github.com/bluelovers/ws-yarn-workspaces/commit/e239ecf606d82930c6036ec1241bf3b4a1095423))
+
+
+
+
+
 # [2.0.0](https://github.com/bluelovers/ws-yarn-workspaces/compare/@lazy-node/semver-ampersand@1.0.29...@lazy-node/semver-ampersand@2.0.0) (2022-07-07)
 
 

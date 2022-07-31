@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.14](https://github.com/bluelovers/ws-yarn-workspaces/compare/sort-package-json-scripts@1.1.13...sort-package-json-scripts@1.1.14) (2022-07-31)
+
+
+### 🚨　Tests
+
+* **preset:** use `@bluelovers/jest-config` ([e239ecf](https://github.com/bluelovers/ws-yarn-workspaces/commit/e239ecf606d82930c6036ec1241bf3b4a1095423))
+
+
+
+
+
 ## [1.1.13](https://github.com/bluelovers/ws-yarn-workspaces/compare/sort-package-json-scripts@1.1.12...sort-package-json-scripts@1.1.13) (2022-05-11)
 
 

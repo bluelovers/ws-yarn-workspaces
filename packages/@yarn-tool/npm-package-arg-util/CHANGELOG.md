@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.29](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/npm-package-arg-util@1.0.28...@yarn-tool/npm-package-arg-util@1.0.29) (2022-07-31)
+
+
+### 🚨　Tests
+
+* **preset:** use `@bluelovers/jest-config` ([e239ecf](https://github.com/bluelovers/ws-yarn-workspaces/commit/e239ecf606d82930c6036ec1241bf3b4a1095423))
+
+
+
+
+
 ## [1.0.28](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/npm-package-arg-util@1.0.25...@yarn-tool/npm-package-arg-util@1.0.28) (2022-06-28)
 
 

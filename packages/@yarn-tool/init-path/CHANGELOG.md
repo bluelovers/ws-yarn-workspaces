@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.24](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/init-path@1.0.23...@yarn-tool/init-path@1.0.24) (2022-07-31)
+
+
+### 🚨　Tests
+
+* **preset:** use `@bluelovers/jest-config` ([e239ecf](https://github.com/bluelovers/ws-yarn-workspaces/commit/e239ecf606d82930c6036ec1241bf3b4a1095423))
+
+
+
+
+
 ## [1.0.23](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/init-path@1.0.22...@yarn-tool/init-path@1.0.23) (2022-05-11)
 
 
