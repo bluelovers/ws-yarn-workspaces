@@ -2,10 +2,11 @@ import { join } from 'path';
 import FastGlob from '@bluelovers/fast-glob';
 import { readFileSync } from 'fs';
 import { buildComputedPackage } from '../lib/diff-service/buildComputedPackage';
+import { __TEST_YARNLOCK } from '../../../../__root_ws';
 
 describe(`buildComputedPackage`, () =>
 {
-	const __res = join(__dirname, 'fixtures');
+	const __res = join(__TEST_YARNLOCK, 'fixtures');
 
 	const files = FastGlob.sync([
 			'a/*.lock',
