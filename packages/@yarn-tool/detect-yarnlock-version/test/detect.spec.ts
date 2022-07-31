@@ -3,8 +3,9 @@ import { join, dirname } from "path";
 import detectYarnLockVersion from '../lib/detectYarnLockVersion';
 import { detectYarnLockVersionByFile, detectYarnLockVersionByDir } from '../lib/detectYarnLockVersionByFile';
 import { EnumDetectYarnLock } from '../lib/types';
+import { __TEST_YARNLOCK } from '../../../../__root_ws';
 
-const __res = join(__dirname, 'res');
+const __res = __TEST_YARNLOCK;
 
 test(`v2 berry`, () =>
 {
@@ -12,7 +13,7 @@ test(`v2 berry`, () =>
 	let buf = readFileSync(file)
 
 	let actual = detectYarnLockVersion(buf);
-	let expected = EnumDetectYarnLock.berry;
+	let expected = EnumDetectYarnLock.v2;
 
 	expect(actual).toStrictEqual(expected);
 

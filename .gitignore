@@ -83,3 +83,5 @@ tsconfig.tsbuildinfo
 
 !jest.config.js
 /test/my-db/
+/__root_ws.d.ts
+/__root_ws.js

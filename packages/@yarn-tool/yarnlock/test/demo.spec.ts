@@ -1,10 +1,11 @@
 import { join } from "path";
 import FastGlob from '@bluelovers/fast-glob';
 import { checkAndParseYarnLockFile } from '../index';
+import { __TEST_YARNLOCK } from '../../../../__root_ws';
 
 describe(`yarn.lock`, () =>
 {
-	const __res = join(__dirname, 'res');
+	const __res = __TEST_YARNLOCK;
 
 	FastGlob.sync<string>([
 			'**/*.lock',

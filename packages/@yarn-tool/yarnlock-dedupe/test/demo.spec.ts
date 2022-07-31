@@ -4,8 +4,9 @@ import { listDuplicates, fixDuplicates } from '../index';
 import { detectYarnLockVersion, EnumDetectYarnLock } from '@yarn-tool/detect-yarnlock-version';
 import FastGlob from '@bluelovers/fast-glob/bluebird';
 import { crlf } from 'crlf-normalize';
+import { __TEST_YARNLOCK } from '../../../../__root_ws';
 
-const __res = join(__dirname, 'res');
+const __res = __TEST_YARNLOCK;
 
 const yarnlock_v1 = readFileSync(join(__res, 'v1', 'yarn.lock')).toString();
 const yarnlock_v2 = readFileSync(join(__res, 'v2', 'yarn.lock')).toString();
@@ -89,7 +90,7 @@ describe(`v2`, () =>
 
 				let actual = fixDuplicates(yarnlock_v2);
 
-				expect(detectYarnLockVersion(actual)).toStrictEqual(EnumDetectYarnLock.berry);
+				expect(detectYarnLockVersion(actual)).toStrictEqual(EnumDetectYarnLock.v2);
 
 				expect(actual).not.toStrictEqual(yarnlock_v2);
 				expect(actual).toMatchSnapshot();
