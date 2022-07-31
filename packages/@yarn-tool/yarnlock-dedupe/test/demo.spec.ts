@@ -6,7 +6,7 @@ import FastGlob from '@bluelovers/fast-glob/bluebird';
 import { crlf } from 'crlf-normalize';
 import { __TEST_YARNLOCK } from '../../../../__root_ws';
 
-const __res = __TEST_YARNLOCK;
+const __res = join(__TEST_YARNLOCK, 'dedupe');
 
 const yarnlock_v1 = readFileSync(join(__res, 'v1', 'yarn.lock')).toString();
 const yarnlock_v2 = readFileSync(join(__res, 'v2', 'yarn.lock')).toString();
