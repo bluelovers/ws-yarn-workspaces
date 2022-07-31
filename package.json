@@ -75,6 +75,7 @@
   },
   "resolutions": {},
   "dependencies": {
+    "@bluelovers/jest-config": "^1.0.4",
     "array-hyper-unique": "^2.0.8",
     "chalk": "< 3 && >= 2",
     "crlf-normalize": "^1.0.7",

@@ -327,6 +327,18 @@
     jsonfile "^6.1.0"
     tslib "^2"
 
+"@bluelovers/jest-config@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.npmjs.org/@bluelovers/jest-config/-/jest-config-1.0.4.tgz#d9813bc01ee43873227a72bd9610a7888a67da8f"
+  integrity sha512-K/ZN2h1l9+8u51YEy7kEIFkyJt5u9scA98ZNdPIPFGU+5HjT9mm454yLqsy+zXfc91ZDDcXWSjrH/UnT68v9+A==
+  dependencies:
+    "@yarn-tool/require-resolve" "^2.0.0"
+    "@yarn-tool/table" "^2.0.0"
+    debug-color2 "^1.2.7"
+    graceful-fs "^4.2.10"
+    ts-type "^2.1.8"
+    tslib "^2"
+
 "@bluelovers/string-natural-compare@^2.0.5", "@bluelovers/string-natural-compare@^2.0.7":
   version "2.0.7"
   resolved "https://registry.npmjs.org/@bluelovers/string-natural-compare/-/string-natural-compare-2.0.7.tgz#7b61bec43dc40ee578edbb9ea71d6f61df2e94ec"
@@ -3937,7 +3949,7 @@ got@^9.6.0:
     to-readable-stream "^1.0.0"
     url-parse-lax "^3.0.0"
 
-graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.2.0, graceful-fs@^4.2.3, graceful-fs@^4.2.6, graceful-fs@^4.2.9:
+graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.2.0, graceful-fs@^4.2.10, graceful-fs@^4.2.3, graceful-fs@^4.2.6, graceful-fs@^4.2.9:
   version "4.2.10"
   resolved "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.10.tgz#147d3a006da4ca3ce14728c7aefc287c367d7a6c"
   integrity sha512-9ByhssR2fPVsNZj478qUUbKfmL0+t5BDVyjShtyZZLiK7ZDAArFFfopyOTj0M05wE2tJPisA4iTnnXl2YoPvOA==
