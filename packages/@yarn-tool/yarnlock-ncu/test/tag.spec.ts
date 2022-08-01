@@ -1,13 +1,16 @@
 import { join } from "path";
 import { updateYarnLockTag } from '../lib/updateYarnLockTag';
 import { readFileSync } from "fs";
+import { __TEST_YARNLOCK } from '../../../../__root_ws';
+import { printReport } from '../lib/printReport';
+import stripAnsi from 'strip-ansi';
 
 describe(`fixYarnLockTagUpdate`, () =>
 {
 
 	test(`should update tag in yarn.lock`, async () =>
 	{
-		let file = join(__dirname, './fixtures/v1/yarn.lock');
+		let file = join(__TEST_YARNLOCK, 'ncu', 'v1', 'yarn.lock');
 		let buf = readFileSync(file);
 
 		let actual = await updateYarnLockTag(buf);

@@ -6,7 +6,7 @@ import { __TEST_YARNLOCK } from '../../../../__root_ws';
 
 describe(`buildDiff`, () =>
 {
-	const __res = join(__TEST_YARNLOCK, 'fixtures');
+	const __res = join(__TEST_YARNLOCK, 'diff');
 
 	const files = FastGlob.sync([
 			'*.lock',
