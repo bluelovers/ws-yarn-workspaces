@@ -38,9 +38,9 @@
   },
   "dependencies": {
     "@lazy-node/semver-ampersand": "^2.0.1",
+    "@yarn-tool/npm-package-arg-util": "^1.0.29",
     "cache-path": "^3.0.2",
     "lru-cache-fs2": "^2.0.8",
-    "npm-package-arg": "^9.1.0",
     "package-json": "<7 >=6.5",
     "semver": "^7.3.7",
     "ts-type": "^2.1.8",

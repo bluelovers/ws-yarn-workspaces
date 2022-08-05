@@ -1,14 +1,16 @@
-import npmPackageArg from 'npm-package-arg';
-import queryVersionWithCache from './queryVersion';
+import { npa, IResult } from '@yarn-tool/npm-package-arg-util';
+import { queryVersionWithCache } from './queryVersion';
 import { IOptionsQueryVersion } from './types';
 import { Options } from 'package-json';
 
-export function parseVersionByNpmPackageArg(input: string): {
-	name: string;
-	version: string;
-}
+export function parseVersionByNpmPackageArg(input: string)
 {
-	const { name, fetchSpec: version } = npmPackageArg(input);
+	return _parseVersionByNpmPackageArgCore(npa(input))
+}
+
+export function _parseVersionByNpmPackageArgCore(result: IResult)
+{
+	const { name, fetchSpec: version } = result;
 
 	return {
 		name,

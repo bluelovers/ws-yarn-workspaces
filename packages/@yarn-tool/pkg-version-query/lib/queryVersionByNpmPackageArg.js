@@ -1,20 +1,23 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.queryVersionByNpmPackageArgWithCache = exports.parseVersionByNpmPackageArg = void 0;
-const tslib_1 = require("tslib");
-const npm_package_arg_1 = tslib_1.__importDefault(require("npm-package-arg"));
-const queryVersion_1 = tslib_1.__importDefault(require("./queryVersion"));
+exports.queryVersionByNpmPackageArgWithCache = exports._parseVersionByNpmPackageArgCore = exports.parseVersionByNpmPackageArg = void 0;
+const npm_package_arg_util_1 = require("@yarn-tool/npm-package-arg-util");
+const queryVersion_1 = require("./queryVersion");
 function parseVersionByNpmPackageArg(input) {
-    const { name, fetchSpec: version } = (0, npm_package_arg_1.default)(input);
+    return _parseVersionByNpmPackageArgCore((0, npm_package_arg_util_1.npa)(input));
+}
+exports.parseVersionByNpmPackageArg = parseVersionByNpmPackageArg;
+function _parseVersionByNpmPackageArgCore(result) {
+    const { name, fetchSpec: version } = result;
     return {
         name,
         version,
     };
 }
-exports.parseVersionByNpmPackageArg = parseVersionByNpmPackageArg;
+exports._parseVersionByNpmPackageArgCore = _parseVersionByNpmPackageArgCore;
 function queryVersionByNpmPackageArgWithCache(input, options) {
     const { name, version } = parseVersionByNpmPackageArg(input);
-    return (0, queryVersion_1.default)(name, version, options);
+    return (0, queryVersion_1.queryVersionWithCache)(name, version, options);
 }
 exports.queryVersionByNpmPackageArgWithCache = queryVersionByNpmPackageArgWithCache;
 exports.default = queryVersionByNpmPackageArgWithCache;
