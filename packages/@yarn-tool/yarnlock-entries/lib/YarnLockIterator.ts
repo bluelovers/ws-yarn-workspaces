@@ -1,16 +1,17 @@
-import {
-	IYarnLockParsedV1,
-	IYarnLockParsedV2,
-	IUnpackYarnLockDataRow,
-	IYarnLockSourceV1, IYarnLockSourceV2, IYarnLockSource,
-} from '@yarn-tool/yarnlock-parse';
-import { EnumDetectYarnLock } from '@yarn-tool/detect-yarnlock-version';
 import { merge } from 'lodash';
 import { IYarnLockIteratorWrap, IYarnLockIteratorWrapValue } from './types';
-import { parseYarnLockRowV2, parseYarnLockRowV1 } from '@yarn-tool/yarnlock-util';
-import yarnLockStringify from '@yarn-tool/yarnlock-stringify';
+import { parseYarnLockRowV1, parseYarnLockRowV2 } from '@yarn-tool/yarnlock-util';
+import { yarnLockStringify } from '@yarn-tool/yarnlock-stringify';
 import { ITSResolvable } from 'ts-type';
-import newYarnLockParsedVersionError from '@yarn-tool/yarnlock-error';
+import { newYarnLockParsedVersionError } from '@yarn-tool/yarnlock-error';
+import { yarnLockParsedToRawJSON } from '@yarn-tool/yarnlock-parsed-to-json';
+import { isYarnLockParsedV1, isYarnLockParsedV2 } from '@yarn-tool/yarnlock-parse-assert';
+import {
+	IUnpackYarnLockDataRow,
+	IYarnLockParsedV1,
+	IYarnLockParsedV2,
+	IYarnLockSource,
+} from '@yarn-tool/yarnlock-types';
 
 export class YarnLockIterator<T extends IYarnLockParsedV1 | IYarnLockParsedV2, DD extends IUnpackYarnLockDataRow<T> = IUnpackYarnLockDataRow<T>>
 {
@@ -23,14 +24,19 @@ export class YarnLockIterator<T extends IYarnLockParsedV1 | IYarnLockParsedV2, D
 		}
 	}
 
+	get verType()
+	{
+		return this.object.verType
+	}
+
 	isV1<TT extends IYarnLockParsedV1 = Extract<T, IYarnLockParsedV1>>(): this is YarnLockIterator<TT>
 	{
-		return (this.object.verType === EnumDetectYarnLock.v1)
+		return isYarnLockParsedV1(this.object)
 	}
 
 	isV2<TT extends IYarnLockParsedV2 = Extract<T, IYarnLockParsedV2>>(): this is YarnLockIterator<TT>
 	{
-		return (this.object.verType === EnumDetectYarnLock.berry)
+		return isYarnLockParsedV2(this.object)
 	}
 
 	v1<TT extends IYarnLockParsedV1 = Extract<T, IYarnLockParsedV1>>(): YarnLockIterator<TT>
@@ -140,20 +146,9 @@ export class YarnLockIterator<T extends IYarnLockParsedV1 | IYarnLockParsedV2, D
 
 	toJSON<T extends IYarnLockSource>(): T
 	{
-		if (this.isV2())
-		{
-			return {
-				__metadata: this.object.meta,
-				...this.object.data,
-			} as Extract<T, IYarnLockSourceV2>
-		}
-
-		return {
-			// @ts-ignore
-			...this.object.meta,
-			// @ts-ignore
-			object: this.object.data,
-		} as Extract<T, IYarnLockSourceV1>
+		return yarnLockParsedToRawJSON(this.object, {
+			throwError: true,
+		}) as any;
 	}
 
 	map<U, D extends IUnpackYarnLockDataRow<T> = DD>(fn: (value: IYarnLockIteratorWrap<D>,
