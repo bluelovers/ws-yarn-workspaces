@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`checkResolutionsUpdate v1 1`] = `
+Object {
+  "deps": Array [
+    Object {
+      "name": "@types/node",
+      "versionTarget": "latest",
+      "version_new": Any<String>,
+      "version_old": "^1.0.10",
+    },
+  ],
+  "deps2": Object {
+    "@types/node": Any<String>,
+  },
+  "deps3": Object {
+    "@types/node": Object {
+      "name": "@types/node",
+      "versionTarget": "latest",
+      "version_new": Any<String>,
+      "version_old": "^1.0.10",
+    },
+  },
+  "update_list": Any<Array>,
+  "yarnlock_changed": Any<Boolean>,
+  "yarnlock_new_obj": Anything,
+  "yarnlock_old_obj": Anything,
+}
+`;
