@@ -1,9 +1,9 @@
 import { IOptionsDedupe } from './lib/types';
-import detectYarnLockVersion from '@yarn-tool/detect-yarnlock-version/lib/detectYarnLockVersion';
-import { EnumDetectYarnLock } from '@yarn-tool/detect-yarnlock-version/lib/types';
+import { detectYarnLockVersion } from '@yarn-tool/detect-yarnlock-version/lib/detectYarnLockVersion';
 import v2 from './lib/v2';
 import v1 from './lib/v1';
 import { readFileSync, writeFileSync, existsSync } from 'fs';
+import { EnumDetectYarnLock } from '@yarn-tool/yarnlock-types';
 
 export function listDuplicates(yarnlock_old: Buffer | string, options?: IOptionsDedupe): string[]
 {
@@ -12,7 +12,8 @@ export function listDuplicates(yarnlock_old: Buffer | string, options?: IOptions
 
 	switch (verType)
 	{
-		case EnumDetectYarnLock.berry:
+		case EnumDetectYarnLock.v3:
+		case EnumDetectYarnLock.v2:
 			return v2.listDuplicates(yarnlock_old, options)
 		case EnumDetectYarnLock.v1:
 			return v1.listDuplicates(yarnlock_old, options)
@@ -28,7 +29,8 @@ export function fixDuplicates(yarnlock_old: Buffer | string, options?: IOptionsD
 
 	switch (verType)
 	{
-		case EnumDetectYarnLock.berry:
+		case EnumDetectYarnLock.v3:
+		case EnumDetectYarnLock.v2:
 			return v2.fixDuplicates(yarnlock_old, options)
 		case EnumDetectYarnLock.v1:
 			return v1.fixDuplicates(yarnlock_old, options)

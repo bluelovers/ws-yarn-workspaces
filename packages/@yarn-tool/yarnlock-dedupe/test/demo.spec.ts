@@ -1,10 +1,11 @@
 import { join } from "path";
 import { readFileSync } from 'fs';
 import { listDuplicates, fixDuplicates } from '../index';
-import { detectYarnLockVersion, EnumDetectYarnLock } from '@yarn-tool/detect-yarnlock-version';
+import { detectYarnLockVersion } from '@yarn-tool/detect-yarnlock-version';
 import FastGlob from '@bluelovers/fast-glob/bluebird';
 import { crlf } from 'crlf-normalize';
 import { __TEST_YARNLOCK } from '../../../../__root_ws';
+import { EnumDetectYarnLock } from '@yarn-tool/yarnlock-types';
 
 const __res = join(__TEST_YARNLOCK, 'dedupe');
 
