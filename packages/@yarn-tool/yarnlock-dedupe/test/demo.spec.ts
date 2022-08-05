@@ -1,7 +1,7 @@
 import { join } from "path";
 import { readFileSync } from 'fs';
-import { listDuplicates, fixDuplicates } from '../index';
-import { detectYarnLockVersion } from '@yarn-tool/detect-yarnlock-version';
+import { fixDuplicates, listDuplicates } from '../index';
+import { detectYarnLockVersion, detectYarnLockVersionByObject } from '@yarn-tool/detect-yarnlock-version';
 import FastGlob from '@bluelovers/fast-glob/bluebird';
 import { crlf } from 'crlf-normalize';
 import { __TEST_YARNLOCK } from '../../../../__root_ws';
@@ -9,94 +9,69 @@ import { EnumDetectYarnLock } from '@yarn-tool/yarnlock-types';
 
 const __res = join(__TEST_YARNLOCK, 'dedupe');
 
-const yarnlock_v1 = readFileSync(join(__res, 'v1', 'yarn.lock')).toString();
-const yarnlock_v2 = readFileSync(join(__res, 'v2', 'yarn.lock')).toString();
-
-describe(`v1`, () =>
+describe(`yarnlock-dedupe`, () =>
 {
-	const files = FastGlob.sync([
-			'*.lock',
-		], {
-			cwd: join(__res, 'v1'),
-		})
-	;
-
-	describe(`listDuplicates`, () =>
-	{
-		files.forEach(file =>
-		{
-			test(file, () =>
-			{
-				let actual = listDuplicates(yarnlock_v1);
-
-				expect(actual.length).toBeGreaterThanOrEqual(1);
-				expect(actual).toMatchSnapshot();
-			})
-		});
-	});
-
-	describe(`fixDuplicates`, () =>
-	{
-		files.forEach(file =>
-		{
-			test(file, () =>
-			{
-				let actual = fixDuplicates(yarnlock_v1);
-
-				expect(detectYarnLockVersion(actual)).toStrictEqual(EnumDetectYarnLock.v1);
-
-				expect(actual).not.toStrictEqual(yarnlock_v1);
-				expect(actual).toMatchSnapshot();
-			})
-		});
-	});
-
-})
-
-describe(`v2`, () =>
-{
-
-	const files = FastGlob.sync([
-			'*.lock',
-		], {
-			cwd: join(__res, 'v2'),
-		})
-	;
-
-	describe(`listDuplicates`, () =>
+	(<(keyof typeof EnumDetectYarnLock)[]>[
+		'v1',
+		'v2',
+		'v3',
+	]).forEach(ver =>
 	{
 
-		files.forEach(file =>
+		describe(ver, () =>
 		{
-			test(file, () =>
+			const dir = join(__res, ver);
+
+			const files = FastGlob.sync([
+					'*.lock',
+				], {
+					cwd: dir,
+				})
+			;
+
+			const expected2 = EnumDetectYarnLock[ver];
+
+			if (!files.length)
 			{
-				const yarnlock_v2 = crlf(readFileSync(join(__res, 'v2', file)).toString());
+				test(`dummy`, () => {})
+			}
 
-				let actual = listDuplicates(yarnlock_v2);
+			files.forEach(file =>
+			{
+				const yarnlock = crlf(readFileSync(join(dir, file)).toString());
 
-				expect(actual.length).toBeGreaterThanOrEqual(0);
-				expect(actual).toMatchSnapshot();
-			})
+				describe(file, () =>
+				{
+
+					test(`listDuplicates`, () =>
+					{
+						let actual = listDuplicates(yarnlock);
+
+						if (file !== 'meta-only.lock')
+						{
+							expect(actual.length).toBeGreaterThanOrEqual(1);
+						}
+
+						expect(actual).toMatchSnapshot();
+					})
+
+					test(`fixDuplicates`, () =>
+					{
+						let actual = fixDuplicates(yarnlock);
+
+						expect(actual).not.toStrictEqual(yarnlock);
+
+						let actual2 = detectYarnLockVersion(actual);
+
+						expect(actual2).toStrictEqual(expected2)
+						expect(actual2).toMatchSnapshot();
+					})
+
+				});
+
+
+			});
 		});
 
 	});
-
-	describe(`fixDuplicates`, () =>
-	{
-		files.forEach(file =>
-		{
-			test(file, () =>
-			{
-				const yarnlock_v2 = crlf(readFileSync(join(__res, 'v2', file)).toString());
-
-				let actual = fixDuplicates(yarnlock_v2);
-
-				expect(detectYarnLockVersion(actual)).toStrictEqual(EnumDetectYarnLock.v2);
-
-				expect(actual).not.toStrictEqual(yarnlock_v2);
-				expect(actual).toMatchSnapshot();
-			})
-		});
-	});
-
 })

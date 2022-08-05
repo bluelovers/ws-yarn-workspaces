@@ -69,6 +69,6 @@ const auto = {
 	listDuplicates,
 	fixDuplicates,
 	yarnDedupe,
-}
+} as const
 
 export default auto

@@ -20,9 +20,9 @@ export declare function yarnDedupe(yarnlock_old: string, options?: IOptionsDedup
  * @deprecated
  */
 declare const auto: {
-    listDuplicates: typeof listDuplicates;
-    fixDuplicates: typeof fixDuplicates;
-    yarnDedupe: typeof yarnDedupe;
+    readonly listDuplicates: typeof listDuplicates;
+    readonly fixDuplicates: typeof fixDuplicates;
+    readonly yarnDedupe: typeof yarnDedupe;
 };
 /**
  * @deprecated

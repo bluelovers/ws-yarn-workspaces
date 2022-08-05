@@ -33,7 +33,7 @@ const auto = {
 	listDuplicates,
 	fixDuplicates,
 	yarnDedupe,
-}
+} as const
 
 /**
  * @deprecated
