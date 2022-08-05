@@ -1,15 +1,15 @@
+import { IParseNameAndVersionWithNpaResult } from '../types';
+import { parseYarnLockRowV1 } from '../v1/parseYarnLockRowV1';
+import { parseYarnLockRowV2 } from '../v2/parseYarnLockRowV2';
+import { IComputedPackageEntries, reduceYarnLockParsedEntries } from './reduceYarnLockParsedEntries';
+import { assertYarnLockParsedIsSupported } from '@yarn-tool/yarnlock-parse-assert';
 import {
-	assertYarnLockParsedIsSupported,
+	EnumDetectYarnLock,
 	IYarnLockDataRowV1,
 	IYarnLockDataRowV2,
 	IYarnLockParsedV1,
 	IYarnLockParsedV2,
-} from '@yarn-tool/yarnlock-parse';
-import { IParseNameAndVersion } from '../types';
-import { EnumDetectYarnLock } from '@yarn-tool/detect-yarnlock-version/lib/types';
-import { parseYarnLockRowV1 as v1 } from '../v1/parseYarnLockRowV1';
-import { parseYarnLockRowV2 as v2 } from '../v2/parseYarnLockRowV2';
-import { IComputedPackageEntries, reduceYarnLockParsedEntries } from './reduceYarnLockParsedEntries';
+} from '@yarn-tool/yarnlock-types';
 
 export interface IGroupYarnLockParsedEntriesOptions
 {
@@ -19,18 +19,18 @@ export interface IGroupYarnLockParsedEntriesOptions
 export function groupYarnLockParsedEntries<R extends IYarnLockDataRowV1 | IYarnLockDataRowV2 = IYarnLockDataRowV1 | IYarnLockDataRowV2>(
 	parsedOldPackage: IYarnLockParsedV1 | IYarnLockParsedV2, options?: IGroupYarnLockParsedEntriesOptions)
 {
-	let fn: (packageName: string, packageData: any, ...argv) => IParseNameAndVersion;
+	let fn: (packageName: string, packageData: any, ...argv) => IParseNameAndVersionWithNpaResult;
 
 	assertYarnLockParsedIsSupported(parsedOldPackage, (verType, parsedOldPackage) =>
 	{
 
 		if (verType === EnumDetectYarnLock.v1)
 		{
-			fn = v1
+			fn = parseYarnLockRowV1
 		}
 		else
 		{
-			fn = v2
+			fn = parseYarnLockRowV2
 		}
 
 	});
@@ -42,7 +42,9 @@ export function groupYarnLockParsedEntries<R extends IYarnLockDataRowV1 | IYarnL
 		names = void 0;
 	}
 
-	return reduceYarnLockParsedEntries<IComputedPackageEntries<IParseNameAndVersion>>({}, parsedOldPackage, (data, [packageName, packageData]) =>
+	return reduceYarnLockParsedEntries<IComputedPackageEntries<IParseNameAndVersionWithNpaResult>>({}, parsedOldPackage, (data,
+		[packageName, packageData],
+	) =>
 	{
 		const result = fn(packageName, packageData);
 

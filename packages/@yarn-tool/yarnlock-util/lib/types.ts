@@ -1,6 +1,6 @@
-import npa, { Result } from 'npm-package-arg';
+import { IResult } from '@yarn-tool/npm-package-arg-util';
 
-export interface IParseNameAndVersion extends Pick<Result, 'type' | 'raw'>
+export interface IParseNameAndVersionWithNpaResult extends Pick<IResult, 'type' | 'raw'>
 {
 	name: string;
 	version: string;

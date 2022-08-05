@@ -1,11 +1,11 @@
-import { IYarnLockDataRowV2 } from '@yarn-tool/yarnlock-parse';
-import { parseResolution } from '@yarnpkg/parsers';
-import { IParseNameAndVersion } from '../types';
-import { npa } from '@yarn-tool/npm-package-arg-util';
+import { IYarnLockDataRowV2 } from '@yarn-tool/yarnlock-types';
+import { parseResolution } from '@yarn-tool/yarnlock-parse-raw/lib/v2/parseResolution';
+import { IParseNameAndVersionWithNpaResult } from '../types';
+import { npaTry } from '@yarn-tool/npm-package-arg-util';
 import { getSemverFromNpaResult } from '@yarn-tool/npm-package-arg-util/lib/getSemverFromNpaResult';
 import { IResult } from '@yarn-tool/npm-package-arg-util/lib/types';
 
-export function parseYarnLockRowV2(packageName: string, packageData: IYarnLockDataRowV2): IParseNameAndVersion
+export function parseYarnLockRowV2(packageName: string, packageData: IYarnLockDataRowV2): IParseNameAndVersionWithNpaResult
 {
 	let ret = parseResolution(packageData.resolution)
 
@@ -21,30 +21,15 @@ export function parseYarnLockRowV2(packageName: string, packageData: IYarnLockDa
 			version = ret.descriptor.description
 		}
 
-		let parsed: IResult;
+		/**
+		 * @fixme support packageName: 'once@npm:^1.3.1, once@npm:^1.4.0'
+		 */
+		let parsed: IResult = npaTry(packageName);
 		let semver: string;
 
-		try
+		if (parsed)
 		{
-			/**
-			 * @fixme support packageName: 'once@npm:^1.3.1, once@npm:^1.4.0'
-			 */
-			parsed = npa(packageName);
 			semver = getSemverFromNpaResult(parsed);
-		}
-		catch (e)
-		{
-			/*
-			console.dir({
-				name,
-				version,
-			})
-			console.dir({
-				packageName,
-				packageData,
-			})
-
-			 */
 		}
 
 		return {

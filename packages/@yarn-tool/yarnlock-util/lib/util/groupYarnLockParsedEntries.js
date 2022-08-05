@@ -1,15 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.groupYarnLockParsedEntries = void 0;
-const yarnlock_parse_1 = require("@yarn-tool/yarnlock-parse");
-const types_1 = require("@yarn-tool/detect-yarnlock-version/lib/types");
 const parseYarnLockRowV1_1 = require("../v1/parseYarnLockRowV1");
 const parseYarnLockRowV2_1 = require("../v2/parseYarnLockRowV2");
 const reduceYarnLockParsedEntries_1 = require("./reduceYarnLockParsedEntries");
+const yarnlock_parse_assert_1 = require("@yarn-tool/yarnlock-parse-assert");
+const yarnlock_types_1 = require("@yarn-tool/yarnlock-types");
 function groupYarnLockParsedEntries(parsedOldPackage, options) {
     let fn;
-    (0, yarnlock_parse_1.assertYarnLockParsedIsSupported)(parsedOldPackage, (verType, parsedOldPackage) => {
-        if (verType === types_1.EnumDetectYarnLock.v1) {
+    (0, yarnlock_parse_assert_1.assertYarnLockParsedIsSupported)(parsedOldPackage, (verType, parsedOldPackage) => {
+        if (verType === yarnlock_types_1.EnumDetectYarnLock.v1) {
             fn = parseYarnLockRowV1_1.parseYarnLockRowV1;
         }
         else {
