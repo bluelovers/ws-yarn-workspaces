@@ -1,10 +1,10 @@
-import { EnumDetectYarnLock } from './types';
-import { parseSyml } from '@yarnpkg/parsers';
 import { detectYarnLockVersionByObject } from './detectYarnLockVersionByObject';
+import { EnumDetectYarnLock } from '@yarn-tool/yarnlock-types';
+import { parseYarnLockRawV2 } from '@yarn-tool/yarnlock-parse-raw';
 
-export function detectYarnLockVersion(buf: Buffer | string)
+export function _detectYarnLockVersionSimple(buf: Buffer | string)
 {
-	let head = buf.slice(0, 160).toString().trim();
+	const head = buf.slice(0, 160).toString().trim();
 
 	if (head.includes('# yarn lockfile v1'))
 	{
@@ -12,28 +12,42 @@ export function detectYarnLockVersion(buf: Buffer | string)
 	}
 	else if (/^__metadata:\s*version: (4|5)(?:\r|\n)/m.test(head))
 	{
-		return EnumDetectYarnLock.berry
+		return EnumDetectYarnLock.v2
 	}
-	else if (tryParse(buf))
+	else if (/^__metadata:\s*version: (\d)(?:\r|\n)/m.test(head))
 	{
-		return EnumDetectYarnLock.berry
+		return EnumDetectYarnLock.v3
 	}
 
 	return EnumDetectYarnLock.unknown
 }
 
-function tryParse(buf: Buffer | string)
+export function detectYarnLockVersion(buf: Buffer | string)
+{
+	return _detectYarnLockVersionSimple(buf) || _tryParse(buf) || EnumDetectYarnLock.unknown
+}
+
+/**
+ * only check v2 and v3
+ */
+export function _tryParse(buf: Buffer | string)
 {
 	try
 	{
-		let json = parseSyml(buf.toString())
-
-		return detectYarnLockVersionByObject(json) === EnumDetectYarnLock.berry
+		const yarnLockObject = parseYarnLockRawV2(buf.toString());
+		return _tryParseObject(yarnLockObject)
 	}
 	catch (e)
 	{
 
 	}
+}
+
+export function _tryParseObject(yarnLockObject: Record<string, any>)
+{
+	const result = detectYarnLockVersionByObject(yarnLockObject);
+
+	return (result === EnumDetectYarnLock.v2 || result === EnumDetectYarnLock.v3) ? result : void 0
 }
 
 export default detectYarnLockVersion;
