@@ -1,4 +1,5 @@
-import npaToDepsValue, {
+import {
+	npaToDepsValue,
 	npaResultToDepsValue,
 	IOptions as IOptionsDepsValue,
 	IDepsResult,

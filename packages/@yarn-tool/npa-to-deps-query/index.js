@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.queryDepsValueByNpa = exports.queryDepsValueByNpaResult = void 0;
 const tslib_1 = require("tslib");
-const npa_to_deps_1 = tslib_1.__importDefault(require("@yarn-tool/npa-to-deps"));
+const npa_to_deps_1 = require("@yarn-tool/npa-to-deps");
 const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
 const queryVersion_1 = require("@yarn-tool/pkg-version-query/lib/queryVersion");
 function queryDepsValueByNpaResult(depsResult, options) {
@@ -30,7 +30,7 @@ exports.queryDepsValueByNpaResult = queryDepsValueByNpaResult;
 function queryDepsValueByNpa(input, options) {
     return bluebird_1.default.resolve()
         .then(() => {
-        return (0, npa_to_deps_1.default)(input, options);
+        return (0, npa_to_deps_1.npaToDepsValue)(input, options);
     })
         .then((result) => {
         return queryDepsValueByNpaResult(result, options)
