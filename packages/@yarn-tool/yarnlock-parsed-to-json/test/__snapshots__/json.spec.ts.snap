@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`json.spec yarnLockParsedV1ToRawJSON 1`] = `
+Object {
+  "object": Object {},
+  "version": "5",
+}
+`;
+
+exports[`json.spec yarnLockParsedV2ToRawJSON 1`] = `
+Object {
+  "__metadata": Object {
+    "version": "5",
+  },
+}
+`;
