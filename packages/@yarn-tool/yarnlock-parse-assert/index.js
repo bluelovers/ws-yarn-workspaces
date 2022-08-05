@@ -32,4 +32,5 @@ function assertYarnLockParsedIsSupported(parsedOldPackage, cb) {
     throw (0, yarnlock_error_1.newYarnLockParsedVersionError)();
 }
 exports.assertYarnLockParsedIsSupported = assertYarnLockParsedIsSupported;
+exports.default = assertYarnLockParsed;
 //# sourceMappingURL=index.js.map

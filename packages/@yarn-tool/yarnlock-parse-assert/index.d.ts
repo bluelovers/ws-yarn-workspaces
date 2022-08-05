@@ -10,4 +10,4 @@ interface IAssertYarnLockParsedIsSupportedCB<T extends IYarnLockParsedV1 | IYarn
     (verType: EnumDetectYarnLock, parsedOldPackage: T): any;
 }
 export declare function assertYarnLockParsedIsSupported<T extends IYarnLockParsedV1 | IYarnLockParsedV2>(parsedOldPackage: T, cb?: IAssertYarnLockParsedIsSupportedCB<T>): asserts parsedOldPackage is T;
-export {};
+export default assertYarnLockParsed;

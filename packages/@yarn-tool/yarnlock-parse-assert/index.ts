@@ -60,3 +60,5 @@ export function assertYarnLockParsedIsSupported<T extends IYarnLockParsedV1 | IY
 
 	throw newYarnLockParsedVersionError()
 }
+
+export default assertYarnLockParsed
