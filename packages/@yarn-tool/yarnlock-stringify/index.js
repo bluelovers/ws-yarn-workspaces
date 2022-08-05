@@ -1,31 +1,40 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.yarnLockStringify = void 0;
-const tslib_1 = require("tslib");
-const detectYarnLockVersionByObject_1 = tslib_1.__importDefault(require("@yarn-tool/detect-yarnlock-version/lib/detectYarnLockVersionByObject"));
-const lockfile_1 = require("@yarnpkg/lockfile");
-const detectYarnLockVersion_1 = tslib_1.__importDefault(require("@yarn-tool/detect-yarnlock-version/lib/detectYarnLockVersion"));
-const types_1 = require("@yarn-tool/detect-yarnlock-version/lib/types");
-const parsers_1 = require("@yarnpkg/parsers");
+const detectYarnLockVersionByObject_1 = require("@yarn-tool/detect-yarnlock-version/lib/detectYarnLockVersionByObject");
+const detectYarnLockVersion_1 = require("@yarn-tool/detect-yarnlock-version/lib/detectYarnLockVersion");
+const yarnlock_error_1 = require("@yarn-tool/yarnlock-error");
+const yarnlock_parsed_to_json_1 = require("@yarn-tool/yarnlock-parsed-to-json");
+const yarnlock_types_1 = require("@yarn-tool/yarnlock-types");
+const detect_yarnlock_version_1 = require("@yarn-tool/detect-yarnlock-version");
+const v1_1 = require("@yarn-tool/yarnlock-parse-raw/lib/v1");
+const v2_1 = require("@yarn-tool/yarnlock-parse-raw/lib/v2");
 function yarnLockStringify(yarnlock_old) {
     var _a;
-    let verType = (0, detectYarnLockVersionByObject_1.default)(yarnlock_old);
+    let verType = (0, detect_yarnlock_version_1.detectYarnLockVersionByParsed)(yarnlock_old);
+    if (verType) {
+        yarnlock_old = (0, yarnlock_parsed_to_json_1.yarnLockParsedToRawJSON)(yarnlock_old);
+    }
+    else {
+        verType = (0, detectYarnLockVersionByObject_1.detectYarnLockVersionByObject)(yarnlock_old);
+    }
     if (verType) {
         switch (verType) {
-            case types_1.EnumDetectYarnLock.berry:
-                return (0, parsers_1.stringifySyml)(yarnlock_old);
-            case types_1.EnumDetectYarnLock.v1:
+            case yarnlock_types_1.EnumDetectYarnLock.v3:
+            case yarnlock_types_1.EnumDetectYarnLock.v2:
+                return (0, v2_1.stringifyYarnLockRawV2)(yarnlock_old);
+            case yarnlock_types_1.EnumDetectYarnLock.v1:
                 // @ts-ignore
-                return (0, lockfile_1.stringify)((_a = yarnlock_old.object) !== null && _a !== void 0 ? _a : yarnlock_old);
+                return (0, v1_1.stringifyYarnLockRawV1)((_a = yarnlock_old.object) !== null && _a !== void 0 ? _a : yarnlock_old);
         }
     }
     else {
-        verType = (0, detectYarnLockVersion_1.default)(yarnlock_old);
+        verType = (0, detectYarnLockVersion_1.detectYarnLockVersion)(yarnlock_old);
         if (verType) {
             return yarnlock_old.toString();
         }
     }
-    throw new TypeError(`can't detect yarn.lock`);
+    throw (0, yarnlock_error_1.newYarnLockParsedVersionError)();
 }
 exports.yarnLockStringify = yarnLockStringify;
 exports.default = yarnLockStringify;
