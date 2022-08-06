@@ -1,6 +1,6 @@
 import { join } from "path";
 import FastGlob from '@bluelovers/fast-glob';
-import { checkAndParseYarnLockFile } from '../index';
+import { checkAndReadYarnLockFileSafe } from '@yarn-tool/yarnlock-fs';
 import { __TEST_YARNLOCK } from '../../../../__root_ws';
 
 describe(`yarn.lock`, () =>
@@ -19,7 +19,7 @@ describe(`yarn.lock`, () =>
 
 			test(file, () =>
 			{
-				let actual = checkAndParseYarnLockFile(_file);
+				let actual = checkAndReadYarnLockFileSafe(_file);
 				let expected;
 
 				//expect(actual).toStrictEqual(expected);

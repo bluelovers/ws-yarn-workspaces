@@ -1,11 +1,11 @@
-import { IOptionsNpmCheckUpdates } from '../types';
+import { EnumPackageManagersNpmMethod, IOptionsNpmCheckUpdates } from '../types';
 
 export function _getVersionTarget(options: Partial<IOptionsNpmCheckUpdates>): IOptionsNpmCheckUpdates['versionTarget']
 {
 	// @ts-ignore
-	return options.semverLevel || (options.newest ? 'newest' :
-		options.greatest ? 'greatest' :
-			'latest')
+	return options.semverLevel || (options.newest ? EnumPackageManagersNpmMethod.newest :
+		options.greatest ? EnumPackageManagersNpmMethod.greatest :
+			EnumPackageManagersNpmMethod.latest)
 }
 
 export function getVersionTarget(options: Partial<IOptionsNpmCheckUpdates> | string | IOptionsNpmCheckUpdates['versionTarget']): IOptionsNpmCheckUpdates['versionTarget']

@@ -3,7 +3,7 @@ import { Arguments, Argv } from 'yargs';
 import { IWrapDedupeCacheRuntime, IWrapDedupeOptions } from './types';
 import { resolve } from 'upath2';
 import { findRoot } from '@yarn-tool/find-root';
-import { fsYarnLockSafe as fsYarnLock } from '@yarn-tool/yarnlock-fs/lib/read';
+import { fsYarnLockSafe } from '@yarn-tool/yarnlock-fs/lib/read';
 
 export function handleWrapDedupeOptions<T extends {
 	cwd?: string,
@@ -43,7 +43,7 @@ export function handleWrapDedupeOptions<T extends {
 	}, true);
 
 	// @ts-ignore
-	cache.yarnlock_cache = cache.yarnlock_cache || fsYarnLock(cache.rootData.root);
+	cache.yarnlock_cache = cache.yarnlock_cache || fsYarnLockSafe(cache.rootData.root);
 
 	// @ts-ignore
 	cache.yarnlock_old = cache.yarnlock_cache.yarnlock_old;

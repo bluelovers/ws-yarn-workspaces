@@ -1,6 +1,6 @@
 import { IWrapDedupeCache, IWrapDedupeReturnType } from '../types';
 import { Arguments, Argv } from 'yargs';
-import { fsYarnLockSafe as fsYarnLock } from '@yarn-tool/yarnlock-fs/lib/read';
+import { fsYarnLockSafe } from '@yarn-tool/yarnlock-fs/lib/read';
 import { yarnDedupe } from '@yarn-tool/yarnlock-dedupe/object';
 import { readFileSync, writeFileSync } from 'fs-extra';
 import { yarnLockDiff } from '@yarn-tool/yarnlock-diff';
@@ -41,7 +41,7 @@ export async function wrapDedupeAsync<T extends {
 			break LABEL1;
 		}
 
-		cache.yarnlock_cache = fsYarnLock(cache.rootData.root);
+		cache.yarnlock_cache = fsYarnLockSafe(cache.rootData.root);
 
 		if (cache.yarnlock_cache.yarnlock_exists)
 		{
@@ -73,7 +73,7 @@ export async function wrapDedupeAsync<T extends {
 			break LABEL1;
 		}
 
-		cache.yarnlock_cache = fsYarnLock(cache.rootData.root);
+		cache.yarnlock_cache = fsYarnLockSafe(cache.rootData.root);
 
 		if (cache.yarnlock_cache.yarnlock_exists)
 		{
@@ -123,7 +123,7 @@ export async function wrapDedupeAsync<T extends {
 			break LABEL1;
 		}
 
-		cache.yarnlock_cache = fsYarnLock(cache.rootData.root);
+		cache.yarnlock_cache = fsYarnLockSafe(cache.rootData.root);
 
 		if (cache.yarnlock_cache.yarnlock_exists)
 		{

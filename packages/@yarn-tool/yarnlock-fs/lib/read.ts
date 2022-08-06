@@ -1,7 +1,7 @@
 import { IFsYarnLockReturnType } from './types';
 import { join } from "path";
 import { checkAndReadYarnLockFileSafe } from './readYarnLockFile';
-import { notEmpty as checkYarnLockFileUnsafeCore } from './notEmpty';
+import { notEmpty } from './notEmpty';
 import { pathExistsSync, readFileSync } from 'fs-extra';
 
 /**
@@ -28,7 +28,7 @@ export function fsYarnLockSafe(root: string): IFsYarnLockReturnType
 
 	const yarnlock_old = checkAndReadYarnLockFileSafe<string>(yarnlock_file, 'utf8');
 
-	const yarnlock_exists = checkYarnLockFileUnsafeCore(yarnlock_old);
+	const yarnlock_exists = notEmpty(yarnlock_old);
 
 	return {
 		yarnlock_file,
