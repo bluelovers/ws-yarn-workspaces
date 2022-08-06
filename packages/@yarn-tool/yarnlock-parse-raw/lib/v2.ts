@@ -16,7 +16,14 @@ export function parseYarnLockRawV2<T extends IYarnLockRawSourceV2 = IYarnLockRaw
 
 export { parseYarnLockRawV2 as parseYarnLockRawV2Root }
 
-export function stringifyYarnLockRawV2(json: any)
+export function stringifyYarnLockRawV2(json: any, noHeader?: boolean)
 {
-	return [EnumYarnLockBanner.v2, stringifySyml(json)].join(EnumLineBreak.LF + EnumLineBreak.LF)
+	const list = [EnumYarnLockBanner.v2, stringifySyml(json)];
+
+	if (noHeader)
+	{
+		list.shift();
+	}
+
+	return list.join(EnumLineBreak.LF + EnumLineBreak.LF)
 }

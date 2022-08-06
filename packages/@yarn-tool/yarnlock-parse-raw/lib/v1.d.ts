@@ -6,4 +6,4 @@ declare module '@yarnpkg/lockfile' {
 }
 export declare function parseYarnLockRawV1<T extends IYarnLockRawSourceV1Full = IYarnLockRawSourceV1Full>(source: string | Buffer, fileLoc?: string): T;
 export declare function parseYarnLockRawV1Root(source: string | Buffer, fileLoc?: string): import("@yarn-tool/yarnlock-types").IYarnLockDataRecord<import("@yarn-tool/yarnlock-types").IYarnLockDataRowV1>;
-export declare function stringifyYarnLockRawV1(json: any): string;
+export declare function stringifyYarnLockRawV1(json: any, noHeader?: boolean): string;

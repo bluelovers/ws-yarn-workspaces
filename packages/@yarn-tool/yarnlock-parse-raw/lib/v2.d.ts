@@ -6,4 +6,4 @@ declare module '@yarnpkg/parsers' {
 }
 export declare function parseYarnLockRawV2<T extends IYarnLockRawSourceV2 = IYarnLockRawSourceV2>(source: string | Buffer): T;
 export { parseYarnLockRawV2 as parseYarnLockRawV2Root };
-export declare function stringifyYarnLockRawV2(json: any): string;
+export declare function stringifyYarnLockRawV2(json: any, noHeader?: boolean): string;

@@ -10,9 +10,9 @@ function parseYarnLockRawV1Root(source, fileLoc) {
     return parseYarnLockRawV1(source, fileLoc).object;
 }
 exports.parseYarnLockRawV1Root = parseYarnLockRawV1Root;
-function stringifyYarnLockRawV1(json) {
+function stringifyYarnLockRawV1(json, noHeader) {
     var _a;
-    return (0, lockfile_1.stringify)((_a = json.object) !== null && _a !== void 0 ? _a : json);
+    return (0, lockfile_1.stringify)((_a = json.object) !== null && _a !== void 0 ? _a : json, noHeader);
 }
 exports.stringifyYarnLockRawV1 = stringifyYarnLockRawV1;
 //# sourceMappingURL=v1.js.map
