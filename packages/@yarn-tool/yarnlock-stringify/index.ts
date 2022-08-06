@@ -2,7 +2,13 @@ import { detectYarnLockVersionByObject } from '@yarn-tool/detect-yarnlock-versio
 import { detectYarnLockVersion } from '@yarn-tool/detect-yarnlock-version/lib/detectYarnLockVersion';
 import { newYarnLockParsedVersionError } from '@yarn-tool/yarnlock-error';
 import { yarnLockParsedToRawJSON } from '@yarn-tool/yarnlock-parsed-to-json';
-import { EnumDetectYarnLock, IYarnLockParsed, IYarnLockSource } from '@yarn-tool/yarnlock-types';
+import {
+	EnumDetectYarnLock,
+	IYarnLockParsed,
+	IYarnLockRawSourceV1,
+	IYarnLockRawSourceV2,
+	IYarnLockSource,
+} from '@yarn-tool/yarnlock-types';
 import { detectYarnLockVersionByParsed } from '@yarn-tool/detect-yarnlock-version';
 import { stringifyYarnLockRawV1 } from '@yarn-tool/yarnlock-parse-raw/lib/v1';
 import { stringifyYarnLockRawV2 } from '@yarn-tool/yarnlock-parse-raw/lib/v2';
@@ -22,15 +28,7 @@ export function yarnLockStringify(yarnlock_old: Record<string, any> | Buffer | s
 
 	if (verType)
 	{
-		switch (verType)
-		{
-			case EnumDetectYarnLock.v3:
-			case EnumDetectYarnLock.v2:
-				return stringifyYarnLockRawV2(yarnlock_old)
-			case EnumDetectYarnLock.v1:
-				// @ts-ignore
-				return stringifyYarnLockRawV1(yarnlock_old.object ?? yarnlock_old)
-		}
+		return _yarnLockStringifyRawCore(verType, yarnlock_old as IYarnLockSource).content
 	}
 	else
 	{
@@ -43,6 +41,60 @@ export function yarnLockStringify(yarnlock_old: Record<string, any> | Buffer | s
 	}
 
 	throw newYarnLockParsedVersionError()
+}
+
+export type IResultYarnLockStringifyRaw = {
+	verType: EnumDetectYarnLock.v1;
+	fn: typeof stringifyYarnLockRawV1
+	json: IYarnLockRawSourceV1;
+	content: string;
+} | {
+	verType: EnumDetectYarnLock.v2;
+	fn: typeof stringifyYarnLockRawV2
+	json: IYarnLockRawSourceV2;
+	content: string;
+} | {
+	verType: EnumDetectYarnLock.v3;
+	fn: typeof stringifyYarnLockRawV2
+	json: IYarnLockRawSourceV2;
+	content: string;
+};
+
+export function _yarnLockStringifyRaw(yarnlockRawJSON: IYarnLockSource)
+{
+	const verType = detectYarnLockVersionByObject(yarnlockRawJSON)
+
+	return _yarnLockStringifyRawCore(verType, yarnlockRawJSON)
+}
+
+export function yarnLockStringifyRaw(yarnlockRawJSON: IYarnLockSource)
+{
+	return _yarnLockStringifyRaw(yarnlockRawJSON).content
+}
+
+export function _yarnLockStringifyRawCore(verType: EnumDetectYarnLock, yarnlockRawJSON: IYarnLockSource): IResultYarnLockStringifyRaw
+{
+	let fn: typeof stringifyYarnLockRawV2 | typeof stringifyYarnLockRawV1;
+
+	switch (verType)
+	{
+		case EnumDetectYarnLock.v3:
+		case EnumDetectYarnLock.v2:
+			fn = stringifyYarnLockRawV2;
+			break;
+		case EnumDetectYarnLock.v1:
+			fn = stringifyYarnLockRawV1;
+			break;
+		default:
+			throw newYarnLockParsedVersionError()
+	}
+
+	return {
+		verType,
+		fn,
+		json: yarnlockRawJSON,
+		content: fn(yarnlockRawJSON),
+	} as IResultYarnLockStringifyRaw
 }
 
 export default yarnLockStringify
