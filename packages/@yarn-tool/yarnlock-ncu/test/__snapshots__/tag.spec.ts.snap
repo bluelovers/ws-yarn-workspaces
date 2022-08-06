@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`fixYarnLockTagUpdate v1 should update tag in yarn.lock 1`] = `
+Object {
+  "report": Object {
+    "removed": Object {
+      "next@canary": Object {
+        "from": "9.5.2-canary.1",
+        "to": Any<String>,
+      },
+      "typescript@next": Object {
+        "from": "4.0.0-dev.20200731",
+        "to": Any<String>,
+      },
+    },
+  },
+  "yarnlock_changed": true,
+  "yarnlock_new": Any<String>,
+  "yarnlock_old": Any<String>,
+}
+`;
+
+exports[`fixYarnLockTagUpdate v3 should update tag in yarn.lock 1`] = `
+Object {
+  "report": Object {
+    "removed": Object {
+      "next@canary": Object {
+        "from": "9.5.2-canary.1",
+        "to": Any<String>,
+      },
+      "typescript@next": Object {
+        "from": "4.0.0-dev.20200731",
+        "to": Any<String>,
+      },
+    },
+  },
+  "yarnlock_changed": true,
+  "yarnlock_new": Any<String>,
+  "yarnlock_old": Any<String>,
+}
+`;
