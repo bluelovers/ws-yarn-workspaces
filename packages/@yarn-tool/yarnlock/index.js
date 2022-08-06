@@ -8,7 +8,6 @@ const tslib_1 = require("tslib");
 tslib_1.__exportStar(require("./lib/types"), exports);
 tslib_1.__exportStar(require("./lib/core"), exports);
 tslib_1.__exportStar(require("./lib/fs"), exports);
-tslib_1.__exportStar(require("./lib/parse"), exports);
 tslib_1.__exportStar(require("./lib/util"), exports);
 tslib_1.__exportStar(require("./lib/diff"), exports);
 tslib_1.__exportStar(require("./lib/dedupe"), exports);

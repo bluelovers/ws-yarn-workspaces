@@ -2,7 +2,7 @@ import { IWrapDedupeCache } from '../types';
 import { Arguments, Argv } from 'yargs';
 import { IWrapDedupeCacheRuntime, IWrapDedupeOptions } from './types';
 import { resolve } from 'upath2';
-import findRoot from '@yarn-tool/find-root';
+import { findRoot } from '@yarn-tool/find-root';
 import { fsYarnLockSafe as fsYarnLock } from '@yarn-tool/yarnlock-fs/lib/read';
 
 export function handleWrapDedupeOptions<T extends {

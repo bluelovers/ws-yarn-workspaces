@@ -24,7 +24,7 @@ function buildDiffTable(diff, options) {
             chalk.bold.reset('old version(s)'),
             '',
             chalk.bold.reset('new version(s)'),
-        ]
+        ],
     });
     let formatedDiff = {};
     const NONE = chalk.red('-');

@@ -4,7 +4,7 @@ import { ITSValueOrArray } from 'ts-type/lib/type/base';
 
 export function buildDiff(
 	oldYarnLockContent: ITSValueOrArray<Buffer | string>,
-	newYarnLockContent: ITSValueOrArray<Buffer | string>
+	newYarnLockContent: ITSValueOrArray<Buffer | string>,
 )
 {
 	const oldPacakges = buildComputedPackage(oldYarnLockContent);

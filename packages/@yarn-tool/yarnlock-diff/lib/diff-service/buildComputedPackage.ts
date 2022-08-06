@@ -3,7 +3,9 @@ import { yarnLockParse } from '@yarn-tool/yarnlock-parse';
 import { computeHashmapOfPackageAndVersionList } from './computeHashmapOfPackageAndVersionList';
 import { ITSValueOrArray } from 'ts-type/lib/type/base';
 
-export function buildComputedPackage(yarnLockContentList: ITSValueOrArray<Buffer | string>, alreadyComputedPackage: IComputedPackage = {})
+export function buildComputedPackage(yarnLockContentList: ITSValueOrArray<Buffer | string>,
+	alreadyComputedPackage: IComputedPackage = {},
+)
 {
 	if (!Array.isArray(yarnLockContentList))
 	{
@@ -12,5 +14,5 @@ export function buildComputedPackage(yarnLockContentList: ITSValueOrArray<Buffer
 
 	return yarnLockContentList
 		.map(v => yarnLockParse(v))
-	.reduce(computeHashmapOfPackageAndVersionList, alreadyComputedPackage);
+		.reduce(computeHashmapOfPackageAndVersionList, alreadyComputedPackage);
 }

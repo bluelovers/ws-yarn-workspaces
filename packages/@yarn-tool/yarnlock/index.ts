@@ -5,7 +5,6 @@
 export * from './lib/types';
 export * from './lib/core';
 export * from './lib/fs';
-export * from './lib/parse';
 export * from './lib/util';
 export * from './lib/diff';
 export * from './lib/dedupe';

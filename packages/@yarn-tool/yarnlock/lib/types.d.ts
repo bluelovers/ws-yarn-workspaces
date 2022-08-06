@@ -5,19 +5,14 @@ import { ITSArrayListMaybeReadonly, ITSValueOfArray } from 'ts-type';
 import { IFindRootReturnType } from '@yarn-tool/find-root';
 import { Console2 } from 'debug-color2';
 import { Argv, Arguments } from 'yargs';
-export * from '@ts-type/package-dts/lib/package-json/types';
 import { IVersionValue } from '@ts-type/package-dts/lib/package-json/types';
-import { IYarnLockfileParseObjectRowBase } from './base/types';
+import { IYarnLockDataRowBase } from '@yarn-tool/yarnlock-types';
 import { IFsYarnLockReturnType } from '@yarn-tool/yarnlock-fs/lib/types';
-export interface IYarnLockfileParseFull<T extends ITSArrayListMaybeReadonly<string> = string[]> {
-    type: string | 'success' | 'merge' | 'conflict';
-    object: IYarnLockfileParseObject<T>;
-}
 export declare type IYarnLockfileParseObject<T extends ITSArrayListMaybeReadonly<string> = string[]> = Record<string, IYarnLockfileParseObjectRow<T>>;
 /**
  * yarn.lock 資料
  */
-export interface IYarnLockfileParseObjectRow<T extends ITSArrayListMaybeReadonly<string> = string[]> extends IYarnLockfileParseObjectRowBase<T> {
+export interface IYarnLockfileParseObjectRow<T extends ITSArrayListMaybeReadonly<string> = string[]> extends IYarnLockDataRowBase {
     /**
      * 安裝來源網址
      */

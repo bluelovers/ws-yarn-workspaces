@@ -1,16 +1,15 @@
-import { IDiffNode, EnumKinds } from '@bluelovers/deep-diff';
+import { EnumKinds, IDiffNode } from '@bluelovers/deep-diff';
 import { IComputedPackage } from '../diff-service/types';
-import Table from 'cli-table';
-import chalk from 'chalk';
 import { _formatVersion } from './formatVersion';
 import { _diffArray } from './diffArray002';
 import { colorizeDiff, IOptionsParseVersionsDiff } from '@yarn-tool/semver-diff';
 import { createDependencyTable } from '@yarn-tool/table/lib/core';
-import { IChalk } from 'debug-color2'
-import { console, chalkByConsoleMaybe } from 'debug-color2';
+import { chalkByConsoleMaybe, IChalk } from 'debug-color2'
 import stripAnsi from 'strip-ansi';
 
-export function buildDiffTable(diff: IDiffNode<IComputedPackage, IComputedPackage>[], options?: IOptionsParseVersionsDiff): string
+export function buildDiffTable(diff: IDiffNode<IComputedPackage, IComputedPackage>[],
+	options?: IOptionsParseVersionsDiff,
+): string
 {
 	// @ts-ignore
 	let chalk: IChalk = options?.chalk ?? chalkByConsoleMaybe(options?.console);
@@ -28,7 +27,7 @@ export function buildDiffTable(diff: IDiffNode<IComputedPackage, IComputedPackag
 			chalk.bold.reset('old version(s)'),
 			'',
 			chalk.bold.reset('new version(s)'),
-		]
+		],
 	});
 
 	let formatedDiff: {
@@ -96,4 +95,3 @@ export function buildDiffTable(diff: IDiffNode<IComputedPackage, IComputedPackag
 
 	return _ok ? output : '';
 }
-

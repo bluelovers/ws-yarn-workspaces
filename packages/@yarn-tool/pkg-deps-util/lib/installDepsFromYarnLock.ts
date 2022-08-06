@@ -1,13 +1,13 @@
 import { findRootLazy } from '@yarn-tool/find-root';
 import { readPackageJson } from '@ts-type/package-dts';
 import npa from '@yarn-tool/npm-package-arg-util';
-import { IYarnLockParsedV1, IYarnLockParsedV2, yarnLockParse } from '@yarn-tool/yarnlock-parse';
+import { yarnLockParse } from '@yarn-tool/yarnlock-parse';
 import {
 	groupYarnLockParsedEntries,
 	IGroupYarnLockParsedEntriesOptions,
 } from '@yarn-tool/yarnlock-util/lib/util/groupYarnLockParsedEntries';
 import { IComputedPackageEntries } from '@yarn-tool/yarnlock-util/lib/util/reduceYarnLockParsedEntries';
-import { IParseNameAndVersion } from '@yarn-tool/yarnlock-util/lib/types';
+import { IParseNameAndVersionWithNpaResult } from '@yarn-tool/yarnlock-util/lib/types';
 
 import { pick } from 'lodash';
 import { join } from 'path';
@@ -17,6 +17,7 @@ import { array_unique_overwrite } from 'array-hyper-unique';
 import { sortDependencies } from './util/sortDependencies';
 import { fetchRemoteInfo } from './util/fetchRemoteInfo';
 import { IAddedList, IFilteredRecord, IOptionsInstallDepsFromYarnLock, IResultInstallDeps } from './types';
+import { IYarnLockParsedV1, IYarnLockParsedV2 } from '@yarn-tool/yarnlock-types';
 
 export function filterDepsFromYarnLock<T extends string>(packageNames: T[],
 	parsedOldPackage: IYarnLockParsedV1 | IYarnLockParsedV2,
@@ -25,7 +26,7 @@ export function filterDepsFromYarnLock<T extends string>(packageNames: T[],
 {
 	let group = groupYarnLockParsedEntries(parsedOldPackage, options);
 
-	return pick(group, packageNames.map((name) => npa(name).name)) as IFilteredRecord<IComputedPackageEntries<IParseNameAndVersion>, T>;
+	return pick(group, packageNames.map((name) => npa(name).name)) as IFilteredRecord<IComputedPackageEntries<IParseNameAndVersionWithNpaResult>, T>;
 }
 
 export async function installDepsFromYarnLockCore<T extends string>(packageNames: T[],

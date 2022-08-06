@@ -1,9 +1,9 @@
-import { IYarnLockParsedV1, IYarnLockParsedV2 } from '@yarn-tool/yarnlock-parse';
 import { IGroupYarnLockParsedEntriesOptions } from '@yarn-tool/yarnlock-util/lib/util/groupYarnLockParsedEntries';
 import { IComputedPackageEntries } from '@yarn-tool/yarnlock-util/lib/util/reduceYarnLockParsedEntries';
-import { IParseNameAndVersion } from '@yarn-tool/yarnlock-util/lib/types';
+import { IParseNameAndVersionWithNpaResult } from '@yarn-tool/yarnlock-util/lib/types';
 import { IAddedList, IOptionsInstallDepsFromYarnLock } from './types';
-export declare function filterDepsFromYarnLock<T extends string>(packageNames: T[], parsedOldPackage: IYarnLockParsedV1 | IYarnLockParsedV2, options?: IGroupYarnLockParsedEntriesOptions): IComputedPackageEntries<IParseNameAndVersion> & Record<T, [key: string, data: IParseNameAndVersion][]>;
+import { IYarnLockParsedV1, IYarnLockParsedV2 } from '@yarn-tool/yarnlock-types';
+export declare function filterDepsFromYarnLock<T extends string>(packageNames: T[], parsedOldPackage: IYarnLockParsedV1 | IYarnLockParsedV2, options?: IGroupYarnLockParsedEntriesOptions): IComputedPackageEntries<IParseNameAndVersionWithNpaResult> & Record<T, [key: string, data: IParseNameAndVersionWithNpaResult][]>;
 export declare function installDepsFromYarnLockCore<T extends string>(packageNames: T[], parsedOldPackage: IYarnLockParsedV1 | IYarnLockParsedV2, options?: IOptionsInstallDepsFromYarnLock): Promise<{
     cwd: string;
     rootData: import("@yarn-tool/find-root").IFindRootReturnType;

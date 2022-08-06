@@ -1,17 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.computeHashmapOfPackageAndVersionList = void 0;
-const yarnlock_parse_1 = require("@yarn-tool/yarnlock-parse");
 const parseYarnLockRowV1_1 = require("@yarn-tool/yarnlock-util/lib/v1/parseYarnLockRowV1");
 const parseYarnLockRowV2_1 = require("@yarn-tool/yarnlock-util/lib/v2/parseYarnLockRowV2");
 const array_hyper_unique_1 = require("array-hyper-unique");
 const semver_1 = require("semver");
-const types_1 = require("@yarn-tool/detect-yarnlock-version/lib/types");
 const reduceYarnLockParsedEntries_1 = require("@yarn-tool/yarnlock-util/lib/util/reduceYarnLockParsedEntries");
+const yarnlock_parse_assert_1 = require("@yarn-tool/yarnlock-parse-assert");
+const yarnlock_types_1 = require("@yarn-tool/yarnlock-types");
 function computeHashmapOfPackageAndVersionList(alreadyComputedPackage, parsedOldPackage) {
     let fn;
-    (0, yarnlock_parse_1.assertYarnLockParsedIsSupported)(parsedOldPackage, (verType, parsedOldPackage) => {
-        if (verType === types_1.EnumDetectYarnLock.v1) {
+    (0, yarnlock_parse_assert_1.assertYarnLockParsedIsSupported)(parsedOldPackage, (verType, parsedOldPackage) => {
+        if (verType === yarnlock_types_1.EnumDetectYarnLock.v1) {
             fn = parseYarnLockRowV1_1.parseYarnLockRowV1;
         }
         else {
