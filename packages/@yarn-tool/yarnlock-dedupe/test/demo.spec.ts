@@ -6,16 +6,13 @@ import FastGlob from '@bluelovers/fast-glob/bluebird';
 import { crlf } from 'crlf-normalize';
 import { __TEST_YARNLOCK } from '../../../../__root_ws';
 import { EnumDetectYarnLock } from '@yarn-tool/yarnlock-types';
+import { _forEachVersionTags } from '../../../../test/lib/forEachVersionTags';
 
 const __res = join(__TEST_YARNLOCK, 'dedupe');
 
 describe(`yarnlock-dedupe`, () =>
 {
-	(<(keyof typeof EnumDetectYarnLock)[]>[
-		'v1',
-		'v2',
-		'v3',
-	]).forEach(ver =>
+	_forEachVersionTags().forEach(ver =>
 	{
 
 		describe(ver, () =>
