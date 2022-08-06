@@ -1,5 +1,7 @@
 import { parseSyml, stringifySyml } from '@yarnpkg/parsers';
 import { IYarnLockRawSourceV2 } from '@yarn-tool/yarnlock-types';
+import { EnumYarnLockBanner } from '@yarn-tool/yarnlock-banner';
+import { EnumLineBreak } from 'crlf-normalize';
 
 declare module '@yarnpkg/parsers'
 {
@@ -14,4 +16,7 @@ export function parseYarnLockRawV2<T extends IYarnLockRawSourceV2 = IYarnLockRaw
 
 export { parseYarnLockRawV2 as parseYarnLockRawV2Root }
 
-export { stringifySyml as stringifyYarnLockRawV2 }
+export function stringifyYarnLockRawV2(json: any)
+{
+	return [EnumYarnLockBanner.v2, stringifySyml(json)].join(EnumLineBreak.LF + EnumLineBreak.LF)
+}

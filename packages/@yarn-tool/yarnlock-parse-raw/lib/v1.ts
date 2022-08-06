@@ -19,4 +19,7 @@ export function parseYarnLockRawV1Root(source: string | Buffer,
 	return parseYarnLockRawV1(source, fileLoc).object
 }
 
-export { stringify as stringifyYarnLockRawV1 }
+export function stringifyYarnLockRawV1(json: any)
+{
+	return stringify((json as IYarnLockRawSourceV1).object ?? json)
+}
