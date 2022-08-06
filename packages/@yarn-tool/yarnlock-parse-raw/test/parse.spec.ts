@@ -9,6 +9,7 @@ import { checkResolutionsUpdate } from '@yarn-tool/ncu';
 import { parseYarnLockRawV1Root } from '../lib/v1';
 import { parseYarnLockRawV2Root } from '../lib/v2';
 import { detectYarnLockVersionByObject } from '@yarn-tool/detect-yarnlock-version/lib/detectYarnLockVersionByObject';
+import { _forEachVersionTags } from '../../../../test/lib/forEachVersionTags';
 
 beforeAll(async () =>
 {
@@ -19,11 +20,7 @@ describe(`parseYarnLockRaw`, () =>
 {
 	const dir = join(__TEST_YARNLOCK);
 
-	(<(keyof typeof EnumDetectYarnLock)[]>[
-		'v1',
-		'v2',
-		'v3',
-	]).forEach(ver =>
+	_forEachVersionTags().forEach(ver =>
 	{
 		const file = join(dir, ver, 'yarn.lock');
 		let fn: typeof parseYarnLockRawV1Root | typeof parseYarnLockRawV2Root

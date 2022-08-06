@@ -9,6 +9,7 @@ import {
 } from '@yarn-tool/detect-yarnlock-version/lib/detectYarnLockVersionWithMetadata';
 import { _getMetadataVersionCore } from '@yarn-tool/detect-yarnlock-version/lib/util';
 import { EnumDetectYarnLock } from '@yarn-tool/yarnlock-types';
+import { _forEachVersionTags } from '../../../../test/lib/forEachVersionTags';
 
 beforeAll(async () =>
 {
@@ -18,11 +19,7 @@ beforeAll(async () =>
 describe(basename(__filename, extname(__filename)), () =>
 {
 
-	(<(keyof typeof EnumDetectYarnLock)[]>[
-		'v1',
-		'v2',
-		'v3',
-	]).forEach(ver => {
+	_forEachVersionTags().forEach(ver => {
 
 		const file = join(__TEST_YARNLOCK, ver, 'yarn.lock');
 		const buf = readFileSync(file);

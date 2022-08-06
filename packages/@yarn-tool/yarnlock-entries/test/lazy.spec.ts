@@ -10,6 +10,7 @@ import { __TEST_YARNLOCK } from '../../../../__root_ws';
 import { readFileSync } from 'fs';
 import fromContent from '../lib/fromContent';
 import { EnumDetectYarnLock } from '@yarn-tool/yarnlock-types';
+import { _forEachVersionTags } from '../../../../test/lib/forEachVersionTags';
 
 beforeAll(async () =>
 {
@@ -19,11 +20,7 @@ beforeAll(async () =>
 describe(basename(__filename, extname(__filename)), () =>
 {
 
-	(<(keyof typeof EnumDetectYarnLock)[]>[
-		'v1',
-		'v2',
-		'v3',
-	]).forEach(ver =>
+	_forEachVersionTags().forEach(ver =>
 	{
 
 		const file = join(__TEST_YARNLOCK, ver, 'yarn.lock');

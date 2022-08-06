@@ -15,6 +15,7 @@ import { yarnLockParse } from '@yarn-tool/yarnlock-parse';
 import { yarnLockStringify } from '../index';
 import { detectYarnLockVersionByObject } from '@yarn-tool/detect-yarnlock-version/lib/detectYarnLockVersionByObject';
 import { EnumDetectYarnLock } from '@yarn-tool/yarnlock-types';
+import { _forEachVersionTags } from '../../../../test/lib/forEachVersionTags';
 
 beforeAll(async () =>
 {
@@ -24,11 +25,7 @@ beforeAll(async () =>
 describe(`version`, () =>
 {
 
-	(<(keyof typeof EnumDetectYarnLock)[]>[
-		'v1',
-		'v2',
-		'v3',
-	]).forEach(ver =>
+	_forEachVersionTags().forEach(ver =>
 	{
 		describe(ver, () =>
 		{

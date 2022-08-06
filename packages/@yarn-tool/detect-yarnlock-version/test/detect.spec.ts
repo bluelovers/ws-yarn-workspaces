@@ -8,6 +8,7 @@ import { _detectYarnLockVersionWithMetadataCore } from '../lib/detectYarnLockVer
 import { _getMetadataVersionCore } from '../lib/util';
 import { sync as FastGlob } from '@bluelovers/fast-glob';
 import { EnumDetectYarnLock } from '@yarn-tool/yarnlock-types';
+import { _forEachVersionTags } from '../../../../test/lib/forEachVersionTags';
 
 const __res = __TEST_YARNLOCK;
 
@@ -29,11 +30,7 @@ test(`empty`, () =>
 describe(`version`, () =>
 {
 
-	(<(keyof typeof EnumDetectYarnLock)[]>[
-		'v1',
-		'v2',
-		'v3',
-	]).forEach(ver =>
+	_forEachVersionTags().forEach(ver =>
 	{
 		describe(ver, () =>
 		{

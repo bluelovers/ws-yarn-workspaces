@@ -1,11 +1,12 @@
 //@noUnusedParameters:false
 
-import { basename, extname, join } from 'path';
+import { join } from 'path';
 import { __TEST_YARNLOCK } from '../../../../__root_ws';
 import { readFileSync } from 'fs';
 import { checkResolutionsUpdate } from '../lib/update/checkResolutionsUpdate';
-import { EnumDetectYarnLock } from '@yarn-tool/yarnlock-types';
 import { pathExistsSync } from 'fs-extra';
+import { _forEachVersionTags } from '../../../../test/lib/forEachVersionTags';
+import { EnumDetectYarnLock } from '@yarn-tool/yarnlock-types';
 
 beforeAll(async () =>
 {
@@ -16,11 +17,11 @@ describe(`checkResolutionsUpdate`, () =>
 {
 	const dir = join(__TEST_YARNLOCK, 'ncu');
 
-	(<(keyof typeof EnumDetectYarnLock)[]>[
-		'v1',
-		//'v2',
-		//'v3',
-	]).forEach(ver =>
+	_forEachVersionTags({
+		only: [
+			EnumDetectYarnLock.v1,
+		],
+	}).forEach(ver =>
 	{
 		const file = join(dir, ver, 'yarn.lock');
 
