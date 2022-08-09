@@ -12,11 +12,20 @@ export function parseYarnLockRawV1<T extends IYarnLockRawSourceV1Full = IYarnLoc
 	return parse(source?.toString(), fileLoc)
 }
 
+export function getYarnLockRawV1Root(input: IYarnLockRawSourceV1)
+{
+	if (!('object' in input))
+	{
+		throw new TypeError(`'object' key not exists in input object`)
+	}
+	return input.object
+}
+
 export function parseYarnLockRawV1Root(source: string | Buffer,
 	fileLoc?: string
 )
 {
-	return parseYarnLockRawV1(source, fileLoc).object
+	return getYarnLockRawV1Root(parseYarnLockRawV1(source, fileLoc))
 }
 
 export function stringifyYarnLockRawV1(json: any, noHeader?: boolean)

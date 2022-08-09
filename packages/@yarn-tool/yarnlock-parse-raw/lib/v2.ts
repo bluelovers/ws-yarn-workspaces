@@ -14,6 +14,15 @@ export function parseYarnLockRawV2<T extends IYarnLockRawSourceV2 = IYarnLockRaw
 	return parseSyml(source?.toString()) as any
 }
 
+export function getYarnLockRawV2Root(input: IYarnLockRawSourceV2)
+{
+	if (('object' in input))
+	{
+		throw new TypeError(`'object' key should not exists in input object`)
+	}
+	return input
+}
+
 export { parseYarnLockRawV2 as parseYarnLockRawV2Root }
 
 export function stringifyYarnLockRawV2(json: any, noHeader?: boolean)
