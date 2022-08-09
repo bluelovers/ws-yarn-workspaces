@@ -3,9 +3,7 @@ import Bluebird from 'bluebird';
 import { keyObjectToPackageMap } from '../util';
 import semver from 'semver';
 import { IYarnLockfileParseObject } from '@yarn-tool/yarnlock/lib/types';
-import {
-	parse as parseYarnLock,
-} from '@yarn-tool/yarnlock/lib/parse';
+import { parseYarnLockRawV1Root } from '@yarn-tool/yarnlock-parse-raw/lib/v1';
 import { filterResolutions } from '@yarn-tool/yarnlock/lib/core';
 import { queryRemoteVersions } from '../remote/queryRemoteVersions';
 
@@ -17,22 +15,27 @@ export function checkResolutionsUpdate(resolutions: IPackageMap,
 	return Bluebird.resolve()
 		.then(async function ()
 		{
+			/**
+			 * @todo support v2
+			 */
 			if (typeof yarnlock_old_obj === 'string')
 			{
-				yarnlock_old_obj = parseYarnLock(yarnlock_old_obj);
+				// @ts-ignore
+				yarnlock_old_obj = parseYarnLockRawV1Root(yarnlock_old_obj);
 			}
 
-			let result = filterResolutions({
+			const result = filterResolutions({
 				resolutions,
+				// @ts-ignore
 			}, yarnlock_old_obj);
 
-			let deps = await queryRemoteVersions(resolutions, options);
+			const deps = await queryRemoteVersions(resolutions, options);
 
 			//console.dir(deps);
 
-			let deps2 = keyObjectToPackageMap(deps, true);
+			const deps2 = keyObjectToPackageMap(deps, true);
 
-			let deps3 = Object.values(deps)
+			const deps3 = Object.values(deps)
 				.reduce(function (a, b)
 				{
 					a[b.name] = b;
@@ -41,17 +44,18 @@ export function checkResolutionsUpdate(resolutions: IPackageMap,
 				}, {} as Record<string, IVersionCacheMapValue>)
 			;
 
-			let yarnlock_new_obj: IYarnLockfileParseObject = {
+			const yarnlock_new_obj: IYarnLockfileParseObject = {
+				// @ts-ignore
 				...yarnlock_old_obj,
 			};
 
-			let update_list: string[] = [];
+			const update_list: string[] = [];
 			let yarnlock_changed = false;
 
 			Object.entries(result.max)
 				.forEach(function ([name, data])
 				{
-					let _key2 = name + '@' + deps3[name].version_old;
+					const _key2 = name + '@' + deps3[name].version_old;
 
 					/**
 					 * 檢查 版本範圍是否符合 與 版本是否不相同
@@ -65,7 +69,7 @@ export function checkResolutionsUpdate(resolutions: IPackageMap,
 						Object.keys(result.deps[name])
 							.forEach(version =>
 							{
-								let key = name + '@' + version;
+								const key = name + '@' + version;
 
 								delete yarnlock_new_obj[key]
 							})
@@ -83,7 +87,7 @@ export function checkResolutionsUpdate(resolutions: IPackageMap,
 								.forEach(version =>
 								{
 
-									let key = name + '@' + version;
+									const key = name + '@' + version;
 
 									yarnlock_new_obj[key] = data.value;
 								})

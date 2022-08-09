@@ -1,11 +1,14 @@
 import { IArgvRuntime, IRuntime } from './types';
 import { checkResolutionsUpdate, isUpgradeable, npmCheckUpdatesOptions, updateSemver } from '@yarn-tool/ncu';
-import { fsYarnLockSafe, stringify as stringifyYarnLock, writeYarnLockFile, yarnLockDiff } from '@yarn-tool/yarnlock';
 import { yargsProcessExit } from '@yarn-tool/yargs-util';
 import { chalkByConsole } from 'debug-color2';
 import { relative } from 'upath2';
 import { toDependencyTable } from '@yarn-tool/table';
 import { writePackageJSONSync } from '@yarn-tool/write-package-json';
+import { yarnLockStringify } from '@yarn-tool/yarnlock-stringify';
+import { fsYarnLockSafe } from '@yarn-tool/yarnlock-fs/lib/read';
+import { yarnLockDiff } from '@yarn-tool/yarnlock-diff';
+import { writeYarnLockFile } from '@yarn-tool/yarnlock-fs/lib/writeYarnLockFile';
 
 export async function _handleNcuResolutions(argv: IArgvRuntime, runtime: IRuntime)
 {
@@ -58,7 +61,7 @@ export async function _handleNcuResolutions(argv: IArgvRuntime, runtime: IRuntim
 
 		}, console);
 
-		const msg = yarnLockDiff(stringifyYarnLock(ret.yarnlock_old_obj), stringifyYarnLock(ret.yarnlock_new_obj));
+		const msg = yarnLockDiff(yarnLockStringify(ret.yarnlock_old_obj), yarnLockStringify(ret.yarnlock_new_obj));
 
 		if (msg)
 		{

@@ -1,12 +1,12 @@
 import { IArgvRuntime, IRuntime } from './types';
 import {
-	fsYarnLockSafe,
 	IDependencies,
-	stringify as stringifyYarnLock,
-	writeYarnLockFile,
-	yarnLockDiff,
 } from '@yarn-tool/yarnlock';
 import { checkResolutionsUpdate, npmCheckUpdates } from '@yarn-tool/ncu';
+import { yarnLockStringify } from '@yarn-tool/yarnlock-stringify';
+import { fsYarnLockSafe } from '@yarn-tool/yarnlock-fs/lib/read';
+import { yarnLockDiff } from '@yarn-tool/yarnlock-diff';
+import { writeYarnLockFile } from '@yarn-tool/yarnlock-fs/lib/writeYarnLockFile';
 
 export async function _handleDedupe(argv: IArgvRuntime,
 	runtime: IRuntime,
@@ -67,7 +67,7 @@ export async function _handleDedupe(argv: IArgvRuntime,
 
 	if (ret.yarnlock_changed)
 	{
-		const msg = yarnLockDiff(stringifyYarnLock(ret.yarnlock_old_obj), stringifyYarnLock(ret.yarnlock_new_obj));
+		const msg = yarnLockDiff(yarnLockStringify(ret.yarnlock_old_obj), yarnLockStringify(ret.yarnlock_new_obj));
 
 		if (msg)
 		{

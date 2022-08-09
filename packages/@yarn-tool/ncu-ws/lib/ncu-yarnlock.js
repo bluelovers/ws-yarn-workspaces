@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports._handleNcuYarnLock = void 0;
-const yarnlock_fs_1 = require("@yarn-tool/yarnlock-fs");
+const read_1 = require("@yarn-tool/yarnlock-fs/lib/read");
 const yarnlock_ncu_1 = require("@yarn-tool/yarnlock-ncu");
 const fs_extra_1 = require("fs-extra");
 async function _handleNcuYarnLock(argv, runtime) {
     const { rootData, consoleDebug, console } = runtime;
-    const yl = (0, yarnlock_fs_1.fsYarnLockSafe)(rootData.root);
+    const yl = (0, read_1.fsYarnLockSafe)(rootData.root);
     if (yl.yarnlock_exists) {
         const ret = await (0, yarnlock_ncu_1.updateYarnLockTag)(yl.yarnlock_old);
         if (ret.yarnlock_changed) {

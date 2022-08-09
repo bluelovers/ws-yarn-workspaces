@@ -2,18 +2,21 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports._handleNcuResolutions = void 0;
 const ncu_1 = require("@yarn-tool/ncu");
-const yarnlock_1 = require("@yarn-tool/yarnlock");
 const yargs_util_1 = require("@yarn-tool/yargs-util");
 const debug_color2_1 = require("debug-color2");
 const upath2_1 = require("upath2");
 const table_1 = require("@yarn-tool/table");
 const write_package_json_1 = require("@yarn-tool/write-package-json");
+const yarnlock_stringify_1 = require("@yarn-tool/yarnlock-stringify");
+const read_1 = require("@yarn-tool/yarnlock-fs/lib/read");
+const yarnlock_diff_1 = require("@yarn-tool/yarnlock-diff");
+const writeYarnLockFile_1 = require("@yarn-tool/yarnlock-fs/lib/writeYarnLockFile");
 async function _handleNcuResolutions(argv, runtime) {
     const { consoleDebug, console, cwd, rootData, pkg_file, pkg_data, resolutions, pkg_file_ws, pkg_data_ws, doWorkspace, } = runtime;
     if (!resolutions || !Object.keys(resolutions).length) {
         return (0, yargs_util_1.yargsProcessExit)(`resolutions aren't exists in package.json`);
     }
-    const yl = (0, yarnlock_1.fsYarnLockSafe)(rootData.root);
+    const yl = (0, read_1.fsYarnLockSafe)(rootData.root);
     if (!yl.yarnlock_old) {
         // 防止 yarn.lock 不存在
         return;
@@ -21,12 +24,12 @@ async function _handleNcuResolutions(argv, runtime) {
     const ret = await (0, ncu_1.checkResolutionsUpdate)(resolutions, yl.yarnlock_old, argv);
     //console.log(ret);
     if (ret.yarnlock_changed) {
-        (0, yarnlock_1.writeYarnLockFile)(yl.yarnlock_file, ret.yarnlock_new_obj);
+        (0, writeYarnLockFile_1.writeYarnLockFile)(yl.yarnlock_file, ret.yarnlock_new_obj);
         (0, debug_color2_1.chalkByConsole)((chalk, console) => {
             const p = chalk.cyan((0, upath2_1.relative)(argv.cwd, yl.yarnlock_file));
             console.log(`${p} is updated!`);
         }, console);
-        const msg = (0, yarnlock_1.yarnLockDiff)((0, yarnlock_1.stringify)(ret.yarnlock_old_obj), (0, yarnlock_1.stringify)(ret.yarnlock_new_obj));
+        const msg = (0, yarnlock_diff_1.yarnLockDiff)((0, yarnlock_stringify_1.yarnLockStringify)(ret.yarnlock_old_obj), (0, yarnlock_stringify_1.yarnLockStringify)(ret.yarnlock_new_obj));
         if (msg) {
             console.log(`\n${msg}\n`);
         }

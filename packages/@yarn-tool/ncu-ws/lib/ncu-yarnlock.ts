@@ -1,4 +1,4 @@
-import { fsYarnLockSafe } from '@yarn-tool/yarnlock-fs';
+import { fsYarnLockSafe } from '@yarn-tool/yarnlock-fs/lib/read';
 import { printReport, updateYarnLockTag } from '@yarn-tool/yarnlock-ncu';
 import { writeFileSync } from 'fs-extra';
 import { IArgvRuntime, IRuntime, IRuntimeInput } from './types';
