@@ -18,7 +18,7 @@ export class YarnLockIterator<T extends IYarnLockParsedV1 | IYarnLockParsedV2, D
 
 	constructor(public object: T)
 	{
-		if (!this.isV1() && !this.isV2())
+		if (this.isV1() === this.isV2())
 		{
 			throw newYarnLockParsedVersionError()
 		}
