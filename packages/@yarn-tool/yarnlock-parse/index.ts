@@ -39,10 +39,15 @@ export function _yarnLockParseRawCore<T extends IYarnLockSource = IYarnLockSourc
 	}
 }
 
-export function yarnLockParseRaw<T extends IYarnLockSource = IYarnLockSource>(yarnlock_old: Buffer | string): T
+export function _yarnLockParseRaw<T extends IYarnLockSource = IYarnLockSource>(yarnlock_old: Buffer | string)
 {
 	const verType = detectYarnLockVersion(yarnlock_old as string);
-	return _yarnLockParseRawCore<T>(verType, yarnlock_old).parsed;
+	return _yarnLockParseRawCore<T>(verType, yarnlock_old);
+}
+
+export function yarnLockParseRaw<T extends IYarnLockSource = IYarnLockSource>(yarnlock_old: Buffer | string): T
+{
+	return _yarnLockParseRaw<T>(yarnlock_old).parsed;
 }
 
 export function yarnLockRawV1ToParsed(rawParsed: IYarnLockRawSourceV1): Omit<IYarnLockParsedV1, 'verType'>

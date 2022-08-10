@@ -2,8 +2,8 @@ import { IYarnLockIteratorWrap, IYarnLockIteratorWrapValue } from './types';
 import { ITSResolvable } from 'ts-type';
 import { IUnpackYarnLockDataRow, IYarnLockParsedV1, IYarnLockParsedV2, IYarnLockSource } from '@yarn-tool/yarnlock-types';
 export declare class YarnLockIterator<T extends IYarnLockParsedV1 | IYarnLockParsedV2, DD extends IUnpackYarnLockDataRow<T> = IUnpackYarnLockDataRow<T>> {
-    object: T;
-    constructor(object: T);
+    $object: T;
+    constructor($object: T);
     get verType(): import("@yarn-tool/yarnlock-types").EnumDetectYarnLock.v1 | import("@yarn-tool/yarnlock-types").IYarnLockVersionSyml;
     isV1<TT extends IYarnLockParsedV1 = Extract<T, IYarnLockParsedV1>>(): this is YarnLockIterator<TT>;
     isV2<TT extends IYarnLockParsedV2 = Extract<T, IYarnLockParsedV2>>(): this is YarnLockIterator<TT>;

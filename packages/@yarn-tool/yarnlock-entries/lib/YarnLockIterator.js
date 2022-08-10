@@ -8,20 +8,20 @@ const yarnlock_error_1 = require("@yarn-tool/yarnlock-error");
 const yarnlock_parsed_to_json_1 = require("@yarn-tool/yarnlock-parsed-to-json");
 const yarnlock_parse_assert_1 = require("@yarn-tool/yarnlock-parse-assert");
 class YarnLockIterator {
-    constructor(object) {
-        this.object = object;
-        if (!this.isV1() && !this.isV2()) {
+    constructor($object) {
+        this.$object = $object;
+        if (this.isV1() === this.isV2()) {
             throw (0, yarnlock_error_1.newYarnLockParsedVersionError)();
         }
     }
     get verType() {
-        return this.object.verType;
+        return this.$object.verType;
     }
     isV1() {
-        return (0, yarnlock_parse_assert_1.isYarnLockParsedV1)(this.object);
+        return (0, yarnlock_parse_assert_1.isYarnLockParsedV1)(this.$object);
     }
     isV2() {
-        return (0, yarnlock_parse_assert_1.isYarnLockParsedV2)(this.object);
+        return (0, yarnlock_parse_assert_1.isYarnLockParsedV2)(this.$object);
     }
     v1() {
         if (this.isV1()) {
@@ -36,16 +36,16 @@ class YarnLockIterator {
         throw (0, yarnlock_error_1.newYarnLockParsedVersionError)(`current object not v2 yarnlock`);
     }
     keys() {
-        return Object.keys(this.object.data);
+        return Object.keys(this.$object.data);
     }
     values() {
         return [...this.iterator()];
     }
     get(key) {
-        return this.object.data[key];
+        return this.$object.data[key];
     }
     set(key, raw) {
-        this.object.data[key] = raw;
+        this.$object.data[key] = raw;
     }
     has(key) {
         const row = this.get(key);
@@ -53,12 +53,12 @@ class YarnLockIterator {
     }
     del(key) {
         const row = this.get(key);
-        delete this.object.data[key];
+        delete this.$object.data[key];
         return row;
     }
     update(key, raw) {
         if (this.has(key)) {
-            return (0, lodash_1.merge)(this.object.data[key], raw);
+            return (0, lodash_1.merge)(this.$object.data[key], raw);
         }
         throw new TypeError(`'${key}' not exists`);
     }
@@ -81,8 +81,8 @@ class YarnLockIterator {
         yield* this.iterator();
     }
     *iterator() {
-        for (const key in this.object.data) {
-            let row = this.object.data[key];
+        for (const key in this.$object.data) {
+            let row = this.$object.data[key];
             yield this._wrap(key, row);
         }
     }
@@ -90,7 +90,7 @@ class YarnLockIterator {
         return (0, yarnlock_stringify_1.yarnLockStringify)(this.toJSON());
     }
     toJSON() {
-        return (0, yarnlock_parsed_to_json_1.yarnLockParsedToRawJSON)(this.object, {
+        return (0, yarnlock_parsed_to_json_1.yarnLockParsedToRawJSON)(this.$object, {
             throwError: true,
         });
     }

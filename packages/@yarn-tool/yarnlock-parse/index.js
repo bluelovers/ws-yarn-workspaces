@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.yarnLockParse = exports._yarnLockParseCore = exports.yarnLockRawV2ToParsed = exports.yarnLockRawV1ToParsed = exports.yarnLockParseRaw = exports._yarnLockParseRawCore = void 0;
+exports.yarnLockParse = exports._yarnLockParseCore = exports.yarnLockRawV2ToParsed = exports.yarnLockRawV1ToParsed = exports.yarnLockParseRaw = exports._yarnLockParseRaw = exports._yarnLockParseRawCore = void 0;
 const detectYarnLockVersion_1 = require("@yarn-tool/detect-yarnlock-version/lib/detectYarnLockVersion");
 const yarnlock_error_1 = require("@yarn-tool/yarnlock-error");
 const yarnlock_types_1 = require("@yarn-tool/yarnlock-types");
@@ -27,9 +27,13 @@ function _yarnLockParseRawCore(verType, yarnlock_old) {
     };
 }
 exports._yarnLockParseRawCore = _yarnLockParseRawCore;
-function yarnLockParseRaw(yarnlock_old) {
+function _yarnLockParseRaw(yarnlock_old) {
     const verType = (0, detectYarnLockVersion_1.detectYarnLockVersion)(yarnlock_old);
-    return _yarnLockParseRawCore(verType, yarnlock_old).parsed;
+    return _yarnLockParseRawCore(verType, yarnlock_old);
+}
+exports._yarnLockParseRaw = _yarnLockParseRaw;
+function yarnLockParseRaw(yarnlock_old) {
+    return _yarnLockParseRaw(yarnlock_old).parsed;
 }
 exports.yarnLockParseRaw = yarnLockParseRaw;
 function yarnLockRawV1ToParsed(rawParsed) {
