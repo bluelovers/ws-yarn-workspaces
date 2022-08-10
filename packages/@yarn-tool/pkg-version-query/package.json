@@ -43,7 +43,7 @@
     "lru-cache-fs2": "^2.0.8",
     "package-json": "<7 >=6.5",
     "semver": "^7.3.7",
-    "ts-type": "^2.1.8",
+    "ts-type": "^2.1.9",
     "tslib": "^2"
   },
   "publishConfig": {

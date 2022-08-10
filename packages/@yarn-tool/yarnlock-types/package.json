@@ -67,8 +67,8 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^2.0.2",
-    "ts-type": "^2.1.8"
+    "@ts-type/package-dts": "^2.0.3",
+    "ts-type": "^2.1.9"
   },
   "devDependencies": {},
   "peerDependencies": {},

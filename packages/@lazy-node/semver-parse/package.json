@@ -33,7 +33,7 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "ts-type": "^2.1.8",
+    "ts-type": "^2.1.9",
     "tslib": "^2"
   },
   "publishConfig": {

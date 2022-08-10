@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@bluelovers/conventional-changelog-bluelovers": "*",
-    "@lerna/conventional-commits": "^5.3.0",
+    "@lerna/conventional-commits": "^5.4.0",
     "@yarn-tool/find-root": "^2.0.2",
     "@yarn-tool/require-resolve": "^2.0.1",
     "@yarn-tool/semver-diff": "^2.0.1",
@@ -47,7 +47,7 @@
     "@yarn-tool/types": "^1.0.8",
     "lodash": "^4.17.21",
     "path-is-same": "^1.0.18",
-    "ts-type": "^2.1.8",
+    "ts-type": "^2.1.9",
     "tslib": "^2",
     "upath2": "^3.1.13",
     "ws-pkg-list": "^2.0.2",
