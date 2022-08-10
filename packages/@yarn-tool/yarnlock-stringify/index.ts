@@ -15,7 +15,7 @@ import { stringifyYarnLockRawV2 } from '@yarn-tool/yarnlock-parse-raw/lib/v2';
 
 export function yarnLockStringify(yarnlock_old: Record<string, any> | Buffer | string | IYarnLockSource | IYarnLockParsed): string
 {
-	let verType = detectYarnLockVersionByParsed(yarnlock_old as IYarnLockParsed);
+	let verType: EnumDetectYarnLock = detectYarnLockVersionByParsed(yarnlock_old as IYarnLockParsed);
 
 	if (verType)
 	{

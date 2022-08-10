@@ -7,6 +7,7 @@ import {
 	IYarnLockSource,
 	IYarnLockRawSourceV1,
 	IYarnLockRawSourceV2,
+	IYarnLockParsedLoose,
 } from '@yarn-tool/yarnlock-types';
 
 export function yarnLockParsedV1ToRawJSON(parsedObject: IYarnLockParsedV1): IYarnLockRawSourceV1
@@ -36,10 +37,10 @@ export function yarnLockParsedToRawJSON(parsedObject: IYarnLockParsedV1,
 export function yarnLockParsedToRawJSON(parsedObject: IYarnLockParsedV2,
 	options?: IOptionsYarnLockParsedToRawJSON,
 ): IYarnLockRawSourceV2
-export function yarnLockParsedToRawJSON(parsedObject: IYarnLockParsed,
+export function yarnLockParsedToRawJSON(parsedObject: IYarnLockParsed | IYarnLockParsedLoose,
 	options?: IOptionsYarnLockParsedToRawJSON,
 ): IYarnLockSource
-export function yarnLockParsedToRawJSON(parsedObject: IYarnLockParsed, options?: IOptionsYarnLockParsedToRawJSON)
+export function yarnLockParsedToRawJSON(parsedObject: IYarnLockParsed | IYarnLockParsedLoose, options?: IOptionsYarnLockParsedToRawJSON)
 {
 	assertYarnLockParsed(parsedObject);
 

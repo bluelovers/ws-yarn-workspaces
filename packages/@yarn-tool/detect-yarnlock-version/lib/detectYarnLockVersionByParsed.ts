@@ -1,6 +1,6 @@
-import { IYarnLockParsed } from '@yarn-tool/yarnlock-types';
+import { IYarnLockParsed, IYarnLockParsedLoose } from '@yarn-tool/yarnlock-types';
 
-export function detectYarnLockVersionByParsed(parsedObject: IYarnLockParsed)
+export function detectYarnLockVersionByParsed(parsedObject: IYarnLockParsed | IYarnLockParsedLoose)
 {
 	if (parsedObject.verType && 'meta' in parsedObject && 'data' in parsedObject)
 	{

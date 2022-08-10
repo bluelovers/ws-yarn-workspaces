@@ -7,6 +7,7 @@ import {
 	IYarnLockDataRowV1,
 	IYarnLockDataRowV2,
 	IYarnLockParsed,
+	IYarnLockParsedLoose,
 	IYarnLockParsedV1,
 	IYarnLockParsedV2,
 } from '@yarn-tool/yarnlock-types';
@@ -16,7 +17,7 @@ export function isYarnLockParsed(parsedObject: IYarnLockParsed): parsedObject is
 	return detectYarnLockVersionByParsed(parsedObject) > 0
 }
 
-export function assertYarnLockParsed(parsedObject: IYarnLockParsed): asserts parsedObject is IYarnLockParsed
+export function assertYarnLockParsed(parsedObject: IYarnLockParsed | IYarnLockParsedLoose): asserts parsedObject is IYarnLockParsed
 {
 	if (!detectYarnLockVersionByParsed(parsedObject))
 	{

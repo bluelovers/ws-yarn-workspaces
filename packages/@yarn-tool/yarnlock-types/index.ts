@@ -3,6 +3,16 @@ import { ITSTypeAndStringLiteral } from 'ts-type/lib/helper/string';
 
 export type IYarnLockParsed = IYarnLockParsedV1 | IYarnLockParsedV2;
 
+/**
+ * use for avoid typescript show error
+ */
+export interface IYarnLockParsedLoose<D extends IYarnLockDataRowBase = IYarnLockDataRowBase, K extends string = string>
+{
+	verType: EnumDetectYarnLock,
+	meta?: Record<string, any>,
+	data: IYarnLockDataRecord<D, K>,
+}
+
 export interface IYarnLockDataRowBase
 {
 	version: string
