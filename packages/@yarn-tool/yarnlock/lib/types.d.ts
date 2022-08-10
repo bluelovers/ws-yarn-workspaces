@@ -8,9 +8,13 @@ import { Argv, Arguments } from 'yargs';
 import { IVersionValue } from '@ts-type/package-dts/lib/package-json/types';
 import { IYarnLockDataRowBase } from '@yarn-tool/yarnlock-types';
 import { IFsYarnLockReturnType } from '@yarn-tool/yarnlock-fs/lib/types';
+/**
+ * @deprecated
+ */
 export declare type IYarnLockfileParseObject<T extends ITSArrayListMaybeReadonly<string> = string[]> = Record<string, IYarnLockfileParseObjectRow<T>>;
 /**
  * yarn.lock 資料
+ * @deprecated
  */
 export interface IYarnLockfileParseObjectRow<T extends ITSArrayListMaybeReadonly<string> = string[]> extends IYarnLockDataRowBase {
     /**
@@ -22,7 +26,6 @@ export interface IYarnLockfileParseObjectRow<T extends ITSArrayListMaybeReadonly
      */
     integrity: string;
 }
-export declare type IDependencies<T extends ITSArrayListMaybeReadonly<string> = string[]> = Record<ITSValueOfArray<T>, string>;
 export interface IFilterResolutions<T extends ITSArrayListMaybeReadonly<string>> {
     /**
      * yarn.lock key 列表

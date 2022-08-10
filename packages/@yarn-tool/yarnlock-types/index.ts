@@ -12,12 +12,7 @@ export interface IYarnLockDataRowBase
 	dependencies?: IDependency,
 }
 
-export interface IYarnLockDataRow extends IYarnLockDataRowBase
-{
-
-}
-
-export interface IYarnLockDataRowV1 extends IYarnLockDataRow
+export interface IYarnLockDataRowV1 extends IYarnLockDataRowBase
 {
 	/**
 	 * 安裝來源網址
@@ -27,10 +22,9 @@ export interface IYarnLockDataRowV1 extends IYarnLockDataRow
 	 * hash key
 	 */
 	integrity?: string,
-	object?: Record<string, IYarnLockDataRowV1>,
 }
 
-export interface IYarnLockDataRowV2 extends IYarnLockDataRow
+export interface IYarnLockDataRowV2 extends IYarnLockDataRowBase
 {
 	resolution: string,
 	checksum?: string,
@@ -38,9 +32,7 @@ export interface IYarnLockDataRowV2 extends IYarnLockDataRow
 	linkType?: string | ITSTypeAndStringLiteral<EnumLinkType>,
 }
 
-export type IYarnLockDataRecordBase<D extends IYarnLockDataRowBase, K extends string = string> = Record<K, D>;
-
-export type IYarnLockDataRecord<D extends IYarnLockDataRowBase = IYarnLockDataRow> = IYarnLockDataRecordBase<D>
+export type IYarnLockDataRecord<D extends IYarnLockDataRowBase = IYarnLockDataRowBase, K extends string = string> = Record<K, D>
 
 export enum EnumDetectYarnLock
 {

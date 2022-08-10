@@ -1,7 +1,5 @@
 import { IArgvRuntime, IRuntime } from './types';
-import {
-	IDependencies,
-} from '@yarn-tool/yarnlock';
+import { IDependencies } from '@ts-type/package-dts/package-json';
 import { checkResolutionsUpdate, npmCheckUpdates } from '@yarn-tool/ncu';
 import { yarnLockStringify } from '@yarn-tool/yarnlock-stringify';
 import { fsYarnLockSafe } from '@yarn-tool/yarnlock-fs/lib/read';

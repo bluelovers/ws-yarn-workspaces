@@ -4,7 +4,8 @@
 
 import { ITSArrayListMaybeReadonly, ITSValueOfArray } from 'ts-type';
 import semver from 'semver';
-import { IRemoveResolutions, IFilterResolutions, IDependencies, IYarnLockfileParseObject } from './types';
+import { IRemoveResolutions, IFilterResolutions, IYarnLockfileParseObject } from './types';
+import { IDependencies } from '@ts-type/package-dts/package-json';
 import { stripDepsName } from './util';
 
 export function filterResolutions<T extends ITSArrayListMaybeReadonly<string>>(pkg: {

@@ -2,7 +2,8 @@
  * Created by user on 2020/6/11.
  */
 import { ITSArrayListMaybeReadonly } from 'ts-type';
-import { IRemoveResolutions, IFilterResolutions, IDependencies, IYarnLockfileParseObject } from './types';
+import { IRemoveResolutions, IFilterResolutions, IYarnLockfileParseObject } from './types';
+import { IDependencies } from '@ts-type/package-dts/package-json';
 export declare function filterResolutions<T extends ITSArrayListMaybeReadonly<string>>(pkg: {
     resolutions?: IDependencies<T>;
 }, yarnlock: IYarnLockfileParseObject<T>): IFilterResolutions<T>;

@@ -7,6 +7,6 @@ export declare function checkResolutionsUpdate(resolutions: IPackageMap, yarnloc
     update_list: string[];
     yarnlock_changed: boolean;
     deps: IVersionCacheMapValue[];
-    deps2: IPackageMap;
+    deps2: IPackageMap<string[]>;
     deps3: Record<string, IVersionCacheMapValue>;
 }>;
