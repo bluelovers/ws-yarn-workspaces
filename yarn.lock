@@ -1158,10 +1158,10 @@
   resolved "https://registry.npmjs.org/@tootallnate/once/-/once-2.0.0.tgz#f544a148d3ab35801c1f633a7441fd87c2e484bf"
   integrity sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==
 
-"@ts-type/package-dts@^2.0.3":
-  version "2.0.3"
-  resolved "https://registry.npmjs.org/@ts-type/package-dts/-/package-dts-2.0.3.tgz#a7cdada2798c8cd93d38b92ce0d01ee056a805d0"
-  integrity sha512-6hQhP/ZAh/T/OSAOpq2dBAwsmFnQK7e2uYQhYYmHyIRVd0rYQVcypkLy1T8ewFNDFpbXa4HSF8IPr1kALZBPdQ==
+"@ts-type/package-dts@^2.0.4":
+  version "2.0.4"
+  resolved "https://registry.npmjs.org/@ts-type/package-dts/-/package-dts-2.0.4.tgz#a368bf06901926b7078a12096d0fa5621c03e257"
+  integrity sha512-K7dqeBKflwkpEcXf8dq+De6L/ZVw2cH40xGGJRhB9wmkoIClgEjB5baCPyzqmqjn6GDreDy5FTf6YnuD5VGxrA==
   dependencies:
     "@types/semver" "^7.3.11"
     ts-type "^2.1.9"
@@ -1468,10 +1468,10 @@
   resolved "https://registry.npmjs.org/@types/ms/-/ms-0.7.31.tgz#31b7ca6407128a3d2bbc27fe2d21b345397f6197"
   integrity sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==
 
-"@types/node@*", "@types/node@^18.7.0":
-  version "18.7.0"
-  resolved "https://registry.npmjs.org/@types/node/-/node-18.7.0.tgz#f6b5338b95b35afb326a3cbe9ddc19f2cc4d08e7"
-  integrity sha512-MbHwEQaMKgcSQE3vFHUvxiN0+k3VpwCbnYCUigQWoKZzdIk2u7ecoCk5Vzb4lwBbKhLd2rCOUUDT35TaONs7Jw==
+"@types/node@*", "@types/node@^18.7.1":
+  version "18.7.1"
+  resolved "https://registry.npmjs.org/@types/node/-/node-18.7.1.tgz#352bee64f93117d867d05f7406642a52685cbca6"
+  integrity sha512-GKX1Qnqxo4S+Z/+Z8KKPLpH282LD7jLHWJcVryOflnsnH+BtSDfieR6ObwBMwpnNws0bUK8GI7z0unQf9bARNQ==
 
 "@types/node@^13.1.6":
   version "13.13.52"
