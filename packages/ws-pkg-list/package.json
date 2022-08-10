@@ -46,13 +46,13 @@
   },
   "dependencies": {
     "@bluelovers/fast-glob": "^3.0.4",
-    "@ts-type/package-dts": "^2.0.4",
+    "@ts-type/package-dts": "^2.0.5",
     "@yarn-tool/find-root": "^2.0.2",
     "array-hyper-unique": "^2.0.8",
     "find-yarn-workspace-root2": "^1.2.39",
     "fs-extra": "^10.1.0",
     "micromatch": "^4.0.5",
-    "ts-type": "^2.1.9",
+    "ts-type": "^2.1.10",
     "tslib": "^2",
     "upath2": "^3.1.13",
     "workspaces-config": "^1.0.44"

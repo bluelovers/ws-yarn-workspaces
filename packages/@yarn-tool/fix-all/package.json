@@ -67,7 +67,7 @@
     "npm-package-json-loader": "^2.0.6",
     "progress-estimator": "^0.3.0",
     "sort-package-json3": "^2.0.1",
-    "ts-type": "^2.1.9",
+    "ts-type": "^2.1.10",
     "tslib": "^2",
     "upath2": "^3.1.13",
     "ws-pkg-list": "^2.0.2"

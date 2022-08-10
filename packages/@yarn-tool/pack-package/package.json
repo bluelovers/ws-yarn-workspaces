@@ -25,7 +25,7 @@
   "dependencies": {
     "@lerna/get-packed": "^5.4.0",
     "@lerna/log-packed": "^5.4.0",
-    "@ts-type/package-dts": "^2.0.4",
+    "@ts-type/package-dts": "^2.0.5",
     "npm-packlist": "^5.1.1",
     "tar": "^6.1.11",
     "tslib": "^2"
