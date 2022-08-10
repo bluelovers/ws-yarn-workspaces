@@ -16,7 +16,7 @@ import {
 export class YarnLockIterator<T extends IYarnLockParsedV1 | IYarnLockParsedV2, DD extends IUnpackYarnLockDataRow<T> = IUnpackYarnLockDataRow<T>>
 {
 
-	constructor(public object: T)
+	constructor(public $object: T)
 	{
 		if (this.isV1() === this.isV2())
 		{
@@ -26,17 +26,17 @@ export class YarnLockIterator<T extends IYarnLockParsedV1 | IYarnLockParsedV2, D
 
 	get verType()
 	{
-		return this.object.verType
+		return this.$object.verType
 	}
 
 	isV1<TT extends IYarnLockParsedV1 = Extract<T, IYarnLockParsedV1>>(): this is YarnLockIterator<TT>
 	{
-		return isYarnLockParsedV1(this.object)
+		return isYarnLockParsedV1(this.$object)
 	}
 
 	isV2<TT extends IYarnLockParsedV2 = Extract<T, IYarnLockParsedV2>>(): this is YarnLockIterator<TT>
 	{
-		return isYarnLockParsedV2(this.object)
+		return isYarnLockParsedV2(this.$object)
 	}
 
 	v1<TT extends IYarnLockParsedV1 = Extract<T, IYarnLockParsedV1>>(): YarnLockIterator<TT>
@@ -61,7 +61,7 @@ export class YarnLockIterator<T extends IYarnLockParsedV1 | IYarnLockParsedV2, D
 
 	keys(): string[]
 	{
-		return Object.keys(this.object.data);
+		return Object.keys(this.$object.data);
 	}
 
 	values<D extends IUnpackYarnLockDataRow<T> = DD>()
@@ -71,12 +71,12 @@ export class YarnLockIterator<T extends IYarnLockParsedV1 | IYarnLockParsedV2, D
 
 	get<D extends IUnpackYarnLockDataRow<T> = DD>(key: string)
 	{
-		return this.object.data[key] as D
+		return this.$object.data[key] as D
 	}
 
 	set<D extends IUnpackYarnLockDataRow<T> = DD>(key: string, raw: D)
 	{
-		this.object.data[key] = raw
+		this.$object.data[key] = raw
 	}
 
 	has<D extends IUnpackYarnLockDataRow<T> = DD>(key: string)
@@ -88,7 +88,7 @@ export class YarnLockIterator<T extends IYarnLockParsedV1 | IYarnLockParsedV2, D
 	del<D extends IUnpackYarnLockDataRow<T> = DD>(key: string)
 	{
 		const row = this.get(key) as D;
-		delete this.object.data[key]
+		delete this.$object.data[key]
 
 		return row
 	}
@@ -97,7 +97,7 @@ export class YarnLockIterator<T extends IYarnLockParsedV1 | IYarnLockParsedV2, D
 	{
 		if (this.has(key))
 		{
-			return merge(this.object.data[key], raw) as D
+			return merge(this.$object.data[key], raw) as D
 		}
 
 		throw new TypeError(`'${key}' not exists`)
@@ -131,9 +131,9 @@ export class YarnLockIterator<T extends IYarnLockParsedV1 | IYarnLockParsedV2, D
 
 	* iterator<D extends IUnpackYarnLockDataRow<T> = DD>()
 	{
-		for (const key in this.object.data)
+		for (const key in this.$object.data)
 		{
-			let row = this.object.data[key] as D;
+			let row = this.$object.data[key] as D;
 
 			yield this._wrap<D>(key, row)
 		}
@@ -146,7 +146,7 @@ export class YarnLockIterator<T extends IYarnLockParsedV1 | IYarnLockParsedV2, D
 
 	toJSON<T extends IYarnLockSource>(): T
 	{
-		return yarnLockParsedToRawJSON(this.object, {
+		return yarnLockParsedToRawJSON(this.$object, {
 			throwError: true,
 		}) as any;
 	}
