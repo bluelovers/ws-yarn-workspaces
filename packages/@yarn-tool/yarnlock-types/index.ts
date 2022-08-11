@@ -62,6 +62,13 @@ export enum EnumDetectYarnLock
 	unknown = 0,
 }
 
+export const enum EnumDetectYarnLockInputType
+{
+	unknown,
+	simple,
+	parse_raw,
+}
+
 export type IEnumDetectYarnLockValues = typeof EnumDetectYarnLock[keyof typeof EnumDetectYarnLock];
 export type IValidYarnLockVersion = Exclude<IEnumDetectYarnLockValues, EnumDetectYarnLock.unknown>;
 export type IYarnLockVersionSyml = Exclude<IValidYarnLockVersion, EnumDetectYarnLock.v1>;

@@ -49,6 +49,11 @@ export declare enum EnumDetectYarnLock {
     canary = 3,
     unknown = 0
 }
+export declare const enum EnumDetectYarnLockInputType {
+    unknown = 0,
+    simple = 1,
+    parse_raw = 2
+}
 export declare type IEnumDetectYarnLockValues = typeof EnumDetectYarnLock[keyof typeof EnumDetectYarnLock];
 export declare type IValidYarnLockVersion = Exclude<IEnumDetectYarnLockValues, EnumDetectYarnLock.unknown>;
 export declare type IYarnLockVersionSyml = Exclude<IValidYarnLockVersion, EnumDetectYarnLock.v1>;

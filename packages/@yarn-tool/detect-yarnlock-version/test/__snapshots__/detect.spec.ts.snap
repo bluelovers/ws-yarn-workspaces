@@ -1,43 +1,209 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`others dedupe/empty/yarn.lock 1`] = `0`;
+exports[`empty 1`] = `
+Object {
+  "detectType": 0,
+  "input": Anything,
+  "verType": 0,
+}
+`;
 
-exports[`others dedupe/v1/next.js.lock 1`] = `1`;
+exports[`others dedupe/empty/yarn.lock 1`] = `
+Object {
+  "detectType": 0,
+  "input": Anything,
+  "verType": 0,
+}
+`;
 
-exports[`others dedupe/v1/yarn.lock 1`] = `1`;
+exports[`others dedupe/v1/next.js.lock 1`] = `
+Object {
+  "detectType": 1,
+  "input": Anything,
+  "verType": 1,
+}
+`;
 
-exports[`others dedupe/v2/456.lock 1`] = `2`;
+exports[`others dedupe/v1/yarn.lock 1`] = `
+Object {
+  "detectType": 1,
+  "input": Anything,
+  "verType": 1,
+}
+`;
 
-exports[`others dedupe/v2/yarn.lock 1`] = `2`;
+exports[`others dedupe/v2/456.lock 1`] = `
+Object {
+  "detectType": 1,
+  "input": Anything,
+  "verType": 2,
+}
+`;
 
-exports[`others diff/a/v1.iconv.lock 1`] = `1`;
+exports[`others dedupe/v2/yarn.lock 1`] = `
+Object {
+  "detectType": 1,
+  "input": Anything,
+  "verType": 2,
+}
+`;
 
-exports[`others diff/a/v2.lock 1`] = `2`;
+exports[`others diff/a/v1.iconv.lock 1`] = `
+Object {
+  "detectType": 1,
+  "input": Anything,
+  "verType": 1,
+}
+`;
 
-exports[`others diff/a/yarn.lock 1`] = `1`;
+exports[`others diff/a/v2.lock 1`] = `
+Object {
+  "detectType": 1,
+  "input": Anything,
+  "verType": 2,
+}
+`;
 
-exports[`others diff/b/v1.iconv.lock 1`] = `1`;
+exports[`others diff/a/v3/yarn.lock 1`] = `
+Object {
+  "detectType": 1,
+  "input": Anything,
+  "verType": 3,
+}
+`;
 
-exports[`others diff/b/v2.lock 1`] = `2`;
+exports[`others diff/a/v3/yarn-2.lock 1`] = `
+Object {
+  "detectType": 1,
+  "input": Anything,
+  "verType": 3,
+}
+`;
 
-exports[`others diff/b/yarn.lock 1`] = `1`;
+exports[`others diff/a/yarn.lock 1`] = `
+Object {
+  "detectType": 1,
+  "input": Anything,
+  "verType": 1,
+}
+`;
 
-exports[`others empty.lock 1`] = `0`;
+exports[`others diff/b/v1.iconv.lock 1`] = `
+Object {
+  "detectType": 1,
+  "input": Anything,
+  "verType": 1,
+}
+`;
 
-exports[`others empty/yarn.lock 1`] = `0`;
+exports[`others diff/b/v2.lock 1`] = `
+Object {
+  "detectType": 1,
+  "input": Anything,
+  "verType": 2,
+}
+`;
 
-exports[`others ncu/v1/yarn.lock 1`] = `1`;
+exports[`others diff/b/v3/yarn.lock 1`] = `
+Object {
+  "detectType": 1,
+  "input": Anything,
+  "verType": 3,
+}
+`;
 
-exports[`others ncu/v3/yarn.lock 1`] = `3`;
+exports[`others diff/b/v3/yarn-2.lock 1`] = `
+Object {
+  "detectType": 1,
+  "input": Anything,
+  "verType": 3,
+}
+`;
 
-exports[`version v1 yarn.lock 1`] = `1`;
+exports[`others diff/b/yarn.lock 1`] = `
+Object {
+  "detectType": 1,
+  "input": Anything,
+  "verType": 1,
+}
+`;
 
-exports[`version v2 meta-only.lock 1`] = `2`;
+exports[`others empty.lock 1`] = `
+Object {
+  "detectType": 0,
+  "input": Anything,
+  "verType": 0,
+}
+`;
 
-exports[`version v2 yarn.lock 1`] = `2`;
+exports[`others empty/yarn.lock 1`] = `
+Object {
+  "detectType": 0,
+  "input": Anything,
+  "verType": 0,
+}
+`;
 
-exports[`version v3 meta-only.lock 1`] = `3`;
+exports[`others ncu/v1/yarn.lock 1`] = `
+Object {
+  "detectType": 1,
+  "input": Anything,
+  "verType": 1,
+}
+`;
 
-exports[`version v3 yarn.lock 1`] = `3`;
+exports[`others ncu/v3/yarn.lock 1`] = `
+Object {
+  "detectType": 1,
+  "input": Anything,
+  "verType": 3,
+}
+`;
 
-exports[`version v3 yarn-version-7.lock 1`] = `3`;
+exports[`version v1 yarn.lock 1`] = `
+Object {
+  "detectType": 1,
+  "input": Anything,
+  "verType": 1,
+}
+`;
+
+exports[`version v2 meta-only.lock 1`] = `
+Object {
+  "detectType": 2,
+  "input": Anything,
+  "verType": 2,
+}
+`;
+
+exports[`version v2 yarn.lock 1`] = `
+Object {
+  "detectType": 1,
+  "input": Anything,
+  "verType": 2,
+}
+`;
+
+exports[`version v3 meta-only.lock 1`] = `
+Object {
+  "detectType": 1,
+  "input": Anything,
+  "verType": 3,
+}
+`;
+
+exports[`version v3 yarn.lock 1`] = `
+Object {
+  "detectType": 1,
+  "input": Anything,
+  "verType": 3,
+}
+`;
+
+exports[`version v3 yarn-version-7.lock 1`] = `
+Object {
+  "detectType": 1,
+  "input": Anything,
+  "verType": 3,
+}
+`;

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports._tryParseObject = exports._tryParse = exports.detectYarnLockVersion = exports._detectYarnLockVersionSimple = void 0;
+exports._tryParseObject = exports._tryParse = exports.detectYarnLockVersion = exports._detectYarnLockVersionCore = exports._detectYarnLockVersionSimple = void 0;
 const detectYarnLockVersionByObject_1 = require("./detectYarnLockVersionByObject");
 const yarnlock_types_1 = require("@yarn-tool/yarnlock-types");
 const yarnlock_parse_raw_1 = require("@yarn-tool/yarnlock-parse-raw");
@@ -18,8 +18,31 @@ function _detectYarnLockVersionSimple(buf) {
     return yarnlock_types_1.EnumDetectYarnLock.unknown;
 }
 exports._detectYarnLockVersionSimple = _detectYarnLockVersionSimple;
+function _detectYarnLockVersionCore(input) {
+    let verType = _detectYarnLockVersionSimple(input);
+    if (verType) {
+        return {
+            verType,
+            detectType: 1 /* EnumDetectYarnLockInputType.simple */,
+            input,
+        };
+    }
+    if (verType = _tryParse(input)) {
+        return {
+            verType,
+            detectType: 2 /* EnumDetectYarnLockInputType.parse_raw */,
+            input,
+        };
+    }
+    return {
+        verType: yarnlock_types_1.EnumDetectYarnLock.unknown,
+        detectType: 0 /* EnumDetectYarnLockInputType.unknown */,
+        input,
+    };
+}
+exports._detectYarnLockVersionCore = _detectYarnLockVersionCore;
 function detectYarnLockVersion(buf) {
-    return _detectYarnLockVersionSimple(buf) || _tryParse(buf) || yarnlock_types_1.EnumDetectYarnLock.unknown;
+    return _detectYarnLockVersionCore(buf).verType;
 }
 exports.detectYarnLockVersion = detectYarnLockVersion;
 /**

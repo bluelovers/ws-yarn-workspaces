@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.EnumLanguageName = exports.EnumLinkType = exports.EnumYarnLockSourceV1Type = exports.EnumDetectYarnLock = void 0;
+exports.EnumLanguageName = exports.EnumLinkType = exports.EnumYarnLockSourceV1Type = exports.EnumDetectYarnLockInputType = exports.EnumDetectYarnLock = void 0;
 var EnumDetectYarnLock;
 (function (EnumDetectYarnLock) {
     EnumDetectYarnLock[EnumDetectYarnLock["v1"] = 1] = "v1";
@@ -18,6 +18,12 @@ var EnumDetectYarnLock;
     EnumDetectYarnLock[EnumDetectYarnLock["canary"] = 3] = "canary";
     EnumDetectYarnLock[EnumDetectYarnLock["unknown"] = 0] = "unknown";
 })(EnumDetectYarnLock = exports.EnumDetectYarnLock || (exports.EnumDetectYarnLock = {}));
+var EnumDetectYarnLockInputType;
+(function (EnumDetectYarnLockInputType) {
+    EnumDetectYarnLockInputType[EnumDetectYarnLockInputType["unknown"] = 0] = "unknown";
+    EnumDetectYarnLockInputType[EnumDetectYarnLockInputType["simple"] = 1] = "simple";
+    EnumDetectYarnLockInputType[EnumDetectYarnLockInputType["parse_raw"] = 2] = "parse_raw";
+})(EnumDetectYarnLockInputType = exports.EnumDetectYarnLockInputType || (exports.EnumDetectYarnLockInputType = {}));
 var EnumYarnLockSourceV1Type;
 (function (EnumYarnLockSourceV1Type) {
     EnumYarnLockSourceV1Type["success"] = "success";

@@ -1,5 +1,5 @@
 import { detectYarnLockVersionByObject } from './detectYarnLockVersionByObject';
-import { EnumDetectYarnLock } from '@yarn-tool/yarnlock-types';
+import { EnumDetectYarnLock, EnumDetectYarnLockInputType } from '@yarn-tool/yarnlock-types';
 import { parseYarnLockRawV2 } from '@yarn-tool/yarnlock-parse-raw';
 
 export function _detectYarnLockVersionSimple(buf: Buffer | string)
@@ -22,9 +22,38 @@ export function _detectYarnLockVersionSimple(buf: Buffer | string)
 	return EnumDetectYarnLock.unknown
 }
 
+export function _detectYarnLockVersionCore<T extends Buffer | string>(input: T)
+{
+	let verType: EnumDetectYarnLock = _detectYarnLockVersionSimple(input);
+
+	if (verType)
+	{
+		return {
+			verType,
+			detectType: EnumDetectYarnLockInputType.simple as const,
+			input,
+		}
+	}
+
+	if (verType = _tryParse(input))
+	{
+		return {
+			verType,
+			detectType: EnumDetectYarnLockInputType.parse_raw as const,
+			input,
+		}
+	}
+
+	return {
+		verType: EnumDetectYarnLock.unknown as const,
+		detectType: EnumDetectYarnLockInputType.unknown as const,
+		input,
+	}
+}
+
 export function detectYarnLockVersion(buf: Buffer | string)
 {
-	return _detectYarnLockVersionSimple(buf) || _tryParse(buf) || EnumDetectYarnLock.unknown
+	return _detectYarnLockVersionCore(buf).verType
 }
 
 /**
