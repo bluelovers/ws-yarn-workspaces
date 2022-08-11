@@ -4,9 +4,10 @@
 import { ITSArrayListMaybeReadonly } from 'ts-type';
 import { IRemoveResolutions, IFilterResolutions, IYarnLockfileParseObject } from './types';
 import { IDependencies } from '@ts-type/package-dts/package-json';
+import { IYarnLockDataRecord } from '@yarn-tool/yarnlock-types';
 export declare function filterResolutions<T extends ITSArrayListMaybeReadonly<string>>(pkg: {
     resolutions?: IDependencies<T>;
-}, yarnlock: IYarnLockfileParseObject<T>): IFilterResolutions<T>;
+}, yarnlock: IYarnLockDataRecord): IFilterResolutions<T>;
 /**
  *
  * @example ```
@@ -23,5 +24,5 @@ export declare function removeResolutions<T extends ITSArrayListMaybeReadonly<st
     resolutions?: IDependencies<T>;
 }, yarnlock_old: IYarnLockfileParseObject<T>): IRemoveResolutions<T>;
 export declare function removeResolutionsCore<T extends ITSArrayListMaybeReadonly<string>>(result: IFilterResolutions<T>, yarnlock_old: IYarnLockfileParseObject<T>): IRemoveResolutions<T>;
-export declare function filterDuplicateYarnLock<T extends ITSArrayListMaybeReadonly<string>>(yarnlock: IYarnLockfileParseObject<T>): IFilterResolutions<T>;
-export declare function exportYarnLock<T extends ITSArrayListMaybeReadonly<string>>(yarnlock: IYarnLockfileParseObject<T>, filter?: (key: keyof IYarnLockfileParseObject<T>, index: number, array_keys: (keyof IYarnLockfileParseObject<T>)[], yarnlock: IYarnLockfileParseObject<T>) => boolean): IFilterResolutions<T>;
+export declare function filterDuplicateYarnLock<T extends ITSArrayListMaybeReadonly<string>>(yarnlock: IYarnLockDataRecord): IFilterResolutions<ITSArrayListMaybeReadonly<string>>;
+export declare function exportYarnLock<T extends ITSArrayListMaybeReadonly<string>>(yarnlock: IYarnLockDataRecord, filter?: (key: keyof IYarnLockfileParseObject<T>, index: number, array_keys: (keyof IYarnLockfileParseObject<T>)[], yarnlock: IYarnLockDataRecord) => boolean): IFilterResolutions<T>;

@@ -8,8 +8,11 @@ function parseYarnLockRowV2(packageName, packageData) {
     var _a, _b;
     let ret = (0, parseResolution_1.parseResolution)(packageData.resolution);
     let name = (_a = ret === null || ret === void 0 ? void 0 : ret.descriptor) === null || _a === void 0 ? void 0 : _a.fullName;
-    let version = (_b = ret === null || ret === void 0 ? void 0 : ret.descriptor) === null || _b === void 0 ? void 0 : _b.description;
     if (name) {
+        /**
+         * @todo support check patch
+         */
+        let version = (_b = ret.descriptor.description) !== null && _b !== void 0 ? _b : packageData.version;
         version = version.replace(/^(npm):/, '');
         if (!version.length) {
             version = ret.descriptor.description;

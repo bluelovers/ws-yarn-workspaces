@@ -10,10 +10,14 @@ export function parseYarnLockRowV2(packageName: string, packageData: IYarnLockDa
 	let ret = parseResolution(packageData.resolution)
 
 	let name = ret?.descriptor?.fullName;
-	let version = ret?.descriptor?.description;
 
 	if (name)
 	{
+		/**
+		 * @todo support check patch
+		 */
+		let version = ret.descriptor.description ?? packageData.version;
+
 		version = version.replace(/^(npm):/, '');
 
 		if (!version.length)

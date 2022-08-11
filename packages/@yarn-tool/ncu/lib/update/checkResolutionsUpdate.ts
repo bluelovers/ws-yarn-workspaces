@@ -1,33 +1,43 @@
 import { IPackageMap, IOptionsNpmCheckUpdates, IVersionCacheMapValue } from '../types';
-import Bluebird from 'bluebird';
+import { resolve } from 'bluebird';
 import { keyObjectToPackageMap } from '../util';
-import semver from 'semver';
-import { IYarnLockfileParseObject } from '@yarn-tool/yarnlock/lib/types';
-import { parseYarnLockRawV1Root } from '@yarn-tool/yarnlock-parse-raw/lib/v1';
+import { lt } from 'semver';
 import { filterResolutions } from '@yarn-tool/yarnlock/lib/core';
 import { queryRemoteVersions } from '../remote/queryRemoteVersions';
+import {
+	EnumDetectYarnLock,
+	IYarnLockDataRecord,
+	IYarnLockDataRowV1,
+	IYarnLockDataRowV2,
+	IYarnLockSource,
+} from '@yarn-tool/yarnlock-types';
+import { _yarnLockParseCore, _yarnLockParseRaw } from '@yarn-tool/yarnlock-parse';
+import { yarnLockParsedToRawJSON } from '@yarn-tool/yarnlock-parsed-to-json';
+import { ITSExcludeEnumValue } from 'ts-type/lib/helper/record/enum';
 
-export function checkResolutionsUpdate(resolutions: IPackageMap,
-	yarnlock_old_obj: IYarnLockfileParseObject | string,
+export function checkResolutionsUpdate<T extends IYarnLockSource>(resolutions: IPackageMap,
+	yarnlock_old_obj: IYarnLockSource | Buffer | string,
 	options: Partial<IOptionsNpmCheckUpdates>,
 )
 {
-	return Bluebird.resolve()
+	return resolve()
 		.then(async function ()
 		{
-			/**
-			 * @todo support v2
-			 */
-			if (typeof yarnlock_old_obj === 'string')
+			let verType: ITSExcludeEnumValue<typeof EnumDetectYarnLock, 0>;
+
+			if (typeof yarnlock_old_obj === 'string' || Buffer.isBuffer(yarnlock_old_obj))
 			{
-				// @ts-ignore
-				yarnlock_old_obj = parseYarnLockRawV1Root(yarnlock_old_obj);
+				({ verType, parsed: yarnlock_old_obj } = _yarnLockParseRaw(yarnlock_old_obj));
 			}
+
+			const y_old = _yarnLockParseCore({
+				verType,
+				parsed: yarnlock_old_obj,
+			});
 
 			const result = filterResolutions({
 				resolutions,
-				// @ts-ignore
-			}, yarnlock_old_obj);
+			}, y_old.data);
 
 			const deps = await queryRemoteVersions(resolutions, options);
 
@@ -44,9 +54,8 @@ export function checkResolutionsUpdate(resolutions: IPackageMap,
 				}, {} as Record<string, IVersionCacheMapValue>)
 			;
 
-			const yarnlock_new_obj: IYarnLockfileParseObject = {
-				// @ts-ignore
-				...yarnlock_old_obj,
+			const data: IYarnLockDataRecord = {
+				...y_old.data,
 			};
 
 			const update_list: string[] = [];
@@ -64,14 +73,14 @@ export function checkResolutionsUpdate(resolutions: IPackageMap,
 //						data,
 //						deps: deps2[name],
 //					});
-					if (data.value.version != null && deps2[name] != null && semver.lt(data.value.version, deps2[name]) && yarnlock_new_obj[_key2] && yarnlock_new_obj[_key2].version != data.value.version)
+					if (data.value.version != null && deps2[name] != null && lt(data.value.version, deps2[name]) && data[_key2] && data[_key2].version != data.value.version)
 					{
 						Object.keys(result.deps[name])
 							.forEach(version =>
 							{
 								const key = name + '@' + version;
 
-								delete yarnlock_new_obj[key]
+								delete data[key]
 							})
 						;
 
@@ -89,7 +98,7 @@ export function checkResolutionsUpdate(resolutions: IPackageMap,
 
 									const key = name + '@' + version;
 
-									yarnlock_new_obj[key] = data.value;
+									data[key] = data.value;
 								})
 							;
 
@@ -100,8 +109,15 @@ export function checkResolutionsUpdate(resolutions: IPackageMap,
 				})
 			;
 
+			const yarnlock_new_obj = yarnLockParsedToRawJSON({
+				verType,
+				meta: y_old.meta,
+				data,
+			}) as T
+
 			return {
-				yarnlock_old_obj,
+				verType: verType as ITSExcludeEnumValue<typeof EnumDetectYarnLock, 0>,
+				yarnlock_old_obj: yarnlock_old_obj as T,
 				yarnlock_new_obj,
 				update_list,
 				yarnlock_changed,

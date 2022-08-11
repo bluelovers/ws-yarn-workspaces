@@ -7,10 +7,11 @@ import semver from 'semver';
 import { IRemoveResolutions, IFilterResolutions, IYarnLockfileParseObject } from './types';
 import { IDependencies } from '@ts-type/package-dts/package-json';
 import { stripDepsName } from './util';
+import { IYarnLockDataRecord, IYarnLockSource } from '@yarn-tool/yarnlock-types';
 
 export function filterResolutions<T extends ITSArrayListMaybeReadonly<string>>(pkg: {
 	resolutions?: IDependencies<T>
-}, yarnlock: IYarnLockfileParseObject<T>): IFilterResolutions<T>
+}, yarnlock: IYarnLockDataRecord): IFilterResolutions<T>
 {
 	if (pkg.resolutions)
 	{
@@ -80,7 +81,7 @@ export function removeResolutionsCore<T extends ITSArrayListMaybeReadonly<string
 	}
 }
 
-export function filterDuplicateYarnLock<T extends ITSArrayListMaybeReadonly<string>>(yarnlock: IYarnLockfileParseObject<T>)
+export function filterDuplicateYarnLock<T extends ITSArrayListMaybeReadonly<string>>(yarnlock: IYarnLockDataRecord)
 {
 	let fy = exportYarnLock(yarnlock);
 
@@ -98,7 +99,7 @@ export function filterDuplicateYarnLock<T extends ITSArrayListMaybeReadonly<stri
 	});
 }
 
-export function exportYarnLock<T extends ITSArrayListMaybeReadonly<string>>(yarnlock: IYarnLockfileParseObject<T>, filter?: (key: keyof IYarnLockfileParseObject<T>, index: number, array_keys: (keyof IYarnLockfileParseObject<T>)[], yarnlock: IYarnLockfileParseObject<T>) => boolean): IFilterResolutions<T>
+export function exportYarnLock<T extends ITSArrayListMaybeReadonly<string>>(yarnlock: IYarnLockDataRecord, filter?: (key: keyof IYarnLockfileParseObject<T>, index: number, array_keys: (keyof IYarnLockfileParseObject<T>)[], yarnlock: IYarnLockDataRecord) => boolean): IFilterResolutions<T>
 {
 	let ks = Object.keys(yarnlock);
 

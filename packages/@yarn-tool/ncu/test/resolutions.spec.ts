@@ -17,11 +17,7 @@ describe(`checkResolutionsUpdate`, () =>
 {
 	const dir = join(__TEST_YARNLOCK, 'ncu');
 
-	_forEachVersionTags({
-		only: [
-			EnumDetectYarnLock.v1,
-		],
-	}).forEach(ver =>
+	_forEachVersionTags().forEach(ver =>
 	{
 		const file = join(dir, ver, 'yarn.lock');
 

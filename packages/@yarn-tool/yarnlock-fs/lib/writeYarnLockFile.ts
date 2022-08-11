@@ -1,8 +1,8 @@
 import { yarnLockStringify } from '@yarn-tool/yarnlock-stringify';
 import { writeFileSync } from 'fs-extra';
-import { IYarnLockfileParseObject } from '@yarn-tool/yarnlock/lib/types';
+import { IYarnLockSource } from '@yarn-tool/yarnlock-types';
 
-export function writeYarnLockFile(file: string, data: IYarnLockfileParseObject)
+export function writeYarnLockFile(file: string, data: IYarnLockSource)
 {
 	return writeFileSync(file, yarnLockStringify(data))
 }
