@@ -10,7 +10,7 @@ export declare class SemverRange<RAW extends ISemverRangeInput> extends SemverRa
     readonly options: IOptions;
     readonly loose: boolean;
     readonly includePrerelease: boolean;
-    constructor(rawSource: RAW, optionsOrLoose?: IOptionsOrLoose);
+    constructor(rawSource: RAW, optionsOrLoose?: IOptionsOrLoose<IOptions>);
     protected _buildComparatorsSet(range: string, options: IOptions): IComparatorSetInput;
     parseRange(range: string): readonly Comparator[];
     protected _inherit(range: ISemverRangeInput, options: IOptions): {

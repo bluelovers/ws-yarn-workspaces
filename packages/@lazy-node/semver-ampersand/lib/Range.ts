@@ -1,6 +1,12 @@
 import semverRange from 'semver/classes/range';
 import { handleAmpersandAndSpaces } from './handleAmpersandAndSpaces';
-import { IComparatorSet, IComparatorSetInput, IOptions, IOptionsOrLoose, ISemverRangeInput } from './types';
+import {
+	IComparatorSet,
+	IComparatorSetInput,
+	IOptions,
+	IOptionsOrLoose,
+	ISemverRangeInput,
+} from './types';
 import { stringifyComparatorsSet } from './util/stringifyComparators';
 import SemVer from 'semver/classes/semver';
 import classWithoutCallParentConstructor from 'class-without-call-parent-constructor';
@@ -25,7 +31,7 @@ export class SemverRange<RAW extends ISemverRangeInput> extends classWithoutCall
 	override readonly loose: boolean;
 	override readonly includePrerelease: boolean;
 
-	constructor(rawSource: RAW, optionsOrLoose?: IOptionsOrLoose)
+	constructor(rawSource: RAW, optionsOrLoose?: IOptionsOrLoose<IOptions>)
 	{
 		// skip original semverRange constructor
 		super();
