@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.buildDiffTable = void 0;
+exports._buildDiffTableCore = exports._handleDiffTable = exports.buildDiffTable = void 0;
 const tslib_1 = require("tslib");
 const formatVersion_1 = require("./formatVersion");
 const diffArray002_1 = require("./diffArray002");
@@ -9,6 +9,19 @@ const core_1 = require("@yarn-tool/table/lib/core");
 const debug_color2_1 = require("debug-color2");
 const strip_ansi_1 = tslib_1.__importDefault(require("strip-ansi"));
 function buildDiffTable(diff, options) {
+    return _handleDiffTable(_buildDiffTableCore(diff, options), options);
+}
+exports.buildDiffTable = buildDiffTable;
+function _handleDiffTable(result, options) {
+    const { _ok, table, } = result;
+    let output = _ok ? table.toString() : '';
+    if ((options === null || options === void 0 ? void 0 : options.stripAnsi) === true) {
+        output = (0, strip_ansi_1.default)(output);
+    }
+    return _ok ? output : '';
+}
+exports._handleDiffTable = _handleDiffTable;
+function _buildDiffTableCore(diff, options) {
     var _a;
     // @ts-ignore
     let chalk = (_a = options === null || options === void 0 ? void 0 : options.chalk) !== null && _a !== void 0 ? _a : (0, debug_color2_1.chalkByConsoleMaybe)(options === null || options === void 0 ? void 0 : options.console);
@@ -57,11 +70,11 @@ function buildDiffTable(diff, options) {
         _arr && (formatedDiff[path] = _arr);
     });
     table.push(...Object.values(formatedDiff));
-    let output = _ok ? table.toString() : '';
-    if ((options === null || options === void 0 ? void 0 : options.stripAnsi) === true) {
-        output = (0, strip_ansi_1.default)(output);
-    }
-    return _ok ? output : '';
+    return {
+        _ok,
+        table,
+        formatedDiff,
+    };
 }
-exports.buildDiffTable = buildDiffTable;
+exports._buildDiffTableCore = _buildDiffTableCore;
 //# sourceMappingURL=buildDiffTable002.js.map

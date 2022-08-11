@@ -9,7 +9,7 @@ describe(`buildDiff`, () =>
 	const __res = join(__TEST_YARNLOCK, 'diff');
 
 	const files = FastGlob.sync([
-			'*.lock',
+			'**/*.lock',
 		], {
 			cwd: join(__res, 'a'),
 		})

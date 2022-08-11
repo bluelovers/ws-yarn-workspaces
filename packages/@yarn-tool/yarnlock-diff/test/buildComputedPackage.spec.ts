@@ -9,8 +9,8 @@ describe(`buildComputedPackage`, () =>
 	const __res = join(__TEST_YARNLOCK, 'diff');
 
 	const files = FastGlob.sync([
-			'a/*.lock',
-			'b/*.lock',
+			'a/**/*.lock',
+			'b/**/*.lock',
 		], {
 			cwd: join(__res),
 		})

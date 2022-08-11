@@ -2966,6 +2966,1654 @@ Array [
 ]
 `;
 
+exports[`buildDiff v3/yarn.lock 1`] = `
+Array [
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "@jest/console",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "@jest/core",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "@jest/environment",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "@jest/fake-timers",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "@jest/globals",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "@jest/reporters",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "@jest/source-map",
+      0,
+    ],
+    "rhs": "28.1.2",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "@jest/test-result",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "@jest/test-sequencer",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "@jest/transform",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffArray {
+    "index": 1,
+    "item": DiffDeleted {
+      "kind": "D",
+      "lhs": "27.5.1",
+    },
+    "kind": "A",
+    "path": Array [
+      "@jest/types",
+    ],
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "26.6.2",
+    "path": Array [
+      "@jest/types",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "8.1.0",
+    "path": Array [
+      "@sinonjs/fake-timers",
+      0,
+    ],
+    "rhs": "9.1.2",
+  },
+  DiffArray {
+    "index": 1,
+    "item": DiffDeleted {
+      "kind": "D",
+      "lhs": "2.0.0",
+    },
+    "kind": "A",
+    "path": Array [
+      "@tootallnate/once",
+    ],
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "1.1.2",
+    "path": Array [
+      "@tootallnate/once",
+      0,
+    ],
+    "rhs": "2.0.0",
+  },
+  DiffArray {
+    "index": 1,
+    "item": DiffDeleted {
+      "kind": "D",
+      "lhs": "7.1.19",
+    },
+    "kind": "A",
+    "path": Array [
+      "@types/babel__core",
+    ],
+  },
+  DiffArray {
+    "index": 1,
+    "item": DiffDeleted {
+      "kind": "D",
+      "lhs": "7.18.0",
+    },
+    "kind": "A",
+    "path": Array [
+      "@types/babel__traverse",
+    ],
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "26.0.24",
+    "path": Array [
+      "@types/jest",
+      0,
+    ],
+    "rhs": "28.1.6",
+  },
+  DiffArray {
+    "index": 1,
+    "item": DiffDeleted {
+      "kind": "D",
+      "lhs": "16.0.4",
+    },
+    "kind": "A",
+    "path": Array [
+      "@types/yargs",
+    ],
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "15.0.14",
+    "path": Array [
+      "@types/yargs",
+      0,
+    ],
+    "rhs": "17.0.11",
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "2.0.6",
+    ],
+    "path": Array [
+      "abab",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "6.0.0",
+    ],
+    "path": Array [
+      "acorn-globals",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "7.2.0",
+    ],
+    "path": Array [
+      "acorn-walk",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "7.4.1",
+      "8.8.0",
+    ],
+    "path": Array [
+      "acorn",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "0.4.0",
+    ],
+    "path": Array [
+      "asynckit",
+    ],
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "babel-jest",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "babel-plugin-jest-hoist",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "babel-preset-jest",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "1.0.0",
+    ],
+    "path": Array [
+      "browser-process-hrtime",
+    ],
+  },
+  DiffArray {
+    "index": 1,
+    "item": DiffDeleted {
+      "kind": "D",
+      "lhs": "7.0.4",
+    },
+    "kind": "A",
+    "path": Array [
+      "cliui",
+    ],
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "6.0.0",
+    "path": Array [
+      "cliui",
+      0,
+    ],
+    "rhs": "7.0.4",
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "1.0.8",
+    ],
+    "path": Array [
+      "combined-stream",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "0.3.8",
+      "0.4.4",
+    ],
+    "path": Array [
+      "cssom",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "2.3.0",
+    ],
+    "path": Array [
+      "cssstyle",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "2.0.0",
+    ],
+    "path": Array [
+      "data-urls",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "1.2.0",
+    ],
+    "path": Array [
+      "decamelize",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "10.3.1",
+    ],
+    "path": Array [
+      "decimal.js",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "0.1.4",
+    ],
+    "path": Array [
+      "deep-is",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "1.0.0",
+    ],
+    "path": Array [
+      "delayed-stream",
+    ],
+  },
+  DiffArray {
+    "index": 1,
+    "item": DiffDeleted {
+      "kind": "D",
+      "lhs": "27.5.1",
+    },
+    "kind": "A",
+    "path": Array [
+      "diff-sequences",
+    ],
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "26.6.2",
+    "path": Array [
+      "diff-sequences",
+      0,
+    ],
+    "rhs": "28.1.1",
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "2.0.1",
+    ],
+    "path": Array [
+      "domexception",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "5.9.0",
+    ],
+    "path": Array [
+      "dts-bundle-generator",
+    ],
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "0.8.1",
+    "path": Array [
+      "emittery",
+      0,
+    ],
+    "rhs": "0.10.2",
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "2.0.0",
+    ],
+    "path": Array [
+      "escodegen",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "5.3.0",
+    ],
+    "path": Array [
+      "estraverse",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "2.0.3",
+    ],
+    "path": Array [
+      "esutils",
+    ],
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "expect",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "2.0.6",
+    ],
+    "path": Array [
+      "fast-levenshtein",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "3.0.1",
+    ],
+    "path": Array [
+      "form-data",
+    ],
+  },
+  DiffArray {
+    "index": 2,
+    "item": DiffDeleted {
+      "kind": "D",
+      "lhs": "8.0.3",
+    },
+    "kind": "A",
+    "path": Array [
+      "glob",
+    ],
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "7.2.3",
+    "path": Array [
+      "glob",
+      1,
+    ],
+    "rhs": "8.0.3",
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "2.0.1",
+    ],
+    "path": Array [
+      "html-encoding-sniffer",
+    ],
+  },
+  DiffArray {
+    "index": 1,
+    "item": DiffDeleted {
+      "kind": "D",
+      "lhs": "5.0.0",
+    },
+    "kind": "A",
+    "path": Array [
+      "http-proxy-agent",
+    ],
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "4.0.1",
+    "path": Array [
+      "http-proxy-agent",
+      0,
+    ],
+    "rhs": "5.0.0",
+  },
+  DiffArray {
+    "index": 1,
+    "item": DiffDeleted {
+      "kind": "D",
+      "lhs": "0.6.3",
+    },
+    "kind": "A",
+    "path": Array [
+      "iconv-lite",
+    ],
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "0.4.24",
+    "path": Array [
+      "iconv-lite",
+      0,
+    ],
+    "rhs": "0.6.3",
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "1.0.1",
+    ],
+    "path": Array [
+      "is-potential-custom-element-name",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "1.0.0",
+    ],
+    "path": Array [
+      "is-typedarray",
+    ],
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "jest-changed-files",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "jest-circus",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "jest-cli",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "jest-config",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffArray {
+    "index": 1,
+    "item": DiffDeleted {
+      "kind": "D",
+      "lhs": "27.5.1",
+    },
+    "kind": "A",
+    "path": Array [
+      "jest-diff",
+    ],
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "26.6.2",
+    "path": Array [
+      "jest-diff",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "jest-docblock",
+      0,
+    ],
+    "rhs": "28.1.1",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "jest-each",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "27.5.1",
+    ],
+    "path": Array [
+      "jest-environment-jsdom",
+    ],
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "jest-environment-node",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffArray {
+    "index": 1,
+    "item": DiffDeleted {
+      "kind": "D",
+      "lhs": "27.5.1",
+    },
+    "kind": "A",
+    "path": Array [
+      "jest-get-type",
+    ],
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "26.3.0",
+    "path": Array [
+      "jest-get-type",
+      0,
+    ],
+    "rhs": "28.0.2",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "jest-haste-map",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "27.5.1",
+    ],
+    "path": Array [
+      "jest-jasmine2",
+    ],
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "jest-leak-detector",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "jest-matcher-utils",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "jest-message-util",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "jest-mock",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "jest-regex-util",
+      0,
+    ],
+    "rhs": "28.0.2",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "jest-resolve-dependencies",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "jest-resolve",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "jest-runner",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "jest-runtime",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "27.5.1",
+    ],
+    "path": Array [
+      "jest-serializer",
+    ],
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "jest-snapshot",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "jest-util",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "jest-validate",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "jest-watcher",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "jest-worker",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "27.5.1",
+    "path": Array [
+      "jest",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "16.7.0",
+    ],
+    "path": Array [
+      "jsdom",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "0.3.0",
+    ],
+    "path": Array [
+      "levn",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "4.17.21",
+    ],
+    "path": Array [
+      "lodash",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "1.52.0",
+    ],
+    "path": Array [
+      "mime-db",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "2.1.35",
+    ],
+    "path": Array [
+      "mime-types",
+    ],
+  },
+  DiffArray {
+    "index": 2,
+    "item": DiffDeleted {
+      "kind": "D",
+      "lhs": "5.1.0",
+    },
+    "kind": "A",
+    "path": Array [
+      "minimatch",
+    ],
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "3.1.2",
+    "path": Array [
+      "minimatch",
+      1,
+    ],
+    "rhs": "5.1.0",
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "2.2.1",
+    ],
+    "path": Array [
+      "nwsapi",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "0.8.3",
+    ],
+    "path": Array [
+      "optionator",
+    ],
+  },
+  DiffArray {
+    "index": 1,
+    "item": DiffNew {
+      "kind": "N",
+      "rhs": "3.1.0",
+    },
+    "kind": "A",
+    "path": Array [
+      "p-limit",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "6.0.1",
+    ],
+    "path": Array [
+      "parse5",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "1.1.2",
+    ],
+    "path": Array [
+      "prelude-ls",
+    ],
+  },
+  DiffArray {
+    "index": 1,
+    "item": DiffDeleted {
+      "kind": "D",
+      "lhs": "27.5.1",
+    },
+    "kind": "A",
+    "path": Array [
+      "pretty-format",
+    ],
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "26.6.2",
+    "path": Array [
+      "pretty-format",
+      0,
+    ],
+    "rhs": "28.1.3",
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "1.9.0",
+    ],
+    "path": Array [
+      "psl",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "2.1.1",
+    ],
+    "path": Array [
+      "punycode",
+    ],
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "17.0.2",
+    "path": Array [
+      "react-is",
+      0,
+    ],
+    "rhs": "18.2.0",
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "2.0.0",
+    ],
+    "path": Array [
+      "require-main-filename",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "5.0.1",
+    ],
+    "path": Array [
+      "saxes",
+    ],
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "0.5.21",
+    "path": Array [
+      "source-map-support",
+      0,
+    ],
+    "rhs": "0.5.13",
+  },
+  DiffArray {
+    "index": 1,
+    "item": DiffDeleted {
+      "kind": "D",
+      "lhs": "0.7.4",
+    },
+    "kind": "A",
+    "path": Array [
+      "source-map",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "3.2.4",
+    ],
+    "path": Array [
+      "symbol-tree",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "6.0.1",
+    ],
+    "path": Array [
+      "throat",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "4.0.0",
+    ],
+    "path": Array [
+      "tough-cookie",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "2.1.0",
+    ],
+    "path": Array [
+      "tr46",
+    ],
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "1.2.40",
+    "path": Array [
+      "ts-type",
+      0,
+    ],
+    "rhs": "2.1.10",
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "0.3.2",
+    ],
+    "path": Array [
+      "type-check",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "3.1.5",
+    ],
+    "path": Array [
+      "typedarray-to-buffer",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "4.7.4",
+    ],
+    "path": Array [
+      "typescript",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "4.7.4",
+    ],
+    "path": Array [
+      "typescript>::version=4.7.4&hash=f456af",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "0.1.2",
+    ],
+    "path": Array [
+      "universalify",
+    ],
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "8.1.1",
+    "path": Array [
+      "v8-to-istanbul",
+      0,
+    ],
+    "rhs": "9.0.1",
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "1.0.2",
+    ],
+    "path": Array [
+      "w3c-hr-time",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "2.0.0",
+    ],
+    "path": Array [
+      "w3c-xmlserializer",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "5.0.0",
+      "6.1.0",
+    ],
+    "path": Array [
+      "webidl-conversions",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "1.0.5",
+    ],
+    "path": Array [
+      "whatwg-encoding",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "2.3.0",
+    ],
+    "path": Array [
+      "whatwg-mimetype",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "8.7.0",
+    ],
+    "path": Array [
+      "whatwg-url",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "2.0.0",
+    ],
+    "path": Array [
+      "which-module",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "1.2.3",
+    ],
+    "path": Array [
+      "word-wrap",
+    ],
+  },
+  DiffArray {
+    "index": 1,
+    "item": DiffDeleted {
+      "kind": "D",
+      "lhs": "7.0.0",
+    },
+    "kind": "A",
+    "path": Array [
+      "wrap-ansi",
+    ],
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "6.2.0",
+    "path": Array [
+      "wrap-ansi",
+      0,
+    ],
+    "rhs": "7.0.0",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "3.0.3",
+    "path": Array [
+      "write-file-atomic",
+      0,
+    ],
+    "rhs": "4.0.1",
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "7.5.9",
+    ],
+    "path": Array [
+      "ws",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "3.0.0",
+    ],
+    "path": Array [
+      "xml-name-validator",
+    ],
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "2.2.0",
+    ],
+    "path": Array [
+      "xmlchars",
+    ],
+  },
+  DiffArray {
+    "index": 1,
+    "item": DiffDeleted {
+      "kind": "D",
+      "lhs": "5.0.8",
+    },
+    "kind": "A",
+    "path": Array [
+      "y18n",
+    ],
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "4.0.3",
+    "path": Array [
+      "y18n",
+      0,
+    ],
+    "rhs": "5.0.8",
+  },
+  DiffArray {
+    "index": 1,
+    "item": DiffDeleted {
+      "kind": "D",
+      "lhs": "20.2.9",
+    },
+    "kind": "A",
+    "path": Array [
+      "yargs-parser",
+    ],
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "18.1.3",
+    "path": Array [
+      "yargs-parser",
+      0,
+    ],
+    "rhs": "21.1.1",
+  },
+  DiffArray {
+    "index": 1,
+    "item": DiffDeleted {
+      "kind": "D",
+      "lhs": "16.2.0",
+    },
+    "kind": "A",
+    "path": Array [
+      "yargs",
+    ],
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "15.4.1",
+    "path": Array [
+      "yargs",
+      0,
+    ],
+    "rhs": "17.5.1",
+  },
+  DiffNew {
+    "kind": "N",
+    "path": Array [
+      "@jest/expect-utils",
+    ],
+    "rhs": Array [
+      "28.1.3",
+    ],
+  },
+  DiffNew {
+    "kind": "N",
+    "path": Array [
+      "@jest/expect",
+    ],
+    "rhs": Array [
+      "28.1.3",
+    ],
+  },
+  DiffNew {
+    "kind": "N",
+    "path": Array [
+      "@jest/schemas",
+    ],
+    "rhs": Array [
+      "28.1.3",
+    ],
+  },
+  DiffNew {
+    "kind": "N",
+    "path": Array [
+      "@sinclair/typebox",
+    ],
+    "rhs": Array [
+      "0.24.27",
+    ],
+  },
+  DiffNew {
+    "kind": "N",
+    "path": Array [
+      "yocto-queue",
+    ],
+    "rhs": Array [
+      "0.1.0",
+    ],
+  },
+]
+`;
+
+exports[`buildDiff v3/yarn-2.lock 1`] = `
+Array [
+  DiffEdit {
+    "kind": "E",
+    "lhs": "7.14.5",
+    "path": Array [
+      "@babel/helper-plugin-utils",
+      0,
+    ],
+    "rhs": "7.18.9",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "7.14.5",
+    "path": Array [
+      "@babel/plugin-syntax-typescript",
+      0,
+    ],
+    "rhs": "7.18.6",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "7.1.14",
+    "path": Array [
+      "@types/babel__core",
+      0,
+    ],
+    "rhs": "7.1.19",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "7.6.2",
+    "path": Array [
+      "@types/babel__generator",
+      0,
+    ],
+    "rhs": "7.6.4",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "7.4.0",
+    "path": Array [
+      "@types/babel__template",
+      0,
+    ],
+    "rhs": "7.4.1",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "7.14.0",
+    "path": Array [
+      "@types/babel__traverse",
+      0,
+    ],
+    "rhs": "7.18.0",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "2.0.3",
+    "path": Array [
+      "@types/istanbul-lib-coverage",
+      0,
+    ],
+    "rhs": "2.0.4",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "15.12.5",
+    "path": Array [
+      "@types/node",
+      0,
+    ],
+    "rhs": "18.7.1",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "2.3.0",
+    "path": Array [
+      "@types/prettier",
+      0,
+    ],
+    "rhs": "2.7.0",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "2.0.0",
+    "path": Array [
+      "@types/stack-utils",
+      0,
+    ],
+    "rhs": "2.0.1",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "20.2.0",
+    "path": Array [
+      "@types/yargs-parser",
+      0,
+    ],
+    "rhs": "21.0.0",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "1.1.1",
+    "path": Array [
+      "buffer-from",
+      0,
+    ],
+    "rhs": "1.1.2",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "6.2.0",
+    "path": Array [
+      "camelcase",
+      1,
+    ],
+    "rhs": "6.3.0",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "4.1.1",
+    "path": Array [
+      "chalk",
+      1,
+    ],
+    "rhs": "4.1.2",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "1.2.1",
+    "path": Array [
+      "cjs-module-lexer",
+      0,
+    ],
+    "rhs": "1.2.2",
+  },
+  DiffArray {
+    "index": 1,
+    "item": DiffDeleted {
+      "kind": "D",
+      "lhs": "4.3.4",
+    },
+    "kind": "A",
+    "path": Array [
+      "debug",
+    ],
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "4.3.1",
+    "path": Array [
+      "debug",
+      0,
+    ],
+    "rhs": "4.3.4",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "7.1.7",
+    "path": Array [
+      "glob",
+      0,
+    ],
+    "rhs": "7.2.3",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "3.0.2",
+    "path": Array [
+      "import-local",
+      0,
+    ],
+    "rhs": "3.1.0",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "2.4.0",
+    "path": Array [
+      "is-core-module",
+      0,
+    ],
+    "rhs": "2.10.0",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "2.0.0",
+    "path": Array [
+      "is-stream",
+      0,
+    ],
+    "rhs": "2.0.1",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "4.0.0",
+    "path": Array [
+      "istanbul-lib-source-maps",
+      0,
+    ],
+    "rhs": "4.0.1",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "4.0.4",
+    "path": Array [
+      "micromatch",
+      0,
+    ],
+    "rhs": "4.0.5",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "3.0.4",
+    "path": Array [
+      "minimatch",
+      0,
+    ],
+    "rhs": "3.1.2",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "2.3.0",
+    "path": Array [
+      "picomatch",
+      0,
+    ],
+    "rhs": "2.3.1",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "2.4.1",
+    "path": Array [
+      "prompts",
+      0,
+    ],
+    "rhs": "2.4.2",
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "1.20.0",
+    "path": Array [
+      "resolve",
+      0,
+    ],
+    "rhs": "1.22.1",
+  },
+  DiffDeleted {
+    "kind": "D",
+    "lhs": Array [
+      "1.20.0",
+    ],
+    "path": Array [
+      "resolve>::version=1.20.0&hash=07638b",
+    ],
+  },
+  DiffEdit {
+    "kind": "E",
+    "lhs": "2.0.3",
+    "path": Array [
+      "stack-utils",
+      0,
+    ],
+    "rhs": "2.0.5",
+  },
+  DiffNew {
+    "kind": "N",
+    "path": Array [
+      "resolve>::version=1.22.1&hash=07638b",
+    ],
+    "rhs": Array [
+      "1.22.1",
+    ],
+  },
+  DiffNew {
+    "kind": "N",
+    "path": Array [
+      "supports-preserve-symlinks-flag",
+    ],
+    "rhs": Array [
+      "1.0.0",
+    ],
+  },
+]
+`;
+
 exports[`buildDiff yarn.lock 1`] = `
 Array [
   DiffEdit {

@@ -1625,6 +1625,2240 @@ Object {
 }
 `;
 
+exports[`buildComputedPackage a/v3/yarn.lock 1`] = `
+Object {
+  "@ampproject/remapping": Array [
+    "2.2.0",
+  ],
+  "@babel/code-frame": Array [
+    "7.18.6",
+  ],
+  "@babel/compat-data": Array [
+    "7.18.8",
+  ],
+  "@babel/core": Array [
+    "7.18.10",
+  ],
+  "@babel/generator": Array [
+    "7.18.12",
+  ],
+  "@babel/helper-compilation-targets": Array [
+    "7.18.9",
+  ],
+  "@babel/helper-environment-visitor": Array [
+    "7.18.9",
+  ],
+  "@babel/helper-function-name": Array [
+    "7.18.9",
+  ],
+  "@babel/helper-hoist-variables": Array [
+    "7.18.6",
+  ],
+  "@babel/helper-module-imports": Array [
+    "7.18.6",
+  ],
+  "@babel/helper-module-transforms": Array [
+    "7.18.9",
+  ],
+  "@babel/helper-plugin-utils": Array [
+    "7.14.5",
+  ],
+  "@babel/helper-simple-access": Array [
+    "7.18.6",
+  ],
+  "@babel/helper-split-export-declaration": Array [
+    "7.18.6",
+  ],
+  "@babel/helper-string-parser": Array [
+    "7.18.10",
+  ],
+  "@babel/helper-validator-identifier": Array [
+    "7.18.6",
+  ],
+  "@babel/helper-validator-option": Array [
+    "7.18.6",
+  ],
+  "@babel/helpers": Array [
+    "7.18.9",
+  ],
+  "@babel/highlight": Array [
+    "7.18.6",
+  ],
+  "@babel/parser": Array [
+    "7.18.11",
+  ],
+  "@babel/plugin-syntax-async-generators": Array [
+    "7.8.4",
+  ],
+  "@babel/plugin-syntax-bigint": Array [
+    "7.8.3",
+  ],
+  "@babel/plugin-syntax-class-properties": Array [
+    "7.12.13",
+  ],
+  "@babel/plugin-syntax-import-meta": Array [
+    "7.10.4",
+  ],
+  "@babel/plugin-syntax-json-strings": Array [
+    "7.8.3",
+  ],
+  "@babel/plugin-syntax-logical-assignment-operators": Array [
+    "7.10.4",
+  ],
+  "@babel/plugin-syntax-nullish-coalescing-operator": Array [
+    "7.8.3",
+  ],
+  "@babel/plugin-syntax-numeric-separator": Array [
+    "7.10.4",
+  ],
+  "@babel/plugin-syntax-object-rest-spread": Array [
+    "7.8.3",
+  ],
+  "@babel/plugin-syntax-optional-catch-binding": Array [
+    "7.8.3",
+  ],
+  "@babel/plugin-syntax-optional-chaining": Array [
+    "7.8.3",
+  ],
+  "@babel/plugin-syntax-top-level-await": Array [
+    "7.14.5",
+  ],
+  "@babel/plugin-syntax-typescript": Array [
+    "7.14.5",
+  ],
+  "@babel/template": Array [
+    "7.18.10",
+  ],
+  "@babel/traverse": Array [
+    "7.18.11",
+  ],
+  "@babel/types": Array [
+    "7.18.10",
+  ],
+  "@bcoe/v8-coverage": Array [
+    "0.2.3",
+  ],
+  "@bluelovers/tsconfig": Array [
+    "1.0.30",
+  ],
+  "@gar/promisify": Array [
+    "1.1.3",
+  ],
+  "@istanbuljs/load-nyc-config": Array [
+    "1.1.0",
+  ],
+  "@istanbuljs/schema": Array [
+    "0.1.3",
+  ],
+  "@jest/console": Array [
+    "27.5.1",
+  ],
+  "@jest/core": Array [
+    "27.5.1",
+  ],
+  "@jest/environment": Array [
+    "27.5.1",
+  ],
+  "@jest/fake-timers": Array [
+    "27.5.1",
+  ],
+  "@jest/globals": Array [
+    "27.5.1",
+  ],
+  "@jest/reporters": Array [
+    "27.5.1",
+  ],
+  "@jest/source-map": Array [
+    "27.5.1",
+  ],
+  "@jest/test-result": Array [
+    "27.5.1",
+  ],
+  "@jest/test-sequencer": Array [
+    "27.5.1",
+  ],
+  "@jest/transform": Array [
+    "27.5.1",
+  ],
+  "@jest/types": Array [
+    "26.6.2",
+    "27.5.1",
+  ],
+  "@jridgewell/gen-mapping": Array [
+    "0.1.1",
+    "0.3.2",
+  ],
+  "@jridgewell/resolve-uri": Array [
+    "3.1.0",
+  ],
+  "@jridgewell/set-array": Array [
+    "1.1.2",
+  ],
+  "@jridgewell/sourcemap-codec": Array [
+    "1.4.14",
+  ],
+  "@jridgewell/trace-mapping": Array [
+    "0.3.14",
+  ],
+  "@npmcli/fs": Array [
+    "2.1.1",
+  ],
+  "@npmcli/move-file": Array [
+    "2.0.0",
+  ],
+  "@sinonjs/commons": Array [
+    "1.8.3",
+  ],
+  "@sinonjs/fake-timers": Array [
+    "8.1.0",
+  ],
+  "@tootallnate/once": Array [
+    "1.1.2",
+    "2.0.0",
+  ],
+  "@types/babel__core": Array [
+    "7.1.14",
+    "7.1.19",
+  ],
+  "@types/babel__generator": Array [
+    "7.6.2",
+  ],
+  "@types/babel__template": Array [
+    "7.4.0",
+  ],
+  "@types/babel__traverse": Array [
+    "7.14.0",
+    "7.18.0",
+  ],
+  "@types/graceful-fs": Array [
+    "4.1.5",
+  ],
+  "@types/istanbul-lib-coverage": Array [
+    "2.0.3",
+  ],
+  "@types/istanbul-lib-report": Array [
+    "3.0.0",
+  ],
+  "@types/istanbul-reports": Array [
+    "3.0.1",
+  ],
+  "@types/jest": Array [
+    "26.0.24",
+  ],
+  "@types/node": Array [
+    "15.12.5",
+  ],
+  "@types/prettier": Array [
+    "2.3.0",
+  ],
+  "@types/stack-utils": Array [
+    "2.0.0",
+  ],
+  "@types/yargs": Array [
+    "15.0.14",
+    "16.0.4",
+  ],
+  "@types/yargs-parser": Array [
+    "20.2.0",
+  ],
+  "abab": Array [
+    "2.0.6",
+  ],
+  "abbrev": Array [
+    "1.1.1",
+  ],
+  "acorn": Array [
+    "7.4.1",
+    "8.8.0",
+  ],
+  "acorn-globals": Array [
+    "6.0.0",
+  ],
+  "acorn-walk": Array [
+    "7.2.0",
+  ],
+  "agent-base": Array [
+    "6.0.2",
+  ],
+  "agentkeepalive": Array [
+    "4.2.1",
+  ],
+  "aggregate-error": Array [
+    "3.1.0",
+  ],
+  "ansi-escapes": Array [
+    "4.3.2",
+  ],
+  "ansi-regex": Array [
+    "5.0.1",
+  ],
+  "ansi-styles": Array [
+    "3.2.1",
+    "4.3.0",
+    "5.2.0",
+  ],
+  "anymatch": Array [
+    "3.1.2",
+  ],
+  "aproba": Array [
+    "2.0.0",
+  ],
+  "are-we-there-yet": Array [
+    "3.0.1",
+  ],
+  "argparse": Array [
+    "1.0.10",
+  ],
+  "asynckit": Array [
+    "0.4.0",
+  ],
+  "babel-jest": Array [
+    "27.5.1",
+  ],
+  "babel-plugin-istanbul": Array [
+    "6.1.1",
+  ],
+  "babel-plugin-jest-hoist": Array [
+    "27.5.1",
+  ],
+  "babel-preset-current-node-syntax": Array [
+    "1.0.1",
+  ],
+  "babel-preset-jest": Array [
+    "27.5.1",
+  ],
+  "balanced-match": Array [
+    "1.0.2",
+  ],
+  "brace-expansion": Array [
+    "1.1.11",
+    "2.0.1",
+  ],
+  "braces": Array [
+    "3.0.2",
+  ],
+  "browser-process-hrtime": Array [
+    "1.0.0",
+  ],
+  "browserslist": Array [
+    "4.21.3",
+  ],
+  "bser": Array [
+    "2.1.1",
+  ],
+  "buffer-from": Array [
+    "1.1.1",
+  ],
+  "cacache": Array [
+    "16.1.1",
+  ],
+  "callsites": Array [
+    "3.1.0",
+  ],
+  "camelcase": Array [
+    "5.3.1",
+    "6.2.0",
+  ],
+  "caniuse-lite": Array [
+    "1.0.30001375",
+  ],
+  "chalk": Array [
+    "2.4.2",
+    "4.1.1",
+  ],
+  "char-regex": Array [
+    "1.0.2",
+  ],
+  "chownr": Array [
+    "2.0.0",
+  ],
+  "ci-info": Array [
+    "3.3.2",
+  ],
+  "cjs-module-lexer": Array [
+    "1.2.1",
+  ],
+  "clean-stack": Array [
+    "2.2.0",
+  ],
+  "cliui": Array [
+    "6.0.0",
+    "7.0.4",
+  ],
+  "co": Array [
+    "4.6.0",
+  ],
+  "collect-v8-coverage": Array [
+    "1.0.1",
+  ],
+  "color-convert": Array [
+    "1.9.3",
+    "2.0.1",
+  ],
+  "color-name": Array [
+    "1.1.3",
+    "1.1.4",
+  ],
+  "color-support": Array [
+    "1.1.3",
+  ],
+  "combined-stream": Array [
+    "1.0.8",
+  ],
+  "concat-map": Array [
+    "0.0.1",
+  ],
+  "console-control-strings": Array [
+    "1.1.0",
+  ],
+  "convert-source-map": Array [
+    "1.8.0",
+  ],
+  "cross-spawn": Array [
+    "7.0.3",
+  ],
+  "cssom": Array [
+    "0.3.8",
+    "0.4.4",
+  ],
+  "cssstyle": Array [
+    "2.3.0",
+  ],
+  "data-urls": Array [
+    "2.0.0",
+  ],
+  "debug": Array [
+    "4.3.1",
+    "4.3.4",
+  ],
+  "decamelize": Array [
+    "1.2.0",
+  ],
+  "decimal.js": Array [
+    "10.3.1",
+  ],
+  "dedent": Array [
+    "0.7.0",
+  ],
+  "deep-is": Array [
+    "0.1.4",
+  ],
+  "deepmerge": Array [
+    "4.2.2",
+  ],
+  "delayed-stream": Array [
+    "1.0.0",
+  ],
+  "delegates": Array [
+    "1.0.0",
+  ],
+  "depd": Array [
+    "1.1.2",
+  ],
+  "detect-newline": Array [
+    "3.1.0",
+  ],
+  "diff-sequences": Array [
+    "26.6.2",
+    "27.5.1",
+  ],
+  "domexception": Array [
+    "2.0.1",
+  ],
+  "dts-bundle-generator": Array [
+    "5.9.0",
+  ],
+  "electron-to-chromium": Array [
+    "1.4.214",
+  ],
+  "emittery": Array [
+    "0.8.1",
+  ],
+  "emoji-regex": Array [
+    "8.0.0",
+  ],
+  "encoding": Array [
+    "0.1.13",
+  ],
+  "env-paths": Array [
+    "2.2.1",
+  ],
+  "err-code": Array [
+    "2.0.3",
+  ],
+  "error-ex": Array [
+    "1.3.2",
+  ],
+  "escalade": Array [
+    "3.1.1",
+  ],
+  "escape-string-regexp": Array [
+    "1.0.5",
+    "2.0.0",
+  ],
+  "escodegen": Array [
+    "2.0.0",
+  ],
+  "esprima": Array [
+    "4.0.1",
+  ],
+  "estraverse": Array [
+    "5.3.0",
+  ],
+  "esutils": Array [
+    "2.0.3",
+  ],
+  "execa": Array [
+    "5.1.1",
+  ],
+  "exit": Array [
+    "0.1.2",
+  ],
+  "expect": Array [
+    "27.5.1",
+  ],
+  "fast-json-stable-stringify": Array [
+    "2.1.0",
+  ],
+  "fast-levenshtein": Array [
+    "2.0.6",
+  ],
+  "fb-watchman": Array [
+    "2.0.1",
+  ],
+  "fill-range": Array [
+    "7.0.1",
+  ],
+  "find-up": Array [
+    "4.1.0",
+  ],
+  "form-data": Array [
+    "3.0.1",
+  ],
+  "fs-minipass": Array [
+    "2.1.0",
+  ],
+  "fs.realpath": Array [
+    "1.0.0",
+  ],
+  "fsevents": Array [
+    "2.3.2",
+  ],
+  "fsevents>::version=2.3.2&hash=18f3a7": Array [
+    "2.3.2",
+  ],
+  "function-bind": Array [
+    "1.1.1",
+  ],
+  "gauge": Array [
+    "4.0.4",
+  ],
+  "gensync": Array [
+    "1.0.0-beta.2",
+  ],
+  "get-caller-file": Array [
+    "2.0.5",
+  ],
+  "get-package-type": Array [
+    "0.1.0",
+  ],
+  "get-stream": Array [
+    "6.0.1",
+  ],
+  "glob": Array [
+    "7.1.7",
+    "7.2.3",
+    "8.0.3",
+  ],
+  "globals": Array [
+    "11.12.0",
+  ],
+  "graceful-fs": Array [
+    "4.2.10",
+  ],
+  "has": Array [
+    "1.0.3",
+  ],
+  "has-flag": Array [
+    "3.0.0",
+    "4.0.0",
+  ],
+  "has-unicode": Array [
+    "2.0.1",
+  ],
+  "html-encoding-sniffer": Array [
+    "2.0.1",
+  ],
+  "html-escaper": Array [
+    "2.0.2",
+  ],
+  "http-cache-semantics": Array [
+    "4.1.0",
+  ],
+  "http-proxy-agent": Array [
+    "4.0.1",
+    "5.0.0",
+  ],
+  "https-proxy-agent": Array [
+    "5.0.1",
+  ],
+  "human-signals": Array [
+    "2.1.0",
+  ],
+  "humanize-ms": Array [
+    "1.2.1",
+  ],
+  "iconv-lite": Array [
+    "0.4.24",
+    "0.6.3",
+  ],
+  "import-local": Array [
+    "3.0.2",
+  ],
+  "imurmurhash": Array [
+    "0.1.4",
+  ],
+  "indent-string": Array [
+    "4.0.0",
+  ],
+  "infer-owner": Array [
+    "1.0.4",
+  ],
+  "inflight": Array [
+    "1.0.6",
+  ],
+  "inherits": Array [
+    "2.0.4",
+  ],
+  "ip": Array [
+    "2.0.0",
+  ],
+  "is-arrayish": Array [
+    "0.2.1",
+  ],
+  "is-core-module": Array [
+    "2.4.0",
+  ],
+  "is-fullwidth-code-point": Array [
+    "3.0.0",
+  ],
+  "is-generator-fn": Array [
+    "2.1.0",
+  ],
+  "is-lambda": Array [
+    "1.0.1",
+  ],
+  "is-number": Array [
+    "7.0.0",
+  ],
+  "is-potential-custom-element-name": Array [
+    "1.0.1",
+  ],
+  "is-stream": Array [
+    "2.0.0",
+  ],
+  "is-typedarray": Array [
+    "1.0.0",
+  ],
+  "isexe": Array [
+    "2.0.0",
+  ],
+  "istanbul-lib-coverage": Array [
+    "3.2.0",
+  ],
+  "istanbul-lib-instrument": Array [
+    "5.2.0",
+  ],
+  "istanbul-lib-report": Array [
+    "3.0.0",
+  ],
+  "istanbul-lib-source-maps": Array [
+    "4.0.0",
+  ],
+  "istanbul-reports": Array [
+    "3.1.5",
+  ],
+  "jest": Array [
+    "27.5.1",
+  ],
+  "jest-changed-files": Array [
+    "27.5.1",
+  ],
+  "jest-circus": Array [
+    "27.5.1",
+  ],
+  "jest-cli": Array [
+    "27.5.1",
+  ],
+  "jest-config": Array [
+    "27.5.1",
+  ],
+  "jest-diff": Array [
+    "26.6.2",
+    "27.5.1",
+  ],
+  "jest-docblock": Array [
+    "27.5.1",
+  ],
+  "jest-each": Array [
+    "27.5.1",
+  ],
+  "jest-environment-jsdom": Array [
+    "27.5.1",
+  ],
+  "jest-environment-node": Array [
+    "27.5.1",
+  ],
+  "jest-get-type": Array [
+    "26.3.0",
+    "27.5.1",
+  ],
+  "jest-haste-map": Array [
+    "27.5.1",
+  ],
+  "jest-jasmine2": Array [
+    "27.5.1",
+  ],
+  "jest-leak-detector": Array [
+    "27.5.1",
+  ],
+  "jest-matcher-utils": Array [
+    "27.5.1",
+  ],
+  "jest-message-util": Array [
+    "27.5.1",
+  ],
+  "jest-mock": Array [
+    "27.5.1",
+  ],
+  "jest-pnp-resolver": Array [
+    "1.2.2",
+  ],
+  "jest-regex-util": Array [
+    "27.5.1",
+  ],
+  "jest-resolve": Array [
+    "27.5.1",
+  ],
+  "jest-resolve-dependencies": Array [
+    "27.5.1",
+  ],
+  "jest-runner": Array [
+    "27.5.1",
+  ],
+  "jest-runtime": Array [
+    "27.5.1",
+  ],
+  "jest-serializer": Array [
+    "27.5.1",
+  ],
+  "jest-snapshot": Array [
+    "27.5.1",
+  ],
+  "jest-util": Array [
+    "27.5.1",
+  ],
+  "jest-validate": Array [
+    "27.5.1",
+  ],
+  "jest-watcher": Array [
+    "27.5.1",
+  ],
+  "jest-worker": Array [
+    "27.5.1",
+  ],
+  "js-tokens": Array [
+    "4.0.0",
+  ],
+  "js-yaml": Array [
+    "3.14.1",
+  ],
+  "jsdom": Array [
+    "16.7.0",
+  ],
+  "jsesc": Array [
+    "2.5.2",
+  ],
+  "json-parse-even-better-errors": Array [
+    "2.3.1",
+  ],
+  "json5": Array [
+    "2.2.1",
+  ],
+  "kleur": Array [
+    "3.0.3",
+  ],
+  "leven": Array [
+    "3.1.0",
+  ],
+  "levn": Array [
+    "0.3.0",
+  ],
+  "lines-and-columns": Array [
+    "1.2.4",
+  ],
+  "locate-path": Array [
+    "5.0.0",
+  ],
+  "lodash": Array [
+    "4.17.21",
+  ],
+  "lru-cache": Array [
+    "6.0.0",
+    "7.13.2",
+  ],
+  "make-dir": Array [
+    "3.1.0",
+  ],
+  "make-fetch-happen": Array [
+    "10.2.0",
+  ],
+  "makeerror": Array [
+    "1.0.12",
+  ],
+  "merge-stream": Array [
+    "2.0.0",
+  ],
+  "micromatch": Array [
+    "4.0.4",
+  ],
+  "mime-db": Array [
+    "1.52.0",
+  ],
+  "mime-types": Array [
+    "2.1.35",
+  ],
+  "mimic-fn": Array [
+    "2.1.0",
+  ],
+  "minimatch": Array [
+    "3.0.4",
+    "3.1.2",
+    "5.1.0",
+  ],
+  "minipass": Array [
+    "3.3.5",
+  ],
+  "minipass-collect": Array [
+    "1.0.2",
+  ],
+  "minipass-fetch": Array [
+    "2.1.0",
+  ],
+  "minipass-flush": Array [
+    "1.0.5",
+  ],
+  "minipass-pipeline": Array [
+    "1.2.4",
+  ],
+  "minipass-sized": Array [
+    "1.0.3",
+  ],
+  "minizlib": Array [
+    "2.1.2",
+  ],
+  "mkdirp": Array [
+    "1.0.4",
+  ],
+  "ms": Array [
+    "2.1.2",
+    "2.1.3",
+  ],
+  "natural-compare": Array [
+    "1.4.0",
+  ],
+  "negotiator": Array [
+    "0.6.3",
+  ],
+  "node-gyp": Array [
+    "9.1.0",
+  ],
+  "node-int64": Array [
+    "0.4.0",
+  ],
+  "node-releases": Array [
+    "2.0.6",
+  ],
+  "nopt": Array [
+    "5.0.0",
+  ],
+  "normalize-path": Array [
+    "3.0.0",
+  ],
+  "npm-run-path": Array [
+    "4.0.1",
+  ],
+  "npmlog": Array [
+    "6.0.2",
+  ],
+  "nwsapi": Array [
+    "2.2.1",
+  ],
+  "once": Array [
+    "1.4.0",
+  ],
+  "onetime": Array [
+    "5.1.2",
+  ],
+  "optionator": Array [
+    "0.8.3",
+  ],
+  "p-limit": Array [
+    "2.3.0",
+  ],
+  "p-locate": Array [
+    "4.1.0",
+  ],
+  "p-map": Array [
+    "4.0.0",
+  ],
+  "p-try": Array [
+    "2.2.0",
+  ],
+  "parse-json": Array [
+    "5.2.0",
+  ],
+  "parse5": Array [
+    "6.0.1",
+  ],
+  "path-exists": Array [
+    "4.0.0",
+  ],
+  "path-is-absolute": Array [
+    "1.0.1",
+  ],
+  "path-key": Array [
+    "3.1.1",
+  ],
+  "path-parse": Array [
+    "1.0.7",
+  ],
+  "picocolors": Array [
+    "1.0.0",
+  ],
+  "picomatch": Array [
+    "2.3.0",
+  ],
+  "pirates": Array [
+    "4.0.5",
+  ],
+  "pkg-dir": Array [
+    "4.2.0",
+  ],
+  "prelude-ls": Array [
+    "1.1.2",
+  ],
+  "pretty-format": Array [
+    "26.6.2",
+    "27.5.1",
+  ],
+  "promise-inflight": Array [
+    "1.0.1",
+  ],
+  "promise-retry": Array [
+    "2.0.1",
+  ],
+  "prompts": Array [
+    "2.4.1",
+  ],
+  "psl": Array [
+    "1.9.0",
+  ],
+  "punycode": Array [
+    "2.1.1",
+  ],
+  "react-is": Array [
+    "17.0.2",
+  ],
+  "readable-stream": Array [
+    "3.6.0",
+  ],
+  "require-directory": Array [
+    "2.1.1",
+  ],
+  "require-main-filename": Array [
+    "2.0.0",
+  ],
+  "resolve": Array [
+    "1.20.0",
+  ],
+  "resolve-cwd": Array [
+    "3.0.0",
+  ],
+  "resolve-from": Array [
+    "5.0.0",
+  ],
+  "resolve.exports": Array [
+    "1.1.0",
+  ],
+  "resolve>::version=1.20.0&hash=07638b": Array [
+    "1.20.0",
+  ],
+  "retry": Array [
+    "0.12.0",
+  ],
+  "rimraf": Array [
+    "3.0.2",
+  ],
+  "safe-buffer": Array [
+    "5.1.2",
+    "5.2.1",
+  ],
+  "safer-buffer": Array [
+    "2.1.2",
+  ],
+  "saxes": Array [
+    "5.0.1",
+  ],
+  "semver": Array [
+    "6.3.0",
+    "7.3.7",
+  ],
+  "set-blocking": Array [
+    "2.0.0",
+  ],
+  "shebang-command": Array [
+    "2.0.0",
+  ],
+  "shebang-regex": Array [
+    "3.0.0",
+  ],
+  "signal-exit": Array [
+    "3.0.7",
+  ],
+  "sisteransi": Array [
+    "1.0.5",
+  ],
+  "slash": Array [
+    "3.0.0",
+  ],
+  "smart-buffer": Array [
+    "4.2.0",
+  ],
+  "socks": Array [
+    "2.7.0",
+  ],
+  "socks-proxy-agent": Array [
+    "7.0.0",
+  ],
+  "source-map": Array [
+    "0.6.1",
+    "0.7.4",
+  ],
+  "source-map-support": Array [
+    "0.5.21",
+  ],
+  "split-smartly2": Array [
+    "workspace:.",
+  ],
+  "sprintf-js": Array [
+    "1.0.3",
+  ],
+  "ssri": Array [
+    "9.0.1",
+  ],
+  "stack-utils": Array [
+    "2.0.3",
+  ],
+  "string-length": Array [
+    "4.0.2",
+  ],
+  "string-width": Array [
+    "4.2.3",
+  ],
+  "string_decoder": Array [
+    "1.3.0",
+  ],
+  "strip-ansi": Array [
+    "6.0.1",
+  ],
+  "strip-bom": Array [
+    "4.0.0",
+  ],
+  "strip-final-newline": Array [
+    "2.0.0",
+  ],
+  "strip-json-comments": Array [
+    "3.1.1",
+  ],
+  "supports-color": Array [
+    "5.5.0",
+    "7.2.0",
+    "8.1.1",
+  ],
+  "supports-hyperlinks": Array [
+    "2.2.0",
+  ],
+  "symbol-tree": Array [
+    "3.2.4",
+  ],
+  "tar": Array [
+    "6.1.11",
+  ],
+  "terminal-link": Array [
+    "2.1.1",
+  ],
+  "test-exclude": Array [
+    "6.0.0",
+  ],
+  "throat": Array [
+    "6.0.1",
+  ],
+  "tmpl": Array [
+    "1.0.5",
+  ],
+  "to-fast-properties": Array [
+    "2.0.0",
+  ],
+  "to-regex-range": Array [
+    "5.0.1",
+  ],
+  "tough-cookie": Array [
+    "4.0.0",
+  ],
+  "tr46": Array [
+    "2.1.0",
+  ],
+  "ts-type": Array [
+    "1.2.40",
+  ],
+  "tslib": Array [
+    "2.4.0",
+  ],
+  "type-check": Array [
+    "0.3.2",
+  ],
+  "type-detect": Array [
+    "4.0.8",
+  ],
+  "type-fest": Array [
+    "0.21.3",
+  ],
+  "typedarray-dts": Array [
+    "1.0.0",
+  ],
+  "typedarray-to-buffer": Array [
+    "3.1.5",
+  ],
+  "typescript": Array [
+    "4.7.4",
+  ],
+  "typescript>::version=4.7.4&hash=f456af": Array [
+    "4.7.4",
+  ],
+  "unique-filename": Array [
+    "1.1.1",
+  ],
+  "unique-slug": Array [
+    "2.0.2",
+  ],
+  "universalify": Array [
+    "0.1.2",
+  ],
+  "update-browserslist-db": Array [
+    "1.0.5",
+  ],
+  "util-deprecate": Array [
+    "1.0.2",
+  ],
+  "v8-to-istanbul": Array [
+    "8.1.1",
+  ],
+  "w3c-hr-time": Array [
+    "1.0.2",
+  ],
+  "w3c-xmlserializer": Array [
+    "2.0.0",
+  ],
+  "walker": Array [
+    "1.0.8",
+  ],
+  "webidl-conversions": Array [
+    "5.0.0",
+    "6.1.0",
+  ],
+  "whatwg-encoding": Array [
+    "1.0.5",
+  ],
+  "whatwg-mimetype": Array [
+    "2.3.0",
+  ],
+  "whatwg-url": Array [
+    "8.7.0",
+  ],
+  "which": Array [
+    "2.0.2",
+  ],
+  "which-module": Array [
+    "2.0.0",
+  ],
+  "wide-align": Array [
+    "1.1.5",
+  ],
+  "word-wrap": Array [
+    "1.2.3",
+  ],
+  "wrap-ansi": Array [
+    "6.2.0",
+    "7.0.0",
+  ],
+  "wrappy": Array [
+    "1.0.2",
+  ],
+  "write-file-atomic": Array [
+    "3.0.3",
+  ],
+  "ws": Array [
+    "7.5.9",
+  ],
+  "xml-name-validator": Array [
+    "3.0.0",
+  ],
+  "xmlchars": Array [
+    "2.2.0",
+  ],
+  "y18n": Array [
+    "4.0.3",
+    "5.0.8",
+  ],
+  "yallist": Array [
+    "4.0.0",
+  ],
+  "yargs": Array [
+    "15.4.1",
+    "16.2.0",
+  ],
+  "yargs-parser": Array [
+    "18.1.3",
+    "20.2.9",
+  ],
+}
+`;
+
+exports[`buildComputedPackage a/v3/yarn-2.lock 1`] = `
+Object {
+  "@ampproject/remapping": Array [
+    "2.2.0",
+  ],
+  "@babel/code-frame": Array [
+    "7.18.6",
+  ],
+  "@babel/compat-data": Array [
+    "7.18.8",
+  ],
+  "@babel/core": Array [
+    "7.18.10",
+  ],
+  "@babel/generator": Array [
+    "7.18.12",
+  ],
+  "@babel/helper-compilation-targets": Array [
+    "7.18.9",
+  ],
+  "@babel/helper-environment-visitor": Array [
+    "7.18.9",
+  ],
+  "@babel/helper-function-name": Array [
+    "7.18.9",
+  ],
+  "@babel/helper-hoist-variables": Array [
+    "7.18.6",
+  ],
+  "@babel/helper-module-imports": Array [
+    "7.18.6",
+  ],
+  "@babel/helper-module-transforms": Array [
+    "7.18.9",
+  ],
+  "@babel/helper-plugin-utils": Array [
+    "7.14.5",
+  ],
+  "@babel/helper-simple-access": Array [
+    "7.18.6",
+  ],
+  "@babel/helper-split-export-declaration": Array [
+    "7.18.6",
+  ],
+  "@babel/helper-string-parser": Array [
+    "7.18.10",
+  ],
+  "@babel/helper-validator-identifier": Array [
+    "7.18.6",
+  ],
+  "@babel/helper-validator-option": Array [
+    "7.18.6",
+  ],
+  "@babel/helpers": Array [
+    "7.18.9",
+  ],
+  "@babel/highlight": Array [
+    "7.18.6",
+  ],
+  "@babel/parser": Array [
+    "7.18.11",
+  ],
+  "@babel/plugin-syntax-async-generators": Array [
+    "7.8.4",
+  ],
+  "@babel/plugin-syntax-bigint": Array [
+    "7.8.3",
+  ],
+  "@babel/plugin-syntax-class-properties": Array [
+    "7.12.13",
+  ],
+  "@babel/plugin-syntax-import-meta": Array [
+    "7.10.4",
+  ],
+  "@babel/plugin-syntax-json-strings": Array [
+    "7.8.3",
+  ],
+  "@babel/plugin-syntax-logical-assignment-operators": Array [
+    "7.10.4",
+  ],
+  "@babel/plugin-syntax-nullish-coalescing-operator": Array [
+    "7.8.3",
+  ],
+  "@babel/plugin-syntax-numeric-separator": Array [
+    "7.10.4",
+  ],
+  "@babel/plugin-syntax-object-rest-spread": Array [
+    "7.8.3",
+  ],
+  "@babel/plugin-syntax-optional-catch-binding": Array [
+    "7.8.3",
+  ],
+  "@babel/plugin-syntax-optional-chaining": Array [
+    "7.8.3",
+  ],
+  "@babel/plugin-syntax-top-level-await": Array [
+    "7.14.5",
+  ],
+  "@babel/plugin-syntax-typescript": Array [
+    "7.14.5",
+  ],
+  "@babel/template": Array [
+    "7.18.10",
+  ],
+  "@babel/traverse": Array [
+    "7.18.11",
+  ],
+  "@babel/types": Array [
+    "7.18.10",
+  ],
+  "@bcoe/v8-coverage": Array [
+    "0.2.3",
+  ],
+  "@bluelovers/tsconfig": Array [
+    "1.0.30",
+  ],
+  "@gar/promisify": Array [
+    "1.1.3",
+  ],
+  "@istanbuljs/load-nyc-config": Array [
+    "1.1.0",
+  ],
+  "@istanbuljs/schema": Array [
+    "0.1.3",
+  ],
+  "@jest/console": Array [
+    "28.1.3",
+  ],
+  "@jest/core": Array [
+    "28.1.3",
+  ],
+  "@jest/environment": Array [
+    "28.1.3",
+  ],
+  "@jest/expect": Array [
+    "28.1.3",
+  ],
+  "@jest/expect-utils": Array [
+    "28.1.3",
+  ],
+  "@jest/fake-timers": Array [
+    "28.1.3",
+  ],
+  "@jest/globals": Array [
+    "28.1.3",
+  ],
+  "@jest/reporters": Array [
+    "28.1.3",
+  ],
+  "@jest/schemas": Array [
+    "28.1.3",
+  ],
+  "@jest/source-map": Array [
+    "28.1.2",
+  ],
+  "@jest/test-result": Array [
+    "28.1.3",
+  ],
+  "@jest/test-sequencer": Array [
+    "28.1.3",
+  ],
+  "@jest/transform": Array [
+    "28.1.3",
+  ],
+  "@jest/types": Array [
+    "28.1.3",
+  ],
+  "@jridgewell/gen-mapping": Array [
+    "0.1.1",
+    "0.3.2",
+  ],
+  "@jridgewell/resolve-uri": Array [
+    "3.1.0",
+  ],
+  "@jridgewell/set-array": Array [
+    "1.1.2",
+  ],
+  "@jridgewell/sourcemap-codec": Array [
+    "1.4.14",
+  ],
+  "@jridgewell/trace-mapping": Array [
+    "0.3.14",
+  ],
+  "@npmcli/fs": Array [
+    "2.1.1",
+  ],
+  "@npmcli/move-file": Array [
+    "2.0.0",
+  ],
+  "@sinclair/typebox": Array [
+    "0.24.27",
+  ],
+  "@sinonjs/commons": Array [
+    "1.8.3",
+  ],
+  "@sinonjs/fake-timers": Array [
+    "9.1.2",
+  ],
+  "@tootallnate/once": Array [
+    "2.0.0",
+  ],
+  "@types/babel__core": Array [
+    "7.1.14",
+  ],
+  "@types/babel__generator": Array [
+    "7.6.2",
+  ],
+  "@types/babel__template": Array [
+    "7.4.0",
+  ],
+  "@types/babel__traverse": Array [
+    "7.14.0",
+  ],
+  "@types/graceful-fs": Array [
+    "4.1.5",
+  ],
+  "@types/istanbul-lib-coverage": Array [
+    "2.0.3",
+  ],
+  "@types/istanbul-lib-report": Array [
+    "3.0.0",
+  ],
+  "@types/istanbul-reports": Array [
+    "3.0.1",
+  ],
+  "@types/jest": Array [
+    "28.1.6",
+  ],
+  "@types/node": Array [
+    "15.12.5",
+  ],
+  "@types/prettier": Array [
+    "2.3.0",
+  ],
+  "@types/stack-utils": Array [
+    "2.0.0",
+  ],
+  "@types/yargs": Array [
+    "17.0.11",
+  ],
+  "@types/yargs-parser": Array [
+    "20.2.0",
+  ],
+  "abbrev": Array [
+    "1.1.1",
+  ],
+  "agent-base": Array [
+    "6.0.2",
+  ],
+  "agentkeepalive": Array [
+    "4.2.1",
+  ],
+  "aggregate-error": Array [
+    "3.1.0",
+  ],
+  "ansi-escapes": Array [
+    "4.3.2",
+  ],
+  "ansi-regex": Array [
+    "5.0.1",
+  ],
+  "ansi-styles": Array [
+    "3.2.1",
+    "4.3.0",
+    "5.2.0",
+  ],
+  "anymatch": Array [
+    "3.1.2",
+  ],
+  "aproba": Array [
+    "2.0.0",
+  ],
+  "are-we-there-yet": Array [
+    "3.0.1",
+  ],
+  "argparse": Array [
+    "1.0.10",
+  ],
+  "babel-jest": Array [
+    "28.1.3",
+  ],
+  "babel-plugin-istanbul": Array [
+    "6.1.1",
+  ],
+  "babel-plugin-jest-hoist": Array [
+    "28.1.3",
+  ],
+  "babel-preset-current-node-syntax": Array [
+    "1.0.1",
+  ],
+  "babel-preset-jest": Array [
+    "28.1.3",
+  ],
+  "balanced-match": Array [
+    "1.0.2",
+  ],
+  "brace-expansion": Array [
+    "1.1.11",
+    "2.0.1",
+  ],
+  "braces": Array [
+    "3.0.2",
+  ],
+  "browserslist": Array [
+    "4.21.3",
+  ],
+  "bser": Array [
+    "2.1.1",
+  ],
+  "buffer-from": Array [
+    "1.1.1",
+  ],
+  "cacache": Array [
+    "16.1.1",
+  ],
+  "callsites": Array [
+    "3.1.0",
+  ],
+  "camelcase": Array [
+    "5.3.1",
+    "6.2.0",
+  ],
+  "caniuse-lite": Array [
+    "1.0.30001375",
+  ],
+  "chalk": Array [
+    "2.4.2",
+    "4.1.1",
+  ],
+  "char-regex": Array [
+    "1.0.2",
+  ],
+  "chownr": Array [
+    "2.0.0",
+  ],
+  "ci-info": Array [
+    "3.3.2",
+  ],
+  "cjs-module-lexer": Array [
+    "1.2.1",
+  ],
+  "clean-stack": Array [
+    "2.2.0",
+  ],
+  "cliui": Array [
+    "7.0.4",
+  ],
+  "co": Array [
+    "4.6.0",
+  ],
+  "collect-v8-coverage": Array [
+    "1.0.1",
+  ],
+  "color-convert": Array [
+    "1.9.3",
+    "2.0.1",
+  ],
+  "color-name": Array [
+    "1.1.3",
+    "1.1.4",
+  ],
+  "color-support": Array [
+    "1.1.3",
+  ],
+  "concat-map": Array [
+    "0.0.1",
+  ],
+  "console-control-strings": Array [
+    "1.1.0",
+  ],
+  "convert-source-map": Array [
+    "1.8.0",
+  ],
+  "cross-spawn": Array [
+    "7.0.3",
+  ],
+  "debug": Array [
+    "4.3.1",
+    "4.3.4",
+  ],
+  "dedent": Array [
+    "0.7.0",
+  ],
+  "deepmerge": Array [
+    "4.2.2",
+  ],
+  "delegates": Array [
+    "1.0.0",
+  ],
+  "depd": Array [
+    "1.1.2",
+  ],
+  "detect-newline": Array [
+    "3.1.0",
+  ],
+  "diff-sequences": Array [
+    "28.1.1",
+  ],
+  "electron-to-chromium": Array [
+    "1.4.214",
+  ],
+  "emittery": Array [
+    "0.10.2",
+  ],
+  "emoji-regex": Array [
+    "8.0.0",
+  ],
+  "encoding": Array [
+    "0.1.13",
+  ],
+  "env-paths": Array [
+    "2.2.1",
+  ],
+  "err-code": Array [
+    "2.0.3",
+  ],
+  "error-ex": Array [
+    "1.3.2",
+  ],
+  "escalade": Array [
+    "3.1.1",
+  ],
+  "escape-string-regexp": Array [
+    "1.0.5",
+    "2.0.0",
+  ],
+  "esprima": Array [
+    "4.0.1",
+  ],
+  "execa": Array [
+    "5.1.1",
+  ],
+  "exit": Array [
+    "0.1.2",
+  ],
+  "expect": Array [
+    "28.1.3",
+  ],
+  "fast-json-stable-stringify": Array [
+    "2.1.0",
+  ],
+  "fb-watchman": Array [
+    "2.0.1",
+  ],
+  "fill-range": Array [
+    "7.0.1",
+  ],
+  "find-up": Array [
+    "4.1.0",
+  ],
+  "fs-minipass": Array [
+    "2.1.0",
+  ],
+  "fs.realpath": Array [
+    "1.0.0",
+  ],
+  "fsevents": Array [
+    "2.3.2",
+  ],
+  "fsevents>::version=2.3.2&hash=18f3a7": Array [
+    "2.3.2",
+  ],
+  "function-bind": Array [
+    "1.1.1",
+  ],
+  "gauge": Array [
+    "4.0.4",
+  ],
+  "gensync": Array [
+    "1.0.0-beta.2",
+  ],
+  "get-caller-file": Array [
+    "2.0.5",
+  ],
+  "get-package-type": Array [
+    "0.1.0",
+  ],
+  "get-stream": Array [
+    "6.0.1",
+  ],
+  "glob": Array [
+    "7.1.7",
+    "8.0.3",
+  ],
+  "globals": Array [
+    "11.12.0",
+  ],
+  "graceful-fs": Array [
+    "4.2.10",
+  ],
+  "has": Array [
+    "1.0.3",
+  ],
+  "has-flag": Array [
+    "3.0.0",
+    "4.0.0",
+  ],
+  "has-unicode": Array [
+    "2.0.1",
+  ],
+  "html-escaper": Array [
+    "2.0.2",
+  ],
+  "http-cache-semantics": Array [
+    "4.1.0",
+  ],
+  "http-proxy-agent": Array [
+    "5.0.0",
+  ],
+  "https-proxy-agent": Array [
+    "5.0.1",
+  ],
+  "human-signals": Array [
+    "2.1.0",
+  ],
+  "humanize-ms": Array [
+    "1.2.1",
+  ],
+  "iconv-lite": Array [
+    "0.6.3",
+  ],
+  "import-local": Array [
+    "3.0.2",
+  ],
+  "imurmurhash": Array [
+    "0.1.4",
+  ],
+  "indent-string": Array [
+    "4.0.0",
+  ],
+  "infer-owner": Array [
+    "1.0.4",
+  ],
+  "inflight": Array [
+    "1.0.6",
+  ],
+  "inherits": Array [
+    "2.0.4",
+  ],
+  "ip": Array [
+    "2.0.0",
+  ],
+  "is-arrayish": Array [
+    "0.2.1",
+  ],
+  "is-core-module": Array [
+    "2.4.0",
+  ],
+  "is-fullwidth-code-point": Array [
+    "3.0.0",
+  ],
+  "is-generator-fn": Array [
+    "2.1.0",
+  ],
+  "is-lambda": Array [
+    "1.0.1",
+  ],
+  "is-number": Array [
+    "7.0.0",
+  ],
+  "is-stream": Array [
+    "2.0.0",
+  ],
+  "isexe": Array [
+    "2.0.0",
+  ],
+  "istanbul-lib-coverage": Array [
+    "3.2.0",
+  ],
+  "istanbul-lib-instrument": Array [
+    "5.2.0",
+  ],
+  "istanbul-lib-report": Array [
+    "3.0.0",
+  ],
+  "istanbul-lib-source-maps": Array [
+    "4.0.0",
+  ],
+  "istanbul-reports": Array [
+    "3.1.5",
+  ],
+  "jest": Array [
+    "28.1.3",
+  ],
+  "jest-changed-files": Array [
+    "28.1.3",
+  ],
+  "jest-circus": Array [
+    "28.1.3",
+  ],
+  "jest-cli": Array [
+    "28.1.3",
+  ],
+  "jest-config": Array [
+    "28.1.3",
+  ],
+  "jest-diff": Array [
+    "28.1.3",
+  ],
+  "jest-docblock": Array [
+    "28.1.1",
+  ],
+  "jest-each": Array [
+    "28.1.3",
+  ],
+  "jest-environment-node": Array [
+    "28.1.3",
+  ],
+  "jest-get-type": Array [
+    "28.0.2",
+  ],
+  "jest-haste-map": Array [
+    "28.1.3",
+  ],
+  "jest-leak-detector": Array [
+    "28.1.3",
+  ],
+  "jest-matcher-utils": Array [
+    "28.1.3",
+  ],
+  "jest-message-util": Array [
+    "28.1.3",
+  ],
+  "jest-mock": Array [
+    "28.1.3",
+  ],
+  "jest-pnp-resolver": Array [
+    "1.2.2",
+  ],
+  "jest-regex-util": Array [
+    "28.0.2",
+  ],
+  "jest-resolve": Array [
+    "28.1.3",
+  ],
+  "jest-resolve-dependencies": Array [
+    "28.1.3",
+  ],
+  "jest-runner": Array [
+    "28.1.3",
+  ],
+  "jest-runtime": Array [
+    "28.1.3",
+  ],
+  "jest-snapshot": Array [
+    "28.1.3",
+  ],
+  "jest-util": Array [
+    "28.1.3",
+  ],
+  "jest-validate": Array [
+    "28.1.3",
+  ],
+  "jest-watcher": Array [
+    "28.1.3",
+  ],
+  "jest-worker": Array [
+    "28.1.3",
+  ],
+  "js-tokens": Array [
+    "4.0.0",
+  ],
+  "js-yaml": Array [
+    "3.14.1",
+  ],
+  "jsesc": Array [
+    "2.5.2",
+  ],
+  "json-parse-even-better-errors": Array [
+    "2.3.1",
+  ],
+  "json5": Array [
+    "2.2.1",
+  ],
+  "kleur": Array [
+    "3.0.3",
+  ],
+  "leven": Array [
+    "3.1.0",
+  ],
+  "lines-and-columns": Array [
+    "1.2.4",
+  ],
+  "locate-path": Array [
+    "5.0.0",
+  ],
+  "lru-cache": Array [
+    "6.0.0",
+    "7.13.2",
+  ],
+  "make-dir": Array [
+    "3.1.0",
+  ],
+  "make-fetch-happen": Array [
+    "10.2.0",
+  ],
+  "makeerror": Array [
+    "1.0.12",
+  ],
+  "merge-stream": Array [
+    "2.0.0",
+  ],
+  "micromatch": Array [
+    "4.0.4",
+  ],
+  "mimic-fn": Array [
+    "2.1.0",
+  ],
+  "minimatch": Array [
+    "3.0.4",
+    "5.1.0",
+  ],
+  "minipass": Array [
+    "3.3.5",
+  ],
+  "minipass-collect": Array [
+    "1.0.2",
+  ],
+  "minipass-fetch": Array [
+    "2.1.0",
+  ],
+  "minipass-flush": Array [
+    "1.0.5",
+  ],
+  "minipass-pipeline": Array [
+    "1.2.4",
+  ],
+  "minipass-sized": Array [
+    "1.0.3",
+  ],
+  "minizlib": Array [
+    "2.1.2",
+  ],
+  "mkdirp": Array [
+    "1.0.4",
+  ],
+  "ms": Array [
+    "2.1.2",
+    "2.1.3",
+  ],
+  "natural-compare": Array [
+    "1.4.0",
+  ],
+  "negotiator": Array [
+    "0.6.3",
+  ],
+  "node-gyp": Array [
+    "9.1.0",
+  ],
+  "node-int64": Array [
+    "0.4.0",
+  ],
+  "node-releases": Array [
+    "2.0.6",
+  ],
+  "nopt": Array [
+    "5.0.0",
+  ],
+  "normalize-path": Array [
+    "3.0.0",
+  ],
+  "npm-run-path": Array [
+    "4.0.1",
+  ],
+  "npmlog": Array [
+    "6.0.2",
+  ],
+  "once": Array [
+    "1.4.0",
+  ],
+  "onetime": Array [
+    "5.1.2",
+  ],
+  "p-limit": Array [
+    "2.3.0",
+    "3.1.0",
+  ],
+  "p-locate": Array [
+    "4.1.0",
+  ],
+  "p-map": Array [
+    "4.0.0",
+  ],
+  "p-try": Array [
+    "2.2.0",
+  ],
+  "parse-json": Array [
+    "5.2.0",
+  ],
+  "path-exists": Array [
+    "4.0.0",
+  ],
+  "path-is-absolute": Array [
+    "1.0.1",
+  ],
+  "path-key": Array [
+    "3.1.1",
+  ],
+  "path-parse": Array [
+    "1.0.7",
+  ],
+  "picocolors": Array [
+    "1.0.0",
+  ],
+  "picomatch": Array [
+    "2.3.0",
+  ],
+  "pirates": Array [
+    "4.0.5",
+  ],
+  "pkg-dir": Array [
+    "4.2.0",
+  ],
+  "pretty-format": Array [
+    "28.1.3",
+  ],
+  "promise-inflight": Array [
+    "1.0.1",
+  ],
+  "promise-retry": Array [
+    "2.0.1",
+  ],
+  "prompts": Array [
+    "2.4.1",
+  ],
+  "react-is": Array [
+    "18.2.0",
+  ],
+  "readable-stream": Array [
+    "3.6.0",
+  ],
+  "require-directory": Array [
+    "2.1.1",
+  ],
+  "resolve": Array [
+    "1.20.0",
+  ],
+  "resolve-cwd": Array [
+    "3.0.0",
+  ],
+  "resolve-from": Array [
+    "5.0.0",
+  ],
+  "resolve.exports": Array [
+    "1.1.0",
+  ],
+  "resolve>::version=1.20.0&hash=07638b": Array [
+    "1.20.0",
+  ],
+  "retry": Array [
+    "0.12.0",
+  ],
+  "rimraf": Array [
+    "3.0.2",
+  ],
+  "safe-buffer": Array [
+    "5.1.2",
+    "5.2.1",
+  ],
+  "safer-buffer": Array [
+    "2.1.2",
+  ],
+  "semver": Array [
+    "6.3.0",
+    "7.3.7",
+  ],
+  "set-blocking": Array [
+    "2.0.0",
+  ],
+  "shebang-command": Array [
+    "2.0.0",
+  ],
+  "shebang-regex": Array [
+    "3.0.0",
+  ],
+  "signal-exit": Array [
+    "3.0.7",
+  ],
+  "sisteransi": Array [
+    "1.0.5",
+  ],
+  "slash": Array [
+    "3.0.0",
+  ],
+  "smart-buffer": Array [
+    "4.2.0",
+  ],
+  "socks": Array [
+    "2.7.0",
+  ],
+  "socks-proxy-agent": Array [
+    "7.0.0",
+  ],
+  "source-map": Array [
+    "0.6.1",
+  ],
+  "source-map-support": Array [
+    "0.5.13",
+  ],
+  "split-smartly2": Array [
+    "workspace:.",
+  ],
+  "sprintf-js": Array [
+    "1.0.3",
+  ],
+  "ssri": Array [
+    "9.0.1",
+  ],
+  "stack-utils": Array [
+    "2.0.3",
+  ],
+  "string-length": Array [
+    "4.0.2",
+  ],
+  "string-width": Array [
+    "4.2.3",
+  ],
+  "string_decoder": Array [
+    "1.3.0",
+  ],
+  "strip-ansi": Array [
+    "6.0.1",
+  ],
+  "strip-bom": Array [
+    "4.0.0",
+  ],
+  "strip-final-newline": Array [
+    "2.0.0",
+  ],
+  "strip-json-comments": Array [
+    "3.1.1",
+  ],
+  "supports-color": Array [
+    "5.5.0",
+    "7.2.0",
+    "8.1.1",
+  ],
+  "supports-hyperlinks": Array [
+    "2.2.0",
+  ],
+  "tar": Array [
+    "6.1.11",
+  ],
+  "terminal-link": Array [
+    "2.1.1",
+  ],
+  "test-exclude": Array [
+    "6.0.0",
+  ],
+  "tmpl": Array [
+    "1.0.5",
+  ],
+  "to-fast-properties": Array [
+    "2.0.0",
+  ],
+  "to-regex-range": Array [
+    "5.0.1",
+  ],
+  "ts-type": Array [
+    "2.1.10",
+  ],
+  "tslib": Array [
+    "2.4.0",
+  ],
+  "type-detect": Array [
+    "4.0.8",
+  ],
+  "type-fest": Array [
+    "0.21.3",
+  ],
+  "typedarray-dts": Array [
+    "1.0.0",
+  ],
+  "unique-filename": Array [
+    "1.1.1",
+  ],
+  "unique-slug": Array [
+    "2.0.2",
+  ],
+  "update-browserslist-db": Array [
+    "1.0.5",
+  ],
+  "util-deprecate": Array [
+    "1.0.2",
+  ],
+  "v8-to-istanbul": Array [
+    "9.0.1",
+  ],
+  "walker": Array [
+    "1.0.8",
+  ],
+  "which": Array [
+    "2.0.2",
+  ],
+  "wide-align": Array [
+    "1.1.5",
+  ],
+  "wrap-ansi": Array [
+    "7.0.0",
+  ],
+  "wrappy": Array [
+    "1.0.2",
+  ],
+  "write-file-atomic": Array [
+    "4.0.1",
+  ],
+  "y18n": Array [
+    "5.0.8",
+  ],
+  "yallist": Array [
+    "4.0.0",
+  ],
+  "yargs": Array [
+    "17.5.1",
+  ],
+  "yargs-parser": Array [
+    "21.1.1",
+  ],
+  "yocto-queue": Array [
+    "0.1.0",
+  ],
+}
+`;
+
 exports[`buildComputedPackage a/yarn.lock 1`] = `
 Object {
   "@babel/code-frame": Array [
@@ -2871,6 +5105,2056 @@ Object {
   ],
   "yarn": Array [
     "2.0.0-rc.27",
+  ],
+}
+`;
+
+exports[`buildComputedPackage b/v3/yarn.lock 1`] = `
+Object {
+  "@ampproject/remapping": Array [
+    "2.2.0",
+  ],
+  "@babel/code-frame": Array [
+    "7.18.6",
+  ],
+  "@babel/compat-data": Array [
+    "7.18.8",
+  ],
+  "@babel/core": Array [
+    "7.18.10",
+  ],
+  "@babel/generator": Array [
+    "7.18.12",
+  ],
+  "@babel/helper-compilation-targets": Array [
+    "7.18.9",
+  ],
+  "@babel/helper-environment-visitor": Array [
+    "7.18.9",
+  ],
+  "@babel/helper-function-name": Array [
+    "7.18.9",
+  ],
+  "@babel/helper-hoist-variables": Array [
+    "7.18.6",
+  ],
+  "@babel/helper-module-imports": Array [
+    "7.18.6",
+  ],
+  "@babel/helper-module-transforms": Array [
+    "7.18.9",
+  ],
+  "@babel/helper-plugin-utils": Array [
+    "7.14.5",
+  ],
+  "@babel/helper-simple-access": Array [
+    "7.18.6",
+  ],
+  "@babel/helper-split-export-declaration": Array [
+    "7.18.6",
+  ],
+  "@babel/helper-string-parser": Array [
+    "7.18.10",
+  ],
+  "@babel/helper-validator-identifier": Array [
+    "7.18.6",
+  ],
+  "@babel/helper-validator-option": Array [
+    "7.18.6",
+  ],
+  "@babel/helpers": Array [
+    "7.18.9",
+  ],
+  "@babel/highlight": Array [
+    "7.18.6",
+  ],
+  "@babel/parser": Array [
+    "7.18.11",
+  ],
+  "@babel/plugin-syntax-async-generators": Array [
+    "7.8.4",
+  ],
+  "@babel/plugin-syntax-bigint": Array [
+    "7.8.3",
+  ],
+  "@babel/plugin-syntax-class-properties": Array [
+    "7.12.13",
+  ],
+  "@babel/plugin-syntax-import-meta": Array [
+    "7.10.4",
+  ],
+  "@babel/plugin-syntax-json-strings": Array [
+    "7.8.3",
+  ],
+  "@babel/plugin-syntax-logical-assignment-operators": Array [
+    "7.10.4",
+  ],
+  "@babel/plugin-syntax-nullish-coalescing-operator": Array [
+    "7.8.3",
+  ],
+  "@babel/plugin-syntax-numeric-separator": Array [
+    "7.10.4",
+  ],
+  "@babel/plugin-syntax-object-rest-spread": Array [
+    "7.8.3",
+  ],
+  "@babel/plugin-syntax-optional-catch-binding": Array [
+    "7.8.3",
+  ],
+  "@babel/plugin-syntax-optional-chaining": Array [
+    "7.8.3",
+  ],
+  "@babel/plugin-syntax-top-level-await": Array [
+    "7.14.5",
+  ],
+  "@babel/plugin-syntax-typescript": Array [
+    "7.14.5",
+  ],
+  "@babel/template": Array [
+    "7.18.10",
+  ],
+  "@babel/traverse": Array [
+    "7.18.11",
+  ],
+  "@babel/types": Array [
+    "7.18.10",
+  ],
+  "@bcoe/v8-coverage": Array [
+    "0.2.3",
+  ],
+  "@bluelovers/tsconfig": Array [
+    "1.0.30",
+  ],
+  "@gar/promisify": Array [
+    "1.1.3",
+  ],
+  "@istanbuljs/load-nyc-config": Array [
+    "1.1.0",
+  ],
+  "@istanbuljs/schema": Array [
+    "0.1.3",
+  ],
+  "@jest/console": Array [
+    "28.1.3",
+  ],
+  "@jest/core": Array [
+    "28.1.3",
+  ],
+  "@jest/environment": Array [
+    "28.1.3",
+  ],
+  "@jest/expect": Array [
+    "28.1.3",
+  ],
+  "@jest/expect-utils": Array [
+    "28.1.3",
+  ],
+  "@jest/fake-timers": Array [
+    "28.1.3",
+  ],
+  "@jest/globals": Array [
+    "28.1.3",
+  ],
+  "@jest/reporters": Array [
+    "28.1.3",
+  ],
+  "@jest/schemas": Array [
+    "28.1.3",
+  ],
+  "@jest/source-map": Array [
+    "28.1.2",
+  ],
+  "@jest/test-result": Array [
+    "28.1.3",
+  ],
+  "@jest/test-sequencer": Array [
+    "28.1.3",
+  ],
+  "@jest/transform": Array [
+    "28.1.3",
+  ],
+  "@jest/types": Array [
+    "28.1.3",
+  ],
+  "@jridgewell/gen-mapping": Array [
+    "0.1.1",
+    "0.3.2",
+  ],
+  "@jridgewell/resolve-uri": Array [
+    "3.1.0",
+  ],
+  "@jridgewell/set-array": Array [
+    "1.1.2",
+  ],
+  "@jridgewell/sourcemap-codec": Array [
+    "1.4.14",
+  ],
+  "@jridgewell/trace-mapping": Array [
+    "0.3.14",
+  ],
+  "@npmcli/fs": Array [
+    "2.1.1",
+  ],
+  "@npmcli/move-file": Array [
+    "2.0.0",
+  ],
+  "@sinclair/typebox": Array [
+    "0.24.27",
+  ],
+  "@sinonjs/commons": Array [
+    "1.8.3",
+  ],
+  "@sinonjs/fake-timers": Array [
+    "9.1.2",
+  ],
+  "@tootallnate/once": Array [
+    "2.0.0",
+  ],
+  "@types/babel__core": Array [
+    "7.1.14",
+  ],
+  "@types/babel__generator": Array [
+    "7.6.2",
+  ],
+  "@types/babel__template": Array [
+    "7.4.0",
+  ],
+  "@types/babel__traverse": Array [
+    "7.14.0",
+  ],
+  "@types/graceful-fs": Array [
+    "4.1.5",
+  ],
+  "@types/istanbul-lib-coverage": Array [
+    "2.0.3",
+  ],
+  "@types/istanbul-lib-report": Array [
+    "3.0.0",
+  ],
+  "@types/istanbul-reports": Array [
+    "3.0.1",
+  ],
+  "@types/jest": Array [
+    "28.1.6",
+  ],
+  "@types/node": Array [
+    "15.12.5",
+  ],
+  "@types/prettier": Array [
+    "2.3.0",
+  ],
+  "@types/stack-utils": Array [
+    "2.0.0",
+  ],
+  "@types/yargs": Array [
+    "17.0.11",
+  ],
+  "@types/yargs-parser": Array [
+    "20.2.0",
+  ],
+  "abbrev": Array [
+    "1.1.1",
+  ],
+  "agent-base": Array [
+    "6.0.2",
+  ],
+  "agentkeepalive": Array [
+    "4.2.1",
+  ],
+  "aggregate-error": Array [
+    "3.1.0",
+  ],
+  "ansi-escapes": Array [
+    "4.3.2",
+  ],
+  "ansi-regex": Array [
+    "5.0.1",
+  ],
+  "ansi-styles": Array [
+    "3.2.1",
+    "4.3.0",
+    "5.2.0",
+  ],
+  "anymatch": Array [
+    "3.1.2",
+  ],
+  "aproba": Array [
+    "2.0.0",
+  ],
+  "are-we-there-yet": Array [
+    "3.0.1",
+  ],
+  "argparse": Array [
+    "1.0.10",
+  ],
+  "babel-jest": Array [
+    "28.1.3",
+  ],
+  "babel-plugin-istanbul": Array [
+    "6.1.1",
+  ],
+  "babel-plugin-jest-hoist": Array [
+    "28.1.3",
+  ],
+  "babel-preset-current-node-syntax": Array [
+    "1.0.1",
+  ],
+  "babel-preset-jest": Array [
+    "28.1.3",
+  ],
+  "balanced-match": Array [
+    "1.0.2",
+  ],
+  "brace-expansion": Array [
+    "1.1.11",
+    "2.0.1",
+  ],
+  "braces": Array [
+    "3.0.2",
+  ],
+  "browserslist": Array [
+    "4.21.3",
+  ],
+  "bser": Array [
+    "2.1.1",
+  ],
+  "buffer-from": Array [
+    "1.1.1",
+  ],
+  "cacache": Array [
+    "16.1.1",
+  ],
+  "callsites": Array [
+    "3.1.0",
+  ],
+  "camelcase": Array [
+    "5.3.1",
+    "6.2.0",
+  ],
+  "caniuse-lite": Array [
+    "1.0.30001375",
+  ],
+  "chalk": Array [
+    "2.4.2",
+    "4.1.1",
+  ],
+  "char-regex": Array [
+    "1.0.2",
+  ],
+  "chownr": Array [
+    "2.0.0",
+  ],
+  "ci-info": Array [
+    "3.3.2",
+  ],
+  "cjs-module-lexer": Array [
+    "1.2.1",
+  ],
+  "clean-stack": Array [
+    "2.2.0",
+  ],
+  "cliui": Array [
+    "7.0.4",
+  ],
+  "co": Array [
+    "4.6.0",
+  ],
+  "collect-v8-coverage": Array [
+    "1.0.1",
+  ],
+  "color-convert": Array [
+    "1.9.3",
+    "2.0.1",
+  ],
+  "color-name": Array [
+    "1.1.3",
+    "1.1.4",
+  ],
+  "color-support": Array [
+    "1.1.3",
+  ],
+  "concat-map": Array [
+    "0.0.1",
+  ],
+  "console-control-strings": Array [
+    "1.1.0",
+  ],
+  "convert-source-map": Array [
+    "1.8.0",
+  ],
+  "cross-spawn": Array [
+    "7.0.3",
+  ],
+  "debug": Array [
+    "4.3.1",
+    "4.3.4",
+  ],
+  "dedent": Array [
+    "0.7.0",
+  ],
+  "deepmerge": Array [
+    "4.2.2",
+  ],
+  "delegates": Array [
+    "1.0.0",
+  ],
+  "depd": Array [
+    "1.1.2",
+  ],
+  "detect-newline": Array [
+    "3.1.0",
+  ],
+  "diff-sequences": Array [
+    "28.1.1",
+  ],
+  "electron-to-chromium": Array [
+    "1.4.214",
+  ],
+  "emittery": Array [
+    "0.10.2",
+  ],
+  "emoji-regex": Array [
+    "8.0.0",
+  ],
+  "encoding": Array [
+    "0.1.13",
+  ],
+  "env-paths": Array [
+    "2.2.1",
+  ],
+  "err-code": Array [
+    "2.0.3",
+  ],
+  "error-ex": Array [
+    "1.3.2",
+  ],
+  "escalade": Array [
+    "3.1.1",
+  ],
+  "escape-string-regexp": Array [
+    "1.0.5",
+    "2.0.0",
+  ],
+  "esprima": Array [
+    "4.0.1",
+  ],
+  "execa": Array [
+    "5.1.1",
+  ],
+  "exit": Array [
+    "0.1.2",
+  ],
+  "expect": Array [
+    "28.1.3",
+  ],
+  "fast-json-stable-stringify": Array [
+    "2.1.0",
+  ],
+  "fb-watchman": Array [
+    "2.0.1",
+  ],
+  "fill-range": Array [
+    "7.0.1",
+  ],
+  "find-up": Array [
+    "4.1.0",
+  ],
+  "fs-minipass": Array [
+    "2.1.0",
+  ],
+  "fs.realpath": Array [
+    "1.0.0",
+  ],
+  "fsevents": Array [
+    "2.3.2",
+  ],
+  "fsevents>::version=2.3.2&hash=18f3a7": Array [
+    "2.3.2",
+  ],
+  "function-bind": Array [
+    "1.1.1",
+  ],
+  "gauge": Array [
+    "4.0.4",
+  ],
+  "gensync": Array [
+    "1.0.0-beta.2",
+  ],
+  "get-caller-file": Array [
+    "2.0.5",
+  ],
+  "get-package-type": Array [
+    "0.1.0",
+  ],
+  "get-stream": Array [
+    "6.0.1",
+  ],
+  "glob": Array [
+    "7.1.7",
+    "8.0.3",
+  ],
+  "globals": Array [
+    "11.12.0",
+  ],
+  "graceful-fs": Array [
+    "4.2.10",
+  ],
+  "has": Array [
+    "1.0.3",
+  ],
+  "has-flag": Array [
+    "3.0.0",
+    "4.0.0",
+  ],
+  "has-unicode": Array [
+    "2.0.1",
+  ],
+  "html-escaper": Array [
+    "2.0.2",
+  ],
+  "http-cache-semantics": Array [
+    "4.1.0",
+  ],
+  "http-proxy-agent": Array [
+    "5.0.0",
+  ],
+  "https-proxy-agent": Array [
+    "5.0.1",
+  ],
+  "human-signals": Array [
+    "2.1.0",
+  ],
+  "humanize-ms": Array [
+    "1.2.1",
+  ],
+  "iconv-lite": Array [
+    "0.6.3",
+  ],
+  "import-local": Array [
+    "3.0.2",
+  ],
+  "imurmurhash": Array [
+    "0.1.4",
+  ],
+  "indent-string": Array [
+    "4.0.0",
+  ],
+  "infer-owner": Array [
+    "1.0.4",
+  ],
+  "inflight": Array [
+    "1.0.6",
+  ],
+  "inherits": Array [
+    "2.0.4",
+  ],
+  "ip": Array [
+    "2.0.0",
+  ],
+  "is-arrayish": Array [
+    "0.2.1",
+  ],
+  "is-core-module": Array [
+    "2.4.0",
+  ],
+  "is-fullwidth-code-point": Array [
+    "3.0.0",
+  ],
+  "is-generator-fn": Array [
+    "2.1.0",
+  ],
+  "is-lambda": Array [
+    "1.0.1",
+  ],
+  "is-number": Array [
+    "7.0.0",
+  ],
+  "is-stream": Array [
+    "2.0.0",
+  ],
+  "isexe": Array [
+    "2.0.0",
+  ],
+  "istanbul-lib-coverage": Array [
+    "3.2.0",
+  ],
+  "istanbul-lib-instrument": Array [
+    "5.2.0",
+  ],
+  "istanbul-lib-report": Array [
+    "3.0.0",
+  ],
+  "istanbul-lib-source-maps": Array [
+    "4.0.0",
+  ],
+  "istanbul-reports": Array [
+    "3.1.5",
+  ],
+  "jest": Array [
+    "28.1.3",
+  ],
+  "jest-changed-files": Array [
+    "28.1.3",
+  ],
+  "jest-circus": Array [
+    "28.1.3",
+  ],
+  "jest-cli": Array [
+    "28.1.3",
+  ],
+  "jest-config": Array [
+    "28.1.3",
+  ],
+  "jest-diff": Array [
+    "28.1.3",
+  ],
+  "jest-docblock": Array [
+    "28.1.1",
+  ],
+  "jest-each": Array [
+    "28.1.3",
+  ],
+  "jest-environment-node": Array [
+    "28.1.3",
+  ],
+  "jest-get-type": Array [
+    "28.0.2",
+  ],
+  "jest-haste-map": Array [
+    "28.1.3",
+  ],
+  "jest-leak-detector": Array [
+    "28.1.3",
+  ],
+  "jest-matcher-utils": Array [
+    "28.1.3",
+  ],
+  "jest-message-util": Array [
+    "28.1.3",
+  ],
+  "jest-mock": Array [
+    "28.1.3",
+  ],
+  "jest-pnp-resolver": Array [
+    "1.2.2",
+  ],
+  "jest-regex-util": Array [
+    "28.0.2",
+  ],
+  "jest-resolve": Array [
+    "28.1.3",
+  ],
+  "jest-resolve-dependencies": Array [
+    "28.1.3",
+  ],
+  "jest-runner": Array [
+    "28.1.3",
+  ],
+  "jest-runtime": Array [
+    "28.1.3",
+  ],
+  "jest-snapshot": Array [
+    "28.1.3",
+  ],
+  "jest-util": Array [
+    "28.1.3",
+  ],
+  "jest-validate": Array [
+    "28.1.3",
+  ],
+  "jest-watcher": Array [
+    "28.1.3",
+  ],
+  "jest-worker": Array [
+    "28.1.3",
+  ],
+  "js-tokens": Array [
+    "4.0.0",
+  ],
+  "js-yaml": Array [
+    "3.14.1",
+  ],
+  "jsesc": Array [
+    "2.5.2",
+  ],
+  "json-parse-even-better-errors": Array [
+    "2.3.1",
+  ],
+  "json5": Array [
+    "2.2.1",
+  ],
+  "kleur": Array [
+    "3.0.3",
+  ],
+  "leven": Array [
+    "3.1.0",
+  ],
+  "lines-and-columns": Array [
+    "1.2.4",
+  ],
+  "locate-path": Array [
+    "5.0.0",
+  ],
+  "lru-cache": Array [
+    "6.0.0",
+    "7.13.2",
+  ],
+  "make-dir": Array [
+    "3.1.0",
+  ],
+  "make-fetch-happen": Array [
+    "10.2.0",
+  ],
+  "makeerror": Array [
+    "1.0.12",
+  ],
+  "merge-stream": Array [
+    "2.0.0",
+  ],
+  "micromatch": Array [
+    "4.0.4",
+  ],
+  "mimic-fn": Array [
+    "2.1.0",
+  ],
+  "minimatch": Array [
+    "3.0.4",
+    "5.1.0",
+  ],
+  "minipass": Array [
+    "3.3.5",
+  ],
+  "minipass-collect": Array [
+    "1.0.2",
+  ],
+  "minipass-fetch": Array [
+    "2.1.0",
+  ],
+  "minipass-flush": Array [
+    "1.0.5",
+  ],
+  "minipass-pipeline": Array [
+    "1.2.4",
+  ],
+  "minipass-sized": Array [
+    "1.0.3",
+  ],
+  "minizlib": Array [
+    "2.1.2",
+  ],
+  "mkdirp": Array [
+    "1.0.4",
+  ],
+  "ms": Array [
+    "2.1.2",
+    "2.1.3",
+  ],
+  "natural-compare": Array [
+    "1.4.0",
+  ],
+  "negotiator": Array [
+    "0.6.3",
+  ],
+  "node-gyp": Array [
+    "9.1.0",
+  ],
+  "node-int64": Array [
+    "0.4.0",
+  ],
+  "node-releases": Array [
+    "2.0.6",
+  ],
+  "nopt": Array [
+    "5.0.0",
+  ],
+  "normalize-path": Array [
+    "3.0.0",
+  ],
+  "npm-run-path": Array [
+    "4.0.1",
+  ],
+  "npmlog": Array [
+    "6.0.2",
+  ],
+  "once": Array [
+    "1.4.0",
+  ],
+  "onetime": Array [
+    "5.1.2",
+  ],
+  "p-limit": Array [
+    "2.3.0",
+    "3.1.0",
+  ],
+  "p-locate": Array [
+    "4.1.0",
+  ],
+  "p-map": Array [
+    "4.0.0",
+  ],
+  "p-try": Array [
+    "2.2.0",
+  ],
+  "parse-json": Array [
+    "5.2.0",
+  ],
+  "path-exists": Array [
+    "4.0.0",
+  ],
+  "path-is-absolute": Array [
+    "1.0.1",
+  ],
+  "path-key": Array [
+    "3.1.1",
+  ],
+  "path-parse": Array [
+    "1.0.7",
+  ],
+  "picocolors": Array [
+    "1.0.0",
+  ],
+  "picomatch": Array [
+    "2.3.0",
+  ],
+  "pirates": Array [
+    "4.0.5",
+  ],
+  "pkg-dir": Array [
+    "4.2.0",
+  ],
+  "pretty-format": Array [
+    "28.1.3",
+  ],
+  "promise-inflight": Array [
+    "1.0.1",
+  ],
+  "promise-retry": Array [
+    "2.0.1",
+  ],
+  "prompts": Array [
+    "2.4.1",
+  ],
+  "react-is": Array [
+    "18.2.0",
+  ],
+  "readable-stream": Array [
+    "3.6.0",
+  ],
+  "require-directory": Array [
+    "2.1.1",
+  ],
+  "resolve": Array [
+    "1.20.0",
+  ],
+  "resolve-cwd": Array [
+    "3.0.0",
+  ],
+  "resolve-from": Array [
+    "5.0.0",
+  ],
+  "resolve.exports": Array [
+    "1.1.0",
+  ],
+  "resolve>::version=1.20.0&hash=07638b": Array [
+    "1.20.0",
+  ],
+  "retry": Array [
+    "0.12.0",
+  ],
+  "rimraf": Array [
+    "3.0.2",
+  ],
+  "safe-buffer": Array [
+    "5.1.2",
+    "5.2.1",
+  ],
+  "safer-buffer": Array [
+    "2.1.2",
+  ],
+  "semver": Array [
+    "6.3.0",
+    "7.3.7",
+  ],
+  "set-blocking": Array [
+    "2.0.0",
+  ],
+  "shebang-command": Array [
+    "2.0.0",
+  ],
+  "shebang-regex": Array [
+    "3.0.0",
+  ],
+  "signal-exit": Array [
+    "3.0.7",
+  ],
+  "sisteransi": Array [
+    "1.0.5",
+  ],
+  "slash": Array [
+    "3.0.0",
+  ],
+  "smart-buffer": Array [
+    "4.2.0",
+  ],
+  "socks": Array [
+    "2.7.0",
+  ],
+  "socks-proxy-agent": Array [
+    "7.0.0",
+  ],
+  "source-map": Array [
+    "0.6.1",
+  ],
+  "source-map-support": Array [
+    "0.5.13",
+  ],
+  "split-smartly2": Array [
+    "workspace:.",
+  ],
+  "sprintf-js": Array [
+    "1.0.3",
+  ],
+  "ssri": Array [
+    "9.0.1",
+  ],
+  "stack-utils": Array [
+    "2.0.3",
+  ],
+  "string-length": Array [
+    "4.0.2",
+  ],
+  "string-width": Array [
+    "4.2.3",
+  ],
+  "string_decoder": Array [
+    "1.3.0",
+  ],
+  "strip-ansi": Array [
+    "6.0.1",
+  ],
+  "strip-bom": Array [
+    "4.0.0",
+  ],
+  "strip-final-newline": Array [
+    "2.0.0",
+  ],
+  "strip-json-comments": Array [
+    "3.1.1",
+  ],
+  "supports-color": Array [
+    "5.5.0",
+    "7.2.0",
+    "8.1.1",
+  ],
+  "supports-hyperlinks": Array [
+    "2.2.0",
+  ],
+  "tar": Array [
+    "6.1.11",
+  ],
+  "terminal-link": Array [
+    "2.1.1",
+  ],
+  "test-exclude": Array [
+    "6.0.0",
+  ],
+  "tmpl": Array [
+    "1.0.5",
+  ],
+  "to-fast-properties": Array [
+    "2.0.0",
+  ],
+  "to-regex-range": Array [
+    "5.0.1",
+  ],
+  "ts-type": Array [
+    "2.1.10",
+  ],
+  "tslib": Array [
+    "2.4.0",
+  ],
+  "type-detect": Array [
+    "4.0.8",
+  ],
+  "type-fest": Array [
+    "0.21.3",
+  ],
+  "typedarray-dts": Array [
+    "1.0.0",
+  ],
+  "unique-filename": Array [
+    "1.1.1",
+  ],
+  "unique-slug": Array [
+    "2.0.2",
+  ],
+  "update-browserslist-db": Array [
+    "1.0.5",
+  ],
+  "util-deprecate": Array [
+    "1.0.2",
+  ],
+  "v8-to-istanbul": Array [
+    "9.0.1",
+  ],
+  "walker": Array [
+    "1.0.8",
+  ],
+  "which": Array [
+    "2.0.2",
+  ],
+  "wide-align": Array [
+    "1.1.5",
+  ],
+  "wrap-ansi": Array [
+    "7.0.0",
+  ],
+  "wrappy": Array [
+    "1.0.2",
+  ],
+  "write-file-atomic": Array [
+    "4.0.1",
+  ],
+  "y18n": Array [
+    "5.0.8",
+  ],
+  "yallist": Array [
+    "4.0.0",
+  ],
+  "yargs": Array [
+    "17.5.1",
+  ],
+  "yargs-parser": Array [
+    "21.1.1",
+  ],
+  "yocto-queue": Array [
+    "0.1.0",
+  ],
+}
+`;
+
+exports[`buildComputedPackage b/v3/yarn-2.lock 1`] = `
+Object {
+  "@ampproject/remapping": Array [
+    "2.2.0",
+  ],
+  "@babel/code-frame": Array [
+    "7.18.6",
+  ],
+  "@babel/compat-data": Array [
+    "7.18.8",
+  ],
+  "@babel/core": Array [
+    "7.18.10",
+  ],
+  "@babel/generator": Array [
+    "7.18.12",
+  ],
+  "@babel/helper-compilation-targets": Array [
+    "7.18.9",
+  ],
+  "@babel/helper-environment-visitor": Array [
+    "7.18.9",
+  ],
+  "@babel/helper-function-name": Array [
+    "7.18.9",
+  ],
+  "@babel/helper-hoist-variables": Array [
+    "7.18.6",
+  ],
+  "@babel/helper-module-imports": Array [
+    "7.18.6",
+  ],
+  "@babel/helper-module-transforms": Array [
+    "7.18.9",
+  ],
+  "@babel/helper-plugin-utils": Array [
+    "7.18.9",
+  ],
+  "@babel/helper-simple-access": Array [
+    "7.18.6",
+  ],
+  "@babel/helper-split-export-declaration": Array [
+    "7.18.6",
+  ],
+  "@babel/helper-string-parser": Array [
+    "7.18.10",
+  ],
+  "@babel/helper-validator-identifier": Array [
+    "7.18.6",
+  ],
+  "@babel/helper-validator-option": Array [
+    "7.18.6",
+  ],
+  "@babel/helpers": Array [
+    "7.18.9",
+  ],
+  "@babel/highlight": Array [
+    "7.18.6",
+  ],
+  "@babel/parser": Array [
+    "7.18.11",
+  ],
+  "@babel/plugin-syntax-async-generators": Array [
+    "7.8.4",
+  ],
+  "@babel/plugin-syntax-bigint": Array [
+    "7.8.3",
+  ],
+  "@babel/plugin-syntax-class-properties": Array [
+    "7.12.13",
+  ],
+  "@babel/plugin-syntax-import-meta": Array [
+    "7.10.4",
+  ],
+  "@babel/plugin-syntax-json-strings": Array [
+    "7.8.3",
+  ],
+  "@babel/plugin-syntax-logical-assignment-operators": Array [
+    "7.10.4",
+  ],
+  "@babel/plugin-syntax-nullish-coalescing-operator": Array [
+    "7.8.3",
+  ],
+  "@babel/plugin-syntax-numeric-separator": Array [
+    "7.10.4",
+  ],
+  "@babel/plugin-syntax-object-rest-spread": Array [
+    "7.8.3",
+  ],
+  "@babel/plugin-syntax-optional-catch-binding": Array [
+    "7.8.3",
+  ],
+  "@babel/plugin-syntax-optional-chaining": Array [
+    "7.8.3",
+  ],
+  "@babel/plugin-syntax-top-level-await": Array [
+    "7.14.5",
+  ],
+  "@babel/plugin-syntax-typescript": Array [
+    "7.18.6",
+  ],
+  "@babel/template": Array [
+    "7.18.10",
+  ],
+  "@babel/traverse": Array [
+    "7.18.11",
+  ],
+  "@babel/types": Array [
+    "7.18.10",
+  ],
+  "@bcoe/v8-coverage": Array [
+    "0.2.3",
+  ],
+  "@bluelovers/tsconfig": Array [
+    "1.0.30",
+  ],
+  "@gar/promisify": Array [
+    "1.1.3",
+  ],
+  "@istanbuljs/load-nyc-config": Array [
+    "1.1.0",
+  ],
+  "@istanbuljs/schema": Array [
+    "0.1.3",
+  ],
+  "@jest/console": Array [
+    "28.1.3",
+  ],
+  "@jest/core": Array [
+    "28.1.3",
+  ],
+  "@jest/environment": Array [
+    "28.1.3",
+  ],
+  "@jest/expect": Array [
+    "28.1.3",
+  ],
+  "@jest/expect-utils": Array [
+    "28.1.3",
+  ],
+  "@jest/fake-timers": Array [
+    "28.1.3",
+  ],
+  "@jest/globals": Array [
+    "28.1.3",
+  ],
+  "@jest/reporters": Array [
+    "28.1.3",
+  ],
+  "@jest/schemas": Array [
+    "28.1.3",
+  ],
+  "@jest/source-map": Array [
+    "28.1.2",
+  ],
+  "@jest/test-result": Array [
+    "28.1.3",
+  ],
+  "@jest/test-sequencer": Array [
+    "28.1.3",
+  ],
+  "@jest/transform": Array [
+    "28.1.3",
+  ],
+  "@jest/types": Array [
+    "28.1.3",
+  ],
+  "@jridgewell/gen-mapping": Array [
+    "0.1.1",
+    "0.3.2",
+  ],
+  "@jridgewell/resolve-uri": Array [
+    "3.1.0",
+  ],
+  "@jridgewell/set-array": Array [
+    "1.1.2",
+  ],
+  "@jridgewell/sourcemap-codec": Array [
+    "1.4.14",
+  ],
+  "@jridgewell/trace-mapping": Array [
+    "0.3.14",
+  ],
+  "@npmcli/fs": Array [
+    "2.1.1",
+  ],
+  "@npmcli/move-file": Array [
+    "2.0.0",
+  ],
+  "@sinclair/typebox": Array [
+    "0.24.27",
+  ],
+  "@sinonjs/commons": Array [
+    "1.8.3",
+  ],
+  "@sinonjs/fake-timers": Array [
+    "9.1.2",
+  ],
+  "@tootallnate/once": Array [
+    "2.0.0",
+  ],
+  "@types/babel__core": Array [
+    "7.1.19",
+  ],
+  "@types/babel__generator": Array [
+    "7.6.4",
+  ],
+  "@types/babel__template": Array [
+    "7.4.1",
+  ],
+  "@types/babel__traverse": Array [
+    "7.18.0",
+  ],
+  "@types/graceful-fs": Array [
+    "4.1.5",
+  ],
+  "@types/istanbul-lib-coverage": Array [
+    "2.0.4",
+  ],
+  "@types/istanbul-lib-report": Array [
+    "3.0.0",
+  ],
+  "@types/istanbul-reports": Array [
+    "3.0.1",
+  ],
+  "@types/jest": Array [
+    "28.1.6",
+  ],
+  "@types/node": Array [
+    "18.7.1",
+  ],
+  "@types/prettier": Array [
+    "2.7.0",
+  ],
+  "@types/stack-utils": Array [
+    "2.0.1",
+  ],
+  "@types/yargs": Array [
+    "17.0.11",
+  ],
+  "@types/yargs-parser": Array [
+    "21.0.0",
+  ],
+  "abbrev": Array [
+    "1.1.1",
+  ],
+  "agent-base": Array [
+    "6.0.2",
+  ],
+  "agentkeepalive": Array [
+    "4.2.1",
+  ],
+  "aggregate-error": Array [
+    "3.1.0",
+  ],
+  "ansi-escapes": Array [
+    "4.3.2",
+  ],
+  "ansi-regex": Array [
+    "5.0.1",
+  ],
+  "ansi-styles": Array [
+    "3.2.1",
+    "4.3.0",
+    "5.2.0",
+  ],
+  "anymatch": Array [
+    "3.1.2",
+  ],
+  "aproba": Array [
+    "2.0.0",
+  ],
+  "are-we-there-yet": Array [
+    "3.0.1",
+  ],
+  "argparse": Array [
+    "1.0.10",
+  ],
+  "babel-jest": Array [
+    "28.1.3",
+  ],
+  "babel-plugin-istanbul": Array [
+    "6.1.1",
+  ],
+  "babel-plugin-jest-hoist": Array [
+    "28.1.3",
+  ],
+  "babel-preset-current-node-syntax": Array [
+    "1.0.1",
+  ],
+  "babel-preset-jest": Array [
+    "28.1.3",
+  ],
+  "balanced-match": Array [
+    "1.0.2",
+  ],
+  "brace-expansion": Array [
+    "1.1.11",
+    "2.0.1",
+  ],
+  "braces": Array [
+    "3.0.2",
+  ],
+  "browserslist": Array [
+    "4.21.3",
+  ],
+  "bser": Array [
+    "2.1.1",
+  ],
+  "buffer-from": Array [
+    "1.1.2",
+  ],
+  "cacache": Array [
+    "16.1.1",
+  ],
+  "callsites": Array [
+    "3.1.0",
+  ],
+  "camelcase": Array [
+    "5.3.1",
+    "6.3.0",
+  ],
+  "caniuse-lite": Array [
+    "1.0.30001375",
+  ],
+  "chalk": Array [
+    "2.4.2",
+    "4.1.2",
+  ],
+  "char-regex": Array [
+    "1.0.2",
+  ],
+  "chownr": Array [
+    "2.0.0",
+  ],
+  "ci-info": Array [
+    "3.3.2",
+  ],
+  "cjs-module-lexer": Array [
+    "1.2.2",
+  ],
+  "clean-stack": Array [
+    "2.2.0",
+  ],
+  "cliui": Array [
+    "7.0.4",
+  ],
+  "co": Array [
+    "4.6.0",
+  ],
+  "collect-v8-coverage": Array [
+    "1.0.1",
+  ],
+  "color-convert": Array [
+    "1.9.3",
+    "2.0.1",
+  ],
+  "color-name": Array [
+    "1.1.3",
+    "1.1.4",
+  ],
+  "color-support": Array [
+    "1.1.3",
+  ],
+  "concat-map": Array [
+    "0.0.1",
+  ],
+  "console-control-strings": Array [
+    "1.1.0",
+  ],
+  "convert-source-map": Array [
+    "1.8.0",
+  ],
+  "cross-spawn": Array [
+    "7.0.3",
+  ],
+  "debug": Array [
+    "4.3.4",
+  ],
+  "dedent": Array [
+    "0.7.0",
+  ],
+  "deepmerge": Array [
+    "4.2.2",
+  ],
+  "delegates": Array [
+    "1.0.0",
+  ],
+  "depd": Array [
+    "1.1.2",
+  ],
+  "detect-newline": Array [
+    "3.1.0",
+  ],
+  "diff-sequences": Array [
+    "28.1.1",
+  ],
+  "electron-to-chromium": Array [
+    "1.4.214",
+  ],
+  "emittery": Array [
+    "0.10.2",
+  ],
+  "emoji-regex": Array [
+    "8.0.0",
+  ],
+  "encoding": Array [
+    "0.1.13",
+  ],
+  "env-paths": Array [
+    "2.2.1",
+  ],
+  "err-code": Array [
+    "2.0.3",
+  ],
+  "error-ex": Array [
+    "1.3.2",
+  ],
+  "escalade": Array [
+    "3.1.1",
+  ],
+  "escape-string-regexp": Array [
+    "1.0.5",
+    "2.0.0",
+  ],
+  "esprima": Array [
+    "4.0.1",
+  ],
+  "execa": Array [
+    "5.1.1",
+  ],
+  "exit": Array [
+    "0.1.2",
+  ],
+  "expect": Array [
+    "28.1.3",
+  ],
+  "fast-json-stable-stringify": Array [
+    "2.1.0",
+  ],
+  "fb-watchman": Array [
+    "2.0.1",
+  ],
+  "fill-range": Array [
+    "7.0.1",
+  ],
+  "find-up": Array [
+    "4.1.0",
+  ],
+  "fs-minipass": Array [
+    "2.1.0",
+  ],
+  "fs.realpath": Array [
+    "1.0.0",
+  ],
+  "fsevents": Array [
+    "2.3.2",
+  ],
+  "fsevents>::version=2.3.2&hash=18f3a7": Array [
+    "2.3.2",
+  ],
+  "function-bind": Array [
+    "1.1.1",
+  ],
+  "gauge": Array [
+    "4.0.4",
+  ],
+  "gensync": Array [
+    "1.0.0-beta.2",
+  ],
+  "get-caller-file": Array [
+    "2.0.5",
+  ],
+  "get-package-type": Array [
+    "0.1.0",
+  ],
+  "get-stream": Array [
+    "6.0.1",
+  ],
+  "glob": Array [
+    "7.2.3",
+    "8.0.3",
+  ],
+  "globals": Array [
+    "11.12.0",
+  ],
+  "graceful-fs": Array [
+    "4.2.10",
+  ],
+  "has": Array [
+    "1.0.3",
+  ],
+  "has-flag": Array [
+    "3.0.0",
+    "4.0.0",
+  ],
+  "has-unicode": Array [
+    "2.0.1",
+  ],
+  "html-escaper": Array [
+    "2.0.2",
+  ],
+  "http-cache-semantics": Array [
+    "4.1.0",
+  ],
+  "http-proxy-agent": Array [
+    "5.0.0",
+  ],
+  "https-proxy-agent": Array [
+    "5.0.1",
+  ],
+  "human-signals": Array [
+    "2.1.0",
+  ],
+  "humanize-ms": Array [
+    "1.2.1",
+  ],
+  "iconv-lite": Array [
+    "0.6.3",
+  ],
+  "import-local": Array [
+    "3.1.0",
+  ],
+  "imurmurhash": Array [
+    "0.1.4",
+  ],
+  "indent-string": Array [
+    "4.0.0",
+  ],
+  "infer-owner": Array [
+    "1.0.4",
+  ],
+  "inflight": Array [
+    "1.0.6",
+  ],
+  "inherits": Array [
+    "2.0.4",
+  ],
+  "ip": Array [
+    "2.0.0",
+  ],
+  "is-arrayish": Array [
+    "0.2.1",
+  ],
+  "is-core-module": Array [
+    "2.10.0",
+  ],
+  "is-fullwidth-code-point": Array [
+    "3.0.0",
+  ],
+  "is-generator-fn": Array [
+    "2.1.0",
+  ],
+  "is-lambda": Array [
+    "1.0.1",
+  ],
+  "is-number": Array [
+    "7.0.0",
+  ],
+  "is-stream": Array [
+    "2.0.1",
+  ],
+  "isexe": Array [
+    "2.0.0",
+  ],
+  "istanbul-lib-coverage": Array [
+    "3.2.0",
+  ],
+  "istanbul-lib-instrument": Array [
+    "5.2.0",
+  ],
+  "istanbul-lib-report": Array [
+    "3.0.0",
+  ],
+  "istanbul-lib-source-maps": Array [
+    "4.0.1",
+  ],
+  "istanbul-reports": Array [
+    "3.1.5",
+  ],
+  "jest": Array [
+    "28.1.3",
+  ],
+  "jest-changed-files": Array [
+    "28.1.3",
+  ],
+  "jest-circus": Array [
+    "28.1.3",
+  ],
+  "jest-cli": Array [
+    "28.1.3",
+  ],
+  "jest-config": Array [
+    "28.1.3",
+  ],
+  "jest-diff": Array [
+    "28.1.3",
+  ],
+  "jest-docblock": Array [
+    "28.1.1",
+  ],
+  "jest-each": Array [
+    "28.1.3",
+  ],
+  "jest-environment-node": Array [
+    "28.1.3",
+  ],
+  "jest-get-type": Array [
+    "28.0.2",
+  ],
+  "jest-haste-map": Array [
+    "28.1.3",
+  ],
+  "jest-leak-detector": Array [
+    "28.1.3",
+  ],
+  "jest-matcher-utils": Array [
+    "28.1.3",
+  ],
+  "jest-message-util": Array [
+    "28.1.3",
+  ],
+  "jest-mock": Array [
+    "28.1.3",
+  ],
+  "jest-pnp-resolver": Array [
+    "1.2.2",
+  ],
+  "jest-regex-util": Array [
+    "28.0.2",
+  ],
+  "jest-resolve": Array [
+    "28.1.3",
+  ],
+  "jest-resolve-dependencies": Array [
+    "28.1.3",
+  ],
+  "jest-runner": Array [
+    "28.1.3",
+  ],
+  "jest-runtime": Array [
+    "28.1.3",
+  ],
+  "jest-snapshot": Array [
+    "28.1.3",
+  ],
+  "jest-util": Array [
+    "28.1.3",
+  ],
+  "jest-validate": Array [
+    "28.1.3",
+  ],
+  "jest-watcher": Array [
+    "28.1.3",
+  ],
+  "jest-worker": Array [
+    "28.1.3",
+  ],
+  "js-tokens": Array [
+    "4.0.0",
+  ],
+  "js-yaml": Array [
+    "3.14.1",
+  ],
+  "jsesc": Array [
+    "2.5.2",
+  ],
+  "json-parse-even-better-errors": Array [
+    "2.3.1",
+  ],
+  "json5": Array [
+    "2.2.1",
+  ],
+  "kleur": Array [
+    "3.0.3",
+  ],
+  "leven": Array [
+    "3.1.0",
+  ],
+  "lines-and-columns": Array [
+    "1.2.4",
+  ],
+  "locate-path": Array [
+    "5.0.0",
+  ],
+  "lru-cache": Array [
+    "6.0.0",
+    "7.13.2",
+  ],
+  "make-dir": Array [
+    "3.1.0",
+  ],
+  "make-fetch-happen": Array [
+    "10.2.0",
+  ],
+  "makeerror": Array [
+    "1.0.12",
+  ],
+  "merge-stream": Array [
+    "2.0.0",
+  ],
+  "micromatch": Array [
+    "4.0.5",
+  ],
+  "mimic-fn": Array [
+    "2.1.0",
+  ],
+  "minimatch": Array [
+    "3.1.2",
+    "5.1.0",
+  ],
+  "minipass": Array [
+    "3.3.5",
+  ],
+  "minipass-collect": Array [
+    "1.0.2",
+  ],
+  "minipass-fetch": Array [
+    "2.1.0",
+  ],
+  "minipass-flush": Array [
+    "1.0.5",
+  ],
+  "minipass-pipeline": Array [
+    "1.2.4",
+  ],
+  "minipass-sized": Array [
+    "1.0.3",
+  ],
+  "minizlib": Array [
+    "2.1.2",
+  ],
+  "mkdirp": Array [
+    "1.0.4",
+  ],
+  "ms": Array [
+    "2.1.2",
+    "2.1.3",
+  ],
+  "natural-compare": Array [
+    "1.4.0",
+  ],
+  "negotiator": Array [
+    "0.6.3",
+  ],
+  "node-gyp": Array [
+    "9.1.0",
+  ],
+  "node-int64": Array [
+    "0.4.0",
+  ],
+  "node-releases": Array [
+    "2.0.6",
+  ],
+  "nopt": Array [
+    "5.0.0",
+  ],
+  "normalize-path": Array [
+    "3.0.0",
+  ],
+  "npm-run-path": Array [
+    "4.0.1",
+  ],
+  "npmlog": Array [
+    "6.0.2",
+  ],
+  "once": Array [
+    "1.4.0",
+  ],
+  "onetime": Array [
+    "5.1.2",
+  ],
+  "p-limit": Array [
+    "2.3.0",
+    "3.1.0",
+  ],
+  "p-locate": Array [
+    "4.1.0",
+  ],
+  "p-map": Array [
+    "4.0.0",
+  ],
+  "p-try": Array [
+    "2.2.0",
+  ],
+  "parse-json": Array [
+    "5.2.0",
+  ],
+  "path-exists": Array [
+    "4.0.0",
+  ],
+  "path-is-absolute": Array [
+    "1.0.1",
+  ],
+  "path-key": Array [
+    "3.1.1",
+  ],
+  "path-parse": Array [
+    "1.0.7",
+  ],
+  "picocolors": Array [
+    "1.0.0",
+  ],
+  "picomatch": Array [
+    "2.3.1",
+  ],
+  "pirates": Array [
+    "4.0.5",
+  ],
+  "pkg-dir": Array [
+    "4.2.0",
+  ],
+  "pretty-format": Array [
+    "28.1.3",
+  ],
+  "promise-inflight": Array [
+    "1.0.1",
+  ],
+  "promise-retry": Array [
+    "2.0.1",
+  ],
+  "prompts": Array [
+    "2.4.2",
+  ],
+  "react-is": Array [
+    "18.2.0",
+  ],
+  "readable-stream": Array [
+    "3.6.0",
+  ],
+  "require-directory": Array [
+    "2.1.1",
+  ],
+  "resolve": Array [
+    "1.22.1",
+  ],
+  "resolve-cwd": Array [
+    "3.0.0",
+  ],
+  "resolve-from": Array [
+    "5.0.0",
+  ],
+  "resolve.exports": Array [
+    "1.1.0",
+  ],
+  "resolve>::version=1.22.1&hash=07638b": Array [
+    "1.22.1",
+  ],
+  "retry": Array [
+    "0.12.0",
+  ],
+  "rimraf": Array [
+    "3.0.2",
+  ],
+  "safe-buffer": Array [
+    "5.1.2",
+    "5.2.1",
+  ],
+  "safer-buffer": Array [
+    "2.1.2",
+  ],
+  "semver": Array [
+    "6.3.0",
+    "7.3.7",
+  ],
+  "set-blocking": Array [
+    "2.0.0",
+  ],
+  "shebang-command": Array [
+    "2.0.0",
+  ],
+  "shebang-regex": Array [
+    "3.0.0",
+  ],
+  "signal-exit": Array [
+    "3.0.7",
+  ],
+  "sisteransi": Array [
+    "1.0.5",
+  ],
+  "slash": Array [
+    "3.0.0",
+  ],
+  "smart-buffer": Array [
+    "4.2.0",
+  ],
+  "socks": Array [
+    "2.7.0",
+  ],
+  "socks-proxy-agent": Array [
+    "7.0.0",
+  ],
+  "source-map": Array [
+    "0.6.1",
+  ],
+  "source-map-support": Array [
+    "0.5.13",
+  ],
+  "split-smartly2": Array [
+    "workspace:.",
+  ],
+  "sprintf-js": Array [
+    "1.0.3",
+  ],
+  "ssri": Array [
+    "9.0.1",
+  ],
+  "stack-utils": Array [
+    "2.0.5",
+  ],
+  "string-length": Array [
+    "4.0.2",
+  ],
+  "string-width": Array [
+    "4.2.3",
+  ],
+  "string_decoder": Array [
+    "1.3.0",
+  ],
+  "strip-ansi": Array [
+    "6.0.1",
+  ],
+  "strip-bom": Array [
+    "4.0.0",
+  ],
+  "strip-final-newline": Array [
+    "2.0.0",
+  ],
+  "strip-json-comments": Array [
+    "3.1.1",
+  ],
+  "supports-color": Array [
+    "5.5.0",
+    "7.2.0",
+    "8.1.1",
+  ],
+  "supports-hyperlinks": Array [
+    "2.2.0",
+  ],
+  "supports-preserve-symlinks-flag": Array [
+    "1.0.0",
+  ],
+  "tar": Array [
+    "6.1.11",
+  ],
+  "terminal-link": Array [
+    "2.1.1",
+  ],
+  "test-exclude": Array [
+    "6.0.0",
+  ],
+  "tmpl": Array [
+    "1.0.5",
+  ],
+  "to-fast-properties": Array [
+    "2.0.0",
+  ],
+  "to-regex-range": Array [
+    "5.0.1",
+  ],
+  "ts-type": Array [
+    "2.1.10",
+  ],
+  "tslib": Array [
+    "2.4.0",
+  ],
+  "type-detect": Array [
+    "4.0.8",
+  ],
+  "type-fest": Array [
+    "0.21.3",
+  ],
+  "typedarray-dts": Array [
+    "1.0.0",
+  ],
+  "unique-filename": Array [
+    "1.1.1",
+  ],
+  "unique-slug": Array [
+    "2.0.2",
+  ],
+  "update-browserslist-db": Array [
+    "1.0.5",
+  ],
+  "util-deprecate": Array [
+    "1.0.2",
+  ],
+  "v8-to-istanbul": Array [
+    "9.0.1",
+  ],
+  "walker": Array [
+    "1.0.8",
+  ],
+  "which": Array [
+    "2.0.2",
+  ],
+  "wide-align": Array [
+    "1.1.5",
+  ],
+  "wrap-ansi": Array [
+    "7.0.0",
+  ],
+  "wrappy": Array [
+    "1.0.2",
+  ],
+  "write-file-atomic": Array [
+    "4.0.1",
+  ],
+  "y18n": Array [
+    "5.0.8",
+  ],
+  "yallist": Array [
+    "4.0.0",
+  ],
+  "yargs": Array [
+    "17.5.1",
+  ],
+  "yargs-parser": Array [
+    "21.1.1",
+  ],
+  "yocto-queue": Array [
+    "0.1.0",
   ],
 }
 `;

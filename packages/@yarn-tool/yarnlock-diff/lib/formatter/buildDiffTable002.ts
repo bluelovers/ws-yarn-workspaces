@@ -11,6 +11,32 @@ export function buildDiffTable(diff: IDiffNode<IComputedPackage, IComputedPackag
 	options?: IOptionsParseVersionsDiff,
 ): string
 {
+	return _handleDiffTable(_buildDiffTableCore(diff, options), options)
+}
+
+export function _handleDiffTable(result: ReturnType<typeof _buildDiffTableCore>,
+	options: IOptionsParseVersionsDiff,
+): string
+{
+	const {
+		_ok,
+		table,
+	} = result;
+
+	let output = _ok ? table.toString() : '';
+
+	if (options?.stripAnsi === true)
+	{
+		output = stripAnsi(output);
+	}
+
+	return _ok ? output : '';
+}
+
+export function _buildDiffTableCore(diff: IDiffNode<IComputedPackage, IComputedPackage>[],
+	options?: IOptionsParseVersionsDiff,
+)
+{
 	// @ts-ignore
 	let chalk: IChalk = options?.chalk ?? chalkByConsoleMaybe(options?.console);
 	let _ok = false;
@@ -86,12 +112,9 @@ export function buildDiffTable(diff: IDiffNode<IComputedPackage, IComputedPackag
 
 	table.push(...Object.values(formatedDiff));
 
-	let output = _ok ? table.toString() : '';
-
-	if (options?.stripAnsi === true)
-	{
-		output = stripAnsi(output);
+	return {
+		_ok,
+		table,
+		formatedDiff,
 	}
-
-	return _ok ? output : '';
 }
