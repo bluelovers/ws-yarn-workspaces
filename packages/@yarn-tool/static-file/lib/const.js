@@ -15,7 +15,10 @@ const _defaultCopyStaticFiles = [
     ['README.md', 'file/README.md'],
     ['.nycrc', 'file/nycrc'],
     ['.mocharc.yml', 'file/mocharc.yml'],
-    ['jest.config.js', 'file/jest.config.js'],
+    //['jest.config.js', 'file/jest.config.js'],
+    ['jest.config.js', 'file/jest.config.auto.js'],
+    ['jest.config.js.tpl', 'file/jest.config.js'],
+    ['jest.config.auto.js.tpl', 'file/jest.config.auto.js'],
     ['.nowignore', 'file/nowignore'],
     ['now.json.tpl', 'file/now.json.tpl', 'now.json'],
     ['.npmrc.tpl', 'file/npmrc', '.npmrc'],
@@ -37,6 +40,7 @@ const _defaultCopyStaticFilesRootOnly = [
     ['.eslintrc.json', 'file/eslintrc.json.tpl', '.eslintrc.json'],
     //['changelog-option.js', 'file/changelog-option.js', 'changelog-option.js.tpl'],
     ['.yarnrc.yml.tpl', 'file/root/yarnrc.yml', '.yarnrc.yml'],
+    ['jest.config.js', 'file/jest.config.js'],
 ];
 const _defaultCopyStaticFilesWsRootOnly = [
     ['lerna.json.tpl', 'file/lerna.json.tpl'],

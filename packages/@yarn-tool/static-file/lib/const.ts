@@ -25,7 +25,11 @@ const _defaultCopyStaticFiles = [
 	['.nycrc', 'file/nycrc'],
 
 	['.mocharc.yml', 'file/mocharc.yml'],
-	['jest.config.js', 'file/jest.config.js'],
+	//['jest.config.js', 'file/jest.config.js'],
+	['jest.config.js', 'file/jest.config.auto.js'],
+
+	['jest.config.js.tpl', 'file/jest.config.js'],
+	['jest.config.auto.js.tpl', 'file/jest.config.auto.js'],
 
 	['.nowignore', 'file/nowignore'],
 
@@ -68,6 +72,8 @@ const _defaultCopyStaticFilesRootOnly = [
 	//['changelog-option.js', 'file/changelog-option.js', 'changelog-option.js.tpl'],
 
 	['.yarnrc.yml.tpl', 'file/root/yarnrc.yml', '.yarnrc.yml'],
+
+	['jest.config.js', 'file/jest.config.js'],
 
 ] as const;
 

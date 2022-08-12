@@ -164,10 +164,31 @@ const jestConfig = {
 
 try
 {
-	let result = require.resolve('@bluelovers/jest-config');
-	if (result && !jestConfig.preset)
+	if (!jestConfig.preset)
 	{
-		jestConfig.preset = result;
+		let result = require('@yarn-tool/ws-find-up-paths').findUpPathsWorkspaces('jest.config.js', {
+			ignoreCurrentPackage: true,
+		});
+		if (result)
+		{
+			jestConfig.preset = result;
+		}
+	}
+}
+catch (e)
+{
+
+}
+
+try
+{
+	if (!jestConfig.preset)
+	{
+		let result = require.resolve('@bluelovers/jest-config');
+		if (result)
+		{
+			jestConfig.preset = result;
+		}
 	}
 }
 catch (e)

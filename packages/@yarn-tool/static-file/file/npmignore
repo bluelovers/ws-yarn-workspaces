@@ -133,3 +133,5 @@ changelog-option.js
 
 bin/tsconfig.json
 bin/tsconfig.*.json
+
+.yarnrc.yml

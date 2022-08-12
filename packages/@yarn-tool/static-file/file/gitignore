@@ -218,3 +218,5 @@ dist/*.umd.*.*s
 
 /__root_ws.d.ts
 /__root_ws.js
+
+!/.yarnrc.yml
