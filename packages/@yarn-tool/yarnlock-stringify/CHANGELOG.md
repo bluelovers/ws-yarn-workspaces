@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.18](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-stringify@1.0.17...@yarn-tool/yarnlock-stringify@1.0.18) (2022-08-13)
+
+
+### ✨　Features
+
+* add IYarnLockParsedLoose ([0a3c954](https://github.com/bluelovers/ws-yarn-workspaces/commit/0a3c954ce392ce095d930a1a5444f43e0dbde828))
+
+
+### 📦　Code Refactoring
+
+* code splitting ([d1be06d](https://github.com/bluelovers/ws-yarn-workspaces/commit/d1be06d5ed2fd0d9c1f0831a8d5adc128ebb226d))
+* support v3 and code splitting ([7e3057a](https://github.com/bluelovers/ws-yarn-workspaces/commit/7e3057a995658abcde33d7417cd17dca10dd00b2))
+
+
+### 🚨　Tests
+
+* update jest.config.js and deps ([d1d501b](https://github.com/bluelovers/ws-yarn-workspaces/commit/d1d501ba059130bd8f90e6eaa266084110698011))
+* update test ([8d42595](https://github.com/bluelovers/ws-yarn-workspaces/commit/8d4259542398029eb6092dbdff6be3e13d8a105a))
+
+
+### 🛠　Build System
+
+* update typescript ([b69b593](https://github.com/bluelovers/ws-yarn-workspaces/commit/b69b593d511d9d4e246513dc1d69721150b9cfe8))
+
+
+### BREAKING CHANGES
+
+* code splitting
+* support v3 and code splitting
+
+
+
+
+
 ## [1.0.17](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-stringify@1.0.16...@yarn-tool/yarnlock-stringify@1.0.17) (2022-07-31)
 
 

@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.20](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-dedupe@1.0.19...@yarn-tool/yarnlock-dedupe@1.0.20) (2022-08-13)
+
+
+### 📦　Code Refactoring
+
+* update import ([2530778](https://github.com/bluelovers/ws-yarn-workspaces/commit/2530778656f1374237e01dedcbbd6d14902a4f5a))
+
+
+### 🚨　Tests
+
+* update jest.config.js and deps ([d1d501b](https://github.com/bluelovers/ws-yarn-workspaces/commit/d1d501ba059130bd8f90e6eaa266084110698011))
+* update test ([462ddd4](https://github.com/bluelovers/ws-yarn-workspaces/commit/462ddd4eae2c0dbd7aebc692ee8b4745e2d0b203))
+* update test ([2e8e6c3](https://github.com/bluelovers/ws-yarn-workspaces/commit/2e8e6c301a3200b78355b4b9642797b9500527e9))
+
+
+
+
+
 ## [1.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-dedupe@1.0.18...@yarn-tool/yarnlock-dedupe@1.0.19) (2022-07-31)
 
 

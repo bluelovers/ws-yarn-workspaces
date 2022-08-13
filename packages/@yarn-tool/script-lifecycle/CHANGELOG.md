@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/script-lifecycle@2.0.0...@yarn-tool/script-lifecycle@2.0.1) (2022-08-13)
+
+
+### 🛠　Build System
+
+* update typescript ([b69b593](https://github.com/bluelovers/ws-yarn-workspaces/commit/b69b593d511d9d4e246513dc1d69721150b9cfe8))
+
+
+### 📌　Dependencies
+
+* update deps ([58501f9](https://github.com/bluelovers/ws-yarn-workspaces/commit/58501f97494eb624779dffea7ac9d68e45e5e978))
+* update deps ([a0b8755](https://github.com/bluelovers/ws-yarn-workspaces/commit/a0b875582efdc9829b0cdb6c9c819cace8b76e90))
+
+
+
+
+
 # [2.0.0](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/script-lifecycle@1.0.20...@yarn-tool/script-lifecycle@2.0.0) (2022-07-07)
 
 

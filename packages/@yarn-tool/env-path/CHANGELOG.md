@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/env-path@2.0.1...@yarn-tool/env-path@2.0.2) (2022-08-13)
+
+
+### 🚨　Tests
+
+* update jest.config.js and deps ([d1d501b](https://github.com/bluelovers/ws-yarn-workspaces/commit/d1d501ba059130bd8f90e6eaa266084110698011))
+
+
+### 🛠　Build System
+
+* update typescript ([b69b593](https://github.com/bluelovers/ws-yarn-workspaces/commit/b69b593d511d9d4e246513dc1d69721150b9cfe8))
+
+
+
+
+
 ## [2.0.1](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/env-path@2.0.0...@yarn-tool/env-path@2.0.1) (2022-07-31)
 
 

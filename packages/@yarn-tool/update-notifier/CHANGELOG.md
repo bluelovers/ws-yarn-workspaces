@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.29](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/update-notifier@1.0.28...@yarn-tool/update-notifier@1.0.29) (2022-08-13)
+
+
+### 🛠　Build System
+
+* update typescript ([b69b593](https://github.com/bluelovers/ws-yarn-workspaces/commit/b69b593d511d9d4e246513dc1d69721150b9cfe8))
+
+
+
+
+
 ## [1.0.28](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/update-notifier@1.0.26...@yarn-tool/update-notifier@1.0.28) (2022-06-28)
 
 

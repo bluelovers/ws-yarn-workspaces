@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.21](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/detect-yarnlock-version@1.0.20...@yarn-tool/detect-yarnlock-version@1.0.21) (2022-08-13)
+
+
+### ✨　Features
+
+* add IYarnLockParsedLoose ([0a3c954](https://github.com/bluelovers/ws-yarn-workspaces/commit/0a3c954ce392ce095d930a1a5444f43e0dbde828))
+* support v3 ([c5b1639](https://github.com/bluelovers/ws-yarn-workspaces/commit/c5b1639af510bf9f31930a280186ffed01af27ea))
+
+
+### 🚨　Tests
+
+* update jest.config.js and deps ([d1d501b](https://github.com/bluelovers/ws-yarn-workspaces/commit/d1d501ba059130bd8f90e6eaa266084110698011))
+* update test and code splitting ([44480ec](https://github.com/bluelovers/ws-yarn-workspaces/commit/44480ecc6cd826fe5ba82a4666bfe9fdd1a9a749))
+* update test ([8d42595](https://github.com/bluelovers/ws-yarn-workspaces/commit/8d4259542398029eb6092dbdff6be3e13d8a105a))
+
+
+### BREAKING CHANGES
+
+* support v3
+
+
+
+
+
 ## [1.0.20](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/detect-yarnlock-version@1.0.19...@yarn-tool/detect-yarnlock-version@1.0.20) (2022-07-31)
 
 

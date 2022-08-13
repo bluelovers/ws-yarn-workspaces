@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-entries@2.0.1...@yarn-tool/yarnlock-entries@2.0.2) (2022-08-13)
+
+
+### ✨　Features
+
+* 優化判定 ([b84ec33](https://github.com/bluelovers/ws-yarn-workspaces/commit/b84ec33dd035844d81bc464dd002dcd47cc6163f))
+
+
+### 📦　Code Refactoring
+
+* code splitting ([57e713f](https://github.com/bluelovers/ws-yarn-workspaces/commit/57e713fcd38286d98ff035404efe68fd150488fd))
+* 更改屬性名稱 避免 被其他偵測邏輯錯誤判定 ([8e7d45b](https://github.com/bluelovers/ws-yarn-workspaces/commit/8e7d45b96e54f64d04ea07646649152b3985f15a))
+* update test ([64e6c87](https://github.com/bluelovers/ws-yarn-workspaces/commit/64e6c87dee5912c3110d919a80568cadc39f4504))
+
+
+### 🚨　Tests
+
+* update jest.config.js and deps ([d1d501b](https://github.com/bluelovers/ws-yarn-workspaces/commit/d1d501ba059130bd8f90e6eaa266084110698011))
+* update test ([8d42595](https://github.com/bluelovers/ws-yarn-workspaces/commit/8d4259542398029eb6092dbdff6be3e13d8a105a))
+
+
+### 📌　Dependencies
+
+* update deps ([58501f9](https://github.com/bluelovers/ws-yarn-workspaces/commit/58501f97494eb624779dffea7ac9d68e45e5e978))
+* update deps ([a0b8755](https://github.com/bluelovers/ws-yarn-workspaces/commit/a0b875582efdc9829b0cdb6c9c819cace8b76e90))
+
+
+
+
+
 ## [2.0.1](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-entries@2.0.0...@yarn-tool/yarnlock-entries@2.0.1) (2022-07-31)
 
 

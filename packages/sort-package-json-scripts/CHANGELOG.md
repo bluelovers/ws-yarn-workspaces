@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.15](https://github.com/bluelovers/ws-yarn-workspaces/compare/sort-package-json-scripts@1.1.14...sort-package-json-scripts@1.1.15) (2022-08-13)
+
+
+### 🚨　Tests
+
+* update jest.config.js and deps ([d1d501b](https://github.com/bluelovers/ws-yarn-workspaces/commit/d1d501ba059130bd8f90e6eaa266084110698011))
+
+
+### 🛠　Build System
+
+* update typescript ([b69b593](https://github.com/bluelovers/ws-yarn-workspaces/commit/b69b593d511d9d4e246513dc1d69721150b9cfe8))
+
+
+
+
+
 ## [1.1.14](https://github.com/bluelovers/ws-yarn-workspaces/compare/sort-package-json-scripts@1.1.13...sort-package-json-scripts@1.1.14) (2022-07-31)
 
 

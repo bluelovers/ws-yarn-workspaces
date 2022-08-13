@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/check-pkg-bin",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "check pkg bin has shebang",
   "keywords": [],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/check-pkg-bin#readme",
@@ -41,17 +41,17 @@
   "dependencies": {
     "@bluelovers/string-natural-compare": "^2.0.7",
     "@ts-type/package-dts": "^2.0.5",
-    "@yarn-tool/find-root": "^2.0.2",
-    "@yarn-tool/get-pkg-bin": "^2.0.0",
-    "@yarn-tool/shebang": "^1.0.11",
-    "@yarn-tool/table": "^2.0.1",
+    "@yarn-tool/find-root": "^2.0.3",
+    "@yarn-tool/get-pkg-bin": "^2.0.1",
+    "@yarn-tool/shebang": "^1.0.12",
+    "@yarn-tool/table": "^2.0.2",
     "cli-table3": "^0.6.2",
     "debug-color2": "^1.3.1",
     "fs-extra": "^10.1.0",
     "pkg-dir": "< 6 >= 5",
     "tslib": "^2",
     "upath2": "^3.1.15",
-    "ws-pkg-list": "^2.0.2",
+    "ws-pkg-list": "^2.0.3",
     "yargs": "^17.5.1"
   },
   "publishConfig": {

@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.9](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-banner@1.0.8...@yarn-tool/yarnlock-banner@1.0.9) (2022-08-13)
+
+
+### 📦　Code Refactoring
+
+* remove unused code ([a6444c9](https://github.com/bluelovers/ws-yarn-workspaces/commit/a6444c90d4b8c76b31a63dd5e945528d707eb6dd))
+* fix typo and rename ([1108224](https://github.com/bluelovers/ws-yarn-workspaces/commit/11082243325c40c5c379d093f99b1f6c7240a52e))
+
+
+### 🚨　Tests
+
+* update jest.config.js and deps ([d1d501b](https://github.com/bluelovers/ws-yarn-workspaces/commit/d1d501ba059130bd8f90e6eaa266084110698011))
+
+
+### BREAKING CHANGES
+
+* remove unused code
+* fix typo and rename
+
+
+
+
+
 ## [1.0.8](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-banner@1.0.7...@yarn-tool/yarnlock-banner@1.0.8) (2022-07-31)
 
 

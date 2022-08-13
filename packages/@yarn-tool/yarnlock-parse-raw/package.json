@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarnlock-parse-raw",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Parse and/or write yarn.lock files all version",
   "keywords": [
     "yarn",
@@ -67,12 +67,10 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/yarnlock-types": "^1.0.0",
+    "@yarn-tool/yarnlock-types": "^1.0.1",
     "@yarnpkg/lockfile": "^1.1.0",
     "@yarnpkg/parsers": "^3.0.0-rc.14"
   },
-  "devDependencies": {},
-  "peerDependencies": {},
   "packageManager": "yarn@1.22.19",
   "publishConfig": {
     "access": "public"

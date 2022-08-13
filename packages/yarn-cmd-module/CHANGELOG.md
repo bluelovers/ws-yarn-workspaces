@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.15](https://github.com/bluelovers/ws-yarn-workspaces/compare/yarn-cmd-module@1.0.14...yarn-cmd-module@1.0.15) (2022-08-13)
+
+
+### 🛠　Build System
+
+* update typescript ([b69b593](https://github.com/bluelovers/ws-yarn-workspaces/commit/b69b593d511d9d4e246513dc1d69721150b9cfe8))
+
+
+
+
+
 ## [1.0.14](https://github.com/bluelovers/ws-yarn-workspaces/compare/yarn-cmd-module@1.0.13...yarn-cmd-module@1.0.14) (2022-05-11)
 
 

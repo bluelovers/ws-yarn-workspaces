@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/init-path",
-  "version": "1.0.24",
+  "version": "1.0.25",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/init-path#readme",
   "bugs": {
@@ -26,11 +26,11 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@yarn-tool/search-workspace-prefix-by-name": "^1.0.26",
-    "@yarn-tool/validate-npm-package-name": "^3.0.11",
+    "@yarn-tool/search-workspace-prefix-by-name": "^1.0.27",
+    "@yarn-tool/validate-npm-package-name": "^3.0.12",
     "fs-extra": "^10.1.0",
     "tslib": "^2",
-    "workspaces-config": "^1.0.44"
+    "workspaces-config": "^1.0.45"
   },
   "publishConfig": {
     "access": "public"

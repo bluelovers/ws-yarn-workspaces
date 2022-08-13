@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@2.0.2...@yarn-tool/static-file@2.0.3) (2022-08-13)
+
+
+### 🐛　Bug Fixes
+
+* update jest preset ([0aafe23](https://github.com/bluelovers/ws-yarn-workspaces/commit/0aafe239e0da4d8cb6f9580fc50c9a42432390a6))
+
+
+### ✨　Features
+
+* update static-file ([6d3f126](https://github.com/bluelovers/ws-yarn-workspaces/commit/6d3f1261ac1d82d4045293ac2c561ea866156dd4))
+
+
+
+
+
 ## [2.0.2](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@2.0.1...@yarn-tool/static-file@2.0.2) (2022-07-31)
 
 

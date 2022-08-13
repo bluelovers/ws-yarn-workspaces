@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.37](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-root-spawn@1.0.36...ws-root-spawn@1.0.37) (2022-08-13)
+
+
+### 🛠　Build System
+
+* update typescript ([b69b593](https://github.com/bluelovers/ws-yarn-workspaces/commit/b69b593d511d9d4e246513dc1d69721150b9cfe8))
+
+
+
+
+
 ## [1.0.36](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-root-spawn@1.0.35...ws-root-spawn@1.0.36) (2022-07-31)
 
 **Note:** Version bump only for package ws-root-spawn

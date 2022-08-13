@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-util@2.0.1...@yarn-tool/yarnlock-util@2.0.2) (2022-08-13)
+
+
+### 📦　Code Refactoring
+
+* update `checkResolutionsUpdate` for support v3 ([1166b1f](https://github.com/bluelovers/ws-yarn-workspaces/commit/1166b1f36db98cb1841edc3b8009ca583b58d723))
+* update import ([168ac62](https://github.com/bluelovers/ws-yarn-workspaces/commit/168ac6248f758391a0e3b9531e1c39c45953f4a6))
+
+
+### 🚨　Tests
+
+* update jest.config.js and deps ([d1d501b](https://github.com/bluelovers/ws-yarn-workspaces/commit/d1d501ba059130bd8f90e6eaa266084110698011))
+
+
+### BREAKING CHANGES
+
+* update `checkResolutionsUpdate` for support v3
+* update import
+
+
+
+
+
 ## [2.0.1](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-util@2.0.0...@yarn-tool/yarnlock-util@2.0.1) (2022-07-31)
 
 

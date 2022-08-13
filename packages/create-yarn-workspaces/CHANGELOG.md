@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.8](https://github.com/bluelovers/ws-yarn-workspaces/compare/create-yarn-workspaces@2.0.7...create-yarn-workspaces@2.0.8) (2022-08-13)
+
+
+### ✨　Features
+
+* update preset scripts ([a286355](https://github.com/bluelovers/ws-yarn-workspaces/commit/a286355a578654937a660f7ad04d190a21f29e92))
+
+
+### 🚨　Tests
+
+* update jest.config.js and deps ([d1d501b](https://github.com/bluelovers/ws-yarn-workspaces/commit/d1d501ba059130bd8f90e6eaa266084110698011))
+
+
+### 📌　Dependencies
+
+* update deps ([58501f9](https://github.com/bluelovers/ws-yarn-workspaces/commit/58501f97494eb624779dffea7ac9d68e45e5e978))
+* update deps ([c968045](https://github.com/bluelovers/ws-yarn-workspaces/commit/c96804598f63a5cd06507e3eaaa2e8b569b14b65))
+* update deps ([a0b8755](https://github.com/bluelovers/ws-yarn-workspaces/commit/a0b875582efdc9829b0cdb6c9c819cace8b76e90))
+
+
+
+
+
 ## [2.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/create-yarn-workspaces@2.0.6...create-yarn-workspaces@2.0.7) (2022-07-31)
 
 

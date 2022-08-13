@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.33](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-git-info@1.0.32...@yarn-tool/pkg-git-info@1.0.33) (2022-08-13)
+
+
+### 📌　Dependencies
+
+* update deps ([a0b8755](https://github.com/bluelovers/ws-yarn-workspaces/commit/a0b875582efdc9829b0cdb6c9c819cace8b76e90))
+
+
+
+
+
 ## [1.0.32](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-git-info@1.0.31...@yarn-tool/pkg-git-info@1.0.32) (2022-07-29)
 
 

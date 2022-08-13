@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-parse@2.0.1...@yarn-tool/yarnlock-parse@2.0.2) (2022-08-13)
+
+
+### 📦　Code Refactoring
+
+* code splitting ([57e713f](https://github.com/bluelovers/ws-yarn-workspaces/commit/57e713fcd38286d98ff035404efe68fd150488fd))
+* support v3 and code splitting ([c38105e](https://github.com/bluelovers/ws-yarn-workspaces/commit/c38105e9f633731ecf82cd562efa6824cff227c3))
+
+
+### 🚨　Tests
+
+* update jest.config.js and deps ([d1d501b](https://github.com/bluelovers/ws-yarn-workspaces/commit/d1d501ba059130bd8f90e6eaa266084110698011))
+* update test ([8d42595](https://github.com/bluelovers/ws-yarn-workspaces/commit/8d4259542398029eb6092dbdff6be3e13d8a105a))
+
+
+
+
+
 ## [2.0.1](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-parse@2.0.0...@yarn-tool/yarnlock-parse@2.0.1) (2022-07-31)
 
 
