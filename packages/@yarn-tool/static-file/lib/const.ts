@@ -28,9 +28,6 @@ const _defaultCopyStaticFiles = [
 	//['jest.config.js', 'file/jest.config.js'],
 	['jest.config.js', 'file/jest.config.auto.js'],
 
-	['jest.config.js.tpl', 'file/jest.config.js'],
-	['jest.config.auto.js.tpl', 'file/jest.config.auto.js'],
-
 	['.nowignore', 'file/nowignore'],
 
 	['now.json.tpl', 'file/now.json.tpl', 'now.json'],
@@ -75,6 +72,9 @@ const _defaultCopyStaticFilesRootOnly = [
 
 	['jest.config.js', 'file/jest.config.js'],
 
+	['jest.config.js.tpl', 'file/jest.config.js'],
+	['jest.config.auto.js.tpl', 'file/jest.config.auto.js'],
+
 ] as const;
 
 const _defaultCopyStaticFilesWsRootOnly = [
@@ -88,6 +88,9 @@ const _defaultCopyStaticFilesWsRootOnly = [
 	['tsc-multi.json.tpl', 'file/tsc-multi.json.tpl', 'tsc-multi.json'],
 
 	['__root_ws.ts', 'file/ws-root/__root_ws.ts'],
+
+	['jest.config.js', 'file/ws-root/jest.config.js'],
+	['jest-preset.js', 'file/ws-root/jest-preset.js'],
 
 ] as const;
 

@@ -1,6 +1,6 @@
 // @ts-check
 
-const { join } = require('path');
+const { join, dirname } = require('path');
 const { tryRealpath } = require('jest-util');
 const { tmpdir } = require('os');
 
@@ -74,11 +74,6 @@ const testExt = [
 ].join('|');
 
 const cacheDirectory = getCacheDirectory();
-
-console.info(`jest.config`);
-console.info(`- file: ${__filename}`);
-console.info(`-  cwd: ${process.cwd()}`);
-console.info(`- cacheDirectory: ${cacheDirectory}`);
 
 /**
  * // @type { import('@jest/types').Config.InitialOptions }
@@ -162,13 +157,15 @@ const jestConfig = {
 	//resolver: 'jest-node-exports-resolver',
 }
 
+/*
 try
 {
 	if (!jestConfig.preset)
 	{
 		let result = require('@yarn-tool/ws-find-up-paths').findUpPathsWorkspaces('jest.config.js', {
 			ignoreCurrentPackage: true,
-		});
+			onlyFiles: true,
+		}).result;
 		if (result)
 		{
 			jestConfig.preset = result;
@@ -179,15 +176,16 @@ catch (e)
 {
 
 }
+ */
 
 try
 {
 	if (!jestConfig.preset)
 	{
-		let result = require.resolve('@bluelovers/jest-config');
+		let result = _requireResolve('@bluelovers/jest-config/package.json');
 		if (result)
 		{
-			jestConfig.preset = result;
+			jestConfig.preset = dirname(result);
 		}
 	}
 }
@@ -195,5 +193,11 @@ catch (e)
 {
 
 }
+
+console.info(`jest.config`);
+console.info(`- file: ${__filename}`);
+console.info(`-  cwd: ${process.cwd()}`);
+console.info(`- cacheDirectory: ${cacheDirectory}`);
+console.info(`- preset: ${jestConfig.preset}`);
 
 module.exports = jestConfig

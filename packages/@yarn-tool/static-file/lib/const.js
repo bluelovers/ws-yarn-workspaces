@@ -17,8 +17,6 @@ const _defaultCopyStaticFiles = [
     ['.mocharc.yml', 'file/mocharc.yml'],
     //['jest.config.js', 'file/jest.config.js'],
     ['jest.config.js', 'file/jest.config.auto.js'],
-    ['jest.config.js.tpl', 'file/jest.config.js'],
-    ['jest.config.auto.js.tpl', 'file/jest.config.auto.js'],
     ['.nowignore', 'file/nowignore'],
     ['now.json.tpl', 'file/now.json.tpl', 'now.json'],
     ['.npmrc.tpl', 'file/npmrc', '.npmrc'],
@@ -41,6 +39,8 @@ const _defaultCopyStaticFilesRootOnly = [
     //['changelog-option.js', 'file/changelog-option.js', 'changelog-option.js.tpl'],
     ['.yarnrc.yml.tpl', 'file/root/yarnrc.yml', '.yarnrc.yml'],
     ['jest.config.js', 'file/jest.config.js'],
+    ['jest.config.js.tpl', 'file/jest.config.js'],
+    ['jest.config.auto.js.tpl', 'file/jest.config.auto.js'],
 ];
 const _defaultCopyStaticFilesWsRootOnly = [
     ['lerna.json.tpl', 'file/lerna.json.tpl'],
@@ -48,6 +48,8 @@ const _defaultCopyStaticFilesWsRootOnly = [
     ['tsconfig.json', 'file/tsconfig.json.tpl'],
     ['tsc-multi.json.tpl', 'file/tsc-multi.json.tpl', 'tsc-multi.json'],
     ['__root_ws.ts', 'file/ws-root/__root_ws.ts'],
+    ['jest.config.js', 'file/ws-root/jest.config.js'],
+    ['jest-preset.js', 'file/ws-root/jest-preset.js'],
 ];
 exports.defaultCopyStaticFiles = Object.freeze(_defaultCopyStaticFiles);
 exports.defaultCopyStaticFilesRootOnly = Object.freeze(_defaultCopyStaticFilesRootOnly);
