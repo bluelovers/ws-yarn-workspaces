@@ -28,7 +28,7 @@
     "@npmcli/ci-detect": "^2.0.0",
     "@yarn-tool/is-npx": "^1.0.11",
     "tslib": "^2",
-    "update-notifier": "<6 >= 5.1.0"
+    "update-notifier": "<6 >=5.1.0"
   },
   "publishConfig": {
     "access": "public"

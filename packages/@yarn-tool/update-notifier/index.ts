@@ -27,7 +27,7 @@ export function updateNotifier(__dirname: string | string[], force?: boolean, in
 	if (force || (force == null) && notNpxMaybe(__dirname))
 	{
 		let noticeOptions: Settings & NotifyOptions = {
-			shouldNotifyInNpmScript: true,
+			shouldNotifyInNpmScript: false,
 			...inputNoticeOptions,
 		};
 

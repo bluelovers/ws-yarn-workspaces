@@ -19,7 +19,7 @@ function updateNotifier(__dirname, force, inputNoticeOptions) {
     }
     if (force || (force == null) && notNpxMaybe(__dirname)) {
         let noticeOptions = {
-            shouldNotifyInNpmScript: true,
+            shouldNotifyInNpmScript: false,
             ...inputNoticeOptions,
         };
         const _updateNotifier = require('update-notifier');

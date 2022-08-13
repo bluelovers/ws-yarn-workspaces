@@ -55,7 +55,7 @@
     "find-yarn-workspace-root2": "^1.2.40",
     "fs-extra": "^10.1.0",
     "path-is-same": "^1.0.19",
-    "pkg-dir": "< 6 >= 5",
+    "pkg-dir": "<6 >=5",
     "sort-package-json": "^1.57.0",
     "sort-package-json3": "^2.0.2",
     "tslib": "^2",

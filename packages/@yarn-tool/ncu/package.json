@@ -50,7 +50,7 @@
     "@yarn-tool/yargs-util": "^1.0.3",
     "@yarn-tool/yarnlock": "^2.0.3",
     "bluebird": "^3.7.2",
-    "npm-check-updates": "< 12 >= 11.8.5",
+    "npm-check-updates": "<12 >=11.8.5",
     "npm-package-arg": "^9.1.0",
     "package-json": "<7 >=6.5",
     "semver": "^7.3.7",
