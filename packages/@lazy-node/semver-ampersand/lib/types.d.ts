@@ -8,8 +8,8 @@ export interface IOptions extends Options, RangeOptions {
     noAmpersand?: boolean;
     unsafeOptimize?: boolean;
 }
-export declare type IOptionsOrLoose<T extends Options = IOptions> = boolean | T;
-export declare type IComparatorSet = Range["set"];
-export declare type IComparatorArrayInput = ITSArrayListMaybeReadonly<Comparator>;
-export declare type IComparatorSetInput = ITSArrayListMaybeReadonly<IComparatorArrayInput>;
-export declare type ISemverRangeInput = string | SemverRange<any> | semverRange | SemVer | Comparator;
+export type IOptionsOrLoose<T extends Options = IOptions> = boolean | T;
+export type IComparatorSet = Range["set"];
+export type IComparatorArrayInput = ITSArrayListMaybeReadonly<Comparator>;
+export type IComparatorSetInput = ITSArrayListMaybeReadonly<IComparatorArrayInput>;
+export type ISemverRangeInput = string | SemverRange<any> | semverRange | SemVer | Comparator;

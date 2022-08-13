@@ -1,4 +1,6 @@
-import { buildRangeSet, filterRangeListForComparator } from '../../lib/range/parseRange';
+import { filterRangeListForComparator } from '../../lib/range/parseRange';
+import { buildRangeSet } from '../../lib/range/buildRangeSet';
+import { stringifyRangeSet } from '../../lib/range/stringifyRangeSet';
 
 describe(`describe`, () =>
 {
@@ -21,6 +23,8 @@ describe(`describe`, () =>
 		expect(actual2).toMatchSnapshot();
 
 		expect(actual).toStrictEqual(actual2)
+
+		expect(stringifyRangeSet(actual2)).toMatchSnapshot();
 	});
 
 })

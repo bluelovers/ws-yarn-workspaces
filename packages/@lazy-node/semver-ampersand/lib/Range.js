@@ -6,7 +6,7 @@ const range_1 = tslib_1.__importDefault(require("semver/classes/range"));
 const handleAmpersandAndSpaces_1 = require("./handleAmpersandAndSpaces");
 const stringifyComparators_1 = require("./util/stringifyComparators");
 const semver_1 = tslib_1.__importDefault(require("semver/classes/semver"));
-const class_without_call_parent_constructor_1 = tslib_1.__importDefault(require("class-without-call-parent-constructor"));
+const class_without_call_parent_constructor_1 = require("class-without-call-parent-constructor");
 const semver_2 = require("semver");
 const options_1 = require("./range/options");
 const toRangeString_1 = require("./range/toRangeString");
@@ -15,7 +15,7 @@ const fixComparatorSet_1 = require("./range/fixComparatorSet");
 const parseOptionsOrLoose_1 = require("./internal/parseOptionsOrLoose");
 const split_1 = require("./util/split");
 const parseRange_1 = require("./range/parseRange");
-class SemverRange extends (0, class_without_call_parent_constructor_1.default)(range_1.default) {
+class SemverRange extends (0, class_without_call_parent_constructor_1.classWithoutCallParentConstructor)(range_1.default) {
     constructor(rawSource, optionsOrLoose) {
         // skip original semverRange constructor
         super();

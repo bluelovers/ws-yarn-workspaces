@@ -1,4 +1,4 @@
-import splitSmartly, { EnumIncludeSeparatorMode } from 'split-smartly2';
+import { splitSmartly, EnumIncludeSeparatorMode } from 'split-smartly2';
 import { reDoubleVerticalBar, reSpaces } from '../const';
 
 export const splitDoubleVerticalBar = splitSmartly(reDoubleVerticalBar, {

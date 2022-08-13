@@ -1,17 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.buildRangeSet = exports.parseRange = exports.reduceComparatorList = exports.filterRangeListForComparator = exports.parseRangeCore = exports.normalizeRangeInputForComparator = exports.normalizeRangeInput = exports.getMemoOpts = void 0;
-const tslib_1 = require("tslib");
+exports.parseRange = exports.reduceComparatorList = exports.filterRangeListForComparator = exports.parseRangeCore = exports.normalizeRangeInputForComparator = exports.getMemoOpts = void 0;
 const cache_1 = require("./cache");
 const semver_1 = require("semver");
 const detect_1 = require("../comparator/detect");
 const re_1 = require("semver/internal/re");
-const debug_1 = tslib_1.__importDefault(require("semver/internal/debug"));
 const util_1 = require("./util");
 const split_1 = require("../util/split");
 const array_hyper_unique_1 = require("array-hyper-unique");
-const const_1 = require("../const");
-const handleAmpersandAndSpaces_1 = require("../handleAmpersandAndSpaces");
+const normalizeRangeInput_1 = require("./normalizeRangeInput");
 /**
  * memoize range parsing for performance.
  * this is a very hot path, and fully deterministic.
@@ -20,23 +17,6 @@ function getMemoOpts(options) {
     return Object.keys(options).filter(k => options[k]).join(',');
 }
 exports.getMemoOpts = getMemoOpts;
-function normalizeRangeInput(range, options) {
-    // `1.2.3 - 1.2.4` => `>=1.2.3 <=1.2.4`
-    const hr = options.loose ? re_1.re[re_1.t.HYPHENRANGELOOSE] : re_1.re[re_1.t.HYPHENRANGE];
-    range = range.replace(hr, (0, util_1.hyphenReplace)(options.includePrerelease));
-    (0, debug_1.default)('hyphen replace', range);
-    // `> 1.2.3 < 1.2.5` => `>1.2.3 <1.2.5`
-    range = range.replace(re_1.re[re_1.t.COMPARATORTRIM], re_1.comparatorTrimReplace);
-    (0, debug_1.default)('comparator trim', range, re_1.re[re_1.t.COMPARATORTRIM]);
-    // `~ 1.2.3` => `~1.2.3`
-    range = range.replace(re_1.re[re_1.t.TILDETRIM], re_1.tildeTrimReplace);
-    // `^ 1.2.3` => `^1.2.3`
-    range = range.replace(re_1.re[re_1.t.CARETTRIM], re_1.caretTrimReplace);
-    // normalize spaces
-    range = range.replace(const_1.reSpaces, ' ');
-    return range;
-}
-exports.normalizeRangeInput = normalizeRangeInput;
 function normalizeRangeInputForComparator(range, options) {
     let rangeList = (0, split_1.splitSpace)(range)
         .map(comp => (0, util_1.parseComparator)(comp, options));
@@ -47,7 +27,7 @@ function normalizeRangeInputForComparator(range, options) {
 }
 exports.normalizeRangeInputForComparator = normalizeRangeInputForComparator;
 function parseRangeCore(range, options) {
-    range = normalizeRangeInput(range, options);
+    range = (0, normalizeRangeInput_1.normalizeRangeInput)(range, options);
     // At this point, the range is completely trimmed and
     // ready to be split into comparators.
     let rangeList = normalizeRangeInputForComparator(range, options);
@@ -104,16 +84,4 @@ function parseRange(range, options) {
     return result;
 }
 exports.parseRange = parseRange;
-function buildRangeSet(range, options = {}) {
-    range = (0, handleAmpersandAndSpaces_1.handleAmpersandAndSpaces)(range, options);
-    let rangeSet = (0, split_1.splitDoubleVerticalBar)(range)
-        // map the range to a 2d array of comparators
-        .map(range => {
-        range = normalizeRangeInput(range, options);
-        return (0, split_1.splitSpace)(range);
-    });
-    rangeSet = (0, array_hyper_unique_1.array_unique_overwrite)(rangeSet);
-    return rangeSet;
-}
-exports.buildRangeSet = buildRangeSet;
 //# sourceMappingURL=parseRange.js.map

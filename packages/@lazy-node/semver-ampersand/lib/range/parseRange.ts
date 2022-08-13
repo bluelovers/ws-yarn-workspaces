@@ -2,14 +2,11 @@ import { cache } from './cache';
 import { Comparator } from 'semver';
 import { isNullSet } from '../comparator/detect';
 import { IOptions } from '../types';
-import { caretTrimReplace, comparatorTrimReplace, re, t, tildeTrimReplace } from 'semver/internal/re'
-import debug from 'semver/internal/debug';
-import { hyphenReplace, parseComparator, replaceGTE0 } from './util';
-import { splitDoubleVerticalBar, splitSpace } from '../util/split';
+import { re, t } from 'semver/internal/re'
+import { parseComparator, replaceGTE0 } from './util';
+import { splitSpace } from '../util/split';
 import { array_unique_overwrite } from 'array-hyper-unique';
-import { reSpaces } from '../const';
-import { handleAmpersandAndSpaces } from '../handleAmpersandAndSpaces';
-import { array_sub_map } from '../util/array';
+import { normalizeRangeInput } from './normalizeRangeInput';
 
 /**
  * memoize range parsing for performance.
@@ -18,28 +15,6 @@ import { array_sub_map } from '../util/array';
 export function getMemoOpts(options: IOptions)
 {
 	return Object.keys(options).filter(k => options[k]).join(',')
-}
-
-export function normalizeRangeInput(range: string, options: IOptions)
-{
-	// `1.2.3 - 1.2.4` => `>=1.2.3 <=1.2.4`
-	const hr = options.loose ? re[t.HYPHENRANGELOOSE] : re[t.HYPHENRANGE]
-	range = range.replace(hr, hyphenReplace(options.includePrerelease))
-	debug('hyphen replace', range)
-	// `> 1.2.3 < 1.2.5` => `>1.2.3 <1.2.5`
-	range = range.replace(re[t.COMPARATORTRIM], comparatorTrimReplace)
-	debug('comparator trim', range, re[t.COMPARATORTRIM])
-
-	// `~ 1.2.3` => `~1.2.3`
-	range = range.replace(re[t.TILDETRIM], tildeTrimReplace)
-
-	// `^ 1.2.3` => `^1.2.3`
-	range = range.replace(re[t.CARETTRIM], caretTrimReplace)
-
-	// normalize spaces
-	range = range.replace(reSpaces, ' ')
-
-	return range
 }
 
 export function normalizeRangeInputForComparator(range: string, options: IOptions)
@@ -133,23 +108,3 @@ export function parseRange(range: string, options: IOptions): ReadonlyArray<Comp
 	cache.set(memoKey, result)
 	return result
 }
-
-export function buildRangeSet(range: string, options: IOptions = {})
-{
-	range = handleAmpersandAndSpaces(range, options);
-
-	let rangeSet = splitDoubleVerticalBar(range)
-		// map the range to a 2d array of comparators
-		.map(range => {
-			range = normalizeRangeInput(range, options);
-
-			return splitSpace(range)
-		})
-	;
-
-	rangeSet = array_unique_overwrite(rangeSet)
-
-	return rangeSet
-}
-
-

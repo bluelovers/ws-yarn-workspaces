@@ -9,7 +9,7 @@ import {
 } from './types';
 import { stringifyComparatorsSet } from './util/stringifyComparators';
 import SemVer from 'semver/classes/semver';
-import classWithoutCallParentConstructor from 'class-without-call-parent-constructor';
+import { classWithoutCallParentConstructor } from 'class-without-call-parent-constructor';
 import { Comparator } from 'semver';
 import { _copyOptions, _isSameOptions, _normalizeOptions } from './range/options';
 import { toRangeString } from './range/toRangeString';
