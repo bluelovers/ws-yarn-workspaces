@@ -14,4 +14,4 @@ export interface ISortPackageJsonScriptsOptions {
     omitKeyFn?: typeof omitKey;
     sortKeyFn?: (a: string, b: string) => number;
 }
-export declare type ISortPackageJsonScriptsOptionsRequired = Required<Omit<ISortPackageJsonScriptsOptions, 'sortKeyFn'>> & Pick<ISortPackageJsonScriptsOptions, 'sortKeyFn'>;
+export type ISortPackageJsonScriptsOptionsRequired = Required<Omit<ISortPackageJsonScriptsOptions, 'sortKeyFn'>> & Pick<ISortPackageJsonScriptsOptions, 'sortKeyFn'>;

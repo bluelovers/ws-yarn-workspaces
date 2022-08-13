@@ -1,4 +1,4 @@
-export declare type IJsonObject<K extends string> = {
+export type IJsonObject<K extends string> = {
     [p in K]: string[];
 };
 export declare class ScopeJsonObject<K extends string = 'workspaces'> {

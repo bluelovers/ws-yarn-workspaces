@@ -9,7 +9,7 @@ export interface ILifecycleEntry<K extends string = string> {
     before: (string | `pre${K}`)[];
     after: (string | `post${K}`)[];
 }
-export declare type ILifecycleMapKeys = keyof typeof lifecycleMap;
-export declare type ILifecycleMapEntry<K extends string = string | ILifecycleMapKeys> = K extends ILifecycleMapKeys ? (typeof lifecycleMap)[K] : ILifecycleEntry<K>;
-export declare type ILifecycleMap<K extends string = string> = typeof lifecycleMap & Record<K, ILifecycleEntry<K>>;
-export declare type ILifecycleList<K extends string = string | ILifecycleMapKeys> = (string | `pre${K}` | `post${K}` | K | ITSValueOfArray<ILifecycleEntry<K>["before"]> | ITSValueOfArray<ILifecycleEntry<K>["after"]>)[];
+export type ILifecycleMapKeys = keyof typeof lifecycleMap;
+export type ILifecycleMapEntry<K extends string = string | ILifecycleMapKeys> = K extends ILifecycleMapKeys ? (typeof lifecycleMap)[K] : ILifecycleEntry<K>;
+export type ILifecycleMap<K extends string = string> = typeof lifecycleMap & Record<K, ILifecycleEntry<K>>;
+export type ILifecycleList<K extends string = string | ILifecycleMapKeys> = (string | `pre${K}` | `post${K}` | K | ITSValueOfArray<ILifecycleEntry<K>["before"]> | ITSValueOfArray<ILifecycleEntry<K>["after"]>)[];

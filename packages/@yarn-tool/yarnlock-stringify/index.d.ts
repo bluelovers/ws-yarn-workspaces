@@ -3,7 +3,7 @@ import { EnumDetectYarnLock, IYarnLockParsed, IYarnLockRawSourceV1, IYarnLockRaw
 import { stringifyYarnLockRawV1 } from '@yarn-tool/yarnlock-parse-raw/lib/v1';
 import { stringifyYarnLockRawV2 } from '@yarn-tool/yarnlock-parse-raw/lib/v2';
 export declare function yarnLockStringify(yarnlock_old: Record<string, any> | Buffer | string | IYarnLockSource | IYarnLockParsed): string;
-export declare type IResultYarnLockStringifyRaw = {
+export type IResultYarnLockStringifyRaw = {
     verType: EnumDetectYarnLock.v1;
     fn: typeof stringifyYarnLockRawV1;
     json: IYarnLockRawSourceV1;

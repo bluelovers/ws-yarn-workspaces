@@ -1,6 +1,6 @@
 import { ITSPartialRecord, ITSRequiredPick } from 'ts-type/lib/type/record';
-export declare type IOperatorBase = '~' | '^' | '>=' | '<=' | '=' | '-' | '||' | '=' | '~>';
-export declare type IOperator = IOperatorBase | string;
+export type IOperatorBase = '~' | '^' | '>=' | '<=' | '=' | '-' | '||' | '=' | '~>';
+export type IOperator = IOperatorBase | string;
 export interface ISimpleSemVerObjectBase {
     operator?: IOperator;
     version?: string;
@@ -18,15 +18,15 @@ export interface ISimpleSemVerObjectWithOperator extends IHasOperator<ISimpleSem
 }
 export interface ISimpleSemVerOperator extends ITSPartialRecord<Exclude<keyof ISimpleSemVerObjectBase, 'operator'>, never>, ITSRequiredPick<ISimpleSemVerObjectBase, 'operator'> {
 }
-export declare type ISimpleSemVer = ISimpleSemVerObject | ISimpleSemVerOperator | ISimpleSemVerObjectWithOperator;
-export declare type IHasOperator<T extends ISimpleSemVerObjectBase> = T & {
+export type ISimpleSemVer = ISimpleSemVerObject | ISimpleSemVerOperator | ISimpleSemVerObjectWithOperator;
+export type IHasOperator<T extends ISimpleSemVerObjectBase> = T & {
     operator: IOperator;
 };
-export declare type IToSimpleSemVerOperator<T extends ISimpleSemVerObjectBase> = IHasOperator<T> & {
+export type IToSimpleSemVerOperator<T extends ISimpleSemVerObjectBase> = IHasOperator<T> & {
     major?: never;
 };
-export declare type IToSimpleSemVerObject<T extends ISimpleSemVerObjectBase> = T & {
+export type IToSimpleSemVerObject<T extends ISimpleSemVerObjectBase> = T & {
     major: string;
 };
-export declare type IToSimpleSemVerObjectWithOperator<T extends ISimpleSemVerObjectBase> = IHasOperator<IToSimpleSemVerObject<T>>;
-export declare type IToSimpleSemVerObjectOrOperator<T extends ISimpleSemVerObjectBase> = IToSimpleSemVerOperator<T> | IToSimpleSemVerObject<T>;
+export type IToSimpleSemVerObjectWithOperator<T extends ISimpleSemVerObjectBase> = IHasOperator<IToSimpleSemVerObject<T>>;
+export type IToSimpleSemVerObjectOrOperator<T extends ISimpleSemVerObjectBase> = IToSimpleSemVerOperator<T> | IToSimpleSemVerObject<T>;

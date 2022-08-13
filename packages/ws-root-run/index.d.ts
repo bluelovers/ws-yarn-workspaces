@@ -1,6 +1,6 @@
 /// <reference types="node" />
 import crossSpawn, { SpawnSyncOptions, SpawnOptions } from 'cross-spawn-extra';
-export declare type INpmClient = string | 'npm' | 'yarn' | 'lerna';
+export type INpmClient = string | 'npm' | 'yarn' | 'lerna';
 export declare function spawnWsRootRun(argv: string[], opts?: {
     cwd?: string;
     npmClient?: INpmClient;

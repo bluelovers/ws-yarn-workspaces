@@ -10,7 +10,7 @@ interface ICommandModuleOmit {
     /** array of strings (or a single string) representing aliases of `exports.command`, positional args defined in an alias are ignored */
     aliases?: ReadonlyArray<string> | string;
 }
-export declare type ICommandModuleExports<T, U> = ICommandModuleOmit & ({
+export type ICommandModuleExports<T, U> = ICommandModuleOmit & ({
     /** object declaring the options the command accepts, or a function accepting and returning a yargs instance */
     builder(yargs: Argv<T>): Argv<U>;
     /** a function which will be passed the parsed argv. */
@@ -32,8 +32,8 @@ export declare type ICommandModuleExports<T, U> = ICommandModuleOmit & ({
 export declare const SYM_CONFIG: unique symbol;
 export declare const SYM_YARGS: unique symbol;
 export declare const SYM_PROP: unique symbol;
-export declare type ITorU<T, U> = U extends never ? T : U;
-export declare type IUnpackCmdMod<T extends CommandModule, D = unknown> = T extends CommandModule<any, infer U> ? U : T extends CommandModule<infer U, any> ? U : D;
+export type ITorU<T, U> = U extends never ? T : U;
+export type IUnpackCmdMod<T extends CommandModule, D = unknown> = T extends CommandModule<any, infer U> ? U : T extends CommandModule<infer U, any> ? U : D;
 export declare class YargsCommandModule<T, U> implements ICommandModuleOmit {
     [SYM_CONFIG]: ICommandModuleExports<T, U>;
     [SYM_YARGS]: {

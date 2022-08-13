@@ -14,7 +14,7 @@ export interface IPackageJsonWithVersion {
     name: string;
     version: string;
 }
-export declare type IOptionsPackageTagInput = IOptionsPackageTag & (IPackageJsonWithVersion | {
+export type IOptionsPackageTagInput = IOptionsPackageTag & (IPackageJsonWithVersion | {
     version: string;
     pkg: IPackageJsonWithVersion;
 } | {

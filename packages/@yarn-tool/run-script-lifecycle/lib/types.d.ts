@@ -37,7 +37,7 @@ export interface IResultCore extends IResultBase {
 }
 export interface IResult extends IResultCore {
 }
-export declare type IError = Error & IResult;
+export type IError = Error & IResult;
 export interface IRunLifecycleScriptOptions {
     event: string;
     args?: any[];

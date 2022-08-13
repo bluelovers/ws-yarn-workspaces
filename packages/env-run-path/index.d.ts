@@ -1,7 +1,7 @@
-declare type ProcessEnvCore<P> = P & {
+type ProcessEnvCore<P> = P & {
     Path: string;
 };
-export declare type ProcessEnv = ProcessEnvCore<typeof process.env>;
+export type ProcessEnv = ProcessEnvCore<typeof process.env>;
 export interface IOptionsFindBinPath {
     cwd?: string;
     stopPath?: string | string[] | boolean;

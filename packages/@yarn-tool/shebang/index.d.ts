@@ -14,7 +14,7 @@ export declare const reShebang: RegExp;
  */
 export declare function shebang(line: string): IScriptName;
 export declare function removeShebang(line: string): string;
-export declare type IScriptName = string | 'env' | 'node' | 'sh';
+export type IScriptName = string | 'env' | 'node' | 'sh';
 export interface IMatchShebangReturnType {
     shebang: string;
     bin: string;

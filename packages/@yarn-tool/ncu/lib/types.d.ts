@@ -20,8 +20,8 @@ export interface IVersionCacheMapKey {
 export interface IVersionCacheMapValue extends IVersionCacheMapKey {
     version_new: IVersionValue;
 }
-export declare type ISetupNcuToYargsReturnType = ReturnType<typeof setupNcuToYargs>;
-export declare type IOptionsNpmCheckUpdates = Partial<IUnpackYargsArgv<ISetupNcuToYargsReturnType>> & {
+export type ISetupNcuToYargsReturnType = ReturnType<typeof setupNcuToYargs>;
+export type IOptionsNpmCheckUpdates = Partial<IUnpackYargsArgv<ISetupNcuToYargsReturnType>> & {
     json_old: IPackageJson;
     cwd?: string;
     packageData?: string;
@@ -39,7 +39,7 @@ export declare type IOptionsNpmCheckUpdates = Partial<IUnpackYargsArgv<ISetupNcu
  * @deprecated
  */
 export { IOptionsNpmCheckUpdates as IOptions };
-export declare type IRomotePackageJsonReturnType = FullMetadata | AbbreviatedMetadata;
+export type IRomotePackageJsonReturnType = FullMetadata | AbbreviatedMetadata;
 export interface IOptionsFetchVersion {
     field?: string | 'time' | 'versions' | 'dist-tags.latest';
     filter?(version: IVersionValue): boolean;

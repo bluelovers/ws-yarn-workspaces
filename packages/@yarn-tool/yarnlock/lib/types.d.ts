@@ -11,7 +11,7 @@ import { IFsYarnLockReturnType } from '@yarn-tool/yarnlock-fs/lib/types';
 /**
  * @deprecated
  */
-export declare type IYarnLockfileParseObject<T extends ITSArrayListMaybeReadonly<string> = string[]> = Record<string, IYarnLockfileParseObjectRow<T>>;
+export type IYarnLockfileParseObject<T extends ITSArrayListMaybeReadonly<string> = string[]> = Record<string, IYarnLockfileParseObjectRow<T>>;
 /**
  * yarn.lock 資料
  * @deprecated
@@ -125,7 +125,7 @@ export interface IWrapDedupeReturnType<T extends {
     argv: Arguments<U>;
     cache: C;
 }
-export declare type IInfoFromDedupeCacheReturnType = IFindRootReturnType & {
+export type IInfoFromDedupeCacheReturnType = IFindRootReturnType & {
     yarnlock_file: string;
     yarnlock_old_exists: string;
     yarnlock_exists: boolean;

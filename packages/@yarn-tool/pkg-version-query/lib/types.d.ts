@@ -8,8 +8,8 @@ export interface ICachedVersionResultCore {
     result?: string;
     error?: VersionNotFoundError | PackageNotFoundError;
 }
-export declare type ICachedVersionResult = ITSRequireAtLeastOne<ICachedVersionResultCore, 'result' | 'error'>;
-export declare type IOptionsQueryVersion<T extends Options | AbbreviatedMetadata> = T & {
+export type ICachedVersionResult = ITSRequireAtLeastOne<ICachedVersionResultCore, 'result' | 'error'>;
+export type IOptionsQueryVersion<T extends Options | AbbreviatedMetadata> = T & {
     notThrowError?: boolean;
     cacheAgent?: Cache<string, ICachedVersionResult>;
     cacheAgentOptions?: IOptionsLRUCacheFS<string, ICachedVersionResult>;

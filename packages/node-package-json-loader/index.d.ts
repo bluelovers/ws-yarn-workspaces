@@ -1,8 +1,8 @@
 /// <reference types="node" />
 import { IPackageJson } from '@ts-type/package-dts';
-declare type IFileOrJson = Buffer | string | object | IPackageJson;
-declare type IPackageJsonLike<T> = Partial<T> | Record<string, any>;
-declare type IItemOrItemArray<T> = T | T[];
+type IFileOrJson = Buffer | string | object | IPackageJson;
+type IPackageJsonLike<T> = Partial<T> | Record<string, any>;
+type IItemOrItemArray<T> = T | T[];
 export declare class PackageJsonLoader<T extends IPackageJsonLike<IPackageJson> = IPackageJson> {
     readonly file: string;
     protected json: T;

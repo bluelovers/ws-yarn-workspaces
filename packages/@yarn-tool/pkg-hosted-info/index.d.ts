@@ -9,7 +9,7 @@ export interface IFillPkgHostedInfoOptions {
     hostedGitInfo?: INpmHostedGitInfo;
     overwriteHostedGitInfo?: boolean;
 }
-export declare type IFillPkgHostedInfoFields = {
+export type IFillPkgHostedInfoFields = {
     homepage: string;
     bugs: {
         url: string;

@@ -7,5 +7,5 @@ export interface IParsePackageName {
     semver: string;
     result: IResult;
 }
-export declare type IResult = AliasResult | FileResult | RegistryResult | HostedGitResult | URLResult;
-export declare type IResultType = IResult["type"];
+export type IResult = AliasResult | FileResult | RegistryResult | HostedGitResult | URLResult;
+export type IResultType = IResult["type"];

@@ -1,6 +1,6 @@
 /// <reference types="node" />
 import { DirOptions } from 'tmp';
-export declare type ICachePathThunk = ((p1?: string, ...args: string[]) => string);
+export type ICachePathThunk = ((p1?: string, ...args: string[]) => string);
 export interface IOptions extends DirOptions {
     /**
      * a base dir name at cache root

@@ -4,7 +4,7 @@
 import IPackageJson from '@ts-type/package-dts';
 import { ITSPartialRecord } from 'ts-type';
 import { IPackageJsonDependenciesField, IDependency } from '@ts-type/package-dts/lib/package-json/types';
-export declare type IReadPackage<T = IPackageJson> = {
+export type IReadPackage<T = IPackageJson> = {
     name: string;
     path: string;
     fullpath: string;
@@ -31,7 +31,7 @@ export interface IListableRow extends IListableRowBase {
      */
     manifestLocation: string;
 }
-export declare type IListableRowExtra<T extends IListableRow = IListableRow> = T & {
+export type IListableRowExtra<T extends IListableRow = IListableRow> = T & {
     prefix: string;
 };
 export interface IReadedPackages<T = IPackageJson> {

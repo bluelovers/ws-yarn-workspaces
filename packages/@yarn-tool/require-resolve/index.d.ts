@@ -12,7 +12,7 @@ export interface IOptions extends IOptionsCore {
     cwd?: string;
 }
 export declare function requireResolveCore(name: string, options?: IOptions): string;
-export declare type IErrorModuleNotFound<E> = E & {
+export type IErrorModuleNotFound<E> = E & {
     code: string | 'MODULE_NOT_FOUND';
     requireStack: string[];
 };

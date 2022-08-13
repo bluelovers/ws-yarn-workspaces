@@ -17,7 +17,7 @@ export interface IWorkspacesProjectInternal {
         bump: IReleaseType;
     }>;
 }
-export declare type IResolvedResult = FileResult | HostedGitResult | URLResult | AliasResult | RegistryResult;
+export type IResolvedResult = FileResult | HostedGitResult | URLResult | AliasResult | RegistryResult;
 export interface IPackedManifestCore extends Record<IPackageJsonDependenciesField, IDependency> {
     name: string;
     location: string;

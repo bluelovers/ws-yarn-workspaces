@@ -1,5 +1,5 @@
 import { IOptionsOrLoose, ICompareReturnType } from './compare';
-export declare type IParseVersionsFindIndex = 0 | 1 | 2;
+export type IParseVersionsFindIndex = 0 | 1 | 2;
 export declare function parseVersions(versionOld: string, versionNew: string): {
     versionOld: string;
     versionNew: string;

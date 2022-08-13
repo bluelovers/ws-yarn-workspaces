@@ -21,4 +21,4 @@ export interface IRuntime extends IRuntimeInput {
     pkg_data_ws: IPackageJson;
     doWorkspace: boolean;
 }
-export declare type IArgvRuntime = IUnpackYargsArgv<ReturnType<typeof setupNcuToYargs2>>;
+export type IArgvRuntime = IUnpackYargsArgv<ReturnType<typeof setupNcuToYargs2>>;

@@ -22,8 +22,8 @@ export interface IOptionsInstallDepsFromQuery extends IOptionsInstallDepsFromWor
 }
 export interface IOptionsInstallDepsFromYarnLock extends IOptionsInstallDepsFromQuery, IGroupYarnLockParsedEntriesOptions {
 }
-export declare type IFilteredRecord<T extends Record<string, any>, K extends string> = T extends Record<string, infer U> ? T & Record<K, U> : T;
-export declare type IAddedList = [name: string, semver: string][];
+export type IFilteredRecord<T extends Record<string, any>, K extends string> = T extends Record<string, infer U> ? T & Record<K, U> : T;
+export type IAddedList = [name: string, semver: string][];
 export interface IResultInstallDepsChanged {
     added: IAddedList;
     exists: string[];

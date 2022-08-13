@@ -1,6 +1,6 @@
 /// <reference types="node" />
 import { IRecordLike } from 'value-from-record';
-export declare type IPathDelimiter = ':' | ';';
+export type IPathDelimiter = ':' | ';';
 declare const delimiter: IPathDelimiter;
 export { delimiter };
 export declare function processEnv(ignoreErrors?: boolean): NodeJS.ProcessEnv;
