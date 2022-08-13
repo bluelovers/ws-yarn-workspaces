@@ -23,6 +23,8 @@ export declare function defaultWorkspaceRootScripts(): {
     postpublishOnly: string;
     "postpublishOnly:ws-root-changelog": string;
     test: string;
+    "test:snapshot:all": string;
+    "test:snapshot:since": string;
     "install:reset-lockfile": string;
     "ws:fix-all": string;
     "tsc:showConfig": string;

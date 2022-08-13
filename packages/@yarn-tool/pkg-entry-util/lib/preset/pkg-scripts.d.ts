@@ -1,6 +1,7 @@
 export declare function defaultPkgNotOldExists(): {
     "test:mocha": string;
     "test:jest": string;
+    "test:snapshot": string;
     "test:tsdx": string;
     "build:dts:bundle": string;
     "build:dts:copy": string;

@@ -27,6 +27,7 @@ export function handleOptions<T extends IOptionsFindUpPathsWorkspaces = IOptions
 
 	runtime.rootData = findRoot({
 		cwd: runtime.cwd,
+		throwError: true,
 	});
 
 	runtime.stopPath.push(runtime.rootData.root);

@@ -8,6 +8,7 @@ function handleOptions(cwd, opts) {
     const runtime = (0, find_up_paths_1.handleOptions)(cwd, opts);
     runtime.rootData = (0, find_root_1.findRoot)({
         cwd: runtime.cwd,
+        throwError: true,
     });
     runtime.stopPath.push(runtime.rootData.root);
     if (runtime.opts.ignoreCurrentPackage && !runtime.rootData.isWorkspace) {

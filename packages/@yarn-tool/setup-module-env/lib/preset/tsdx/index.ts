@@ -6,6 +6,7 @@ export function updatePackageJson<P extends IPackageJson>(pkg: P)
 {
 	pkg.scripts ??= {};
 
+	pkg.scripts["test"] ??= "jest --passWithNoTests";
 	pkg.scripts["posttest"] ??= "yarn run build";
 
 	if (!pkg.scripts["build"]?.includes('run build:tsdx'))
