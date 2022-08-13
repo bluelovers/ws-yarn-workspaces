@@ -54,14 +54,14 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@bluelovers/fs-json": "^1.0.7",
+    "@bluelovers/fs-json": "^1.0.9",
     "@yarn-tool/find-root": "^2.0.2",
     "@yarn-tool/sort-lerna-json": "^2.0.2",
     "array-hyper-unique": "^2.0.8",
     "fs-extra": "^10.1.0",
-    "path-in-dir": "^1.0.4",
+    "path-in-dir": "^1.0.5",
     "tslib": "^2",
-    "upath2": "^3.1.13",
+    "upath2": "^3.1.15",
     "yawn-yaml": "^1.5.0"
   },
   "devDependencies": {

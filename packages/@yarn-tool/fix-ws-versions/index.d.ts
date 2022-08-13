@@ -13,7 +13,7 @@ export interface ICache<R extends IListableRow = IListableRow> {
     names?: string[];
     map?: IMap<R>;
 }
-export declare type ICacheInput<R extends IListableRow = IListableRow> = ITSRequireAtLeastOne<ICache<R>, 'listable' | 'record'>;
+export type ICacheInput<R extends IListableRow = IListableRow> = ITSRequireAtLeastOne<ICache<R>, 'listable' | 'record'>;
 export declare function fixPkgDepsVersionsCore<T extends ITSPartialRecord<IPackageJsonDependenciesField, IDependency>, R extends IListableRow>(row: T, cache: ICacheInput<R>): {
     row: T;
     map: IMap<R>;

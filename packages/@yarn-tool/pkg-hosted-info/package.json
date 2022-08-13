@@ -44,7 +44,7 @@
     "@yarn-tool/find-root": "^2.0.2",
     "@yarn-tool/pkg-git-info": "^1.0.32",
     "tslib": "^2",
-    "upath2": "^3.1.13"
+    "upath2": "^3.1.15"
   },
   "publishConfig": {
     "access": "public"

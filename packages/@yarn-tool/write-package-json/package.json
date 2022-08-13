@@ -67,7 +67,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@bluelovers/fs-json": "^1.0.7",
+    "@bluelovers/fs-json": "^1.0.9",
     "tslib": "^2"
   },
   "packageManager": "yarn@1.22.19",

@@ -55,7 +55,7 @@
     "@yarn-tool/find-root": "^2.0.2",
     "fs-extra": "^10.1.0",
     "tslib": "^2",
-    "upath2": "^3.1.13"
+    "upath2": "^3.1.15"
   },
   "packageManager": "yarn@1.22.19",
   "publishConfig": {
