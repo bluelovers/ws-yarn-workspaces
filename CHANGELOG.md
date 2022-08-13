@@ -56,6 +56,7 @@ Please see the individual package changelogs for what's new:
 * 🌏 [`@yarn-tool/workspaces-project`](./packages/@yarn-tool/workspaces-project/CHANGELOG.md "packages/@yarn-tool/workspaces-project") *packages/@yarn-tool/workspaces-project*
 * 🌏 [`@yarn-tool/write-package-json`](./packages/@yarn-tool/write-package-json/CHANGELOG.md "packages/@yarn-tool/write-package-json") *packages/@yarn-tool/write-package-json*
 * 🌏 [`@yarn-tool/ws-changed`](./packages/@yarn-tool/ws-changed/CHANGELOG.md "packages/@yarn-tool/ws-changed") *packages/@yarn-tool/ws-changed*
+* 🌏 [`@yarn-tool/ws-find-up-paths`](./packages/@yarn-tool/ws-find-up-paths/CHANGELOG.md "packages/@yarn-tool/ws-find-up-paths") *packages/@yarn-tool/ws-find-up-paths*
 * 🌏 [`@yarn-tool/ws-scope`](./packages/@yarn-tool/ws-scope/CHANGELOG.md "packages/@yarn-tool/ws-scope") *packages/@yarn-tool/ws-scope*
 * 🌏 [`@yarn-tool/yargs-util`](./packages/@yarn-tool/yargs-util/CHANGELOG.md "packages/@yarn-tool/yargs-util") *packages/@yarn-tool/yargs-util*
 * 🌏 [`@yarn-tool/yarnlock`](./packages/@yarn-tool/yarnlock/CHANGELOG.md "packages/@yarn-tool/yarnlock") *packages/@yarn-tool/yarnlock*
@@ -67,7 +68,11 @@ Please see the individual package changelogs for what's new:
 * 🌏 [`@yarn-tool/yarnlock-fs`](./packages/@yarn-tool/yarnlock-fs/CHANGELOG.md "packages/@yarn-tool/yarnlock-fs") *packages/@yarn-tool/yarnlock-fs*
 * 🌏 [`@yarn-tool/yarnlock-ncu`](./packages/@yarn-tool/yarnlock-ncu/CHANGELOG.md "packages/@yarn-tool/yarnlock-ncu") *packages/@yarn-tool/yarnlock-ncu*
 * 🌏 [`@yarn-tool/yarnlock-parse`](./packages/@yarn-tool/yarnlock-parse/CHANGELOG.md "packages/@yarn-tool/yarnlock-parse") *packages/@yarn-tool/yarnlock-parse*
+* 🌏 [`@yarn-tool/yarnlock-parse-assert`](./packages/@yarn-tool/yarnlock-parse-assert/CHANGELOG.md "packages/@yarn-tool/yarnlock-parse-assert") *packages/@yarn-tool/yarnlock-parse-assert*
+* 🌏 [`@yarn-tool/yarnlock-parse-raw`](./packages/@yarn-tool/yarnlock-parse-raw/CHANGELOG.md "packages/@yarn-tool/yarnlock-parse-raw") *packages/@yarn-tool/yarnlock-parse-raw*
+* 🌏 [`@yarn-tool/yarnlock-parsed-to-json`](./packages/@yarn-tool/yarnlock-parsed-to-json/CHANGELOG.md "packages/@yarn-tool/yarnlock-parsed-to-json") *packages/@yarn-tool/yarnlock-parsed-to-json*
 * 🌏 [`@yarn-tool/yarnlock-stringify`](./packages/@yarn-tool/yarnlock-stringify/CHANGELOG.md "packages/@yarn-tool/yarnlock-stringify") *packages/@yarn-tool/yarnlock-stringify*
+* 🌏 [`@yarn-tool/yarnlock-types`](./packages/@yarn-tool/yarnlock-types/CHANGELOG.md "packages/@yarn-tool/yarnlock-types") *packages/@yarn-tool/yarnlock-types*
 * 🌏 [`@yarn-tool/yarnlock-util`](./packages/@yarn-tool/yarnlock-util/CHANGELOG.md "packages/@yarn-tool/yarnlock-util") *packages/@yarn-tool/yarnlock-util*
 * 🌏 [`@lazy-node/semver-ampersand`](./packages/@lazy-node/semver-ampersand/CHANGELOG.md "packages/@lazy-node/semver-ampersand") *packages/@lazy-node/semver-ampersand*
 * 🌏 [`@lazy-node/semver-simple-parse`](./packages/@lazy-node/semver-parse/CHANGELOG.md "packages/@lazy-node/semver-parse") *packages/@lazy-node/semver-parse*
