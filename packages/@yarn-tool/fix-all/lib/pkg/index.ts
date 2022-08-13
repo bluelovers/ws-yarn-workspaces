@@ -12,6 +12,9 @@ import { fillPkgHostedInfo, IFillPkgHostedInfoOptions } from '@yarn-tool/pkg-hos
 import { ITSRequiredPick } from 'ts-type/lib/type/record';
 import { sortPackageJson } from 'sort-package-json3';
 import { fixPkgDepsVersionsCore, ICache, ICacheInput } from '@yarn-tool/fix-ws-versions';
+import { packageJsonDependenciesFields } from '@ts-type/package-dts/lib/package-json/types';
+import { buildRangeSet } from '@lazy-node/semver-ampersand/lib/range/buildRangeSet';
+import { stringifyRangeSet } from '@lazy-node/semver-ampersand/lib/range/stringifyRangeSet';
 
 export function _handler(cwd: string, ...argv: Parameters<IOptionsPkgListable["handler"]>)
 {
@@ -75,6 +78,19 @@ export function _runEachPackagesAsync(list: IEntry[],
 				});
 
 				fixPkgDepsVersionsCore(pkg.data, cache);
+
+				packageJsonDependenciesFields
+					.forEach(field => {
+
+						Object.keys(pkg.data[field] ?? {})
+							.forEach(name => {
+								const _set = buildRangeSet(pkg.data[field][name]);
+								pkg.data[field][name] = stringifyRangeSet(_set)
+							})
+						;
+
+					})
+				;
 
 				pkg.data = sortPackageJson(pkg.data);
 

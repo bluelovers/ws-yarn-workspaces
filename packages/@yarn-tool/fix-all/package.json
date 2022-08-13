@@ -54,6 +54,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
+    "@lazy-node/semver-ampersand": "^2.0.2",
     "@yarn-tool/find-root": "^2.0.3",
     "@yarn-tool/fix-ws-versions": "^2.0.3",
     "@yarn-tool/pkg-git-info": "^1.0.33",
