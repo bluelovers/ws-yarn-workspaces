@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/node-modules@2.0.3...@yarn-tool/node-modules@2.0.4) (2022-08-13)
+
+
+### 💎　Styles
+
+* normalize deps semver ([245f3cf](https://github.com/bluelovers/ws-yarn-workspaces/commit/245f3cf34408c3c7e0628a6e18127122dd3e0f44))
+
+
+
+
+
 ## [2.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/node-modules@2.0.2...@yarn-tool/node-modules@2.0.3) (2022-08-13)
 
 

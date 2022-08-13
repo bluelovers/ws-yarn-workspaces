@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.8](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-all@2.0.7...@yarn-tool/fix-all@2.0.8) (2022-08-13)
+
+
+### ✨　Features
+
+* normalize deps semver ([d058f57](https://github.com/bluelovers/ws-yarn-workspaces/commit/d058f579b6c3e84f0ab427c106d8a45ebb0d70fd))
+
+
+
+
+
 ## [2.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-all@2.0.6...@yarn-tool/fix-all@2.0.7) (2022-08-13)
 
 

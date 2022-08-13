@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.41](https://github.com/bluelovers/ws-yarn-workspaces/compare/find-yarn-workspace-root2@1.2.40...find-yarn-workspace-root2@1.2.41) (2022-08-13)
+
+
+### 💎　Styles
+
+* normalize deps semver ([245f3cf](https://github.com/bluelovers/ws-yarn-workspaces/commit/245f3cf34408c3c7e0628a6e18127122dd3e0f44))
+
+
+
+
+
 ## [1.2.40](https://github.com/bluelovers/ws-yarn-workspaces/compare/find-yarn-workspace-root2@1.2.39...find-yarn-workspace-root2@1.2.40) (2022-08-13)
 
 
