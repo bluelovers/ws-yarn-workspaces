@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.31](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/update-notifier@1.0.30...@yarn-tool/update-notifier@1.0.31) (2022-08-15)
+
+
+### ✨　Features
+
+* set updateCheckInterval ([ea44ea3](https://github.com/bluelovers/ws-yarn-workspaces/commit/ea44ea37c6198b470b8cb37a81dd2835dcb8cb10))
+
+
+
+
+
 ## [1.0.30](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/update-notifier@1.0.29...@yarn-tool/update-notifier@1.0.30) (2022-08-13)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.10](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-all@2.0.9...@yarn-tool/fix-all@2.0.10) (2022-08-15)
+
+
+### 🐛　Bug Fixes
+
+* sort root scripts ([042e47f](https://github.com/bluelovers/ws-yarn-workspaces/commit/042e47f682789c2c101e40ab76f5781153724325))
+
+
+
+
+
 ## [2.0.9](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-all@2.0.8...@yarn-tool/fix-all@2.0.9) (2022-08-15)
 
 
