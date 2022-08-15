@@ -1,0 +1,321 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`normalizeDepsValue * 1`] = `
+Object {
+  "escapedName": "@fake%2ffake",
+  "fetchSpec": "*",
+  "gitCommittish": undefined,
+  "gitRange": undefined,
+  "gitSubdir": undefined,
+  "name": "@fake/fake",
+  "raw": "@fake/fake@*",
+  "rawSpec": "*",
+  "registry": true,
+  "saveSpec": null,
+  "scope": "@fake",
+  "type": "range",
+  "where": undefined,
+}
+`;
+
+exports[`normalizeDepsValue * 2`] = `"*"`;
+
+exports[`normalizeDepsValue >x 2.x || * || <x || ~1.2.3beta ^4.0.0-dev.20200615 && 4.0.0-dev.20200615 < 4.0.0-dev.20200800 || 4.0.x - 4.0.2 || (4.0.x - 4.0.2) || >= 1 || =1 || ~> 2.0.0 || 1.2.3 - 1.2.4 - 1.2.5 || >=1.2.3 <=1.2.4 1`] = `
+Object {
+  "escapedName": "@fake%2ffake",
+  "fetchSpec": ">x 2.x || * || <x || ~1.2.3beta ^4.0.0-dev.20200615 && 4.0.0-dev.20200615 < 4.0.0-dev.20200800 || 4.0.x - 4.0.2 || (4.0.x - 4.0.2) || >= 1 || =1 || ~> 2.0.0 || 1.2.3 - 1.2.4 - 1.2.5 || >=1.2.3 <=1.2.4",
+  "gitCommittish": undefined,
+  "gitRange": undefined,
+  "gitSubdir": undefined,
+  "name": "@fake/fake",
+  "raw": "@fake/fake@>x 2.x || * || <x || ~1.2.3beta ^4.0.0-dev.20200615 && 4.0.0-dev.20200615 < 4.0.0-dev.20200800 || 4.0.x - 4.0.2 || (4.0.x - 4.0.2) || >= 1 || =1 || ~> 2.0.0 || 1.2.3 - 1.2.4 - 1.2.5 || >=1.2.3 <=1.2.4",
+  "rawSpec": ">x 2.x || * || <x || ~1.2.3beta ^4.0.0-dev.20200615 && 4.0.0-dev.20200615 < 4.0.0-dev.20200800 || 4.0.x - 4.0.2 || (4.0.x - 4.0.2) || >= 1 || =1 || ~> 2.0.0 || 1.2.3 - 1.2.4 - 1.2.5 || >=1.2.3 <=1.2.4",
+  "registry": true,
+  "saveSpec": null,
+  "scope": "@fake",
+  "type": "range",
+  "where": undefined,
+}
+`;
+
+exports[`normalizeDepsValue >x 2.x || * || <x || ~1.2.3beta ^4.0.0-dev.20200615 && 4.0.0-dev.20200615 < 4.0.0-dev.20200800 || 4.0.x - 4.0.2 || (4.0.x - 4.0.2) || >= 1 || =1 || ~> 2.0.0 || 1.2.3 - 1.2.4 - 1.2.5 || >=1.2.3 <=1.2.4 2`] = `">x 2.x || * || <x || ~1.2.3beta ^4.0.0-dev.20200615 4.0.0-dev.20200615 <4.0.0-dev.20200800 || >=4.0.0 <=4.0.2 || (4.0.x - 4.0.2) || >=1 || =1 || ~>2.0.0 || 1.2.3 - 1.2.4 - 1.2.5 || >=1.2.3 <=1.2.4"`;
+
+exports[`normalizeDepsValue @foo/bar@git+ssh://gitlab.com/user/foo 1`] = `
+Object {
+  "escapedName": "@foo%2fbar",
+  "fetchSpec": "ssh://git@gitlab.com/user/foo.git",
+  "gitCommittish": null,
+  "gitRange": undefined,
+  "gitSubdir": undefined,
+  "name": "@foo/bar",
+  "raw": "@foo/bar@git+ssh://gitlab.com/user/foo",
+  "rawSpec": "git+ssh://gitlab.com/user/foo",
+  "registry": undefined,
+  "saveSpec": "git+ssh://git@gitlab.com/user/foo.git",
+  "scope": "@foo",
+  "type": "git",
+  "where": undefined,
+}
+`;
+
+exports[`normalizeDepsValue @foo/bar@git+ssh://gitlab.com/user/foo 2`] = `"git+ssh://gitlab.com/user/foo"`;
+
+exports[`normalizeDepsValue 0 1`] = `
+Object {
+  "escapedName": "@fake%2ffake",
+  "fetchSpec": "0",
+  "gitCommittish": undefined,
+  "gitRange": undefined,
+  "gitSubdir": undefined,
+  "name": "@fake/fake",
+  "raw": "@fake/fake@0",
+  "rawSpec": "0",
+  "registry": true,
+  "saveSpec": null,
+  "scope": "@fake",
+  "type": "range",
+  "where": undefined,
+}
+`;
+
+exports[`normalizeDepsValue 0 2`] = `"0"`;
+
+exports[`normalizeDepsValue 1 1`] = `
+Object {
+  "escapedName": "@fake%2ffake",
+  "fetchSpec": "1",
+  "gitCommittish": undefined,
+  "gitRange": undefined,
+  "gitSubdir": undefined,
+  "name": "@fake/fake",
+  "raw": "@fake/fake@1",
+  "rawSpec": "1",
+  "registry": true,
+  "saveSpec": null,
+  "scope": "@fake",
+  "type": "range",
+  "where": undefined,
+}
+`;
+
+exports[`normalizeDepsValue 1 2`] = `"1"`;
+
+exports[`normalizeDepsValue 1.0 && (2.0    || 3.1) 1`] = `
+Object {
+  "escapedName": "@fake%2ffake",
+  "fetchSpec": "1.0 && (2.0    || 3.1)",
+  "gitCommittish": undefined,
+  "gitRange": undefined,
+  "gitSubdir": undefined,
+  "name": "@fake/fake",
+  "raw": "@fake/fake@1.0 && (2.0    || 3.1)",
+  "rawSpec": "1.0 && (2.0    || 3.1)",
+  "registry": true,
+  "saveSpec": null,
+  "scope": "@fake",
+  "type": "range",
+  "where": undefined,
+}
+`;
+
+exports[`normalizeDepsValue 1.0 && (2.0    || 3.1) 2`] = `"1.0 (2.0 || 3.1)"`;
+
+exports[`normalizeDepsValue 1.0 (2.0 || 3.1) 1`] = `
+Object {
+  "escapedName": "@fake%2ffake",
+  "fetchSpec": "1.0 (2.0 || 3.1)",
+  "gitCommittish": undefined,
+  "gitRange": undefined,
+  "gitSubdir": undefined,
+  "name": "@fake/fake",
+  "raw": "@fake/fake@1.0 (2.0 || 3.1)",
+  "rawSpec": "1.0 (2.0 || 3.1)",
+  "registry": true,
+  "saveSpec": null,
+  "scope": "@fake",
+  "type": "range",
+  "where": undefined,
+}
+`;
+
+exports[`normalizeDepsValue 1.0 (2.0 || 3.1) 2`] = `"1.0 (2.0 || 3.1)"`;
+
+exports[`normalizeDepsValue foo@gitlab:user/foo-js 1`] = `
+Object {
+  "escapedName": "foo",
+  "fetchSpec": null,
+  "gitCommittish": null,
+  "gitRange": undefined,
+  "gitSubdir": undefined,
+  "name": "foo",
+  "raw": "foo@gitlab:user/foo-js",
+  "rawSpec": "gitlab:user/foo-js",
+  "registry": undefined,
+  "saveSpec": "gitlab:user/foo-js",
+  "scope": undefined,
+  "type": "git",
+  "where": undefined,
+}
+`;
+
+exports[`normalizeDepsValue foo@gitlab:user/foo-js 2`] = `"gitlab:user/foo-js"`;
+
+exports[`normalizeDepsValue git+ssh://git@gitlab.com/user/foo#1.2.3 1`] = `
+Object {
+  "escapedName": "@fake%2ffake",
+  "fetchSpec": "ssh://git@gitlab.com/user/foo.git",
+  "gitCommittish": "1.2.3",
+  "gitRange": undefined,
+  "gitSubdir": undefined,
+  "name": "@fake/fake",
+  "raw": "@fake/fake@git+ssh://git@gitlab.com/user/foo#1.2.3",
+  "rawSpec": "git+ssh://git@gitlab.com/user/foo#1.2.3",
+  "registry": undefined,
+  "saveSpec": "git+ssh://git@gitlab.com/user/foo.git#1.2.3",
+  "scope": "@fake",
+  "type": "git",
+  "where": undefined,
+}
+`;
+
+exports[`normalizeDepsValue git+ssh://git@gitlab.com/user/foo#1.2.3 2`] = `"git+ssh://git@gitlab.com/user/foo#1.2.3"`;
+
+exports[`normalizeDepsValue gitlab:user..blerg--/..foo-js# . . . . . some . tags / / / 1`] = `
+Object {
+  "escapedName": "@fake%2ffake",
+  "fetchSpec": null,
+  "gitCommittish": " . . . . . some . tags / / /",
+  "gitRange": undefined,
+  "gitSubdir": undefined,
+  "name": "@fake/fake",
+  "raw": "@fake/fake@gitlab:user..blerg--/..foo-js# . . . . . some . tags / / /",
+  "rawSpec": "gitlab:user..blerg--/..foo-js# . . . . . some . tags / / /",
+  "registry": undefined,
+  "saveSpec": "gitlab:user..blerg--/..foo-js# . . . . . some . tags / / /",
+  "scope": "@fake",
+  "type": "git",
+  "where": undefined,
+}
+`;
+
+exports[`normalizeDepsValue gitlab:user..blerg--/..foo-js# . . . . . some . tags / / / 2`] = `"gitlab:user..blerg--/..foo-js# . . . . . some . tags / / /"`;
+
+exports[`normalizeDepsValue gitlab:user/foo-js 1`] = `
+Object {
+  "escapedName": "@fake%2ffake",
+  "fetchSpec": null,
+  "gitCommittish": null,
+  "gitRange": undefined,
+  "gitSubdir": undefined,
+  "name": "@fake/fake",
+  "raw": "@fake/fake@gitlab:user/foo-js",
+  "rawSpec": "gitlab:user/foo-js",
+  "registry": undefined,
+  "saveSpec": "gitlab:user/foo-js",
+  "scope": "@fake",
+  "type": "git",
+  "where": undefined,
+}
+`;
+
+exports[`normalizeDepsValue gitlab:user/foo-js 2`] = `"gitlab:user/foo-js"`;
+
+exports[`normalizeDepsValue gitlab:user/foo-js#bar/baz 1`] = `
+Object {
+  "escapedName": "@fake%2ffake",
+  "fetchSpec": null,
+  "gitCommittish": "bar/baz",
+  "gitRange": undefined,
+  "gitSubdir": undefined,
+  "name": "@fake/fake",
+  "raw": "@fake/fake@gitlab:user/foo-js#bar/baz",
+  "rawSpec": "gitlab:user/foo-js#bar/baz",
+  "registry": undefined,
+  "saveSpec": "gitlab:user/foo-js#bar/baz",
+  "scope": "@fake",
+  "type": "git",
+  "where": undefined,
+}
+`;
+
+exports[`normalizeDepsValue gitlab:user/foo-js#bar/baz 2`] = `"gitlab:user/foo-js#bar/baz"`;
+
+exports[`normalizeDepsValue gitlab:user/foo-js#bar/baz/bin 1`] = `
+Object {
+  "escapedName": "@fake%2ffake",
+  "fetchSpec": null,
+  "gitCommittish": "bar/baz/bin",
+  "gitRange": undefined,
+  "gitSubdir": undefined,
+  "name": "@fake/fake",
+  "raw": "@fake/fake@gitlab:user/foo-js#bar/baz/bin",
+  "rawSpec": "gitlab:user/foo-js#bar/baz/bin",
+  "registry": undefined,
+  "saveSpec": "gitlab:user/foo-js#bar/baz/bin",
+  "scope": "@fake",
+  "type": "git",
+  "where": undefined,
+}
+`;
+
+exports[`normalizeDepsValue gitlab:user/foo-js#bar/baz/bin 2`] = `"gitlab:user/foo-js#bar/baz/bin"`;
+
+exports[`normalizeDepsValue https://gitlab.com/user/foo.git 1`] = `
+Object {
+  "escapedName": "@fake%2ffake",
+  "fetchSpec": "https://gitlab.com/user/foo.git",
+  "gitCommittish": null,
+  "gitRange": undefined,
+  "gitSubdir": undefined,
+  "name": "@fake/fake",
+  "raw": "@fake/fake@https://gitlab.com/user/foo.git",
+  "rawSpec": "https://gitlab.com/user/foo.git",
+  "registry": undefined,
+  "saveSpec": "git+https://gitlab.com/user/foo.git",
+  "scope": "@fake",
+  "type": "git",
+  "where": undefined,
+}
+`;
+
+exports[`normalizeDepsValue https://gitlab.com/user/foo.git 2`] = `"https://gitlab.com/user/foo.git"`;
+
+exports[`normalizeDepsValue space 1`] = `
+Object {
+  "escapedName": "@fake%2ffake",
+  "fetchSpec": "latest",
+  "gitCommittish": undefined,
+  "gitRange": undefined,
+  "gitSubdir": undefined,
+  "name": "@fake/fake",
+  "raw": "@fake/fake@",
+  "rawSpec": "",
+  "registry": true,
+  "saveSpec": null,
+  "scope": "@fake",
+  "type": "tag",
+  "where": undefined,
+}
+`;
+
+exports[`normalizeDepsValue space 2`] = `"*"`;
+
+exports[`normalizeDepsValue x 1`] = `
+Object {
+  "escapedName": "@fake%2ffake",
+  "fetchSpec": "x",
+  "gitCommittish": undefined,
+  "gitRange": undefined,
+  "gitSubdir": undefined,
+  "name": "@fake/fake",
+  "raw": "@fake/fake@x",
+  "rawSpec": "x",
+  "registry": true,
+  "saveSpec": null,
+  "scope": "@fake",
+  "type": "range",
+  "where": undefined,
+}
+`;
+
+exports[`normalizeDepsValue x 2`] = `"x"`;
