@@ -26,7 +26,7 @@
     "sort-package-json": "ynpx --quiet yarn-tool -- sort"
   },
   "dependencies": {
-    "@lerna/project": "^5.4.1",
+    "@lerna/project": "^5.4.2",
     "@ts-type/package-dts": "^2.0.5",
     "@types/npm-package-arg": "*",
     "@yarn-tool/changelog": "^2.0.5",
