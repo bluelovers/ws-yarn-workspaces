@@ -24,6 +24,7 @@ Please see the individual package changelogs for what's new:
 * 🌏 [`@yarn-tool/node-modules`](./packages/@yarn-tool/node-modules/CHANGELOG.md "packages/@yarn-tool/node-modules") *packages/@yarn-tool/node-modules*
 * 🌏 [`@yarn-tool/node-modules-is-alias`](./packages/@yarn-tool/node-modules-is-alias/CHANGELOG.md "packages/@yarn-tool/node-modules-is-alias") *packages/@yarn-tool/node-modules-is-alias*
 * 🌏 [`@yarn-tool/node-modules-link`](./packages/@yarn-tool/node-modules-link/CHANGELOG.md "packages/@yarn-tool/node-modules-link") *packages/@yarn-tool/node-modules-link*
+* 🌏 [`@yarn-tool/normalize-deps-value`](./packages/@yarn-tool/normalize-deps-value/CHANGELOG.md "packages/@yarn-tool/normalize-deps-value") *packages/@yarn-tool/normalize-deps-value*
 * 🌏 [`@yarn-tool/npa-to-deps`](./packages/@yarn-tool/npa-to-deps/CHANGELOG.md "packages/@yarn-tool/npa-to-deps") *packages/@yarn-tool/npa-to-deps*
 * 🌏 [`@yarn-tool/npa-to-deps-query`](./packages/@yarn-tool/npa-to-deps-query/CHANGELOG.md "packages/@yarn-tool/npa-to-deps-query") *packages/@yarn-tool/npa-to-deps-query*
 * 🌏 [`@yarn-tool/npm-package-arg-util`](./packages/@yarn-tool/npm-package-arg-util/CHANGELOG.md "packages/@yarn-tool/npm-package-arg-util") *packages/@yarn-tool/npm-package-arg-util*
