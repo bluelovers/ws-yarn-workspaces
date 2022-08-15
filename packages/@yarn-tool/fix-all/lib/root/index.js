@@ -50,6 +50,7 @@ function _fixWsRoot(options) {
         var _b;
         (_a = (_b = runtime.root_pkg_json.data.scripts)[key]) !== null && _a !== void 0 ? _a : (_b[key] = value);
     });
+    runtime.root_pkg_json.data = (0, sort_package_json3_1.sortPackageJson)(runtime.root_pkg_json.data);
     runtime.root_pkg_json.write();
     let wss = new ws_scope_1.WorkspacesScope(runtime.rootData.ws);
     wss.syncValue();

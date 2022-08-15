@@ -61,6 +61,8 @@ export function _fixWsRoot(options: ITSRequiredPick<IFillPkgHostedInfoOptions, '
 		runtime.root_pkg_json.data.scripts[key] ??= value;
 	});
 
+	runtime.root_pkg_json.data = sortPackageJson(runtime.root_pkg_json.data);
+
 	runtime.root_pkg_json.write();
 
 	let wss = new WorkspacesScope(runtime.rootData.ws);
