@@ -49,7 +49,7 @@
     "lerna:publish:yes": "yarn run prepublishOnly:check-bin && npx lerna publish --yes --bump patch",
     "preversion": "yarn run test",
     "version": "echo version",
-    "postversion": "yarn-tool fix-all",
+    "_postversion": "yarn-tool fix-all",
     "prepublish": "echo prepublish",
     "prepublish:lockfile": "ynpx sync-lockfile",
     "prepare": "echo prepare",
