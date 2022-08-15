@@ -13,8 +13,7 @@ import { ITSRequiredPick } from 'ts-type/lib/type/record';
 import { sortPackageJson } from 'sort-package-json3';
 import { fixPkgDepsVersionsCore, ICache, ICacheInput } from '@yarn-tool/fix-ws-versions';
 import { packageJsonDependenciesFields } from '@ts-type/package-dts/lib/package-json/types';
-import { buildRangeSet } from '@lazy-node/semver-ampersand/lib/range/buildRangeSet';
-import { stringifyRangeSet } from '@lazy-node/semver-ampersand/lib/range/stringifyRangeSet';
+import { normalizeDepsValue } from '@yarn-tool/normalize-deps-value';
 
 export function _handler(cwd: string, ...argv: Parameters<IOptionsPkgListable["handler"]>)
 {
@@ -84,8 +83,8 @@ export function _runEachPackagesAsync(list: IEntry[],
 
 						Object.keys(pkg.data[field] ?? {})
 							.forEach(name => {
-								const _set = buildRangeSet(pkg.data[field][name]);
-								pkg.data[field][name] = stringifyRangeSet(_set)
+								const _value = normalizeDepsValue(pkg.data[field][name]);
+								pkg.data[field][name] = _value;
 							})
 						;
 

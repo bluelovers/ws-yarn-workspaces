@@ -14,8 +14,7 @@ const pkg_hosted_info_1 = require("@yarn-tool/pkg-hosted-info");
 const sort_package_json3_1 = require("sort-package-json3");
 const fix_ws_versions_1 = require("@yarn-tool/fix-ws-versions");
 const types_1 = require("@ts-type/package-dts/lib/package-json/types");
-const buildRangeSet_1 = require("@lazy-node/semver-ampersand/lib/range/buildRangeSet");
-const stringifyRangeSet_1 = require("@lazy-node/semver-ampersand/lib/range/stringifyRangeSet");
+const normalize_deps_value_1 = require("@yarn-tool/normalize-deps-value");
 function _handler(cwd, ...argv) {
     return {
         ...(0, ws_pkg_list_1.normalizeListableRowExtra)(argv[0], cwd),
@@ -56,8 +55,8 @@ function _runEachPackagesAsync(list, options) {
                 var _a;
                 Object.keys((_a = pkg.data[field]) !== null && _a !== void 0 ? _a : {})
                     .forEach(name => {
-                    const _set = (0, buildRangeSet_1.buildRangeSet)(pkg.data[field][name]);
-                    pkg.data[field][name] = (0, stringifyRangeSet_1.stringifyRangeSet)(_set);
+                    const _value = (0, normalize_deps_value_1.normalizeDepsValue)(pkg.data[field][name]);
+                    pkg.data[field][name] = _value;
                 });
             });
             pkg.data = (0, sort_package_json3_1.sortPackageJson)(pkg.data);
