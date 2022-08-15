@@ -28,6 +28,7 @@ export function updateNotifier(__dirname: string | string[], force?: boolean, in
 	{
 		let noticeOptions: Settings & NotifyOptions = {
 			shouldNotifyInNpmScript: false,
+			updateCheckInterval: 1000 * 60 * 60 * 24 * 7,
 			...inputNoticeOptions,
 		};
 

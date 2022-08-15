@@ -20,6 +20,7 @@ function updateNotifier(__dirname, force, inputNoticeOptions) {
     if (force || (force == null) && notNpxMaybe(__dirname)) {
         let noticeOptions = {
             shouldNotifyInNpmScript: false,
+            updateCheckInterval: 1000 * 60 * 60 * 24 * 7,
             ...inputNoticeOptions,
         };
         const _updateNotifier = require('update-notifier');
