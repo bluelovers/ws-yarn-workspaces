@@ -51,6 +51,14 @@ export function pkgExportsVerify<T extends IPackageJson>(pkg: T, options?: {
 							.flat()
 							.forEach(file =>
 							{
+								/**
+								 * skip check './src/*'
+								 */
+								if (file.includes?.('*'))
+								{
+									return;
+								}
+
 								const bool = pathExistsSync(resolve(rootData.pkg, file));
 
 								if (!bool)

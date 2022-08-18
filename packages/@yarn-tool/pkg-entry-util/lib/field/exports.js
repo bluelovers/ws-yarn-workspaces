@@ -34,6 +34,13 @@ function pkgExportsVerify(pkg, options) {
                     [typeof value === 'string' ? value : Object.values(value)]
                         .flat()
                         .forEach(file => {
+                        var _a;
+                        /**
+                         * skip check './src/*'
+                         */
+                        if ((_a = file.includes) === null || _a === void 0 ? void 0 : _a.call(file, '*')) {
+                            return;
+                        }
                         const bool = (0, fs_extra_1.pathExistsSync)((0, path_1.resolve)(rootData.pkg, file));
                         if (!bool) {
                             list.push(`path of '${entry}' does not exist: '${file}'`);
