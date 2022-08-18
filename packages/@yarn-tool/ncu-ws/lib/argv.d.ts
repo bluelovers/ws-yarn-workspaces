@@ -26,6 +26,8 @@ export declare function setupNcuToYargs2<T extends any>(yargs: Argv<T & {
 } & {
     dedupe: boolean;
 } & {
+    filter: (string | number)[];
+} & {
     resolutions: boolean;
 } & {
     "no-safe": boolean;
