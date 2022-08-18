@@ -23,8 +23,8 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@lerna/get-packed": "^5.4.2",
-    "@lerna/log-packed": "^5.4.2",
+    "@lerna/get-packed": "^5.4.3",
+    "@lerna/log-packed": "^5.4.3",
     "@ts-type/package-dts": "^2.0.5",
     "npm-packlist": "^5.1.1",
     "tar": "^6.1.11",
