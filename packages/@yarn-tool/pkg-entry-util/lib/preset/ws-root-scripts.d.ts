@@ -31,4 +31,5 @@ export declare function defaultWorkspaceRootScripts(): {
     "ci:install": string;
     "test:jest:clearCache": string;
     "install:resetLockfile": string;
+    "install:frozenLockfile": string;
 };
