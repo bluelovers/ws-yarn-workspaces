@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.9](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ncu-ws@1.0.8...@yarn-tool/ncu-ws@1.0.9) (2022-08-18)
+
+
+### ♻️　Chores
+
+* **ncu:** add report totalTime ([f73afe7](https://github.com/bluelovers/ws-yarn-workspaces/commit/f73afe7c3c646c508ef0b5c758da9009766f0159))
+
+
+### 🔖　Miscellaneous
+
+* . ([93fa19a](https://github.com/bluelovers/ws-yarn-workspaces/commit/93fa19ad510eb723c87dcedb4f259b203087a00c))
+
+
+
+
+
 ## [1.0.8](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ncu-ws@1.0.7...@yarn-tool/ncu-ws@1.0.8) (2022-08-15)
 
 **Note:** Version bump only for package @yarn-tool/ncu-ws

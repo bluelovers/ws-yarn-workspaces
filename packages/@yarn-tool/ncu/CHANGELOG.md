@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ncu@2.0.6...@yarn-tool/ncu@2.0.7) (2022-08-18)
+
+
+### 🐛　Bug Fixes
+
+* **typescript:** fix type ([bac4f30](https://github.com/bluelovers/ws-yarn-workspaces/commit/bac4f30b6fcc9fa4fde2d653f2652af7553adcd2))
+
+
+### ✨　Features
+
+* ncu cli add `filter` ([96203ad](https://github.com/bluelovers/ws-yarn-workspaces/commit/96203ad2a599681554888336c4ab6f1b2a7b9059))
+
+
+
+
+
 ## [2.0.6](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ncu@2.0.5...@yarn-tool/ncu@2.0.6) (2022-08-15)
 
 **Note:** Version bump only for package @yarn-tool/ncu

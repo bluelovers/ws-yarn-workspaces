@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.9](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-entry-util@2.0.8...@yarn-tool/pkg-entry-util@2.0.9) (2022-08-18)
+
+
+### ✨　Features
+
+* add `install:frozenLockfile` ([d7797f1](https://github.com/bluelovers/ws-yarn-workspaces/commit/d7797f13050343208b499895859924eecda42550))
+
+
+
+
+
 ## [2.0.8](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-entry-util@2.0.7...@yarn-tool/pkg-entry-util@2.0.8) (2022-08-13)
 
 **Note:** Version bump only for package @yarn-tool/pkg-entry-util
