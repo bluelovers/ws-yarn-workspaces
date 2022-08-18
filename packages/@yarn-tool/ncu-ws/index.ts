@@ -9,6 +9,8 @@ import { _handleNcuYarnLock } from './lib/ncu-yarnlock';
 
 export function _handleNcuArgvAuto(argv: IArgvRuntime, runtimeInput: IRuntimeInput, isWorkspace?: boolean, includeRoot?: boolean)
 {
+	const startTime = Date.now();
+
 	return Bluebird.resolve()
 		.then(() => findRoot(argv, true))
 		// @ts-ignore
@@ -84,6 +86,12 @@ export function _handleNcuArgvAuto(argv: IArgvRuntime, runtimeInput: IRuntimeInp
 			};
 
 			return _handleNcuArgv(argv, runtimeInput)
+		})
+		.tap(() => {
+			const totalTime = Date.now() - startTime;
+			const totalTimeHuman = (totalTime / 1000).toFixed(2);
+			const msg = `Done in ${totalTimeHuman}s.`;
+			runtimeInput.consoleDebug.gray.info(msg);
 		})
 		;
 }

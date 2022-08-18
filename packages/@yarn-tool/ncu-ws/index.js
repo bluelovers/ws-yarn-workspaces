@@ -10,6 +10,7 @@ const debug_color2_1 = require("debug-color2");
 const upath2_1 = require("upath2");
 const ncu_yarnlock_1 = require("./lib/ncu-yarnlock");
 function _handleNcuArgvAuto(argv, runtimeInput, isWorkspace, includeRoot) {
+    const startTime = Date.now();
     return bluebird_1.default.resolve()
         .then(() => (0, find_root_1.findRoot)(argv, true))
         // @ts-ignore
@@ -67,6 +68,12 @@ function _handleNcuArgvAuto(argv, runtimeInput, isWorkspace, includeRoot) {
             runtimeInput.consoleDebug.info(rootData.pkg);
         });
         return (0, ncu_main_1._handleNcuArgv)(argv, runtimeInput);
+    })
+        .tap(() => {
+        const totalTime = Date.now() - startTime;
+        const totalTimeHuman = (totalTime / 1000).toFixed(2);
+        const msg = `Done in ${totalTimeHuman}s.`;
+        runtimeInput.consoleDebug.gray.info(msg);
     });
 }
 exports._handleNcuArgvAuto = _handleNcuArgvAuto;
