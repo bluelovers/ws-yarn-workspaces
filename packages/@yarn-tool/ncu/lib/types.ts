@@ -8,6 +8,7 @@ import { IVersionValue, EnumVersionValue, IDependency } from '@ts-type/package-d
 import setupNcuToYargs from './cli';
 import { FullMetadata, AbbreviatedMetadata } from 'package-json';
 import { IUnpackYargsArgv } from '@yarn-tool/yargs-util';
+import { RunOptions } from 'npm-check-updates';
 
 export * from '@ts-type/package-dts/lib/package-json/types';
 
@@ -36,7 +37,8 @@ export interface IVersionCacheMapValue extends IVersionCacheMapKey
 
 export type ISetupNcuToYargsReturnType = ReturnType<typeof setupNcuToYargs>;
 
-export type IOptionsNpmCheckUpdates = Partial<IUnpackYargsArgv<ISetupNcuToYargsReturnType>> & {
+export type IOptionsNpmCheckUpdates = Partial<
+Omit<IUnpackYargsArgv<ISetupNcuToYargsReturnType>, 'filter'>> & Pick<RunOptions, 'filter'> & {
 	json_old: IPackageJson;
 	cwd?: string;
 	packageData?: string;
