@@ -4,6 +4,9 @@
 
 import { Argv } from 'yargs';
 
+/**
+ * @see https://github.com/raineorshine/npm-check-updates/blob/main/src/cli-options.ts
+ */
 export function setupNcuToYargs<T extends any>(yargs: Argv<T>)
 {
 	return yargs
@@ -59,6 +62,10 @@ export function setupNcuToYargs<T extends any>(yargs: Argv<T>)
 			desc: `remove upgrade module from resolutions`,
 			boolean: true,
 			default: true,
+		})
+		.option('filter', {
+			desc: `Include only package names matching the given string, wildcard, glob, comma-or-space-delimited list, /regex/, or predicate function.`,
+			array: true,
 		})
 		;
 }
