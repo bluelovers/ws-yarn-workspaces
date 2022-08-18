@@ -104,7 +104,7 @@ export function _runEachPackagesAsync(list: IEntry[],
 				{
 					if (err.length)
 					{
-						console.error(err.toString());
+						console.error(err);
 					}
 				})
 		})

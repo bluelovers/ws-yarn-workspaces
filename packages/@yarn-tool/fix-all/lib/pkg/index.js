@@ -67,7 +67,7 @@ function _runEachPackagesAsync(list, options) {
             .catch(e => err.push(e))
             .then(() => {
             if (err.length) {
-                debug_color2_1.console.error(err.toString());
+                debug_color2_1.console.error(err);
             }
         });
     });
