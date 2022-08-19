@@ -4,6 +4,8 @@ import { _fixRoot, _fixWsRoot } from './lib/root/index';
 import { _initPkgListableByRootData, _runEachPackagesAsync } from './lib/pkg/index';
 import { consoleLogger } from 'debug-color2/logger';
 import Bluebird from 'bluebird';
+import { copyStaticFiles } from '@yarn-tool/static-file';
+import { getWsCopyStaticFiles } from '@yarn-tool/static-file/lib/ws/wsCopyStaticFiles';
 
 export interface INpmAutoFixAll
 {
@@ -41,6 +43,16 @@ export function npmAutoFixAll(cwd: string, options?: INpmAutoFixAll)
 		let { branch, overwriteHostedGitInfo } = options ?? {};
 
 		cwd = rootData.cwd;
+
+		if (rootData.hasWorkspace)
+		{
+			const file_map = getWsCopyStaticFiles();
+
+			copyStaticFiles({
+				cwd: rootData.ws,
+				file_map,
+			});
+		}
 
 		consoleLogger.info(`check git info`);
 

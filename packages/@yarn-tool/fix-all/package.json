@@ -59,6 +59,7 @@
     "@yarn-tool/normalize-deps-value": "^1.0.1",
     "@yarn-tool/pkg-git-info": "^1.0.33",
     "@yarn-tool/pkg-hosted-info": "^2.0.5",
+    "@yarn-tool/static-file": "^2.0.3",
     "@yarn-tool/ws-scope": "^2.0.4",
     "bluebird": "^3.7.2",
     "cache-path": "^3.0.4",

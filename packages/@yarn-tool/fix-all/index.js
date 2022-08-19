@@ -8,6 +8,8 @@ const index_1 = require("./lib/root/index");
 const index_2 = require("./lib/pkg/index");
 const logger_1 = require("debug-color2/logger");
 const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
+const static_file_1 = require("@yarn-tool/static-file");
+const wsCopyStaticFiles_1 = require("@yarn-tool/static-file/lib/ws/wsCopyStaticFiles");
 function npmAutoFixAll(cwd, options) {
     return bluebird_1.default.resolve().then(() => {
         cwd !== null && cwd !== void 0 ? cwd : (cwd = process.cwd());
@@ -27,6 +29,13 @@ function npmAutoFixAll(cwd, options) {
         console.log(`hasWorkspace:`, rootData.hasWorkspace);
         let { branch, overwriteHostedGitInfo } = options !== null && options !== void 0 ? options : {};
         cwd = rootData.cwd;
+        if (rootData.hasWorkspace) {
+            const file_map = (0, wsCopyStaticFiles_1.getWsCopyStaticFiles)();
+            (0, static_file_1.copyStaticFiles)({
+                cwd: rootData.ws,
+                file_map,
+            });
+        }
         logger_1.consoleLogger.info(`check git info`);
         const hostedGitInfo = (0, pkg_git_info_1.npmHostedGitInfoLazy)(cwd);
         console.log(`homepage:`, hostedGitInfo.homepage);
