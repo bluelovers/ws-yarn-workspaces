@@ -10,6 +10,7 @@ const logger_1 = require("debug-color2/logger");
 const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
 const static_file_1 = require("@yarn-tool/static-file");
 const wsCopyStaticFiles_1 = require("@yarn-tool/static-file/lib/ws/wsCopyStaticFiles");
+const getRootCopyStaticFiles_1 = require("@yarn-tool/static-file/lib/root/getRootCopyStaticFiles");
 function npmAutoFixAll(cwd, options) {
     return bluebird_1.default.resolve().then(() => {
         cwd !== null && cwd !== void 0 ? cwd : (cwd = process.cwd());
@@ -33,6 +34,16 @@ function npmAutoFixAll(cwd, options) {
             const file_map = (0, wsCopyStaticFiles_1.getWsCopyStaticFiles)();
             (0, static_file_1.copyStaticFiles)({
                 cwd: rootData.ws,
+                file_map,
+            });
+        }
+        else if (rootData.root) {
+            const file_map = (0, getRootCopyStaticFiles_1.getRootCopyStaticFilesAuto)({
+                ...rootData,
+                isRoot: true,
+            });
+            (0, static_file_1.copyStaticFiles)({
+                cwd: rootData.root,
                 file_map,
             });
         }

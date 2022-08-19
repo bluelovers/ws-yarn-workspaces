@@ -14,6 +14,8 @@ import { sortPackageJson } from 'sort-package-json3';
 import { fixPkgDepsVersionsCore, ICache, ICacheInput } from '@yarn-tool/fix-ws-versions';
 import { packageJsonDependenciesFields } from '@ts-type/package-dts/lib/package-json/types';
 import { normalizeDepsValue } from '@yarn-tool/normalize-deps-value';
+import { getRootCopyStaticFilesAuto } from '@yarn-tool/static-file/lib/root/getRootCopyStaticFiles';
+import { copyStaticFiles } from '@yarn-tool/static-file';
 
 export function _handler(cwd: string, ...argv: Parameters<IOptionsPkgListable["handler"]>)
 {
@@ -59,6 +61,16 @@ export function _runEachPackagesAsync(list: IEntry[],
 			{
 
 				const pkg = new PackageJsonLoader(row.manifestLocation);
+
+				const file_map = getRootCopyStaticFilesAuto({
+					...rootData,
+					isRoot: false,
+				});
+
+				copyStaticFiles({
+					cwd: row.location,
+					file_map,
+				});
 
 				try
 				{

@@ -15,6 +15,8 @@ const sort_package_json3_1 = require("sort-package-json3");
 const fix_ws_versions_1 = require("@yarn-tool/fix-ws-versions");
 const types_1 = require("@ts-type/package-dts/lib/package-json/types");
 const normalize_deps_value_1 = require("@yarn-tool/normalize-deps-value");
+const getRootCopyStaticFiles_1 = require("@yarn-tool/static-file/lib/root/getRootCopyStaticFiles");
+const static_file_1 = require("@yarn-tool/static-file");
 function _handler(cwd, ...argv) {
     return {
         ...(0, ws_pkg_list_1.normalizeListableRowExtra)(argv[0], cwd),
@@ -37,6 +39,14 @@ function _runEachPackagesAsync(list, options) {
         const err = new lazy_aggregate_error_1.AggregateErrorExtra();
         const promiseLogger = logger((async () => {
             const pkg = new npm_package_json_loader_1.PackageJsonLoader(row.manifestLocation);
+            const file_map = (0, getRootCopyStaticFiles_1.getRootCopyStaticFilesAuto)({
+                ...rootData,
+                isRoot: false,
+            });
+            (0, static_file_1.copyStaticFiles)({
+                cwd: row.location,
+                file_map,
+            });
             try {
                 (0, pkg_entry_util_1.pkgExportsVerify)(pkg.data);
             }

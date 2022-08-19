@@ -6,6 +6,7 @@ import { consoleLogger } from 'debug-color2/logger';
 import Bluebird from 'bluebird';
 import { copyStaticFiles } from '@yarn-tool/static-file';
 import { getWsCopyStaticFiles } from '@yarn-tool/static-file/lib/ws/wsCopyStaticFiles';
+import { getRootCopyStaticFilesAuto } from '@yarn-tool/static-file/lib/root/getRootCopyStaticFiles';
 
 export interface INpmAutoFixAll
 {
@@ -50,6 +51,18 @@ export function npmAutoFixAll(cwd: string, options?: INpmAutoFixAll)
 
 			copyStaticFiles({
 				cwd: rootData.ws,
+				file_map,
+			});
+		}
+		else if (rootData.root)
+		{
+			const file_map = getRootCopyStaticFilesAuto({
+				...rootData,
+				isRoot: true,
+			});
+
+			copyStaticFiles({
+				cwd: rootData.root,
 				file_map,
 			});
 		}

@@ -21,7 +21,6 @@ const init_path_1 = require("@yarn-tool/init-path");
 const path_1 = require("path");
 const is_builtin_module_1 = require("@yarn-tool/is-builtin-module");
 const initWithPreserveDeps_1 = require("./lib/initWithPreserveDeps");
-const const_1 = require("@yarn-tool/static-file/lib/const");
 const static_file_1 = require("@yarn-tool/static-file");
 const logger_1 = require("debug-color2/logger");
 const nameExistsInWorkspaces_1 = require("ws-pkg-list/lib/nameExistsInWorkspaces");
@@ -31,6 +30,7 @@ const dummy_1 = require("@yarn-tool/pkg-entry-util/lib/preset/dummy");
 const root_scripts_1 = require("@yarn-tool/pkg-entry-util/lib/preset/root-scripts");
 const pkg_scripts_1 = require("@yarn-tool/pkg-entry-util/lib/preset/pkg-scripts");
 const write_package_json_1 = require("@yarn-tool/write-package-json");
+const getRootCopyStaticFiles_1 = require("@yarn-tool/static-file/lib/root/getRootCopyStaticFiles");
 //updateNotifier(__dirname);
 // avoid buf for idea
 logger_1.consoleLogger.length;
@@ -271,15 +271,10 @@ if (!cp.error) {
         }
         (_g = (_l = pkg.data).keywords) !== null && _g !== void 0 ? _g : (_l.keywords = []);
         pkg.data.keywords.push('create-by-yarn-tool');
-        let file_map = [
-            ...const_1.defaultCopyStaticFiles,
-        ];
-        if (!wsProject) {
-            file_map = [
-                ...const_1.defaultCopyStaticFilesRootOnly,
-                ...file_map,
-            ];
-        }
+        let file_map = (0, getRootCopyStaticFiles_1.getRootCopyStaticFilesAuto)({
+            hasWorkspace: !!wsProject,
+            isRoot: !wsProject,
+        });
         let mdFile = (0, upath2_1.join)(targetDir, 'README.md');
         let existsReadme = !oldExists || !(0, fs_1.existsSync)(mdFile);
         if (cli.argv.tsdx) {

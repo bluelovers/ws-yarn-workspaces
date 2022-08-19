@@ -29,6 +29,7 @@ import { fillDummyScripts } from '@yarn-tool/pkg-entry-util/lib/preset/dummy';
 import { defaultRootScripts } from '@yarn-tool/pkg-entry-util/lib/preset/root-scripts';
 import { defaultPkgNotOldExists } from '@yarn-tool/pkg-entry-util/lib/preset/pkg-scripts';
 import { outputPackageJSONSync } from '@yarn-tool/write-package-json';
+import { getRootCopyStaticFilesAuto } from '@yarn-tool/static-file/lib/root/getRootCopyStaticFiles';
 
 //updateNotifier(__dirname);
 
@@ -385,17 +386,10 @@ if (!cp.error)
 		pkg.data.keywords ??= [];
 		pkg.data.keywords.push('create-by-yarn-tool');
 
-		let file_map: IStaticFilesMapArray<string> = [
-			...defaultCopyStaticFiles,
-		];
-
-		if (!wsProject)
-		{
-			file_map = [
-				...defaultCopyStaticFilesRootOnly,
-				...file_map,
-			];
-		}
+		let file_map = getRootCopyStaticFilesAuto({
+			hasWorkspace: !!wsProject,
+			isRoot: !wsProject,
+		});
 
 		let mdFile = join(targetDir, 'README.md');
 
