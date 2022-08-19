@@ -40,6 +40,7 @@
     "test:since": "yarn run test:all -- --since",
     "test:snapshot:all": "yarn-tool ws run test:snapshot --concurrency 1",
     "test:snapshot:since": "yarn run test:snapshot:all -- --since",
+    "install:frozenLockfile": "yarn-tool install --frozen-lockfile",
     "install:reset-lockfile": "yarn-tool install --reset-lockfile",
     "install:resetLockfile": "yarn-tool install --reset-lockfile",
     "build:all": "lerna run build --concurrency 1",
@@ -74,7 +75,7 @@
     "sort-package-json:root": "npx yarn-tool sort",
     "sort-package-json:ws": "npx yarn-tool ws exec yarn-tool sort",
     "tsc:showConfig": "ynpx get-current-tsconfig -p",
-    "ws:fix-all": "yarn-tool fix-all  --overwriteHostedGitInfo"
+    "ws:fix-all": "ts-node ./test/scripts/fix-all.ts"
   },
   "resolutions": {},
   "dependencies": {
