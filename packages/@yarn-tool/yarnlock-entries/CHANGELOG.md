@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-entries@2.0.2...@yarn-tool/yarnlock-entries@2.0.3) (2022-08-19)
+
+
+### 🐛　Bug Fixes
+
+* fix `parseYarnLockRowV2` by `@yarn-tool/yarn-struct-utils` ([429932e](https://github.com/bluelovers/ws-yarn-workspaces/commit/429932ea23b55ed7644371fe6dc0e512d2f03a3e))
+
+
+
+
+
 ## [2.0.2](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-entries@2.0.1...@yarn-tool/yarnlock-entries@2.0.2) (2022-08-13)
 
 
