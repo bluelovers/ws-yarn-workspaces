@@ -37,6 +37,7 @@ Please see the individual package changelogs for what's new:
 * 🌏 [`@yarn-tool/pkg-hosted-info`](./packages/@yarn-tool/pkg-hosted-info/CHANGELOG.md "packages/@yarn-tool/pkg-hosted-info") *packages/@yarn-tool/pkg-hosted-info*
 * 🌏 [`@yarn-tool/pkg-list-to-types`](./packages/@yarn-tool/pkg-list-to-types/CHANGELOG.md "packages/@yarn-tool/pkg-list-to-types") *packages/@yarn-tool/pkg-list-to-types*
 * 🌏 [`@yarn-tool/pkg-name-to-types`](./packages/@yarn-tool/pkg-name-to-types/CHANGELOG.md "packages/@yarn-tool/pkg-name-to-types") *packages/@yarn-tool/pkg-name-to-types*
+* 🌏 [`@yarn-tool/pkg-name-util`](./packages/@yarn-tool/pkg-name-util/CHANGELOG.md "packages/@yarn-tool/pkg-name-util") *packages/@yarn-tool/pkg-name-util*
 * 🌏 [`@yarn-tool/pkg-version-query`](./packages/@yarn-tool/pkg-version-query/CHANGELOG.md "packages/@yarn-tool/pkg-version-query") *packages/@yarn-tool/pkg-version-query*
 * 🌏 [`@yarn-tool/require-resolve`](./packages/@yarn-tool/require-resolve/CHANGELOG.md "packages/@yarn-tool/require-resolve") *packages/@yarn-tool/require-resolve*
 * 🌏 [`@yarn-tool/resolve-package`](./packages/@yarn-tool/resolve-package/CHANGELOG.md "packages/@yarn-tool/resolve-package") *packages/@yarn-tool/resolve-package*
@@ -60,6 +61,7 @@ Please see the individual package changelogs for what's new:
 * 🌏 [`@yarn-tool/ws-find-up-paths`](./packages/@yarn-tool/ws-find-up-paths/CHANGELOG.md "packages/@yarn-tool/ws-find-up-paths") *packages/@yarn-tool/ws-find-up-paths*
 * 🌏 [`@yarn-tool/ws-scope`](./packages/@yarn-tool/ws-scope/CHANGELOG.md "packages/@yarn-tool/ws-scope") *packages/@yarn-tool/ws-scope*
 * 🌏 [`@yarn-tool/yargs-util`](./packages/@yarn-tool/yargs-util/CHANGELOG.md "packages/@yarn-tool/yargs-util") *packages/@yarn-tool/yargs-util*
+* 🌏 [`@yarn-tool/yarn-struct-utils`](./packages/@yarn-tool/yarn-struct-utils/CHANGELOG.md "packages/@yarn-tool/yarn-struct-utils") *packages/@yarn-tool/yarn-struct-utils*
 * 🌏 [`@yarn-tool/yarnlock`](./packages/@yarn-tool/yarnlock/CHANGELOG.md "packages/@yarn-tool/yarnlock") *packages/@yarn-tool/yarnlock*
 * 🌏 [`@yarn-tool/yarnlock-banner`](./packages/@yarn-tool/yarnlock-banner/CHANGELOG.md "packages/@yarn-tool/yarnlock-banner") *packages/@yarn-tool/yarnlock-banner*
 * 🌏 [`@yarn-tool/yarnlock-dedupe`](./packages/@yarn-tool/yarnlock-dedupe/CHANGELOG.md "packages/@yarn-tool/yarnlock-dedupe") *packages/@yarn-tool/yarnlock-dedupe*
