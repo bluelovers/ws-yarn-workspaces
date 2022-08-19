@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.12](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-all@2.0.11...@yarn-tool/fix-all@2.0.12) (2022-08-19)
+
+
+### 🐛　Bug Fixes
+
+* show error info ([0f2ec79](https://github.com/bluelovers/ws-yarn-workspaces/commit/0f2ec7952b7fbbaee1ba99d53b511b600aeeb267))
+
+
+### ✨　Features
+
+* getRootCopyStaticFilesAuto ([2b857c0](https://github.com/bluelovers/ws-yarn-workspaces/commit/2b857c07566a6cdcb7018d9f1b9efbe4f0a5202b))
+* copyStaticFiles ([d98f4a7](https://github.com/bluelovers/ws-yarn-workspaces/commit/d98f4a7f899454f165e8a11ddc76aa90906a9bf1))
+
+
+### 📌　Dependencies
+
+* update deps ([d0659ff](https://github.com/bluelovers/ws-yarn-workspaces/commit/d0659ff79f83d963ad2b4e07b3ad93757de7f48a))
+
+
+
+
+
 ## [2.0.11](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-all@2.0.10...@yarn-tool/fix-all@2.0.11) (2022-08-18)
 
 **Note:** Version bump only for package @yarn-tool/fix-all

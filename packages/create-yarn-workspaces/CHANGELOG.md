@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.11](https://github.com/bluelovers/ws-yarn-workspaces/compare/create-yarn-workspaces@2.0.10...create-yarn-workspaces@2.0.11) (2022-08-19)
+
+
+### 📦　Code Refactoring
+
+* move `getWsCopyStaticFiles` ([f3f6349](https://github.com/bluelovers/ws-yarn-workspaces/commit/f3f634995b504794d189cbba564da2d46488fb18))
+
+
+
+
+
 ## [2.0.10](https://github.com/bluelovers/ws-yarn-workspaces/compare/create-yarn-workspaces@2.0.9...create-yarn-workspaces@2.0.10) (2022-08-18)
 
 **Note:** Version bump only for package create-yarn-workspaces

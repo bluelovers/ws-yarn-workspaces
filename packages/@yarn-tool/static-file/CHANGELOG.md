@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@2.0.3...@yarn-tool/static-file@2.0.4) (2022-08-19)
+
+
+### ✨　Features
+
+* getRootCopyStaticFilesAuto ([2b857c0](https://github.com/bluelovers/ws-yarn-workspaces/commit/2b857c07566a6cdcb7018d9f1b9efbe4f0a5202b))
+
+
+### 📦　Code Refactoring
+
+* move `getWsCopyStaticFiles` ([f3f6349](https://github.com/bluelovers/ws-yarn-workspaces/commit/f3f634995b504794d189cbba564da2d46488fb18))
+
+
+### 🔖　Miscellaneous
+
+* . ([b76c5a8](https://github.com/bluelovers/ws-yarn-workspaces/commit/b76c5a8902781abb3bee14492e652b89307ffacd))
+
+
+
+
+
 ## [2.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@2.0.2...@yarn-tool/static-file@2.0.3) (2022-08-13)
 
 
