@@ -11,6 +11,7 @@ import { readFileSync } from 'fs';
 import fromContent from '../lib/fromContent';
 import { EnumDetectYarnLock } from '@yarn-tool/yarnlock-types';
 import { _forEachVersionTags } from '../../../../test/lib/forEachVersionTags';
+import { sync as FastGlob } from '@bluelovers/fast-glob';
 
 beforeAll(async () =>
 {
@@ -22,34 +23,60 @@ describe(basename(__filename, extname(__filename)), () =>
 
 	_forEachVersionTags().forEach(ver =>
 	{
-
-		const file = join(__TEST_YARNLOCK, ver, 'yarn.lock');
-		const buf = readFileSync(file);
-
-		test(ver, () =>
+		describe(ver, () =>
 		{
+			const dir = join(__TEST_YARNLOCK, ver);
 
-			let actual = fromContent(buf);
-
-			expect(actual.verType).toStrictEqual(EnumDetectYarnLock[ver]);
-
-			if (ver === 'v1')
+			FastGlob([
+				'**/*.lock',
+			], {
+				cwd: dir,
+			}).forEach(name =>
 			{
-				expect(actual.isV1()).toBeTruthy()
-				expect(actual.isV2()).toBeFalsy()
-			}
-			else
-			{
-				expect(actual.isV2()).toBeTruthy()
-				expect(actual.isV1()).toBeFalsy()
-			}
+				const file = join(__TEST_YARNLOCK, ver, name);
+				const buf = readFileSync(file);
 
-			let output = actual.stringify();
+				let actual = fromContent(buf);
 
-			expect(detectYarnLockVersion(output)).toStrictEqual(EnumDetectYarnLock[ver]);
+				test(name, () =>
+				{
+					expect(actual.verType).toStrictEqual(EnumDetectYarnLock[ver]);
 
-			expect(output.slice(0, 160)).toMatchSnapshot();
+					if (ver === 'v1')
+					{
+						expect(actual.isV1()).toBeTruthy()
+						expect(actual.isV2()).toBeFalsy()
+					}
+					else
+					{
+						expect(actual.isV2()).toBeTruthy()
+						expect(actual.isV1()).toBeFalsy()
+					}
 
+					let output = actual.stringify();
+
+					expect(detectYarnLockVersion(output)).toStrictEqual(EnumDetectYarnLock[ver]);
+
+					expect(output.slice(0, 160)).toMatchSnapshot();
+				});
+
+				(ver !== 'v1') && test(`${name} check iterator`, () =>
+				{
+					for (const row of actual.iteratorRaw())
+					{
+						try
+						{
+							// @ts-ignore
+							actual._normalize(row.raw, row.key);
+						}
+						catch (e)
+						{
+							console.dir(row);
+							throw e
+						}
+					}
+				})
+			});
 		});
 
 	});

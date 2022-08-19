@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "@yarn-tool/npm-package-arg-util": "^1.0.30",
+    "@yarn-tool/yarn-struct-utils": "^1.0.0",
     "@yarn-tool/yarnlock-parse-assert": "^1.0.1",
     "@yarn-tool/yarnlock-parse-raw": "^1.0.1",
     "tslib": "^2"

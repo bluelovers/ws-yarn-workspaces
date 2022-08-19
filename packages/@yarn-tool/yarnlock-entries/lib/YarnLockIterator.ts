@@ -129,13 +129,24 @@ export class YarnLockIterator<T extends IYarnLockParsedV1 | IYarnLockParsedV2, D
 		yield* this.iterator<D>()
 	}
 
-	* iterator<D extends IUnpackYarnLockDataRow<T> = DD>()
+	* iteratorRaw<D extends IUnpackYarnLockDataRow<T> = DD>()
 	{
 		for (const key in this.$object.data)
 		{
-			let row = this.$object.data[key] as D;
+			const raw = this.$object.data[key] as D;
 
-			yield this._wrap<D>(key, row)
+			yield {
+				key,
+				raw,
+			} as Pick<IYarnLockIteratorWrap<D>, 'key' | 'raw'>
+		}
+	}
+
+	* iterator<D extends IUnpackYarnLockDataRow<T> = DD>()
+	{
+		for (const row of this.iteratorRaw<D>())
+		{
+			yield this._wrap<D>(row.key, row.raw)
 		}
 	}
 

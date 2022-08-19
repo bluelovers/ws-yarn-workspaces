@@ -80,10 +80,18 @@ class YarnLockIterator {
     *[Symbol.iterator]() {
         yield* this.iterator();
     }
-    *iterator() {
+    *iteratorRaw() {
         for (const key in this.$object.data) {
-            let row = this.$object.data[key];
-            yield this._wrap(key, row);
+            const raw = this.$object.data[key];
+            yield {
+                key,
+                raw,
+            };
+        }
+    }
+    *iterator() {
+        for (const row of this.iteratorRaw()) {
+            yield this._wrap(row.key, row.raw);
         }
     }
     stringify() {

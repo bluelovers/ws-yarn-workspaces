@@ -1,5 +1,5 @@
 import { IYarnLockDataRowV2 } from '@yarn-tool/yarnlock-types';
-import { parseResolution } from '@yarn-tool/yarnlock-parse-raw/lib/v2/parseResolution';
+import { parseResolutionOrDescriptor } from '@yarn-tool/yarn-struct-utils';
 import { IParseNameAndVersionWithNpaResult } from '../types';
 import { npaTry } from '@yarn-tool/npm-package-arg-util';
 import { getSemverFromNpaResult } from '@yarn-tool/npm-package-arg-util/lib/getSemverFromNpaResult';
@@ -7,22 +7,22 @@ import { IResult } from '@yarn-tool/npm-package-arg-util/lib/types';
 
 export function parseYarnLockRowV2(packageName: string, packageData: IYarnLockDataRowV2): IParseNameAndVersionWithNpaResult
 {
-	let ret = parseResolution(packageData.resolution)
+	let ret = parseResolutionOrDescriptor(packageData.resolution)
 
-	let name = ret?.descriptor?.fullName;
+	let name = ret?.fullName;
 
 	if (name)
 	{
 		/**
 		 * @todo support check patch
 		 */
-		let version = ret.descriptor.description ?? packageData.version;
+		let version = ret.description ?? packageData.version;
 
 		version = version.replace(/^(npm):/, '');
 
 		if (!version.length)
 		{
-			version = ret.descriptor.description
+			version = ret.description
 		}
 
 		/**

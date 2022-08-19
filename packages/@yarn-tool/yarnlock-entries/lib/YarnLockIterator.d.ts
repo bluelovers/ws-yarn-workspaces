@@ -19,6 +19,7 @@ export declare class YarnLockIterator<T extends IYarnLockParsedV1 | IYarnLockPar
     protected _wrap<D extends IUnpackYarnLockDataRow<T> = DD>(key: string, raw: D): IYarnLockIteratorWrap<D>;
     protected _normalize<D extends IUnpackYarnLockDataRow<T> = DD>(raw: D, key: string): IYarnLockIteratorWrapValue<D>;
     [Symbol.iterator]<D extends IUnpackYarnLockDataRow<T>>(): Generator<IYarnLockIteratorWrap<D>, void, unknown>;
+    iteratorRaw<D extends IUnpackYarnLockDataRow<T> = DD>(): Generator<Pick<IYarnLockIteratorWrap<D>, "raw" | "key">, void, unknown>;
     iterator<D extends IUnpackYarnLockDataRow<T> = DD>(): Generator<IYarnLockIteratorWrap<D>, void, unknown>;
     stringify(): string;
     toJSON<T extends IYarnLockSource>(): T;
