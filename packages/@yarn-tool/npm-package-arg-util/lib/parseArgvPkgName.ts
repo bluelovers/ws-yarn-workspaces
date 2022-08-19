@@ -1,5 +1,5 @@
 import { npa, getSemverFromNpaResult} from '../index';
-import { stripScope } from './stripScope';
+import { stripScope } from '@yarn-tool/pkg-name-util';
 import { IParsePackageName, IResult } from './types';
 
 /**

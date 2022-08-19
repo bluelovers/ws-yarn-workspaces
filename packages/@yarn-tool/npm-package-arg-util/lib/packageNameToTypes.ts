@@ -1,6 +1,7 @@
 import { escapePackageNameToTypes } from './escapePackageNameToTypes';
 import { parsePackageName } from './parseArgvPkgName';
 import { IParsePackageName } from './types';
+import { assertScope, formatPackageName } from '@yarn-tool/pkg-name-util';
 
 export function packageNameToTypes(packageName: string, prefix?: string): IParsePackageName
 {
@@ -8,10 +9,7 @@ export function packageNameToTypes(packageName: string, prefix?: string): IParse
 
 	prefix ??= '@types';
 
-	if (prefix[0] !== '@' || prefix.includes('/'))
-	{
-		throw new TypeError(`invalid scope '${prefix}'`)
-	}
+	assertScope(prefix, true);
 
 	let { result } = ret;
 
@@ -19,7 +17,10 @@ export function packageNameToTypes(packageName: string, prefix?: string): IParse
 
 	let subname = escapePackageNameToTypes(result, prefix);
 
-	let name = prefix + '/' + subname;
+	let name = formatPackageName({
+		scope: prefix,
+		name: subname,
+	});
 
 	return {
 		...ret,

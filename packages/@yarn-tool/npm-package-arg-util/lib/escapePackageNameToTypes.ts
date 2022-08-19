@@ -1,4 +1,4 @@
-import { stripScope } from './stripScope';
+import { stripScope } from '@yarn-tool/pkg-name-util';
 
 export function escapePackageNameToTypes(options: {
 	scope?: string,
