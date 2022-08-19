@@ -1,5 +1,5 @@
-import { defaultCopyStaticFiles, defaultCopyStaticFilesRootOnly } from '@yarn-tool/static-file/lib/const';
-import { IStaticFiles, IStaticFilesKey } from '@yarn-tool/static-file/lib/types';
+import { defaultCopyStaticFiles, defaultCopyStaticFilesRootOnly } from '../const';
+import { IStaticFiles, IStaticFilesKey } from '../types';
 declare const remap: {
     readonly 'tsconfig.json': "tsconfig.json.tpl";
     readonly 'lerna.json': "lerna.json.tpl";

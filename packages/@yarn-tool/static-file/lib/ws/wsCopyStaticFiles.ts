@@ -2,9 +2,9 @@ import {
 	defaultCopyStaticFiles,
 	defaultCopyStaticFilesRootOnly,
 	defaultCopyStaticFilesWsRootOnly,
-} from '@yarn-tool/static-file/lib/const';
-import { IStaticFiles, IStaticFilesKey, IStaticFilesMapArray } from '@yarn-tool/static-file/lib/types';
-import { reMapStaticFilesMapArray } from '@yarn-tool/static-file/lib/reMapStaticFilesMapArray';
+} from '../const';
+import { IStaticFiles, IStaticFilesKey, IStaticFilesMapArray } from '../types';
+import { reMapStaticFilesMapArray } from '../reMapStaticFilesMapArray';
 
 const remap = {
 	'tsconfig.json': 'tsconfig.json.tpl',

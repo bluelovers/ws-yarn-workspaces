@@ -12,7 +12,7 @@ const fs_extra_1 = require("fs-extra");
 const sort_package_json3_1 = require("sort-package-json3");
 const lib_1 = require("./lib");
 const util_1 = require("./lib/util");
-const wsCopyStaticFiles_1 = require("./lib/wsCopyStaticFiles");
+const wsCopyStaticFiles_1 = require("@yarn-tool/static-file/lib/ws/wsCopyStaticFiles");
 const find_root_1 = require("@yarn-tool/find-root");
 const upath2_2 = require("upath2");
 tslib_1.__exportStar(require("./lib/index"), exports);

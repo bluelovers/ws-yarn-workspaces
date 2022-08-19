@@ -13,7 +13,7 @@ import { getDefaultPackageJson } from './lib';
 import { isSamePath } from './lib/util';
 import { ILernaJson } from '@ts-type/package-dts/lerna-json';
 import { IPackageJson } from '@ts-type/package-dts/package-json';
-import { getWsCopyStaticFiles } from './lib/wsCopyStaticFiles';
+import { getWsCopyStaticFiles } from '@yarn-tool/static-file/lib/ws/wsCopyStaticFiles';
 import { findRootLazy } from '@yarn-tool/find-root';
 import { normalize as pathNormalize } from 'upath2';
 

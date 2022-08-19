@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getWsCopyStaticFiles = void 0;
-const const_1 = require("@yarn-tool/static-file/lib/const");
-const reMapStaticFilesMapArray_1 = require("@yarn-tool/static-file/lib/reMapStaticFilesMapArray");
+const const_1 = require("../const");
+const reMapStaticFilesMapArray_1 = require("../reMapStaticFilesMapArray");
 const remap = {
     'tsconfig.json': 'tsconfig.json.tpl',
     'lerna.json': 'lerna.json.tpl',
