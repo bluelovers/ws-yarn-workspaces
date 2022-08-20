@@ -74,3 +74,4 @@ jest.config.js
 !/file/tpl.editorconfig
 !/file/changelog-option.js
 !/file/root/yarnrc.yml
+!/file/**/*
