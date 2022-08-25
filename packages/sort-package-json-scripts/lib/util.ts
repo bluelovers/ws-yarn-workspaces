@@ -76,6 +76,7 @@ export const defaultNpmScriptsOrder = new Set([
 	'npm',
 	'yarn',
 	'lerna',
+	'ws',
 
 	'version',
 
@@ -105,4 +106,3 @@ export const otherScriptNames = new Set([
 	'prettier',
 
 ])
-
