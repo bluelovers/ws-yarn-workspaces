@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`@babel/parser@* 1`] = `
-Object {
+{
   "name": "@babel/parser",
   "raw": "@babel/parser@*",
   "semver": "*",
@@ -11,7 +11,7 @@ Object {
 `;
 
 exports[`@babel/parser@next 1`] = `
-Object {
+{
   "name": "@babel/parser",
   "raw": "@babel/parser@next",
   "semver": "next",

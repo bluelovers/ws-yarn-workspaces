@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`parseSimpleSemVer ^4.0.0-dev.20200615 1`] = `
-Object {
+{
   "major": "4",
   "minor": "0",
   "operator": "^",

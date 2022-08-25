@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should return semver botkit@12 1`] = `
-Object {
+{
   "fetchQuery": true,
   "name": "botkit",
   "operator": undefined,
-  "result": Object {
+  "result": {
     "escapedName": "botkit",
     "fetchSpec": "12",
     "gitCommittish": undefined,
@@ -25,11 +25,11 @@ Object {
 `;
 
 exports[`should return semver botkit@jonchurch/botkit#multi-hears 1`] = `
-Object {
+{
   "fetchQuery": undefined,
   "name": "botkit",
   "operator": undefined,
-  "result": Object {
+  "result": {
     "escapedName": "botkit",
     "fetchSpec": null,
     "gitCommittish": "multi-hears",
@@ -49,11 +49,11 @@ Object {
 `;
 
 exports[`should return undefined botkit 1`] = `
-Object {
+{
   "fetchQuery": true,
   "name": "botkit",
   "operator": "^",
-  "result": Object {
+  "result": {
     "escapedName": "botkit",
     "fetchSpec": "latest",
     "gitCommittish": undefined,
@@ -73,11 +73,11 @@ Object {
 `;
 
 exports[`should return undefined botkit@^12 1`] = `
-Object {
+{
   "fetchQuery": true,
   "name": "botkit",
   "operator": "^",
-  "result": Object {
+  "result": {
     "escapedName": "botkit",
     "fetchSpec": "^12",
     "gitCommittish": undefined,

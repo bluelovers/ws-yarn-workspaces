@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`exports 1`] = `
-Object {
-  "exports": Object {
-    ".": Object {
+{
+  "exports": {
+    ".": {
       "import": "./esm/index.js",
       "require": "./commonjs/index.cjs",
       "types": "./types/index.d.ts",
     },
-    "./k2": Object {
+    "./k2": {
       "import": "./esm/index.js",
       "require": "./commonjs/index.cjs",
       "types": "./types/index.d.ts",
@@ -23,21 +23,21 @@ Object {
 
 exports[`exports 2`] = `
 "{
-  \\"name\\": \\"my-package\\",
-  \\"type\\": \\"module\\",
-  \\"exports\\": {
-    \\".\\": {
-      \\"types\\": \\"./types/index.d.ts\\",
-      \\"import\\": \\"./esm/index.js\\",
-      \\"require\\": \\"./commonjs/index.cjs\\"
+  "name": "my-package",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./esm/index.js",
+      "require": "./commonjs/index.cjs"
     },
-    \\"./k2\\": {
-      \\"types\\": \\"./types/index.d.ts\\",
-      \\"import\\": \\"./esm/index.js\\",
-      \\"require\\": \\"./commonjs/index.cjs\\"
+    "./k2": {
+      "types": "./types/index.d.ts",
+      "import": "./esm/index.js",
+      "require": "./commonjs/index.cjs"
     }
   },
-  \\"main\\": \\"./commonjs/index.cjs\\",
-  \\"types\\": \\"./types/index.d.ts\\"
+  "main": "./commonjs/index.cjs",
+  "types": "./types/index.d.ts"
 }"
 `;

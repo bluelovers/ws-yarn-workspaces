@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`shebang '#! /bin/sed -f' => sed 1`] = `
-Object {
+{
   "argv": "-f",
   "bin": "/bin/sed",
   "isExtra": false,
@@ -14,7 +14,7 @@ Object {
 exports[`shebang '#! /bin/sed -f' => sed 2`] = `""`;
 
 exports[`shebang '#! /bin/sed -f\\n\\n' => sed 1`] = `
-Object {
+{
   "argv": "-f",
   "bin": "/bin/sed",
   "isExtra": false,
@@ -31,7 +31,7 @@ exports[`shebang '#! /bin/sed -f\\n\\n' => sed 2`] = `
 `;
 
 exports[`shebang '#! /bin/sh' => sh 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/bin/sh",
   "isExtra": false,
@@ -44,7 +44,7 @@ Object {
 exports[`shebang '#! /bin/sh' => sh 2`] = `""`;
 
 exports[`shebang '#! /bin/sh\\n\\n' => sh 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/bin/sh",
   "isExtra": false,
@@ -61,7 +61,7 @@ exports[`shebang '#! /bin/sh\\n\\n' => sh 2`] = `
 `;
 
 exports[`shebang '#! /usr/awk -f' => awk 1`] = `
-Object {
+{
   "argv": "-f",
   "bin": "/usr/awk",
   "isExtra": false,
@@ -74,7 +74,7 @@ Object {
 exports[`shebang '#! /usr/awk -f' => awk 2`] = `""`;
 
 exports[`shebang '#! /usr/awk -f\\n\\n' => awk 1`] = `
-Object {
+{
   "argv": "-f",
   "bin": "/usr/awk",
   "isExtra": false,
@@ -91,7 +91,7 @@ exports[`shebang '#! /usr/awk -f\\n\\n' => awk 2`] = `
 `;
 
 exports[`shebang '#! /usr/bin/env node' => node 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/usr/bin/env",
   "isExtra": true,
@@ -104,7 +104,7 @@ Object {
 exports[`shebang '#! /usr/bin/env node' => node 2`] = `""`;
 
 exports[`shebang '#! /usr/bin/env node\\n\\n' => node 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/usr/bin/env",
   "isExtra": true,
@@ -121,7 +121,7 @@ exports[`shebang '#! /usr/bin/env node\\n\\n' => node 2`] = `
 `;
 
 exports[`shebang '#! /usr/bin/env python -c' => python 1`] = `
-Object {
+{
   "argv": "-c",
   "bin": "/usr/bin/env",
   "isExtra": true,
@@ -134,7 +134,7 @@ Object {
 exports[`shebang '#! /usr/bin/env python -c' => python 2`] = `""`;
 
 exports[`shebang '#! /usr/bin/env python -c\\n\\n' => python 1`] = `
-Object {
+{
   "argv": "-c",
   "bin": "/usr/bin/env",
   "isExtra": true,
@@ -151,7 +151,7 @@ exports[`shebang '#! /usr/bin/env python -c\\n\\n' => python 2`] = `
 `;
 
 exports[`shebang '#! /usr/bin/php' => php 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/usr/bin/php",
   "isExtra": false,
@@ -164,7 +164,7 @@ Object {
 exports[`shebang '#! /usr/bin/php' => php 2`] = `""`;
 
 exports[`shebang '#! /usr/bin/php\\n\\n' => php 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/usr/bin/php",
   "isExtra": false,
@@ -181,7 +181,7 @@ exports[`shebang '#! /usr/bin/php\\n\\n' => php 2`] = `
 `;
 
 exports[`shebang '#! /usr/bin/php5' => php5 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/usr/bin/php5",
   "isExtra": false,
@@ -194,7 +194,7 @@ Object {
 exports[`shebang '#! /usr/bin/php5' => php5 2`] = `""`;
 
 exports[`shebang '#! /usr/bin/php5\\n\\n' => php5 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/usr/bin/php5",
   "isExtra": false,
@@ -211,7 +211,7 @@ exports[`shebang '#! /usr/bin/php5\\n\\n' => php5 2`] = `
 `;
 
 exports[`shebang '#! /usr/bin/ruby' => ruby 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/usr/bin/ruby",
   "isExtra": false,
@@ -224,7 +224,7 @@ Object {
 exports[`shebang '#! /usr/bin/ruby' => ruby 2`] = `""`;
 
 exports[`shebang '#! /usr/bin/ruby\\n\\n' => ruby 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/usr/bin/ruby",
   "isExtra": false,
@@ -241,7 +241,7 @@ exports[`shebang '#! /usr/bin/ruby\\n\\n' => ruby 2`] = `
 `;
 
 exports[`shebang '#!/bin/sed -f' => sed 1`] = `
-Object {
+{
   "argv": "-f",
   "bin": "/bin/sed",
   "isExtra": false,
@@ -254,7 +254,7 @@ Object {
 exports[`shebang '#!/bin/sed -f' => sed 2`] = `""`;
 
 exports[`shebang '#!/bin/sed -f\\n\\n' => sed 1`] = `
-Object {
+{
   "argv": "-f",
   "bin": "/bin/sed",
   "isExtra": false,
@@ -271,7 +271,7 @@ exports[`shebang '#!/bin/sed -f\\n\\n' => sed 2`] = `
 `;
 
 exports[`shebang '#!/bin/sh' => sh 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/bin/sh",
   "isExtra": false,
@@ -284,7 +284,7 @@ Object {
 exports[`shebang '#!/bin/sh' => sh 2`] = `""`;
 
 exports[`shebang '#!/bin/sh\\n\\n' => sh 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/bin/sh",
   "isExtra": false,
@@ -301,7 +301,7 @@ exports[`shebang '#!/bin/sh\\n\\n' => sh 2`] = `
 `;
 
 exports[`shebang '#!/usr/awk -f' => awk 1`] = `
-Object {
+{
   "argv": "-f",
   "bin": "/usr/awk",
   "isExtra": false,
@@ -314,7 +314,7 @@ Object {
 exports[`shebang '#!/usr/awk -f' => awk 2`] = `""`;
 
 exports[`shebang '#!/usr/awk -f\\n\\n' => awk 1`] = `
-Object {
+{
   "argv": "-f",
   "bin": "/usr/awk",
   "isExtra": false,
@@ -331,7 +331,7 @@ exports[`shebang '#!/usr/awk -f\\n\\n' => awk 2`] = `
 `;
 
 exports[`shebang '#!/usr/bin/env node' => node 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/usr/bin/env",
   "isExtra": true,
@@ -344,7 +344,7 @@ Object {
 exports[`shebang '#!/usr/bin/env node' => node 2`] = `""`;
 
 exports[`shebang '#!/usr/bin/env node\\n\\n' => node 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/usr/bin/env",
   "isExtra": true,
@@ -361,7 +361,7 @@ exports[`shebang '#!/usr/bin/env node\\n\\n' => node 2`] = `
 `;
 
 exports[`shebang '#!/usr/bin/env python -c' => python 1`] = `
-Object {
+{
   "argv": "-c",
   "bin": "/usr/bin/env",
   "isExtra": true,
@@ -374,7 +374,7 @@ Object {
 exports[`shebang '#!/usr/bin/env python -c' => python 2`] = `""`;
 
 exports[`shebang '#!/usr/bin/env python -c\\n\\n' => python 1`] = `
-Object {
+{
   "argv": "-c",
   "bin": "/usr/bin/env",
   "isExtra": true,
@@ -391,7 +391,7 @@ exports[`shebang '#!/usr/bin/env python -c\\n\\n' => python 2`] = `
 `;
 
 exports[`shebang '#!/usr/bin/php' => php 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/usr/bin/php",
   "isExtra": false,
@@ -404,7 +404,7 @@ Object {
 exports[`shebang '#!/usr/bin/php' => php 2`] = `""`;
 
 exports[`shebang '#!/usr/bin/php\\n\\n' => php 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/usr/bin/php",
   "isExtra": false,
@@ -421,7 +421,7 @@ exports[`shebang '#!/usr/bin/php\\n\\n' => php 2`] = `
 `;
 
 exports[`shebang '#!/usr/bin/php5' => php5 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/usr/bin/php5",
   "isExtra": false,
@@ -434,7 +434,7 @@ Object {
 exports[`shebang '#!/usr/bin/php5' => php5 2`] = `""`;
 
 exports[`shebang '#!/usr/bin/php5\\n\\n' => php5 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/usr/bin/php5",
   "isExtra": false,
@@ -451,7 +451,7 @@ exports[`shebang '#!/usr/bin/php5\\n\\n' => php5 2`] = `
 `;
 
 exports[`shebang '#!/usr/bin/ruby' => ruby 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/usr/bin/ruby",
   "isExtra": false,
@@ -464,7 +464,7 @@ Object {
 exports[`shebang '#!/usr/bin/ruby' => ruby 2`] = `""`;
 
 exports[`shebang '#!/usr/bin/ruby\\n\\n' => ruby 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/usr/bin/ruby",
   "isExtra": false,
@@ -481,7 +481,7 @@ exports[`shebang '#!/usr/bin/ruby\\n\\n' => ruby 2`] = `
 `;
 
 exports[`shebang '\\n\\n#! /bin/sed -f' => sed 1`] = `
-Object {
+{
   "argv": "-f",
   "bin": "/bin/sed",
   "isExtra": false,
@@ -496,7 +496,7 @@ Object {
 exports[`shebang '\\n\\n#! /bin/sed -f' => sed 2`] = `""`;
 
 exports[`shebang '\\n\\n#! /bin/sed -f\\n\\n' => sed 1`] = `
-Object {
+{
   "argv": "-f",
   "bin": "/bin/sed",
   "isExtra": false,
@@ -515,7 +515,7 @@ exports[`shebang '\\n\\n#! /bin/sed -f\\n\\n' => sed 2`] = `
 `;
 
 exports[`shebang '\\n\\n#! /bin/sh' => sh 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/bin/sh",
   "isExtra": false,
@@ -530,7 +530,7 @@ Object {
 exports[`shebang '\\n\\n#! /bin/sh' => sh 2`] = `""`;
 
 exports[`shebang '\\n\\n#! /bin/sh\\n\\n' => sh 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/bin/sh",
   "isExtra": false,
@@ -549,7 +549,7 @@ exports[`shebang '\\n\\n#! /bin/sh\\n\\n' => sh 2`] = `
 `;
 
 exports[`shebang '\\n\\n#! /usr/awk -f' => awk 1`] = `
-Object {
+{
   "argv": "-f",
   "bin": "/usr/awk",
   "isExtra": false,
@@ -564,7 +564,7 @@ Object {
 exports[`shebang '\\n\\n#! /usr/awk -f' => awk 2`] = `""`;
 
 exports[`shebang '\\n\\n#! /usr/awk -f\\n\\n' => awk 1`] = `
-Object {
+{
   "argv": "-f",
   "bin": "/usr/awk",
   "isExtra": false,
@@ -583,7 +583,7 @@ exports[`shebang '\\n\\n#! /usr/awk -f\\n\\n' => awk 2`] = `
 `;
 
 exports[`shebang '\\n\\n#! /usr/bin/env node' => node 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/usr/bin/env",
   "isExtra": true,
@@ -598,7 +598,7 @@ Object {
 exports[`shebang '\\n\\n#! /usr/bin/env node' => node 2`] = `""`;
 
 exports[`shebang '\\n\\n#! /usr/bin/env node\\n\\n' => node 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/usr/bin/env",
   "isExtra": true,
@@ -617,7 +617,7 @@ exports[`shebang '\\n\\n#! /usr/bin/env node\\n\\n' => node 2`] = `
 `;
 
 exports[`shebang '\\n\\n#! /usr/bin/env python -c' => python 1`] = `
-Object {
+{
   "argv": "-c",
   "bin": "/usr/bin/env",
   "isExtra": true,
@@ -632,7 +632,7 @@ Object {
 exports[`shebang '\\n\\n#! /usr/bin/env python -c' => python 2`] = `""`;
 
 exports[`shebang '\\n\\n#! /usr/bin/env python -c\\n\\n' => python 1`] = `
-Object {
+{
   "argv": "-c",
   "bin": "/usr/bin/env",
   "isExtra": true,
@@ -651,7 +651,7 @@ exports[`shebang '\\n\\n#! /usr/bin/env python -c\\n\\n' => python 2`] = `
 `;
 
 exports[`shebang '\\n\\n#! /usr/bin/php' => php 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/usr/bin/php",
   "isExtra": false,
@@ -666,7 +666,7 @@ Object {
 exports[`shebang '\\n\\n#! /usr/bin/php' => php 2`] = `""`;
 
 exports[`shebang '\\n\\n#! /usr/bin/php\\n\\n' => php 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/usr/bin/php",
   "isExtra": false,
@@ -685,7 +685,7 @@ exports[`shebang '\\n\\n#! /usr/bin/php\\n\\n' => php 2`] = `
 `;
 
 exports[`shebang '\\n\\n#! /usr/bin/php5' => php5 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/usr/bin/php5",
   "isExtra": false,
@@ -700,7 +700,7 @@ Object {
 exports[`shebang '\\n\\n#! /usr/bin/php5' => php5 2`] = `""`;
 
 exports[`shebang '\\n\\n#! /usr/bin/php5\\n\\n' => php5 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/usr/bin/php5",
   "isExtra": false,
@@ -719,7 +719,7 @@ exports[`shebang '\\n\\n#! /usr/bin/php5\\n\\n' => php5 2`] = `
 `;
 
 exports[`shebang '\\n\\n#! /usr/bin/ruby' => ruby 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/usr/bin/ruby",
   "isExtra": false,
@@ -734,7 +734,7 @@ Object {
 exports[`shebang '\\n\\n#! /usr/bin/ruby' => ruby 2`] = `""`;
 
 exports[`shebang '\\n\\n#! /usr/bin/ruby\\n\\n' => ruby 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/usr/bin/ruby",
   "isExtra": false,
@@ -753,7 +753,7 @@ exports[`shebang '\\n\\n#! /usr/bin/ruby\\n\\n' => ruby 2`] = `
 `;
 
 exports[`shebang '\\n\\n#!/bin/sed -f' => sed 1`] = `
-Object {
+{
   "argv": "-f",
   "bin": "/bin/sed",
   "isExtra": false,
@@ -768,7 +768,7 @@ Object {
 exports[`shebang '\\n\\n#!/bin/sed -f' => sed 2`] = `""`;
 
 exports[`shebang '\\n\\n#!/bin/sed -f\\n\\n' => sed 1`] = `
-Object {
+{
   "argv": "-f",
   "bin": "/bin/sed",
   "isExtra": false,
@@ -787,7 +787,7 @@ exports[`shebang '\\n\\n#!/bin/sed -f\\n\\n' => sed 2`] = `
 `;
 
 exports[`shebang '\\n\\n#!/bin/sh' => sh 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/bin/sh",
   "isExtra": false,
@@ -802,7 +802,7 @@ Object {
 exports[`shebang '\\n\\n#!/bin/sh' => sh 2`] = `""`;
 
 exports[`shebang '\\n\\n#!/bin/sh\\n\\n' => sh 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/bin/sh",
   "isExtra": false,
@@ -821,7 +821,7 @@ exports[`shebang '\\n\\n#!/bin/sh\\n\\n' => sh 2`] = `
 `;
 
 exports[`shebang '\\n\\n#!/usr/awk -f' => awk 1`] = `
-Object {
+{
   "argv": "-f",
   "bin": "/usr/awk",
   "isExtra": false,
@@ -836,7 +836,7 @@ Object {
 exports[`shebang '\\n\\n#!/usr/awk -f' => awk 2`] = `""`;
 
 exports[`shebang '\\n\\n#!/usr/awk -f\\n\\n' => awk 1`] = `
-Object {
+{
   "argv": "-f",
   "bin": "/usr/awk",
   "isExtra": false,
@@ -855,7 +855,7 @@ exports[`shebang '\\n\\n#!/usr/awk -f\\n\\n' => awk 2`] = `
 `;
 
 exports[`shebang '\\n\\n#!/usr/bin/env node' => node 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/usr/bin/env",
   "isExtra": true,
@@ -870,7 +870,7 @@ Object {
 exports[`shebang '\\n\\n#!/usr/bin/env node' => node 2`] = `""`;
 
 exports[`shebang '\\n\\n#!/usr/bin/env node\\n\\n' => node 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/usr/bin/env",
   "isExtra": true,
@@ -889,7 +889,7 @@ exports[`shebang '\\n\\n#!/usr/bin/env node\\n\\n' => node 2`] = `
 `;
 
 exports[`shebang '\\n\\n#!/usr/bin/env python -c' => python 1`] = `
-Object {
+{
   "argv": "-c",
   "bin": "/usr/bin/env",
   "isExtra": true,
@@ -904,7 +904,7 @@ Object {
 exports[`shebang '\\n\\n#!/usr/bin/env python -c' => python 2`] = `""`;
 
 exports[`shebang '\\n\\n#!/usr/bin/env python -c\\n\\n' => python 1`] = `
-Object {
+{
   "argv": "-c",
   "bin": "/usr/bin/env",
   "isExtra": true,
@@ -923,7 +923,7 @@ exports[`shebang '\\n\\n#!/usr/bin/env python -c\\n\\n' => python 2`] = `
 `;
 
 exports[`shebang '\\n\\n#!/usr/bin/php' => php 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/usr/bin/php",
   "isExtra": false,
@@ -938,7 +938,7 @@ Object {
 exports[`shebang '\\n\\n#!/usr/bin/php' => php 2`] = `""`;
 
 exports[`shebang '\\n\\n#!/usr/bin/php\\n\\n' => php 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/usr/bin/php",
   "isExtra": false,
@@ -957,7 +957,7 @@ exports[`shebang '\\n\\n#!/usr/bin/php\\n\\n' => php 2`] = `
 `;
 
 exports[`shebang '\\n\\n#!/usr/bin/php5' => php5 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/usr/bin/php5",
   "isExtra": false,
@@ -972,7 +972,7 @@ Object {
 exports[`shebang '\\n\\n#!/usr/bin/php5' => php5 2`] = `""`;
 
 exports[`shebang '\\n\\n#!/usr/bin/php5\\n\\n' => php5 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/usr/bin/php5",
   "isExtra": false,
@@ -991,7 +991,7 @@ exports[`shebang '\\n\\n#!/usr/bin/php5\\n\\n' => php5 2`] = `
 `;
 
 exports[`shebang '\\n\\n#!/usr/bin/ruby' => ruby 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/usr/bin/ruby",
   "isExtra": false,
@@ -1006,7 +1006,7 @@ Object {
 exports[`shebang '\\n\\n#!/usr/bin/ruby' => ruby 2`] = `""`;
 
 exports[`shebang '\\n\\n#!/usr/bin/ruby\\n\\n' => ruby 1`] = `
-Object {
+{
   "argv": "",
   "bin": "/usr/bin/ruby",
   "isExtra": false,

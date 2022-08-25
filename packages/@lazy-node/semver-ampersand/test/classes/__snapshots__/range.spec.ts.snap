@@ -4,31 +4,31 @@ exports[`range as argument to range ctor 1`] = `
 SemverRange {
   "includePrerelease": false,
   "loose": true,
-  "options": Object {
+  "options": {
     "includePrerelease": false,
     "loose": true,
   },
   "range": "1.2.3",
   "raw": "1.2.3",
-  "set": Array [
-    Array [
+  "set": [
+    [
       Comparator {
         "loose": true,
         "operator": "",
-        "options": Object {
+        "options": {
           "loose": true,
         },
         "semver": SemVer {
-          "build": Array [],
+          "build": [],
           "includePrerelease": false,
           "loose": true,
           "major": 1,
           "minor": 2,
-          "options": Object {
+          "options": {
             "loose": true,
           },
           "patch": 3,
-          "prerelease": Array [],
+          "prerelease": [],
           "raw": "1.2.3",
           "version": "1.2.3",
         },
@@ -43,29 +43,29 @@ exports[`range as argument to range ctor 2`] = `
 SemverRange {
   "includePrerelease": true,
   "loose": false,
-  "options": Object {
+  "options": {
     "includePrerelease": true,
     "loose": false,
   },
   "range": "1.2.3",
   "raw": "1.2.3",
-  "set": Array [
-    Array [
+  "set": [
+    [
       Comparator {
         "loose": false,
         "operator": "",
-        "options": Object {
+        "options": {
           "includePrerelease": true,
         },
         "semver": SemVer {
-          "build": Array [],
+          "build": [],
           "includePrerelease": false,
           "loose": false,
           "major": 1,
           "minor": 2,
-          "options": Object {},
+          "options": {},
           "patch": 3,
-          "prerelease": Array [],
+          "prerelease": [],
           "raw": "1.2.3",
           "version": "1.2.3",
         },

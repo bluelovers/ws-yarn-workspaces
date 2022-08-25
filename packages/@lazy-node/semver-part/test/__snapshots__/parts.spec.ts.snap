@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`versionToParts '1.2.3-alpha.7' 1`] = `
-Array [
+[
   "1",
   "2",
   "3-alpha.7",
@@ -9,7 +9,7 @@ Array [
 `;
 
 exports[`versionToParts '1.2.4-beta.0' 1`] = `
-Array [
+[
   "1",
   "2",
   "4-beta.0",
@@ -17,20 +17,20 @@ Array [
 `;
 
 exports[`versionToParts '9' 1`] = `
-Array [
+[
   "9",
 ]
 `;
 
 exports[`versionToParts '9.3-alpha' 1`] = `
-Array [
+[
   "9",
   "3-alpha",
 ]
 `;
 
 exports[`versionToParts '9.8.7' 1`] = `
-Array [
+[
   "9",
   "8",
   "7",
@@ -38,7 +38,7 @@ Array [
 `;
 
 exports[`versionToParts '42.6.7.9.3-alpha' 1`] = `
-Array [
+[
   "42",
   "6",
   "7.9.3-alpha",

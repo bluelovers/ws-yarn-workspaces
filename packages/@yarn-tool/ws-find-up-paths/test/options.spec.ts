@@ -33,6 +33,8 @@ test(`ignoreCurrentPackage`, () =>
 		ignoreCurrentPackage: true,
 	});
 
+	console.dir(actual);
+
 	expect(actual).toMatchSnapshot(baseExpectedRuntime);
 
 	expect(actual).toHaveProperty('opts.ignoreCurrentPackage', true);

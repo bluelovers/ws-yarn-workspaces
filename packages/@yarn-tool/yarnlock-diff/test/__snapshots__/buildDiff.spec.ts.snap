@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`buildDiff v1.iconv.lock 1`] = `
-Array [
+[
   DiffEdit {
     "kind": "E",
     "lhs": "7.12.16",
-    "path": Array [
+    "path": [
       "@babel/core",
       0,
     ],
@@ -14,7 +14,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "7.12.15",
-    "path": Array [
+    "path": [
       "@babel/generator",
       0,
     ],
@@ -23,7 +23,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "7.12.13",
-    "path": Array [
+    "path": [
       "@babel/helper-function-name",
       0,
     ],
@@ -32,7 +32,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "7.12.16",
-    "path": Array [
+    "path": [
       "@babel/helper-member-expression-to-functions",
       0,
     ],
@@ -41,7 +41,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "7.12.13",
-    "path": Array [
+    "path": [
       "@babel/helper-module-imports",
       0,
     ],
@@ -50,7 +50,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "7.12.13",
-    "path": Array [
+    "path": [
       "@babel/helper-module-transforms",
       0,
     ],
@@ -59,7 +59,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "7.12.13",
-    "path": Array [
+    "path": [
       "@babel/helper-plugin-utils",
       0,
     ],
@@ -68,7 +68,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "7.12.13",
-    "path": Array [
+    "path": [
       "@babel/helper-replace-supers",
       0,
     ],
@@ -77,7 +77,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "7.12.13",
-    "path": Array [
+    "path": [
       "@babel/helper-simple-access",
       0,
     ],
@@ -86,7 +86,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "7.12.11",
-    "path": Array [
+    "path": [
       "@babel/helper-validator-identifier",
       0,
     ],
@@ -95,7 +95,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "7.12.13",
-    "path": Array [
+    "path": [
       "@babel/helpers",
       0,
     ],
@@ -104,7 +104,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "7.12.13",
-    "path": Array [
+    "path": [
       "@babel/highlight",
       0,
     ],
@@ -113,7 +113,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "7.12.16",
-    "path": Array [
+    "path": [
       "@babel/parser",
       0,
     ],
@@ -122,7 +122,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "7.12.13",
-    "path": Array [
+    "path": [
       "@babel/traverse",
       0,
     ],
@@ -131,7 +131,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "7.12.13",
-    "path": Array [
+    "path": [
       "@babel/types",
       0,
     ],
@@ -139,17 +139,17 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.0.4",
     ],
-    "path": Array [
+    "path": [
       "@cnakazawa/watch",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "0.1.2",
-    "path": Array [
+    "path": [
       "@istanbuljs/schema",
       0,
     ],
@@ -158,7 +158,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.2",
-    "path": Array [
+    "path": [
       "@jest/console",
       0,
     ],
@@ -167,7 +167,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.3",
-    "path": Array [
+    "path": [
       "@jest/core",
       0,
     ],
@@ -176,7 +176,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.2",
-    "path": Array [
+    "path": [
       "@jest/environment",
       0,
     ],
@@ -185,7 +185,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.2",
-    "path": Array [
+    "path": [
       "@jest/fake-timers",
       0,
     ],
@@ -194,7 +194,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.2",
-    "path": Array [
+    "path": [
       "@jest/globals",
       0,
     ],
@@ -203,7 +203,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.2",
-    "path": Array [
+    "path": [
       "@jest/reporters",
       0,
     ],
@@ -212,7 +212,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.2",
-    "path": Array [
+    "path": [
       "@jest/source-map",
       0,
     ],
@@ -221,7 +221,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.2",
-    "path": Array [
+    "path": [
       "@jest/test-result",
       0,
     ],
@@ -230,7 +230,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.3",
-    "path": Array [
+    "path": [
       "@jest/test-sequencer",
       0,
     ],
@@ -239,7 +239,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.2",
-    "path": Array [
+    "path": [
       "@jest/transform",
       0,
     ],
@@ -252,14 +252,14 @@ Array [
       "rhs": "27.0.2",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "@jest/types",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "1.8.2",
-    "path": Array [
+    "path": [
       "@sinonjs/commons",
       0,
     ],
@@ -268,7 +268,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "6.0.1",
-    "path": Array [
+    "path": [
       "@sinonjs/fake-timers",
       0,
     ],
@@ -277,7 +277,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "7.1.12",
-    "path": Array [
+    "path": [
       "@types/babel__core",
       0,
     ],
@@ -286,7 +286,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "7.11.0",
-    "path": Array [
+    "path": [
       "@types/babel__traverse",
       0,
     ],
@@ -295,7 +295,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "3.5.33",
-    "path": Array [
+    "path": [
       "@types/bluebird",
       0,
     ],
@@ -304,7 +304,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "9.0.7",
-    "path": Array [
+    "path": [
       "@types/fs-extra",
       0,
     ],
@@ -313,7 +313,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "3.0.0",
-    "path": Array [
+    "path": [
       "@types/istanbul-reports",
       0,
     ],
@@ -322,7 +322,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.0.20",
-    "path": Array [
+    "path": [
       "@types/jest",
       0,
     ],
@@ -331,7 +331,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "4.14.168",
-    "path": Array [
+    "path": [
       "@types/lodash",
       0,
     ],
@@ -340,7 +340,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "1.25.1",
-    "path": Array [
+    "path": [
       "@types/luxon",
       0,
     ],
@@ -349,7 +349,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "14.14.26",
-    "path": Array [
+    "path": [
       "@types/node",
       0,
     ],
@@ -357,17 +357,17 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.4.0",
     ],
-    "path": Array [
+    "path": [
       "@types/normalize-package-data",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "2.2.0",
-    "path": Array [
+    "path": [
       "@types/prettier",
       0,
     ],
@@ -380,7 +380,7 @@ Array [
       "rhs": "16.0.3",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "@types/yargs",
     ],
   },
@@ -391,23 +391,23 @@ Array [
       "rhs": "8.3.0",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "acorn",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "6.12.6",
     ],
-    "path": Array [
+    "path": [
       "ajv",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "4.3.1",
-    "path": Array [
+    "path": [
       "ansi-escapes",
       0,
     ],
@@ -420,7 +420,7 @@ Array [
       "rhs": "5.2.0",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "ansi-styles",
     ],
   },
@@ -431,14 +431,14 @@ Array [
       "lhs": "3.1.1",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "anymatch",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "2.0.0",
-    "path": Array [
+    "path": [
       "anymatch",
       0,
     ],
@@ -446,107 +446,107 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "4.0.0",
     ],
-    "path": Array [
+    "path": [
       "arr-diff",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.1.0",
     ],
-    "path": Array [
+    "path": [
       "arr-flatten",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "3.1.0",
     ],
-    "path": Array [
+    "path": [
       "arr-union",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.3.2",
     ],
-    "path": Array [
+    "path": [
       "array-unique",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.2.4",
     ],
-    "path": Array [
+    "path": [
       "asn1",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.0.0",
     ],
-    "path": Array [
+    "path": [
       "assert-plus",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.0.0",
     ],
-    "path": Array [
+    "path": [
       "assign-symbols",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.0.0",
     ],
-    "path": Array [
+    "path": [
       "at-least-node",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.1.2",
     ],
-    "path": Array [
+    "path": [
       "atob",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.7.0",
     ],
-    "path": Array [
+    "path": [
       "aws-sign2",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.11.0",
     ],
-    "path": Array [
+    "path": [
       "aws4",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.3",
-    "path": Array [
+    "path": [
       "babel-jest",
       0,
     ],
@@ -555,7 +555,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.2",
-    "path": Array [
+    "path": [
       "babel-plugin-jest-hoist",
       0,
     ],
@@ -564,7 +564,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.2",
-    "path": Array [
+    "path": [
       "babel-preset-jest",
       0,
     ],
@@ -573,7 +573,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "1.0.0",
-    "path": Array [
+    "path": [
       "balanced-match",
       0,
     ],
@@ -581,19 +581,19 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.11.2",
     ],
-    "path": Array [
+    "path": [
       "base",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.0.2",
     ],
-    "path": Array [
+    "path": [
       "bcrypt-pbkdf",
     ],
   },
@@ -604,14 +604,14 @@ Array [
       "lhs": "3.0.2",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "braces",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "2.3.2",
-    "path": Array [
+    "path": [
       "braces",
       0,
     ],
@@ -619,35 +619,35 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.0.1",
     ],
-    "path": Array [
+    "path": [
       "cache-base",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.0.0",
     ],
-    "path": Array [
+    "path": [
       "capture-exit",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.12.0",
     ],
-    "path": Array [
+    "path": [
       "caseless",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "4.1.0",
-    "path": Array [
+    "path": [
       "chalk",
       1,
     ],
@@ -656,7 +656,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "2.0.0",
-    "path": Array [
+    "path": [
       "ci-info",
       0,
     ],
@@ -665,7 +665,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "0.6.0",
-    "path": Array [
+    "path": [
       "cjs-module-lexer",
       0,
     ],
@@ -673,17 +673,17 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.3.6",
     ],
-    "path": Array [
+    "path": [
       "class-utils",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "6.0.0",
-    "path": Array [
+    "path": [
       "cliui",
       0,
     ],
@@ -691,37 +691,37 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.0.0",
     ],
-    "path": Array [
+    "path": [
       "collection-visit",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.3.0",
     ],
-    "path": Array [
+    "path": [
       "component-emitter",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.1.1",
     ],
-    "path": Array [
+    "path": [
       "copy-descriptor",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.0.2",
     ],
-    "path": Array [
+    "path": [
       "core-util-is",
     ],
   },
@@ -732,14 +732,14 @@ Array [
       "lhs": "7.0.3",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "cross-spawn",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "6.0.5",
-    "path": Array [
+    "path": [
       "cross-spawn",
       0,
     ],
@@ -747,10 +747,10 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.14.1",
     ],
-    "path": Array [
+    "path": [
       "dashdash",
     ],
   },
@@ -761,14 +761,14 @@ Array [
       "lhs": "4.3.1",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "debug",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "2.6.9",
-    "path": Array [
+    "path": [
       "debug",
       0,
     ],
@@ -776,30 +776,30 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.2.0",
     ],
-    "path": Array [
+    "path": [
       "decamelize",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.2.0",
     ],
-    "path": Array [
+    "path": [
       "decode-uri-component",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.2.5",
       "1.0.0",
       "2.0.2",
     ],
-    "path": Array [
+    "path": [
       "define-property",
     ],
   },
@@ -810,23 +810,23 @@ Array [
       "rhs": "27.0.1",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "diff-sequences",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.1.2",
     ],
-    "path": Array [
+    "path": [
       "ecc-jsbn",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "0.7.2",
-    "path": Array [
+    "path": [
       "emittery",
       0,
     ],
@@ -834,26 +834,26 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.4.4",
     ],
-    "path": Array [
+    "path": [
       "end-of-stream",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.3.2",
     ],
-    "path": Array [
+    "path": [
       "error-ex",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "1.14.3",
-    "path": Array [
+    "path": [
       "escodegen",
       0,
     ],
@@ -862,7 +862,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "4.3.0",
-    "path": Array [
+    "path": [
       "estraverse",
       0,
     ],
@@ -870,10 +870,10 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.3.4",
     ],
-    "path": Array [
+    "path": [
       "exec-sh",
     ],
   },
@@ -884,14 +884,14 @@ Array [
       "lhs": "4.1.0",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "execa",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "1.0.0",
-    "path": Array [
+    "path": [
       "execa",
       0,
     ],
@@ -899,17 +899,17 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.1.4",
     ],
-    "path": Array [
+    "path": [
       "expand-brackets",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.2",
-    "path": Array [
+    "path": [
       "expect",
       0,
     ],
@@ -917,48 +917,48 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.0.1",
       "3.0.2",
     ],
-    "path": Array [
+    "path": [
       "extend-shallow",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "3.0.2",
     ],
-    "path": Array [
+    "path": [
       "extend",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.0.4",
     ],
-    "path": Array [
+    "path": [
       "extglob",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.3.0",
       "1.4.0",
     ],
-    "path": Array [
+    "path": [
       "extsprintf",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "3.1.3",
     ],
-    "path": Array [
+    "path": [
       "fast-deep-equal",
     ],
   },
@@ -969,14 +969,14 @@ Array [
       "lhs": "7.0.1",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "fill-range",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "4.0.0",
-    "path": Array [
+    "path": [
       "fill-range",
       0,
     ],
@@ -984,26 +984,26 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.0.2",
     ],
-    "path": Array [
+    "path": [
       "for-in",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.6.1",
     ],
-    "path": Array [
+    "path": [
       "forever-agent",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "2.3.3",
-    "path": Array [
+    "path": [
       "form-data",
       0,
     ],
@@ -1011,17 +1011,17 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.2.1",
     ],
-    "path": Array [
+    "path": [
       "fragment-cache",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "9.1.0",
-    "path": Array [
+    "path": [
       "fs-extra",
       0,
     ],
@@ -1034,14 +1034,14 @@ Array [
       "lhs": "5.2.0",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "get-stream",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "4.1.0",
-    "path": Array [
+    "path": [
       "get-stream",
       0,
     ],
@@ -1049,26 +1049,26 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.0.6",
     ],
-    "path": Array [
+    "path": [
       "get-value",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.1.7",
     ],
-    "path": Array [
+    "path": [
       "getpass",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "7.1.6",
-    "path": Array [
+    "path": [
       "glob",
       0,
     ],
@@ -1076,73 +1076,73 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.3.0",
     ],
-    "path": Array [
+    "path": [
       "growly",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.0.0",
     ],
-    "path": Array [
+    "path": [
       "har-schema",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "5.1.5",
     ],
-    "path": Array [
+    "path": [
       "har-validator",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.3.1",
       "1.0.0",
     ],
-    "path": Array [
+    "path": [
       "has-value",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.1.4",
       "1.0.0",
     ],
-    "path": Array [
+    "path": [
       "has-values",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.8.8",
     ],
-    "path": Array [
+    "path": [
       "hosted-git-info",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.2.0",
     ],
-    "path": Array [
+    "path": [
       "http-signature",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "1.1.1",
-    "path": Array [
+    "path": [
       "human-signals",
       0,
     ],
@@ -1151,7 +1151,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "0.6.2",
-    "path": Array [
+    "path": [
       "iconv-lite",
       1,
     ],
@@ -1159,45 +1159,45 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.1.0",
     ],
-    "path": Array [
+    "path": [
       "ip-regex",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.1.6",
       "1.0.0",
     ],
-    "path": Array [
+    "path": [
       "is-accessor-descriptor",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.2.1",
     ],
-    "path": Array [
+    "path": [
       "is-arrayish",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.1.6",
     ],
-    "path": Array [
+    "path": [
       "is-buffer",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "2.0.0",
-    "path": Array [
+    "path": [
       "is-ci",
       0,
     ],
@@ -1206,7 +1206,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "2.2.0",
-    "path": Array [
+    "path": [
       "is-core-module",
       0,
     ],
@@ -1214,40 +1214,40 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.1.4",
       "1.0.0",
     ],
-    "path": Array [
+    "path": [
       "is-data-descriptor",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.1.6",
       "1.0.2",
     ],
-    "path": Array [
+    "path": [
       "is-descriptor",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.1.1",
     ],
-    "path": Array [
+    "path": [
       "is-docker",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.1.1",
       "1.0.1",
     ],
-    "path": Array [
+    "path": [
       "is-extendable",
     ],
   },
@@ -1258,14 +1258,14 @@ Array [
       "lhs": "7.0.0",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "is-number",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "3.0.0",
-    "path": Array [
+    "path": [
       "is-number",
       0,
     ],
@@ -1273,17 +1273,17 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.0.4",
     ],
-    "path": Array [
+    "path": [
       "is-plain-object",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "1.0.0",
-    "path": Array [
+    "path": [
       "is-potential-custom-element-name",
       0,
     ],
@@ -1296,14 +1296,14 @@ Array [
       "lhs": "2.0.0",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "is-stream",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "1.1.0",
-    "path": Array [
+    "path": [
       "is-stream",
       0,
     ],
@@ -1311,54 +1311,54 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.0.2",
     ],
-    "path": Array [
+    "path": [
       "is-windows",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.2.0",
     ],
-    "path": Array [
+    "path": [
       "is-wsl",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.0.0",
     ],
-    "path": Array [
+    "path": [
       "isarray",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.1.0",
       "3.0.1",
     ],
-    "path": Array [
+    "path": [
       "isobject",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.1.2",
     ],
-    "path": Array [
+    "path": [
       "isstream",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.2",
-    "path": Array [
+    "path": [
       "jest-changed-files",
       0,
     ],
@@ -1367,7 +1367,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.3",
-    "path": Array [
+    "path": [
       "jest-cli",
       0,
     ],
@@ -1376,7 +1376,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.3",
-    "path": Array [
+    "path": [
       "jest-config",
       0,
     ],
@@ -1389,14 +1389,14 @@ Array [
       "rhs": "27.0.2",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "jest-diff",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "26.0.0",
-    "path": Array [
+    "path": [
       "jest-docblock",
       0,
     ],
@@ -1405,7 +1405,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.2",
-    "path": Array [
+    "path": [
       "jest-each",
       0,
     ],
@@ -1414,7 +1414,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.2",
-    "path": Array [
+    "path": [
       "jest-environment-jsdom",
       0,
     ],
@@ -1423,7 +1423,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.2",
-    "path": Array [
+    "path": [
       "jest-environment-node",
       0,
     ],
@@ -1436,14 +1436,14 @@ Array [
       "rhs": "27.0.1",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "jest-get-type",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.2",
-    "path": Array [
+    "path": [
       "jest-haste-map",
       0,
     ],
@@ -1452,7 +1452,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.3",
-    "path": Array [
+    "path": [
       "jest-jasmine2",
       0,
     ],
@@ -1461,7 +1461,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.2",
-    "path": Array [
+    "path": [
       "jest-leak-detector",
       0,
     ],
@@ -1470,7 +1470,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.2",
-    "path": Array [
+    "path": [
       "jest-matcher-utils",
       0,
     ],
@@ -1479,7 +1479,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.2",
-    "path": Array [
+    "path": [
       "jest-message-util",
       0,
     ],
@@ -1488,7 +1488,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.2",
-    "path": Array [
+    "path": [
       "jest-mock",
       0,
     ],
@@ -1497,7 +1497,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.0.0",
-    "path": Array [
+    "path": [
       "jest-regex-util",
       0,
     ],
@@ -1506,7 +1506,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.3",
-    "path": Array [
+    "path": [
       "jest-resolve-dependencies",
       0,
     ],
@@ -1515,7 +1515,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.2",
-    "path": Array [
+    "path": [
       "jest-resolve",
       0,
     ],
@@ -1524,7 +1524,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.3",
-    "path": Array [
+    "path": [
       "jest-runner",
       0,
     ],
@@ -1533,7 +1533,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.3",
-    "path": Array [
+    "path": [
       "jest-runtime",
       0,
     ],
@@ -1542,7 +1542,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.2",
-    "path": Array [
+    "path": [
       "jest-serializer",
       0,
     ],
@@ -1551,7 +1551,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.2",
-    "path": Array [
+    "path": [
       "jest-snapshot",
       0,
     ],
@@ -1560,7 +1560,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.2",
-    "path": Array [
+    "path": [
       "jest-util",
       0,
     ],
@@ -1569,7 +1569,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.2",
-    "path": Array [
+    "path": [
       "jest-validate",
       0,
     ],
@@ -1578,7 +1578,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.2",
-    "path": Array [
+    "path": [
       "jest-watcher",
       0,
     ],
@@ -1587,7 +1587,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.2",
-    "path": Array [
+    "path": [
       "jest-worker",
       0,
     ],
@@ -1596,7 +1596,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.3",
-    "path": Array [
+    "path": [
       "jest",
       0,
     ],
@@ -1604,17 +1604,17 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.1.1",
     ],
-    "path": Array [
+    "path": [
       "jsbn",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "2.2.1",
-    "path": Array [
+    "path": [
       "jschardet",
       0,
     ],
@@ -1623,7 +1623,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "16.4.0",
-    "path": Array [
+    "path": [
       "jsdom",
       0,
     ],
@@ -1631,83 +1631,83 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.3.1",
     ],
-    "path": Array [
+    "path": [
       "json-parse-even-better-errors",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.4.1",
     ],
-    "path": Array [
+    "path": [
       "json-schema-traverse",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.2.3",
     ],
-    "path": Array [
+    "path": [
       "json-schema",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "5.0.1",
     ],
-    "path": Array [
+    "path": [
       "json-stringify-safe",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.4.1",
     ],
-    "path": Array [
+    "path": [
       "jsprim",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "3.2.2",
       "4.0.0",
       "5.1.0",
       "6.0.3",
     ],
-    "path": Array [
+    "path": [
       "kind-of",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.1.6",
     ],
-    "path": Array [
+    "path": [
       "lines-and-columns",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "4.7.0",
     ],
-    "path": Array [
+    "path": [
       "lodash.sortby",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "4.17.20",
-    "path": Array [
+    "path": [
       "lodash",
       0,
     ],
@@ -1716,7 +1716,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "1.25.0",
-    "path": Array [
+    "path": [
       "luxon",
       0,
     ],
@@ -1724,19 +1724,19 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.2.2",
     ],
-    "path": Array [
+    "path": [
       "map-cache",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.0.0",
     ],
-    "path": Array [
+    "path": [
       "map-visit",
     ],
   },
@@ -1747,14 +1747,14 @@ Array [
       "lhs": "4.0.2",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "micromatch",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "3.1.10",
-    "path": Array [
+    "path": [
       "micromatch",
       0,
     ],
@@ -1763,7 +1763,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "1.45.0",
-    "path": Array [
+    "path": [
       "mime-db",
       0,
     ],
@@ -1772,7 +1772,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "2.1.28",
-    "path": Array [
+    "path": [
       "mime-types",
       0,
     ],
@@ -1780,10 +1780,10 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.3.2",
     ],
-    "path": Array [
+    "path": [
       "mixin-deep",
     ],
   },
@@ -1794,14 +1794,14 @@ Array [
       "lhs": "2.1.2",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "ms",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "2.0.0",
-    "path": Array [
+    "path": [
       "ms",
       0,
     ],
@@ -1809,37 +1809,37 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.2.13",
     ],
-    "path": Array [
+    "path": [
       "nanomatch",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.0.5",
     ],
-    "path": Array [
+    "path": [
       "nice-try",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "8.0.1",
     ],
-    "path": Array [
+    "path": [
       "node-notifier",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.5.0",
     ],
-    "path": Array [
+    "path": [
       "normalize-package-data",
     ],
   },
@@ -1850,14 +1850,14 @@ Array [
       "lhs": "3.0.0",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "normalize-path",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "2.1.1",
-    "path": Array [
+    "path": [
       "normalize-path",
       0,
     ],
@@ -1870,14 +1870,14 @@ Array [
       "lhs": "4.0.1",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "npm-run-path",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "2.0.2",
-    "path": Array [
+    "path": [
       "npm-run-path",
       0,
     ],
@@ -1885,62 +1885,62 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.9.0",
     ],
-    "path": Array [
+    "path": [
       "oauth-sign",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.1.0",
     ],
-    "path": Array [
+    "path": [
       "object-copy",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.0.1",
     ],
-    "path": Array [
+    "path": [
       "object-visit",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.3.0",
     ],
-    "path": Array [
+    "path": [
       "object.pick",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.0.0",
     ],
-    "path": Array [
+    "path": [
       "p-finally",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "5.2.0",
     ],
-    "path": Array [
+    "path": [
       "parse-json",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "5.1.1",
-    "path": Array [
+    "path": [
       "parse5",
       0,
     ],
@@ -1948,10 +1948,10 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.1.1",
     ],
-    "path": Array [
+    "path": [
       "pascalcase",
     ],
   },
@@ -1962,14 +1962,14 @@ Array [
       "lhs": "3.1.1",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "path-key",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "2.0.1",
-    "path": Array [
+    "path": [
       "path-key",
       0,
     ],
@@ -1978,7 +1978,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "1.0.6",
-    "path": Array [
+    "path": [
       "path-parse",
       0,
     ],
@@ -1986,17 +1986,17 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.1.0",
     ],
-    "path": Array [
+    "path": [
       "performance-now",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "2.2.2",
-    "path": Array [
+    "path": [
       "picomatch",
       0,
     ],
@@ -2004,10 +2004,10 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.1.1",
     ],
-    "path": Array [
+    "path": [
       "posix-character-classes",
     ],
   },
@@ -2018,14 +2018,14 @@ Array [
       "rhs": "27.0.2",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "pretty-format",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "2.4.0",
-    "path": Array [
+    "path": [
       "prompts",
       0,
     ],
@@ -2033,26 +2033,26 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "3.0.0",
     ],
-    "path": Array [
+    "path": [
       "pump",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "6.5.2",
     ],
-    "path": Array [
+    "path": [
       "qs",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "17.0.1",
-    "path": Array [
+    "path": [
       "react-is",
       0,
     ],
@@ -2060,118 +2060,118 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "7.0.1",
     ],
-    "path": Array [
+    "path": [
       "read-pkg-up",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "5.2.0",
     ],
-    "path": Array [
+    "path": [
       "read-pkg",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.0.2",
     ],
-    "path": Array [
+    "path": [
       "regex-not",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.1.0",
     ],
-    "path": Array [
+    "path": [
       "remove-trailing-separator",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.1.3",
     ],
-    "path": Array [
+    "path": [
       "repeat-element",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.6.1",
     ],
-    "path": Array [
+    "path": [
       "repeat-string",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.1.4",
     ],
-    "path": Array [
+    "path": [
       "request-promise-core",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.0.9",
     ],
-    "path": Array [
+    "path": [
       "request-promise-native",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.88.2",
     ],
-    "path": Array [
+    "path": [
       "request",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.0.0",
     ],
-    "path": Array [
+    "path": [
       "require-main-filename",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.2.1",
     ],
-    "path": Array [
+    "path": [
       "resolve-url",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.1.15",
     ],
-    "path": Array [
+    "path": [
       "ret",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "4.8.5",
     ],
-    "path": Array [
+    "path": [
       "rsvp",
     ],
   },
@@ -2182,25 +2182,25 @@ Array [
       "lhs": "5.2.1",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "safe-buffer",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.1.0",
     ],
-    "path": Array [
+    "path": [
       "safe-regex",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "4.1.0",
     ],
-    "path": Array [
+    "path": [
       "sane",
     ],
   },
@@ -2211,14 +2211,14 @@ Array [
       "lhs": "7.3.4",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "semver",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "6.3.0",
-    "path": Array [
+    "path": [
       "semver",
       1,
     ],
@@ -2227,7 +2227,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "5.7.1",
-    "path": Array [
+    "path": [
       "semver",
       0,
     ],
@@ -2235,19 +2235,19 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.0.0",
     ],
-    "path": Array [
+    "path": [
       "set-blocking",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.0.1",
     ],
-    "path": Array [
+    "path": [
       "set-value",
     ],
   },
@@ -2258,14 +2258,14 @@ Array [
       "lhs": "2.0.0",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "shebang-command",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "1.2.0",
-    "path": Array [
+    "path": [
       "shebang-command",
       0,
     ],
@@ -2278,14 +2278,14 @@ Array [
       "lhs": "3.0.0",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "shebang-regex",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "1.0.0",
-    "path": Array [
+    "path": [
       "shebang-regex",
       0,
     ],
@@ -2293,134 +2293,134 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.1.1",
     ],
-    "path": Array [
+    "path": [
       "shellwords",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.1.1",
     ],
-    "path": Array [
+    "path": [
       "snapdragon-node",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "3.0.1",
     ],
-    "path": Array [
+    "path": [
       "snapdragon-util",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.8.2",
     ],
-    "path": Array [
+    "path": [
       "snapdragon",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.5.3",
     ],
-    "path": Array [
+    "path": [
       "source-map-resolve",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.4.1",
     ],
-    "path": Array [
+    "path": [
       "source-map-url",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "3.1.1",
     ],
-    "path": Array [
+    "path": [
       "spdx-correct",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.3.0",
     ],
-    "path": Array [
+    "path": [
       "spdx-exceptions",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "3.0.1",
     ],
-    "path": Array [
+    "path": [
       "spdx-expression-parse",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "3.0.7",
     ],
-    "path": Array [
+    "path": [
       "spdx-license-ids",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "3.1.0",
     ],
-    "path": Array [
+    "path": [
       "split-string",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.16.1",
     ],
-    "path": Array [
+    "path": [
       "sshpk",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.1.2",
     ],
-    "path": Array [
+    "path": [
       "static-extend",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.1.1",
     ],
-    "path": Array [
+    "path": [
       "stealthy-require",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "4.0.1",
-    "path": Array [
+    "path": [
       "string-length",
       0,
     ],
@@ -2429,7 +2429,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "4.2.0",
-    "path": Array [
+    "path": [
       "string-width",
       0,
     ],
@@ -2437,10 +2437,10 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.0.0",
     ],
-    "path": Array [
+    "path": [
       "strip-eof",
     ],
   },
@@ -2451,14 +2451,14 @@ Array [
       "rhs": "8.1.1",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "supports-color",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "2.1.0",
-    "path": Array [
+    "path": [
       "supports-hyperlinks",
       0,
     ],
@@ -2467,7 +2467,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "5.0.0",
-    "path": Array [
+    "path": [
       "throat",
       0,
     ],
@@ -2475,10 +2475,10 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.3.0",
     ],
-    "path": Array [
+    "path": [
       "to-object-path",
     ],
   },
@@ -2489,14 +2489,14 @@ Array [
       "lhs": "5.0.1",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "to-regex-range",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "2.1.1",
-    "path": Array [
+    "path": [
       "to-regex-range",
       0,
     ],
@@ -2504,10 +2504,10 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "3.0.2",
     ],
-    "path": Array [
+    "path": [
       "to-regex",
     ],
   },
@@ -2518,14 +2518,14 @@ Array [
       "lhs": "3.0.1",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "tough-cookie",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "2.5.0",
-    "path": Array [
+    "path": [
       "tough-cookie",
       0,
     ],
@@ -2534,7 +2534,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "2.0.2",
-    "path": Array [
+    "path": [
       "tr46",
       0,
     ],
@@ -2543,7 +2543,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "26.5.1",
-    "path": Array [
+    "path": [
       "ts-jest",
       0,
     ],
@@ -2551,19 +2551,19 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.6.0",
     ],
-    "path": Array [
+    "path": [
       "tunnel-agent",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.14.5",
     ],
-    "path": Array [
+    "path": [
       "tweetnacl",
     ],
   },
@@ -2574,7 +2574,7 @@ Array [
       "lhs": "0.11.0",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "type-fest",
     ],
   },
@@ -2585,14 +2585,14 @@ Array [
       "lhs": "0.8.1",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "type-fest",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "0.6.0",
-    "path": Array [
+    "path": [
       "type-fest",
       0,
     ],
@@ -2600,10 +2600,10 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.0.1",
     ],
-    "path": Array [
+    "path": [
       "union-value",
     ],
   },
@@ -2614,14 +2614,14 @@ Array [
       "rhs": "2.0.0",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "universalify",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "2.0.0",
-    "path": Array [
+    "path": [
       "universalify",
       0,
     ],
@@ -2629,54 +2629,54 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.0.0",
     ],
-    "path": Array [
+    "path": [
       "unset-value",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "4.4.1",
     ],
-    "path": Array [
+    "path": [
       "uri-js",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.1.0",
     ],
-    "path": Array [
+    "path": [
       "urix",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "3.1.1",
     ],
-    "path": Array [
+    "path": [
       "use",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "3.4.0",
       "8.3.2",
     ],
-    "path": Array [
+    "path": [
       "uuid",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "7.1.0",
-    "path": Array [
+    "path": [
       "v8-to-istanbul",
       0,
     ],
@@ -2684,26 +2684,26 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "3.0.4",
     ],
-    "path": Array [
+    "path": [
       "validate-npm-package-license",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.10.0",
     ],
-    "path": Array [
+    "path": [
       "verror",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "8.4.0",
-    "path": Array [
+    "path": [
       "whatwg-url",
       0,
     ],
@@ -2711,10 +2711,10 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.0.0",
     ],
-    "path": Array [
+    "path": [
       "which-module",
     ],
   },
@@ -2725,14 +2725,14 @@ Array [
       "lhs": "2.0.2",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "which",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "1.3.1",
-    "path": Array [
+    "path": [
       "which",
       0,
     ],
@@ -2741,7 +2741,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "6.2.0",
-    "path": Array [
+    "path": [
       "wrap-ansi",
       0,
     ],
@@ -2750,7 +2750,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "7.4.3",
-    "path": Array [
+    "path": [
       "ws",
       0,
     ],
@@ -2759,7 +2759,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "4.0.1",
-    "path": Array [
+    "path": [
       "y18n",
       0,
     ],
@@ -2772,14 +2772,14 @@ Array [
       "lhs": "20.2.4",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "yargs-parser",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "18.1.3",
-    "path": Array [
+    "path": [
       "yargs-parser",
       0,
     ],
@@ -2788,7 +2788,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "15.4.1",
-    "path": Array [
+    "path": [
       "yargs",
       0,
     ],
@@ -2796,145 +2796,145 @@ Array [
   },
   DiffNew {
     "kind": "N",
-    "path": Array [
+    "path": [
       "@babel/compat-data",
     ],
-    "rhs": Array [
+    "rhs": [
       "7.14.4",
     ],
   },
   DiffNew {
     "kind": "N",
-    "path": Array [
+    "path": [
       "@babel/helper-compilation-targets",
     ],
-    "rhs": Array [
+    "rhs": [
       "7.14.4",
     ],
   },
   DiffNew {
     "kind": "N",
-    "path": Array [
+    "path": [
       "@babel/helper-validator-option",
     ],
-    "rhs": Array [
+    "rhs": [
       "7.12.17",
     ],
   },
   DiffNew {
     "kind": "N",
-    "path": Array [
+    "path": [
       "@babel/plugin-syntax-typescript",
     ],
-    "rhs": Array [
+    "rhs": [
       "7.12.13",
     ],
   },
   DiffNew {
     "kind": "N",
-    "path": Array [
+    "path": [
       "@tootallnate/once",
     ],
-    "rhs": Array [
+    "rhs": [
       "1.1.2",
     ],
   },
   DiffNew {
     "kind": "N",
-    "path": Array [
+    "path": [
       "agent-base",
     ],
-    "rhs": Array [
+    "rhs": [
       "6.0.2",
     ],
   },
   DiffNew {
     "kind": "N",
-    "path": Array [
+    "path": [
       "browserslist",
     ],
-    "rhs": Array [
+    "rhs": [
       "4.16.6",
     ],
   },
   DiffNew {
     "kind": "N",
-    "path": Array [
+    "path": [
       "caniuse-lite",
     ],
-    "rhs": Array [
+    "rhs": [
       "1.0.30001234",
     ],
   },
   DiffNew {
     "kind": "N",
-    "path": Array [
+    "path": [
       "colorette",
     ],
-    "rhs": Array [
+    "rhs": [
       "1.2.2",
     ],
   },
   DiffNew {
     "kind": "N",
-    "path": Array [
+    "path": [
       "dedent",
     ],
-    "rhs": Array [
+    "rhs": [
       "0.7.0",
     ],
   },
   DiffNew {
     "kind": "N",
-    "path": Array [
+    "path": [
       "electron-to-chromium",
     ],
-    "rhs": Array [
+    "rhs": [
       "1.3.749",
     ],
   },
   DiffNew {
     "kind": "N",
-    "path": Array [
+    "path": [
       "escalade",
     ],
-    "rhs": Array [
+    "rhs": [
       "3.1.1",
     ],
   },
   DiffNew {
     "kind": "N",
-    "path": Array [
+    "path": [
       "http-proxy-agent",
     ],
-    "rhs": Array [
+    "rhs": [
       "4.0.1",
     ],
   },
   DiffNew {
     "kind": "N",
-    "path": Array [
+    "path": [
       "https-proxy-agent",
     ],
-    "rhs": Array [
+    "rhs": [
       "5.0.0",
     ],
   },
   DiffNew {
     "kind": "N",
-    "path": Array [
+    "path": [
       "jest-circus",
     ],
-    "rhs": Array [
+    "rhs": [
       "27.0.4",
     ],
   },
   DiffNew {
     "kind": "N",
-    "path": Array [
+    "path": [
       "node-releases",
     ],
-    "rhs": Array [
+    "rhs": [
       "1.1.72",
     ],
   },
@@ -2942,7 +2942,7 @@ Array [
 `;
 
 exports[`buildDiff v2.lock 1`] = `
-Array [
+[
   DiffArray {
     "index": 1,
     "item": DiffDeleted {
@@ -2950,14 +2950,14 @@ Array [
       "lhs": "1.0.20",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "@bluelovers/tsconfig",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "1.0.19",
-    "path": Array [
+    "path": [
       "@bluelovers/tsconfig",
       0,
     ],
@@ -2967,11 +2967,11 @@ Array [
 `;
 
 exports[`buildDiff v3/yarn.lock 1`] = `
-Array [
+[
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "@jest/console",
       0,
     ],
@@ -2980,7 +2980,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "@jest/core",
       0,
     ],
@@ -2989,7 +2989,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "@jest/environment",
       0,
     ],
@@ -2998,7 +2998,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "@jest/fake-timers",
       0,
     ],
@@ -3007,7 +3007,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "@jest/globals",
       0,
     ],
@@ -3016,7 +3016,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "@jest/reporters",
       0,
     ],
@@ -3025,7 +3025,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "@jest/source-map",
       0,
     ],
@@ -3034,7 +3034,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "@jest/test-result",
       0,
     ],
@@ -3043,7 +3043,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "@jest/test-sequencer",
       0,
     ],
@@ -3052,7 +3052,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "@jest/transform",
       0,
     ],
@@ -3065,14 +3065,14 @@ Array [
       "lhs": "27.5.1",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "@jest/types",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.2",
-    "path": Array [
+    "path": [
       "@jest/types",
       0,
     ],
@@ -3081,7 +3081,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "8.1.0",
-    "path": Array [
+    "path": [
       "@sinonjs/fake-timers",
       0,
     ],
@@ -3094,14 +3094,14 @@ Array [
       "lhs": "2.0.0",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "@tootallnate/once",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "1.1.2",
-    "path": Array [
+    "path": [
       "@tootallnate/once",
       0,
     ],
@@ -3114,7 +3114,7 @@ Array [
       "lhs": "7.1.19",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "@types/babel__core",
     ],
   },
@@ -3125,14 +3125,14 @@ Array [
       "lhs": "7.18.0",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "@types/babel__traverse",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "26.0.24",
-    "path": Array [
+    "path": [
       "@types/jest",
       0,
     ],
@@ -3145,14 +3145,14 @@ Array [
       "lhs": "16.0.4",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "@types/yargs",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "15.0.14",
-    "path": Array [
+    "path": [
       "@types/yargs",
       0,
     ],
@@ -3160,54 +3160,54 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.0.6",
     ],
-    "path": Array [
+    "path": [
       "abab",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "6.0.0",
     ],
-    "path": Array [
+    "path": [
       "acorn-globals",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "7.2.0",
     ],
-    "path": Array [
+    "path": [
       "acorn-walk",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "7.4.1",
       "8.8.0",
     ],
-    "path": Array [
+    "path": [
       "acorn",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.4.0",
     ],
-    "path": Array [
+    "path": [
       "asynckit",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "babel-jest",
       0,
     ],
@@ -3216,7 +3216,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "babel-plugin-jest-hoist",
       0,
     ],
@@ -3225,7 +3225,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "babel-preset-jest",
       0,
     ],
@@ -3233,10 +3233,10 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.0.0",
     ],
-    "path": Array [
+    "path": [
       "browser-process-hrtime",
     ],
   },
@@ -3247,14 +3247,14 @@ Array [
       "lhs": "7.0.4",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "cliui",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "6.0.0",
-    "path": Array [
+    "path": [
       "cliui",
       0,
     ],
@@ -3262,74 +3262,74 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.0.8",
     ],
-    "path": Array [
+    "path": [
       "combined-stream",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.3.8",
       "0.4.4",
     ],
-    "path": Array [
+    "path": [
       "cssom",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.3.0",
     ],
-    "path": Array [
+    "path": [
       "cssstyle",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.0.0",
     ],
-    "path": Array [
+    "path": [
       "data-urls",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.2.0",
     ],
-    "path": Array [
+    "path": [
       "decamelize",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "10.3.1",
     ],
-    "path": Array [
+    "path": [
       "decimal.js",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.1.4",
     ],
-    "path": Array [
+    "path": [
       "deep-is",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.0.0",
     ],
-    "path": Array [
+    "path": [
       "delayed-stream",
     ],
   },
@@ -3340,14 +3340,14 @@ Array [
       "lhs": "27.5.1",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "diff-sequences",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.2",
-    "path": Array [
+    "path": [
       "diff-sequences",
       0,
     ],
@@ -3355,26 +3355,26 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.0.1",
     ],
-    "path": Array [
+    "path": [
       "domexception",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "5.9.0",
     ],
-    "path": Array [
+    "path": [
       "dts-bundle-generator",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "0.8.1",
-    "path": Array [
+    "path": [
       "emittery",
       0,
     ],
@@ -3382,35 +3382,35 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.0.0",
     ],
-    "path": Array [
+    "path": [
       "escodegen",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "5.3.0",
     ],
-    "path": Array [
+    "path": [
       "estraverse",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.0.3",
     ],
-    "path": Array [
+    "path": [
       "esutils",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "expect",
       0,
     ],
@@ -3418,19 +3418,19 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.0.6",
     ],
-    "path": Array [
+    "path": [
       "fast-levenshtein",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "3.0.1",
     ],
-    "path": Array [
+    "path": [
       "form-data",
     ],
   },
@@ -3441,14 +3441,14 @@ Array [
       "lhs": "8.0.3",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "glob",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "7.2.3",
-    "path": Array [
+    "path": [
       "glob",
       1,
     ],
@@ -3456,10 +3456,10 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.0.1",
     ],
-    "path": Array [
+    "path": [
       "html-encoding-sniffer",
     ],
   },
@@ -3470,14 +3470,14 @@ Array [
       "lhs": "5.0.0",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "http-proxy-agent",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "4.0.1",
-    "path": Array [
+    "path": [
       "http-proxy-agent",
       0,
     ],
@@ -3490,14 +3490,14 @@ Array [
       "lhs": "0.6.3",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "iconv-lite",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "0.4.24",
-    "path": Array [
+    "path": [
       "iconv-lite",
       0,
     ],
@@ -3505,26 +3505,26 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.0.1",
     ],
-    "path": Array [
+    "path": [
       "is-potential-custom-element-name",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.0.0",
     ],
-    "path": Array [
+    "path": [
       "is-typedarray",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "jest-changed-files",
       0,
     ],
@@ -3533,7 +3533,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "jest-circus",
       0,
     ],
@@ -3542,7 +3542,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "jest-cli",
       0,
     ],
@@ -3551,7 +3551,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "jest-config",
       0,
     ],
@@ -3564,14 +3564,14 @@ Array [
       "lhs": "27.5.1",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "jest-diff",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.2",
-    "path": Array [
+    "path": [
       "jest-diff",
       0,
     ],
@@ -3580,7 +3580,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "jest-docblock",
       0,
     ],
@@ -3589,7 +3589,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "jest-each",
       0,
     ],
@@ -3597,17 +3597,17 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "27.5.1",
     ],
-    "path": Array [
+    "path": [
       "jest-environment-jsdom",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "jest-environment-node",
       0,
     ],
@@ -3620,14 +3620,14 @@ Array [
       "lhs": "27.5.1",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "jest-get-type",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "26.3.0",
-    "path": Array [
+    "path": [
       "jest-get-type",
       0,
     ],
@@ -3636,7 +3636,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "jest-haste-map",
       0,
     ],
@@ -3644,17 +3644,17 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "27.5.1",
     ],
-    "path": Array [
+    "path": [
       "jest-jasmine2",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "jest-leak-detector",
       0,
     ],
@@ -3663,7 +3663,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "jest-matcher-utils",
       0,
     ],
@@ -3672,7 +3672,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "jest-message-util",
       0,
     ],
@@ -3681,7 +3681,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "jest-mock",
       0,
     ],
@@ -3690,7 +3690,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "jest-regex-util",
       0,
     ],
@@ -3699,7 +3699,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "jest-resolve-dependencies",
       0,
     ],
@@ -3708,7 +3708,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "jest-resolve",
       0,
     ],
@@ -3717,7 +3717,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "jest-runner",
       0,
     ],
@@ -3726,7 +3726,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "jest-runtime",
       0,
     ],
@@ -3734,17 +3734,17 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "27.5.1",
     ],
-    "path": Array [
+    "path": [
       "jest-serializer",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "jest-snapshot",
       0,
     ],
@@ -3753,7 +3753,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "jest-util",
       0,
     ],
@@ -3762,7 +3762,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "jest-validate",
       0,
     ],
@@ -3771,7 +3771,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "jest-watcher",
       0,
     ],
@@ -3780,7 +3780,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "jest-worker",
       0,
     ],
@@ -3789,7 +3789,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "27.5.1",
-    "path": Array [
+    "path": [
       "jest",
       0,
     ],
@@ -3797,46 +3797,46 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "16.7.0",
     ],
-    "path": Array [
+    "path": [
       "jsdom",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.3.0",
     ],
-    "path": Array [
+    "path": [
       "levn",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "4.17.21",
     ],
-    "path": Array [
+    "path": [
       "lodash",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.52.0",
     ],
-    "path": Array [
+    "path": [
       "mime-db",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.1.35",
     ],
-    "path": Array [
+    "path": [
       "mime-types",
     ],
   },
@@ -3847,14 +3847,14 @@ Array [
       "lhs": "5.1.0",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "minimatch",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "3.1.2",
-    "path": Array [
+    "path": [
       "minimatch",
       1,
     ],
@@ -3862,19 +3862,19 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.2.1",
     ],
-    "path": Array [
+    "path": [
       "nwsapi",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.8.3",
     ],
-    "path": Array [
+    "path": [
       "optionator",
     ],
   },
@@ -3885,25 +3885,25 @@ Array [
       "rhs": "3.1.0",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "p-limit",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "6.0.1",
     ],
-    "path": Array [
+    "path": [
       "parse5",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.1.2",
     ],
-    "path": Array [
+    "path": [
       "prelude-ls",
     ],
   },
@@ -3914,14 +3914,14 @@ Array [
       "lhs": "27.5.1",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "pretty-format",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "26.6.2",
-    "path": Array [
+    "path": [
       "pretty-format",
       0,
     ],
@@ -3929,26 +3929,26 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.9.0",
     ],
-    "path": Array [
+    "path": [
       "psl",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.1.1",
     ],
-    "path": Array [
+    "path": [
       "punycode",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "17.0.2",
-    "path": Array [
+    "path": [
       "react-is",
       0,
     ],
@@ -3956,26 +3956,26 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.0.0",
     ],
-    "path": Array [
+    "path": [
       "require-main-filename",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "5.0.1",
     ],
-    "path": Array [
+    "path": [
       "saxes",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "0.5.21",
-    "path": Array [
+    "path": [
       "source-map-support",
       0,
     ],
@@ -3988,50 +3988,50 @@ Array [
       "lhs": "0.7.4",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "source-map",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "3.2.4",
     ],
-    "path": Array [
+    "path": [
       "symbol-tree",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "6.0.1",
     ],
-    "path": Array [
+    "path": [
       "throat",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "4.0.0",
     ],
-    "path": Array [
+    "path": [
       "tough-cookie",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.1.0",
     ],
-    "path": Array [
+    "path": [
       "tr46",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "1.2.40",
-    "path": Array [
+    "path": [
       "ts-type",
       0,
     ],
@@ -4039,53 +4039,53 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.3.2",
     ],
-    "path": Array [
+    "path": [
       "type-check",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "3.1.5",
     ],
-    "path": Array [
+    "path": [
       "typedarray-to-buffer",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "4.7.4",
     ],
-    "path": Array [
+    "path": [
       "typescript",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "4.7.4",
     ],
-    "path": Array [
+    "path": [
       "typescript>::version=4.7.4&hash=f456af",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "0.1.2",
     ],
-    "path": Array [
+    "path": [
       "universalify",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "8.1.1",
-    "path": Array [
+    "path": [
       "v8-to-istanbul",
       0,
     ],
@@ -4093,74 +4093,74 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.0.2",
     ],
-    "path": Array [
+    "path": [
       "w3c-hr-time",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.0.0",
     ],
-    "path": Array [
+    "path": [
       "w3c-xmlserializer",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "5.0.0",
       "6.1.0",
     ],
-    "path": Array [
+    "path": [
       "webidl-conversions",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.0.5",
     ],
-    "path": Array [
+    "path": [
       "whatwg-encoding",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.3.0",
     ],
-    "path": Array [
+    "path": [
       "whatwg-mimetype",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "8.7.0",
     ],
-    "path": Array [
+    "path": [
       "whatwg-url",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.0.0",
     ],
-    "path": Array [
+    "path": [
       "which-module",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.2.3",
     ],
-    "path": Array [
+    "path": [
       "word-wrap",
     ],
   },
@@ -4171,14 +4171,14 @@ Array [
       "lhs": "7.0.0",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "wrap-ansi",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "6.2.0",
-    "path": Array [
+    "path": [
       "wrap-ansi",
       0,
     ],
@@ -4187,7 +4187,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "3.0.3",
-    "path": Array [
+    "path": [
       "write-file-atomic",
       0,
     ],
@@ -4195,28 +4195,28 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "7.5.9",
     ],
-    "path": Array [
+    "path": [
       "ws",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "3.0.0",
     ],
-    "path": Array [
+    "path": [
       "xml-name-validator",
     ],
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "2.2.0",
     ],
-    "path": Array [
+    "path": [
       "xmlchars",
     ],
   },
@@ -4227,14 +4227,14 @@ Array [
       "lhs": "5.0.8",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "y18n",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "4.0.3",
-    "path": Array [
+    "path": [
       "y18n",
       0,
     ],
@@ -4247,14 +4247,14 @@ Array [
       "lhs": "20.2.9",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "yargs-parser",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "18.1.3",
-    "path": Array [
+    "path": [
       "yargs-parser",
       0,
     ],
@@ -4267,14 +4267,14 @@ Array [
       "lhs": "16.2.0",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "yargs",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "15.4.1",
-    "path": Array [
+    "path": [
       "yargs",
       0,
     ],
@@ -4282,46 +4282,46 @@ Array [
   },
   DiffNew {
     "kind": "N",
-    "path": Array [
+    "path": [
       "@jest/expect-utils",
     ],
-    "rhs": Array [
+    "rhs": [
       "28.1.3",
     ],
   },
   DiffNew {
     "kind": "N",
-    "path": Array [
+    "path": [
       "@jest/expect",
     ],
-    "rhs": Array [
+    "rhs": [
       "28.1.3",
     ],
   },
   DiffNew {
     "kind": "N",
-    "path": Array [
+    "path": [
       "@jest/schemas",
     ],
-    "rhs": Array [
+    "rhs": [
       "28.1.3",
     ],
   },
   DiffNew {
     "kind": "N",
-    "path": Array [
+    "path": [
       "@sinclair/typebox",
     ],
-    "rhs": Array [
+    "rhs": [
       "0.24.27",
     ],
   },
   DiffNew {
     "kind": "N",
-    "path": Array [
+    "path": [
       "yocto-queue",
     ],
-    "rhs": Array [
+    "rhs": [
       "0.1.0",
     ],
   },
@@ -4329,11 +4329,11 @@ Array [
 `;
 
 exports[`buildDiff v3/yarn-2.lock 1`] = `
-Array [
+[
   DiffEdit {
     "kind": "E",
     "lhs": "7.14.5",
-    "path": Array [
+    "path": [
       "@babel/helper-plugin-utils",
       0,
     ],
@@ -4342,7 +4342,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "7.14.5",
-    "path": Array [
+    "path": [
       "@babel/plugin-syntax-typescript",
       0,
     ],
@@ -4351,7 +4351,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "7.1.14",
-    "path": Array [
+    "path": [
       "@types/babel__core",
       0,
     ],
@@ -4360,7 +4360,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "7.6.2",
-    "path": Array [
+    "path": [
       "@types/babel__generator",
       0,
     ],
@@ -4369,7 +4369,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "7.4.0",
-    "path": Array [
+    "path": [
       "@types/babel__template",
       0,
     ],
@@ -4378,7 +4378,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "7.14.0",
-    "path": Array [
+    "path": [
       "@types/babel__traverse",
       0,
     ],
@@ -4387,7 +4387,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "2.0.3",
-    "path": Array [
+    "path": [
       "@types/istanbul-lib-coverage",
       0,
     ],
@@ -4396,7 +4396,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "15.12.5",
-    "path": Array [
+    "path": [
       "@types/node",
       0,
     ],
@@ -4405,7 +4405,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "2.3.0",
-    "path": Array [
+    "path": [
       "@types/prettier",
       0,
     ],
@@ -4414,7 +4414,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "2.0.0",
-    "path": Array [
+    "path": [
       "@types/stack-utils",
       0,
     ],
@@ -4423,7 +4423,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "20.2.0",
-    "path": Array [
+    "path": [
       "@types/yargs-parser",
       0,
     ],
@@ -4432,7 +4432,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "1.1.1",
-    "path": Array [
+    "path": [
       "buffer-from",
       0,
     ],
@@ -4441,7 +4441,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "6.2.0",
-    "path": Array [
+    "path": [
       "camelcase",
       1,
     ],
@@ -4450,7 +4450,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "4.1.1",
-    "path": Array [
+    "path": [
       "chalk",
       1,
     ],
@@ -4459,7 +4459,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "1.2.1",
-    "path": Array [
+    "path": [
       "cjs-module-lexer",
       0,
     ],
@@ -4472,14 +4472,14 @@ Array [
       "lhs": "4.3.4",
     },
     "kind": "A",
-    "path": Array [
+    "path": [
       "debug",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "4.3.1",
-    "path": Array [
+    "path": [
       "debug",
       0,
     ],
@@ -4488,7 +4488,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "7.1.7",
-    "path": Array [
+    "path": [
       "glob",
       0,
     ],
@@ -4497,7 +4497,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "3.0.2",
-    "path": Array [
+    "path": [
       "import-local",
       0,
     ],
@@ -4506,7 +4506,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "2.4.0",
-    "path": Array [
+    "path": [
       "is-core-module",
       0,
     ],
@@ -4515,7 +4515,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "2.0.0",
-    "path": Array [
+    "path": [
       "is-stream",
       0,
     ],
@@ -4524,7 +4524,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "4.0.0",
-    "path": Array [
+    "path": [
       "istanbul-lib-source-maps",
       0,
     ],
@@ -4533,7 +4533,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "4.0.4",
-    "path": Array [
+    "path": [
       "micromatch",
       0,
     ],
@@ -4542,7 +4542,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "3.0.4",
-    "path": Array [
+    "path": [
       "minimatch",
       0,
     ],
@@ -4551,7 +4551,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "2.3.0",
-    "path": Array [
+    "path": [
       "picomatch",
       0,
     ],
@@ -4560,7 +4560,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "2.4.1",
-    "path": Array [
+    "path": [
       "prompts",
       0,
     ],
@@ -4569,7 +4569,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "1.20.0",
-    "path": Array [
+    "path": [
       "resolve",
       0,
     ],
@@ -4577,17 +4577,17 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "1.20.0",
     ],
-    "path": Array [
+    "path": [
       "resolve>::version=1.20.0&hash=07638b",
     ],
   },
   DiffEdit {
     "kind": "E",
     "lhs": "2.0.3",
-    "path": Array [
+    "path": [
       "stack-utils",
       0,
     ],
@@ -4595,19 +4595,19 @@ Array [
   },
   DiffNew {
     "kind": "N",
-    "path": Array [
+    "path": [
       "resolve>::version=1.22.1&hash=07638b",
     ],
-    "rhs": Array [
+    "rhs": [
       "1.22.1",
     ],
   },
   DiffNew {
     "kind": "N",
-    "path": Array [
+    "path": [
       "supports-preserve-symlinks-flag",
     ],
-    "rhs": Array [
+    "rhs": [
       "1.0.0",
     ],
   },
@@ -4615,11 +4615,11 @@ Array [
 `;
 
 exports[`buildDiff yarn.lock 1`] = `
-Array [
+[
   DiffEdit {
     "kind": "E",
     "lhs": "7.0.2",
-    "path": Array [
+    "path": [
       "@babel/code-frame",
       0,
     ],
@@ -4628,7 +4628,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "7.3.5",
-    "path": Array [
+    "path": [
       "@babel/generator",
       1,
     ],
@@ -4637,7 +4637,7 @@ Array [
   DiffEdit {
     "kind": "E",
     "lhs": "6.3.7",
-    "path": Array [
+    "path": [
       "@babel/generator",
       0,
     ],
@@ -4645,19 +4645,19 @@ Array [
   },
   DiffDeleted {
     "kind": "D",
-    "lhs": Array [
+    "lhs": [
       "7.3.4",
     ],
-    "path": Array [
+    "path": [
       "@babel/types",
     ],
   },
   DiffNew {
     "kind": "N",
-    "path": Array [
+    "path": [
       "@babel/parser",
     ],
-    "rhs": Array [
+    "rhs": [
       "7.3.4",
     ],
   },

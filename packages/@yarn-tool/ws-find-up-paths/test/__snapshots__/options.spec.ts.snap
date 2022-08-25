@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ignoreCurrentPackage 1`] = `
-Object {
+{
   "cwd": Any<String>,
   "limit": Infinity,
-  "opts": Object {
+  "opts": {
     "cwd": Any<String>,
     "ignoreCurrentPackage": true,
     "includeCurrentDirectory": false,
@@ -12,7 +12,7 @@ Object {
     "stopPath": Any<Array>,
   },
   "path": Anything,
-  "rootData": Object {
+  "rootData": {
     "cwd": Any<String>,
     "hasWorkspace": true,
     "isRoot": false,

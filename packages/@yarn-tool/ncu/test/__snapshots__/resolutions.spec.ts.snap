@@ -1,20 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`checkResolutionsUpdate v1 1`] = `
-Object {
-  "deps": Array [
-    Object {
+{
+  "deps": [
+    {
       "name": "@types/node",
       "versionTarget": "latest",
       "version_new": Any<String>,
       "version_old": "^1.0.10",
     },
   ],
-  "deps2": Object {
+  "deps2": {
     "@types/node": Any<String>,
   },
-  "deps3": Object {
-    "@types/node": Object {
+  "deps3": {
+    "@types/node": {
       "name": "@types/node",
       "versionTarget": "latest",
       "version_new": Any<String>,
@@ -30,20 +30,20 @@ Object {
 `;
 
 exports[`checkResolutionsUpdate v3 1`] = `
-Object {
-  "deps": Array [
-    Object {
+{
+  "deps": [
+    {
       "name": "@types/node",
       "versionTarget": "latest",
       "version_new": Any<String>,
       "version_old": "^1.0.10",
     },
   ],
-  "deps2": Object {
+  "deps2": {
     "@types/node": Any<String>,
   },
-  "deps3": Object {
-    "@types/node": Object {
+  "deps3": {
+    "@types/node": {
       "name": "@types/node",
       "versionTarget": "latest",
       "version_new": Any<String>,

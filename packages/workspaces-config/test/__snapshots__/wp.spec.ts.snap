@@ -1,30 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should parseStaticPackagesPaths 1`] = `
-Object {
-  "all": Array [
+{
+  "all": [
     "packages/@yarn-tool/*",
     "packages/*",
   ],
-  "prefix": Array [
+  "prefix": [
     "packages/@yarn-tool",
     "packages",
   ],
-  "prefixRoot": Array [
+  "prefixRoot": [
     "packages",
     "packages",
   ],
-  "prefixSub": Array [
+  "prefixSub": [
     "@yarn-tool",
     "",
   ],
-  "static": Array [],
+  "static": [],
 }
 `;
 
 exports[`should parseWorkspaces 1`] = `
-Object {
-  "packages": Array [
+{
+  "packages": [
     "packages/@yarn-tool/*",
     "packages/*",
   ],
@@ -32,8 +32,8 @@ Object {
 `;
 
 exports[`should parseWorkspaces v2 1`] = `
-Object {
-  "packages": Array [
+{
+  "packages": [
     "packages/@yarn-tool/*",
     "packages/*",
   ],
