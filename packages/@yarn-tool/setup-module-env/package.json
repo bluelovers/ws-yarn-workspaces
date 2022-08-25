@@ -50,6 +50,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
+    "@yarn-tool/pkg-entry-util": "^2.0.10",
     "tslib": "^2"
   },
   "packageManager": "yarn@1.22.19",

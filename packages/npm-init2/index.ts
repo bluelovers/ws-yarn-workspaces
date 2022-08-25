@@ -30,6 +30,7 @@ import { defaultRootScripts } from '@yarn-tool/pkg-entry-util/lib/preset/root-sc
 import { defaultPkgNotOldExists } from '@yarn-tool/pkg-entry-util/lib/preset/pkg-scripts';
 import { outputPackageJSONSync } from '@yarn-tool/write-package-json';
 import { getRootCopyStaticFilesAuto } from '@yarn-tool/static-file/lib/root/getRootCopyStaticFiles';
+import { EnumScriptsEntry, scriptsEntryIsNoTestSpecified } from '@yarn-tool/pkg-entry-util/lib/field/scripts';
 
 //updateNotifier(__dirname);
 
@@ -266,14 +267,15 @@ if (!cp.error)
 
 		if (!oldExists)
 		{
-			if (pkg.data.scripts?.test === "echo \"Error: no test specified\" && exit 1" && sharedScript.test?.length > 0)
+
+			if (scriptsEntryIsNoTestSpecified(pkg.data.scripts?.test) && sharedScript.test?.length > 0)
 			{
-				delete pkg.data.scripts.test
+				delete pkg.data.scripts!.test
 			}
 
 			if (_findDeps(wsProject?.manifest, '@types/jest') || _findDeps(wsProject?.manifest, 'jest') || _findDeps(wsProject?.manifest, 'ts-jest'))
 			{
-				sharedScript.test = "jest --passWithNoTests";
+				sharedScript.test = EnumScriptsEntry.JEST_TEST;
 			}
 
 			Object
@@ -283,10 +285,7 @@ if (!cp.error)
 				})
 				.forEach(([k, v]) =>
 				{
-					if (pkg.data.scripts[k] == null)
-					{
-						pkg.data.scripts[k] = v;
-					}
+					pkg.data.scripts[k] ??= v;
 				})
 			;
 		}
@@ -301,10 +300,7 @@ if (!cp.error)
 						return;
 					}
 
-					if (pkg.data.scripts[k] == null)
-					{
-						pkg.data.scripts[k] = v;
-					}
+					pkg.data.scripts[k] ??= v;
 				})
 			;
 

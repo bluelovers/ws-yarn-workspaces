@@ -31,6 +31,7 @@ const root_scripts_1 = require("@yarn-tool/pkg-entry-util/lib/preset/root-script
 const pkg_scripts_1 = require("@yarn-tool/pkg-entry-util/lib/preset/pkg-scripts");
 const write_package_json_1 = require("@yarn-tool/write-package-json");
 const getRootCopyStaticFiles_1 = require("@yarn-tool/static-file/lib/root/getRootCopyStaticFiles");
+const scripts_1 = require("@yarn-tool/pkg-entry-util/lib/field/scripts");
 //updateNotifier(__dirname);
 // avoid buf for idea
 logger_1.consoleLogger.length;
@@ -191,11 +192,11 @@ if (!cp.error) {
         sharedScript.preversion = preScripts.join(' && ');
         (_c = (_k = pkg.data).scripts) !== null && _c !== void 0 ? _c : (_k.scripts = {});
         if (!oldExists) {
-            if (((_d = pkg.data.scripts) === null || _d === void 0 ? void 0 : _d.test) === "echo \"Error: no test specified\" && exit 1" && ((_e = sharedScript.test) === null || _e === void 0 ? void 0 : _e.length) > 0) {
+            if ((0, scripts_1.scriptsEntryIsNoTestSpecified)((_d = pkg.data.scripts) === null || _d === void 0 ? void 0 : _d.test) && ((_e = sharedScript.test) === null || _e === void 0 ? void 0 : _e.length) > 0) {
                 delete pkg.data.scripts.test;
             }
             if (_findDeps(wsProject === null || wsProject === void 0 ? void 0 : wsProject.manifest, '@types/jest') || _findDeps(wsProject === null || wsProject === void 0 ? void 0 : wsProject.manifest, 'jest') || _findDeps(wsProject === null || wsProject === void 0 ? void 0 : wsProject.manifest, 'ts-jest')) {
-                sharedScript.test = "jest --passWithNoTests";
+                sharedScript.test = "jest --passWithNoTests" /* EnumScriptsEntry.JEST_TEST */;
             }
             Object
                 .entries({
@@ -203,21 +204,21 @@ if (!cp.error) {
                 ...sharedScript,
             })
                 .forEach(([k, v]) => {
-                if (pkg.data.scripts[k] == null) {
-                    pkg.data.scripts[k] = v;
-                }
+                var _a;
+                var _b;
+                (_a = (_b = pkg.data.scripts)[k]) !== null && _a !== void 0 ? _a : (_b[k] = v);
             });
         }
         else {
             Object
                 .entries(sharedScript)
                 .forEach(([k, v]) => {
+                var _a;
+                var _b;
                 if (k.endsWith('_') && pkg.data.scripts[k.replace(/_+$/, '')] === v) {
                     return;
                 }
-                if (pkg.data.scripts[k] == null) {
-                    pkg.data.scripts[k] = v;
-                }
+                (_a = (_b = pkg.data.scripts)[k]) !== null && _a !== void 0 ? _a : (_b[k] = v);
             });
             if (!pkg.data.types || !pkg.data.typings) {
                 pkg.data.types = pkg.data.types || pkg.data.typings;

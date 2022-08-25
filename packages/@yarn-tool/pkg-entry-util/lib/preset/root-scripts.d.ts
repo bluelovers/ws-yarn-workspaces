@@ -12,4 +12,6 @@ export declare function defaultRootScripts(): {
     "test:jest:clearCache": string;
     "install:resetLockfile": string;
     "install:frozenLockfile": string;
+    "test:jest": string;
+    "test:snapshot": string;
 };

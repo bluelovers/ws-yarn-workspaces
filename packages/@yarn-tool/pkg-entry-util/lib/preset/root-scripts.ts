@@ -1,8 +1,10 @@
 import { defaultSharedRootScripts } from './shared-root-scripts';
+import { defaultPkgScripts } from './pkg-scripts';
 
 export function defaultRootScripts()
 {
 	return {
+		...defaultPkgScripts(),
 		...defaultSharedRootScripts(),
 		"prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
 		"version:bump": "yarn-tool version",

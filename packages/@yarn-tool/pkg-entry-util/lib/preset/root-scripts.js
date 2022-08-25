@@ -2,8 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.defaultRootScripts = void 0;
 const shared_root_scripts_1 = require("./shared-root-scripts");
+const pkg_scripts_1 = require("./pkg-scripts");
 function defaultRootScripts() {
     return {
+        ...(0, pkg_scripts_1.defaultPkgScripts)(),
         ...(0, shared_root_scripts_1.defaultSharedRootScripts)(),
         "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
         "version:bump": "yarn-tool version",

@@ -1,16 +1,20 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.setup = exports.defaultCopyStaticFilesTsdx = exports.updatePackageJson = void 0;
+const scripts_1 = require("@yarn-tool/pkg-entry-util/lib/field/scripts");
 function updatePackageJson(pkg) {
     var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p;
     var _q, _r, _s, _t, _u, _v, _w, _x, _y;
     (_a = pkg.scripts) !== null && _a !== void 0 ? _a : (pkg.scripts = {});
-    (_b = (_q = pkg.scripts)["test"]) !== null && _b !== void 0 ? _b : (_q["test"] = "jest --passWithNoTests");
+    if ((0, scripts_1.scriptsEntryIsNoTestSpecified)(pkg.scripts["test"])) {
+        pkg.scripts["test"] = void 0;
+    }
+    (_b = (_q = pkg.scripts)["test"]) !== null && _b !== void 0 ? _b : (_q["test"] = "jest --passWithNoTests" /* EnumScriptsEntry.JEST_TEST */);
     (_c = (_r = pkg.scripts)["posttest"]) !== null && _c !== void 0 ? _c : (_r["posttest"] = "yarn run build");
     if (!((_d = pkg.scripts["build"]) === null || _d === void 0 ? void 0 : _d.includes('run build:tsdx'))) {
         pkg.scripts["build"] = "yarn run build:tsdx && yarn run build:dts:bundle";
     }
-    (_e = (_s = pkg.scripts)["build:dts:bundle"]) !== null && _e !== void 0 ? _e : (_s["build:dts:bundle"] = "ynpx dts-bundle-generator -o ./dist/index.d.ts ./src/index.ts --no-banner --inline-declare-global & echo build:dts:bundle");
+    (_e = (_s = pkg.scripts)["build:dts:bundle"]) !== null && _e !== void 0 ? _e : (_s["build:dts:bundle"] = "ynpx dts-bundle-generator -o ./dist/index.d.ts ./src/index.ts --no-banner --inline-declare-global & echo build:dts:bundle" /* EnumScriptsEntry.BUILD_DTS_BUNDLE */);
     (_f = (_t = pkg.scripts)["build:tsdx"]) !== null && _f !== void 0 ? _f : (_t["build:tsdx"] = "ynpx @bluelovers/tsdx build --target node");
     (_g = (_u = pkg.scripts)["build:dts:copy"]) !== null && _g !== void 0 ? _g : (_u["build:dts:copy"] = "copy .\\src\\index.d.ts .\\dist\\index.d.ts & echo build:dts");
     (_h = (_v = pkg.scripts)["build:dts:tsc:emit"]) !== null && _h !== void 0 ? _h : (_v["build:dts:tsc:emit"] = "tsc --emitDeclarationOnly --declaration --noEmit false");

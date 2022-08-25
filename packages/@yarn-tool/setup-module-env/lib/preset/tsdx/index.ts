@@ -1,12 +1,19 @@
 import { IPackageJson } from '@ts-type/package-dts/package-json';
 import { IFindRootReturnType } from '@yarn-tool/find-root';
 import { _Key, IStaticFilesMapArray } from '@yarn-tool/static-file/lib/types';
+import { EnumScriptsEntry, scriptsEntryIsNoTestSpecified } from '@yarn-tool/pkg-entry-util/lib/field/scripts';
 
 export function updatePackageJson<P extends IPackageJson>(pkg: P)
 {
 	pkg.scripts ??= {};
 
-	pkg.scripts["test"] ??= "jest --passWithNoTests";
+	if (scriptsEntryIsNoTestSpecified(pkg.scripts["test"]))
+	{
+		pkg.scripts["test"] = void 0;
+	}
+
+	pkg.scripts["test"] ??= EnumScriptsEntry.JEST_TEST;
+
 	pkg.scripts["posttest"] ??= "yarn run build";
 
 	if (!pkg.scripts["build"]?.includes('run build:tsdx'))
@@ -14,7 +21,7 @@ export function updatePackageJson<P extends IPackageJson>(pkg: P)
 		pkg.scripts["build"] = "yarn run build:tsdx && yarn run build:dts:bundle";
 	}
 
-	pkg.scripts["build:dts:bundle"] ??= "ynpx dts-bundle-generator -o ./dist/index.d.ts ./src/index.ts --no-banner --inline-declare-global & echo build:dts:bundle";
+	pkg.scripts["build:dts:bundle"] ??= EnumScriptsEntry.BUILD_DTS_BUNDLE;
 	pkg.scripts["build:tsdx"] ??= "ynpx @bluelovers/tsdx build --target node";
 
 	pkg.scripts["build:dts:copy"] ??= "copy .\\src\\index.d.ts .\\dist\\index.d.ts & echo build:dts";

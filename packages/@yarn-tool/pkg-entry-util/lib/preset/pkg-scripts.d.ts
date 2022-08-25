@@ -1,9 +1,12 @@
+import { EnumScriptsEntry } from '../field/scripts';
+export declare function defaultPkgScripts(): {
+    "test:jest": EnumScriptsEntry;
+    "test:snapshot": string;
+};
 export declare function defaultPkgNotOldExists(): {
     "test:mocha": string;
-    "test:jest": string;
-    "test:snapshot": string;
     "test:tsdx": string;
-    "build:dts:bundle": string;
+    "build:dts:bundle": EnumScriptsEntry;
     "build:dts:copy": string;
     "build:dts:tsc:emit": string;
     "build:dts:tsc": string;
@@ -15,4 +18,6 @@ export declare function defaultPkgNotOldExists(): {
     "review:test": string;
     "review:coverage": string;
     coverage: string;
+    "test:jest": EnumScriptsEntry;
+    "test:snapshot": string;
 };
