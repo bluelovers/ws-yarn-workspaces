@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`packPackage 1`] = `
-Object {
+{
   "log": [Function],
   "packageDir": Any<String>,
   "packageTarball": Any<String>,
