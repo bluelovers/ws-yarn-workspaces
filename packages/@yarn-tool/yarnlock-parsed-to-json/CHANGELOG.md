@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-parsed-to-json@1.0.1...@yarn-tool/yarnlock-parsed-to-json@1.0.2) (2022-08-25)
+
+
+
+### 🚨　Tests
+
+* **snapshot:** snapshots updated ([50bff7c](https://github.com/bluelovers/ws-yarn-workspaces/commit/50bff7c13e1b01eb551c9b2252cfe3d971da8db8))
+
+
+
 ## 1.0.1 (2022-08-13)
 
 

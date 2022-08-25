@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.8](https://github.com/bluelovers/ws-yarn-workspaces/compare/env-run-path@2.0.4...env-run-path@2.0.8) (2022-08-25)
+
+
+
+### 🚨　Tests
+
+* **snapshot:** snapshots updated ([50bff7c](https://github.com/bluelovers/ws-yarn-workspaces/commit/50bff7c13e1b01eb551c9b2252cfe3d971da8db8))
+* **snapshot:** snapshots updated ([ed29b43](https://github.com/bluelovers/ws-yarn-workspaces/commit/ed29b437ae8bc9502d117d6a02fd40c9c24f1e33))
+
+
+### 📌　Dependencies
+
+* update deps ([836ee56](https://github.com/bluelovers/ws-yarn-workspaces/commit/836ee56d294d3b6c85ad1f8b209660c779480a80))
+
+
+### 🔖　Miscellaneous
+
+* . ([7636d5d](https://github.com/bluelovers/ws-yarn-workspaces/commit/7636d5df9ecb9858107ba6a7ab097d9c948ea7df))
+
+
+
 ## [2.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/env-run-path@2.0.4...env-run-path@2.0.7) (2022-08-25)
 
 

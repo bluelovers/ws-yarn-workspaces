@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.13](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-entry-util@2.0.10...@yarn-tool/pkg-entry-util@2.0.13) (2022-08-25)
+
+
+
+### 📦　Code Refactoring
+
+* update script ([cd1016d](https://github.com/bluelovers/ws-yarn-workspaces/commit/cd1016ddcd93d1c1df4795ea4228ec45a76822c3))
+
+
+### 🚨　Tests
+
+* **snapshot:** snapshots updated ([50bff7c](https://github.com/bluelovers/ws-yarn-workspaces/commit/50bff7c13e1b01eb551c9b2252cfe3d971da8db8))
+* **snapshot:** snapshots updated ([ed29b43](https://github.com/bluelovers/ws-yarn-workspaces/commit/ed29b437ae8bc9502d117d6a02fd40c9c24f1e33))
+
+
+### 🔖　Miscellaneous
+
+* . ([7636d5d](https://github.com/bluelovers/ws-yarn-workspaces/commit/7636d5df9ecb9858107ba6a7ab097d9c948ea7df))
+
+
+
 ## [2.0.12](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-entry-util@2.0.10...@yarn-tool/pkg-entry-util@2.0.12) (2022-08-25)
 
 

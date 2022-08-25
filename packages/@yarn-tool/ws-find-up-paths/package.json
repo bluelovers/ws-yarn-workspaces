@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/ws-find-up-paths",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Find a file or directory by walking up parent directories and support workspaces",
   "keywords": [
     "yarn",

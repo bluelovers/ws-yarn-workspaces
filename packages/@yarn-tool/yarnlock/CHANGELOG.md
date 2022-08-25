@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock@2.0.6...@yarn-tool/yarnlock@2.0.7) (2022-08-25)
+
+
+
+### 🚨　Tests
+
+* **snapshot:** snapshots updated ([50bff7c](https://github.com/bluelovers/ws-yarn-workspaces/commit/50bff7c13e1b01eb551c9b2252cfe3d971da8db8))
+
+
+### 📌　Dependencies
+
+* update deps ([836ee56](https://github.com/bluelovers/ws-yarn-workspaces/commit/836ee56d294d3b6c85ad1f8b209660c779480a80))
+
+
+
 ## [2.0.6](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock@2.0.5...@yarn-tool/yarnlock@2.0.6) (2022-08-19)
 
 
