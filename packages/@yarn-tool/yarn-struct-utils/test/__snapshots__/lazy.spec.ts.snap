@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`lazy.spec @strictsoftware/typedoc-plugin-monorepo@npm:0.2.2 1`] = `
-Object {
+{
   "description": "npm:0.2.2",
   "fullName": "@strictsoftware/typedoc-plugin-monorepo",
   "isResolution": true,
-  "parsed": Object {
-    "descriptor": Object {
+  "parsed": {
+    "descriptor": {
       "description": "npm:0.2.2",
       "fullName": "@strictsoftware/typedoc-plugin-monorepo",
     },
@@ -16,19 +16,19 @@ Object {
 `;
 
 exports[`lazy.spec @strictsoftware/typedoc-plugin-monorepo@patch:@strictsoftware/typedoc-plugin-monorepo@npm%3A0.2.2#./.patches/@strictsoftware/typedoc-plugin-monorepo.patch::version=0.2.2&hash=916087&locator=%40yarnpkg%2Fgatsby%40workspace%3Apackages%2Fgatsby 1`] = `
-Object {
+{
   "description": "0.2.2",
   "fullName": "@strictsoftware/typedoc-plugin-monorepo",
   "isResolution": false,
-  "parsed": Object {
+  "parsed": {
     "descriptorHash": "bc7c13cee16e2ad09f7f741260c2374e932f33ced5aa58c0f46de97da51f5cb9897a79f3b0ab973de6f8178fbdf49a56f92c57e58e22a23995721642a765ed8e",
     "identHash": "f8d22e3172607f093b9122ee28ec17515bc2c0361abf41c54d4a1c474f685f2650d94af1b9fc8be7921345b5f2efe299255863a3f9cc0894604ea16ea305faab",
     "name": "typedoc-plugin-monorepo",
     "range": "patch:@strictsoftware/typedoc-plugin-monorepo@npm%3A0.2.2#./.patches/@strictsoftware/typedoc-plugin-monorepo.patch::version=0.2.2&hash=916087&locator=%40yarnpkg%2Fgatsby%40workspace%3Apackages%2Fgatsby",
     "scope": "strictsoftware",
   },
-  "parsedRange": Object {
-    "params": Object {
+  "parsedRange": {
+    "params": {
       "hash": "916087",
       "locator": "@yarnpkg/gatsby@workspace:packages/gatsby",
       "version": "0.2.2",
@@ -42,18 +42,18 @@ Object {
 `;
 
 exports[`lazy.spec dts-bundle-generator@https://github.com/bluelovers/dts-bundle-generator.git#commit=2d724ed8a70fea6875699553ebc9173546e6a2e7 1`] = `
-Object {
+{
   "description": undefined,
   "fullName": "dts-bundle-generator",
   "isResolution": false,
-  "parsed": Object {
+  "parsed": {
     "descriptorHash": "89f5f110d33f5edca7c707c84990988800eb4e8c474c3e67f9b2d81c99ad60622491d7997e3f88be3f5adbf7da11fb79a72917ffc03e7e148cd8d11bdb83d349",
     "identHash": "80f24fb2cb708bf649ca12e6d44b063ddd6d2add41ba056b7d355a0fe40dee672f63ece1a65c2b256efe8a3e77da59c61e8c43c59e5fb3406d66c64c73808e6c",
     "name": "dts-bundle-generator",
     "range": "https://github.com/bluelovers/dts-bundle-generator.git#commit=2d724ed8a70fea6875699553ebc9173546e6a2e7",
     "scope": null,
   },
-  "parsedRange": Object {
+  "parsedRange": {
     "params": null,
     "protocol": "https:",
     "selector": "commit=2d724ed8a70fea6875699553ebc9173546e6a2e7",

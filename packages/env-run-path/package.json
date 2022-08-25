@@ -1,6 +1,6 @@
 {
   "name": "env-run-path",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "add locally installed binaries paths into process.env",
   "keywords": [],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/env-run-path#readme",
