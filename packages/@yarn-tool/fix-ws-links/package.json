@@ -38,7 +38,7 @@
     "@yarn-tool/fix-ws-pkgs-link": "^2.0.4",
     "@yarn-tool/node-modules": "^2.0.4",
     "cross-spawn-extra": "^2.1.0",
-    "debug-color2": "^1.3.1",
+    "debug-color2": "^1.3.2",
     "fs-extra": "^10.1.0",
     "fs-stat": "^1.0.20",
     "fs-symlink-extra": "^1.0.13",
