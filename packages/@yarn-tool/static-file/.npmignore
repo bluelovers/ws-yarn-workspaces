@@ -75,3 +75,7 @@ jest.config.js
 !/file/changelog-option.js
 !/file/root/yarnrc.yml
 !/file/**/*
+!/file/jest.config.auto.js
+!/file/ws-root/jest.config.js
+
+!/file/ws-root/jest-preset.js

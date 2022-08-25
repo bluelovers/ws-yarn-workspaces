@@ -35,10 +35,10 @@ node_modules
 /bin/**/*.d.cts
 /bin/*.d.cts
 
-!./src/**/*.ts
-!./src/**/*.cts
-!./src/**/*.mts
-!./src/**/*.tsx
+!/src/**/*.ts
+!/src/**/*.cts
+!/src/**/*.mts
+!/src/**/*.tsx
 
 /src/**/*.d.ts
 /src/**/*.js
