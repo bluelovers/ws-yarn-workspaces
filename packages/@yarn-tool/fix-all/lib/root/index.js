@@ -9,6 +9,7 @@ const ws_scope_1 = require("@yarn-tool/ws-scope");
 const sort_package_json3_1 = require("sort-package-json3");
 const ws_root_scripts_1 = require("@yarn-tool/pkg-entry-util/lib/preset/ws-root-scripts");
 const dummy_1 = require("@yarn-tool/pkg-entry-util/lib/preset/dummy");
+const pkg_deps_add_1 = require("@yarn-tool/pkg-deps-add");
 function _fixRoot(options) {
     let { rootData, branch, overwriteHostedGitInfo, hostedGitInfo, targetDir } = options;
     const root_file_package_json = (0, upath2_1.join)(targetDir, 'package.json');
@@ -49,6 +50,22 @@ function _fixWsRoot(options) {
         var _a;
         var _b;
         (_a = (_b = runtime.root_pkg_json.data.scripts)[key]) !== null && _a !== void 0 ? _a : (_b[key] = value);
+    });
+    [
+        '@yarn-tool/ws-find-up-paths',
+        '@types/node',
+        '@bluelovers/tsconfig',
+    ].forEach(name => {
+        var _a;
+        var _b;
+        const _check = (0, pkg_deps_add_1._checkDependenciesExistsAll)(runtime.root_pkg_json.data, [
+            'devDependencies',
+            'dependencies',
+        ], name);
+        if (!_check._exists) {
+            (_a = (_b = runtime.root_pkg_json.data).devDependencies) !== null && _a !== void 0 ? _a : (_b.devDependencies = {});
+            runtime.root_pkg_json.data.devDependencies[name] = '*';
+        }
     });
     runtime.root_pkg_json.data = (0, sort_package_json3_1.sortPackageJson)(runtime.root_pkg_json.data);
     runtime.root_pkg_json.write();

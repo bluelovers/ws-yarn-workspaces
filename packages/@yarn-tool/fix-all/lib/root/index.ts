@@ -7,6 +7,7 @@ import { WorkspacesScope } from '@yarn-tool/ws-scope';
 import { sortPackageJson } from 'sort-package-json3';
 import { defaultWorkspaceRootScripts } from '@yarn-tool/pkg-entry-util/lib/preset/ws-root-scripts';
 import { fillDummyScripts } from '@yarn-tool/pkg-entry-util/lib/preset/dummy';
+import { _checkDependenciesExistsAll } from '@yarn-tool/pkg-deps-add';
 
 export function _fixRoot(options: Required<IFillPkgHostedInfoOptions>)
 {
@@ -59,6 +60,23 @@ export function _fixWsRoot(options: ITSRequiredPick<IFillPkgHostedInfoOptions, '
 	Object.entries(fillDummyScripts(defaultWorkspaceRootScripts())).forEach(([key, value]) =>
 	{
 		runtime.root_pkg_json.data.scripts[key] ??= value;
+	});
+
+	[
+		'@yarn-tool/ws-find-up-paths',
+		'@types/node',
+		'@bluelovers/tsconfig',
+	].forEach(name => {
+		const _check = _checkDependenciesExistsAll(runtime.root_pkg_json.data, [
+			'devDependencies',
+			'dependencies',
+		], name);
+
+		if (!_check._exists)
+		{
+			runtime.root_pkg_json.data.devDependencies ??= {};
+			runtime.root_pkg_json.data.devDependencies[name] = '*';
+		}
 	});
 
 	runtime.root_pkg_json.data = sortPackageJson(runtime.root_pkg_json.data);
