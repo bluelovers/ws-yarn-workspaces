@@ -1,6 +1,9 @@
 import { relative } from "path";
-import pathIsSame from 'path-is-same';
+import { pathIsSame } from 'path-is-same';
 
+/**
+ * @deprecated
+ */
 export function isSamePath(p1: string, p2: string)
 {
 	if (!p1 || !p2)
@@ -15,4 +18,3 @@ export function isSamePath(p1: string, p2: string)
 	let s = relative(p1, p2);
 	return (s === '.' || s === '');
 }
-

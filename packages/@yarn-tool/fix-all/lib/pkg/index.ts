@@ -16,6 +16,8 @@ import { packageJsonDependenciesFields } from '@ts-type/package-dts/lib/package-
 import { normalizeDepsValue } from '@yarn-tool/normalize-deps-value';
 import { getRootCopyStaticFilesAuto } from '@yarn-tool/static-file/lib/root/getRootCopyStaticFiles';
 import { copyStaticFiles } from '@yarn-tool/static-file';
+import { defaultPkgScripts } from '@yarn-tool/pkg-entry-util/lib/preset/pkg-scripts';
+import { pathIsSame } from 'path-is-same';
 
 export function _handler(cwd: string, ...argv: Parameters<IOptionsPkgListable["handler"]>)
 {
@@ -53,7 +55,7 @@ export function _runEachPackagesAsync(list: IEntry[],
 		})
 		.mapSeries(async (row) =>
 		{
-			//console.dir(row);
+			console.dir(row);
 
 			const err = new AggregateErrorExtra();
 
@@ -102,6 +104,27 @@ export function _runEachPackagesAsync(list: IEntry[],
 
 					})
 				;
+
+				pkg.data.scripts = {
+					...defaultPkgScripts(),
+					...(pkg.data.scripts ?? {}),
+				};
+
+				if (pathIsSame(rootData.root, row.location))
+				{
+					if (pathIsSame(rootData.ws, row.location))
+					{
+
+					}
+					else
+					{
+
+					}
+				}
+				else
+				{
+
+				}
 
 				pkg.data = sortPackageJson(pkg.data);
 

@@ -14,4 +14,5 @@ export declare function defaultRootScripts(): {
     "install:frozenLockfile": string;
     "test:jest": import("../field/scripts").EnumScriptsEntry;
     "test:snapshot": string;
+    "test:jest:snapshot": string;
 };

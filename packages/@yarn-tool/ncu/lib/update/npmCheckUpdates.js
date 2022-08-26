@@ -12,7 +12,7 @@ const mergeSimpleSemVer_1 = require("@lazy-node/semver-simple-parse/lib/mergeSim
 const parseSimpleSemVer_1 = require("@lazy-node/semver-simple-parse/lib/parseSimpleSemVer");
 const stringifySimpleSemVer_1 = require("@lazy-node/semver-simple-parse/lib/stringifySimpleSemVer");
 const pkg_version_query_1 = require("@yarn-tool/pkg-version-query");
-const deps_table_1 = tslib_1.__importDefault(require("@yarn-tool/table/lib/deps-table"));
+const deps_table_1 = require("@yarn-tool/table/lib/deps-table");
 async function npmCheckUpdates(cache, ncuOptions) {
     //ncuOptions.silent = false;
     //ncuOptions.json = false;
@@ -79,7 +79,7 @@ async function npmCheckUpdates(cache, ncuOptions) {
     ncuOptions.json_changed = json_changed;
     ncuOptions.list_updated = list_updated;
     ncuOptions.current = current;
-    const table = (0, deps_table_1.default)({
+    const table = (0, deps_table_1.toDependencyTable)({
         from: ncuOptions.current,
         to: ncuOptions.list_updated,
     }).toString();

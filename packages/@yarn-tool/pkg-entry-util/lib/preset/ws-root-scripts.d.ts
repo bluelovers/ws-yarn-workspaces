@@ -1,3 +1,4 @@
+import { EnumScriptsEntry } from '../field/scripts';
 export declare function defaultWorkspaceRootScripts(): {
     "test:all": string;
     "test:since": string;
@@ -5,7 +6,7 @@ export declare function defaultWorkspaceRootScripts(): {
     "review:all": string;
     "coverage:all": string;
     "lint:all": string;
-    preversion: string;
+    preversion: EnumScriptsEntry;
     postversion: string;
     "lerna:publish": string;
     "lerna:publish:yes": string;

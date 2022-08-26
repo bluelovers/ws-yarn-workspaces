@@ -1,7 +1,7 @@
 import { IStaticFilesMapArrayEntry } from './types';
 import { dirname, resolve } from 'path';
 import { copySync, ensureDirSync, existsSync } from 'fs-extra';
-import __root from '../__root';
+import { default as __root } from '../__root';
 
 export function copyStaticFilesEntry(entry: IStaticFilesMapArrayEntry<string>,
 	cwd: string,

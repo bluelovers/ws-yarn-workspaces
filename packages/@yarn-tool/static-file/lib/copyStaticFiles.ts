@@ -4,7 +4,7 @@ import { dirname, resolve } from 'path';
 import { defaultCopyStaticFiles } from './const';
 import { parseStaticMap } from './parseStaticMap';
 import { copyStaticFilesEntry } from './copyStaticFilesEntry';
-import __root from '../__root';
+import { default as __root } from '../__root';
 
 export function copyStaticFiles<K extends string>(options: ICopyStaticFilesOptions<K>)
 {
@@ -34,4 +34,3 @@ export function copyStaticFiles<K extends string>(options: ICopyStaticFilesOptio
 		})
 		;
 }
-

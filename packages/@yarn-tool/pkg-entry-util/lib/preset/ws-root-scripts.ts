@@ -1,4 +1,5 @@
 import { defaultSharedRootScripts } from './shared-root-scripts';
+import { EnumScriptsEntry } from '../field/scripts';
 
 export function defaultWorkspaceRootScripts()
 {
@@ -10,7 +11,7 @@ export function defaultWorkspaceRootScripts()
 		"review:all": "yarn-tool ws run review --concurrency 1",
 		"coverage:all": "yarn-tool ws run coverage --concurrency 1",
 		"lint:all": "yarn-tool ws run lint --concurrency 1",
-		"preversion": "yarn run test",
+		"preversion": EnumScriptsEntry.preversion,
 		"postversion": "yarn-tool fix-all",
 		"lerna:publish": "yarn run prepublishOnly:root && lerna publish && yarn run postpublishOnly",
 		"lerna:publish:yes": "yarn run prepublishOnly:root && lerna publish --yes --bump patch && yarn run postpublishOnly",

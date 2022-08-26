@@ -12,7 +12,7 @@ import { stringifySemverFull } from '@lazy-node/semver-simple-parse/lib/stringif
 import { IWrapDedupeCache } from '@yarn-tool/yarnlock/lib/types';
 import { ITSRequireAtLeastOne } from 'ts-type';
 import { getCache } from '@yarn-tool/pkg-version-query';
-import toDependencyTable from '@yarn-tool/table/lib/deps-table';
+import { toDependencyTable } from '@yarn-tool/table/lib/deps-table';
 
 export async function npmCheckUpdates<C extends IWrapDedupeCache>(cache: Partial<C>,
 	ncuOptions: ITSRequireAtLeastOne<IOptionsNpmCheckUpdates, 'json_old' | 'packageData'>,

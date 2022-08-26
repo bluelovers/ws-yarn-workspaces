@@ -1,11 +1,12 @@
 import { ITSArrayListMaybeReadonly } from 'ts-type/lib/type/base';
+import { _dummyEchoPrefix } from '../util/scripts/dummy';
 
 export function _fillDummyScriptsCore<T extends Record<string, string>>(scripts: T, prefix: string, fields: ITSArrayListMaybeReadonly<string>)
 {
 	// @ts-ignore
 	scripts ??= {};
 
-	let text = `echo ${prefix ?? ''}`.trim();
+	let text = _dummyEchoPrefix(prefix);
 
 	fields.forEach(k =>
 	{

@@ -5,6 +5,7 @@ export function defaultPkgScripts()
 	return {
 		"test:jest": EnumScriptsEntry.JEST_TEST,
 		"test:snapshot": "yarn run test -- -u",
+		"test:jest:snapshot": "yarn run test:jest -- -u",
 	}
 }
 

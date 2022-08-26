@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
 import yargs, { Argv, Omit } from 'yargs';
-import setupToYargs from '../lib/yargs-setting';
+import { setupToYargs } from '../lib/yargs-setting';
 import { IOptionsWithType, IOptionsUpdateChangelog } from '..';
-import updateChangelogByCwd from '../lib/lerna/from-list';
+import { updateChangelogByCwd } from '../lib/lerna/from-list';
 import { createDependencyTable } from '@yarn-tool/table';
-import pathIsSame from 'path-is-same';
+import { pathIsSame } from 'path-is-same';
 import { join } from 'path';
 import { colorizeDiff } from '@yarn-tool/semver-diff';
 
