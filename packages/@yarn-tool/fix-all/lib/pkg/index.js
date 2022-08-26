@@ -19,6 +19,7 @@ const getRootCopyStaticFiles_1 = require("@yarn-tool/static-file/lib/root/getRoo
 const static_file_1 = require("@yarn-tool/static-file");
 const pkg_scripts_1 = require("@yarn-tool/pkg-entry-util/lib/preset/pkg-scripts");
 const path_is_same_1 = require("path-is-same");
+const dummy_1 = require("@yarn-tool/pkg-entry-util/lib/util/scripts/dummy");
 function _handler(cwd, ...argv) {
     return {
         ...(0, ws_pkg_list_1.normalizeListableRowExtra)(argv[0], cwd),
@@ -37,10 +38,10 @@ function _runEachPackagesAsync(list, options) {
         cache.listable = listable;
     })
         .mapSeries(async (row) => {
-        debug_color2_1.console.dir(row);
+        //console.dir(row);
         const err = new lazy_aggregate_error_1.AggregateErrorExtra();
         const promiseLogger = logger((async () => {
-            var _a;
+            var _a, _b;
             const pkg = new npm_package_json_loader_1.PackageJsonLoader(row.manifestLocation);
             const file_map = (0, getRootCopyStaticFiles_1.getRootCopyStaticFilesAuto)({
                 ...rootData,
@@ -83,6 +84,9 @@ function _runEachPackagesAsync(list, options) {
                 }
             }
             else {
+                if (!((_b = pkg.data.scripts['_preversion']) === null || _b === void 0 ? void 0 : _b.length) && (0, dummy_1.isDummyEchoMaybeOrEmpty)(pkg.data.scripts.preversion)) {
+                    pkg.data.scripts.preversion = "yarn run test" /* EnumScriptsEntry.preversion */;
+                }
             }
             pkg.data = (0, sort_package_json3_1.sortPackageJson)(pkg.data);
             pkg.autofix();

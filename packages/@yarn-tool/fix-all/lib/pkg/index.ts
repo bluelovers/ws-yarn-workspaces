@@ -18,6 +18,8 @@ import { getRootCopyStaticFilesAuto } from '@yarn-tool/static-file/lib/root/getR
 import { copyStaticFiles } from '@yarn-tool/static-file';
 import { defaultPkgScripts } from '@yarn-tool/pkg-entry-util/lib/preset/pkg-scripts';
 import { pathIsSame } from 'path-is-same';
+import { isDummyEchoMaybeOrEmpty } from '@yarn-tool/pkg-entry-util/lib/util/scripts/dummy';
+import { EnumScriptsEntry } from '@yarn-tool/pkg-entry-util/lib/field/scripts';
 
 export function _handler(cwd: string, ...argv: Parameters<IOptionsPkgListable["handler"]>)
 {
@@ -55,7 +57,7 @@ export function _runEachPackagesAsync(list: IEntry[],
 		})
 		.mapSeries(async (row) =>
 		{
-			console.dir(row);
+			//console.dir(row);
 
 			const err = new AggregateErrorExtra();
 
@@ -123,7 +125,10 @@ export function _runEachPackagesAsync(list: IEntry[],
 				}
 				else
 				{
-
+					if (!pkg.data.scripts['_preversion']?.length && isDummyEchoMaybeOrEmpty(pkg.data.scripts.preversion))
+					{
+						pkg.data.scripts.preversion = EnumScriptsEntry.preversion;
+					}
 				}
 
 				pkg.data = sortPackageJson(pkg.data);
