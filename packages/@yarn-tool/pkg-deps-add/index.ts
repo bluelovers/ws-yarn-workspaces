@@ -1,6 +1,13 @@
 import { IFindRootOptions } from '@yarn-tool/find-root';
 import { IPackageJson } from '@ts-type/package-dts/package-json';
-import { IPackageJsonDependenciesField } from '@ts-type/package-dts/lib/package-json/types';
+import {
+	IDependency,
+	IPackageJsonDependenciesField,
+	IVersionValue,
+	packageJsonDependenciesFields,
+} from '@ts-type/package-dts/lib/package-json/types';
+import { ITSArrayListMaybeReadonly } from 'ts-type/lib/type/base';
+import { ITSPartialRecord } from 'ts-type/lib/type/record';
 
 export const enum EnumResultAddDependencies
 {
@@ -15,6 +22,52 @@ export interface IOptionsAddDepsToPackageJson extends Partial<IFindRootOptions>
 	dev?: boolean,
 	peer?: boolean,
 	optional?: boolean,
+}
+
+export function _checkDependenciesExists<N extends string, T extends ITSArrayListMaybeReadonly<string>>(record: IDependency<T>,
+	name: N,
+): record is IDependency<T & N>
+{
+	return record?.[name as any]?.length > 0
+}
+
+export function checkDependenciesExists<N extends string, T extends IPackageJsonDependenciesField, P extends IPackageJson = IPackageJson>(pkg: P,
+	field: T,
+	name: N,
+): pkg is P & Record<T, Record<N, IVersionValue>>
+{
+	return _checkDependenciesExists(pkg[field], name)
+}
+
+export function _checkDependenciesExistsAll<N extends string, T extends IPackageJsonDependenciesField, P extends IPackageJson = IPackageJson>(pkg: P,
+	fields: ITSArrayListMaybeReadonly<T>, name: N)
+{
+	return (fields as T[])
+		.reduce((map, field) =>
+		{
+			map[field] = checkDependenciesExists(pkg, field, name);
+
+			if (map[field])
+			{
+				map._field.push(field);
+				map._exists = map[field];
+			}
+
+			return map
+		}, {
+			_exists: false,
+			_field: [],
+		} as {
+			_exists: boolean,
+			_field: IPackageJsonDependenciesField[],
+		} & ITSPartialRecord<IPackageJsonDependenciesField, boolean>)
+		;
+}
+
+export function checkDependenciesExistsAll<N extends string, P extends IPackageJson = IPackageJson>(pkg: P, name: N,
+)
+{
+	return _checkDependenciesExistsAll(pkg, packageJsonDependenciesFields, name)
 }
 
 export function _add_to_deps_field_core<T extends IPackageJson>(pkg: T,

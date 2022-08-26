@@ -1,11 +1,40 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.addDependenciesOverwrite = exports.addDependenciesIfNotExists = exports.addDependencies = exports._add_to_deps_field = exports._add_to_deps_field_core = exports.EnumResultAddDependencies = void 0;
+exports.addDependenciesOverwrite = exports.addDependenciesIfNotExists = exports.addDependencies = exports._add_to_deps_field = exports._add_to_deps_field_core = exports.checkDependenciesExistsAll = exports._checkDependenciesExistsAll = exports.checkDependenciesExists = exports._checkDependenciesExists = exports.EnumResultAddDependencies = void 0;
+const types_1 = require("@ts-type/package-dts/lib/package-json/types");
 var EnumResultAddDependencies;
 (function (EnumResultAddDependencies) {
     EnumResultAddDependencies[EnumResultAddDependencies["changed"] = 2] = "changed";
     EnumResultAddDependencies[EnumResultAddDependencies["exists"] = 1] = "exists";
 })(EnumResultAddDependencies = exports.EnumResultAddDependencies || (exports.EnumResultAddDependencies = {}));
+function _checkDependenciesExists(record, name) {
+    var _a;
+    return ((_a = record === null || record === void 0 ? void 0 : record[name]) === null || _a === void 0 ? void 0 : _a.length) > 0;
+}
+exports._checkDependenciesExists = _checkDependenciesExists;
+function checkDependenciesExists(pkg, field, name) {
+    return _checkDependenciesExists(pkg[field], name);
+}
+exports.checkDependenciesExists = checkDependenciesExists;
+function _checkDependenciesExistsAll(pkg, fields, name) {
+    return fields
+        .reduce((map, field) => {
+        map[field] = checkDependenciesExists(pkg, field, name);
+        if (map[field]) {
+            map._field.push(field);
+            map._exists = map[field];
+        }
+        return map;
+    }, {
+        _exists: false,
+        _field: [],
+    });
+}
+exports._checkDependenciesExistsAll = _checkDependenciesExistsAll;
+function checkDependenciesExistsAll(pkg, name) {
+    return _checkDependenciesExistsAll(pkg, types_1.packageJsonDependenciesFields, name);
+}
+exports.checkDependenciesExistsAll = checkDependenciesExistsAll;
 function _add_to_deps_field_core(pkg, field, name, semver) {
     var _a;
     (_a = pkg[field]) !== null && _a !== void 0 ? _a : (pkg[field] = {});
