@@ -260,7 +260,7 @@ if (!cp.error)
 			sharedScript.coverage = "yarn run test -- --coverage"
 		}
 
-		preScripts.push("yarn run test");
+		preScripts.push(EnumScriptsEntry.preversion);
 		sharedScript.preversion = preScripts.join(' && ')
 
 		pkg.data.scripts ??= {};

@@ -35,6 +35,9 @@
   "scripts": {
     "lint": "eslint .",
     "test": "jest -u",
+    "test:jest": "jest --passWithNoTests",
+    "test:jest:snapshot": "yarn run test:jest -- -u",
+    "test:snapshot": "yarn run test -- -u",
     "preversion": "yarn run test",
     "prepublishOnly": "echo prepublishOnly",
     "postpublish_": "git commit -m \"chore(release): publish\" .",

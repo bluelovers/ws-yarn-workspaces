@@ -26,6 +26,9 @@
   "scripts": {
     "coverage": "npx nyc yarn run test",
     "test": "jest",
+    "test:jest": "jest --passWithNoTests",
+    "test:jest:snapshot": "yarn run test:jest -- -u",
+    "test:snapshot": "yarn run test -- -u",
     "preversion": "yarn run test",
     "prepublishOnly": "echo prepublishOnly",
     "prepublishOnly_": "yarn run test",

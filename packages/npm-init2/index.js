@@ -188,7 +188,7 @@ if (!cp.error) {
         if (!oldExists) {
             sharedScript.coverage = "yarn run test -- --coverage";
         }
-        preScripts.push("yarn run test");
+        preScripts.push("yarn run test" /* EnumScriptsEntry.preversion */);
         sharedScript.preversion = preScripts.join(' && ');
         (_c = (_k = pkg.data).scripts) !== null && _c !== void 0 ? _c : (_k.scripts = {});
         if (!oldExists) {

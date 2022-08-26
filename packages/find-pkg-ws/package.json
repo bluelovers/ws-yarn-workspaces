@@ -24,6 +24,9 @@
   "scripts": {
     "coverage": "npx nyc npm run test",
     "test": "echo \"Error: no test specified\"",
+    "test:jest": "jest --passWithNoTests",
+    "test:jest:snapshot": "yarn run test:jest -- -u",
+    "test:snapshot": "yarn run test -- -u",
     "preversion": "yarn run test",
     "prepublishOnly": "echo prepublishOnly",
     "ncu": "npx yarn-tool ncu -u",

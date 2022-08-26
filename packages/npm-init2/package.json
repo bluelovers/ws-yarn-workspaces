@@ -34,6 +34,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\"",
+    "test:jest": "jest --passWithNoTests",
+    "test:jest:snapshot": "yarn run test:jest -- -u",
+    "test:snapshot": "yarn run test -- -u",
     "prebuild:lockfile": "npx sync-lockfile .",
     "npm:publish": "npm publish",
     "preversion": "yarn run test",
