@@ -1,11 +1,11 @@
 import { IStaticFilesMapArrayEntry } from './types';
 import { dirname, resolve } from 'path';
 import { copySync, ensureDirSync, existsSync } from 'fs-extra';
-import { default as __root } from '../__root';
+import { __STATIC_ROOT } from '../__root';
 
 export function copyStaticFilesEntry(entry: IStaticFilesMapArrayEntry<string>,
 	cwd: string,
-	staticRoot: string = __root,
+	staticRoot: string = __STATIC_ROOT,
 	overwrite?: boolean,
 )
 {

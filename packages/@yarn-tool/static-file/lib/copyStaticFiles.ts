@@ -4,7 +4,7 @@ import { dirname, resolve } from 'path';
 import { defaultCopyStaticFiles } from './const';
 import { parseStaticMap } from './parseStaticMap';
 import { copyStaticFilesEntry } from './copyStaticFilesEntry';
-import { default as __root } from '../__root';
+import { __STATIC_ROOT } from '../__root';
 
 export function copyStaticFiles<K extends string>(options: ICopyStaticFilesOptions<K>)
 {
@@ -25,7 +25,7 @@ export function copyStaticFiles<K extends string>(options: ICopyStaticFilesOptio
 		throw new TypeError(`Invalid file map: ${options.file_map}`)
 	}
 
-	const staticRoot = options.staticRoot || __root;
+	const staticRoot = options.staticRoot || __STATIC_ROOT;
 	const { cwd, overwrite } = options;
 
 	return ls.filter((entry) =>

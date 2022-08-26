@@ -1,5 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const __root = __dirname;
-exports.default = __root;
+exports.__STATIC_ROOT = void 0;
+exports.__STATIC_ROOT = __dirname;
 //# sourceMappingURL=__root.js.map

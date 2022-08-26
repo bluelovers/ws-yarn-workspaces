@@ -1,3 +1,1 @@
-
-const __root = __dirname;
-export default __root
+export const __STATIC_ROOT = __dirname;

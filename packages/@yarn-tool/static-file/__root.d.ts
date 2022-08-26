@@ -1,2 +1,1 @@
-declare const __root: string;
-export default __root;
+export declare const __STATIC_ROOT: string;
