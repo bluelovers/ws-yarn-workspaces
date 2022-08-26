@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.6](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-entries@2.0.5...@yarn-tool/yarnlock-entries@2.0.6) (2022-08-26)
+
+
+
+### ✨　Features
+
+* add `checkDependenciesExistsAll` ([c34a973](https://github.com/bluelovers/ws-yarn-workspaces/commit/c34a9734efd2d227bbfe87cd877360d162c1ab0f))
+
+
+
 ## [2.0.5](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-entries@2.0.4...@yarn-tool/yarnlock-entries@2.0.5) (2022-08-26)
 
 
