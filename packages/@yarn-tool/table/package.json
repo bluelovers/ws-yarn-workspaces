@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/table",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "shared cli table utils for yarn-tool",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/table#readme",
   "bugs": {
@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@ts-type/package-dts": "^2.0.5",
-    "@yarn-tool/semver-diff": "^2.0.4",
+    "@yarn-tool/semver-diff": "^2.0.5",
     "cli-table3": "^0.6.2",
     "tslib": "^2"
   },

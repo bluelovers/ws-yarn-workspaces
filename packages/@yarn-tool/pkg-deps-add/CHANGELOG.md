@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.6](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-deps-add@2.0.5...@yarn-tool/pkg-deps-add@2.0.6) (2022-08-26)
+
+
+
+### 🚨　Tests
+
+* **snapshot:** snapshots updated ([50bff7c](https://github.com/bluelovers/ws-yarn-workspaces/commit/50bff7c13e1b01eb551c9b2252cfe3d971da8db8))
+
+
+### 🔖　Miscellaneous
+
+* . ([157d5dc](https://github.com/bluelovers/ws-yarn-workspaces/commit/157d5dc8959261d9326f6e633987182898ae9670))
+
+
+
 ## [2.0.5](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-deps-add@2.0.4...@yarn-tool/pkg-deps-add@2.0.5) (2022-08-13)
 
 **Note:** Version bump only for package @yarn-tool/pkg-deps-add

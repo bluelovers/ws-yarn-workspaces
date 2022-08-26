@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/npa-to-deps-query@2.0.6...@yarn-tool/npa-to-deps-query@2.0.7) (2022-08-26)
+
+
+
+### 🚨　Tests
+
+* **snapshot:** snapshots updated ([50bff7c](https://github.com/bluelovers/ws-yarn-workspaces/commit/50bff7c13e1b01eb551c9b2252cfe3d971da8db8))
+
+
+### 🔖　Miscellaneous
+
+* . ([157d5dc](https://github.com/bluelovers/ws-yarn-workspaces/commit/157d5dc8959261d9326f6e633987182898ae9670))
+
+
+
 ## [2.0.6](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/npa-to-deps-query@2.0.5...@yarn-tool/npa-to-deps-query@2.0.6) (2022-08-19)
 
 **Note:** Version bump only for package @yarn-tool/npa-to-deps-query

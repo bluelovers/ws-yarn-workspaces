@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/search-workspace-prefix-by-name",
-  "version": "1.0.28",
+  "version": "1.0.29",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/search-workspace-prefix-by-name#readme",
   "bugs": {
@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "tslib": "^2",
-    "workspaces-config": "^1.0.46"
+    "workspaces-config": "^1.0.47"
   },
   "publishConfig": {
     "access": "public"

@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarnlock-fs",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "read/write yarnlock v1 and berry",
   "keywords": [
     "yarn",
@@ -39,8 +39,8 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@yarn-tool/yarnlock-parse": "^2.0.3",
-    "@yarn-tool/yarnlock-stringify": "^1.0.19",
+    "@yarn-tool/yarnlock-parse": "^2.0.4",
+    "@yarn-tool/yarnlock-stringify": "^1.0.20",
     "fs-extra": "^10.1.0",
     "tslib": "^2"
   },

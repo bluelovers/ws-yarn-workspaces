@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/detect-yarnlock-version",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "detect yarn.lock version",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/detect-yarnlock-version#readme",
   "bugs": {
@@ -28,8 +28,8 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@yarn-tool/yarnlock-parse-raw": "^1.0.2",
-    "@yarn-tool/yarnlock-types": "^1.0.1",
+    "@yarn-tool/yarnlock-parse-raw": "^1.0.3",
+    "@yarn-tool/yarnlock-types": "^1.0.2",
     "tslib": "^2"
   },
   "publishConfig": {

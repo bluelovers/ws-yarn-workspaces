@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarnlock-parsed-to-json",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "keywords": [
     "yarn",
@@ -69,7 +69,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/yarnlock-parse-assert": "^1.0.2"
+    "@yarn-tool/yarnlock-parse-assert": "^1.0.3"
   },
   "packageManager": "yarn@1.22.19",
   "publishConfig": {

@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.5](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/node-modules@2.0.4...@yarn-tool/node-modules@2.0.5) (2022-08-26)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([157d5dc](https://github.com/bluelovers/ws-yarn-workspaces/commit/157d5dc8959261d9326f6e633987182898ae9670))
+
+
+
 ## [2.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/node-modules@2.0.3...@yarn-tool/node-modules@2.0.4) (2022-08-13)
 
 
