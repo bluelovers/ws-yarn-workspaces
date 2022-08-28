@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.17](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-all@2.0.16...@yarn-tool/fix-all@2.0.17) (2022-08-28)
+
+
+
+### ✨　Features
+
+* fixLernaJson ([5b5a5b1](https://github.com/bluelovers/ws-yarn-workspaces/commit/5b5a5b162fe68689fbef2f9fb46f884ea6814d7b))
+
+
+
 ## [2.0.16](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-all@2.0.15...@yarn-tool/fix-all@2.0.16) (2022-08-26)
 
 

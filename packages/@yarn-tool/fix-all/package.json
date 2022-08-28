@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/fix-all",
-  "version": "2.0.16",
+  "version": "2.0.17",
   "description": "auto check/fix workspaces/package",
   "keywords": [
     "yarn",
@@ -60,9 +60,9 @@
     "@yarn-tool/find-root": "^2.0.5",
     "@yarn-tool/fix-ws-versions": "^2.0.5",
     "@yarn-tool/normalize-deps-value": "^1.0.3",
-    "@yarn-tool/pkg-git-info": "^1.0.34",
-    "@yarn-tool/pkg-hosted-info": "^2.0.6",
-    "@yarn-tool/static-file": "^2.0.6",
+    "@yarn-tool/pkg-git-info": "^1.0.35",
+    "@yarn-tool/pkg-hosted-info": "^2.0.7",
+    "@yarn-tool/static-file": "^2.0.7",
     "@yarn-tool/write-package-json": "^1.0.4",
     "@yarn-tool/ws-scope": "^2.0.5",
     "array-hyper-unique": "^2.0.8",

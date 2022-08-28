@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/tag@2.0.6...@yarn-tool/tag@2.0.7) (2022-08-28)
+
+
+
+### 📌　Dependencies
+
+* update deps ([9c67e20](https://github.com/bluelovers/ws-yarn-workspaces/commit/9c67e20ac4960ee2c98d89c448a2ea5a7495a3bf))
+
+
+
 ## [2.0.6](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/tag@2.0.5...@yarn-tool/tag@2.0.6) (2022-08-26)
 
 
