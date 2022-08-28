@@ -7,6 +7,7 @@ import Bluebird from 'bluebird';
 import { copyStaticFiles } from '@yarn-tool/static-file';
 import { getWsCopyStaticFiles } from '@yarn-tool/static-file/lib/ws/wsCopyStaticFiles';
 import { getRootCopyStaticFilesAuto } from '@yarn-tool/static-file/lib/root/getRootCopyStaticFiles';
+import { _fixLernaJson } from './lib/ws/lerna';
 
 export interface INpmAutoFixAll
 {
@@ -97,6 +98,10 @@ export function npmAutoFixAll(cwd: string, options?: INpmAutoFixAll)
 				targetDir: rootData.root,
 			})
 		}
+
+		_fixLernaJson({
+			rootData,
+		});
 
 		const list = _initPkgListableByRootData(rootData);
 

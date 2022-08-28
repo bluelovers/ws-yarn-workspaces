@@ -11,6 +11,7 @@ const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
 const static_file_1 = require("@yarn-tool/static-file");
 const wsCopyStaticFiles_1 = require("@yarn-tool/static-file/lib/ws/wsCopyStaticFiles");
 const getRootCopyStaticFiles_1 = require("@yarn-tool/static-file/lib/root/getRootCopyStaticFiles");
+const lerna_1 = require("./lib/ws/lerna");
 function npmAutoFixAll(cwd, options) {
     return bluebird_1.default.resolve().then(() => {
         cwd !== null && cwd !== void 0 ? cwd : (cwd = process.cwd());
@@ -70,6 +71,9 @@ function npmAutoFixAll(cwd, options) {
                 targetDir: rootData.root,
             });
         }
+        (0, lerna_1._fixLernaJson)({
+            rootData,
+        });
         const list = (0, index_2._initPkgListableByRootData)(rootData);
         return (0, index_2._runEachPackagesAsync)(list, {
             rootData,
