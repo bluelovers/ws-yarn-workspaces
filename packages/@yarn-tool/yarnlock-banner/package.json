@@ -39,7 +39,7 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "crlf-normalize": "^1.0.7"
+    "crlf-normalize": "^1.0.12"
   },
   "publishConfig": {
     "access": "public"
