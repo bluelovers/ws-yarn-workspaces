@@ -5,10 +5,10 @@ import {
 	entriesOfRecord,
 	setRecordValue,
 } from 'value-from-record';
-import { pathEnv } from 'path-env';
+import { pathEnv, IPathDelimiter } from 'path-env2';
 import { delimiter as _delimiter } from 'path';
 
-export type IPathDelimiter = ':' | ';'
+export type { IPathDelimiter }
 
 const delimiter: IPathDelimiter = _delimiter as any;
 

@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.envObject = exports.envPathObject = exports.setEnvPathValue = exports.getEnvPathValue = exports.envPathKey = exports.processEnv = exports.delimiter = void 0;
 const value_from_record_1 = require("value-from-record");
-const path_env_1 = require("path-env");
+const path_env2_1 = require("path-env2");
 const path_1 = require("path");
 const delimiter = path_1.delimiter;
 exports.delimiter = delimiter;
@@ -47,7 +47,7 @@ function envObject(env, key, delim) {
     if (typeof env.entries === 'function') {
         env = Object.fromEntries((0, value_from_record_1.entriesOfRecord)(env));
     }
-    return (0, path_env_1.pathEnv)(env, key, delim);
+    return (0, path_env2_1.pathEnv)(env, key, delim);
 }
 exports.envObject = envObject;
 exports.default = envPathObject;

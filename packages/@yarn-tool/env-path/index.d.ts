@@ -1,6 +1,7 @@
 /// <reference types="node" />
 import { IRecordLike } from 'value-from-record';
-export type IPathDelimiter = ':' | ';';
+import { IPathDelimiter } from 'path-env2';
+export type { IPathDelimiter };
 declare const delimiter: IPathDelimiter;
 export { delimiter };
 export declare function processEnv(ignoreErrors?: boolean): NodeJS.ProcessEnv;
@@ -9,23 +10,23 @@ export declare function getEnvPathValue(env?: IRecordLike<string, any>, key?: st
 export declare function setEnvPathValue(value: string | string[], env?: IRecordLike<string, string>, key?: string, delim?: IPathDelimiter): IRecordLike<string, string>;
 export declare function envPathObject(env?: IRecordLike<string, any>, key?: string, delim?: IPathDelimiter): {
     get: {
-        factory: () => import("path-env").PathFactory;
-        string: () => string;
-        array: () => import("path-env").PathArray;
-        delim: () => import("path-env").PathDelimiter;
-        name: () => string;
+        factory(): import("path-env2").IPathFactory;
+        string(): string;
+        array(): import("path-env2").IPathArray;
+        delim(): IPathDelimiter;
+        name(): string;
     };
     set: {
-        factory: (x: import("path-env").PathFactory) => import("path-env").EnvFactory;
-        string: (x: string) => import("path-env").EnvFactory;
-        array: (x: import("path-env").PathArray) => import("path-env").EnvFactory;
-        delim: (x: import("path-env").PathDelimiter) => import("path-env").EnvFactory;
-        name: (x: string) => import("path-env").EnvFactory;
+        factory(x: import("path-env2").IPathFactory): import("path-env2").IEnvFactory;
+        string(x: string): import("path-env2").IEnvFactory;
+        array(x: import("path-env2").IPathArray): import("path-env2").IEnvFactory;
+        delim(x: IPathDelimiter): import("path-env2").IEnvFactory;
+        name(x: string): import("path-env2").IEnvFactory;
     };
-    append: (addend: import("path-env").PathArray) => import("path-env").EnvFactory;
-    prepend: (addend: import("path-env").PathArray) => import("path-env").EnvFactory;
-    surround: (addend: import("path-env").PathArray) => import("path-env").EnvFactory;
-    deduplicate: () => import("path-env").EnvFactory;
+    append(addend: import("path-env2").IPathArray): import("path-env2").IEnvFactory;
+    prepend(addend: import("path-env2").IPathArray): import("path-env2").IEnvFactory;
+    surround(addend: import("path-env2").IPathArray): import("path-env2").IEnvFactory;
+    deduplicate(): import("path-env2").IEnvFactory;
 };
-export declare function envObject(env?: IRecordLike<string, any>, key?: string, delim?: IPathDelimiter): import("path-env").EnvFactory;
+export declare function envObject(env?: IRecordLike<string, any>, key?: string, delim?: IPathDelimiter): import("path-env2").IEnvFactory;
 export default envPathObject;

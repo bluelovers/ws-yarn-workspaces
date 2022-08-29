@@ -42,7 +42,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "path-env": "^0.0.12",
+    "path-env2": "^1.0.0",
     "tslib": "^2",
     "value-from-record": "^3.0.1"
   },
