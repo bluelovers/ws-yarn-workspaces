@@ -17,7 +17,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bluelovers/ws-yarn-workspaces.git"
+    "url": "git+https://github.com/bluelovers/ws-yarn-workspaces.git",
+    "directory": "packages/@yarn-tool/ws-changed"
   },
   "license": "ISC",
   "author": "bluelovers",

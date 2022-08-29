@@ -8,7 +8,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bluelovers/ws-yarn-workspaces.git"
+    "url": "git+https://github.com/bluelovers/ws-yarn-workspaces.git",
+    "directory": "packages/sort-package-json-scripts"
   },
   "license": "ISC",
   "author": "bluelovers",

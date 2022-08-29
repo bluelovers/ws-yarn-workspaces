@@ -14,7 +14,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bluelovers/ws-yarn-workspaces.git"
+    "url": "git+https://github.com/bluelovers/ws-yarn-workspaces.git",
+    "directory": "packages/@lazy-node/semver-parse"
   },
   "license": "APACHEv2",
   "author": "AJ ONeal",

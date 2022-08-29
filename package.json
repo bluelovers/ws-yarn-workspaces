@@ -123,6 +123,7 @@
     "@types/validate-npm-package-name": "^4.0.0",
     "@types/yargs": "^17.0.11",
     "@types/yarnpkg__lockfile": "^1.1.5",
+    "@yarn-tool/ws-find-up-paths": "*",
     "chai": "^4.3.6",
     "jest": "^29.0.1",
     "jest-console": "^0.1.0",
