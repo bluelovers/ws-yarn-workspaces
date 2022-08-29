@@ -6,6 +6,10 @@ const upath2_1 = require("upath2");
 const pkg_git_info_1 = require("@yarn-tool/pkg-git-info");
 function _hostedGitInfoToFields(pkg, options) {
     let { targetDir, rootData, branch, hostedGitInfo, overwriteHostedGitInfo } = options;
+    let directory;
+    if ((rootData === null || rootData === void 0 ? void 0 : rootData.hasWorkspace) && !(rootData === null || rootData === void 0 ? void 0 : rootData.isWorkspace)) {
+        directory = (0, upath2_1.relative)(rootData.ws, targetDir);
+    }
     if (overwriteHostedGitInfo) {
         pkg.homepage = hostedGitInfo.homepage;
         pkg.bugs = {
@@ -14,6 +18,7 @@ function _hostedGitInfoToFields(pkg, options) {
         pkg.repository = {
             "type": "git",
             url: hostedGitInfo.repository,
+            directory,
         };
     }
     else {
@@ -27,12 +32,13 @@ function _hostedGitInfoToFields(pkg, options) {
         pkg.repository || (pkg.repository = {
             "type": "git",
             url: hostedGitInfo.repository,
+            directory,
         });
     }
-    if ((rootData === null || rootData === void 0 ? void 0 : rootData.hasWorkspace) && !(rootData === null || rootData === void 0 ? void 0 : rootData.isWorkspace)) {
+    if (directory === null || directory === void 0 ? void 0 : directory.length) {
         branch !== null && branch !== void 0 ? branch : (branch = 'master');
         let u = new URL(pkg.homepage);
-        u.pathname += `/tree/${branch}/` + (0, upath2_1.relative)(rootData.ws, targetDir);
+        u.pathname += `/tree/${branch}/` + directory;
         // @ts-ignore
         pkg.homepage = u.toString();
     }

@@ -20,7 +20,11 @@ export type IFillPkgHostedInfoFields = {
 	},
 	repository: {
 		type: string | 'git',
-		url: string
+		url: string,
+		/**
+		 * @see https://docs.npmjs.com/cli/v8/configuring-npm/package-json#repository
+		 */
+		directory: string,
 	}
 }
 
@@ -29,6 +33,13 @@ export function _hostedGitInfoToFields<P extends Partial<IPackageJson>>(pkg: P,
 ): P & IFillPkgHostedInfoFields
 {
 	let { targetDir, rootData, branch, hostedGitInfo, overwriteHostedGitInfo } = options;
+
+	let directory: string;
+
+	if (rootData?.hasWorkspace && !rootData?.isWorkspace)
+	{
+		directory = relative(rootData.ws, targetDir);
+	}
 
 	if (overwriteHostedGitInfo)
 	{
@@ -39,6 +50,7 @@ export function _hostedGitInfoToFields<P extends Partial<IPackageJson>>(pkg: P,
 		pkg.repository = {
 			"type": "git",
 			url: hostedGitInfo.repository,
+			directory,
 		};
 	}
 	else
@@ -55,16 +67,17 @@ export function _hostedGitInfoToFields<P extends Partial<IPackageJson>>(pkg: P,
 		pkg.repository ||= {
 			"type": "git",
 			url: hostedGitInfo.repository,
+			directory,
 		};
 	}
 
-	if (rootData?.hasWorkspace && !rootData?.isWorkspace)
+	if (directory?.length)
 	{
 		branch ??= 'master';
 
 		let u = new URL(pkg.homepage as string);
 
-		u.pathname += `/tree/${branch}/` + relative(rootData.ws, targetDir);
+		u.pathname += `/tree/${branch}/` + directory;
 
 		// @ts-ignore
 		pkg.homepage = u.toString();

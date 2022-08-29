@@ -17,6 +17,10 @@ export type IFillPkgHostedInfoFields = {
     repository: {
         type: string | 'git';
         url: string;
+        /**
+         * @see https://docs.npmjs.com/cli/v8/configuring-npm/package-json#repository
+         */
+        directory: string;
     };
 };
 export declare function _hostedGitInfoToFields<P extends Partial<IPackageJson>>(pkg: P, options: ITSPickExtra<IFillPkgHostedInfoOptions, 'hostedGitInfo' | 'rootData' | 'targetDir'>): P & IFillPkgHostedInfoFields;
