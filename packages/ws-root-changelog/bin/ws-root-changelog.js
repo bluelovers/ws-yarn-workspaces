@@ -2,6 +2,7 @@
 "use strict";
 var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
+require("v8-compile-cache");
 const index_1 = require("../index");
 const upath2_1 = require("upath2");
 let argv = process.argv.slice(2);

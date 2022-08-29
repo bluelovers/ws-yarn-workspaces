@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+import 'v8-compile-cache';
 import yargs, { Argv, Omit } from 'yargs';
 import { setupToYargs } from '../lib/yargs-setting';
 import { IOptionsWithType, IOptionsUpdateChangelog } from '..';

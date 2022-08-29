@@ -2,6 +2,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
+require("v8-compile-cache");
 const yargs_1 = tslib_1.__importDefault(require("yargs"));
 const yargs_setting_1 = require("../lib/yargs-setting");
 const from_list_1 = require("../lib/lerna/from-list");
