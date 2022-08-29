@@ -72,7 +72,7 @@
   "dependencies": {
     "@lazy-node/semver-ampersand": "^2.0.4",
     "@yarn-tool/npm-package-arg-util": "^1.0.32",
-    "tslib": "^2"
+    "tslib": ">=2"
   },
   "packageManager": "yarn@1.22.19",
   "publishConfig": {

@@ -43,7 +43,7 @@
     "@yarn-tool/yarnlock-parse": "^2.0.4",
     "@yarn-tool/yarnlock-stringify": "^1.0.20",
     "fs-extra": "^10.1.0",
-    "tslib": "^2"
+    "tslib": ">=2"
   },
   "publishConfig": {
     "access": "public"

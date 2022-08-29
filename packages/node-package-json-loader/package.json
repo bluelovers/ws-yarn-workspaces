@@ -57,7 +57,7 @@
     "sort-package-json": "^1.57.0",
     "sort-package-json3": "^2.0.5",
     "ts-type": "^2.1.10",
-    "tslib": "^2"
+    "tslib": ">=2"
   },
   "bundleDependencies": [],
   "preferGlobal": true,

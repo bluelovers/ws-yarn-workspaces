@@ -39,7 +39,7 @@
     "find-yarn-workspace-root2": "^1.2.42",
     "fs-extra": "^10.1.0",
     "fs-symlink-extra": "^1.0.13",
-    "tslib": "^2",
+    "tslib": ">=2",
     "upath2": "^3.1.15",
     "yargs": "^17.5.1"
   },

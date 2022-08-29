@@ -40,7 +40,7 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "tslib": "^2"
+    "tslib": ">=2"
   },
   "publishConfig": {
     "access": "public"

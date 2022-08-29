@@ -35,7 +35,7 @@
   "dependencies": {
     "@ts-type/package-dts": "^2.0.5",
     "@yarn-tool/resolve-package": "^2.0.3",
-    "tslib": "^2",
+    "tslib": ">=2",
     "upath2": "^3.1.15"
   },
   "publishConfig": {

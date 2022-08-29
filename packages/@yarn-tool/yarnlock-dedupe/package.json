@@ -52,7 +52,7 @@
     "@yarn-tool/detect-yarnlock-version": "^1.0.23",
     "@yarn-tool/yarnlock-banner": "^1.0.11",
     "@yarn-tool/yarnlock-stringify": "^1.0.20",
-    "tslib": "^2",
+    "tslib": ">=2",
     "yarn-berry-deduplicate": "^2.0.0",
     "yarn-deduplicate": "^6.0.0"
   },

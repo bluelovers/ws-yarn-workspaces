@@ -46,7 +46,7 @@
     "lru-cache2": "^6.0.7",
     "split-smartly2": "^1.1.12",
     "ts-type": "^2.1.10",
-    "tslib": "^2"
+    "tslib": ">=2"
   },
   "peerDependencies": {
     "semver": "*"

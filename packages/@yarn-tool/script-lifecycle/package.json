@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "ts-type": "^2.1.10",
-    "tslib": "^2"
+    "tslib": ">=2"
   },
   "publishConfig": {
     "access": "public"

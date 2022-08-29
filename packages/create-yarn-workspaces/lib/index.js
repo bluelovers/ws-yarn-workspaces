@@ -17,8 +17,8 @@ function getDefaultPackageJson(name) {
         ],
         "scripts": (0, ws_root_scripts_1.defaultWorkspaceRootScripts)(),
         "dependencies": {
-            "ts-type": "^2.1.10",
-            "tslib": "^2",
+            "ts-type": ">=2",
+            "tslib": ">=2",
         },
         "devDependencies": {
             "@types/jest": "^28.1.6",

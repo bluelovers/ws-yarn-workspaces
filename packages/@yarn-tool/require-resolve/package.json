@@ -42,7 +42,7 @@
   "dependencies": {
     "@yarn-tool/get-paths-by-type": "^2.0.3",
     "global-dirs": "^3.0.0",
-    "tslib": "^2"
+    "tslib": ">=2"
   },
   "publishConfig": {
     "access": "public"

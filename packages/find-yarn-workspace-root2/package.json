@@ -35,7 +35,7 @@
   "dependencies": {
     "micromatch": "^4.0.5",
     "pkg-dir": "<6 >=5",
-    "tslib": "^2",
+    "tslib": ">=2",
     "upath2": "^3.1.15"
   },
   "gitHead": "40676553ac196265d354e537459d4c78d67f0a8c"

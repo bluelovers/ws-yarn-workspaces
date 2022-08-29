@@ -8087,12 +8087,12 @@ ts-jest@^28.0.8:
     semver "7.x"
     yargs-parser "^21.0.1"
 
-ts-type-predicates@^1.0.6:
+ts-type-predicates@^1.0.8:
   version "1.0.8"
   resolved "https://registry.npmjs.org/ts-type-predicates/-/ts-type-predicates-1.0.8.tgz#cf680df1b7378e88314bf6afc6b2afb1fc646d97"
   integrity sha512-MW1zq+d4MtsmDVOpIX1LZtkdfgK6WUMSx1H/qIeGTYzoLmBmRAzsS0wFDf16bf1qsopcv2MZMm5RSqfZJPgY/g==
 
-ts-type@>=2, ts-type@^2, ts-type@^2.1.10, ts-type@^2.1.2, ts-type@^2.1.4, ts-type@^2.1.6, ts-type@^2.1.8:
+ts-type@>=2, ts-type@^2, ts-type@^2.1.10, ts-type@^2.1.4, ts-type@^2.1.6, ts-type@^2.1.8:
   version "2.1.10"
   resolved "https://registry.npmjs.org/ts-type/-/ts-type-2.1.10.tgz#09ae593829af0023f5e0f98799121b362303f657"
   integrity sha512-cung450P5HbC+xTimzw8DcFqP4MjxH3aCt2m6IZMs0aMatEOIasPmtECKK1WChg9j/wB8U5zYFCRHcS6xmdSNw==
@@ -8110,15 +8110,15 @@ tsconfig@^7.0.0:
     strip-bom "^3.0.0"
     strip-json-comments "^2.0.0"
 
+tslib@>=2, tslib@^2, tslib@^2.1.0, tslib@^2.3.0, tslib@^2.3.1, tslib@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.npmjs.org/tslib/-/tslib-2.4.0.tgz#7cecaa7f073ce680a05847aa77be941098f36dc3"
+  integrity sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==
+
 tslib@^1.13.0:
   version "1.14.1"
   resolved "https://registry.npmjs.org/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
-
-tslib@^2, tslib@^2.1.0, tslib@^2.3.0, tslib@^2.3.1, tslib@^2.4.0:
-  version "2.4.0"
-  resolved "https://registry.npmjs.org/tslib/-/tslib-2.4.0.tgz#7cecaa7f073ce680a05847aa77be941098f36dc3"
-  integrity sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==
 
 tunnel-agent@^0.6.0:
   version "0.6.0"
@@ -8345,6 +8345,11 @@ uuid@^3.3.2:
   resolved "https://registry.npmjs.org/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
 
+v8-compile-cache@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.npmjs.org/v8-compile-cache/-/v8-compile-cache-2.3.0.tgz#2de19618c66dc247dcfb6f99338035d8245a2cee"
+  integrity sha512-l8lCEmLcLYZh4nbunNZvQCJc5pv7+RCwa8q/LdUx8u7lsWvPDKmpodJAJNwkAhJC//dFY48KuIEmjtd4RViDrA==
+
 v8-to-istanbul@^9.0.1:
   version "9.0.1"
   resolved "https://registry.npmjs.org/v8-to-istanbul/-/v8-to-istanbul-9.0.1.tgz#b6f994b0b5d4ef255e17a0d17dc444a9f5132fa4"
@@ -8376,13 +8381,13 @@ validate-npm-package-name@^4.0.0:
   dependencies:
     builtins "^5.0.0"
 
-value-from-record@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.npmjs.org/value-from-record/-/value-from-record-3.0.1.tgz#5b54360f0c0dc99674a49c27469744ce91dd9f08"
-  integrity sha512-FuSYHA8McM/BFTpAwhg0mXVSoj4QKBONJMiiCc7NK6TYH/2gciu+B0In1lMWYK6dQ2g8JTUdqq757hmbeDJOnw==
+value-from-record@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.npmjs.org/value-from-record/-/value-from-record-3.0.3.tgz#7e1934c8d071533775850ba319449826022890d0"
+  integrity sha512-XLHEdyQmBDl4D0OQzeG+JJdNqVBDEtPgMHKyf2JDWjoIOKU/8DSDQtuqxzSlw+57e1mLwviT07mEAcjgjhqAMQ==
   dependencies:
-    ts-type "^2.1.2"
-    ts-type-predicates "^1.0.6"
+    ts-type ">=2"
+    ts-type-predicates "^1.0.8"
 
 verror@1.10.0:
   version "1.10.0"
@@ -8621,10 +8626,10 @@ yarn-berry-deduplicate@^2.0.0:
     commander "^4.1.1"
     semver "7.1.3"
 
-yarn-deduplicate@^5.0.2:
-  version "5.0.2"
-  resolved "https://registry.npmjs.org/yarn-deduplicate/-/yarn-deduplicate-5.0.2.tgz#b56484c94d8f1163a828bf20516607f89c078675"
-  integrity sha512-pxKa+dM7DMQ4X2vYLKqGCUgtEoTtdMVk9gNoIsxsMSP0rOV51IWFcKHfRIcZjAPNgHTrxz46sKB4xr7Nte7jdw==
+yarn-deduplicate@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.npmjs.org/yarn-deduplicate/-/yarn-deduplicate-6.0.0.tgz#91bc0b7b374efe24796606df2c6b00eabb5aab62"
+  integrity sha512-HjGVvuy10hetOuXeexXXT77V+6FfgS+NiW3FsmQD88yfF2kBqTpChvMglyKUlQ0xXEcI77VJazll5qKKBl3ssw==
   dependencies:
     "@yarnpkg/lockfile" "^1.1.0"
     commander "^9.4.0"

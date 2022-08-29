@@ -43,6 +43,6 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "tslib": "^2"
+    "tslib": ">=2"
   }
 }

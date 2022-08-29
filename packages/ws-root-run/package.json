@@ -39,7 +39,7 @@
   "dependencies": {
     "cross-spawn-extra": "^2.1.0",
     "find-yarn-workspace-root2": "^1.2.42",
-    "tslib": "^2"
+    "tslib": ">=2"
   },
   "peerDependencies": {
     "yarn": "^1.22.19"

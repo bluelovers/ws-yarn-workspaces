@@ -17,8 +17,8 @@ export function getDefaultPackageJson(name?: string): IPackageJson
 		],
 		"scripts": defaultWorkspaceRootScripts(),
 		"dependencies": {
-			"ts-type": "^2.1.10",
-			"tslib": "^2",
+			"ts-type": ">=2",
+			"tslib": ">=2",
 		},
 		"devDependencies": {
 			"@types/jest": "^28.1.6",

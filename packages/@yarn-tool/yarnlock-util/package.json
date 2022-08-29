@@ -44,7 +44,7 @@
     "@yarn-tool/yarn-struct-utils": "^1.0.3",
     "@yarn-tool/yarnlock-parse-assert": "^1.0.3",
     "@yarn-tool/yarnlock-parse-raw": "^1.0.3",
-    "tslib": "^2"
+    "tslib": ">=2"
   },
   "publishConfig": {
     "access": "public"
