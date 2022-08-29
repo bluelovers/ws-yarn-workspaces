@@ -54,7 +54,7 @@
     "@yarn-tool/yarnlock-stringify": "^1.0.20",
     "tslib": "^2",
     "yarn-berry-deduplicate": "^2.0.0",
-    "yarn-deduplicate": "^5.0.2"
+    "yarn-deduplicate": "^6.0.0"
   },
   "publishConfig": {
     "access": "public"

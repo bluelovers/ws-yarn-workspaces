@@ -47,10 +47,6 @@ export declare class WorkspacesProject {
         createRelease?: "gitlab" | "github";
         noPrivate?: boolean;
     }> & Pick<{
-        [k: string]: unknown;
-        allowBranch?: string | string[];
-        message?: string;
-    } | {
         concurrency?: number;
         bump?: IReleaseType;
         allowBranch?: string[];
@@ -59,6 +55,10 @@ export declare class WorkspacesProject {
         exact?: boolean;
         createRelease?: "gitlab" | "github";
         noPrivate?: boolean;
+    } | {
+        [k: string]: unknown;
+        allowBranch?: string | string[];
+        message?: string;
     }, import("ts-type").ITSKeyofBothSame<{
         [k: string]: unknown;
         allowBranch?: string | string[];
@@ -86,10 +86,6 @@ export declare class WorkspacesProject {
         allowBranch?: string[];
         noPrivate?: boolean;
     }> & Pick<{
-        [k: string]: unknown;
-        ignoreChanges?: string | string[];
-        message?: string;
-    } | {
         concurrency?: number;
         bump?: IReleaseType;
         conventionalCommits?: boolean;
@@ -98,6 +94,10 @@ export declare class WorkspacesProject {
         npmClient?: string;
         allowBranch?: string[];
         noPrivate?: boolean;
+    } | {
+        [k: string]: unknown;
+        ignoreChanges?: string | string[];
+        message?: string;
     }, import("ts-type").ITSKeyofBothSame<{
         [k: string]: unknown;
         ignoreChanges?: string | string[];

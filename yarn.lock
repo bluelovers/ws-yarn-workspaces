@@ -1545,11 +1545,6 @@
   resolved "https://registry.npmjs.org/@types/node/-/node-18.7.13.tgz#23e6c5168333480d454243378b69e861ab5c011a"
   integrity sha512-46yIhxSe5xEaJZXWdIBP7GU4HDTG8/eo0qd9atdiL+lFpA03y8KS+lkTN834TWJj5767GbWv4n/P6efyTFt1Dw==
 
-"@types/node@^13.1.6":
-  version "13.13.52"
-  resolved "https://registry.npmjs.org/@types/node/-/node-13.13.52.tgz#03c13be70b9031baaed79481c0c0cfb0045e53f7"
-  integrity sha512-s3nugnZumCC//n4moGGe6tkNMyYEdaDBitVjwPxXmR5lnMG5dHePinH2EdxkG3Rh1ghFHHixAG4NJhpJW1rthQ==
-
 "@types/normalize-package-data@*", "@types/normalize-package-data@^2.4.0":
   version "2.4.1"
   resolved "https://registry.npmjs.org/@types/normalize-package-data/-/normalize-package-data-2.4.1.tgz#d3357479a0fdfdd5907fe67e17e0a85c906e1301"
@@ -6718,13 +6713,12 @@ path-dir-normalize@^1.0.25:
     tslib "^2"
     upath2 "^3.1.15"
 
-path-env@^0.0.12:
-  version "0.0.12"
-  resolved "https://registry.npmjs.org/path-env/-/path-env-0.0.12.tgz#927dc9ce6ef237b3532c2955643c0ca2c4231fca"
-  integrity sha512-Z4k2bT53H/uWrRKGXGQAF/QH2tkQiNsOCfrVUT+cDuu/As50b0MYINm+KgJo0dxn03gtINogFPndQ/gQImqydQ==
+path-env2@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/path-env2/-/path-env2-1.0.0.tgz#d104a40ad92a1c8243488c5c54bdb7e54eaa72d3"
+  integrity sha512-PMUYJ+MWFrxFm+rHQ4HmrXzeAIR6usg8BisNObtiSht6zekGy+mEs59tm26xjvPpdyuZ5gya55gFrDCGlMEoOQ==
   dependencies:
-    "@types/node" "^13.1.6"
-    tslib "^1.10.0"
+    ts-type ">=2"
 
 path-exists@^3.0.0:
   version "3.0.0"
@@ -8098,7 +8092,7 @@ ts-type-predicates@^1.0.6:
   resolved "https://registry.npmjs.org/ts-type-predicates/-/ts-type-predicates-1.0.8.tgz#cf680df1b7378e88314bf6afc6b2afb1fc646d97"
   integrity sha512-MW1zq+d4MtsmDVOpIX1LZtkdfgK6WUMSx1H/qIeGTYzoLmBmRAzsS0wFDf16bf1qsopcv2MZMm5RSqfZJPgY/g==
 
-ts-type@^2, ts-type@^2.1.10, ts-type@^2.1.2, ts-type@^2.1.4, ts-type@^2.1.6, ts-type@^2.1.8:
+ts-type@>=2, ts-type@^2, ts-type@^2.1.10, ts-type@^2.1.2, ts-type@^2.1.4, ts-type@^2.1.6, ts-type@^2.1.8:
   version "2.1.10"
   resolved "https://registry.npmjs.org/ts-type/-/ts-type-2.1.10.tgz#09ae593829af0023f5e0f98799121b362303f657"
   integrity sha512-cung450P5HbC+xTimzw8DcFqP4MjxH3aCt2m6IZMs0aMatEOIasPmtECKK1WChg9j/wB8U5zYFCRHcS6xmdSNw==
@@ -8116,7 +8110,7 @@ tsconfig@^7.0.0:
     strip-bom "^3.0.0"
     strip-json-comments "^2.0.0"
 
-tslib@^1.10.0, tslib@^1.13.0:
+tslib@^1.13.0:
   version "1.14.1"
   resolved "https://registry.npmjs.org/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
