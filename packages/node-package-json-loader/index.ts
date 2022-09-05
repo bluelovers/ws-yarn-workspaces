@@ -114,6 +114,11 @@ export class PackageJsonLoader<T extends IPackageJsonLike<IPackageJson> = IPacka
 		return this;
 	}
 
+	reload()
+	{
+		return this.read(true);
+	}
+
 	get dir()
 	{
 		return path.dirname(this.file)

@@ -69,6 +69,9 @@ class PackageJsonLoader {
         this.loaded = true;
         return this;
     }
+    reload() {
+        return this.read(true);
+    }
     get dir() {
         return path_1.default.dirname(this.file);
     }

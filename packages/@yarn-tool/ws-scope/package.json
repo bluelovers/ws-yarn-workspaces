@@ -67,9 +67,7 @@
     "upath2": "^3.1.15",
     "yawn-yaml": "^1.5.0"
   },
-  "devDependencies": {
-    "@types/yawn-yaml": "^1.4.0"
-  },
+  "devDependencies": {},
   "packageManager": "yarn@1.22.19",
   "publishConfig": {
     "access": "public"

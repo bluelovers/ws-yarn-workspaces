@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "array-hyper-unique": "^2.0.8",
-    "class-without-call-parent-constructor": "^2.0.4",
+    "class-without-call-parent-constructor": "^2.0.5",
     "lru-cache2": "^6.0.7",
     "split-smartly2": "^1.1.12",
     "ts-type": "^2.1.10",

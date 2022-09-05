@@ -17,6 +17,7 @@ export declare class PackageJsonLoader<T extends IPackageJsonLike<IPackageJson> 
     setFilename(file: string): this;
     setJson(json: object | T): this;
     read(reload?: boolean): this;
+    reload(): this;
     get dir(): string;
     /**
      * skip typescript type check
