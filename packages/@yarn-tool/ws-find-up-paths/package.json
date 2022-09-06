@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/ws-find-up-paths",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Find a file or directory by walking up parent directories and support workspaces",
   "keywords": [
     "yarn",
@@ -70,7 +70,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/find-root": "^2.0.5",
+    "@yarn-tool/find-root": "^2.0.6",
     "find-up-paths": "^1.0.8",
     "tslib": ">=2"
   },

@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/normalize-deps-value",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "keywords": [
     "yarn",
@@ -70,8 +70,8 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@lazy-node/semver-ampersand": "^2.0.4",
-    "@yarn-tool/npm-package-arg-util": "^1.0.32",
+    "@lazy-node/semver-ampersand": "^2.0.5",
+    "@yarn-tool/npm-package-arg-util": "^1.0.33",
     "tslib": ">=2"
   },
   "packageManager": "yarn@1.22.19",

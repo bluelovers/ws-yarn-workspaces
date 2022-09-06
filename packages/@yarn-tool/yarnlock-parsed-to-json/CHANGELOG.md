@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-parsed-to-json@1.0.3...@yarn-tool/yarnlock-parsed-to-json@1.0.4) (2022-09-06)
+
+
+
+### 📚　Documentation
+
+* add directory ([442a552](https://github.com/bluelovers/ws-yarn-workspaces/commit/442a55232619f7fe2b9bad6f8eccfffc4f8f47d2))
+
+
+
 ## [1.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-parsed-to-json@1.0.2...@yarn-tool/yarnlock-parsed-to-json@1.0.3) (2022-08-26)
 
 

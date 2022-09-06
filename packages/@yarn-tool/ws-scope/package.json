@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/ws-scope",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "update workspaces scope setting",
   "keywords": [
     "scope",
@@ -58,8 +58,8 @@
   },
   "dependencies": {
     "@bluelovers/fs-json": "^1.0.9",
-    "@yarn-tool/find-root": "^2.0.5",
-    "@yarn-tool/sort-lerna-json": "^2.0.4",
+    "@yarn-tool/find-root": "^2.0.6",
+    "@yarn-tool/sort-lerna-json": "^2.0.5",
     "array-hyper-unique": "^2.0.8",
     "fs-extra": "^10.1.0",
     "path-in-dir": "^1.0.5",
@@ -67,7 +67,6 @@
     "upath2": "^3.1.15",
     "yawn-yaml": "^1.5.0"
   },
-  "devDependencies": {},
   "packageManager": "yarn@1.22.19",
   "publishConfig": {
     "access": "public"

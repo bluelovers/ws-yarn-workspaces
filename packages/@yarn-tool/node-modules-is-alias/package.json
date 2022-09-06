@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/node-modules-is-alias",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "check given node modules path is alias or not",
   "keywords": [
     "yarn",
@@ -53,8 +53,8 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/npm-package-arg-util": "^1.0.32",
-    "@yarn-tool/resolve-package": "^2.0.3",
+    "@yarn-tool/npm-package-arg-util": "^1.0.33",
+    "@yarn-tool/resolve-package": "^2.0.4",
     "pkg-dir": "<6 >=5",
     "tslib": ">=2",
     "upath2": "^3.1.15"

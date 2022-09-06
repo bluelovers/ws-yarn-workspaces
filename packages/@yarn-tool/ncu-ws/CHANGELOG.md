@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.16](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ncu-ws@1.0.15...@yarn-tool/ncu-ws@1.0.16) (2022-09-06)
+
+
+
+### 📚　Documentation
+
+* add directory ([442a552](https://github.com/bluelovers/ws-yarn-workspaces/commit/442a55232619f7fe2b9bad6f8eccfffc4f8f47d2))
+
+
+### 🔖　Miscellaneous
+
+* . ([3a7fdc9](https://github.com/bluelovers/ws-yarn-workspaces/commit/3a7fdc924ada93b1d0ac0160f8d77e46ff060588))
+
+
+
 ## [1.0.15](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ncu-ws@1.0.14...@yarn-tool/ncu-ws@1.0.15) (2022-08-28)
 
 **Note:** Version bump only for package @yarn-tool/ncu-ws

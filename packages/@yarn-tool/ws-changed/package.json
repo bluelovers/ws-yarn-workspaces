@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/ws-changed",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "get package changed list from lerna and git",
   "keywords": [
     "lerna",
@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "@git-lazy/diff-staged": "^1.0.37",
-    "@yarn-tool/find-root": "^2.0.5",
+    "@yarn-tool/find-root": "^2.0.6",
     "array-hyper-unique": "^2.0.8",
     "cross-spawn-extra": "^2.1.0",
     "git-root2": "^1.0.33",
@@ -52,8 +52,8 @@
     "micromatch": "^4.0.5",
     "path-is-same": "^1.0.19",
     "tslib": ">=2",
-    "workspaces-config": "^1.0.47",
-    "ws-pkg-list": "^2.0.5"
+    "workspaces-config": "^1.0.48",
+    "ws-pkg-list": "^2.0.6"
   },
   "publishConfig": {
     "access": "public"

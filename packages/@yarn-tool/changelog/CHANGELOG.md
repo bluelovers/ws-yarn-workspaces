@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.11](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/changelog@2.0.10...@yarn-tool/changelog@2.0.11) (2022-09-06)
+
+
+
+### ✨　Features
+
+* add v8-compile-cache ([fc04829](https://github.com/bluelovers/ws-yarn-workspaces/commit/fc048297322ee9478b3ebd46667284ec3cb37e70))
+
+
+### 📚　Documentation
+
+* add directory ([442a552](https://github.com/bluelovers/ws-yarn-workspaces/commit/442a55232619f7fe2b9bad6f8eccfffc4f8f47d2))
+
+
+### 📌　Dependencies
+
+* update deps ([aeb5e41](https://github.com/bluelovers/ws-yarn-workspaces/commit/aeb5e416e8ea6c7d37ed7d38fedd6ff5c8c371df))
+
+
+
 ## [2.0.10](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/changelog@2.0.9...@yarn-tool/changelog@2.0.10) (2022-08-26)
 
 
