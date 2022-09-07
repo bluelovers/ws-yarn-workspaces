@@ -2,8 +2,9 @@ import { IPackageJson } from '@ts-type/package-dts/package-json';
 import { IFindRootReturnType } from '@yarn-tool/find-root';
 import { _Key, IStaticFilesMapArray } from '@yarn-tool/static-file/lib/types';
 import { EnumScriptsEntry, scriptsEntryIsNoTestSpecified } from '@yarn-tool/pkg-entry-util/lib/field/scripts';
+import { deleteValue } from 'dot-values2';
 
-export function updatePackageJson<P extends IPackageJson>(pkg: P)
+export function updatePackageJson<P extends IPackageJson>(pkg: P, config?: ISetupTsdxOptions<P>)
 {
 	pkg.scripts ??= {};
 
@@ -45,6 +46,19 @@ export function updatePackageJson<P extends IPackageJson>(pkg: P)
 	pkg.keywords ??= [];
 	pkg.keywords.push('create-by-tsdx');
 
+	if (pkg.dependencies?.['tslib']?.length > 0)
+	{
+		pkg.devDependencies ??= {};
+		pkg.devDependencies['tslib'] ??= pkg.dependencies['tslib'];
+		deleteValue(pkg, ['dependencies', 'tslib']);
+	}
+
+	if (config?.rootData.hasWorkspace && !config.rootData.isWorkspace)
+	{
+		deleteValue(pkg, ['dependencies', 'tslib']);
+		deleteValue(pkg, ['devDependencies', 'tslib']);
+	}
+
 	return pkg
 }
 
@@ -75,7 +89,7 @@ export function setup<P extends IPackageJson>(config: ISetupTsdxOptions<P>)
 		file_map,
 	} = config;
 
-	pkg = updatePackageJson(pkg);
+	pkg = updatePackageJson(pkg, config);
 
 	file_map = [
 		...defaultCopyStaticFilesTsdx,

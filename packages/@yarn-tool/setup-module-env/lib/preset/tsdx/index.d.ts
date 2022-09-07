@@ -1,7 +1,7 @@
 import { IPackageJson } from '@ts-type/package-dts/package-json';
 import { IFindRootReturnType } from '@yarn-tool/find-root';
 import { IStaticFilesMapArray } from '@yarn-tool/static-file/lib/types';
-export declare function updatePackageJson<P extends IPackageJson>(pkg: P): P;
+export declare function updatePackageJson<P extends IPackageJson>(pkg: P, config?: ISetupTsdxOptions<P>): P;
 export declare const defaultCopyStaticFilesTsdx: IStaticFilesMapArray<"tsconfig.json" | "test/tsconfig.json">;
 export interface ISetupTsdxOptions<P extends IPackageJson> {
     targetDir: string;

@@ -3261,6 +3261,20 @@ dot-prop@^6.0.1:
   dependencies:
     is-obj "^2.0.0"
 
+dot-values2@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.npmjs.org/dot-values2/-/dot-values2-2.0.6.tgz#0d9e89143cb52b147c631cf75083e6623e0de1d2"
+  integrity sha512-dxSO5hvwa8QS+GmyUK7CU/qgcPolD+NfQ8l0C7BVDJSRahUw1Z3wqeahy1H4asnszMMJ3tlKRPUw5OawPcrrUA==
+  dependencies:
+    escape-split "^1.0.5"
+    get-value "^3.0.1"
+    has-value "^2.0.2"
+    isobject "^4.0.0"
+    set-value "^4.1.0"
+    split-string "^6.1.0"
+    ts-type "^2.1.6"
+    tslib "^2"
+
 dotenv@^16.0.2:
   version "16.0.2"
   resolved "https://registry.npmjs.org/dotenv/-/dotenv-16.0.2.tgz#0b0f8652c016a3858ef795024508cddc4bffc5bf"
@@ -3450,6 +3464,11 @@ escape-goat@^2.0.0:
   version "2.1.1"
   resolved "https://registry.npmjs.org/escape-goat/-/escape-goat-2.1.1.tgz#1b2dc77003676c457ec760b2dc68edb648188675"
   integrity sha512-8/uIhbG12Csjy2JEW7D9pHbreaVaS/OpN3ycnyvElTdwM5n6GY6W6e2IPemfvGZeUMqZ9A/3GqIZMgKnBhAw/Q==
+
+escape-split@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.npmjs.org/escape-split/-/escape-split-1.0.5.tgz#60c92c1442ab1feccfdf9e3e5bf3f9af870a8be6"
+  integrity sha512-VfSFk8rt681nAMtemCsrYaEym+LCNIYWR8DTV0tqD2mgq4bEH/eYdspSmXU6xJ2BxUTSYI5FxB/4awp5wAwITg==
 
 escape-string-regexp@4.0.0:
   version "4.0.0"
@@ -3910,6 +3929,13 @@ get-value@^2.0.3, get-value@^2.0.6:
   resolved "https://registry.npmjs.org/get-value/-/get-value-2.0.6.tgz#dc15ca1c672387ca76bd37ac0a395ba2042a2c28"
   integrity sha512-Ln0UQDlxH1BapMu3GPtf7CuYNwRZf2gwCuPqbyG6pB8WfmFpzqcy4xtAaAMUhnNqjMKTiCPZG2oMT3YSx8U2NA==
 
+get-value@^3.0.0, get-value@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/get-value/-/get-value-3.0.1.tgz#5efd2a157f1d6a516d7524e124ac52d0a39ef5a8"
+  integrity sha512-mKZj9JLQrwMBtj5wxi6MH8Z5eSKaERpAwjg43dPtlGI1ZVEgH/qC7T8/6R2OBSUA+zzHBZgICsVJaEIV2tKTDA==
+  dependencies:
+    isobject "^3.0.1"
+
 getpass@^0.1.1:
   version "0.1.7"
   resolved "https://registry.npmjs.org/getpass/-/getpass-0.1.7.tgz#5eff8e3e684d569ae4cb2b1282604e8ba62149fa"
@@ -4240,6 +4266,14 @@ has-value@^1.0.0:
     has-values "^1.0.0"
     isobject "^3.0.0"
 
+has-value@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.npmjs.org/has-value/-/has-value-2.0.2.tgz#d0f12e8780ba8e90e66ad1a21c707fdb67c25658"
+  integrity sha512-ybKOlcRsK2MqrM3Hmz/lQxXHZ6ejzSPzpNabKB45jb5qDgJvKPa3SdapTsTLwEb9WltgWpOmNax7i+DzNOk4TA==
+  dependencies:
+    get-value "^3.0.0"
+    has-values "^2.0.1"
+
 has-values@^0.1.4:
   version "0.1.4"
   resolved "https://registry.npmjs.org/has-values/-/has-values-0.1.4.tgz#6d61de95d91dfca9b9a02089ad384bff8f62b771"
@@ -4252,6 +4286,13 @@ has-values@^1.0.0:
   dependencies:
     is-number "^3.0.0"
     kind-of "^4.0.0"
+
+has-values@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.npmjs.org/has-values/-/has-values-2.0.1.tgz#3876200ff86d8a8546a9264a952c17d5fc17579d"
+  integrity sha512-+QdH3jOmq9P8GfdjFg0eJudqx1FqU62NQJ4P16rOEHeRdl7ckgwn6uqQjzYE0ZoHVV/e5E2esuJ5Gl5+HUW19w==
+  dependencies:
+    kind-of "^6.0.2"
 
 has-yarn@^2.1.0:
   version "2.1.0"
@@ -4747,6 +4788,11 @@ is-plain-object@^2.0.3, is-plain-object@^2.0.4:
   dependencies:
     isobject "^3.0.1"
 
+is-primitive@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/is-primitive/-/is-primitive-3.0.1.tgz#98c4db1abff185485a657fc2905052b940524d05"
+  integrity sha512-GljRxhWvlCNRfZyORiH77FwdFwGcMO620o37EOYC0ORWdq+WYNVqW0w2Juzew4M+L81l6/QS3t5gkkihyRqv9w==
+
 is-regex@^1.1.4:
   version "1.1.4"
   resolved "https://registry.npmjs.org/is-regex/-/is-regex-1.1.4.tgz#eef5663cd59fa4c0ae339505323df6854bb15958"
@@ -4836,6 +4882,11 @@ isobject@^3.0.0, isobject@^3.0.1:
   version "3.0.1"
   resolved "https://registry.npmjs.org/isobject/-/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
   integrity sha512-WhB9zCku7EGTj/HQQRz5aUQEUeoQZH2bWcltRErOpymJ4boYE6wL9Tbr23krRPSZ+C5zqNSrSw+Cc7sZZ4b7vg==
+
+isobject@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.npmjs.org/isobject/-/isobject-4.0.0.tgz#3f1c9155e73b192022a80819bacd0343711697b0"
+  integrity sha512-S/2fF5wH8SJA/kmwr6HYhK/RI/OkhD84k8ntalo0iJjZikgq1XFvR5M8NPT1x5F7fBwCG3qHfnzeP/Vh/ZxCUA==
 
 isstream@~0.1.2:
   version "0.1.2"
@@ -7372,6 +7423,14 @@ set-value@^2.0.0, set-value@^2.0.1:
     is-plain-object "^2.0.3"
     split-string "^3.0.1"
 
+set-value@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.npmjs.org/set-value/-/set-value-4.1.0.tgz#aa433662d87081b75ad88a4743bd450f044e7d09"
+  integrity sha512-zTEg4HL0RwVrqcWs3ztF+x1vkxfm0lP+MQQFPiMJTKVceBwEV0A569Ou8l9IYQG8jOZdMVI1hGsc0tmeD2o/Lw==
+  dependencies:
+    is-plain-object "^2.0.4"
+    is-primitive "^3.0.1"
+
 shebang-command@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/shebang-command/-/shebang-command-2.0.0.tgz#ccd0af4f8835fbdc265b82461aaf0c36663f34ea"
@@ -7593,6 +7652,11 @@ split-string@^3.0.1, split-string@^3.0.2:
   integrity sha512-NzNVhJDYpwceVVii8/Hu6DKfD2G+NrQHlS/V/qgv763EYudVwEcMQNxd2lh+0VrUByXN/oJkl5grOhYWvQUYiw==
   dependencies:
     extend-shallow "^3.0.0"
+
+split-string@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.npmjs.org/split-string/-/split-string-6.1.0.tgz#e9cedcf94cdab077d9b5528927894dec4b0f42ab"
+  integrity sha512-9UBdnmnvx2NLLd4bMs7CEKK+wSzbujVv3ONyorkP1o8M3pVJQtXDO1cN19xD1JJs6ltOrtPrkUND0HzLSinUcA==
 
 split2@^3.0.0:
   version "3.2.2"
@@ -8004,7 +8068,7 @@ ts-type-predicates@^1.0.8:
   resolved "https://registry.npmjs.org/ts-type-predicates/-/ts-type-predicates-1.0.8.tgz#cf680df1b7378e88314bf6afc6b2afb1fc646d97"
   integrity sha512-MW1zq+d4MtsmDVOpIX1LZtkdfgK6WUMSx1H/qIeGTYzoLmBmRAzsS0wFDf16bf1qsopcv2MZMm5RSqfZJPgY/g==
 
-ts-type@>=2, ts-type@^2, ts-type@^2.1.10, ts-type@^2.1.4, ts-type@^2.1.8:
+ts-type@>=2, ts-type@^2, ts-type@^2.1.10, ts-type@^2.1.4, ts-type@^2.1.6, ts-type@^2.1.8:
   version "2.1.10"
   resolved "https://registry.npmjs.org/ts-type/-/ts-type-2.1.10.tgz#09ae593829af0023f5e0f98799121b362303f657"
   integrity sha512-cung450P5HbC+xTimzw8DcFqP4MjxH3aCt2m6IZMs0aMatEOIasPmtECKK1WChg9j/wB8U5zYFCRHcS6xmdSNw==
