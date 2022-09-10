@@ -112,7 +112,7 @@
     "@types/lodash": "^4.14.184",
     "@types/micromatch": "^4.0.2",
     "@types/mocha": "^9.1.1",
-    "@types/node": "^18.7.15",
+    "@types/node": "^18.7.16",
     "@types/npm-package-arg": "^6.1.1",
     "@types/npm-packlist": "^3.0.0",
     "@types/parse-git-config": "^3.0.1",
@@ -126,10 +126,10 @@
     "@types/yawn-yaml": "^1.4.0",
     "@yarn-tool/ws-find-up-paths": "*",
     "chai": "^4.3.6",
-    "jest": "^29.0.2",
+    "jest": "^29.0.3",
     "jest-console": "^0.1.0",
     "mocha": "^10.0.0",
-    "ts-jest": "^28.0.8"
+    "ts-jest": "^29.0.0"
   },
   "peerDependencies": {
     "lerna": "^5",
