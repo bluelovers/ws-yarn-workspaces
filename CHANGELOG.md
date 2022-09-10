@@ -19,6 +19,7 @@ Please see the individual package changelogs for what's new:
 * 🌏 [`@yarn-tool/init-path`](./packages/@yarn-tool/init-path/CHANGELOG.md "packages/@yarn-tool/init-path") *packages/@yarn-tool/init-path*
 * 🌏 [`@yarn-tool/is-builtin-module`](./packages/@yarn-tool/is-builtin-module/CHANGELOG.md "packages/@yarn-tool/is-builtin-module") *packages/@yarn-tool/is-builtin-module*
 * 🌏 [`@yarn-tool/is-npx`](./packages/@yarn-tool/is-npx/CHANGELOG.md "packages/@yarn-tool/is-npx") *packages/@yarn-tool/is-npx*
+* 🌏 [`@yarn-tool/is-published`](./packages/@yarn-tool/is-published/CHANGELOG.md "packages/@yarn-tool/is-published") *packages/@yarn-tool/is-published*
 * 🌏 [`@yarn-tool/ncu`](./packages/@yarn-tool/ncu/CHANGELOG.md "packages/@yarn-tool/ncu") *packages/@yarn-tool/ncu*
 * 🌏 [`@yarn-tool/ncu-ws`](./packages/@yarn-tool/ncu-ws/CHANGELOG.md "packages/@yarn-tool/ncu-ws") *packages/@yarn-tool/ncu-ws*
 * 🌏 [`@yarn-tool/node-modules`](./packages/@yarn-tool/node-modules/CHANGELOG.md "packages/@yarn-tool/node-modules") *packages/@yarn-tool/node-modules*
