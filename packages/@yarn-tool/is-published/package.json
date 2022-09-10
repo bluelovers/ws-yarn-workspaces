@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/is-published",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "check package is published or not",
   "keywords": [
     "yarn",
@@ -73,8 +73,6 @@
     "@yarn-tool/npa-to-deps-query": "^2.0.8",
     "tslib": ">=2"
   },
-  "devDependencies": {},
-  "peerDependencies": {},
   "packageManager": "yarn@1.22.19",
   "publishConfig": {
     "access": "public"

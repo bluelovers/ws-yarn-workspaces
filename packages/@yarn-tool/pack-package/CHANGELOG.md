@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.12](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pack-package@2.0.11...@yarn-tool/pack-package@2.0.12) (2022-09-10)
+
+
+
+### 📌　Dependencies
+
+* update deps ([c552fa9](https://github.com/bluelovers/ws-yarn-workspaces/commit/c552fa925dbbb0e18f8dc5d0c783138c8c1fc363))
+
+
+
 ## [2.0.11](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pack-package@2.0.10...@yarn-tool/pack-package@2.0.11) (2022-09-06)
 
 
