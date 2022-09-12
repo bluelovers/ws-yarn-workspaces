@@ -46,17 +46,22 @@ export function updatePackageJson<P extends IPackageJson>(pkg: P, config?: ISetu
 	pkg.keywords ??= [];
 	pkg.keywords.push('create-by-tsdx');
 
-	if (pkg.dependencies?.['tslib']?.length > 0)
-	{
-		pkg.devDependencies ??= {};
-		pkg.devDependencies['tslib'] ??= pkg.dependencies['tslib'];
-		deleteValue(pkg, ['dependencies', 'tslib']);
-	}
-
 	if (config?.rootData.hasWorkspace && !config.rootData.isWorkspace)
 	{
 		deleteValue(pkg, ['dependencies', 'tslib']);
 		deleteValue(pkg, ['devDependencies', 'tslib']);
+	}
+	else
+	{
+		pkg.devDependencies ??= {};
+
+		if (pkg.dependencies?.['tslib']?.length > 0)
+		{
+			pkg.devDependencies['tslib'] ??= pkg.dependencies['tslib'];
+			deleteValue(pkg, ['dependencies', 'tslib']);
+		}
+
+		pkg.devDependencies['@bluelovers/tsconfig'] ??= '*';
 	}
 
 	return pkg
