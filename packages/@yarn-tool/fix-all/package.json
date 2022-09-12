@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/fix-all",
-  "version": "2.0.18",
+  "version": "2.0.19",
   "description": "auto check/fix workspaces/package",
   "keywords": [
     "yarn",
@@ -63,7 +63,7 @@
     "@yarn-tool/normalize-deps-value": "^1.0.4",
     "@yarn-tool/pkg-git-info": "^1.0.36",
     "@yarn-tool/pkg-hosted-info": "^2.0.8",
-    "@yarn-tool/static-file": "^2.0.8",
+    "@yarn-tool/static-file": "^2.0.9",
     "@yarn-tool/write-package-json": "^1.0.5",
     "@yarn-tool/ws-scope": "^2.0.6",
     "array-hyper-unique": "^2.0.8",

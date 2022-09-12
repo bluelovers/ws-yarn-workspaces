@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/ncu-ws",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "description": "for yarn-tool ncu",
   "keywords": [
     "yarn",
@@ -78,7 +78,7 @@
     "@yarn-tool/yargs-util": "^1.0.5",
     "@yarn-tool/yarnlock": "^2.0.11",
     "@yarn-tool/yarnlock-fs": "^2.0.6",
-    "@yarn-tool/yarnlock-ncu": "^2.0.11",
+    "@yarn-tool/yarnlock-ncu": "^2.0.12",
     "debug-color2": "^1.3.2",
     "fs-extra": "^10.1.0",
     "tslib": ">=2",
