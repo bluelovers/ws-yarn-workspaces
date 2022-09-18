@@ -10,6 +10,7 @@ import { parseRange } from '@lazy-node/semver-simple-parse';
 import { replaceSimpleSemVerVersion } from '@lazy-node/semver-simple-parse/lib/replaceSimpleSemVerVersion';
 import { ITSPartialRecord } from 'ts-type/lib/type/record';
 import { ITSRequireAtLeastOne } from 'ts-type/lib/type/record';
+import { EnumSemverVersion } from '@lazy-node/semver-ampersand/lib/const';
 
 export interface IMap<R extends IListableRow>
 {
@@ -51,7 +52,7 @@ export function fixPkgDepsVersionsCore<T extends ITSPartialRecord<IPackageJsonDe
 					{
 						const old = row[field][name];
 
-						if (typeof old !== 'undefined')
+						if (typeof old !== 'undefined' && old !== EnumSemverVersion.STAR)
 						{
 							const parsed = parseRange(old);
 							const version = record[name].version;

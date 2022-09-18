@@ -19,7 +19,7 @@ function fixPkgDepsVersionsCore(row, cache) {
             names
                 .forEach(name => {
                 const old = row[field][name];
-                if (typeof old !== 'undefined') {
+                if (typeof old !== 'undefined' && old !== "*" /* EnumSemverVersion.STAR */) {
                     const parsed = (0, semver_simple_parse_1.parseRange)(old);
                     const version = record[name].version;
                     const semver = (0, replaceSimpleSemVerVersion_1.replaceSimpleSemVerVersion)(parsed[0], version).toFullString();
