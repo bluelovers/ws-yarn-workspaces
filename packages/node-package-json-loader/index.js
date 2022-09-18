@@ -12,21 +12,6 @@ const fs_json_1 = require("@bluelovers/fs-json");
 const publishConfig_1 = require("@yarn-tool/pkg-entry-util/lib/field/publishConfig");
 const bin_1 = require("@yarn-tool/pkg-entry-util/lib/field/bin");
 class PackageJsonLoader {
-    constructor(fileOrJson, ...argv) {
-        this._use = [];
-        if (typeof fileOrJson === 'string') {
-            this.setFilename(fileOrJson);
-        }
-        else if (Buffer.isBuffer(fileOrJson)) {
-            this.setJson(JSON.parse(fileOrJson.toString()));
-        }
-        else if (typeof fileOrJson === 'object') {
-            this.setJson(JSON.parse(fileOrJson.toString()));
-        }
-        else if (fileOrJson != null) {
-            throw new TypeError(`fileOrJson is not valid`);
-        }
-    }
     static create(file, ...argv) {
         return new this(file, ...argv);
     }
@@ -43,6 +28,21 @@ class PackageJsonLoader {
             throw new TypeError(`package name not match, '${pkg.data.name}' != '${name}'`);
         }
         return pkg;
+    }
+    constructor(fileOrJson, ...argv) {
+        this._use = [];
+        if (typeof fileOrJson === 'string') {
+            this.setFilename(fileOrJson);
+        }
+        else if (Buffer.isBuffer(fileOrJson)) {
+            this.setJson(JSON.parse(fileOrJson.toString()));
+        }
+        else if (typeof fileOrJson === 'object') {
+            this.setJson(JSON.parse(fileOrJson.toString()));
+        }
+        else if (fileOrJson != null) {
+            throw new TypeError(`fileOrJson is not valid`);
+        }
     }
     use(ls) {
         if (Array.isArray(ls)) {

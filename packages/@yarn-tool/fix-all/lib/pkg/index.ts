@@ -136,10 +136,16 @@ export function _runEachPackagesAsync(list: IEntry[],
 				pkg.autofix();
 				pkg.write();
 
-			})().catch(e => err.push(e)), row.name)
+			})().catch(e => {
+				e.row = row;
+				err.push(e);
+			}), row.name)
 
 			return promiseLogger
-				.catch(e => err.push(e))
+				.catch(e => {
+					e.row = row;
+					err.push(e);
+				})
 				.then(() =>
 				{
 					if (err.length)

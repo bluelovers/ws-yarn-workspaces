@@ -91,9 +91,15 @@ function _runEachPackagesAsync(list, options) {
             pkg.data = (0, sort_package_json3_1.sortPackageJson)(pkg.data);
             pkg.autofix();
             pkg.write();
-        })().catch(e => err.push(e)), row.name);
+        })().catch(e => {
+            e.row = row;
+            err.push(e);
+        }), row.name);
         return promiseLogger
-            .catch(e => err.push(e))
+            .catch(e => {
+            e.row = row;
+            err.push(e);
+        })
             .then(() => {
             if (err.length) {
                 debug_color2_1.console.error(err);

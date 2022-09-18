@@ -11,13 +11,13 @@ exports.SYM_CONFIG = Symbol.for('config');
 exports.SYM_YARGS = Symbol.for('yargs');
 exports.SYM_PROP = Symbol.for('fakeProp');
 class YargsCommandModule {
+    static create(config) {
+        return new this(config);
+    }
     constructor(config) {
         this[_a] = {};
         this[_b] = {};
         this[exports.SYM_CONFIG] = config;
-    }
-    static create(config) {
-        return new this(config);
     }
     /** string (or array of strings) that executes this command when given on the command line, first string may contain positional args */
     get command() {
