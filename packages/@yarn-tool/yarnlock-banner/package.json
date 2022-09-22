@@ -40,7 +40,7 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "crlf-normalize": "^1.0.12"
+    "crlf-normalize": "^1.0.13"
   },
   "publishConfig": {
     "access": "public"
