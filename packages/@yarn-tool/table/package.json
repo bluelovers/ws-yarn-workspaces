@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/table",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "shared cli table utils for yarn-tool",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/table#readme",
   "bugs": {

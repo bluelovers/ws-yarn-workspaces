@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.8](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-ws-versions@2.0.6...@yarn-tool/fix-ws-versions@2.0.8) (2022-09-22)
+
+
+
+### 🐛　Bug Fixes
+
+* avoid throw error when semver is '*' ([1f7f29c](https://github.com/bluelovers/ws-yarn-workspaces/commit/1f7f29c57f5a63e08fbe866df75531e4458c83ff))
+
+
+### 🔖　Miscellaneous
+
+* . ([51b521c](https://github.com/bluelovers/ws-yarn-workspaces/commit/51b521c5bb7fa8c49260db811872a6629054d6d5))
+
+
+
 ## [2.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-ws-versions@2.0.6...@yarn-tool/fix-ws-versions@2.0.7) (2022-09-22)
 
 

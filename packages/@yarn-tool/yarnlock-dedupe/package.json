@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarnlock-dedupe",
-  "version": "1.0.26",
+  "version": "1.0.27",
   "description": "Deduplication tool for yarn.lock files. auto detect yarn v1 and berry",
   "keywords": [
     "yarn",
@@ -49,9 +49,9 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@yarn-tool/detect-yarnlock-version": "^1.0.25",
-    "@yarn-tool/yarnlock-banner": "^1.0.12",
-    "@yarn-tool/yarnlock-stringify": "^1.0.22",
+    "@yarn-tool/detect-yarnlock-version": "^1.0.27",
+    "@yarn-tool/yarnlock-banner": "^1.0.14",
+    "@yarn-tool/yarnlock-stringify": "^1.0.23",
     "tslib": ">=2",
     "yarn-berry-deduplicate": "^2.0.0",
     "yarn-deduplicate": "^6.0.0"

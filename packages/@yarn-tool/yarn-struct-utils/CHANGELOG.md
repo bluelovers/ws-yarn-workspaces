@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.6](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarn-struct-utils@1.0.5...@yarn-tool/yarn-struct-utils@1.0.6) (2022-09-22)
+
+
+### BREAKING CHANGES
+
+* @yarnpkg/core@4.0.0-rc.20
+
+
+
+### 📦　Code Refactoring
+
+* @yarnpkg/core@4.0.0-rc.20 ([924ee6a](https://github.com/bluelovers/ws-yarn-workspaces/commit/924ee6a50f192f5b5bc06b40860792a51d99b78a))
+
+
+### 📌　Dependencies
+
+* update deps ([6a53628](https://github.com/bluelovers/ws-yarn-workspaces/commit/6a536281c96ecc6caf293212806b3abedc4ffef8))
+
+
+
 ## [1.0.5](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarn-struct-utils@1.0.4...@yarn-tool/yarn-struct-utils@1.0.5) (2022-09-10)
 
 
