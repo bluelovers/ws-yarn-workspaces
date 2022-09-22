@@ -1,5 +1,5 @@
 import { ParsedUrlQuery } from 'querystring';
-import { parseRange as _parseRange } from '@yarnpkg/core/lib/structUtils';
+import { structUtils } from '@yarnpkg/core';
 
 export type IParseRangeOptions = {
 	/** Throw an error if bindings are missing */
@@ -45,5 +45,5 @@ declare module '@yarnpkg/core/lib/structUtils'
 
 export function parseRange<Opts extends IParseRangeOptions>(range: string, opts?: Opts): IParseRangeReturnType<Opts>
 {
-	return _parseRange(range, opts)
+	return structUtils.parseRange(range, opts)
 }

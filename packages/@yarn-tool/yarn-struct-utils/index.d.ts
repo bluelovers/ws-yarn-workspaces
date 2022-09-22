@@ -9,7 +9,7 @@ export declare function parseResolutionOrDescriptor(rawInput: string): {
     fullName: string;
     description: string;
     isResolution: false;
-    parsed: import("@yarnpkg/core/lib/types").Descriptor;
+    parsed: import("@yarnpkg/core").Descriptor;
     parsedRange: import("./lib/parseRange").IParseRangeReturnType<import("./lib/parseRange").IParseRangeOptions>;
     rawInput: string;
 };

@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.parseResolutionOrDescriptor = void 0;
-const structUtils_1 = require("@yarnpkg/core/lib/structUtils");
+const core_1 = require("@yarnpkg/core");
 const parseResolution_1 = require("@yarn-tool/yarnlock-parse-raw/lib/v2/parseResolution");
 const parseRange_1 = require("./lib/parseRange");
 const pkg_name_util_1 = require("@yarn-tool/pkg-name-util");
@@ -18,7 +18,7 @@ function parseResolutionOrDescriptor(rawInput) {
         };
     }
     catch (e) {
-        let parsed = (0, structUtils_1.tryParseDescriptor)(rawInput, true);
+        let parsed = core_1.structUtils.tryParseDescriptor(rawInput, true);
         if (parsed) {
             let parsedRange = (0, parseRange_1.parseRange)(parsed.range);
             return {

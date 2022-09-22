@@ -1,4 +1,4 @@
-import { tryParseDescriptor } from '@yarnpkg/core/lib/structUtils';
+import { structUtils } from '@yarnpkg/core';
 import { parseResolution } from '@yarn-tool/yarnlock-parse-raw/lib/v2/parseResolution';
 import { parseRange } from './lib/parseRange';
 import { formatPackageName } from '@yarn-tool/pkg-name-util';
@@ -19,7 +19,7 @@ export function parseResolutionOrDescriptor(rawInput: string)
 	}
 	catch (e)
 	{
-		let parsed = tryParseDescriptor(rawInput, true);
+		let parsed = structUtils.tryParseDescriptor(rawInput, true);
 
 		if (parsed)
 		{
