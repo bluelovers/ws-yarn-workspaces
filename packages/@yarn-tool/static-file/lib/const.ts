@@ -22,9 +22,9 @@ const _defaultCopyStaticFiles = [
 
 	['README.md', 'file/README.md'],
 
-	['.nycrc', 'file/nycrc'],
+	['.nycrc.tpl', 'file/nycrc'],
 
-	['.mocharc.yml', 'file/mocharc.yml'],
+	['.mocharc.yml.tpl', 'file/mocharc.yml'],
 	//['jest.config.js', 'file/jest.config.js'],
 	['jest.config.js', 'file/jest.config.auto.js'],
 
