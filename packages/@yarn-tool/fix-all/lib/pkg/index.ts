@@ -20,6 +20,8 @@ import { defaultPkgScripts } from '@yarn-tool/pkg-entry-util/lib/preset/pkg-scri
 import { pathIsSame } from 'path-is-same';
 import { isDummyEchoMaybeOrEmpty } from '@yarn-tool/pkg-entry-util/lib/util/scripts/dummy';
 import { EnumScriptsEntry } from '@yarn-tool/pkg-entry-util/lib/field/scripts';
+import { isTsdxPackage } from '@yarn-tool/setup-module-env/lib/preset/tsdx/is-tsdx';
+import { fixTsdxPackage } from '@yarn-tool/setup-module-env/lib/preset/tsdx/fix';
 
 export function _handler(cwd: string, ...argv: Parameters<IOptionsPkgListable["handler"]>)
 {
@@ -91,6 +93,13 @@ export function _runEachPackagesAsync(list: IEntry[],
 					hostedGitInfo,
 					branch,
 				});
+
+				if (isTsdxPackage(pkg.data))
+				{
+					fixTsdxPackage(pkg.data, {
+						rootData,
+					});
+				}
 
 				fixPkgDepsVersionsCore(pkg.data, cache);
 

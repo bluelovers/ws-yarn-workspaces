@@ -20,6 +20,8 @@ const static_file_1 = require("@yarn-tool/static-file");
 const pkg_scripts_1 = require("@yarn-tool/pkg-entry-util/lib/preset/pkg-scripts");
 const path_is_same_1 = require("path-is-same");
 const dummy_1 = require("@yarn-tool/pkg-entry-util/lib/util/scripts/dummy");
+const is_tsdx_1 = require("@yarn-tool/setup-module-env/lib/preset/tsdx/is-tsdx");
+const fix_1 = require("@yarn-tool/setup-module-env/lib/preset/tsdx/fix");
 function _handler(cwd, ...argv) {
     return {
         ...(0, ws_pkg_list_1.normalizeListableRowExtra)(argv[0], cwd),
@@ -63,6 +65,11 @@ function _runEachPackagesAsync(list, options) {
                 hostedGitInfo,
                 branch,
             });
+            if ((0, is_tsdx_1.isTsdxPackage)(pkg.data)) {
+                (0, fix_1.fixTsdxPackage)(pkg.data, {
+                    rootData,
+                });
+            }
             (0, fix_ws_versions_1.fixPkgDepsVersionsCore)(pkg.data, cache);
             types_1.packageJsonDependenciesFields
                 .forEach(field => {

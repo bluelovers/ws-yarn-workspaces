@@ -3,6 +3,8 @@ import { IFindRootReturnType } from '@yarn-tool/find-root';
 import { _Key, IStaticFilesMapArray } from '@yarn-tool/static-file/lib/types';
 import { EnumScriptsEntry, scriptsEntryIsNoTestSpecified } from '@yarn-tool/pkg-entry-util/lib/field/scripts';
 import { deleteValue } from 'dot-values2';
+import { EnumTsdx } from './const';
+import { fixTsdxPackage } from './fix';
 
 export function updatePackageJson<P extends IPackageJson>(pkg: P, config?: ISetupTsdxOptions<P>)
 {
@@ -44,25 +46,12 @@ export function updatePackageJson<P extends IPackageJson>(pkg: P, config?: ISetu
 	pkg.exports['./package.json'] ??= './package.json';
 
 	pkg.keywords ??= [];
-	pkg.keywords.push('create-by-tsdx');
-
-	if (config?.rootData.hasWorkspace && !config.rootData.isWorkspace)
+	if (!pkg.keywords.includes(EnumTsdx.keyword))
 	{
-		deleteValue(pkg, ['dependencies', 'tslib']);
-		deleteValue(pkg, ['devDependencies', 'tslib']);
+		pkg.keywords.push(EnumTsdx.keyword);
 	}
-	else
-	{
-		pkg.devDependencies ??= {};
 
-		if (pkg.dependencies?.['tslib']?.length > 0)
-		{
-			pkg.devDependencies['tslib'] ??= pkg.dependencies['tslib'];
-			deleteValue(pkg, ['dependencies', 'tslib']);
-		}
-
-		pkg.devDependencies['@bluelovers/tsconfig'] ??= '*';
-	}
+	fixTsdxPackage(pkg);
 
 	return pkg
 }
