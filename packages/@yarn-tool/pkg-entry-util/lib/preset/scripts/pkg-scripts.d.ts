@@ -1,8 +1,9 @@
-import { EnumScriptsEntry } from '../field/scripts';
+import { EnumScriptsEntry } from '../../field/scripts';
 export declare function defaultPkgScripts(): {
     "test:jest": EnumScriptsEntry;
     "test:snapshot": string;
     "test:jest:snapshot": string;
+    "test:tsd": string;
 };
 export declare function defaultPkgNotOldExists(): {
     "test:mocha": string;
@@ -22,4 +23,5 @@ export declare function defaultPkgNotOldExists(): {
     "test:jest": EnumScriptsEntry;
     "test:snapshot": string;
     "test:jest:snapshot": string;
+    "test:tsd": string;
 };

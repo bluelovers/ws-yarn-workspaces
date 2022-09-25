@@ -7,8 +7,8 @@ const pkg_git_info_1 = require("@yarn-tool/pkg-git-info");
 const npm_package_json_loader_1 = require("npm-package-json-loader");
 const ws_scope_1 = require("@yarn-tool/ws-scope");
 const sort_package_json3_1 = require("sort-package-json3");
-const ws_root_scripts_1 = require("@yarn-tool/pkg-entry-util/lib/preset/ws-root-scripts");
-const dummy_1 = require("@yarn-tool/pkg-entry-util/lib/preset/dummy");
+const ws_root_scripts_1 = require("@yarn-tool/pkg-entry-util/lib/preset/scripts/ws-root-scripts");
+const dummy_1 = require("@yarn-tool/pkg-entry-util/lib/preset/scripts/dummy");
 const pkg_deps_add_1 = require("@yarn-tool/pkg-deps-add");
 function _fixRoot(options) {
     let { rootData, branch, overwriteHostedGitInfo, hostedGitInfo, targetDir } = options;

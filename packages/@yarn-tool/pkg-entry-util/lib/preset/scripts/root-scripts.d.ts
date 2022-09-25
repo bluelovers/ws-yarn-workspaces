@@ -12,7 +12,8 @@ export declare function defaultRootScripts(): {
     "test:jest:clearCache": string;
     "install:resetLockfile": string;
     "install:frozenLockfile": string;
-    "test:jest": import("../field/scripts").EnumScriptsEntry;
+    "test:jest": import("../../field/scripts").EnumScriptsEntry;
     "test:snapshot": string;
     "test:jest:snapshot": string;
+    "test:tsd": string;
 };

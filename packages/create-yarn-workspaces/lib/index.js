@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getDefaultTsconfig = exports.getDefaultPackageJson = void 0;
-const ws_root_scripts_1 = require("@yarn-tool/pkg-entry-util/lib/preset/ws-root-scripts");
-const dummy_1 = require("@yarn-tool/pkg-entry-util/lib/preset/dummy");
+const ws_root_scripts_1 = require("@yarn-tool/pkg-entry-util/lib/preset/scripts/ws-root-scripts");
+const dummy_1 = require("@yarn-tool/pkg-entry-util/lib/preset/scripts/dummy");
 function getDefaultPackageJson(name) {
     let json = {
         "name": name,

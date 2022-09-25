@@ -1,16 +1,27 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.defaultWorkspaceRootScripts = void 0;
+exports.defaultWorkspaceRootScripts = exports._runAllOrSince = void 0;
 const shared_root_scripts_1 = require("./shared-root-scripts");
+function _runAllOrSince(script) {
+    const all = `${script}:all`;
+    const since = `${script}:since`;
+    return {
+        [all]: `yarn-tool ws run ${script} --concurrency 1`,
+        [since]: `yarn run ${script}:all -- --since`,
+    };
+}
+exports._runAllOrSince = _runAllOrSince;
 function defaultWorkspaceRootScripts() {
     return {
         ...(0, shared_root_scripts_1.defaultSharedRootScripts)(),
-        "test:all": "yarn-tool ws run test --concurrency 1",
-        "test:since": "yarn run test:all -- --since",
-        "build:all": "yarn-tool ws run build --concurrency 1",
-        "review:all": "yarn-tool ws run review --concurrency 1",
-        "coverage:all": "yarn-tool ws run coverage --concurrency 1",
-        "lint:all": "yarn-tool ws run lint --concurrency 1",
+        "test": "yarn run test:since",
+        ..._runAllOrSince('test'),
+        ..._runAllOrSince('test:tsd'),
+        ..._runAllOrSince('test:snapshot'),
+        ..._runAllOrSince('build'),
+        ..._runAllOrSince('review'),
+        ..._runAllOrSince('coverage'),
+        ..._runAllOrSince('lint'),
         "preversion": "yarn run test" /* EnumScriptsEntry.preversion */,
         "postversion": "yarn-tool fix-all",
         "lerna:publish": "yarn run prepublishOnly:root && lerna publish && yarn run postpublishOnly",
@@ -28,9 +39,6 @@ function defaultWorkspaceRootScripts() {
         "sort-package-json:ws": "yarn-tool ws sort",
         "postpublishOnly": "yarn run postpublishOnly:ws-root-changelog & echo postpublishOnly",
         "postpublishOnly:ws-root-changelog": "ynpx ws-root-changelog & git add ./CHANGELOG.md & git commit ./CHANGELOG.md -m \"chore(changelog): update changelog toc in workspaces root\" & echo update changelog toc in workspaces root",
-        "test": "yarn run test:since",
-        "test:snapshot:all": "yarn-tool ws run test:snapshot --concurrency 1",
-        "test:snapshot:since": "yarn run test:snapshot:all -- --since",
         "install:reset-lockfile": "yarn-tool install --reset-lockfile",
         "ws:fix-all": "yarn-tool fix-all  --overwriteHostedGitInfo",
         "tsc:showConfig": "ynpx get-current-tsconfig -p",

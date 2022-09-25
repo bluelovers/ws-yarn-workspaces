@@ -16,7 +16,7 @@ import { packageJsonDependenciesFields } from '@ts-type/package-dts/lib/package-
 import { normalizeDepsValue } from '@yarn-tool/normalize-deps-value';
 import { getRootCopyStaticFilesAuto } from '@yarn-tool/static-file/lib/root/getRootCopyStaticFiles';
 import { copyStaticFiles } from '@yarn-tool/static-file';
-import { defaultPkgScripts } from '@yarn-tool/pkg-entry-util/lib/preset/pkg-scripts';
+import { defaultPkgScripts } from '@yarn-tool/pkg-entry-util/lib/preset/scripts/pkg-scripts';
 import { pathIsSame } from 'path-is-same';
 import { isDummyEchoMaybeOrEmpty } from '@yarn-tool/pkg-entry-util/lib/util/scripts/dummy';
 import { EnumScriptsEntry } from '@yarn-tool/pkg-entry-util/lib/field/scripts';

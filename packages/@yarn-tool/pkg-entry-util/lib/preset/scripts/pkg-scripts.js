@@ -6,6 +6,7 @@ function defaultPkgScripts() {
         "test:jest": "jest --passWithNoTests" /* EnumScriptsEntry.JEST_TEST */,
         "test:snapshot": "yarn run test -- -u",
         "test:jest:snapshot": "yarn run test:jest -- -u",
+        "test:tsd": "ynpx tsd",
     };
 }
 exports.defaultPkgScripts = defaultPkgScripts;

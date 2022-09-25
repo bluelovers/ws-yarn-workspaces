@@ -1,5 +1,5 @@
 import { ITSArrayListMaybeReadonly } from 'ts-type/lib/type/base';
-import { _dummyEchoPrefix } from '../util/scripts/dummy';
+import { _dummyEchoPrefix } from '../../util/scripts/dummy';
 
 export function _fillDummyScriptsCore<T extends Record<string, string>>(scripts: T, prefix: string, fields: ITSArrayListMaybeReadonly<string>)
 {

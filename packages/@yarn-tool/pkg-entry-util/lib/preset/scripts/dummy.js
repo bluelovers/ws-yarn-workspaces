@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.fillDummyScripts = exports._fillDummyScriptsCore = void 0;
-const dummy_1 = require("../util/scripts/dummy");
+const dummy_1 = require("../../util/scripts/dummy");
 function _fillDummyScriptsCore(scripts, prefix, fields) {
     // @ts-ignore
     scripts !== null && scripts !== void 0 ? scripts : (scripts = {});

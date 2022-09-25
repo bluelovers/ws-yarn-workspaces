@@ -5,8 +5,8 @@ import { npmHostedGitInfoLazy } from '@yarn-tool/pkg-git-info';
 import { PackageJsonLoader } from 'npm-package-json-loader';
 import { WorkspacesScope } from '@yarn-tool/ws-scope';
 import { sortPackageJson } from 'sort-package-json3';
-import { defaultWorkspaceRootScripts } from '@yarn-tool/pkg-entry-util/lib/preset/ws-root-scripts';
-import { fillDummyScripts } from '@yarn-tool/pkg-entry-util/lib/preset/dummy';
+import { defaultWorkspaceRootScripts } from '@yarn-tool/pkg-entry-util/lib/preset/scripts/ws-root-scripts';
+import { fillDummyScripts } from '@yarn-tool/pkg-entry-util/lib/preset/scripts/dummy';
 import { _checkDependenciesExistsAll } from '@yarn-tool/pkg-deps-add';
 
 export function _fixRoot(options: Required<IFillPkgHostedInfoOptions>)

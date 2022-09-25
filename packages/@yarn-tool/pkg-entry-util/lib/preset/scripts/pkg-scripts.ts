@@ -1,4 +1,4 @@
-import { EnumScriptsEntry } from '../field/scripts';
+import { EnumScriptsEntry } from '../../field/scripts';
 
 export function defaultPkgScripts()
 {
@@ -6,6 +6,7 @@ export function defaultPkgScripts()
 		"test:jest": EnumScriptsEntry.JEST_TEST,
 		"test:snapshot": "yarn run test -- -u",
 		"test:jest:snapshot": "yarn run test:jest -- -u",
+		"test:tsd": "ynpx tsd",
 	}
 }
 

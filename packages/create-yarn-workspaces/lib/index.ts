@@ -1,6 +1,6 @@
 import { IPackageJson } from '@ts-type/package-dts/package-json';
-import { defaultWorkspaceRootScripts } from '@yarn-tool/pkg-entry-util/lib/preset/ws-root-scripts';
-import { fillDummyScripts } from '@yarn-tool/pkg-entry-util/lib/preset/dummy';
+import { defaultWorkspaceRootScripts } from '@yarn-tool/pkg-entry-util/lib/preset/scripts/ws-root-scripts';
+import { fillDummyScripts } from '@yarn-tool/pkg-entry-util/lib/preset/scripts/dummy';
 
 export function getDefaultPackageJson(name?: string): IPackageJson
 {
