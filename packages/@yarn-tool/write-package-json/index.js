@@ -4,11 +4,12 @@ exports.outputPackageJSON = exports.writePackageJSON = exports.outputPackageJSON
 const fs_json_1 = require("@bluelovers/fs-json");
 function _handleOptions(options) {
     // @ts-ignore
-    let { spaces = 2 } = options;
+    let { spaces = 2, finalEOL = false } = options;
     return {
         // @ts-ignore
         ...options,
         spaces,
+        finalEOL,
     };
 }
 exports._handleOptions = _handleOptions;

@@ -1,6 +1,6 @@
 import { ILernaJson } from '@ts-type/package-dts/lerna-json';
 import { sortObjectKeys } from 'sort-object-keys2';
-import { readJSONSync, writeJSONSync } from '@bluelovers/fs-json';
+import { readJSONSync } from '@bluelovers/fs-json';
 import { writePackageJSONSync } from '@yarn-tool/write-package-json';
 
 export function sortLernaJsonCommandEntry<T extends Record<string, any>>(value: T)

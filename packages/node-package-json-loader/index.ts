@@ -5,9 +5,10 @@ import path from 'path';
 import { IPackageJson } from '@ts-type/package-dts';
 import { resolvePackageJsonLocation } from '@yarn-tool/resolve-package';
 import { _pkgExportsAddPJsonEntryCore } from '@yarn-tool/pkg-entry-util/lib/field/exports';
-import { readJSONSync, writeJSONSync } from '@bluelovers/fs-json';
+import { readJSONSync } from '@bluelovers/fs-json';
 import { fixPublishConfig } from '@yarn-tool/pkg-entry-util/lib/field/publishConfig';
 import { fixBinPath, fixPkgBinField } from '@yarn-tool/pkg-entry-util/lib/field/bin';
+import { outputPackageJSONSync } from '@yarn-tool/write-package-json';
 
 type IFileOrJson = Buffer | string | object | IPackageJson
 
@@ -223,7 +224,7 @@ export class PackageJsonLoader<T extends IPackageJsonLike<IPackageJson> = IPacka
 			throw new Error(`file is undefined`)
 		}
 
-		writeFileSync(this.file, this.stringify() + '\n');
+		outputPackageJSONSync(this.file, this.json);
 
 		return this;
 	}

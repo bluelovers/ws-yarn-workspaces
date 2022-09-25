@@ -1,6 +1,7 @@
 import { pathExistsSync } from 'fs-extra';
 import { ScopeJsonObject } from './json-object';
-import { readJSONSync, writeJSONSync } from '@bluelovers/fs-json';
+import { readJSONSync } from '@bluelovers/fs-json';
+import { writePackageJSONSync } from '@yarn-tool/write-package-json';
 
 export class ScopeJson<K extends string = 'workspaces'> extends ScopeJsonObject<K>
 {
@@ -22,11 +23,7 @@ export class ScopeJson<K extends string = 'workspaces'> extends ScopeJsonObject<
 
 	saveFile()
 	{
-		return this.opened && writeJSONSync(this.file, this.json, {
-			spaces: 2,
-			// @ts-ignore
-			finalEOL: true,
-		})
+		return this.opened && writePackageJSONSync(this.file, this.json)
 	}
 
 	loadFileLazy(reload?: boolean)

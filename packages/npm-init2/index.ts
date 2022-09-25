@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import yargs from 'yargs';
-import { ensureDirSync, outputJSONSync, pathExistsSync } from 'fs-extra';
+import { ensureDirSync, pathExistsSync } from 'fs-extra';
 import { join, parse, relative, resolve } from 'upath2';
 import { getConfig, parseStaticPackagesPaths } from 'workspaces-config';
 import { PackageJsonLoader } from 'npm-package-json-loader';

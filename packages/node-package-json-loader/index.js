@@ -11,6 +11,7 @@ const exports_1 = require("@yarn-tool/pkg-entry-util/lib/field/exports");
 const fs_json_1 = require("@bluelovers/fs-json");
 const publishConfig_1 = require("@yarn-tool/pkg-entry-util/lib/field/publishConfig");
 const bin_1 = require("@yarn-tool/pkg-entry-util/lib/field/bin");
+const write_package_json_1 = require("@yarn-tool/write-package-json");
 class PackageJsonLoader {
     static create(file, ...argv) {
         return new this(file, ...argv);
@@ -137,7 +138,7 @@ class PackageJsonLoader {
         if (!this.file) {
             throw new Error(`file is undefined`);
         }
-        (0, fs_extra_1.writeFileSync)(this.file, this.stringify() + '\n');
+        (0, write_package_json_1.outputPackageJSONSync)(this.file, this.json);
         return this;
     }
     writeOnlyWhenLoaded() {
