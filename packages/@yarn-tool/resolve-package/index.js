@@ -24,7 +24,7 @@ function resolvePackageRoot(moduleName, options) {
 }
 exports.resolvePackageRoot = resolvePackageRoot;
 function resolvePackageJsonLocation(moduleName, options) {
-    return (0, upath2_1.resolve)(resolvePackageCore(moduleName, options).pkgRoot, 'package.json');
+    return (0, upath2_1.resolve)(resolvePackageRoot(moduleName, options), 'package.json');
 }
 exports.resolvePackageJsonLocation = resolvePackageJsonLocation;
 function createResolveLocationFn(moduleName, options) {

@@ -80,7 +80,9 @@ export function _runEachPackagesAsync(list: IEntry[],
 
 				try
 				{
-					pkgExportsVerify(pkg.data);
+					pkgExportsVerify(pkg.data, {
+						cwd: row.location,
+					});
 				}
 				catch (e)
 				{

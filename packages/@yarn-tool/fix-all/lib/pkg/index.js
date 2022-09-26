@@ -54,7 +54,9 @@ function _runEachPackagesAsync(list, options) {
                 file_map,
             });
             try {
-                (0, pkg_entry_util_1.pkgExportsVerify)(pkg.data);
+                (0, pkg_entry_util_1.pkgExportsVerify)(pkg.data, {
+                    cwd: row.location,
+                });
             }
             catch (e) {
                 err.push(e);

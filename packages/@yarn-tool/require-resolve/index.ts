@@ -1,4 +1,5 @@
-import getPathsByType, {
+import {
+	getPathsByType,
 	IPathItem,
 	SymbolCurrentDirectory,
 	SymbolGlobal,

@@ -39,7 +39,7 @@ export function resolvePackageRoot(moduleName: string, options?: IOptions)
 
 export function resolvePackageJsonLocation(moduleName: string, options?: IOptions)
 {
-	return resolve(resolvePackageCore(moduleName, options).pkgRoot, 'package.json')
+	return resolve(resolvePackageRoot(moduleName, options), 'package.json')
 }
 
 export function createResolveLocationFn(moduleName: string, options?: IOptions)

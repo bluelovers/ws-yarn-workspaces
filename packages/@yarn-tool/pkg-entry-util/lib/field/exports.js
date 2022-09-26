@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.pkgExportsVerify = exports._isPackageExportsEntry = exports.pkgExportsAddPJsonEntry = exports._pkgExportsAddPJsonEntryCore = void 0;
-const path_1 = require("path");
 const fs_extra_1 = require("fs-extra");
 const find_root_1 = require("@yarn-tool/find-root");
+const resolve_package_1 = require("@yarn-tool/resolve-package");
 function _pkgExportsAddPJsonEntryCore(pkgExports) {
     var _a;
     if (typeof pkgExports === 'object') {
@@ -31,6 +31,7 @@ function pkgExportsVerify(pkg, options) {
             Object.entries(pkg.exports)
                 .forEach(([entry, value]) => {
                 if (_isPackageExportsEntry(entry, value)) {
+                    const _ = (0, resolve_package_1.resolvePackage)(rootData.pkg);
                     [typeof value === 'string' ? value : Object.values(value)]
                         .flat()
                         .forEach(file => {
@@ -41,7 +42,7 @@ function pkgExportsVerify(pkg, options) {
                         if ((_a = file.includes) === null || _a === void 0 ? void 0 : _a.call(file, '*')) {
                             return;
                         }
-                        const bool = (0, fs_extra_1.pathExistsSync)((0, path_1.resolve)(rootData.pkg, file));
+                        const bool = (0, fs_extra_1.pathExistsSync)(_.resolveLocation(file));
                         if (!bool) {
                             list.push(`path of '${entry}' does not exist: '${file}'`);
                         }

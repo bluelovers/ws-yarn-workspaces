@@ -1,8 +1,8 @@
 import { IPackageJson } from '@ts-type/package-dts/package-json';
 import { PackageExportsEntry, PackageExportsFallback } from '@ts-type/package-dts/types/package.json';
-import { resolve } from 'path';
 import { pathExistsSync } from 'fs-extra';
 import { findRootLazy } from '@yarn-tool/find-root';
+import { resolvePackage, resolvePackageRoot } from '@yarn-tool/resolve-package';
 
 export function _pkgExportsAddPJsonEntryCore<T extends IPackageJson["exports"]>(pkgExports: T)
 {
@@ -47,6 +47,8 @@ export function pkgExportsVerify<T extends IPackageJson>(pkg: T, options?: {
 				{
 					if (_isPackageExportsEntry(entry, value))
 					{
+						const _ = resolvePackage(rootData.pkg);
+
 						([typeof value === 'string' ? value : Object.values(value)] as string[])
 							.flat()
 							.forEach(file =>
@@ -59,7 +61,7 @@ export function pkgExportsVerify<T extends IPackageJson>(pkg: T, options?: {
 									return;
 								}
 
-								const bool = pathExistsSync(resolve(rootData.pkg, file));
+								const bool = pathExistsSync(_.resolveLocation(file));
 
 								if (!bool)
 								{
