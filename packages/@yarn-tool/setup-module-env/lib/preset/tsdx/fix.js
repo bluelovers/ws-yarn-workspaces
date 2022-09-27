@@ -15,7 +15,9 @@ function fixTsdxPackage(pkg, config) {
             (_d = (_f = pkg.devDependencies)['tslib']) !== null && _d !== void 0 ? _d : (_f['tslib'] = pkg.dependencies['tslib']);
             (0, dot_values2_1.deleteValue)(pkg, ['dependencies', 'tslib']);
         }
-        (_e = (_g = pkg.devDependencies)['@bluelovers/tsconfig']) !== null && _e !== void 0 ? _e : (_g['@bluelovers/tsconfig'] = '*');
+        if (config === null || config === void 0 ? void 0 : config.rootData.isRoot) {
+            (_e = (_g = pkg.devDependencies)['@bluelovers/tsconfig']) !== null && _e !== void 0 ? _e : (_g['@bluelovers/tsconfig'] = '*');
+        }
     }
     return pkg;
 }

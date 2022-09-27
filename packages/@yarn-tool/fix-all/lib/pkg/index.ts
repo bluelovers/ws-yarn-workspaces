@@ -1,5 +1,5 @@
 import { IOptionsPkgListable, normalizeListableRowExtra, wsPkgListable, wsPkgListableFromPaths } from 'ws-pkg-list';
-import { IFindRootReturnType } from '@yarn-tool/find-root';
+import { IFindRootReturnType, newFakeRootData } from '@yarn-tool/find-root';
 import { PackageJsonLoader } from 'npm-package-json-loader';
 import { pkgExportsVerify } from '@yarn-tool/pkg-entry-util';
 import { AggregateErrorExtra } from 'lazy-aggregate-error';
@@ -65,13 +65,15 @@ export function _runEachPackagesAsync(list: IEntry[],
 
 			const promiseLogger = logger((async () =>
 			{
+				const _rootDataFake = newFakeRootData(rootData, {
+					pkg: row.location,
+				});
+
+				const { isRoot, isWorkspace } = _rootDataFake;
 
 				const pkg = new PackageJsonLoader(row.manifestLocation);
 
-				const file_map = getRootCopyStaticFilesAuto({
-					...rootData,
-					isRoot: false,
-				});
+				const file_map = getRootCopyStaticFilesAuto(_rootDataFake);
 
 				copyStaticFiles({
 					cwd: row.location,
@@ -99,7 +101,7 @@ export function _runEachPackagesAsync(list: IEntry[],
 				if (isTsdxPackage(pkg.data))
 				{
 					fixTsdxPackage(pkg.data, {
-						rootData,
+						rootData: _rootDataFake,
 					});
 				}
 
@@ -123,9 +125,9 @@ export function _runEachPackagesAsync(list: IEntry[],
 					...(pkg.data.scripts ?? {}),
 				};
 
-				if (pathIsSame(rootData.root, row.location))
+				if (isRoot)
 				{
-					if (pathIsSame(rootData.ws, row.location))
+					if (isWorkspace)
 					{
 
 					}

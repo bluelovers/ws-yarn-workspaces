@@ -19,7 +19,10 @@ export function fixTsdxPackage<P extends IPackageJson>(pkg: P, config?: Partial<
 			deleteValue(pkg, ['dependencies', 'tslib']);
 		}
 
-		pkg.devDependencies['@bluelovers/tsconfig'] ??= '*';
+		if (config?.rootData.isRoot)
+		{
+			pkg.devDependencies['@bluelovers/tsconfig'] ??= '*';
+		}
 	}
 
 	return pkg

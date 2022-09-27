@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports._initPkgListableByRootData = exports._runEachPackagesAsync = exports._handler = void 0;
 const tslib_1 = require("tslib");
 const ws_pkg_list_1 = require("ws-pkg-list");
+const find_root_1 = require("@yarn-tool/find-root");
 const npm_package_json_loader_1 = require("npm-package-json-loader");
 const pkg_entry_util_1 = require("@yarn-tool/pkg-entry-util");
 const lazy_aggregate_error_1 = require("lazy-aggregate-error");
@@ -18,7 +19,6 @@ const normalize_deps_value_1 = require("@yarn-tool/normalize-deps-value");
 const getRootCopyStaticFiles_1 = require("@yarn-tool/static-file/lib/root/getRootCopyStaticFiles");
 const static_file_1 = require("@yarn-tool/static-file");
 const pkg_scripts_1 = require("@yarn-tool/pkg-entry-util/lib/preset/scripts/pkg-scripts");
-const path_is_same_1 = require("path-is-same");
 const dummy_1 = require("@yarn-tool/pkg-entry-util/lib/util/scripts/dummy");
 const is_tsdx_1 = require("@yarn-tool/setup-module-env/lib/preset/tsdx/is-tsdx");
 const fix_1 = require("@yarn-tool/setup-module-env/lib/preset/tsdx/fix");
@@ -44,11 +44,12 @@ function _runEachPackagesAsync(list, options) {
         const err = new lazy_aggregate_error_1.AggregateErrorExtra();
         const promiseLogger = logger((async () => {
             var _a, _b;
-            const pkg = new npm_package_json_loader_1.PackageJsonLoader(row.manifestLocation);
-            const file_map = (0, getRootCopyStaticFiles_1.getRootCopyStaticFilesAuto)({
-                ...rootData,
-                isRoot: false,
+            const _rootDataFake = (0, find_root_1.newFakeRootData)(rootData, {
+                pkg: row.location,
             });
+            const { isRoot, isWorkspace } = _rootDataFake;
+            const pkg = new npm_package_json_loader_1.PackageJsonLoader(row.manifestLocation);
+            const file_map = (0, getRootCopyStaticFiles_1.getRootCopyStaticFilesAuto)(_rootDataFake);
             (0, static_file_1.copyStaticFiles)({
                 cwd: row.location,
                 file_map,
@@ -69,7 +70,7 @@ function _runEachPackagesAsync(list, options) {
             });
             if ((0, is_tsdx_1.isTsdxPackage)(pkg.data)) {
                 (0, fix_1.fixTsdxPackage)(pkg.data, {
-                    rootData,
+                    rootData: _rootDataFake,
                 });
             }
             (0, fix_ws_versions_1.fixPkgDepsVersionsCore)(pkg.data, cache);
@@ -86,8 +87,8 @@ function _runEachPackagesAsync(list, options) {
                 ...(0, pkg_scripts_1.defaultPkgScripts)(),
                 ...((_a = pkg.data.scripts) !== null && _a !== void 0 ? _a : {}),
             };
-            if ((0, path_is_same_1.pathIsSame)(rootData.root, row.location)) {
-                if ((0, path_is_same_1.pathIsSame)(rootData.ws, row.location)) {
+            if (isRoot) {
+                if (isWorkspace) {
                 }
                 else {
                 }
