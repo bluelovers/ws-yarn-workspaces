@@ -42,7 +42,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@bluelovers/string-natural-compare": "^2.0.8",
+    "@bluelovers/string-natural-compare": "^2.0.9",
     "@ts-type/package-dts": "^2.0.5",
     "@yarn-tool/find-root": "^2.0.6",
     "@yarn-tool/get-pkg-bin": "^2.0.4",

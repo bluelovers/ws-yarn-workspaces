@@ -41,7 +41,7 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "array-hyper-unique": "^2.1.1",
+    "array-hyper-unique": "^2.1.2",
     "class-without-call-parent-constructor": "^2.0.5",
     "lru-cache2": "^6.0.7",
     "split-smartly2": "^1.1.12",

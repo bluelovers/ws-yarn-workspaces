@@ -37,7 +37,7 @@
     "fs-extra": "^10.1.0",
     "lodash": "^4.17.21",
     "path-dir-normalize": "^1.0.25",
-    "sort-object-keys2": "^3.0.1",
+    "sort-object-keys2": "^3.0.2",
     "ts-type": "^2.1.10",
     "tslib": ">=2",
     "upath2": "^3.1.15"

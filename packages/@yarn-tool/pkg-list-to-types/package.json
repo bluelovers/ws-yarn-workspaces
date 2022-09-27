@@ -71,7 +71,7 @@
   },
   "dependencies": {
     "@yarn-tool/npm-package-arg-util": "^1.0.33",
-    "array-hyper-unique": "^2.1.1",
+    "array-hyper-unique": "^2.1.2",
     "tslib": ">=2"
   },
   "packageManager": "yarn@1.22.19",

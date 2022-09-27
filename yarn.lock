@@ -346,13 +346,12 @@
     jsonfile "^6.1.0"
     tslib "^2"
 
-"@bluelovers/string-natural-compare@^2.0.5", "@bluelovers/string-natural-compare@^2.0.7", "@bluelovers/string-natural-compare@^2.0.8":
-  version "2.0.8"
-  resolved "https://registry.npmjs.org/@bluelovers/string-natural-compare/-/string-natural-compare-2.0.8.tgz#a95881c3819bc0673033f3ea6b92123e5c311463"
-  integrity sha512-qhHywurr5clGQx6bEcv5gEn72VsYTRduYGkd9B/hSUk76UkeIh2hiWLFKlvjWYCRX2cXw5DsLVtjbAl2XNW2eg==
+"@bluelovers/string-natural-compare@^2.0.5", "@bluelovers/string-natural-compare@^2.0.7", "@bluelovers/string-natural-compare@^2.0.9":
+  version "2.0.9"
+  resolved "https://registry.npmjs.org/@bluelovers/string-natural-compare/-/string-natural-compare-2.0.9.tgz#d63198b2e185057eeb3e610c0cf797cf1ee71568"
+  integrity sha512-ies5eHh66AaXPcZjnwJUTCP+SM8dT7ogez8qGbh6CvpIgcJGydYPDP+R3WmarlWu65g7rVMJc6Mc9lQJOTZXPA==
   dependencies:
     string-natural-compare "^3.0.1"
-    tslib "^2"
 
 "@bluelovers/tsconfig@^1.0.30":
   version "1.0.30"
@@ -728,10 +727,10 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@lazy-array/util-unique@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.npmjs.org/@lazy-array/util-unique/-/util-unique-1.0.1.tgz#77914932c599fe064d2203315bb96e87f9c61b19"
-  integrity sha512-kMckIKrGfLgoA50kuMn5saaswQa5jNITASyX+3T5rU+kU8eEouw75hKxX27BFCf8Q8yZNpDq6OnH2pTWfYqdlg==
+"@lazy-array/util-unique@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/@lazy-array/util-unique/-/util-unique-1.0.2.tgz#8bc2af58622113a5cd4659319fea42809ef39002"
+  integrity sha512-pMeu3Fp0QKgrBr0v2uOvwDy5XYv1juvAeyQRwfbeH1SBhyPZOIBsQ+MHMuj5D1OdHJRXNHsQplgiUnixCtX5vA==
 
 "@lazy-cjk/japanese@^1.2.24":
   version "1.2.27"
@@ -2044,14 +2043,13 @@ arr-union@^3.1.0:
   resolved "https://registry.npmjs.org/arr-union/-/arr-union-3.1.0.tgz#e39b09aea9def866a8f206e288af63919bae39c4"
   integrity sha512-sKpyeERZ02v1FeCZT8lrfJq5u6goHCtpTAzPwJYe7c8SPFOboNjNg1vz2L4VTn9T4PQxEx13TbXLmYUcS6Ug7Q==
 
-array-hyper-unique@^2.0.6, array-hyper-unique@^2.0.8, array-hyper-unique@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.npmjs.org/array-hyper-unique/-/array-hyper-unique-2.1.1.tgz#d5c44d6fbdd105ace85970436cdd8b30079204e3"
-  integrity sha512-Ptnu7R77ntMfRQhuW2keYtFaagy74JV/Senv77dywlom9oO0NvUzoOOAs/ZVwd9pthjjXVLdTYW9PyN+Hl2w9w==
+array-hyper-unique@^2.0.6, array-hyper-unique@^2.0.8, array-hyper-unique@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.npmjs.org/array-hyper-unique/-/array-hyper-unique-2.1.2.tgz#882cd6d10fb148c43ce47504fdd41ec5a5ec792d"
+  integrity sha512-XdJEvm/Svl+qeLytxdN7CQD3Sc61xIVTjkvpj5C0NGq1zkvwUnypz2fZuJmQ2ZlEf3+a9M5CrD5xSo+eZCDLKA==
   dependencies:
     deep-eql "= 4.0.0"
     lodash "^4.17.21"
-    tslib "^2"
 
 array-ify@^1.0.0:
   version "1.0.0"
@@ -3488,12 +3486,12 @@ err-errors@^1.0.11:
   resolved "https://registry.npmjs.org/err-errors/-/err-errors-1.0.11.tgz#1d619d950f62ffa1c5024b044990b7e925e3131d"
   integrity sha512-Lpf+/NE4dqUa9Fcdrp6sCeiVuVQ6bO1VIqix7aWwhJoGY4B8GM5C6iTquwrLn2Bv0inrtG/4BlwvgK5sHMyw2Q==
 
-err-indent@^1.0.13:
-  version "1.0.13"
-  resolved "https://registry.npmjs.org/err-indent/-/err-indent-1.0.13.tgz#da7d4f76bb6ca4838ef2498f72c16941be8a5ee0"
-  integrity sha512-VqLG+j88pb5GSPxpa/iouGLBZ3cq0RNbNUatcvAW745Kk5K+uw/NdXSdSfw3G52yr71wwem6QPmGD52Heu/sSw==
+err-indent@^1.0.14:
+  version "1.0.14"
+  resolved "https://registry.npmjs.org/err-indent/-/err-indent-1.0.14.tgz#c32f4a7ff0cf833afdc7f31b48d9ea2d57ae5649"
+  integrity sha512-sNVGsynVFwDbAPv1gt8WEUyfEWPm7G+JwTIsvLQNzmm5h0IhP3rociBtuuu+JmI2kdEVPI/ExQnd857E0eU84A==
   dependencies:
-    array-hyper-unique "^2.1.1"
+    array-hyper-unique "^2.1.2"
     check-iterable "^1.0.5"
     clean-stack "<4 >=3.0.1"
     err-errors "^1.0.11"
@@ -5690,14 +5688,14 @@ latest-version@^5.1.0:
   dependencies:
     package-json "^6.3.0"
 
-lazy-aggregate-error@^1.0.17:
-  version "1.0.17"
-  resolved "https://registry.npmjs.org/lazy-aggregate-error/-/lazy-aggregate-error-1.0.17.tgz#8cd727c528e93b4b3623381e964262b08498b403"
-  integrity sha512-HqpD/0+EmoX7yWDSLBSTeq0LmPXUI6QlZnWv52CoUYQ5wrOPhovQCTBW0h1qKUGO1UGDq4zPnN6NxJ/kn1wkdQ==
+lazy-aggregate-error@^1.0.18:
+  version "1.0.18"
+  resolved "https://registry.npmjs.org/lazy-aggregate-error/-/lazy-aggregate-error-1.0.18.tgz#8d26f9fdefd3a4eef64cc96eeca2ac07b1350f82"
+  integrity sha512-4r2EM5QnhY+SNMO2ISqCXjkU3jHzixIHD1r2GSSA3KZwMM7XdL8eGD5SuC1MgYnXRKztTK4ADm+cUip1eRYhXA==
   dependencies:
     "@bluelovers/extend-bases" "^2.0.2"
     aggregate-error-or-core-js "^1.0.8"
-    err-indent "^1.0.13"
+    err-indent "^1.0.14"
     err-stack-meta "^1.0.14"
     error-stack2 "^2.0.4"
 
@@ -7835,12 +7833,12 @@ sort-object-keys2@^2.0.3:
   resolved "https://registry.npmjs.org/sort-object-keys2/-/sort-object-keys2-2.0.3.tgz#2a2e58e476ca8c2016a6f69846b9ab2044d8627a"
   integrity sha512-iqhaVnv8sw6Gsj91Zdzyk2VJ7/Qt8XU3MfmOvHfLUISqswA51Ddi2Q44lVwLeGtxNGQ9qKvJpHRjcZvlQJ6srg==
 
-sort-object-keys2@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.npmjs.org/sort-object-keys2/-/sort-object-keys2-3.0.1.tgz#32b670f2ebdb56f6a3cb4af39af96e95d8cf67fd"
-  integrity sha512-BnvFGiq4bVb0g3jg+7m7nvXJywzbWOJNL8Q6UHJiVK2MXxA40NWRir+dkcgzXgQq6QgUmF42se9EznMWpAAcQQ==
+sort-object-keys2@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.npmjs.org/sort-object-keys2/-/sort-object-keys2-3.0.2.tgz#faaa19e93e7f119929122f2b8bca54eb5d992cc0"
+  integrity sha512-2T5hS2Vz3lMQhI0wh0bpjo7gRIZEu2J3C/q477VmybVvZNYmGvR8RtHEC/1p/GwHtr13emTAVPDSLv+IbBdtBg==
   dependencies:
-    "@lazy-array/util-unique" "^1.0.1"
+    "@lazy-array/util-unique" "^1.0.2"
 
 sort-object-keys@^1.1.3:
   version "1.1.3"
