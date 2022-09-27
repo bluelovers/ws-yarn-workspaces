@@ -6,9 +6,10 @@ import {
 	findWorkspaceRoot as findYarnWorkspaceRoot,
 } from 'find-yarn-workspace-root2/core';
 import errcode from 'err-code';
-import { pathIsSame as pathEqual } from 'path-is-same';
+import { pathIsSame, pathIsSame as pathEqual } from 'path-is-same';
 
 import { sync as pkgDir } from 'pkg-dir';
+import { ITSPickExtra } from 'ts-type/lib/type/record';
 
 export interface IFindRootReturnType
 {
@@ -117,6 +118,21 @@ export function findRoot(options: IFindRootOptions, _throwError?: boolean): IFin
 	}
 
 	return rootData
+}
+
+export function newFakeRootData(rootData: IFindRootReturnType, input: ITSPickExtra<IFindRootReturnType, 'pkg'>): IFindRootReturnType
+{
+	const isRoot = input.isRoot ?? pathIsSame(input.pkg, rootData.root);
+	const isWorkspace = input.isWorkspace ?? pathIsSame(input.pkg, rootData.ws);
+
+	const _rootDataFake: IFindRootReturnType = {
+		...rootData,
+		...input,
+		isRoot,
+		isWorkspace,
+	};
+
+	return _rootDataFake
 }
 
 export function assertHasWorkspaces<T extends IFindRootReturnType>(rootData: T): asserts rootData is T & {

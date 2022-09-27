@@ -1,5 +1,6 @@
 import { normalize as pathNormalize } from 'upath2';
 import { pathIsSame as pathEqual } from 'path-is-same';
+import { ITSPickExtra } from 'ts-type/lib/type/record';
 export interface IFindRootReturnType {
     cwd: string;
     pkg: string;
@@ -18,6 +19,7 @@ export interface IFindRootOptions {
 }
 export declare function findRootLazy(options?: Partial<IFindRootOptions>, _throwError?: boolean): IFindRootReturnType;
 export declare function findRoot(options: IFindRootOptions, _throwError?: boolean): IFindRootReturnType;
+export declare function newFakeRootData(rootData: IFindRootReturnType, input: ITSPickExtra<IFindRootReturnType, 'pkg'>): IFindRootReturnType;
 export declare function assertHasWorkspaces<T extends IFindRootReturnType>(rootData: T): asserts rootData is T & {
     hasWorkspace: true;
 };

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.listMatchedPatternByPath = exports.pathEqual = exports.pathNormalize = exports.assertHasAndNotWorkspacesRoot = exports.assertNotWorkspacesRoot = exports.assertHasWorkspaces = exports.findRoot = exports.findRootLazy = void 0;
+exports.listMatchedPatternByPath = exports.pathEqual = exports.pathNormalize = exports.assertHasAndNotWorkspacesRoot = exports.assertNotWorkspacesRoot = exports.assertHasWorkspaces = exports.newFakeRootData = exports.findRoot = exports.findRootLazy = void 0;
 const tslib_1 = require("tslib");
 const upath2_1 = require("upath2");
 Object.defineProperty(exports, "pathNormalize", { enumerable: true, get: function () { return upath2_1.normalize; } });
@@ -72,6 +72,19 @@ function findRoot(options, _throwError) {
     return rootData;
 }
 exports.findRoot = findRoot;
+function newFakeRootData(rootData, input) {
+    var _a, _b;
+    const isRoot = (_a = input.isRoot) !== null && _a !== void 0 ? _a : (0, path_is_same_1.pathIsSame)(input.pkg, rootData.root);
+    const isWorkspace = (_b = input.isWorkspace) !== null && _b !== void 0 ? _b : (0, path_is_same_1.pathIsSame)(input.pkg, rootData.ws);
+    const _rootDataFake = {
+        ...rootData,
+        ...input,
+        isRoot,
+        isWorkspace,
+    };
+    return _rootDataFake;
+}
+exports.newFakeRootData = newFakeRootData;
 function assertHasWorkspaces(rootData) {
     var _a;
     if (!((_a = rootData.pkg) === null || _a === void 0 ? void 0 : _a.length) || rootData.hasWorkspace !== true) {
