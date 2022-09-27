@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.10](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@2.0.9...@yarn-tool/static-file@2.0.10) (2022-09-27)
+
+
+
+### ✨　Features
+
+* update browserslist ([46c75a6](https://github.com/bluelovers/ws-yarn-workspaces/commit/46c75a68ec32d90dbfbefb75092443310ed127cb))
+* { .mocharc.yml => .mocharc.yml.tpl } ([03c8ee0](https://github.com/bluelovers/ws-yarn-workspaces/commit/03c8ee0751368c91251cf987eabdf69457d27344))
+
+
+
 ## [2.0.9](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@2.0.8...@yarn-tool/static-file@2.0.9) (2022-09-12)
 
 

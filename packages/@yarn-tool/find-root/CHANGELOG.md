@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-root@2.0.6...@yarn-tool/find-root@2.0.7) (2022-09-27)
+
+
+
+### ✨　Features
+
+* `newFakeRootData` ([771799f](https://github.com/bluelovers/ws-yarn-workspaces/commit/771799f19960c5d7115361e33c90de0b5cfe4272))
+
+
+
 ## [2.0.6](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-root@2.0.5...@yarn-tool/find-root@2.0.6) (2022-09-06)
 
 

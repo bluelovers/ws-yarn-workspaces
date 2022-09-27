@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/workspaces-project",
-  "version": "2.0.12",
+  "version": "2.0.13",
   "description": "mixin yarn/lerna workspaces",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/workspaces-project#readme",
   "bugs": {
@@ -32,7 +32,7 @@
     "@lerna/project": "^5.5.2",
     "@ts-type/package-dts": "^2.0.5",
     "@types/npm-package-arg": "*",
-    "@yarn-tool/changelog": "^2.0.14",
+    "@yarn-tool/changelog": "^2.0.15",
     "find-yarn-workspace-root2": "^1.2.43",
     "fs-extra": "^10.1.0",
     "lodash": "^4.17.21",

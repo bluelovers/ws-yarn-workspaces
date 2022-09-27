@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarnlock-parse-assert",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "",
   "keywords": [
     "yarn",
@@ -70,7 +70,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/detect-yarnlock-version": "^1.0.27",
+    "@yarn-tool/detect-yarnlock-version": "^1.0.28",
     "@yarn-tool/yarnlock-error": "^1.0.11"
   },
   "packageManager": "yarn@1.22.19",

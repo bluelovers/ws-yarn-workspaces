@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.22](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-all@2.0.21...@yarn-tool/fix-all@2.0.22) (2022-09-27)
+
+
+
+### 🐛　Bug Fixes
+
+* use `newFakeRootData` ([1ba4502](https://github.com/bluelovers/ws-yarn-workspaces/commit/1ba4502ba5fd2fa8200d50a745b4ed8a2bf7b310))
+* resolve exports ([39a8f85](https://github.com/bluelovers/ws-yarn-workspaces/commit/39a8f85ad96679173723eaeb88c432e665fd83ea))
+
+
+### ✨　Features
+
+* update script ([cb56d8a](https://github.com/bluelovers/ws-yarn-workspaces/commit/cb56d8a03cfff3222b00394716c5de533209e04c))
+* fix tsdx ([55b6ec2](https://github.com/bluelovers/ws-yarn-workspaces/commit/55b6ec2c8a335b8bdd49eb3b10c0869d621b47bb))
+
+
+### 📌　Dependencies
+
+* update deps ([b56f33e](https://github.com/bluelovers/ws-yarn-workspaces/commit/b56f33eaffc42cd0fa0b0d5f0641e7dca56857d4))
+* update deps ([266efb0](https://github.com/bluelovers/ws-yarn-workspaces/commit/266efb0683a5849490baa5ee93316ef0699e67ca))
+
+
+
 ## [2.0.21](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-all@2.0.19...@yarn-tool/fix-all@2.0.21) (2022-09-22)
 
 

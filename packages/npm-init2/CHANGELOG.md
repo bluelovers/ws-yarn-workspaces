@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.20](https://github.com/bluelovers/ws-yarn-workspaces/compare/npm-init2@2.0.19...npm-init2@2.0.20) (2022-09-27)
+
+
+
+### ✨　Features
+
+* update script ([cb56d8a](https://github.com/bluelovers/ws-yarn-workspaces/commit/cb56d8a03cfff3222b00394716c5de533209e04c))
+
+
+### 📦　Code Refactoring
+
+* use @yarn-tool/write-package-json ([4fba0c0](https://github.com/bluelovers/ws-yarn-workspaces/commit/4fba0c048570055327939c89b5ee37e40935f5c2))
+
+
+
 ## [2.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/npm-init2@2.0.18...npm-init2@2.0.19) (2022-09-22)
 
 **Note:** Version bump only for package npm-init2

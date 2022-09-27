@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ws-scope@2.0.6...@yarn-tool/ws-scope@2.0.7) (2022-09-27)
+
+
+
+### 📦　Code Refactoring
+
+* use @yarn-tool/write-package-json ([4fba0c0](https://github.com/bluelovers/ws-yarn-workspaces/commit/4fba0c048570055327939c89b5ee37e40935f5c2))
+
+
+### 📌　Dependencies
+
+* update deps ([b56f33e](https://github.com/bluelovers/ws-yarn-workspaces/commit/b56f33eaffc42cd0fa0b0d5f0641e7dca56857d4))
+* update deps ([266efb0](https://github.com/bluelovers/ws-yarn-workspaces/commit/266efb0683a5849490baa5ee93316ef0699e67ca))
+
+
+
 ## [2.0.6](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ws-scope@2.0.5...@yarn-tool/ws-scope@2.0.6) (2022-09-06)
 
 

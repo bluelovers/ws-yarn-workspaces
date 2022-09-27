@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarnlock-parse",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "parse yarnlock all version",
   "keywords": [
     "yarn",
@@ -40,9 +40,9 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@yarn-tool/detect-yarnlock-version": "^1.0.27",
+    "@yarn-tool/detect-yarnlock-version": "^1.0.28",
     "@yarn-tool/yarnlock-error": "^1.0.11",
-    "@yarn-tool/yarnlock-parse-raw": "^1.0.7"
+    "@yarn-tool/yarnlock-parse-raw": "^1.0.8"
   },
   "publishConfig": {
     "access": "public"

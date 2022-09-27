@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.17](https://github.com/bluelovers/ws-yarn-workspaces/compare/create-yarn-workspaces@2.0.16...create-yarn-workspaces@2.0.17) (2022-09-27)
+
+
+
+### ✨　Features
+
+* update script ([cb56d8a](https://github.com/bluelovers/ws-yarn-workspaces/commit/cb56d8a03cfff3222b00394716c5de533209e04c))
+
+
+
 ## [2.0.16](https://github.com/bluelovers/ws-yarn-workspaces/compare/create-yarn-workspaces@2.0.15...create-yarn-workspaces@2.0.16) (2022-09-12)
 
 **Note:** Version bump only for package create-yarn-workspaces

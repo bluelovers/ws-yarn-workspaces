@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.8](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/setup-module-env@2.0.7...@yarn-tool/setup-module-env@2.0.8) (2022-09-27)
+
+
+
+### 🐛　Bug Fixes
+
+* use `newFakeRootData` ([1ba4502](https://github.com/bluelovers/ws-yarn-workspaces/commit/1ba4502ba5fd2fa8200d50a745b4ed8a2bf7b310))
+
+
+### ✨　Features
+
+* fix tsdx ([55b6ec2](https://github.com/bluelovers/ws-yarn-workspaces/commit/55b6ec2c8a335b8bdd49eb3b10c0869d621b47bb))
+
+
+
 ## [2.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/setup-module-env@2.0.6...@yarn-tool/setup-module-env@2.0.7) (2022-09-12)
 
 

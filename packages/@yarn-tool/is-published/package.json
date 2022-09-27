@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/is-published",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "check package is published or not",
   "keywords": [
     "yarn",
@@ -70,7 +70,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/npa-to-deps-query": "^2.0.8",
+    "@yarn-tool/npa-to-deps-query": "^2.0.9",
     "tslib": ">=2"
   },
   "packageManager": "yarn@1.22.19",
