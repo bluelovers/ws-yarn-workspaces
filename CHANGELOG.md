@@ -40,6 +40,7 @@ Please see the individual package changelogs for what's new:
 * 🌏 [`@yarn-tool/pkg-name-to-types`](./packages/@yarn-tool/pkg-name-to-types/CHANGELOG.md "packages/@yarn-tool/pkg-name-to-types") *packages/@yarn-tool/pkg-name-to-types*
 * 🌏 [`@yarn-tool/pkg-name-util`](./packages/@yarn-tool/pkg-name-util/CHANGELOG.md "packages/@yarn-tool/pkg-name-util") *packages/@yarn-tool/pkg-name-util*
 * 🌏 [`@yarn-tool/pkg-version-query`](./packages/@yarn-tool/pkg-version-query/CHANGELOG.md "packages/@yarn-tool/pkg-version-query") *packages/@yarn-tool/pkg-version-query*
+* 🌏 [`@yarn-tool/publish-retry`](./packages/@yarn-tool/publish-retry/CHANGELOG.md "packages/@yarn-tool/publish-retry") *packages/@yarn-tool/publish-retry*
 * 🌏 [`@yarn-tool/require-resolve`](./packages/@yarn-tool/require-resolve/CHANGELOG.md "packages/@yarn-tool/require-resolve") *packages/@yarn-tool/require-resolve*
 * 🌏 [`@yarn-tool/resolve-package`](./packages/@yarn-tool/resolve-package/CHANGELOG.md "packages/@yarn-tool/resolve-package") *packages/@yarn-tool/resolve-package*
 * 🌏 [`@yarn-tool/run-script-lifecycle`](./packages/@yarn-tool/run-script-lifecycle/CHANGELOG.md "packages/@yarn-tool/run-script-lifecycle") *packages/@yarn-tool/run-script-lifecycle*
