@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.12](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-ws-links@2.0.11...@yarn-tool/fix-ws-links@2.0.12) (2022-09-27)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([5a4bc19](https://github.com/bluelovers/ws-yarn-workspaces/commit/5a4bc19a0a279a49e752d776279165e14c402427))
+
+
+
 ## [2.0.11](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-ws-links@2.0.10...@yarn-tool/fix-ws-links@2.0.11) (2022-09-27)
 
 **Note:** Version bump only for package @yarn-tool/fix-ws-links

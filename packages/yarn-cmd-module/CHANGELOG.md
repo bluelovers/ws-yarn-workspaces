@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.20](https://github.com/bluelovers/ws-yarn-workspaces/compare/yarn-cmd-module@1.0.19...yarn-cmd-module@1.0.20) (2022-09-27)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([5a4bc19](https://github.com/bluelovers/ws-yarn-workspaces/commit/5a4bc19a0a279a49e752d776279165e14c402427))
+
+
+
 ## [1.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/yarn-cmd-module@1.0.17...yarn-cmd-module@1.0.19) (2022-09-22)
 
 

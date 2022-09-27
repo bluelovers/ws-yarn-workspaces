@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/up-require@2.0.6...up-require@2.0.7) (2022-09-27)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([5a4bc19](https://github.com/bluelovers/ws-yarn-workspaces/commit/5a4bc19a0a279a49e752d776279165e14c402427))
+
+
+
 ## [2.0.6](https://github.com/bluelovers/ws-yarn-workspaces/compare/up-require@2.0.5...up-require@2.0.6) (2022-09-06)
 
 

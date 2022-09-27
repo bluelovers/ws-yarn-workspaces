@@ -1,6 +1,6 @@
 {
   "name": "up-require",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "Require package module from highest or list of module.",
   "keywords": [
     "export",
