@@ -48,7 +48,7 @@
   "config": {},
   "resolutions": {},
   "dependencies": {
-    "@bluelovers/fs-json": "^1.0.9",
+    "@bluelovers/fs-json": "^1.0.10",
     "@ts-type/package-dts": "^2.0.5",
     "@yarn-tool/pkg-entry-util": "^2.0.17",
     "@yarn-tool/resolve-package": "^2.0.6",

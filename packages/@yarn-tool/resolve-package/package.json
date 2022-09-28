@@ -59,7 +59,7 @@
   "dependencies": {
     "pkg-dir": "<6 >=5",
     "tslib": ">=2",
-    "upath2": "^3.1.15"
+    "upath2": "^3.1.16"
   },
   "devDependencies": {
     "@ts-type/package-dts": "^2.0.5"

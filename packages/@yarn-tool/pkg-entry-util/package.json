@@ -59,7 +59,7 @@
     "@yarn-tool/resolve-package": "^2.0.6",
     "fs-extra": "^10.1.0",
     "tslib": ">=2",
-    "upath2": "^3.1.15"
+    "upath2": "^3.1.16"
   },
   "packageManager": "yarn@1.22.19",
   "publishConfig": {

@@ -58,7 +58,7 @@
     "micromatch": "^4.0.5",
     "ts-type": "^2.1.10",
     "tslib": ">=2",
-    "upath2": "^3.1.15",
+    "upath2": "^3.1.16",
     "workspaces-config": "^1.0.49"
   },
   "gitHead": "46d4d576f34d2d5218822811286119ea7a44d08b"

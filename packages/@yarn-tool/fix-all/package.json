@@ -78,7 +78,7 @@
     "sort-package-json3": "^2.0.8",
     "ts-type": "^2.1.10",
     "tslib": ">=2",
-    "upath2": "^3.1.15",
+    "upath2": "^3.1.16",
     "ws-pkg-list": "^2.0.8"
   },
   "packageManager": "yarn@1.22.19",

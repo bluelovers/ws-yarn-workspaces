@@ -37,7 +37,7 @@
     "find-yarn-workspace-root2": "^1.2.44",
     "fs-extra": "^10.1.0",
     "tslib": ">=2",
-    "upath2": "^3.1.15"
+    "upath2": "^3.1.16"
   },
   "gitHead": "40676553ac196265d354e537459d4c78d67f0a8c"
 }

@@ -29,18 +29,18 @@
     "sort-package-json": "ynpx --quiet yarn-tool -- sort"
   },
   "dependencies": {
-    "@lerna/project": "^5.5.2",
+    "@lerna/project": "^5.5.4",
     "@ts-type/package-dts": "^2.0.5",
     "@types/npm-package-arg": "*",
     "@yarn-tool/changelog": "^2.0.16",
     "find-yarn-workspace-root2": "^1.2.44",
     "fs-extra": "^10.1.0",
     "lodash": "^4.17.21",
-    "path-dir-normalize": "^1.0.25",
+    "path-dir-normalize": "^1.0.26",
     "sort-object-keys2": "^3.0.2",
     "ts-type": "^2.1.10",
     "tslib": ">=2",
-    "upath2": "^3.1.15"
+    "upath2": "^3.1.16"
   },
   "publishConfig": {
     "access": "public"

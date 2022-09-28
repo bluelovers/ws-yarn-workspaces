@@ -55,7 +55,7 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@lazy-node/is-writeable-path": "^1.0.13",
+    "@lazy-node/is-writeable-path": "^1.0.14",
     "@types/bluebird": "*",
     "@yarn-tool/find-root": "^2.0.8",
     "array-hyper-unique": "^2.1.2",
@@ -65,7 +65,7 @@
     "hash-sum": "^2.0.0",
     "tmp": "^0.2.1",
     "tslib": ">=2",
-    "upath2": "^3.1.15"
+    "upath2": "^3.1.16"
   },
   "gitHead": "46d4d576f34d2d5218822811286119ea7a44d08b"
 }

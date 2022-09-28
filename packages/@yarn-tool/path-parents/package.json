@@ -41,10 +41,10 @@
   },
   "dependencies": {
     "@yarn-tool/find-root": "^2.0.8",
-    "path-is-same": "^1.0.19",
-    "path-parents": "^1.0.26",
+    "path-is-same": "^1.0.20",
+    "path-parents": "^1.0.27",
     "tslib": ">=2",
-    "upath2": "^3.1.15"
+    "upath2": "^3.1.16"
   },
   "publishConfig": {
     "access": "public"

@@ -55,7 +55,7 @@
   "dependencies": {
     "@yarn-tool/find-root": "^2.0.8",
     "tslib": ">=2",
-    "upath2": "^3.1.15",
+    "upath2": "^3.1.16",
     "v8-compile-cache": "^2.3.0",
     "ws-pkg-list": "^2.0.8"
   },

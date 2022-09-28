@@ -46,9 +46,9 @@
     "@yarn-tool/find-root": "^2.0.8",
     "@yarn-tool/node-modules": "^2.0.8",
     "fs-extra": "^10.1.0",
-    "fs-stat": "^1.0.20",
-    "fs-symlink-extra": "^1.0.13",
-    "path-is-same": "^1.0.19",
+    "fs-stat": "^1.0.21",
+    "fs-symlink-extra": "^1.0.14",
+    "path-is-same": "^1.0.20",
     "tslib": ">=2",
     "ws-pkg-list": "^2.0.8"
   },
