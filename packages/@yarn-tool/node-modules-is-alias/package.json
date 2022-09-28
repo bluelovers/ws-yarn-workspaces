@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/node-modules-is-alias",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "description": "check given node modules path is alias or not",
   "keywords": [
     "yarn",
@@ -54,7 +54,7 @@
   },
   "dependencies": {
     "@yarn-tool/npm-package-arg-util": "^1.0.34",
-    "@yarn-tool/resolve-package": "^2.0.6",
+    "@yarn-tool/resolve-package": "^2.0.7",
     "pkg-dir": "<6 >=5",
     "tslib": ">=2",
     "upath2": "^3.1.16"

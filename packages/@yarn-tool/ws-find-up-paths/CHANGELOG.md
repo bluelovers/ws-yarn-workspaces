@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.8](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ws-find-up-paths@1.0.7...@yarn-tool/ws-find-up-paths@1.0.8) (2022-09-28)
+
+
+
+### 📌　Dependencies
+
+* update deps ([1d6bcad](https://github.com/bluelovers/ws-yarn-workspaces/commit/1d6bcad8d8cf45daeab2360144383208b2ea6b9d))
+
+
+
 ## [1.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ws-find-up-paths@1.0.6...@yarn-tool/ws-find-up-paths@1.0.7) (2022-09-27)
 
 

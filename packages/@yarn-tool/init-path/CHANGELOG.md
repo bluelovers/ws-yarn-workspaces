@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.30](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/init-path@1.0.29...@yarn-tool/init-path@1.0.30) (2022-09-28)
+
+**Note:** Version bump only for package @yarn-tool/init-path
+
+
+
+
+
 ## [1.0.29](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/init-path@1.0.28...@yarn-tool/init-path@1.0.29) (2022-09-27)
 
 

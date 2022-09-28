@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/fix-ws-pkgs-link",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "description": "",
   "keywords": [
     "yarn",
@@ -43,14 +43,14 @@
     "sort-package-json": "yarn-tool sort"
   },
   "dependencies": {
-    "@yarn-tool/find-root": "^2.0.8",
-    "@yarn-tool/node-modules": "^2.0.8",
+    "@yarn-tool/find-root": "^2.0.9",
+    "@yarn-tool/node-modules": "^2.0.9",
     "fs-extra": "^10.1.0",
     "fs-stat": "^1.0.21",
     "fs-symlink-extra": "^1.0.14",
     "path-is-same": "^1.0.20",
     "tslib": ">=2",
-    "ws-pkg-list": "^2.0.8"
+    "ws-pkg-list": "^2.0.9"
   },
   "publishConfig": {
     "access": "public"
