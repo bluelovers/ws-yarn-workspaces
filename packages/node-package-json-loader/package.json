@@ -39,6 +39,7 @@
     "test:jest": "jest --passWithNoTests",
     "test:jest:snapshot": "yarn run test:jest -- -u",
     "test:snapshot": "yarn run test -- -u",
+    "test:tsd": "ynpx tsd",
     "preversion": "yarn run test",
     "prepublishOnly": "echo prepublishOnly",
     "postpublish_": "git commit -m \"chore(release): publish\" .",
@@ -48,7 +49,7 @@
   "config": {},
   "resolutions": {},
   "dependencies": {
-    "@bluelovers/fs-json": "^1.0.10",
+    "@bluelovers/fs-json": "^1.0.12",
     "@ts-type/package-dts": "^2.0.5",
     "@yarn-tool/pkg-entry-util": "^2.0.18",
     "@yarn-tool/resolve-package": "^2.0.7",

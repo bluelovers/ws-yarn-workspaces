@@ -13,8 +13,8 @@ export function getRootCopyStaticFilesAuto(rootData: Pick<IFindRootReturnType, '
 		if (!rootData.hasWorkspace)
 		{
 			file_map = [
-				...defaultCopyStaticFilesRootOnly,
 				...file_map,
+				...defaultCopyStaticFilesRootOnly,
 			];
 		}
 	}

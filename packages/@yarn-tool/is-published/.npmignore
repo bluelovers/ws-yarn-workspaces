@@ -137,3 +137,6 @@ bin/tsconfig.*.json
 
 .yarnrc.yml
 .turbo
+__file_snapshots__
+__fixtures__
+/fixture/

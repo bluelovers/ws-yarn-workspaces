@@ -9,8 +9,8 @@ function getRootCopyStaticFilesAuto(rootData) {
     if (rootData.isRoot) {
         if (!rootData.hasWorkspace) {
             file_map = [
-                ...const_1.defaultCopyStaticFilesRootOnly,
                 ...file_map,
+                ...const_1.defaultCopyStaticFilesRootOnly,
             ];
         }
     }

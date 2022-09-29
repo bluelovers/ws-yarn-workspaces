@@ -1,4 +1,5 @@
-> 1%
-last 2 versions
-not ie <= 8
+defaults and not dead
+> 1% and not dead
 Firefox >= 56
+maintained node versions
+last 2 node major versions

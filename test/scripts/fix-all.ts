@@ -3,6 +3,7 @@ import { __ROOT_WS } from '../../__root_ws';
 
 let cwd = __ROOT_WS;
 
-npmAutoFixAll(cwd, {
+export default npmAutoFixAll(cwd, {
 	overwriteHostedGitInfo: true,
+	//resetStaticFiles: true,
 });
