@@ -23,7 +23,6 @@ const _defaultCopyStaticFiles = [
     ['tsdx.config.js.tpl', 'file/tsdx.config.js', 'tsdx.config.js'],
     ['tsc-multi.json.tpl', 'file/tsc-multi.json.tpl', 'tsc-multi.json'],
     ['test/__root.ts', 'file/test/__root.ts'],
-    ['.editorconfig.tpl', 'file/tpl.editorconfig'],
     //['changelog-option.js.tpl', 'file/changelog-option.js', 'changelog-option.js'],
 ];
 const _defaultCopyStaticFilesRootOnly = [
@@ -41,6 +40,8 @@ const _defaultCopyStaticFilesRootOnly = [
     ['jest.config.js', 'file/jest.config.js'],
     ['jest.config.js.tpl', 'file/jest.config.js'],
     ['jest.config.auto.js.tpl', 'file/jest.config.auto.js'],
+    ['.editorconfig.tpl', 'file/tpl.editorconfig'],
+    ['.editorconfig', 'file/tpl.editorconfig'],
 ];
 const _defaultCopyStaticFilesWsRootOnly = [
     ['lerna.json.tpl', 'file/lerna.json.tpl'],

@@ -40,8 +40,6 @@ const _defaultCopyStaticFiles = [
 
 	['test/__root.ts', 'file/test/__root.ts'],
 
-	['.editorconfig.tpl', 'file/tpl.editorconfig'],
-
 	//['changelog-option.js.tpl', 'file/changelog-option.js', 'changelog-option.js'],
 
 ] as const;
@@ -74,6 +72,9 @@ const _defaultCopyStaticFilesRootOnly = [
 
 	['jest.config.js.tpl', 'file/jest.config.js'],
 	['jest.config.auto.js.tpl', 'file/jest.config.auto.js'],
+
+	['.editorconfig.tpl', 'file/tpl.editorconfig'],
+	['.editorconfig', 'file/tpl.editorconfig'],
 
 ] as const;
 
