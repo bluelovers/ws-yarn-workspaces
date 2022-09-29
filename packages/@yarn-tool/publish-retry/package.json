@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/publish-retry",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "keywords": [
     "yarn",
@@ -71,11 +71,11 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/is-published": "^1.0.4",
+    "@yarn-tool/is-published": "^1.0.5",
     "cross-spawn-extra": "^2.1.0",
     "debug-color2": "^1.3.2",
     "tslib": ">=2",
-    "ws-pkg-list": "^2.0.9"
+    "ws-pkg-list": "^2.0.10"
   },
   "packageManager": "yarn@1.22.19",
   "publishConfig": {

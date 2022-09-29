@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/npm-package-json-loader@2.0.18...npm-package-json-loader@2.0.19) (2022-09-29)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([6035e23](https://github.com/bluelovers/ws-yarn-workspaces/commit/6035e2399f4f5a5f5e5ac56309b6dc37ffe91389))
+
+
+
 ## [2.0.18](https://github.com/bluelovers/ws-yarn-workspaces/compare/npm-package-json-loader@2.0.17...npm-package-json-loader@2.0.18) (2022-09-28)
 
 

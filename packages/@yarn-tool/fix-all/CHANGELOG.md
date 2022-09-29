@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.25](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-all@2.0.24...@yarn-tool/fix-all@2.0.25) (2022-09-29)
+
+
+
+### 🐛　Bug Fixes
+
+* _resetStaticFiles ([3ac7dda](https://github.com/bluelovers/ws-yarn-workspaces/commit/3ac7ddadae5b4f34a1d5bec2d6756c4696fab744))
+
+
+### ✨　Features
+
+* setupToYargs ([e3b1077](https://github.com/bluelovers/ws-yarn-workspaces/commit/e3b1077f83ca11c3f0293c443d1d0846da8e7e72))
+* _resetStaticFiles ([34e314f](https://github.com/bluelovers/ws-yarn-workspaces/commit/34e314fda7dd32b01d40e769746e63fe010afdea))
+
+
+
 ## [2.0.24](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-all@2.0.23...@yarn-tool/fix-all@2.0.24) (2022-09-28)
 
 
