@@ -8,16 +8,18 @@ import { copyStaticFiles } from '@yarn-tool/static-file';
 import { getWsCopyStaticFiles } from '@yarn-tool/static-file/lib/ws/wsCopyStaticFiles';
 import { getRootCopyStaticFilesAuto } from '@yarn-tool/static-file/lib/root/getRootCopyStaticFiles';
 import { _fixLernaJson } from './lib/ws/lerna';
+import { _resetStaticFiles } from './lib/file/reset';
 
 export interface INpmAutoFixAll
 {
 	overwriteHostedGitInfo?: boolean;
 	branch?: string;
+	resetStaticFiles?: boolean;
 }
 
 export function npmAutoFixAll(cwd: string, options?: INpmAutoFixAll)
 {
-	return Bluebird.resolve().then(() =>
+	return Bluebird.resolve().then(async () =>
 	{
 		cwd ??= process.cwd();
 
@@ -42,9 +44,20 @@ export function npmAutoFixAll(cwd: string, options?: INpmAutoFixAll)
 		console.log(`root:`, rootData.root);
 		console.log(`hasWorkspace:`, rootData.hasWorkspace);
 
-		let { branch, overwriteHostedGitInfo } = options ?? {};
+		let {
+			branch,
+			overwriteHostedGitInfo,
+			resetStaticFiles
+		} = options ?? {};
 
 		cwd = rootData.cwd;
+
+		if (resetStaticFiles)
+		{
+			_resetStaticFiles(rootData.root, {
+				rootData,
+			});
+		}
 
 		if (rootData.hasWorkspace)
 		{
@@ -86,7 +99,7 @@ export function npmAutoFixAll(cwd: string, options?: INpmAutoFixAll)
 				hostedGitInfo,
 				branch,
 				overwriteHostedGitInfo,
-			})
+			});
 		}
 		else
 		{
@@ -96,7 +109,7 @@ export function npmAutoFixAll(cwd: string, options?: INpmAutoFixAll)
 				branch,
 				overwriteHostedGitInfo,
 				targetDir: rootData.root,
-			})
+			});
 		}
 
 		_fixLernaJson({
@@ -110,6 +123,7 @@ export function npmAutoFixAll(cwd: string, options?: INpmAutoFixAll)
 			overwriteHostedGitInfo,
 			branch,
 			hostedGitInfo,
+			resetStaticFiles,
 		})
 	}).then(() => void 0 as void)
 }

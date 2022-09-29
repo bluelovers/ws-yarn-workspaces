@@ -12,8 +12,9 @@ const static_file_1 = require("@yarn-tool/static-file");
 const wsCopyStaticFiles_1 = require("@yarn-tool/static-file/lib/ws/wsCopyStaticFiles");
 const getRootCopyStaticFiles_1 = require("@yarn-tool/static-file/lib/root/getRootCopyStaticFiles");
 const lerna_1 = require("./lib/ws/lerna");
+const reset_1 = require("./lib/file/reset");
 function npmAutoFixAll(cwd, options) {
-    return bluebird_1.default.resolve().then(() => {
+    return bluebird_1.default.resolve().then(async () => {
         cwd !== null && cwd !== void 0 ? cwd : (cwd = process.cwd());
         logger_1.consoleLogger.info(`cwd: ${cwd}`);
         let rootData = (0, find_root_1.findRootLazy)({
@@ -29,8 +30,13 @@ function npmAutoFixAll(cwd, options) {
         }
         console.log(`root:`, rootData.root);
         console.log(`hasWorkspace:`, rootData.hasWorkspace);
-        let { branch, overwriteHostedGitInfo } = options !== null && options !== void 0 ? options : {};
+        let { branch, overwriteHostedGitInfo, resetStaticFiles } = options !== null && options !== void 0 ? options : {};
         cwd = rootData.cwd;
+        if (resetStaticFiles) {
+            (0, reset_1._resetStaticFiles)(rootData.root, {
+                rootData,
+            });
+        }
         if (rootData.hasWorkspace) {
             const file_map = (0, wsCopyStaticFiles_1.getWsCopyStaticFiles)();
             (0, static_file_1.copyStaticFiles)({
@@ -80,6 +86,7 @@ function npmAutoFixAll(cwd, options) {
             overwriteHostedGitInfo,
             branch,
             hostedGitInfo,
+            resetStaticFiles,
         });
     }).then(() => void 0);
 }

@@ -22,6 +22,7 @@ const pkg_scripts_1 = require("@yarn-tool/pkg-entry-util/lib/preset/scripts/pkg-
 const dummy_1 = require("@yarn-tool/pkg-entry-util/lib/util/scripts/dummy");
 const is_tsdx_1 = require("@yarn-tool/setup-module-env/lib/preset/tsdx/is-tsdx");
 const fix_1 = require("@yarn-tool/setup-module-env/lib/preset/tsdx/fix");
+const reset_1 = require("../file/reset");
 function _handler(cwd, ...argv) {
     return {
         ...(0, ws_pkg_list_1.normalizeListableRowExtra)(argv[0], cwd),
@@ -30,7 +31,7 @@ function _handler(cwd, ...argv) {
 }
 exports._handler = _handler;
 function _runEachPackagesAsync(list, options) {
-    const { rootData, overwriteHostedGitInfo, hostedGitInfo, branch, } = options;
+    const { rootData, overwriteHostedGitInfo, hostedGitInfo, branch, resetStaticFiles, } = options;
     let logger;
     let cache = {};
     return bluebird_1.default.resolve(list)
@@ -49,6 +50,11 @@ function _runEachPackagesAsync(list, options) {
             });
             const { isRoot, isWorkspace } = _rootDataFake;
             const pkg = new npm_package_json_loader_1.PackageJsonLoader(row.manifestLocation);
+            if (resetStaticFiles) {
+                (0, reset_1._resetStaticFiles)(rootData.root, {
+                    rootData,
+                });
+            }
             const file_map = (0, getRootCopyStaticFiles_1.getRootCopyStaticFilesAuto)(_rootDataFake);
             (0, static_file_1.copyStaticFiles)({
                 cwd: row.location,

@@ -22,6 +22,8 @@ import { isDummyEchoMaybeOrEmpty } from '@yarn-tool/pkg-entry-util/lib/util/scri
 import { EnumScriptsEntry } from '@yarn-tool/pkg-entry-util/lib/field/scripts';
 import { isTsdxPackage } from '@yarn-tool/setup-module-env/lib/preset/tsdx/is-tsdx';
 import { fixTsdxPackage } from '@yarn-tool/setup-module-env/lib/preset/tsdx/fix';
+import { _resetStaticFiles } from '../file/reset';
+import { INpmAutoFixAll } from '../../index';
 
 export function _handler(cwd: string, ...argv: Parameters<IOptionsPkgListable["handler"]>)
 {
@@ -33,8 +35,13 @@ export function _handler(cwd: string, ...argv: Parameters<IOptionsPkgListable["h
 
 export type IEntry = ReturnType<typeof _handler>
 
+export interface IOptionsRunEachPackages extends ITSRequiredPick<IFillPkgHostedInfoOptions & INpmAutoFixAll, 'overwriteHostedGitInfo' | 'branch' | 'rootData' | 'hostedGitInfo' | 'resetStaticFiles'>
+{
+
+}
+
 export function _runEachPackagesAsync(list: IEntry[],
-	options: ITSRequiredPick<IFillPkgHostedInfoOptions, 'overwriteHostedGitInfo' | 'branch' | 'rootData' | 'hostedGitInfo'>,
+	options: IOptionsRunEachPackages,
 )
 {
 	const {
@@ -42,6 +49,7 @@ export function _runEachPackagesAsync(list: IEntry[],
 		overwriteHostedGitInfo,
 		hostedGitInfo,
 		branch,
+		resetStaticFiles,
 	} = options;
 
 	let logger: ProgressEstimator;
@@ -72,6 +80,13 @@ export function _runEachPackagesAsync(list: IEntry[],
 				const { isRoot, isWorkspace } = _rootDataFake;
 
 				const pkg = new PackageJsonLoader(row.manifestLocation);
+
+				if (resetStaticFiles)
+				{
+					_resetStaticFiles(rootData.root, {
+						rootData,
+					});
+				}
 
 				const file_map = getRootCopyStaticFilesAuto(_rootDataFake);
 

@@ -71,6 +71,7 @@
     "cache-path": "^3.0.9",
     "debug-color2": "^1.3.2",
     "fs-extra": "^10.1.0",
+    "fs-remove-extra": "^1.0.2",
     "lazy-aggregate-error": "^1.0.18",
     "lodash": "^4.17.21",
     "npm-package-json-loader": "^2.0.18",
