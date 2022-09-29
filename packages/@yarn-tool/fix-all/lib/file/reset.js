@@ -10,6 +10,20 @@ function _resetStaticFiles(cwd, options) {
         'jest.config.js',
         'jest-preset.js',
         '.nowignore',
+        '.editorconfig.tpl',
+        'jest.config.js.tpl',
+        '.yarnrc.yml.tpl',
+        'tsc-multi.json.tpl',
+        'tsconfig.esm.json.tpl',
+        'tsconfig.json.tpl',
+        'tsconfig.tsdx.json.tpl',
+        'tsdx.config.js.tpl',
+        '.nycrc.tpl',
+        '.npmrc.tpl',
+        '.mocharc.yml.tpl',
+        '.nowignore',
+        '.browserslistrc',
+        '.browserslistrc.tpl',
     ]) {
         (0, fs_remove_extra_1.fsRemoveFileSync)((0, upath2_1.resolve)(cwd, file));
     }

@@ -51,8 +51,8 @@ function _runEachPackagesAsync(list, options) {
             const { isRoot, isWorkspace } = _rootDataFake;
             const pkg = new npm_package_json_loader_1.PackageJsonLoader(row.manifestLocation);
             if (resetStaticFiles) {
-                (0, reset_1._resetStaticFiles)(rootData.root, {
-                    rootData,
+                (0, reset_1._resetStaticFiles)(_rootDataFake.pkg, {
+                    rootData: _rootDataFake,
                 });
             }
             const file_map = (0, getRootCopyStaticFiles_1.getRootCopyStaticFilesAuto)(_rootDataFake);

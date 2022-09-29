@@ -83,8 +83,8 @@ export function _runEachPackagesAsync(list: IEntry[],
 
 				if (resetStaticFiles)
 				{
-					_resetStaticFiles(rootData.root, {
-						rootData,
+					_resetStaticFiles(_rootDataFake.pkg, {
+						rootData: _rootDataFake,
 					});
 				}
 
