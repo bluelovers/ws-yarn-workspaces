@@ -3,4 +3,6 @@ export declare function defaultSharedRootScripts(): {
     "test:jest:clearCache": string;
     "install:resetLockfile": string;
     "install:frozenLockfile": string;
+    "ws:fix-all": string;
+    "ws:fix-all:resetStaticFiles": string;
 };

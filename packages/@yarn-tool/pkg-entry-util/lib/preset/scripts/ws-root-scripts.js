@@ -40,7 +40,6 @@ function defaultWorkspaceRootScripts() {
         "postpublishOnly": "yarn run postpublishOnly:ws-root-changelog & echo postpublishOnly",
         "postpublishOnly:ws-root-changelog": "ynpx ws-root-changelog & git add ./CHANGELOG.md & git commit ./CHANGELOG.md -m \"chore(changelog): update changelog toc in workspaces root\" & echo update changelog toc in workspaces root",
         "install:reset-lockfile": "yarn-tool install --reset-lockfile",
-        "ws:fix-all": "yarn-tool fix-all  --overwriteHostedGitInfo",
         "tsc:showConfig": "ynpx get-current-tsconfig -p",
     };
 }

@@ -19,7 +19,6 @@ export declare function defaultWorkspaceRootScripts(): {
     postpublishOnly: string;
     "postpublishOnly:ws-root-changelog": string;
     "install:reset-lockfile": string;
-    "ws:fix-all": string;
     "tsc:showConfig": string;
     "lint:all": string;
     "lint:since": string;
@@ -40,4 +39,6 @@ export declare function defaultWorkspaceRootScripts(): {
     "test:jest:clearCache": string;
     "install:resetLockfile": string;
     "install:frozenLockfile": string;
+    "ws:fix-all": string;
+    "ws:fix-all:resetStaticFiles": string;
 };
