@@ -55,6 +55,7 @@
     "lerna:publish": "npx lerna publish",
     "lerna:publish:yes": "yarn run prepublishOnly:check-bin && npx lerna publish --yes --bump patch",
     "ws:fix-all": "ts-node ./test/scripts/fix-all.ts",
+    "ws:fix-all:resetStaticFiles": "yarn run ws:fix-all -- --resetStaticFiles",
     "preversion": "yarn run test",
     "version": "echo version",
     "postversion": "ts-node ./test/scripts/fix-all.ts",
