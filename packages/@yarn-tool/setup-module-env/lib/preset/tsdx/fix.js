@@ -5,7 +5,7 @@ const dot_values2_1 = require("dot-values2");
 function fixTsdxPackage(pkg, config) {
     var _a, _b, _c, _d, _e;
     var _f, _g;
-    if ((config === null || config === void 0 ? void 0 : config.rootData.hasWorkspace) && !config.rootData.isWorkspace) {
+    if (config.rootData.hasWorkspace && !config.rootData.isWorkspace) {
         (0, dot_values2_1.deleteValue)(pkg, ['dependencies', 'tslib']);
         (0, dot_values2_1.deleteValue)(pkg, ['devDependencies', 'tslib']);
     }
@@ -15,7 +15,7 @@ function fixTsdxPackage(pkg, config) {
             (_d = (_f = pkg.devDependencies)['tslib']) !== null && _d !== void 0 ? _d : (_f['tslib'] = pkg.dependencies['tslib']);
             (0, dot_values2_1.deleteValue)(pkg, ['dependencies', 'tslib']);
         }
-        if (config === null || config === void 0 ? void 0 : config.rootData.isRoot) {
+        if (config.rootData.isRoot) {
             (_e = (_g = pkg.devDependencies)['@bluelovers/tsconfig']) !== null && _e !== void 0 ? _e : (_g['@bluelovers/tsconfig'] = '*');
         }
     }

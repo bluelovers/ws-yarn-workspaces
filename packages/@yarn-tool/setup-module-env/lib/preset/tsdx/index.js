@@ -35,7 +35,7 @@ function updatePackageJson(pkg, config) {
     if (!pkg.keywords.includes("create-by-tsdx" /* EnumTsdx.keyword */)) {
         pkg.keywords.push("create-by-tsdx" /* EnumTsdx.keyword */);
     }
-    (0, fix_1.fixTsdxPackage)(pkg);
+    (0, fix_1.fixTsdxPackage)(pkg, config);
     return pkg;
 }
 exports.updatePackageJson = updatePackageJson;

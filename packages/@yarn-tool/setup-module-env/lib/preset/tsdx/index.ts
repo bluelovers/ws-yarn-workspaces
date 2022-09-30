@@ -51,7 +51,7 @@ export function updatePackageJson<P extends IPackageJson>(pkg: P, config?: ISetu
 		pkg.keywords.push(EnumTsdx.keyword);
 	}
 
-	fixTsdxPackage(pkg);
+	fixTsdxPackage(pkg, config);
 
 	return pkg
 }
@@ -86,7 +86,7 @@ export function setup<P extends IPackageJson>(config: ISetupTsdxOptions<P>)
 	pkg = updatePackageJson(pkg, config);
 
 	file_map = [
-		...defaultCopyStaticFilesTsdx,
+    ...defaultCopyStaticFilesTsdx,
 		...file_map,
 	];
 
