@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.20](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-entry-util@2.0.19...@yarn-tool/pkg-entry-util@2.0.20) (2022-09-30)
+
+
+
+### ✨　Features
+
+* move `ws:fix-all` to shared root ([c833c6d](https://github.com/bluelovers/ws-yarn-workspaces/commit/c833c6d09145058aba4455c2e6c338697eab5ac0))
+
+
+
 ## [2.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-entry-util@2.0.18...@yarn-tool/pkg-entry-util@2.0.19) (2022-09-29)
 
 

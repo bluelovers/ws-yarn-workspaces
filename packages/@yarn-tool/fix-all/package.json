@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/fix-all",
-  "version": "2.0.25",
+  "version": "2.0.26",
   "description": "auto check/fix workspaces/package",
   "keywords": [
     "yarn",
@@ -75,9 +75,9 @@
     "fs-remove-extra": "^1.0.2",
     "lazy-aggregate-error": "^1.0.18",
     "lodash": "^4.17.21",
-    "npm-package-json-loader": "^2.0.19",
+    "npm-package-json-loader": "^2.0.20",
     "progress-estimator": "^0.3.0",
-    "sort-package-json3": "^2.0.9",
+    "sort-package-json3": "^2.0.10",
     "ts-type": "^2.1.10",
     "tslib": ">=2",
     "upath2": "^3.1.18",
