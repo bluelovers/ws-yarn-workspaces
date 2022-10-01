@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/npm-package-arg-util",
-  "version": "1.0.35",
+  "version": "1.0.36",
   "description": "",
   "keywords": [
     "yarn",
@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "@types/npm-package-arg": "*",
-    "@yarn-tool/pkg-name-util": "^1.0.5",
+    "@yarn-tool/pkg-name-util": "^1.0.6",
     "npm-package-arg": "^9.1.2",
     "tslib": ">=2"
   },

@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.34](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/search-workspace-prefix-by-name@1.0.33...@yarn-tool/search-workspace-prefix-by-name@1.0.34) (2022-10-01)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([777d61a](https://github.com/bluelovers/ws-yarn-workspaces/commit/777d61af255146b2b1b1f364587c36a0f5bfc00c))
+
+
+
 ## [1.0.33](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/search-workspace-prefix-by-name@1.0.32...@yarn-tool/search-workspace-prefix-by-name@1.0.33) (2022-09-29)
 
 

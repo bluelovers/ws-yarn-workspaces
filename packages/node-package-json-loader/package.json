@@ -1,6 +1,6 @@
 {
   "name": "npm-package-json-loader",
-  "version": "2.0.20",
+  "version": "2.0.21",
   "private": false,
   "description": "Find and load configuration from a package.json",
   "keywords": [
@@ -51,12 +51,12 @@
   "dependencies": {
     "@bluelovers/fs-json": "^1.0.12",
     "@ts-type/package-dts": "^2.0.5",
-    "@yarn-tool/pkg-entry-util": "^2.0.20",
-    "@yarn-tool/resolve-package": "^2.0.8",
-    "@yarn-tool/write-package-json": "^1.0.9",
+    "@yarn-tool/pkg-entry-util": "^2.0.21",
+    "@yarn-tool/resolve-package": "^2.0.9",
+    "@yarn-tool/write-package-json": "^1.0.10",
     "bind-decorator": "^1.0.11",
     "fs-extra": "^10.1.0",
-    "sort-package-json3": "^2.0.10",
+    "sort-package-json3": "^2.0.11",
     "ts-type": "^2.1.10",
     "tslib": ">=2"
   },

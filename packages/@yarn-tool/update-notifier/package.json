@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/update-notifier",
-  "version": "1.0.35",
+  "version": "1.0.36",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/update-notifier#readme",
   "bugs": {
@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@npmcli/ci-detect": "^2.0.0",
-    "@yarn-tool/is-npx": "^1.0.15",
+    "@yarn-tool/is-npx": "^1.0.16",
     "tslib": ">=2",
     "update-notifier": "<6 >=5.1.0"
   },

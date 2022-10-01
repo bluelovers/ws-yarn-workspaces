@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.13](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/setup-module-env@2.0.12...@yarn-tool/setup-module-env@2.0.13) (2022-10-01)
+
+
+
+### 🐛　Bug Fixes
+
+* fixTsdxPackage when init pkg ([cd5309e](https://github.com/bluelovers/ws-yarn-workspaces/commit/cd5309e9ba764499ef6bd4b6f7b14f62f035c38d))
+
+
+### 📌　Dependencies
+
+* update deps ([c430f84](https://github.com/bluelovers/ws-yarn-workspaces/commit/c430f84f3f3dcfe685b2875f8706f985d5a41ef2))
+
+
+### 🔖　Miscellaneous
+
+* . ([777d61a](https://github.com/bluelovers/ws-yarn-workspaces/commit/777d61af255146b2b1b1f364587c36a0f5bfc00c))
+
+
+
 ## [2.0.12](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/setup-module-env@2.0.11...@yarn-tool/setup-module-env@2.0.12) (2022-09-30)
 
 **Note:** Version bump only for package @yarn-tool/setup-module-env
