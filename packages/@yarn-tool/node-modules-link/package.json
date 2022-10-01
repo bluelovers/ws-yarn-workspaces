@@ -39,10 +39,10 @@
     "@yarn-tool/node-modules": "^2.0.10",
     "find-yarn-workspace-root2": "^1.2.46",
     "fs-extra": "^10.1.0",
-    "fs-symlink-extra": "^1.0.17",
+    "fs-symlink-extra": "^1.0.18",
     "tslib": ">=2",
     "upath2": "^3.1.18",
-    "yargs": "^17.5.1"
+    "yargs": "^17.6.0"
   },
   "publishConfig": {
     "access": "public"

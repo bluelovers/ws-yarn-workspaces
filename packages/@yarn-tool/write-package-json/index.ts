@@ -9,7 +9,7 @@ import {
 export function _handleOptions<T extends IWriteOptions>(options: T): T
 {
 	// @ts-ignore
-	let { spaces = 2, finalEOL = false } = options;
+	let { spaces = 2, finalEOL = true } = options;
 
 	return {
 		// @ts-ignore

@@ -62,7 +62,7 @@
     "tslib": ">=2"
   },
   "peerDependencies": {
-    "yargs": "^17.5.1"
+    "yargs": "^17.6.0"
   },
   "publishConfig": {
     "access": "public"

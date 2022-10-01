@@ -19,7 +19,11 @@ function updatePackageJson(pkg, config) {
     (_f = (_t = pkg.scripts)["build:tsdx"]) !== null && _f !== void 0 ? _f : (_t["build:tsdx"] = "ynpx @bluelovers/tsdx build --target node");
     (_g = (_u = pkg.scripts)["build:dts:copy"]) !== null && _g !== void 0 ? _g : (_u["build:dts:copy"] = "copy .\\src\\index.d.ts .\\dist\\index.d.ts & echo build:dts");
     (_h = (_v = pkg.scripts)["build:dts:tsc:emit"]) !== null && _h !== void 0 ? _h : (_v["build:dts:tsc:emit"] = "tsc --emitDeclarationOnly --declaration --noEmit false");
-    (_j = (_w = pkg.scripts)["build:dts:tsc"]) !== null && _j !== void 0 ? _j : (_w["build:dts:tsc"] = "yarn run build:dts:tsc:emit && yarn run build:dts:copy");
+    (_j = (_w = pkg.scripts)["build:dts:tsc"]) !== null && _j !== void 0 ? _j : (_w["build:dts:tsc"] = [
+        'yarn run build:dts:copy',
+        'yarn run build:dts:tsc:emit',
+        'yarn run build:dts:copy',
+    ].join(' && '));
     pkg.main = "dist/index.cjs";
     pkg.module = "dist/index.esm.mjs";
     pkg.types = pkg.typings = "dist/index.d.ts";

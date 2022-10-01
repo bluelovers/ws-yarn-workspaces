@@ -29,7 +29,11 @@ export function updatePackageJson<P extends IPackageJson>(pkg: P, config?: ISetu
 
 	pkg.scripts["build:dts:copy"] ??= "copy .\\src\\index.d.ts .\\dist\\index.d.ts & echo build:dts";
 	pkg.scripts["build:dts:tsc:emit"] ??= "tsc --emitDeclarationOnly --declaration --noEmit false";
-	pkg.scripts["build:dts:tsc"] ??= "yarn run build:dts:tsc:emit && yarn run build:dts:copy";
+	pkg.scripts["build:dts:tsc"] ??= [
+    'yarn run build:dts:copy',
+    'yarn run build:dts:tsc:emit',
+    'yarn run build:dts:copy',
+  ].join(' && ');
 
 	pkg.main = "dist/index.cjs";
 	pkg.module = "dist/index.esm.mjs";
