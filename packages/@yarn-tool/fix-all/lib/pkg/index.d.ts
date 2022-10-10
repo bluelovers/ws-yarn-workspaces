@@ -5,7 +5,7 @@ import { IFillPkgHostedInfoOptions } from '@yarn-tool/pkg-hosted-info';
 import { ITSRequiredPick } from 'ts-type/lib/type/record';
 import { INpmAutoFixAll } from '../../index';
 export declare function _handler(cwd: string, ...argv: Parameters<IOptionsPkgListable["handler"]>): {
-    pkg: import("@ts-type/package-dts").IPackageJson<any>;
+    pkg: import("@ts-type/package-dts").IPackageJson<unknown>;
     manifestLocation: string;
     name: string;
     version: string;
@@ -18,7 +18,7 @@ export interface IOptionsRunEachPackages extends ITSRequiredPick<IFillPkgHostedI
 }
 export declare function _runEachPackagesAsync(list: IEntry[], options: IOptionsRunEachPackages): Bluebird<void[]>;
 export declare function _initPkgListableByRootData(rootData: Pick<IFindRootReturnType, 'root' | 'hasWorkspace'>): {
-    pkg: import("@ts-type/package-dts").IPackageJson<any>;
+    pkg: import("@ts-type/package-dts").IPackageJson<unknown>;
     manifestLocation: string;
     name: string;
     version: string;

@@ -10,7 +10,7 @@ export declare function installDepsFromYarnLockCore<T extends string>(packageNam
     added: IAddedList;
     exists: string[];
     others: T[];
-    pkg: import("@ts-type/package-dts").IPackageJson<any>;
+    pkg: import("@ts-type/package-dts").IPackageJson<unknown>;
     updated: boolean;
 }>;
 /**
@@ -22,6 +22,6 @@ export declare function installDepsFromYarnLock<T extends string>(packageNames: 
     added: IAddedList;
     exists: string[];
     others: T[];
-    pkg: import("@ts-type/package-dts").IPackageJson<any>;
+    pkg: import("@ts-type/package-dts").IPackageJson<unknown>;
     updated: boolean;
 }>;

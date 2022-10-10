@@ -8,6 +8,6 @@ export declare function installDepsFromWorkspaces(packageNames: string[], option
     added: IAddedList;
     exists: string[];
     others: string[];
-    pkg: import("@ts-type/package-dts").IPackageJson<any>;
+    pkg: import("@ts-type/package-dts").IPackageJson<unknown>;
     updated: boolean;
 };

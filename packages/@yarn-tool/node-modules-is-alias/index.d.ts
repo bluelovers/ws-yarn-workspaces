@@ -9,7 +9,7 @@ export declare function parseModulePath(absolutePath: string): {
 export declare function parseModulePathIsAlias(absolutePath: string): {
     parsed: import("@yarn-tool/npm-package-arg-util/lib/types").IParsePackageName;
     resolveData: {
-        pkg: import("@ts-type/package-dts").IPackageJson<any>;
+        pkg: import("@ts-type/package-dts").IPackageJson<unknown>;
         pkgJsonLocation: string;
         resolveLocation(path: string, ...paths: string[]): string;
         name: string;
@@ -26,7 +26,7 @@ export declare function parseModulePathIsAlias(absolutePath: string): {
 export declare function parseModulePathIsAliasUnsafe(absolutePath: string): {
     parsed: import("@yarn-tool/npm-package-arg-util/lib/types").IParsePackageName;
     resolveData: {
-        pkg: import("@ts-type/package-dts").IPackageJson<any>;
+        pkg: import("@ts-type/package-dts").IPackageJson<unknown>;
         pkgJsonLocation: string;
         resolveLocation(path: string, ...paths: string[]): string;
         name: string;

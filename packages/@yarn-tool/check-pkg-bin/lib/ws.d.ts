@@ -1,7 +1,7 @@
 import { IPackageJson } from '@ts-type/package-dts';
 export declare function checkWorkspaces(cwd?: string): {
     name: string;
-    pkg: IPackageJson<any>;
+    pkg: IPackageJson<unknown>;
     pkgDir: string;
     result: {
         file: string;

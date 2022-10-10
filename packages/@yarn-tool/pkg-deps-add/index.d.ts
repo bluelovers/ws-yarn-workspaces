@@ -27,15 +27,15 @@ export declare function checkDependenciesExistsAll<N extends string, P extends I
 export declare function _add_to_deps_field_core<T extends IPackageJson>(pkg: T, field: IPackageJsonDependenciesField, name: string, semver: string): T;
 export declare function _add_to_deps_field(pkg: IPackageJson, field: IPackageJsonDependenciesField, name: string, semver: string, override: boolean, bool: EnumResultAddDependencies, existsOnly?: boolean): EnumResultAddDependencies;
 export declare function addDependencies(pkg: IPackageJson, name: string, semver: string, options?: IOptionsAddDepsToPackageJson, override?: boolean, existsOnly?: boolean): {
-    pkg: IPackageJson<any>;
+    pkg: IPackageJson<unknown>;
     bool: EnumResultAddDependencies;
 };
 export declare function addDependenciesIfNotExists(pkg: IPackageJson, name: string, semver: string, options?: IOptionsAddDepsToPackageJson): {
-    pkg: IPackageJson<any>;
+    pkg: IPackageJson<unknown>;
     bool: EnumResultAddDependencies;
 };
 export declare function addDependenciesOverwrite(pkg: IPackageJson, name: string, semver: string, options?: IOptionsAddDepsToPackageJson): {
-    pkg: IPackageJson<any>;
+    pkg: IPackageJson<unknown>;
     bool: EnumResultAddDependencies;
 };
 export default addDependencies;

@@ -13,7 +13,7 @@ export declare function packTargetPackage(options: {
     packageTarball?: string;
     versionPrefix?: string;
 }): Promise<{
-    pkg: IPackageJson<any>;
+    pkg: IPackageJson<unknown>;
     packageDir: string;
     packageTarball: string;
     versionPrefix?: string;

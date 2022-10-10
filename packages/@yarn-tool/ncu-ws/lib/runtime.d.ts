@@ -4,10 +4,10 @@ export declare function _handleRuntime(argv: IArgvRuntime, runtimeInput: IRuntim
     cwd: string;
     rootData: import("@yarn-tool/find-root").IFindRootReturnType;
     pkg_file: string;
-    pkg_data: IPackageJson<any>;
+    pkg_data: IPackageJson<unknown>;
     resolutions: import("@ts-type/package-dts/package-json").IDependency<string[]>;
     pkg_file_ws: string;
-    pkg_data_ws: IPackageJson<any>;
+    pkg_data_ws: IPackageJson<unknown>;
     doWorkspace: boolean;
     console: import("debug-color2").Console2;
     consoleDebug: import("debug-color2").Console2;

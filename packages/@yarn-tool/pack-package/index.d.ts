@@ -14,7 +14,7 @@ export declare function packPackage(options: {
 }): Promise<Readonly<{
     tarball(): Promise<IPackedTarballInfo>;
     log(): Promise<void>;
-    pkg: IPackageJson<any>;
+    pkg: IPackageJson<unknown>;
     packageDir: string;
     packageTarball: string;
     versionPrefix?: string;

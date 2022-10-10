@@ -10,5 +10,5 @@ export declare function firstPackageBin(bins: Record<string, string>): string;
 export declare function getPackageInfo(options: IOptions): {
     name: string;
     pkgRoot: string;
-    pkg: IPackageJson<any>;
+    pkg: IPackageJson<unknown>;
 };
