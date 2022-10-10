@@ -1174,10 +1174,10 @@
   resolved "https://registry.npmjs.org/@tootallnate/once/-/once-2.0.0.tgz#f544a148d3ab35801c1f633a7441fd87c2e484bf"
   integrity sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==
 
-"@ts-type/package-dts@^2.0.7":
-  version "2.0.7"
-  resolved "https://registry.npmjs.org/@ts-type/package-dts/-/package-dts-2.0.7.tgz#afa5f1d1b173aacaa705361b00c4d46fb7b0a210"
-  integrity sha512-yG+aXEKtp0wI7aUTS6Aik4EcVfX1289H/VqN/OgOsGywVcG0iz0Rzz6XP3se2t6qnF2wLWegCDuEqnhd/Ah2+Q==
+"@ts-type/package-dts@^2.0.8":
+  version "2.0.8"
+  resolved "https://registry.npmjs.org/@ts-type/package-dts/-/package-dts-2.0.8.tgz#4b68dd90186906c0e1088a0c4614725b32ca0008"
+  integrity sha512-LJ0oxAGTwy2imOYXkQQrgu+dUQKhyGilJYDlUuX98IiV15Zvv8KrX04PLR2KN7F3UfZBgfni2KoHHEW87ARJPg==
   dependencies:
     "@types/semver" "^7.3.12"
     ts-type "^3.0.1"
