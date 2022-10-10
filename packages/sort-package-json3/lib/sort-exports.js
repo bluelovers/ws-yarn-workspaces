@@ -30,7 +30,7 @@ function sortPackageJsonExports(exports) {
         Object.keys(exports)
             .forEach(key => {
             let value = exports[key];
-            if ((key === '.' || key.startsWith('./')) && isPackageJsonExportsEntryObject(value)) {
+            if (isPackageJsonExportsEntryObject(value)) {
                 exports[key] = (0, sort_object_keys2_1.sortObjectKeys)(value, {
                     keys: _order,
                     useSource: true,

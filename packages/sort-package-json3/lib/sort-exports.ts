@@ -41,7 +41,7 @@ export function sortPackageJsonExports(exports: IPackageJson["exports"])
 
 				let value = exports[key];
 
-				if ((key === '.' || key.startsWith('./')) && isPackageJsonExportsEntryObject(value))
+				if (isPackageJsonExportsEntryObject(value))
 				{
 					exports[key] = sortObjectKeys(value, {
 						keys: _order,
