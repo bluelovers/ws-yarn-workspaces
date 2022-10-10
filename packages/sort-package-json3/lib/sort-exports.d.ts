@@ -1,5 +1,4 @@
 import { IPackageJson } from '@ts-type/package-dts/package-json';
-export declare function sortPackageJsonExports(exports: IPackageJson["exports"]): string | import("@ts-type/package-dts/lib/package-json/exports").IPackageJsonExportsEntryObjectRoot | {
-    [k: string]: import("@ts-type/package-dts/types/package.json").PackageExportsEntry | import("@ts-type/package-dts/types/package.json").PackageExportsFallback;
-    "."?: import("@ts-type/package-dts/types/package.json").PackageExportsEntry | import("@ts-type/package-dts/types/package.json").PackageExportsFallback;
-} | import("@ts-type/package-dts/types/package.json").PackageExportsEntryObject1 | import("@ts-type/package-dts/types/package.json").PackageExportsFallback1;
+import { IPackageExportsEntryObject, IPackageExportsValue, IPackageJsonExportsEntryObjectRoot } from '@ts-type/package-dts/lib/package-json/exports';
+export declare function isPackageJsonExportsEntryObject<T extends IPackageExportsValue, O extends IPackageExportsEntryObject = IPackageExportsEntryObject>(exports: T): exports is Extract<T, O>;
+export declare function sortPackageJsonExports(exports: IPackageJson["exports"]): import("@ts-type/package-dts/lib/package-json/exports").IPackageExportsValueFallback | IPackageJsonExportsEntryObjectRoot;

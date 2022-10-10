@@ -1,11 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.sortPackageJsonExports = void 0;
+exports.sortPackageJsonExports = exports.isPackageJsonExportsEntryObject = void 0;
 const tslib_1 = require("tslib");
 const sort_object_keys2_1 = require("sort-object-keys2");
 const is_plain_obj_1 = tslib_1.__importDefault(require("is-plain-obj"));
+function isPackageJsonExportsEntryObject(exports) {
+    return (0, is_plain_obj_1.default)(exports);
+}
+exports.isPackageJsonExportsEntryObject = isPackageJsonExportsEntryObject;
 function sortPackageJsonExports(exports) {
-    if ((0, is_plain_obj_1.default)(exports)) {
+    if (isPackageJsonExportsEntryObject(exports)) {
         const _order = [
             'types',
             'require',
@@ -26,11 +30,9 @@ function sortPackageJsonExports(exports) {
         Object.keys(exports)
             .forEach(key => {
             let value = exports[key];
-            if ((key === '.' || key.startsWith('./')) && (0, is_plain_obj_1.default)(value)) {
+            if ((key === '.' || key.startsWith('./')) && isPackageJsonExportsEntryObject(value)) {
                 exports[key] = (0, sort_object_keys2_1.sortObjectKeys)(value, {
-                    keys: [
-                        ..._order,
-                    ],
+                    keys: _order,
                     useSource: true,
                 });
             }

@@ -1,10 +1,19 @@
 import { IPackageJson } from '@ts-type/package-dts/package-json';
 import { sortObjectKeys } from 'sort-object-keys2';
 import isPlainObject from 'is-plain-obj';
+import {
+	IPackageExportsEntryObject, IPackageExportsValue,
+	IPackageJsonExportsEntryObjectRoot,
+} from '@ts-type/package-dts/lib/package-json/exports';
+
+export function isPackageJsonExportsEntryObject<T extends IPackageExportsValue, O extends IPackageExportsEntryObject = IPackageExportsEntryObject>(exports: T): exports is Extract<T, O>
+{
+	return isPlainObject(exports)
+}
 
 export function sortPackageJsonExports(exports: IPackageJson["exports"])
 {
-	if (isPlainObject(exports))
+	if (isPackageJsonExportsEntryObject(exports))
 	{
 		const _order = [
 			'types',
@@ -32,12 +41,10 @@ export function sortPackageJsonExports(exports: IPackageJson["exports"])
 
 				let value = exports[key];
 
-				if ((key === '.' || key.startsWith('./')) && isPlainObject(value))
+				if ((key === '.' || key.startsWith('./')) && isPackageJsonExportsEntryObject(value))
 				{
 					exports[key] = sortObjectKeys(value, {
-						keys: [
-							..._order,
-						],
+						keys: _order,
 						useSource: true,
 					});
 				}
