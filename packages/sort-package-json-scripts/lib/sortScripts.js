@@ -4,10 +4,9 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sortPackageJsonScripts = exports.sortPackageJsonScriptsOld = exports._core = void 0;
-const tslib_1 = require("tslib");
-const handleOptions_1 = tslib_1.__importDefault(require("./handleOptions"));
+const handleOptions_1 = require("./handleOptions");
 const handleKeyOrdersCore_1 = require("./handleKeyOrdersCore");
-const sort_object_keys2_1 = tslib_1.__importDefault(require("sort-object-keys2"));
+const sort_object_keys2_1 = require("sort-object-keys2");
 const util_1 = require("./util");
 /**
  * a better sort package.json scripts, by default is follow npm lifecycle scripts
@@ -16,19 +15,19 @@ const util_1 = require("./util");
  */
 function _core(scripts, opts) {
     const keys = (0, handleKeyOrdersCore_1.handleKeyOrdersCore)(Object.keys(scripts), opts);
-    return (0, sort_object_keys2_1.default)(scripts, {
+    return (0, sort_object_keys2_1.sortObjectKeys)(scripts, {
         keys,
         sort: opts.sortKeyFn,
     });
 }
 exports._core = _core;
 function sortPackageJsonScriptsOld(scripts, opts) {
-    opts = (0, handleOptions_1.default)(opts);
+    opts = (0, handleOptions_1.handleOptions)(opts);
     return _core(scripts, opts);
 }
 exports.sortPackageJsonScriptsOld = sortPackageJsonScriptsOld;
 function sortPackageJsonScripts(scripts, opts) {
-    opts = (0, handleOptions_1.default)(opts);
+    opts = (0, handleOptions_1.handleOptions)(opts);
     const { omitKeyFn, sortKeyFn } = opts;
     scripts = _core(scripts, opts);
     let topMap = Object.keys(scripts)
@@ -51,17 +50,17 @@ function sortPackageJsonScripts(scripts, opts) {
         .reduce((a, [key, c]) => {
         a.push(key);
         if (Object.keys(c).length) {
-            c = (0, sort_object_keys2_1.default)(c, {
+            c = (0, sort_object_keys2_1.sortObjectKeys)(c, {
                 keys: (0, handleKeyOrdersCore_1.handleKeyOrdersCore)(Object.keys(c), opts),
                 sort: sortKeyFn,
             });
             Object.keys(c).forEach(subkey => {
-                c[subkey] = (0, sort_object_keys2_1.default)(c[subkey], {
+                c[subkey] = (0, sort_object_keys2_1.sortObjectKeys)(c[subkey], {
                     keys: (0, handleKeyOrdersCore_1.handleKeyOrdersCore)(Object.keys(c[subkey]), opts),
                     sort: sortKeyFn,
                 });
                 Object.keys(c[subkey]).forEach(pre => {
-                    c[subkey][pre] = (0, sort_object_keys2_1.default)(c[subkey][pre], {
+                    c[subkey][pre] = (0, sort_object_keys2_1.sortObjectKeys)(c[subkey][pre], {
                         keys: (0, handleKeyOrdersCore_1.handleKeyOrdersCore)(Object.keys(c[subkey][pre]), opts),
                         sort: sortKeyFn,
                     });
@@ -74,7 +73,7 @@ function sortPackageJsonScripts(scripts, opts) {
         return a;
     }, []);
     //keys = array_unique(keys)
-    return (0, sort_object_keys2_1.default)(scripts, {
+    return (0, sort_object_keys2_1.sortObjectKeys)(scripts, {
         keys,
         sort: opts.sortKeyFn,
     });

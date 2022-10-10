@@ -73,7 +73,7 @@
   "dependencies": {
     "@yarn-tool/pkg-name-util": "^1.0.6",
     "@yarn-tool/yarnlock-parse-raw": "^1.0.12",
-    "@yarnpkg/core": "^4.0.0-rc.22",
+    "@yarnpkg/core": "^4.0.0-rc.24",
     "tslib": ">=2"
   },
   "packageManager": "yarn@1.22.19",

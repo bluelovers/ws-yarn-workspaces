@@ -1,21 +1,28 @@
 import { IPackageJson } from '@ts-type/package-dts/package-json';
-import sortObjectKeys from 'sort-object-keys2';
+import { sortObjectKeys } from 'sort-object-keys2';
 import isPlainObject from 'is-plain-obj';
 
 export function sortPackageJsonExports(exports: IPackageJson["exports"])
 {
 	if (isPlainObject(exports))
 	{
+		const _order = [
+			'types',
+			'require',
+			'import',
+			'node',
+			'node-addons',
+		];
+
+		const _order_root = [
+			..._order,
+			'default',
+			'.',
+			'./',
+		];
+
 		sortObjectKeys(exports, {
-			keys: [
-				'types',
-				'require',
-				'import',
-				'node',
-				'default',
-				'.',
-				'./',
-			],
+			keys: _order_root,
 			useSource: true,
 		});
 
@@ -29,9 +36,7 @@ export function sortPackageJsonExports(exports: IPackageJson["exports"])
 				{
 					exports[key] = sortObjectKeys(value, {
 						keys: [
-							'types',
-							'import',
-							'require',
+							..._order,
 						],
 						useSource: true,
 					});

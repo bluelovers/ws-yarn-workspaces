@@ -55,7 +55,7 @@
     "@yarn-tool/pkg-version-query": "^2.0.13",
     "bluebird": "^3.7.2",
     "package-json": "<7 >=6.5",
-    "ts-type": "^2.1.10",
+    "ts-type": "^3.0.1",
     "tslib": ">=2"
   },
   "packageManager": "yarn@1.22.19",

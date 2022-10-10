@@ -46,7 +46,7 @@
   "dependencies": {
     "path-env2": "^1.0.0",
     "tslib": ">=2",
-    "value-from-record": "^3.0.3"
+    "value-from-record": "^3.0.4"
   },
   "packageManager": "yarn@1.22.19",
   "publishConfig": {

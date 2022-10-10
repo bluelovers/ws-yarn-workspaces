@@ -35,7 +35,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "ts-type": "^2.1.10",
+    "ts-type": "^3.0.1",
     "tslib": ">=2"
   },
   "publishConfig": {

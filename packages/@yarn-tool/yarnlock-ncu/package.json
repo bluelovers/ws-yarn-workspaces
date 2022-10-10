@@ -47,7 +47,7 @@
     "@yarn-tool/yarnlock-diff": "^2.0.14",
     "@yarn-tool/yarnlock-entries": "^2.0.15",
     "debug-color2": "^1.3.2",
-    "semver": "^7.3.7",
+    "semver": "^7.3.8",
     "tslib": ">=2"
   },
   "publishConfig": {

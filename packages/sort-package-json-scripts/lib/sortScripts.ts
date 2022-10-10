@@ -3,9 +3,9 @@
  */
 
 import { ISortPackageJsonScriptsOptions } from './types';
-import handleOptions from './handleOptions';
+import { handleOptions } from './handleOptions';
 import { handleKeyOrdersCore } from './handleKeyOrdersCore';
-import sortObjectKeys from 'sort-object-keys2';
+import { sortObjectKeys } from 'sort-object-keys2';
 import { array_unique } from 'array-hyper-unique';
 import { trimKey } from './util';
 

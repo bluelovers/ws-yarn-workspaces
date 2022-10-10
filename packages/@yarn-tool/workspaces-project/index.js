@@ -5,16 +5,16 @@ exports.WorkspacesProject = void 0;
 const tslib_1 = require("tslib");
 const project_1 = require("@lerna/project");
 const upath2_1 = require("upath2");
-const core_1 = tslib_1.__importDefault(require("find-yarn-workspace-root2/core"));
+const core_1 = require("find-yarn-workspace-root2/core");
 const util_1 = require("./lib/util");
 const lodash_1 = require("lodash");
-const sort_object_keys2_1 = tslib_1.__importDefault(require("sort-object-keys2"));
+const sort_object_keys2_1 = require("sort-object-keys2");
 const fs_extra_1 = require("fs-extra");
 class WorkspacesProject {
     constructor(cwd, options) {
         _WorkspacesProject_internal.set(this, {});
         cwd = (0, upath2_1.resolve)(cwd || process.cwd());
-        let root = (0, core_1.default)(cwd);
+        let root = (0, core_1.findWorkspaceRoot)(cwd);
         this._project = new project_1.Project(cwd);
         let rootPath = this._project.rootPath;
         switch ((0, util_1.checkPaths)({
@@ -144,7 +144,7 @@ class WorkspacesProject {
             bump: this.bump,
             conventionalGraduate: (_b = (_a = command === null || command === void 0 ? void 0 : command.publish) === null || _a === void 0 ? void 0 : _a.conventionalGraduate) !== null && _b !== void 0 ? _b : (_c = command === null || command === void 0 ? void 0 : command.version) === null || _c === void 0 ? void 0 : _c.conventionalGraduate,
         });
-        tslib_1.__classPrivateFieldGet(this, _WorkspacesProject_internal, "f").releaseConfig = (0, sort_object_keys2_1.default)(tslib_1.__classPrivateFieldGet(this, _WorkspacesProject_internal, "f").releaseConfig);
+        tslib_1.__classPrivateFieldGet(this, _WorkspacesProject_internal, "f").releaseConfig = (0, sort_object_keys2_1.sortObjectKeys)(tslib_1.__classPrivateFieldGet(this, _WorkspacesProject_internal, "f").releaseConfig);
         return tslib_1.__classPrivateFieldGet(this, _WorkspacesProject_internal, "f").releaseConfig;
     }
     existsLernaConfigFile() {

@@ -73,7 +73,7 @@
   "dependencies": {
     "@yarn-tool/yarnlock-types": "^1.0.6",
     "@yarnpkg/lockfile": "^1.1.0",
-    "@yarnpkg/parsers": "^3.0.0-rc.22"
+    "@yarnpkg/parsers": "^3.0.0-rc.24"
   },
   "packageManager": "yarn@1.22.19",
   "publishConfig": {

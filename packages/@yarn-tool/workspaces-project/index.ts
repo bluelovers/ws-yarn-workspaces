@@ -1,12 +1,12 @@
 import { Project as LernaProject } from '@lerna/project';
 import { resolve, normalize } from 'upath2';
 import { IWorkspacesProjectInternal, EnumWorkspacesProject, IPackedManifest } from './lib/types';
-import findWorkspaceRoot from 'find-yarn-workspace-root2/core';
+import { findWorkspaceRoot } from 'find-yarn-workspace-root2/core';
 import { checkPaths, EnumCheckPaths } from './lib/util';
 import type { ILernaJson, IReleaseType } from '@ts-type/package-dts/lerna-json';
 import type { IChangelogPreset } from '@yarn-tool/changelog';
 import { merge } from 'lodash';
-import sortObjectKeys from 'sort-object-keys2';
+import { sortObjectKeys } from 'sort-object-keys2';
 import { pathExistsSync } from 'fs-extra';
 
 export class WorkspacesProject

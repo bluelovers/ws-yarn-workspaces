@@ -55,12 +55,12 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^2.0.5",
+    "@ts-type/package-dts": "^2.0.7",
     "@yarn-tool/find-root": "^2.0.11",
     "@yarn-tool/resolve-package": "^2.0.9",
     "fs-extra": "^10.1.0",
     "tslib": ">=2",
-    "upath2": "^3.1.18"
+    "upath2": "^3.1.19"
   },
   "packageManager": "yarn@1.22.19",
   "publishConfig": {
