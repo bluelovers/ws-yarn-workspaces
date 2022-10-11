@@ -35,7 +35,9 @@
   },
   "dependencies": {
     "@ts-type/package-dts": "^2.0.8",
-    "is-plain-obj": "<4",
+    "@yarn-tool/sort-package-json-exports": "^1.0.0",
+    "@yarn-tool/sort-package-json-order": "^1.0.0",
+    "is-plain-obj": "<4 >=3",
     "sort-package-json": "<2 >=1.57.0",
     "sort-package-json-scripts": "^1.1.22",
     "tslib": ">=2"
