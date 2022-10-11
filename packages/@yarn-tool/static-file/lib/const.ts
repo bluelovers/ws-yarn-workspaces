@@ -76,6 +76,8 @@ const _defaultCopyStaticFilesRootOnly = [
 	['.editorconfig.tpl', 'file/tpl.editorconfig'],
 	['.editorconfig', 'file/tpl.editorconfig'],
 
+	['global.tsdx.d.ts', 'file/root/global.tsdx.d.ts'],
+
 ] as const;
 
 const _defaultCopyStaticFilesWsRootOnly = [

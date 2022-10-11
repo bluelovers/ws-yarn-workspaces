@@ -42,6 +42,7 @@ const _defaultCopyStaticFilesRootOnly = [
     ['jest.config.auto.js.tpl', 'file/jest.config.auto.js'],
     ['.editorconfig.tpl', 'file/tpl.editorconfig'],
     ['.editorconfig', 'file/tpl.editorconfig'],
+    ['global.tsdx.d.ts', 'file/root/global.tsdx.d.ts'],
 ];
 const _defaultCopyStaticFilesWsRootOnly = [
     ['lerna.json.tpl', 'file/lerna.json.tpl'],
