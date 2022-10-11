@@ -2,7 +2,7 @@
  * Created by user on 2018/5/14/014.
  */
 
-import findYarnWorkspaceRoot from 'find-yarn-workspace-root2/core';
+import { findWorkspaceRoot as findYarnWorkspaceRoot } from 'find-yarn-workspace-root2/core';
 import { join } from 'path';
 
 function findWorkspacePackageJson(cwd?: string)
