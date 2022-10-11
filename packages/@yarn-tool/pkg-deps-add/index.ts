@@ -26,7 +26,7 @@ export interface IOptionsAddDepsToPackageJson extends Partial<IFindRootOptions>
 
 export function _checkDependenciesExists<N extends string, T extends ITSArrayListMaybeReadonly<string>>(record: IDependency<T>,
 	name: N,
-): record is IDependency<T & N>
+): record is IDependency<T> & IDependency<N>
 {
 	return record?.[name as any]?.length > 0
 }

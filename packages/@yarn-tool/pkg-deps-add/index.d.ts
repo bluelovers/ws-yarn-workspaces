@@ -14,7 +14,7 @@ export interface IOptionsAddDepsToPackageJson extends Partial<IFindRootOptions> 
     peer?: boolean;
     optional?: boolean;
 }
-export declare function _checkDependenciesExists<N extends string, T extends ITSArrayListMaybeReadonly<string>>(record: IDependency<T>, name: N): record is IDependency<T & N>;
+export declare function _checkDependenciesExists<N extends string, T extends ITSArrayListMaybeReadonly<string>>(record: IDependency<T>, name: N): record is IDependency<T> & IDependency<N>;
 export declare function checkDependenciesExists<N extends string, T extends IPackageJsonDependenciesField, P extends IPackageJson = IPackageJson>(pkg: P, field: T, name: N): pkg is P & Record<T, Record<N, IVersionValue>>;
 export declare function _checkDependenciesExistsAll<N extends string, T extends IPackageJsonDependenciesField, P extends IPackageJson = IPackageJson>(pkg: P, fields: ITSArrayListMaybeReadonly<T>, name: N): {
     _exists: boolean;
