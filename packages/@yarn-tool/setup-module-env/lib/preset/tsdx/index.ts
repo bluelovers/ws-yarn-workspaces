@@ -5,6 +5,8 @@ import { EnumScriptsEntry, scriptsEntryIsNoTestSpecified } from '@yarn-tool/pkg-
 import { deleteValue } from 'dot-values2';
 import { EnumTsdx } from './const';
 import { fixTsdxPackage } from './fix';
+import { ensureDirSync } from 'fs-extra';
+import { resolve } from 'path';
 
 export function updatePackageJson<P extends IPackageJson>(pkg: P, config?: ISetupTsdxOptions<P>)
 {
@@ -85,6 +87,7 @@ export function setup<P extends IPackageJson>(config: ISetupTsdxOptions<P>)
 	let {
 		pkg,
 		file_map,
+		targetDir,
 	} = config;
 
 	pkg = updatePackageJson(pkg, config);
@@ -93,6 +96,8 @@ export function setup<P extends IPackageJson>(config: ISetupTsdxOptions<P>)
     ...defaultCopyStaticFilesTsdx,
 		...file_map,
 	];
+
+	ensureDirSync(resolve(targetDir, 'src'));
 
 	return {
 		...config,
