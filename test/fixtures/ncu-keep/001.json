@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@material-ui/lab": "latest"
+  },
+  "devDependencies": {
+    "typescript": "next"
+  }
+}

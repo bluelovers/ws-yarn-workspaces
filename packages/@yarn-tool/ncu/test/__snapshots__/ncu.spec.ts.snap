@@ -1,5 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`should not update * 1`] = `
+{
+  "current": {},
+  "cwd": undefined,
+  "jsonUpgraded": true,
+  "json_changed": false,
+  "json_new": {
+    "devDependencies": {
+      "@types/node": "*",
+    },
+  },
+  "json_old": {
+    "devDependencies": {
+      "@types/node": "*",
+    },
+  },
+  "list_updated": {},
+  "packageData": "{"devDependencies":{"@types/node":"*"}}",
+  "packageManager": "npm",
+}
+`;
+
 exports[`should not update < 1 1`] = `
 {
   "current": {},
@@ -150,6 +172,50 @@ exports[`should not update ^1 | ^2 1`] = `
   },
   "list_updated": {},
   "packageData": "{"devDependencies":{"@types/node":"^1 | ^2"}}",
+  "packageManager": "npm",
+}
+`;
+
+exports[`should not update latest 1`] = `
+{
+  "current": {},
+  "cwd": undefined,
+  "jsonUpgraded": true,
+  "json_changed": false,
+  "json_new": {
+    "devDependencies": {
+      "@types/node": "latest",
+    },
+  },
+  "json_old": {
+    "devDependencies": {
+      "@types/node": "latest",
+    },
+  },
+  "list_updated": {},
+  "packageData": "{"devDependencies":{"@types/node":"latest"}}",
+  "packageManager": "npm",
+}
+`;
+
+exports[`should not update next 1`] = `
+{
+  "current": {},
+  "cwd": undefined,
+  "jsonUpgraded": true,
+  "json_changed": false,
+  "json_new": {
+    "devDependencies": {
+      "@types/node": "next",
+    },
+  },
+  "json_old": {
+    "devDependencies": {
+      "@types/node": "next",
+    },
+  },
+  "list_updated": {},
+  "packageData": "{"devDependencies":{"@types/node":"next"}}",
   "packageManager": "npm",
 }
 `;
