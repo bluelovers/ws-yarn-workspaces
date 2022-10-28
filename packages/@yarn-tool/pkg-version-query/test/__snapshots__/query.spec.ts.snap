@@ -3,7 +3,7 @@
 exports[`parseVersionByNpmPackageArg typescript 1`] = `
 {
   "name": "typescript",
-  "version": "latest",
+  "version": "*",
 }
 `;
 
