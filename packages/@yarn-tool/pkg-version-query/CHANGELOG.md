@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.14](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-version-query@2.0.13...@yarn-tool/pkg-version-query@2.0.14) (2022-10-28)
+
+
+
+### 🚨　Tests
+
+* update snap ([d74cf38](https://github.com/bluelovers/ws-yarn-workspaces/commit/d74cf382a8c448092097aca22c91af8fec90e388))
+
+
+### 📌　Dependencies
+
+* update deps ([00de9bf](https://github.com/bluelovers/ws-yarn-workspaces/commit/00de9bf62a49f5de21e60c6a120fc4d3e6e058e3))
+
+
+
 ## [2.0.13](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-version-query@2.0.12...@yarn-tool/pkg-version-query@2.0.13) (2022-10-01)
 
 

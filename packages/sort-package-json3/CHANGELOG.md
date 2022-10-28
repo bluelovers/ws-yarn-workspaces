@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.12](https://github.com/bluelovers/ws-yarn-workspaces/compare/sort-package-json3@2.0.11...sort-package-json3@2.0.12) (2022-10-28)
+
+
+
+### 📦　Code Refactoring
+
+* code splitting ([520ebbd](https://github.com/bluelovers/ws-yarn-workspaces/commit/520ebbdd200a047b6759d6a20fedefaeff5e0158))
+
+
+### 📌　Dependencies
+
+* update deps ([00de9bf](https://github.com/bluelovers/ws-yarn-workspaces/commit/00de9bf62a49f5de21e60c6a120fc4d3e6e058e3))
+
+
+### 🔖　Miscellaneous
+
+* . ([bce1c9c](https://github.com/bluelovers/ws-yarn-workspaces/commit/bce1c9c631ae5141a2cbb0e32ed5ba3d7b61f131))
+* . ([635a2bb](https://github.com/bluelovers/ws-yarn-workspaces/commit/635a2bb1c9bf6de4227845efbc046307a8a36c8c))
+* . ([d7bd16c](https://github.com/bluelovers/ws-yarn-workspaces/commit/d7bd16cf95e25c0614aa94af2684a2dfa2e7d64d))
+* . ([9e1bde6](https://github.com/bluelovers/ws-yarn-workspaces/commit/9e1bde6cb4f3b95da163383f78e1cf98b5f440cd))
+* . ([6eaff42](https://github.com/bluelovers/ws-yarn-workspaces/commit/6eaff42a32ef2237b770c48ccc42576a4f9934ee))
+
+
+
 ## [2.0.11](https://github.com/bluelovers/ws-yarn-workspaces/compare/sort-package-json3@2.0.10...sort-package-json3@2.0.11) (2022-10-01)
 
 

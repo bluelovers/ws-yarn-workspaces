@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.46](https://github.com/bluelovers/ws-yarn-workspaces/compare/find-pkg-ws@1.0.45...find-pkg-ws@1.0.46) (2022-10-28)
+
+
+
+### 📦　Code Refactoring
+
+* update import ([5c4116f](https://github.com/bluelovers/ws-yarn-workspaces/commit/5c4116f75c0ce5905c1187ae048fc0ef09d0b673))
+
+
+
 ## [1.0.45](https://github.com/bluelovers/ws-yarn-workspaces/compare/find-pkg-ws@1.0.44...find-pkg-ws@1.0.45) (2022-10-01)
 
 

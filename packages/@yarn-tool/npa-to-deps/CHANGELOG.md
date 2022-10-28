@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.9](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/npa-to-deps@2.0.8...@yarn-tool/npa-to-deps@2.0.9) (2022-10-28)
+
+
+
+### 🚨　Tests
+
+* add more test ([0cf3ef8](https://github.com/bluelovers/ws-yarn-workspaces/commit/0cf3ef8cdd2c761e11f1d3137ad27765d0fbc008))
+
+
+
 ## [2.0.8](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/npa-to-deps@2.0.7...@yarn-tool/npa-to-deps@2.0.8) (2022-10-01)
 
 

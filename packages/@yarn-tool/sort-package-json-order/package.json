@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/sort-package-json-order",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "keywords": [
     "yarn",
@@ -87,11 +87,9 @@
     "sort-package-json": "yarn-tool sort",
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
-  "dependencies": {},
   "devDependencies": {
     "sort-package-json": "^2.0.0"
   },
-  "peerDependencies": {},
   "packageManager": "yarn@1.22.19",
   "publishConfig": {
     "access": "public"

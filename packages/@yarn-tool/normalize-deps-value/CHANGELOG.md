@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.9](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/normalize-deps-value@1.0.8...@yarn-tool/normalize-deps-value@1.0.9) (2022-10-28)
+
+
+
+### 🚨　Tests
+
+* add more test ([2a94613](https://github.com/bluelovers/ws-yarn-workspaces/commit/2a94613d23fc12313e17e5202a39c5b836544ae0))
+* update for '' ([dbc54ab](https://github.com/bluelovers/ws-yarn-workspaces/commit/dbc54ab3facc1d1a07a00093d0f557d370806cb9))
+
+
+
 ## [1.0.8](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/normalize-deps-value@1.0.7...@yarn-tool/normalize-deps-value@1.0.8) (2022-10-01)
 
 
