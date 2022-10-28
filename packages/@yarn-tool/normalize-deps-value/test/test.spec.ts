@@ -27,9 +27,11 @@ describe(`normalizeDepsValue`, () =>
 		'x',
 		'1',
 		'0',
+		' ',
+		'.',
 	].forEach(input =>
 	{
-		test(input === EnumSemverVersion.ANY ? 'space' : input, () =>
+		test(input === EnumSemverVersion.ANY ? 'empty' : input === ' ' ? 'space' : input, () =>
 		{
 
 			let result = _getNpaResult(input);

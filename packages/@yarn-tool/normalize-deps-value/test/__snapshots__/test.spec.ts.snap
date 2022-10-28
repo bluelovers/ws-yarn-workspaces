@@ -20,6 +20,26 @@ exports[`normalizeDepsValue * 1`] = `
 
 exports[`normalizeDepsValue * 2`] = `"*"`;
 
+exports[`normalizeDepsValue . 1`] = `
+{
+  "escapedName": "@fake%2ffake",
+  "fetchSpec": "G:\\Users\\The Project\\nodejs-yarn\\ws-yarn-workspaces2\\packages\\@yarn-tool\\normalize-deps-value",
+  "gitCommittish": undefined,
+  "gitRange": undefined,
+  "gitSubdir": undefined,
+  "name": "@fake/fake",
+  "raw": "@fake/fake@.",
+  "rawSpec": ".",
+  "registry": undefined,
+  "saveSpec": "file:",
+  "scope": "@fake",
+  "type": "directory",
+  "where": "G:\\Users\\The Project\\nodejs-yarn\\ws-yarn-workspaces2\\packages\\@yarn-tool\\normalize-deps-value",
+}
+`;
+
+exports[`normalizeDepsValue . 2`] = `"."`;
+
 exports[`normalizeDepsValue >x 2.x || * || <x || ~1.2.3beta ^4.0.0-dev.20200615 && 4.0.0-dev.20200615 < 4.0.0-dev.20200800 || 4.0.x - 4.0.2 || (4.0.x - 4.0.2) || >= 1 || =1 || ~> 2.0.0 || 1.2.3 - 1.2.4 - 1.2.5 || >=1.2.3 <=1.2.4 1`] = `
 {
   "escapedName": "@fake%2ffake",
@@ -139,6 +159,26 @@ exports[`normalizeDepsValue 1.0 (2.0 || 3.1) 1`] = `
 `;
 
 exports[`normalizeDepsValue 1.0 (2.0 || 3.1) 2`] = `"1.0 (2.0 || 3.1)"`;
+
+exports[`normalizeDepsValue empty 1`] = `
+{
+  "escapedName": "@fake%2ffake",
+  "fetchSpec": "*",
+  "gitCommittish": undefined,
+  "gitRange": undefined,
+  "gitSubdir": undefined,
+  "name": "@fake/fake",
+  "raw": "@fake/fake@",
+  "rawSpec": "*",
+  "registry": true,
+  "saveSpec": null,
+  "scope": "@fake",
+  "type": "range",
+  "where": undefined,
+}
+`;
+
+exports[`normalizeDepsValue empty 2`] = `"*"`;
 
 exports[`normalizeDepsValue foo@gitlab:user/foo-js 1`] = `
 {
@@ -283,17 +323,17 @@ exports[`normalizeDepsValue https://gitlab.com/user/foo.git 2`] = `"https://gitl
 exports[`normalizeDepsValue space 1`] = `
 {
   "escapedName": "@fake%2ffake",
-  "fetchSpec": "latest",
+  "fetchSpec": "",
   "gitCommittish": undefined,
   "gitRange": undefined,
   "gitSubdir": undefined,
   "name": "@fake/fake",
-  "raw": "@fake/fake@",
-  "rawSpec": "",
+  "raw": "@fake/fake@ ",
+  "rawSpec": " ",
   "registry": true,
   "saveSpec": null,
   "scope": "@fake",
-  "type": "tag",
+  "type": "range",
   "where": undefined,
 }
 `;
