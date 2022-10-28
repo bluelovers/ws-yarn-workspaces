@@ -3,11 +3,20 @@
  */
 
 import { IPackageJson } from '@ts-type/package-dts';
-import packlist from 'npm-packlist';
+import _packlist from 'npm-packlist';
 import { CreateOptions, FileOptions, create } from 'tar';
 import { realpathSync, readFileSync } from "fs";
 import { join, resolve } from "path";
 import { getTarballName } from './util';
+import Arborist from '@npmcli/arborist';
+
+export function packlist(options: {
+	path: string,
+}): Promise<string[]>
+{
+	const arborist = new Arborist(options);
+	return arborist.loadActual().then(_packlist)
+}
 
 export function packTargetDirectory({
 	packageDir,
@@ -18,10 +27,10 @@ export function packTargetDirectory({
 })
 {
 	return packlist({ path: packageDir })
-		.then(files =>
+		.then(async (files) =>
 		{
 			//console.dir(files)
-			return create({
+			await create({
 				prefix: 'package/',
 				cwd: packageDir,
 				file: packageTarball,
@@ -29,6 +38,7 @@ export function packTargetDirectory({
 				portable: true,
 				mtime: new Date("1985-10-26T08:15:00.000Z"),
 			} as CreateOptions & FileOptions, files.map(f => `./${f}`))
+			return files as readonly string[]
 		})
 		;
 }
@@ -58,15 +68,14 @@ export function packTargetPackage(options: {
 		packageDir,
 		packageTarball,
 	})
-		.then((ret) =>
+		.then((files) =>
 		{
-			//console.dir(ret)
-
 			return {
 				...options,
 				pkg,
 				packageDir,
 				packageTarball,
+				files,
 			}
 		})
 }

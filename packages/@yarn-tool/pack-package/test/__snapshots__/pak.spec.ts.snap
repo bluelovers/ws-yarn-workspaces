@@ -2,10 +2,48 @@
 
 exports[`packPackage 1`] = `
 {
+  "files": [
+    ".yarnrc",
+    "package.json",
+    "pkg-a-1.0.0.tgz",
+  ],
   "log": [Function],
   "packageDir": Any<String>,
   "packageTarball": Any<String>,
   "pkg": Any<Object>,
   "tarball": [Function],
+}
+`;
+
+exports[`packPackage 2`] = `
+{
+  "bundled": [],
+  "entryCount": 3,
+  "filename": "pkg-a-1.0.0.tgz",
+  "files": [
+    {
+      "mode": 420,
+      "path": ".yarnrc",
+      "size": 52,
+    },
+    {
+      "mode": 420,
+      "path": "package.json",
+      "size": 2902,
+    },
+    {
+      "mode": 420,
+      "path": "pkg-a-1.0.0.tgz",
+      "size": 0,
+    },
+  ],
+  "id": "pkg-a@1.0.0",
+  "integrity": "sha512-s2u3/z+UYxgJkdcEVVa51Sb3aLp0tfXPKu3bYYuRJNbHzPOHk1mzGC2hzqyu/+ZEV4uKl/rq7kpfHUG/ASxuzw==",
+  "name": "pkg-a",
+  "shasum": "fa5409240aec194a331064c6a37386062fba59c9",
+  "size": 774,
+  "tarFilePath": Any<String>,
+  "unpackedSize": 2954,
+  "version": "1.0.0",
 }
 `;

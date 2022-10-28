@@ -18,4 +18,10 @@ test(`packPackage`, async () =>
 
 	await actual.log();
 
+	console.dir(await actual.tarball());
+
+	expect(await actual.tarball()).toMatchSnapshot({
+		tarFilePath: expect.any(String),
+	});
+
 });
