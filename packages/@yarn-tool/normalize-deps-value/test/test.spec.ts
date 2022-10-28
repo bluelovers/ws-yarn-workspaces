@@ -29,6 +29,9 @@ describe(`normalizeDepsValue`, () =>
 		'0',
 		' ',
 		'.',
+		'npm:bar@1.2',
+		'npm:@foo/bar@1.2',
+		'npm:@foo/bar@next',
 	].forEach(input =>
 	{
 		test(input === EnumSemverVersion.ANY ? 'empty' : input === ' ' ? 'space' : input, () =>

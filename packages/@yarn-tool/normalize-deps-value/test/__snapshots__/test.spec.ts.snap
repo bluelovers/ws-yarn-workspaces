@@ -320,6 +320,111 @@ exports[`normalizeDepsValue https://gitlab.com/user/foo.git 1`] = `
 
 exports[`normalizeDepsValue https://gitlab.com/user/foo.git 2`] = `"https://gitlab.com/user/foo.git"`;
 
+exports[`normalizeDepsValue npm:@foo/bar@1.2 1`] = `
+{
+  "escapedName": "@fake%2ffake",
+  "fetchSpec": null,
+  "gitCommittish": undefined,
+  "gitRange": undefined,
+  "gitSubdir": undefined,
+  "name": "@fake/fake",
+  "raw": "@fake/fake@npm:@foo/bar@1.2",
+  "rawSpec": "npm:@foo/bar@1.2",
+  "registry": true,
+  "saveSpec": null,
+  "scope": "@fake",
+  "subSpec": {
+    "escapedName": "@foo%2fbar",
+    "fetchSpec": "1.2",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "name": "@foo/bar",
+    "raw": "@foo/bar@1.2",
+    "rawSpec": "1.2",
+    "registry": true,
+    "saveSpec": null,
+    "scope": "@foo",
+    "type": "range",
+    "where": undefined,
+  },
+  "type": "alias",
+  "where": undefined,
+}
+`;
+
+exports[`normalizeDepsValue npm:@foo/bar@1.2 2`] = `"npm:@foo/bar@1.2"`;
+
+exports[`normalizeDepsValue npm:@foo/bar@next 1`] = `
+{
+  "escapedName": "@fake%2ffake",
+  "fetchSpec": null,
+  "gitCommittish": undefined,
+  "gitRange": undefined,
+  "gitSubdir": undefined,
+  "name": "@fake/fake",
+  "raw": "@fake/fake@npm:@foo/bar@next",
+  "rawSpec": "npm:@foo/bar@next",
+  "registry": true,
+  "saveSpec": null,
+  "scope": "@fake",
+  "subSpec": {
+    "escapedName": "@foo%2fbar",
+    "fetchSpec": "next",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "name": "@foo/bar",
+    "raw": "@foo/bar@next",
+    "rawSpec": "next",
+    "registry": true,
+    "saveSpec": null,
+    "scope": "@foo",
+    "type": "tag",
+    "where": undefined,
+  },
+  "type": "alias",
+  "where": undefined,
+}
+`;
+
+exports[`normalizeDepsValue npm:@foo/bar@next 2`] = `"npm:@foo/bar@next"`;
+
+exports[`normalizeDepsValue npm:bar@1.2 1`] = `
+{
+  "escapedName": "@fake%2ffake",
+  "fetchSpec": null,
+  "gitCommittish": undefined,
+  "gitRange": undefined,
+  "gitSubdir": undefined,
+  "name": "@fake/fake",
+  "raw": "@fake/fake@npm:bar@1.2",
+  "rawSpec": "npm:bar@1.2",
+  "registry": true,
+  "saveSpec": null,
+  "scope": "@fake",
+  "subSpec": {
+    "escapedName": "bar",
+    "fetchSpec": "1.2",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "name": "bar",
+    "raw": "bar@1.2",
+    "rawSpec": "1.2",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "range",
+    "where": undefined,
+  },
+  "type": "alias",
+  "where": undefined,
+}
+`;
+
+exports[`normalizeDepsValue npm:bar@1.2 2`] = `"npm:bar@1.2"`;
+
 exports[`normalizeDepsValue space 1`] = `
 {
   "escapedName": "@fake%2ffake",
