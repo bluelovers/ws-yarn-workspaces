@@ -1,4 +1,3 @@
-/// <reference types="node" />
 /**
  * get os temp dir
  */

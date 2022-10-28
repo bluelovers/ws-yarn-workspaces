@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import { DirOptions } from 'tmp';
 export type ICachePathThunk = ((p1?: string, ...args: string[]) => string);
 export interface IOptions extends DirOptions {

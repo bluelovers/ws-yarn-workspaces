@@ -1,5 +1,6 @@
 import { EnumScriptsEntry } from '../../field/scripts';
 export declare function defaultPkgScripts(): {
+    coverage: string;
     "test:jest": EnumScriptsEntry;
     "test:snapshot": string;
     "test:jest:snapshot": string;

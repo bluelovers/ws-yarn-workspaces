@@ -74,11 +74,11 @@
     "lodash": "^4.17.21",
     "micromatch": "^4.0.5",
     "npm-package-json-loader": "^2.0.21",
-    "path-is-same": "^1.0.23",
+    "path-is-same": "^1.0.25",
     "sort-package-json-scripts": "^1.1.22",
     "tslib": ">=2",
     "upath2": "^3.1.19",
-    "validate-npm-package-name": "^4.0.0",
+    "validate-npm-package-name": "^5.0.0",
     "workspaces-config": "^1.0.52",
     "ws-pkg-list": "^2.0.11",
     "yargs": "^17.6.0"

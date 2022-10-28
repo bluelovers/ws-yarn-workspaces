@@ -6,7 +6,7 @@ var EnumScriptsEntry;
     EnumScriptsEntry["JEST_TEST"] = "jest --passWithNoTests";
     EnumScriptsEntry["NO_TEST_SPECIFIED"] = "echo \"Error: no test specified\"";
     EnumScriptsEntry["NO_TEST_SPECIFIED_EXIT"] = "echo \"Error: no test specified\" && exit 1";
-    EnumScriptsEntry["BUILD_DTS_BUNDLE"] = "ynpx dts-bundle-generator -o ./dist/index.d.ts ./src/index.ts --no-banner --inline-declare-global & echo build:dts:bundle";
+    EnumScriptsEntry["BUILD_DTS_BUNDLE"] = "ynpx @bluelovers/dts-bundle-generator -o ./dist/index.d.ts ./src/index.ts --no-banner --inline-declare-global & echo build:dts:bundle";
     EnumScriptsEntry["preversion"] = "yarn run test";
 })(EnumScriptsEntry = exports.EnumScriptsEntry || (exports.EnumScriptsEntry = {}));
 function scriptsEntryIsNoTestSpecified(value) {

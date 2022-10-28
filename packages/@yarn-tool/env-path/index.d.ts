@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import { IRecordLike } from 'value-from-record';
 import { IPathDelimiter } from 'path-env2';
 export type { IPathDelimiter };

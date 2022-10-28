@@ -1,4 +1,3 @@
-/// <reference types="node" />
 declare const _default: {
     path: string;
     cwd: string;

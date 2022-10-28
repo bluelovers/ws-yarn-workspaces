@@ -17,6 +17,7 @@ export declare function packPackage(options: {
     pkg: IPackageJson<unknown>;
     packageDir: string;
     packageTarball: string;
+    files: readonly string[];
     versionPrefix?: string;
 }>>;
 export default packPackage;

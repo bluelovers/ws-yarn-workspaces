@@ -85,6 +85,7 @@ exports[`should sort 2`] = `
   "bugs",
   "repository",
   "license",
+  "licenses",
   "author",
   "contributors",
   "main",
@@ -99,7 +100,6 @@ exports[`should sort 2`] = `
   "preferGlobal",
   "publishConfig",
   "gitHead",
-  "licenses",
 ]
 `;
 
@@ -129,6 +129,7 @@ exports[`should sort 3`] = `
     "url": "git+https://github.com/bluelovers/npm-init2.git"
   },
   "license": "ISC",
+  "licenses": [],
   "author": "",
   "contributors": [],
   "main": "index.js",
@@ -172,7 +173,6 @@ exports[`should sort 3`] = `
   "bundleDependencies": [],
   "preferGlobal": true,
   "publishConfig": {},
-  "gitHead": "764afbf30c0505cf214354e8f7efe703ce30ae98",
-  "licenses": []
+  "gitHead": "764afbf30c0505cf214354e8f7efe703ce30ae98"
 }"
 `;

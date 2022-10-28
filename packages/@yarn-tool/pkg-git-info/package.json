@@ -39,7 +39,7 @@
   "dependencies": {
     "@git-lazy/info": "^1.0.39",
     "@types/hosted-git-info": "^3.0.2",
-    "hosted-git-info": "^5.1.0",
+    "hosted-git-info": "^6.1.0",
     "tslib": ">=2"
   },
   "publishConfig": {

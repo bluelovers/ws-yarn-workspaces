@@ -3,6 +3,7 @@ import { EnumScriptsEntry } from '../../field/scripts';
 export function defaultPkgScripts()
 {
 	return {
+		"coverage": "yarn run test -- --coverage",
 		"test:jest": EnumScriptsEntry.JEST_TEST,
 		"test:snapshot": "yarn run test -- -u",
 		"test:jest:snapshot": "yarn run test:jest -- -u",
@@ -26,7 +27,6 @@ export function defaultPkgNotOldExists()
 		"lint:eslint": "ynpx eslint --ext .ts,.tsx,.mts,.cts ./",
 		"review": "yarn run review:coverage",
 		"review:test": "yarn run lint && yarn run test",
-		"review:coverage": "yarn run lint && yarn run coverage",
-		"coverage": "yarn run test -- --coverage",
+		"review:coverage": "yarn run lint && yarn run coverage"
 	}
 }

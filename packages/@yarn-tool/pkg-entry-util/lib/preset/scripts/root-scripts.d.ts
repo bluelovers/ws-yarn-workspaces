@@ -14,6 +14,7 @@ export declare function defaultRootScripts(): {
     "install:frozenLockfile": string;
     "ws:fix-all": string;
     "ws:fix-all:resetStaticFiles": string;
+    coverage: string;
     "test:jest": import("../../field/scripts").EnumScriptsEntry;
     "test:snapshot": string;
     "test:jest:snapshot": string;

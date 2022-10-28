@@ -1,4 +1,3 @@
-/// <reference types="node" />
 /**
  * try get npm global cache path
  */

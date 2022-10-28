@@ -36,13 +36,13 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@npmcli/run-script": "^4.2.1",
+    "@npmcli/run-script": "^5.0.1",
     "@ts-type/package-dts": "^2.0.8",
     "@yarn-tool/script-lifecycle": "^2.0.6",
     "tslib": ">=2"
   },
   "peerDependencies": {
-    "read-package-json-fast": "^2.0.3"
+    "read-package-json-fast": "^3.0.1"
   },
   "publishConfig": {
     "access": "public"

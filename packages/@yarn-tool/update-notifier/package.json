@@ -30,7 +30,7 @@
     "sort-package-json": "npx yarn-tool sort"
   },
   "dependencies": {
-    "@npmcli/ci-detect": "^3.0.0",
+    "@npmcli/ci-detect": "^3.0.1",
     "@yarn-tool/is-npx": "^1.0.16",
     "tslib": ">=2",
     "update-notifier": "<6 >=5.1.0"
