@@ -221,3 +221,5 @@ dist/*.umd.*.*s
 
 !/.yarnrc.yml
 .turbo
+
+!/.run/
