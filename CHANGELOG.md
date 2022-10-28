@@ -50,6 +50,8 @@ Please see the individual package changelogs for what's new:
 * 🌏 [`@yarn-tool/setup-module-env`](./packages/@yarn-tool/setup-module-env/CHANGELOG.md "packages/@yarn-tool/setup-module-env") *packages/@yarn-tool/setup-module-env*
 * 🌏 [`@yarn-tool/shebang`](./packages/@yarn-tool/shebang/CHANGELOG.md "packages/@yarn-tool/shebang") *packages/@yarn-tool/shebang*
 * 🌏 [`@yarn-tool/sort-lerna-json`](./packages/@yarn-tool/sort-lerna-json/CHANGELOG.md "packages/@yarn-tool/sort-lerna-json") *packages/@yarn-tool/sort-lerna-json*
+* 🌏 [`@yarn-tool/sort-package-json-exports`](./packages/@yarn-tool/sort-package-json-exports/CHANGELOG.md "packages/@yarn-tool/sort-package-json-exports") *packages/@yarn-tool/sort-package-json-exports*
+* 🌏 [`@yarn-tool/sort-package-json-order`](./packages/@yarn-tool/sort-package-json-order/CHANGELOG.md "packages/@yarn-tool/sort-package-json-order") *packages/@yarn-tool/sort-package-json-order*
 * 🌏 [`@yarn-tool/static-file`](./packages/@yarn-tool/static-file/CHANGELOG.md "packages/@yarn-tool/static-file") *packages/@yarn-tool/static-file*
 * 🌏 [`@yarn-tool/table`](./packages/@yarn-tool/table/CHANGELOG.md "packages/@yarn-tool/table") *packages/@yarn-tool/table*
 * 🌏 [`@yarn-tool/tag`](./packages/@yarn-tool/tag/CHANGELOG.md "packages/@yarn-tool/tag") *packages/@yarn-tool/tag*
