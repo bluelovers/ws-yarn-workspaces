@@ -13,10 +13,8 @@ let lines = [''];
 
 let _sortOrder = sortOrder.slice();
 
-if (!_sortOrder.includes('tsd'))
-{
-	_sortOrder.splice(_sortOrder.indexOf('tap') + 1, 0, 'tsd');
-}
+insertAfter(_sortOrder, 'tap', 'tsd');
+insertAfter(_sortOrder, 'license', 'licenses');
 
 lines.push(`export const sortOrder = [`);
 lines.push(`\t'` + _sortOrder.join(`',\n\t'`) + `',`);
@@ -26,3 +24,16 @@ lines.push(``);
 
 await outputFile(file, lines.join(LF))
 
+function insertAfter(arr, where, value)
+{
+	if (!arr.includes(value))
+	{
+		let index = arr.indexOf(where);
+		if (index === -1)
+		{
+			throw new Error(`'${where}' is not exists`)
+		}
+		arr.splice(index + 1, 0, value);
+	}
+	return arr
+}

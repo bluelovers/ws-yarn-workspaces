@@ -28,13 +28,13 @@ exports[`exports 2`] = `
   "exports": {
     ".": {
       "types": "./types/index.d.ts",
-      "import": "./esm/index.js",
-      "require": "./commonjs/index.cjs"
+      "require": "./commonjs/index.cjs",
+      "import": "./esm/index.js"
     },
     "./k2": {
       "types": "./types/index.d.ts",
-      "import": "./esm/index.js",
-      "require": "./commonjs/index.cjs"
+      "require": "./commonjs/index.cjs",
+      "import": "./esm/index.js"
     }
   },
   "main": "./commonjs/index.cjs",

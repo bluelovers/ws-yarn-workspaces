@@ -13,6 +13,7 @@ export const sortOrder = [
 	'repository',
 	'funding',
 	'license',
+	'licenses',
 	'qna',
 	'author',
 	'maintainers',

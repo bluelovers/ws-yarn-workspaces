@@ -12,6 +12,7 @@ export declare const sortOrder: readonly [
 	"repository",
 	"funding",
 	"license",
+	"licenses",
 	"qna",
 	"author",
 	"maintainers",
