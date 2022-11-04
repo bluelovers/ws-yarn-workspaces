@@ -3,11 +3,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.defaultPkgNotOldExists = exports.defaultPkgScripts = void 0;
 function defaultPkgScripts() {
     return {
+        "test": "yarn run test:jest",
         "coverage": "yarn run test -- --coverage",
         "test:jest": "jest --passWithNoTests" /* EnumScriptsEntry.JEST_TEST */,
         "test:snapshot": "yarn run test -- -u",
         "test:jest:snapshot": "yarn run test:jest -- -u",
+        "test:jest:coverage": "yarn run test:jest -- --coverage",
         "test:tsd": "ynpx tsd",
+        "tsc:showConfig": "ynpx get-current-tsconfig -p",
     };
 }
 exports.defaultPkgScripts = defaultPkgScripts;
@@ -26,7 +29,10 @@ function defaultPkgNotOldExists() {
         "lint:eslint": "ynpx eslint --ext .ts,.tsx,.mts,.cts ./",
         "review": "yarn run review:coverage",
         "review:test": "yarn run lint && yarn run test",
-        "review:coverage": "yarn run lint && yarn run coverage"
+        "review:coverage": "yarn run lint && yarn run coverage",
+        "sort-package-json": "yarn-tool sort",
+        "tsc:default": "tsc -p tsconfig.json",
+        "tsc:esm": "tsc -p tsconfig.esm.json",
     };
 }
 exports.defaultPkgNotOldExists = defaultPkgNotOldExists;

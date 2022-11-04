@@ -211,11 +211,7 @@ if (!cp.error)
 		pkg.data.packageManager ??= "yarn@1.22.19";
 
 		let sharedScript: IPackageJson['scripts'] = {
-			"prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
-			"ncu": "yarn-tool ncu -u",
-			"sort-package-json": "yarn-tool sort",
 			"test": `echo "Error: no test specified"`,
-			"tsc:showConfig": "ynpx get-current-tsconfig -p",
 		};
 
 		fillDummyScripts(sharedScript);
@@ -244,20 +240,6 @@ if (!cp.error)
 				...sharedScript,
 				...defaultRootScripts(),
 			}
-
-			if (!oldExists)
-			{
-				sharedScript = {
-					...sharedScript,
-					"tsc:default": "tsc -p tsconfig.json",
-					"tsc:esm": "tsc -p tsconfig.esm.json",
-				}
-			}
-		}
-
-		if (!oldExists)
-		{
-			sharedScript.coverage = "yarn run test -- --coverage"
 		}
 
 		preScripts.push(EnumScriptsEntry.preversion);

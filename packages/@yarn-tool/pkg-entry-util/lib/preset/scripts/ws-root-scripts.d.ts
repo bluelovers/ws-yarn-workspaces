@@ -18,7 +18,6 @@ export declare function defaultWorkspaceRootScripts(): {
     "sort-package-json:ws": string;
     postpublishOnly: string;
     "postpublishOnly:ws-root-changelog": string;
-    "install:reset-lockfile": string;
     "tsc:showConfig": string;
     "lint:all": string;
     "lint:since": string;

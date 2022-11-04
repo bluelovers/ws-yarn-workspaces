@@ -153,11 +153,7 @@ if (!cp.error) {
         });
         (_b = (_j = pkg.data).packageManager) !== null && _b !== void 0 ? _b : (_j.packageManager = "yarn@1.22.19");
         let sharedScript = {
-            "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
-            "ncu": "yarn-tool ncu -u",
-            "sort-package-json": "yarn-tool sort",
             "test": `echo "Error: no test specified"`,
-            "tsc:showConfig": "ynpx get-current-tsconfig -p",
         };
         (0, dummy_1.fillDummyScripts)(sharedScript);
         let preScripts = ["echo preversion"];
@@ -177,16 +173,6 @@ if (!cp.error) {
                 ...sharedScript,
                 ...(0, root_scripts_1.defaultRootScripts)(),
             };
-            if (!oldExists) {
-                sharedScript = {
-                    ...sharedScript,
-                    "tsc:default": "tsc -p tsconfig.json",
-                    "tsc:esm": "tsc -p tsconfig.esm.json",
-                };
-            }
-        }
-        if (!oldExists) {
-            sharedScript.coverage = "yarn run test -- --coverage";
         }
         preScripts.push("yarn run test" /* EnumScriptsEntry.preversion */);
         sharedScript.preversion = preScripts.join(' && ');

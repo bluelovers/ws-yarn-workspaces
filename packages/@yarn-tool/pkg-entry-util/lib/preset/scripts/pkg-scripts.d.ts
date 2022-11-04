@@ -1,10 +1,13 @@
 import { EnumScriptsEntry } from '../../field/scripts';
 export declare function defaultPkgScripts(): {
+    test: string;
     coverage: string;
     "test:jest": EnumScriptsEntry;
     "test:snapshot": string;
     "test:jest:snapshot": string;
+    "test:jest:coverage": string;
     "test:tsd": string;
+    "tsc:showConfig": string;
 };
 export declare function defaultPkgNotOldExists(): {
     "test:mocha": string;
@@ -20,9 +23,15 @@ export declare function defaultPkgNotOldExists(): {
     review: string;
     "review:test": string;
     "review:coverage": string;
+    "sort-package-json": string;
+    "tsc:default": string;
+    "tsc:esm": string;
+    test: string;
     coverage: string;
     "test:jest": EnumScriptsEntry;
     "test:snapshot": string;
     "test:jest:snapshot": string;
+    "test:jest:coverage": string;
     "test:tsd": string;
+    "tsc:showConfig": string;
 };

@@ -15,5 +15,6 @@ export function defaultRootScripts()
 		"postpublish:changelog": `ynpx --quiet @yarn-tool/changelog && git add ./CHANGELOG.md`,
 		"postpublish:git:push": `git push --follow-tags`,
 		"postpublish": `yarn run postpublish:changelog && yarn run postpublish:git:commit && yarn run postpublish:git:tag && yarn run postpublish:git:push`,
+		"ncu": "yarn-tool ncu -u",
 	}
 }
