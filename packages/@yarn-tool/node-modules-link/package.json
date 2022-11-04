@@ -42,7 +42,7 @@
     "fs-symlink-extra": "^1.0.22",
     "tslib": ">=2",
     "upath2": "^3.1.19",
-    "yargs": "^17.6.0"
+    "yargs": "^17.6.2"
   },
   "publishConfig": {
     "access": "public"

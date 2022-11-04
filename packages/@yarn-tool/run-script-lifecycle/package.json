@@ -36,7 +36,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@npmcli/run-script": "^5.0.1",
+    "@npmcli/run-script": "^6.0.0",
     "@ts-type/package-dts": "^2.0.8",
     "@yarn-tool/script-lifecycle": "^2.0.7",
     "tslib": ">=2"

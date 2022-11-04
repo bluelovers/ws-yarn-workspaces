@@ -30,7 +30,7 @@
     "sort-package-json": "ynpx --quiet yarn-tool -- sort"
   },
   "dependencies": {
-    "@lerna/project": "^6.0.1",
+    "@lerna/project": "^6.0.2",
     "@ts-type/package-dts": "^2.0.8",
     "@types/npm-package-arg": "*",
     "@yarn-tool/changelog": "^2.0.20",
