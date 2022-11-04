@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/ws-changed",
-  "version": "2.0.14",
+  "version": "2.0.15",
   "description": "get package changed list from lerna and git",
   "keywords": [
     "lerna",

@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.27](https://github.com/bluelovers/ws-yarn-workspaces/compare/npm-init2@2.0.26...npm-init2@2.0.27) (2022-11-04)
+
+
+
+### ✨　Features
+
+* update default scripts ([34a8007](https://github.com/bluelovers/ws-yarn-workspaces/commit/34a80070bca51daf8097a17c83fe692477dbe63d))
+
+
+### 📌　Dependencies
+
+* update deps ([4be0fb7](https://github.com/bluelovers/ws-yarn-workspaces/commit/4be0fb754fec6ad2aff79ae303710642651d4abd))
+
+
+
 ## [2.0.26](https://github.com/bluelovers/ws-yarn-workspaces/compare/npm-init2@2.0.25...npm-init2@2.0.26) (2022-10-28)
 
 

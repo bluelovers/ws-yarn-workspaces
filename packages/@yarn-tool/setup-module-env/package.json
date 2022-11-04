@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/setup-module-env",
-  "version": "2.0.14",
+  "version": "2.0.15",
   "description": "",
   "keywords": [
     "yarn",
@@ -54,7 +54,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/pkg-entry-util": "^2.0.22",
+    "@yarn-tool/pkg-entry-util": "^2.0.23",
     "dot-values2": "^2.0.6",
     "tslib": ">=2"
   },

@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.20](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-banner@1.0.19...@yarn-tool/yarnlock-banner@1.0.20) (2022-11-04)
+
+
+
+### 📌　Dependencies
+
+* update deps ([4be0fb7](https://github.com/bluelovers/ws-yarn-workspaces/commit/4be0fb754fec6ad2aff79ae303710642651d4abd))
+
+
+
 ## [1.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-banner@1.0.18...@yarn-tool/yarnlock-banner@1.0.19) (2022-10-28)
 
 

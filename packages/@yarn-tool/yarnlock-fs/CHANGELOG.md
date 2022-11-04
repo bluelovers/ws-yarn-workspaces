@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.14](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-fs@2.0.13...@yarn-tool/yarnlock-fs@2.0.14) (2022-11-04)
+
+**Note:** Version bump only for package @yarn-tool/yarnlock-fs
+
+
+
+
+
 ## [2.0.13](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-fs@2.0.12...@yarn-tool/yarnlock-fs@2.0.13) (2022-10-28)
 
 **Note:** Version bump only for package @yarn-tool/yarnlock-fs

@@ -1,6 +1,6 @@
 {
   "name": "sync-lockfile",
-  "version": "2.0.12",
+  "version": "2.0.13",
   "description": "sync yarn.lock to each packages in yarn workspaces",
   "keywords": [],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/sync-lockfile#readme",
