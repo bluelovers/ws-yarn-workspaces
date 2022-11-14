@@ -29,9 +29,11 @@
   "author": "bluelovers",
   "main": "index.js",
   "scripts": {
+    "coverage": "yarn run test -- --coverage",
     "lint": "ynpx --quiet eslint -- **/*.ts",
     "test": "yarn run test:jest",
     "test:jest": "jest",
+    "test:jest:coverage": "yarn run test:jest -- --coverage",
     "test:jest:snapshot": "yarn run test:jest -- -u",
     "test:snapshot": "yarn run test -- -u",
     "test:tsd": "ynpx tsd",
@@ -39,7 +41,8 @@
     "prepublishOnly": "echo prepublishOnly",
     "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
     "ncu": "yarn-tool ncu -u",
-    "sort-package-json": "yarn-tool sort"
+    "sort-package-json": "yarn-tool sort",
+    "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
     "array-hyper-unique": "^2.1.4",

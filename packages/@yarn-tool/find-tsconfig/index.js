@@ -12,7 +12,7 @@ const path_1 = require("path");
  * @returns {string}
  */
 function findTsconfig(cwd) {
-    let rooData = (0, find_root_1.findRoot)({
+    const rooData = (0, find_root_1.findRoot)({
         cwd,
     });
     let file = (0, tsconfig_1.findSync)(cwd);

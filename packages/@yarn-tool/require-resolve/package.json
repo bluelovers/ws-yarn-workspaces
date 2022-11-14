@@ -26,9 +26,11 @@
   "author": "bluelovers",
   "main": "index.js",
   "scripts": {
+    "coverage": "yarn run test -- --coverage",
     "lint": "ynpx --quiet eslint -- **/*.ts",
     "test": "echo \"Error: no test specified\"",
     "test:jest": "ynpx --quiet jest -- --coverage --passWithNoTests",
+    "test:jest:coverage": "yarn run test:jest -- --coverage",
     "test:jest:snapshot": "yarn run test:jest -- -u",
     "test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
     "test:snapshot": "yarn run test -- -u",
@@ -38,7 +40,8 @@
     "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
     "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
     "ncu": "yarn-tool ncu -u",
-    "sort-package-json": "yarn-tool sort"
+    "sort-package-json": "yarn-tool sort",
+    "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
     "@yarn-tool/get-paths-by-type": "^2.0.7",

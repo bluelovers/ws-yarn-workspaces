@@ -22,6 +22,7 @@
     "lint": "npx eslint **/*.ts",
     "test": "echo \"Error: no test specified\"",
     "test:jest": "jest --coverage",
+    "test:jest:coverage": "yarn run test:jest -- --coverage",
     "test:jest:snapshot": "yarn run test:jest -- -u",
     "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
     "test:snapshot": "yarn run test -- -u",
@@ -35,7 +36,8 @@
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort",
     "tsc:default": "tsc -p tsconfig.json",
-    "tsc:esm": "tsc -p tsconfig.esm.json"
+    "tsc:esm": "tsc -p tsconfig.esm.json",
+    "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
     "cross-spawn-extra": "^2.1.0",

@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "@bluelovers/conventional-changelog-bluelovers": "*",
-    "@lerna/conventional-commits": "^6.0.2",
+    "@lerna/conventional-commits": "^6.0.3",
     "@yarn-tool/find-root": "^2.0.12",
     "@yarn-tool/require-resolve": "^2.0.9",
     "@yarn-tool/semver-diff": "^2.0.10",

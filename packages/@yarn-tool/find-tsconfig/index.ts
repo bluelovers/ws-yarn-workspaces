@@ -11,7 +11,7 @@ import { normalize } from 'path';
  */
 export function findTsconfig(cwd: string): string
 {
-	let rooData = findRoot({
+	const rooData = findRoot({
 		cwd,
 	});
 
@@ -33,4 +33,4 @@ export function findTsconfig(cwd: string): string
 	}
 }
 
-export default findTsconfig
+export default findTsconfig;

@@ -85,7 +85,7 @@
   },
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.32",
-    "@types/node": "*"
+    "@types/node": "latest"
   },
   "bundleDependencies": [],
   "preferGlobal": true,

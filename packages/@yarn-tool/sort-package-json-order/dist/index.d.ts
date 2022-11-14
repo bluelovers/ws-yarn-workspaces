@@ -71,6 +71,8 @@ export declare const sortOrder: readonly [
 	"stylelint",
 	"ava",
 	"jest",
+	"jest-junit",
+	"jest-stare",
 	"mocha",
 	"nyc",
 	"c8",

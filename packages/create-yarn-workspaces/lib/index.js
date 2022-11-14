@@ -17,13 +17,13 @@ function getDefaultPackageJson(name) {
         ],
         "scripts": (0, ws_root_scripts_1.defaultWorkspaceRootScripts)(),
         "dependencies": {
-            "ts-type": ">=2",
+            "ts-type": ">=3",
             "tslib": ">=2",
         },
         "devDependencies": {
-            "@types/jest": "^28.1.6",
-            "@bluelovers/tsconfig": "^1.0.30",
-            "@types/node": "*",
+            "@types/jest": "^29",
+            "@bluelovers/tsconfig": "^1.0.32",
+            "@types/node": "latest",
             "@yarn-tool/ws-find-up-paths": "*",
         },
         "peerDependencies": {

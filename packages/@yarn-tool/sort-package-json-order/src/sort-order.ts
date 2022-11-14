@@ -72,6 +72,8 @@ export const sortOrder = [
 	'stylelint',
 	'ava',
 	'jest',
+	'jest-junit',
+	'jest-stare',
 	'mocha',
 	'nyc',
 	'c8',

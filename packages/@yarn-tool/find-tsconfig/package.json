@@ -19,6 +19,7 @@
     "lint": "npx eslint **/*.ts",
     "test": "echo \"Error: no test specified\"",
     "test:jest": "jest --passWithNoTests",
+    "test:jest:coverage": "yarn run test:jest -- --coverage",
     "test:jest:snapshot": "yarn run test:jest -- -u",
     "test:snapshot": "yarn run test -- -u",
     "test:tsd": "ynpx tsd",
@@ -26,7 +27,8 @@
     "prepublishOnly": "echo prepublishOnly",
     "postpublish_": "git commit -m \"publish new version\" .",
     "ncu": "npx yarn-tool ncu -u",
-    "sort-package-json": "npx yarn-tool sort"
+    "sort-package-json": "npx yarn-tool sort",
+    "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
     "@yarn-tool/find-root": "^2.0.12",

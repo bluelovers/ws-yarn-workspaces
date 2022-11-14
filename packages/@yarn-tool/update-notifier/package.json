@@ -19,6 +19,7 @@
     "lint": "npx eslint **/*.ts",
     "test": "ts-node ./test/test.ts",
     "test:jest": "jest --passWithNoTests",
+    "test:jest:coverage": "yarn run test:jest -- --coverage",
     "test:jest:snapshot": "yarn run test:jest -- -u",
     "test:snapshot": "yarn run test -- -u",
     "test:tsd": "ynpx tsd",
@@ -27,10 +28,11 @@
     "prepublishOnly": "echo prepublishOnly",
     "postpublish_": "git commit -m \"publish new version\" .",
     "ncu": "npx yarn-tool ncu -u",
-    "sort-package-json": "npx yarn-tool sort"
+    "sort-package-json": "npx yarn-tool sort",
+    "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@npmcli/ci-detect": "^3.0.1",
+    "@npmcli/ci-detect": "^3.0.2",
     "@yarn-tool/is-npx": "^1.0.16",
     "tslib": ">=2",
     "update-notifier": "<6 >=5.1.0"
