@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarn-struct-utils",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "",
   "keywords": [
     "yarn",
@@ -71,8 +71,8 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/pkg-name-util": "^1.0.6",
-    "@yarn-tool/yarnlock-parse-raw": "^1.0.14",
+    "@yarn-tool/pkg-name-util": "^1.0.7",
+    "@yarn-tool/yarnlock-parse-raw": "^1.0.15",
     "@yarnpkg/core": "^4.0.0-rc.28",
     "tslib": ">=2"
   },

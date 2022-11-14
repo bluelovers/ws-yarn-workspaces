@@ -1,6 +1,6 @@
 {
   "name": "@lazy-node/semver-part",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "description": "compare part of version",
   "keywords": [
     "semver",

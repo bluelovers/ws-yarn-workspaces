@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.17](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/is-npx@1.0.16...@yarn-tool/is-npx@1.0.17) (2022-11-14)
+
+
+
+### 📌　Dependencies
+
+* update deps ([faff44f](https://github.com/bluelovers/ws-yarn-workspaces/commit/faff44f1f5ad5066c747ea8d5d66fa10049c17fe))
+
+
+
 ## [1.0.16](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/is-npx@1.0.15...@yarn-tool/is-npx@1.0.16) (2022-10-01)
 
 

@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.47](https://github.com/bluelovers/ws-yarn-workspaces/compare/find-pkg-ws@1.0.46...find-pkg-ws@1.0.47) (2022-11-14)
+
+
+
+### 📌　Dependencies
+
+* update deps ([faff44f](https://github.com/bluelovers/ws-yarn-workspaces/commit/faff44f1f5ad5066c747ea8d5d66fa10049c17fe))
+
+
+
 ## [1.0.46](https://github.com/bluelovers/ws-yarn-workspaces/compare/find-pkg-ws@1.0.45...find-pkg-ws@1.0.46) (2022-10-28)
 
 
