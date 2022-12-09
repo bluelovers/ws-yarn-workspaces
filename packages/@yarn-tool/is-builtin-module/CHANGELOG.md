@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.22](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/is-builtin-module@1.0.21...@yarn-tool/is-builtin-module@1.0.22) (2022-12-09)
+
+
+
+### 📌　Dependencies
+
+* update deps ([fe41874](https://github.com/bluelovers/ws-yarn-workspaces/commit/fe41874d6fd01f5f2b773aa085b80ee2d0683edc))
+
+
+
 ## [1.0.21](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/is-builtin-module@1.0.20...@yarn-tool/is-builtin-module@1.0.21) (2022-11-04)
 
 

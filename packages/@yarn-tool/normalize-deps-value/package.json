@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/normalize-deps-value",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "",
   "keywords": [
     "yarn",
@@ -73,7 +73,7 @@
   },
   "dependencies": {
     "@lazy-node/semver-ampersand": "^2.0.11",
-    "@yarn-tool/npm-package-arg-util": "^1.0.38",
+    "@yarn-tool/npm-package-arg-util": "^1.0.39",
     "tslib": ">=2"
   },
   "packageManager": "yarn@1.22.19",

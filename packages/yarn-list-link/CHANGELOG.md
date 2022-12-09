@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.46](https://github.com/bluelovers/ws-yarn-workspaces/compare/yarn-list-link@1.0.45...yarn-list-link@1.0.46) (2022-12-09)
+
+
+
+### 📌　Dependencies
+
+* update deps ([fe41874](https://github.com/bluelovers/ws-yarn-workspaces/commit/fe41874d6fd01f5f2b773aa085b80ee2d0683edc))
+
+
+
 ## [1.0.45](https://github.com/bluelovers/ws-yarn-workspaces/compare/yarn-list-link@1.0.44...yarn-list-link@1.0.45) (2022-11-14)
 
 

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.17](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-hosted-info@2.0.16...@yarn-tool/pkg-hosted-info@2.0.17) (2022-12-09)
+
+**Note:** Version bump only for package @yarn-tool/pkg-hosted-info
+
+
+
+
+
 ## [2.0.16](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-hosted-info@2.0.15...@yarn-tool/pkg-hosted-info@2.0.16) (2022-11-14)
 
 **Note:** Version bump only for package @yarn-tool/pkg-hosted-info

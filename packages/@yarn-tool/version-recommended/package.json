@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/version-recommended",
-  "version": "2.0.20",
+  "version": "2.0.21",
   "description": "bump new version",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/version-recommended#readme",
   "bugs": {
@@ -33,8 +33,8 @@
     "@ts-type/package-dts": "^2.0.8",
     "@types/semver": "*",
     "@yarn-tool/find-root": "^2.0.13",
-    "@yarn-tool/types": "^1.0.15",
-    "@yarn-tool/workspaces-project": "^2.0.20",
+    "@yarn-tool/types": "^1.0.16",
+    "@yarn-tool/workspaces-project": "^2.0.21",
     "semver": "^7.3.8",
     "ts-type": "^3.0.1",
     "tslib": ">=2"

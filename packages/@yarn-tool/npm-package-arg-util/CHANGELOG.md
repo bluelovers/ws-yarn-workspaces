@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.39](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/npm-package-arg-util@1.0.38...@yarn-tool/npm-package-arg-util@1.0.39) (2022-12-09)
+
+
+
+### 📌　Dependencies
+
+* update deps ([fe41874](https://github.com/bluelovers/ws-yarn-workspaces/commit/fe41874d6fd01f5f2b773aa085b80ee2d0683edc))
+
+
+
 ## [1.0.38](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/npm-package-arg-util@1.0.37...@yarn-tool/npm-package-arg-util@1.0.38) (2022-11-14)
 
 

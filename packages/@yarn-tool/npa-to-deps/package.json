@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/npa-to-deps",
-  "version": "2.0.10",
+  "version": "2.0.11",
   "description": "",
   "keywords": [
     "yarn",
@@ -53,7 +53,7 @@
   },
   "dependencies": {
     "@lazy-node/semver-simple-parse": "^2.0.9",
-    "@yarn-tool/npm-package-arg-util": "^1.0.38",
+    "@yarn-tool/npm-package-arg-util": "^1.0.39",
     "tslib": ">=2"
   },
   "packageManager": "yarn@1.22.19",
