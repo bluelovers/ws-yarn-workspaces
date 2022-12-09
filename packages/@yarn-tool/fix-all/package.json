@@ -71,7 +71,7 @@
     "bluebird": "^3.7.2",
     "cache-path": "^3.0.13",
     "debug-color2": "^1.3.2",
-    "fs-extra": "^10.1.0",
+    "fs-extra": "^11.1.0",
     "fs-remove-extra": "^1.0.4",
     "lazy-aggregate-error": "^1.0.19",
     "lodash": "^4.17.21",

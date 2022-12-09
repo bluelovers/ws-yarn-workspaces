@@ -38,7 +38,7 @@
     "@yarn-tool/find-root": "^2.0.13",
     "@yarn-tool/node-modules": "^2.0.13",
     "find-yarn-workspace-root2": "^1.2.49",
-    "fs-extra": "^10.1.0",
+    "fs-extra": "^11.1.0",
     "fs-symlink-extra": "^1.0.22",
     "tslib": ">=2",
     "upath2": "^3.1.19",

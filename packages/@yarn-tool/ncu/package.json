@@ -55,7 +55,7 @@
     "@yarn-tool/yarnlock": "^2.0.20",
     "bluebird": "^3.7.2",
     "npm-check-updates": "<12 >=11.8.5",
-    "npm-package-arg": "^10.0.0",
+    "npm-package-arg": "^10.1.0",
     "package-json": "<7 >=6.5",
     "semver": "^7.3.8",
     "ts-type": "^3.0.1",

@@ -64,7 +64,7 @@
     "@yarn-tool/sort-lerna-json": "^2.0.12",
     "@yarn-tool/write-package-json": "^1.0.12",
     "array-hyper-unique": "^2.1.4",
-    "fs-extra": "^10.1.0",
+    "fs-extra": "^11.1.0",
     "path-in-dir": "^1.0.9",
     "tslib": ">=2",
     "upath2": "^3.1.19",

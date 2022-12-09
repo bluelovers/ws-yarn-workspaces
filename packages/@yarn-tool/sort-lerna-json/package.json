@@ -62,7 +62,7 @@
     "@bluelovers/fs-json": "^1.0.13",
     "@ts-type/package-dts": "^2.0.8",
     "@yarn-tool/write-package-json": "^1.0.12",
-    "fs-extra": "^10.1.0",
+    "fs-extra": "^11.1.0",
     "sort-object-keys2": "^3.0.5",
     "tslib": ">=2"
   },

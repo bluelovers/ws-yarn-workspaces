@@ -30,12 +30,12 @@
     "sort-package-json": "ynpx --quiet yarn-tool -- sort"
   },
   "dependencies": {
-    "@lerna/project": "^6.0.3",
+    "@lerna/project": "^6.1.0",
     "@ts-type/package-dts": "^2.0.8",
     "@types/npm-package-arg": "*",
     "@yarn-tool/changelog": "^2.0.22",
     "find-yarn-workspace-root2": "^1.2.49",
-    "fs-extra": "^10.1.0",
+    "fs-extra": "^11.1.0",
     "lodash": "^4.17.21",
     "path-dir-normalize": "^1.0.29",
     "sort-object-keys2": "^3.0.5",

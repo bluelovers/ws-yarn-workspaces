@@ -49,7 +49,7 @@
   "dependencies": {
     "@yarn-tool/find-root": "^2.0.13",
     "@yarn-tool/node-modules": "^2.0.13",
-    "fs-extra": "^10.1.0",
+    "fs-extra": "^11.1.0",
     "fs-stat": "^1.0.25",
     "fs-symlink-extra": "^1.0.22",
     "path-is-same": "^1.0.25",

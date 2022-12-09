@@ -28,12 +28,12 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@lerna/get-packed": "^6.0.3",
-    "@lerna/log-packed": "^6.0.3",
-    "@npmcli/arborist": "^6.1.2",
+    "@lerna/get-packed": "^6.1.0",
+    "@lerna/log-packed": "^6.1.0",
+    "@npmcli/arborist": "^6.1.5",
     "@ts-type/package-dts": "^2.0.8",
-    "npm-packlist": "^7.0.2",
-    "tar": "^6.1.12",
+    "npm-packlist": "^7.0.4",
+    "tar": "^6.1.13",
     "tslib": ">=2"
   },
   "publishConfig": {

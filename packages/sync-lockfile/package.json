@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@yarn-tool/find-root": "^2.0.13",
-    "fs-extra": "^10.1.0",
+    "fs-extra": "^11.1.0",
     "tslib": ">=2",
     "ws-pkg-list": "^2.0.13",
     "yargs": "^17.6.2"

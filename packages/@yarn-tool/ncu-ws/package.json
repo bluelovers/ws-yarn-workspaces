@@ -81,7 +81,7 @@
     "@yarn-tool/yarnlock-fs": "^2.0.15",
     "@yarn-tool/yarnlock-ncu": "^2.0.21",
     "debug-color2": "^1.3.2",
-    "fs-extra": "^10.1.0",
+    "fs-extra": "^11.1.0",
     "tslib": ">=2",
     "upath2": "^3.1.19"
   },
