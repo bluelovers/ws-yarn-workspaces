@@ -50,6 +50,7 @@ export function omitKey(name: string)
  */
 export const defaultNpmScriptsOrder = new Set([
 
+	'serve',
 	'start',
 	'dev',
 	'restart',
@@ -69,6 +70,9 @@ export const defaultNpmScriptsOrder = new Set([
 	'postuninstallOnly',
 
 	'build',
+	'storybook',
+	'build-storybook',
+	'analyze',
 
 	'link',
 

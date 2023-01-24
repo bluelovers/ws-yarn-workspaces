@@ -44,6 +44,7 @@ exports.omitKey = omitKey;
  * group / sore scripts order, by default is follow npm lifecycle scripts
  */
 exports.defaultNpmScriptsOrder = new Set([
+    'serve',
     'start',
     'dev',
     'restart',
@@ -59,6 +60,9 @@ exports.defaultNpmScriptsOrder = new Set([
     'uninstall',
     'postuninstallOnly',
     'build',
+    'storybook',
+    'build-storybook',
+    'analyze',
     'link',
     'ci',
     'npm',

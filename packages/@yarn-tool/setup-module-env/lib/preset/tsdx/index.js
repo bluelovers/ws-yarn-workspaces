@@ -48,6 +48,7 @@ exports.updatePackageJson = updatePackageJson;
 const _defaultCopyStaticFilesTsdx = [
     ['tsconfig.json', 'file/tsconfig.tsdx.json.tpl', 'tsconfig.json'],
     ['test/tsconfig.json', 'file/test/tsconfig.json.tpl', 'test/tsconfig.json'],
+    ['src/index.cts', 'file/tsdx/index.cts'],
 ];
 exports.defaultCopyStaticFilesTsdx = Object.freeze(_defaultCopyStaticFilesTsdx);
 function setup(config) {

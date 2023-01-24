@@ -221,3 +221,7 @@ dist/*.umd.*.*s
 
 !/.yarnrc.yml
 .turbo
+/file/tsdx/index.cjs
+/file/tsdx/index.d.cts
+/file/test/__root.d.ts
+/file/test/__root.js
