@@ -1,6 +1,6 @@
 {
   "name": "npm-package-json-loader",
-  "version": "2.0.25",
+  "version": "2.0.26",
   "private": false,
   "description": "Find and load configuration from a package.json",
   "keywords": [
@@ -56,7 +56,7 @@
     "@yarn-tool/write-package-json": "^1.0.12",
     "bind-decorator": "^1.0.11",
     "fs-extra": "^11.1.0",
-    "sort-package-json3": "^2.0.13",
+    "sort-package-json3": "^2.0.14",
     "ts-type": "^3.0.1",
     "tslib": ">=2"
   },

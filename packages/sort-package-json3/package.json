@@ -1,6 +1,6 @@
 {
   "name": "sort-package-json3",
-  "version": "2.0.13",
+  "version": "2.0.14",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/sort-package-json3#readme",
   "bugs": {
@@ -38,10 +38,10 @@
   "dependencies": {
     "@ts-type/package-dts": "^2.0.8",
     "@yarn-tool/sort-package-json-exports": "^1.0.2",
-    "@yarn-tool/sort-package-json-order": "^1.0.2",
+    "@yarn-tool/sort-package-json-order": "^1.0.3",
     "is-plain-obj": "<4 >=3",
     "sort-package-json": "<2 >=1.57.0",
-    "sort-package-json-scripts": "^1.1.24",
+    "sort-package-json-scripts": "^1.1.25",
     "tslib": ">=2"
   },
   "peerDependencies": {

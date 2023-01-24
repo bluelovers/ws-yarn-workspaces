@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.11](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/run-script-lifecycle@2.0.10...@yarn-tool/run-script-lifecycle@2.0.11) (2023-01-24)
+
+
+
+### ✨　Features
+
+* add src/index.cts ([5237d0e](https://github.com/bluelovers/ws-yarn-workspaces/commit/5237d0e0a48c14612fd1f12bfd05747287585618))
+
+
+### 🔖　Miscellaneous
+
+* . ([dc2d78f](https://github.com/bluelovers/ws-yarn-workspaces/commit/dc2d78f28b88f636f194e84a47ea166b80a51bda))
+
+
+
 ## [2.0.10](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/run-script-lifecycle@2.0.9...@yarn-tool/run-script-lifecycle@2.0.10) (2022-11-14)
 
 **Note:** Version bump only for package @yarn-tool/run-script-lifecycle

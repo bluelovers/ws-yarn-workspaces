@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/fix-all",
-  "version": "2.0.31",
+  "version": "2.0.32",
   "description": "auto check/fix workspaces/package",
   "keywords": [
     "yarn",
@@ -64,7 +64,7 @@
     "@yarn-tool/normalize-deps-value": "^1.0.11",
     "@yarn-tool/pkg-git-info": "^1.0.42",
     "@yarn-tool/pkg-hosted-info": "^2.0.17",
-    "@yarn-tool/static-file": "^2.0.16",
+    "@yarn-tool/static-file": "^2.0.17",
     "@yarn-tool/write-package-json": "^1.0.12",
     "@yarn-tool/ws-scope": "^2.0.14",
     "array-hyper-unique": "^2.1.4",
@@ -75,9 +75,9 @@
     "fs-remove-extra": "^1.0.4",
     "lazy-aggregate-error": "^1.0.19",
     "lodash": "^4.17.21",
-    "npm-package-json-loader": "^2.0.25",
+    "npm-package-json-loader": "^2.0.26",
     "progress-estimator": "^0.3.0",
-    "sort-package-json3": "^2.0.13",
+    "sort-package-json3": "^2.0.14",
     "ts-type": "^3.0.1",
     "tslib": ">=2",
     "upath2": "^3.1.19",

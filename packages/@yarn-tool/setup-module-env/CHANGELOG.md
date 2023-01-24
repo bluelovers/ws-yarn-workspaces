@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.18](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/setup-module-env@2.0.17...@yarn-tool/setup-module-env@2.0.18) (2023-01-24)
+
+
+
+### ✨　Features
+
+* add src/index.cts ([5237d0e](https://github.com/bluelovers/ws-yarn-workspaces/commit/5237d0e0a48c14612fd1f12bfd05747287585618))
+
+
+
 ## [2.0.17](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/setup-module-env@2.0.16...@yarn-tool/setup-module-env@2.0.17) (2022-12-09)
 
 **Note:** Version bump only for package @yarn-tool/setup-module-env
