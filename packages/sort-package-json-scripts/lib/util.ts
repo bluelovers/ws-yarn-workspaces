@@ -71,7 +71,7 @@ export const defaultNpmScriptsOrder = new Set([
 
 	'build',
 	'storybook',
-	'build-storybook',
+	//'build-storybook',
 	'analyze',
 
 	'link',

@@ -61,7 +61,7 @@ exports.defaultNpmScriptsOrder = new Set([
     'postuninstallOnly',
     'build',
     'storybook',
-    'build-storybook',
+    //'build-storybook',
     'analyze',
     'link',
     'ci',
