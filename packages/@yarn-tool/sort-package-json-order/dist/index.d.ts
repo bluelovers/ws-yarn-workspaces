@@ -54,6 +54,7 @@ export declare const sortOrder: readonly [
 	"pre-commit",
 	"commitlint",
 	"lint-staged",
+	"nano-staged",
 	"config",
 	"nodemonConfig",
 	"browserify",

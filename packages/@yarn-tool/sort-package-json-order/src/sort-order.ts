@@ -55,6 +55,7 @@ export const sortOrder = [
 	'pre-commit',
 	'commitlint',
 	'lint-staged',
+	'nano-staged',
 	'config',
 	'nodemonConfig',
 	'browserify',
