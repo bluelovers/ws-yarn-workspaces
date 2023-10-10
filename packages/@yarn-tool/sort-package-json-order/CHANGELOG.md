@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/sort-package-json-order@1.0.3...@yarn-tool/sort-package-json-order@2.0.0) (2023-10-10)
+
+
+
+### 🛠　Build System
+
+* update build ([73d21f8](https://github.com/bluelovers/ws-yarn-workspaces/commit/73d21f8b3fa4e9f0f392a27b04710a2f3b7017b2))
+
+
+### 📌　Dependencies
+
+* update deps ([8db6bc0](https://github.com/bluelovers/ws-yarn-workspaces/commit/8db6bc0189457346924022f9c38f4ae8162c5a5e))
+
+
+
 ## [1.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/sort-package-json-order@1.0.2...@yarn-tool/sort-package-json-order@1.0.3) (2023-01-24)
 
 

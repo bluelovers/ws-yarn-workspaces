@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarnlock-dedupe",
-  "version": "1.0.37",
+  "version": "2.0.0",
   "description": "Deduplication tool for yarn.lock files. auto detect yarn v1 and berry",
   "keywords": [
     "yarn",
@@ -53,9 +53,9 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/detect-yarnlock-version": "^1.0.37",
-    "@yarn-tool/yarnlock-banner": "^1.0.21",
-    "@yarn-tool/yarnlock-stringify": "^1.0.33",
+    "@yarn-tool/detect-yarnlock-version": "^2.0.0",
+    "@yarn-tool/yarnlock-banner": "^2.0.0",
+    "@yarn-tool/yarnlock-stringify": "^2.0.0",
     "tslib": ">=2",
     "yarn-berry-deduplicate": "^6.1.1",
     "yarn-deduplicate": "^6.0.2"

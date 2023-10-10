@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-dedupe@1.0.37...@yarn-tool/yarnlock-dedupe@2.0.0) (2023-10-10)
+
+
+
+### 📌　Dependencies
+
+* update deps ([8db6bc0](https://github.com/bluelovers/ws-yarn-workspaces/commit/8db6bc0189457346924022f9c38f4ae8162c5a5e))
+
+
+### 🔖　Miscellaneous
+
+* . ([36485c8](https://github.com/bluelovers/ws-yarn-workspaces/commit/36485c8036c339e010dafcf52dd36f559e2d35fd))
+* . ([9ee4591](https://github.com/bluelovers/ws-yarn-workspaces/commit/9ee4591c538a82f5890bc8e688354440f2b48a63))
+
+
+
 ## [1.0.37](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-dedupe@1.0.36...@yarn-tool/yarnlock-dedupe@1.0.37) (2023-01-24)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/detect-yarnlock-version",
-  "version": "1.0.37",
+  "version": "2.0.0",
   "description": "detect yarn.lock version",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/detect-yarnlock-version#readme",
   "bugs": {
@@ -33,8 +33,8 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/yarnlock-parse-raw": "^1.0.17",
-    "@yarn-tool/yarnlock-types": "^1.0.8",
+    "@yarn-tool/yarnlock-parse-raw": "^2.0.0",
+    "@yarn-tool/yarnlock-types": "^2.0.0",
     "tslib": ">=2"
   },
   "publishConfig": {

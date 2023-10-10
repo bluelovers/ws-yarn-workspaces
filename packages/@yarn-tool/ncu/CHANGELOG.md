@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ncu@2.0.25...@yarn-tool/ncu@3.0.0) (2023-10-10)
+
+
+
+### 📦　Code Refactoring
+
+* use `@yarn-tool/npm-package-arg-util` ([a42d237](https://github.com/bluelovers/ws-yarn-workspaces/commit/a42d2379e8495f906294a6e05fec78657d8f840b))
+
+
+### 🔖　Miscellaneous
+
+* . ([9ee4591](https://github.com/bluelovers/ws-yarn-workspaces/commit/9ee4591c538a82f5890bc8e688354440f2b48a63))
+
+
+
 ## [2.0.25](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ncu@2.0.24...@yarn-tool/ncu@2.0.25) (2023-01-24)
 
 **Note:** Version bump only for package @yarn-tool/ncu

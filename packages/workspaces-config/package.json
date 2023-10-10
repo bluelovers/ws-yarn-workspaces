@@ -1,6 +1,6 @@
 {
   "name": "workspaces-config",
-  "version": "1.0.55",
+  "version": "2.0.0",
   "description": "```ts console.log(parseStaticPackagesPaths(getConfig())); // => { static: [], prefix: [ 'packages' ], all: [ 'packages/*' ] } ```",
   "keywords": [
     "init",

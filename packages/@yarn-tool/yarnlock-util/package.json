@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarnlock-util",
-  "version": "2.0.18",
+  "version": "3.0.0",
   "description": "",
   "keywords": [
     "yarn",
@@ -44,10 +44,10 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/npm-package-arg-util": "^1.0.39",
-    "@yarn-tool/yarn-struct-utils": "^1.0.16",
-    "@yarn-tool/yarnlock-parse-assert": "^1.0.16",
-    "@yarn-tool/yarnlock-parse-raw": "^1.0.17",
+    "@yarn-tool/npm-package-arg-util": "^2.0.0",
+    "@yarn-tool/yarn-struct-utils": "^2.0.0",
+    "@yarn-tool/yarnlock-parse-assert": "^2.0.0",
+    "@yarn-tool/yarnlock-parse-raw": "^2.0.0",
     "tslib": ">=2"
   },
   "publishConfig": {

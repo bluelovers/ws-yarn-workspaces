@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/pkg-version-query",
-  "version": "2.0.16",
+  "version": "3.0.0",
   "description": "",
   "keywords": [
     "yarn",
@@ -44,9 +44,9 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@lazy-node/semver-ampersand": "^2.0.11",
-    "@yarn-tool/npm-package-arg-util": "^1.0.39",
-    "cache-path": "^3.0.14",
+    "@lazy-node/semver-ampersand": "^3.0.0",
+    "@yarn-tool/npm-package-arg-util": "^2.0.0",
+    "cache-path": "^4.0.0",
     "lru-cache-fs2": "^2.0.8",
     "package-json": "<7 >=6.5",
     "semver": "^7.5.4",

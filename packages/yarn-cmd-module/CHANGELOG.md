@@ -12,6 +12,21 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * update deps ([8db6bc0](https://github.com/bluelovers/ws-yarn-workspaces/commit/8db6bc0189457346924022f9c38f4ae8162c5a5e))
 
 
+### 🔖　Miscellaneous
+
+* . ([36485c8](https://github.com/bluelovers/ws-yarn-workspaces/commit/36485c8036c339e010dafcf52dd36f559e2d35fd))
+
+
+
+# [2.0.0](https://github.com/bluelovers/ws-yarn-workspaces/compare/yarn-cmd-module@1.0.23...yarn-cmd-module@2.0.0) (2023-10-10)
+
+
+
+### 📌　Dependencies
+
+* update deps ([8db6bc0](https://github.com/bluelovers/ws-yarn-workspaces/commit/8db6bc0189457346924022f9c38f4ae8162c5a5e))
+
+
 
 ## [1.0.23](https://github.com/bluelovers/ws-yarn-workspaces/compare/yarn-cmd-module@1.0.22...yarn-cmd-module@1.0.23) (2022-11-14)
 

@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/fix-ws-versions",
-  "version": "2.0.16",
+  "version": "3.0.0",
   "description": "fix/sync package dependencies in workspaces",
   "keywords": [
     "yarn",
@@ -72,10 +72,10 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@lazy-node/semver-simple-parse": "^2.0.9",
+    "@lazy-node/semver-simple-parse": "^3.0.0",
     "@ts-type/package-dts": "^2.0.8",
     "tslib": ">=2",
-    "ws-pkg-list": "^2.0.14"
+    "ws-pkg-list": "^3.0.0"
   },
   "packageManager": "yarn@1.22.19",
   "publishConfig": {

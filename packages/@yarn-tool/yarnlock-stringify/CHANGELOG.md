@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-stringify@1.0.33...@yarn-tool/yarnlock-stringify@2.0.0) (2023-10-10)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([9ee4591](https://github.com/bluelovers/ws-yarn-workspaces/commit/9ee4591c538a82f5890bc8e688354440f2b48a63))
+
+
+
 ## [1.0.33](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-stringify@1.0.32...@yarn-tool/yarnlock-stringify@1.0.33) (2023-01-24)
 
 **Note:** Version bump only for package @yarn-tool/yarnlock-stringify
