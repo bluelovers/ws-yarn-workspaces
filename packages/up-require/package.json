@@ -33,7 +33,7 @@
   },
   "scripts": {
     "coverage": "yarn run test -- --coverage",
-    "test": "ynpx mocha test/*.test.js test/**/*.test.js",
+    "test": "ynpx mocha test/*.test.js test/**/*.test.js && echo test",
     "test:jest": "jest --passWithNoTests",
     "test:jest:coverage": "yarn run test:jest -- --coverage",
     "test:jest:snapshot": "yarn run test:jest -- -u",

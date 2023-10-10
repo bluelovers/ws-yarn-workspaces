@@ -16,6 +16,7 @@ SemverRange {
         "loose": true,
         "operator": "",
         "options": {
+          "includePrerelease": false,
           "loose": true,
         },
         "semver": SemVer {
@@ -56,6 +57,7 @@ SemverRange {
         "operator": "",
         "options": {
           "includePrerelease": true,
+          "loose": false,
         },
         "semver": SemVer {
           "build": [],
