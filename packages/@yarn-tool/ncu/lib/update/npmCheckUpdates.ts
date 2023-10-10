@@ -4,7 +4,6 @@ import { run as _npmCheckUpdates } from 'npm-check-updates';
 import Bluebird from 'bluebird';
 import { IPackageJsonDependenciesField } from '@ts-type/package-dts/package-json';
 import { allowUpdateVersion } from '../util';
-import npmPackageArg from 'npm-package-arg';
 import { queryVersionWithCache } from '@yarn-tool/pkg-version-query/lib/queryVersion';
 import { mergeSimpleSemVer } from '@lazy-node/semver-simple-parse/lib/mergeSimpleSemVer';
 import { parseSimpleSemVer } from '@lazy-node/semver-simple-parse/lib/parseSimpleSemVer';
@@ -13,6 +12,7 @@ import { IWrapDedupeCache } from '@yarn-tool/yarnlock/lib/types';
 import { ITSRequireAtLeastOne } from 'ts-type';
 import { getCache } from '@yarn-tool/pkg-version-query';
 import { toDependencyTable } from '@yarn-tool/table/lib/deps-table';
+import { npa } from '@yarn-tool/npm-package-arg-util';
 
 export async function npmCheckUpdates<C extends IWrapDedupeCache>(cache: Partial<C>,
 	ncuOptions: ITSRequireAtLeastOne<IOptionsNpmCheckUpdates, 'json_old' | 'packageData'>,
@@ -74,7 +74,7 @@ export async function npmCheckUpdates<C extends IWrapDedupeCache>(cache: Partial
 					{
 						let key = `${name}@${version_old}`
 
-						let check = npmPackageArg(key)
+						let check = npa(key);
 						let prefix = /^([\^~\s]+)/.exec(version_old)?.[1];
 
 						if (prefix?.length && check.type === 'range')

@@ -48,6 +48,7 @@
   "dependencies": {
     "@lazy-node/semver-simple-parse": "^2.0.9",
     "@ts-type/package-dts": "^2.0.8",
+    "@yarn-tool/npm-package-arg-util": "^1.0.39",
     "@yarn-tool/pkg-version-query": "^2.0.16",
     "@yarn-tool/semver-diff": "^2.0.11",
     "@yarn-tool/table": "^2.0.13",
@@ -55,17 +56,19 @@
     "@yarn-tool/yarnlock": "^2.0.22",
     "bluebird": "^3.7.2",
     "npm-check-updates": "<12 >=11.8.5",
-    "npm-package-arg": "^10.1.0",
     "package-json": "<7 >=6.5",
-    "semver": "^7.3.8",
+    "semver": "^7.5.4",
     "ts-type": "^3.0.1",
     "tslib": ">=2"
   },
   "peerDependencies": {
-    "yargs": "^17.6.2"
+    "yargs": "^17.7.2"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "engines": {
+    "node": ">=16.14.0"
   },
   "gitHead": "46d4d576f34d2d5218822811286119ea7a44d08b"
 }

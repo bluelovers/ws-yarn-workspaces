@@ -6,13 +6,13 @@ const options_1 = require("../options");
 const npm_check_updates_1 = require("npm-check-updates");
 const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
 const util_1 = require("../util");
-const npm_package_arg_1 = tslib_1.__importDefault(require("npm-package-arg"));
 const queryVersion_1 = require("@yarn-tool/pkg-version-query/lib/queryVersion");
 const mergeSimpleSemVer_1 = require("@lazy-node/semver-simple-parse/lib/mergeSimpleSemVer");
 const parseSimpleSemVer_1 = require("@lazy-node/semver-simple-parse/lib/parseSimpleSemVer");
 const stringifySimpleSemVer_1 = require("@lazy-node/semver-simple-parse/lib/stringifySimpleSemVer");
 const pkg_version_query_1 = require("@yarn-tool/pkg-version-query");
 const deps_table_1 = require("@yarn-tool/table/lib/deps-table");
+const npm_package_arg_util_1 = require("@yarn-tool/npm-package-arg-util");
 async function npmCheckUpdates(cache, ncuOptions) {
     //ncuOptions.silent = false;
     //ncuOptions.json = false;
@@ -52,7 +52,7 @@ async function npmCheckUpdates(cache, ncuOptions) {
             }
             else if (!/[\s|&]/.test(version_old)) {
                 let key = `${name}@${version_old}`;
-                let check = (0, npm_package_arg_1.default)(key);
+                let check = (0, npm_package_arg_util_1.npa)(key);
                 let prefix = (_a = /^([\^~\s]+)/.exec(version_old)) === null || _a === void 0 ? void 0 : _a[1];
                 if ((prefix === null || prefix === void 0 ? void 0 : prefix.length) && check.type === 'range') {
                     let version_new = await (0, queryVersion_1.queryVersionWithCache)(name, version_old)

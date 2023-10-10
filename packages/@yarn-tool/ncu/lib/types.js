@@ -10,5 +10,5 @@ var EnumPackageManagersNpmMethod;
     EnumPackageManagersNpmMethod["latest"] = "latest";
     EnumPackageManagersNpmMethod["greatest"] = "greatest";
     EnumPackageManagersNpmMethod["newest"] = "newest";
-})(EnumPackageManagersNpmMethod = exports.EnumPackageManagersNpmMethod || (exports.EnumPackageManagersNpmMethod = {}));
+})(EnumPackageManagersNpmMethod || (exports.EnumPackageManagersNpmMethod = EnumPackageManagersNpmMethod = {}));
 //# sourceMappingURL=types.js.map
