@@ -1,10 +1,6 @@
 import { EnumScriptsEntry } from '../../field/scripts';
 export declare function _runAllOrSince<T extends string>(script: T): { [x in `${T}:all`]: string; } & { [y in `${T}:since`]: string; };
 export declare function defaultWorkspaceRootScripts(): {
-    preversion: EnumScriptsEntry;
-    postversion: string;
-    "lerna:publish": string;
-    "lerna:publish:yes": string;
     "prepublishOnly:root": string;
     "prepublishOnly:lockfile": string;
     "prepublishOnly:check-bin": string;
@@ -19,6 +15,9 @@ export declare function defaultWorkspaceRootScripts(): {
     postpublishOnly: string;
     "postpublishOnly:ws-root-changelog": string;
     "tsc:showConfig": string;
+    preversion: EnumScriptsEntry;
+    postversion: string;
+    "lerna:publish": string;
     "lint:all": string;
     "lint:since": string;
     "coverage:all": string;

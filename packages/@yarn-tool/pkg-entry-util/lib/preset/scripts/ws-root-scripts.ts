@@ -18,6 +18,14 @@ export function _runAllOrSince<T extends string>(script: T)
 
 export function defaultWorkspaceRootScripts()
 {
+	const bumpVersion = (bump?: 'major' | 'minor' | 'patch') => {
+		return [
+			`yarn run prepublishOnly:root`,
+			`lerna publish --no-private` + (bump ? ` --yes --bump ${bump}` : ''),
+			`yarn run postpublishOnly`,
+		].join(' && ')
+	}
+
 	return {
 		...defaultSharedRootScripts(),
 
@@ -33,8 +41,20 @@ export function defaultWorkspaceRootScripts()
 
 		"preversion": EnumScriptsEntry.preversion,
 		"postversion": "yarn-tool fix-all",
-		"lerna:publish": "yarn run prepublishOnly:root && lerna publish && yarn run postpublishOnly",
-		"lerna:publish:yes": "yarn run prepublishOnly:root && lerna publish --yes --bump patch && yarn run postpublishOnly",
+		"lerna:publish": bumpVersion(),
+		...([
+			'patch',
+			'minor',
+			'major',
+		] as const).reduce((a, bump, idx) => {
+			if (idx === 0)
+			{
+				a[`lerna:publish:yes`] = `yarn run lerna:publish:yes:${bump}`;
+			}
+			a[`lerna:publish:yes:${bump}`] = bumpVersion(bump);
+			return a
+		}, {} as Record<string, string>),
+
 		"prepublishOnly:root": "yarn run prepublishOnly:check-bin && yarn run prepare:fix-ws-links",
 		"prepublishOnly:lockfile": "ynpx --quiet sync-lockfile",
 		"prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",

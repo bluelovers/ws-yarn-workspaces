@@ -12,6 +12,13 @@ function _runAllOrSince(script) {
 }
 exports._runAllOrSince = _runAllOrSince;
 function defaultWorkspaceRootScripts() {
+    const bumpVersion = (bump) => {
+        return [
+            `yarn run prepublishOnly:root`,
+            `lerna publish --no-private` + (bump ? ` --yes --bump ${bump}` : ''),
+            `yarn run postpublishOnly`,
+        ].join(' && ');
+    };
     return {
         ...(0, shared_root_scripts_1.defaultSharedRootScripts)(),
         "test": "yarn run test:since",
@@ -24,8 +31,18 @@ function defaultWorkspaceRootScripts() {
         ..._runAllOrSince('lint'),
         "preversion": "yarn run test" /* EnumScriptsEntry.preversion */,
         "postversion": "yarn-tool fix-all",
-        "lerna:publish": "yarn run prepublishOnly:root && lerna publish && yarn run postpublishOnly",
-        "lerna:publish:yes": "yarn run prepublishOnly:root && lerna publish --yes --bump patch && yarn run postpublishOnly",
+        "lerna:publish": bumpVersion(),
+        ...[
+            'patch',
+            'minor',
+            'major',
+        ].reduce((a, bump, idx) => {
+            if (idx === 0) {
+                a[`lerna:publish:yes`] = `yarn run lerna:publish:yes:${bump}`;
+            }
+            a[`lerna:publish:yes:${bump}`] = bumpVersion(bump);
+            return a;
+        }, {}),
         "prepublishOnly:root": "yarn run prepublishOnly:check-bin && yarn run prepare:fix-ws-links",
         "prepublishOnly:lockfile": "ynpx --quiet sync-lockfile",
         "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
