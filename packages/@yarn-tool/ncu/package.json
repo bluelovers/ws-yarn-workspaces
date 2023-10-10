@@ -30,6 +30,7 @@
     "lint": "npx eslint **/*.ts",
     "test": "jest",
     "test:jest": "jest --coverage",
+    "test:jest:coverage": "yarn run test:jest -- --coverage",
     "test:jest:snapshot": "yarn run test:jest -- -u",
     "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
     "test:snapshot": "yarn run test -- -u",
@@ -43,7 +44,8 @@
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort",
     "tsc:default": "tsc -p tsconfig.json",
-    "tsc:esm": "tsc -p tsconfig.esm.json"
+    "tsc:esm": "tsc -p tsconfig.esm.json",
+    "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
     "@lazy-node/semver-simple-parse": "^2.0.9",
@@ -64,11 +66,11 @@
   "peerDependencies": {
     "yargs": "^17.7.2"
   },
-  "publishConfig": {
-    "access": "public"
-  },
   "engines": {
     "node": ">=16.14.0"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "gitHead": "46d4d576f34d2d5218822811286119ea7a44d08b"
 }

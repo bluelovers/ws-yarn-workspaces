@@ -26,6 +26,7 @@
     "directory": "packages/node-package-json-loader"
   },
   "license": "ISC",
+  "licenses": [],
   "author": "",
   "contributors": [],
   "main": "index.js",
@@ -34,9 +35,11 @@
     "test": "test"
   },
   "scripts": {
+    "coverage": "yarn run test -- --coverage",
     "lint": "eslint .",
     "test": "jest -u",
     "test:jest": "jest --passWithNoTests",
+    "test:jest:coverage": "yarn run test:jest -- --coverage",
     "test:jest:snapshot": "yarn run test:jest -- -u",
     "test:snapshot": "yarn run test -- -u",
     "test:tsd": "ynpx tsd",
@@ -44,7 +47,8 @@
     "prepublishOnly": "echo prepublishOnly",
     "postpublish_": "git commit -m \"chore(release): publish\" .",
     "ncu": "npx yarn-tool ncu -u",
-    "sort-package-json": "npx yarn-tool sort"
+    "sort-package-json": "npx yarn-tool sort",
+    "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "config": {},
   "resolutions": {},
@@ -63,6 +67,5 @@
   "bundleDependencies": [],
   "preferGlobal": true,
   "publishConfig": {},
-  "gitHead": "46d4d576f34d2d5218822811286119ea7a44d08b",
-  "licenses": []
+  "gitHead": "46d4d576f34d2d5218822811286119ea7a44d08b"
 }

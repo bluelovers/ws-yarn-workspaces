@@ -15,8 +15,10 @@
   "author": "bluelovers",
   "main": "index.js",
   "scripts": {
+    "coverage": "yarn run test -- --coverage",
     "test": "jest",
     "test:jest": "jest --passWithNoTests",
+    "test:jest:coverage": "yarn run test:jest -- --coverage",
     "test:jest:snapshot": "yarn run test:jest -- -u",
     "test:snapshot": "yarn run test -- -u",
     "test:tsd": "ynpx tsd",
@@ -25,7 +27,8 @@
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort",
     "tsc:default": "tsc -p tsconfig.json",
-    "tsc:esm": "tsc -p tsconfig.esm.json"
+    "tsc:esm": "tsc -p tsconfig.esm.json",
+    "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
     "@lerna/get-packed": "^6.4.1",
@@ -36,11 +39,11 @@
     "tar": "^6.2.0",
     "tslib": ">=2"
   },
-  "publishConfig": {
-    "access": "public"
-  },
   "engines": {
     "node": ">=16.14.0"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "gitHead": "46d4d576f34d2d5218822811286119ea7a44d08b"
 }
