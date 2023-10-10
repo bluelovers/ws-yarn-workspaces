@@ -1,6 +1,7 @@
 import { IPackageJson } from '@ts-type/package-dts/package-json';
 import { defaultWorkspaceRootScripts } from '@yarn-tool/pkg-entry-util/lib/preset/scripts/ws-root-scripts';
 import { fillDummyScripts } from '@yarn-tool/pkg-entry-util/lib/preset/scripts/dummy';
+import { dependencies, devDependencies, peerDependencies } from './package.demo.json';
 
 export function getDefaultPackageJson(name?: string): IPackageJson
 {
@@ -16,26 +17,9 @@ export function getDefaultPackageJson(name?: string): IPackageJson
 			"create-by-yarn-tool",
 		],
 		"scripts": defaultWorkspaceRootScripts(),
-		"dependencies": {
-			"ts-type": ">=3",
-			"tslib": ">=2",
-		},
-		"devDependencies": {
-			"@types/jest": "^29",
-			"@bluelovers/tsconfig": "^1.0.32",
-			"@types/node": "latest",
-			"@yarn-tool/ws-find-up-paths": "*",
-		},
-		"peerDependencies": {
-			"lerna": "*",
-			"yarn": "*",
-			"ynpx": "*",
-			"typescript": "*",
-			"ts-node": "*",
-			"@yarn-tool/require-resolve": "*",
-			"yarn-tool": "*",
-			"@bluelovers/conventional-changelog-bluelovers": "*",
-		},
+		dependencies,
+		devDependencies,
+		peerDependencies,
 		"resolutions": {},
 	} as any;
 

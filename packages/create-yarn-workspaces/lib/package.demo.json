@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "ts-type": ">=3.0.1",
+    "tslib": ">=2.6.2"
+  },
+  "devDependencies": {
+    "@bluelovers/tsconfig": "^1.0.34",
+    "@types/jest": "^29.5.5",
+    "@types/node": "^20.8.4",
+    "@yarn-tool/ws-find-up-paths": "^1.0.12"
+  },
+  "peerDependencies": {
+    "@bluelovers/conventional-changelog-bluelovers": "*",
+    "@yarn-tool/require-resolve": "*",
+    "lerna": "<=6",
+    "ts-node": "*",
+    "typescript": "*",
+    "yarn": "*",
+    "yarn-tool": "*",
+    "ynpx": "*"
+  }
+}
