@@ -17,27 +17,27 @@ var EnumDetectYarnLock;
      */
     EnumDetectYarnLock[EnumDetectYarnLock["canary"] = 3] = "canary";
     EnumDetectYarnLock[EnumDetectYarnLock["unknown"] = 0] = "unknown";
-})(EnumDetectYarnLock = exports.EnumDetectYarnLock || (exports.EnumDetectYarnLock = {}));
+})(EnumDetectYarnLock || (exports.EnumDetectYarnLock = EnumDetectYarnLock = {}));
 var EnumDetectYarnLockInputType;
 (function (EnumDetectYarnLockInputType) {
     EnumDetectYarnLockInputType[EnumDetectYarnLockInputType["unknown"] = 0] = "unknown";
     EnumDetectYarnLockInputType[EnumDetectYarnLockInputType["simple"] = 1] = "simple";
     EnumDetectYarnLockInputType[EnumDetectYarnLockInputType["parse_raw"] = 2] = "parse_raw";
-})(EnumDetectYarnLockInputType = exports.EnumDetectYarnLockInputType || (exports.EnumDetectYarnLockInputType = {}));
+})(EnumDetectYarnLockInputType || (exports.EnumDetectYarnLockInputType = EnumDetectYarnLockInputType = {}));
 var EnumYarnLockSourceV1Type;
 (function (EnumYarnLockSourceV1Type) {
     EnumYarnLockSourceV1Type["success"] = "success";
     EnumYarnLockSourceV1Type["merge"] = "merge";
     EnumYarnLockSourceV1Type["conflict"] = "conflict";
-})(EnumYarnLockSourceV1Type = exports.EnumYarnLockSourceV1Type || (exports.EnumYarnLockSourceV1Type = {}));
+})(EnumYarnLockSourceV1Type || (exports.EnumYarnLockSourceV1Type = EnumYarnLockSourceV1Type = {}));
 var EnumLinkType;
 (function (EnumLinkType) {
     EnumLinkType["hard"] = "hard";
     EnumLinkType["soft"] = "soft";
-})(EnumLinkType = exports.EnumLinkType || (exports.EnumLinkType = {}));
+})(EnumLinkType || (exports.EnumLinkType = EnumLinkType = {}));
 var EnumLanguageName;
 (function (EnumLanguageName) {
     EnumLanguageName["node"] = "node";
     EnumLanguageName["unknown"] = "unknown";
-})(EnumLanguageName = exports.EnumLanguageName || (exports.EnumLanguageName = {}));
+})(EnumLanguageName || (exports.EnumLanguageName = EnumLanguageName = {}));
 //# sourceMappingURL=index.js.map

@@ -55,7 +55,7 @@
     "@yarn-tool/resolve-package": "^2.0.11",
     "@yarn-tool/write-package-json": "^1.0.12",
     "bind-decorator": "^1.0.11",
-    "fs-extra": "^11.1.0",
+    "fs-extra": "^11.1.1",
     "sort-package-json3": "^2.0.14",
     "ts-type": "^3.0.1",
     "tslib": ">=2"

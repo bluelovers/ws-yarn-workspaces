@@ -3,7 +3,7 @@
  */
 import { wsGitChanged } from './lib/git-changed';
 import { lernaChanged } from './lib/lerna-changed';
-import { IListableRowExtra, IListableRow } from 'ws-pkg-list';
+import { IListableRowExtra } from 'ws-pkg-list';
 export type { IListableRowExtra };
 export { lernaChanged, wsGitChanged };
 export declare function wsChanged(cwd?: string, options?: {
@@ -11,7 +11,7 @@ export declare function wsChanged(cwd?: string, options?: {
     lernaBin?: string;
 }): {
     cwd: string;
-    changed: IListableRowExtra<IListableRow>[];
-    staged: IListableRowExtra<IListableRow>[];
+    changed: IListableRowExtra[];
+    staged: IListableRowExtra[];
 };
 export default wsChanged;

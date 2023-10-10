@@ -8,7 +8,7 @@ var EnumCheckPaths;
     EnumCheckPaths[EnumCheckPaths["root"] = 1] = "root";
     EnumCheckPaths[EnumCheckPaths["rootPath"] = 0] = "rootPath";
     EnumCheckPaths[EnumCheckPaths["failed"] = -1] = "failed";
-})(EnumCheckPaths = exports.EnumCheckPaths || (exports.EnumCheckPaths = {}));
+})(EnumCheckPaths || (exports.EnumCheckPaths = EnumCheckPaths = {}));
 function checkPaths(input, options) {
     let { root, rootPath } = input;
     if ((root === null || root === void 0 ? void 0 : root.length) && (rootPath === null || rootPath === void 0 ? void 0 : rootPath.length)) {

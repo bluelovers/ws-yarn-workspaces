@@ -148,6 +148,7 @@ class PackageJsonLoader {
         return this.loaded;
     }
 }
+exports.PackageJsonLoader = PackageJsonLoader;
 tslib_1.__decorate([
     bind_decorator_1.default,
     tslib_1.__metadata("design:type", Function),
@@ -160,6 +161,5 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:paramtypes", [String]),
     tslib_1.__metadata("design:returntype", void 0)
 ], PackageJsonLoader, "loadByModuleName", null);
-exports.PackageJsonLoader = PackageJsonLoader;
 exports.default = PackageJsonLoader;
 //# sourceMappingURL=index.js.map

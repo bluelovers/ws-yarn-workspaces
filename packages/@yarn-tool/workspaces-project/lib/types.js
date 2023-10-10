@@ -5,5 +5,5 @@ var EnumWorkspacesProject;
 (function (EnumWorkspacesProject) {
     EnumWorkspacesProject["workspace"] = "packages/*";
     EnumWorkspacesProject["independent"] = "independent";
-})(EnumWorkspacesProject = exports.EnumWorkspacesProject || (exports.EnumWorkspacesProject = {}));
+})(EnumWorkspacesProject || (exports.EnumWorkspacesProject = EnumWorkspacesProject = {}));
 //# sourceMappingURL=types.js.map

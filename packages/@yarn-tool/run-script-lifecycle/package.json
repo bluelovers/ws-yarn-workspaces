@@ -38,7 +38,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@npmcli/run-script": "^6.0.0",
+    "@npmcli/run-script": "^7.0.1",
     "@ts-type/package-dts": "^2.0.8",
     "@yarn-tool/script-lifecycle": "^2.0.8",
     "tslib": ">=2"
@@ -48,6 +48,9 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "engines": {
+    "node": ">=16.14.0"
   },
   "gitHead": "02f74c14e885366e9be773564ea43f7425f9d97a"
 }

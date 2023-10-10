@@ -34,6 +34,7 @@
     "lint": "ynpx --quiet eslint -- **/*.ts",
     "test": "jest --passWithNoTests",
     "test:jest": "jest --passWithNoTests",
+    "test:jest:coverage": "yarn run test:jest -- --coverage",
     "test:jest:snapshot": "yarn run test:jest -- -u",
     "test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
     "test:snapshot": "yarn run test -- -u",
@@ -58,7 +59,7 @@
     "@ts-type/package-dts": "^2.0.8",
     "@yarn-tool/find-root": "^2.0.13",
     "@yarn-tool/resolve-package": "^2.0.11",
-    "fs-extra": "^11.1.0",
+    "fs-extra": "^11.1.1",
     "tslib": ">=2",
     "upath2": "^3.1.19"
   },

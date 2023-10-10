@@ -18,5 +18,5 @@ var EnumSemverVersion;
      */
     EnumSemverVersion["STAR"] = "*";
     EnumSemverVersion["ANY"] = "";
-})(EnumSemverVersion = exports.EnumSemverVersion || (exports.EnumSemverVersion = {}));
+})(EnumSemverVersion || (exports.EnumSemverVersion = EnumSemverVersion = {}));
 //# sourceMappingURL=const.js.map

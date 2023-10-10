@@ -89,7 +89,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "devDependencies": {
-    "sort-package-json": "^2.2.0"
+    "sort-package-json": "^2.6.0"
   },
   "packageManager": "yarn@1.22.19",
   "publishConfig": {

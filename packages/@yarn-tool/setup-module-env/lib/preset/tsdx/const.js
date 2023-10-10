@@ -4,5 +4,5 @@ exports.EnumTsdx = void 0;
 var EnumTsdx;
 (function (EnumTsdx) {
     EnumTsdx["keyword"] = "create-by-tsdx";
-})(EnumTsdx = exports.EnumTsdx || (exports.EnumTsdx = {}));
+})(EnumTsdx || (exports.EnumTsdx = EnumTsdx = {}));
 //# sourceMappingURL=const.js.map

@@ -6,7 +6,7 @@ var EnumResultAddDependencies;
 (function (EnumResultAddDependencies) {
     EnumResultAddDependencies[EnumResultAddDependencies["changed"] = 2] = "changed";
     EnumResultAddDependencies[EnumResultAddDependencies["exists"] = 1] = "exists";
-})(EnumResultAddDependencies = exports.EnumResultAddDependencies || (exports.EnumResultAddDependencies = {}));
+})(EnumResultAddDependencies || (exports.EnumResultAddDependencies = EnumResultAddDependencies = {}));
 function _checkDependenciesExists(record, name) {
     var _a;
     return ((_a = record === null || record === void 0 ? void 0 : record[name]) === null || _a === void 0 ? void 0 : _a.length) > 0;

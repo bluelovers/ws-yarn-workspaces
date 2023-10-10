@@ -7,5 +7,5 @@ var EnumInstallTypesErrorCode;
     EnumInstallTypesErrorCode[EnumInstallTypesErrorCode["NOT_EXISTS"] = 1] = "NOT_EXISTS";
     EnumInstallTypesErrorCode[EnumInstallTypesErrorCode["DEPRECATED"] = 2] = "DEPRECATED";
     EnumInstallTypesErrorCode[EnumInstallTypesErrorCode["SKIP"] = 3] = "SKIP";
-})(EnumInstallTypesErrorCode = exports.EnumInstallTypesErrorCode || (exports.EnumInstallTypesErrorCode = {}));
+})(EnumInstallTypesErrorCode || (exports.EnumInstallTypesErrorCode = EnumInstallTypesErrorCode = {}));
 //# sourceMappingURL=const.js.map

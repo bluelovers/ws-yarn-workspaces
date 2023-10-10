@@ -22,7 +22,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports._unshiftArray = exports.requireResolveExtra = exports.importExtra = exports.requireExtra = exports.isErrorModuleNotFound = exports.handleOptionsPaths = exports.requireResolveCore = exports.SymbolModuleMain = exports.SymbolGlobalYarn = exports.SymbolGlobalNpm = exports.SymbolGlobal = exports.SymbolCurrentDirectory = void 0;
 const get_paths_by_type_1 = require("@yarn-tool/get-paths-by-type");
@@ -102,7 +101,7 @@ function requireExtra(name, options) {
 }
 exports.requireExtra = requireExtra;
 function importExtra(name, options) {
-    return _a = requireResolveCore(name, options), Promise.resolve().then(() => __importStar(require(_a)));
+    return Promise.resolve(`${requireResolveCore(name, options)}`).then(s => __importStar(require(s)));
 }
 exports.importExtra = importExtra;
 function requireResolveExtra(name, options) {

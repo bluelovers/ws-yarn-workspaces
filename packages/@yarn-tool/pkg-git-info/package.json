@@ -40,9 +40,12 @@
   },
   "dependencies": {
     "@git-lazy/info": "^1.0.40",
-    "@types/hosted-git-info": "^3.0.2",
-    "hosted-git-info": "^6.1.1",
+    "@types/hosted-git-info": "^3.0.3",
+    "hosted-git-info": "^7.0.1",
     "tslib": ">=2"
+  },
+  "engines": {
+    "node": ">=16.14.0"
   },
   "publishConfig": {
     "access": "public"

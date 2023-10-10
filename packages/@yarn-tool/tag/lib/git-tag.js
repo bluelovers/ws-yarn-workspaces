@@ -22,7 +22,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.gitPackageTag = void 0;
 const core_1 = require("./core");
@@ -43,7 +42,7 @@ async function gitPackageTag(options, spawnOptions) {
         throw new Error(`cwd must be same as package dir\n${rootData.pkg}\n${cwd}`);
     }
     if (!options.pkg) {
-        options.pkg = await (_a = (0, path_1.join)(rootData.pkg, 'package.json'), Promise.resolve().then(() => __importStar(require(_a)))).then(m => m.default || m);
+        options.pkg = await Promise.resolve(`${(0, path_1.join)(rootData.pkg, 'package.json')}`).then(s => __importStar(require(s))).then(m => m.default || m);
     }
     cwd = options.cwd = rootData.pkg;
     options = (0, core_1.handleOptions)(options);

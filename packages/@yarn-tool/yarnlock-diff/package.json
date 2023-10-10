@@ -46,7 +46,7 @@
     "tslib": ">=2"
   },
   "devDependencies": {
-    "just-diff": "^5.2.0"
+    "just-diff": "^6.0.2"
   },
   "publishConfig": {
     "access": "public"

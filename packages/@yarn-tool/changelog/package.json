@@ -54,7 +54,7 @@
     "ts-type": "^3.0.1",
     "tslib": ">=2",
     "upath2": "^3.1.19",
-    "v8-compile-cache": "^2.3.0",
+    "v8-compile-cache": "^2.4.0",
     "ws-pkg-list": "^2.0.14",
     "yargs": "*"
   },

@@ -44,7 +44,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "crlf-normalize": "^1.0.18"
+    "crlf-normalize": "^1.0.19"
   },
   "publishConfig": {
     "access": "public"

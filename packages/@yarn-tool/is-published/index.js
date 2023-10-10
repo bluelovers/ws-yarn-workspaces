@@ -11,7 +11,7 @@ var EnumIsPublishedState;
     EnumIsPublishedState[EnumIsPublishedState["VersionPublished"] = 0] = "VersionPublished";
     EnumIsPublishedState[EnumIsPublishedState["VersionNotFound"] = 1] = "VersionNotFound";
     EnumIsPublishedState[EnumIsPublishedState["PackageNotFound"] = 2] = "PackageNotFound";
-})(EnumIsPublishedState = exports.EnumIsPublishedState || (exports.EnumIsPublishedState = {}));
+})(EnumIsPublishedState || (exports.EnumIsPublishedState = EnumIsPublishedState = {}));
 function _isPublishedCoreByNpaResult(depsResult, options) {
     return bluebird_1.default.resolve(depsResult)
         .then(depsResult => {

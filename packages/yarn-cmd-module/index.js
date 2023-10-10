@@ -96,6 +96,7 @@ class YargsCommandModule {
         };
     }
 }
+exports.YargsCommandModule = YargsCommandModule;
 tslib_1.__decorate([
     core_decorators_1.autobind,
     tslib_1.__metadata("design:type", Object),
@@ -144,6 +145,5 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:paramtypes", []),
     tslib_1.__metadata("design:returntype", void 0)
 ], YargsCommandModule.prototype, "toValue", null);
-exports.YargsCommandModule = YargsCommandModule;
 exports.default = YargsCommandModule;
 //# sourceMappingURL=index.js.map

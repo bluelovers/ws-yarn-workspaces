@@ -21,5 +21,5 @@ var EnumVersionExtra;
 (function (EnumVersionExtra) {
     EnumVersionExtra["build"] = "+";
     EnumVersionExtra["release"] = "-";
-})(EnumVersionExtra = exports.EnumVersionExtra || (exports.EnumVersionExtra = {}));
+})(EnumVersionExtra || (exports.EnumVersionExtra = EnumVersionExtra = {}));
 //# sourceMappingURL=const.js.map
