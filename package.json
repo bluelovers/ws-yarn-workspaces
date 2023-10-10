@@ -96,7 +96,7 @@
     "package-json": "<7 >=6.5",
     "pkg-up": "< 4 >= 3.1.0",
     "semver": "^7.5.4",
-    "tslib": ">=2"
+    "tslib": ">=2.6.2"
   },
   "devDependencies": {
     "@bluelovers/fast-glob": "^3.0.4",
