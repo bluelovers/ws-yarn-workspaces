@@ -51,6 +51,9 @@ describe(`fixYarnLockTagUpdate`, () =>
 								'typescript@next': {
 									to: expect.any(String),
 								},
+								'dts-bundle-generator@npm:@bluelovers/dts-bundle-generator': {
+									to: expect.any(String),
+								},
 							},
 						},
 					});

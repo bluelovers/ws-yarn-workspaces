@@ -4,6 +4,10 @@ exports[`fixYarnLockTagUpdate v1 should update tag in yarn.lock 1`] = `
 {
   "report": {
     "removed": {
+      "dts-bundle-generator@npm:@bluelovers/dts-bundle-generator": {
+        "from": "9.3.1-dev.2",
+        "to": Any<String>,
+      },
       "next@canary": {
         "from": "9.5.2-canary.1",
         "to": Any<String>,
@@ -24,6 +28,10 @@ exports[`fixYarnLockTagUpdate v3 should update tag in yarn.lock 1`] = `
 {
   "report": {
     "removed": {
+      "dts-bundle-generator@npm:@bluelovers/dts-bundle-generator": {
+        "from": "9.3.1-dev.2",
+        "to": Any<String>,
+      },
       "next@canary": {
         "from": "9.5.2-canary.1",
         "to": Any<String>,

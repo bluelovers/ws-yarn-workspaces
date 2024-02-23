@@ -16,3 +16,9 @@ __metadata:
   resolution: "typescript@npm:4.0.0-dev.20200731"
   languageName: node
   linkType: hard
+
+"dts-bundle-generator@npm:@bluelovers/dts-bundle-generator":
+  version: 9.3.1-dev.2
+  resolution: "@bluelovers/dts-bundle-generator@npm:9.3.1-dev.2"
+  languageName: node
+  linkType: hard
