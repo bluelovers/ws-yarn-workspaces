@@ -8,9 +8,9 @@ function notNpxMaybe(__dirname) {
     if (__dirname && /ypx_|_npx/i.test(__dirname)) {
         return false;
     }
-    return !require('@yarn-tool/is-npx').isNpx({
+    return !(0, ci_detect_1.default)() && !require('@yarn-tool/is-npx').isNpx({
         __dirname,
-    }) && !(0, ci_detect_1.default)();
+    });
 }
 exports.notNpxMaybe = notNpxMaybe;
 function updateNotifier(__dirname, force, inputNoticeOptions) {

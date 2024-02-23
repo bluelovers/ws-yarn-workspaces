@@ -12,9 +12,9 @@ export function notNpxMaybe(__dirname: string): boolean
 		return false
 	}
 
-	return !require('@yarn-tool/is-npx').isNpx({
+	return !ciDetect() && !require('@yarn-tool/is-npx').isNpx({
 		__dirname,
-	}) && !ciDetect()
+	})
 }
 
 export function updateNotifier(__dirname: string | string[], force?: boolean, inputNoticeOptions?: Settings & NotifyOptions): IUpdateNotifierObject
