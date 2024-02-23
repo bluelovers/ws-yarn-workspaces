@@ -95,6 +95,8 @@ const _defaultCopyStaticFilesWsRootOnly = [
 	['jest.config.js', 'file/ws-root/jest.config.js'],
 	['jest-preset.js', 'file/ws-root/jest-preset.js'],
 
+	['.run/lerna_publish_yes.run.xml', 'file/ws-root/.run/lerna_publish_yes.run.xml'],
+
 ] as const;
 
 export const defaultCopyStaticFiles = Object.freeze(_defaultCopyStaticFiles) as any as IStaticFilesMapArray<_Key<typeof _defaultCopyStaticFiles>>;

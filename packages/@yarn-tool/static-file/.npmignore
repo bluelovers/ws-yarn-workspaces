@@ -156,3 +156,4 @@ __fixtures__
 !/file/ws-root/jest.config.js
 
 !/file/ws-root/jest-preset.js
+!/file/ws-root/.run/**/*
