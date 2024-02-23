@@ -45,7 +45,7 @@
     "tslib": ">=2"
   },
   "peerDependencies": {
-    "yarn": "^1.22.19"
+    "yarn": "^1.22.21"
   },
   "gitHead": "40676553ac196265d354e537459d4c78d67f0a8c"
 }

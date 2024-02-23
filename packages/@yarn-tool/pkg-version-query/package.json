@@ -49,7 +49,7 @@
     "cache-path": "^4.0.0",
     "lru-cache-fs2": "^2.0.8",
     "package-json": "<7 >=6.5",
-    "semver": "^7.5.4",
+    "semver": "^7.6.0",
     "ts-type": "^3.0.1",
     "tslib": ">=2"
   },

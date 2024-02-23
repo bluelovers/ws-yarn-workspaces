@@ -39,8 +39,8 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@git-lazy/info": "^1.0.40",
-    "@types/hosted-git-info": "^3.0.3",
+    "@git-lazy/info": "^1.0.41",
+    "@types/hosted-git-info": "^3.0.5",
     "hosted-git-info": "^7.0.1",
     "tslib": ">=2"
   },
