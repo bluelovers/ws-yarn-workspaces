@@ -62,15 +62,23 @@ export async function updateYarnLockTag(yarnlock_old: Buffer | string)
 					{
 						semver = npaResult.subSpec.fetchSpec;
 					}
-
-					if (typeof semver === 'string')
+					else
 					{
-						version_new = await queryVersionWithCache(name, semver);
+						semver = npaResult.subSpec.fetchSpec;
 					}
 				}
 				else if (npaResult.subSpec.type === 'tag')
 				{
-					version_new = await queryVersionWithCache(name, npaResult.subSpec.fetchSpec);
+					semver = npaResult.subSpec.fetchSpec;
+				}
+				else if (npaResult.subSpec.type === 'version')
+				{
+					semver = '^' + version;
+				}
+
+				if (typeof semver === 'string')
+				{
+					version_new = await queryVersionWithCache(name, semver);
 				}
 
 				if (version_new?.length && version_new !== version && gt(version_new, version))

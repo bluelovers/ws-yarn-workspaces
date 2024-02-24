@@ -42,12 +42,18 @@ async function updateYarnLockTag(yarnlock_old) {
                     else if ((0, parseSimpleSemVerRange_1.parseSimpleSemVerRange)(npaResult.subSpec.fetchSpec).length > 1) {
                         semver = npaResult.subSpec.fetchSpec;
                     }
-                    if (typeof semver === 'string') {
-                        version_new = await (0, queryVersion_1.queryVersionWithCache)(name, semver);
+                    else {
+                        semver = npaResult.subSpec.fetchSpec;
                     }
                 }
                 else if (npaResult.subSpec.type === 'tag') {
-                    version_new = await (0, queryVersion_1.queryVersionWithCache)(name, npaResult.subSpec.fetchSpec);
+                    semver = npaResult.subSpec.fetchSpec;
+                }
+                else if (npaResult.subSpec.type === 'version') {
+                    semver = '^' + version;
+                }
+                if (typeof semver === 'string') {
+                    version_new = await (0, queryVersion_1.queryVersionWithCache)(name, semver);
                 }
                 if ((version_new === null || version_new === void 0 ? void 0 : version_new.length) && version_new !== version && (0, semver_1.gt)(version_new, version)) {
                     obj.del(key);
