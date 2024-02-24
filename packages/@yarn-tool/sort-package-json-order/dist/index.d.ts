@@ -79,6 +79,7 @@ export declare const sortOrder: readonly [
 	"c8",
 	"tap",
 	"tsd",
+	"oclif",
 	"resolutions",
 	"dependencies",
 	"devDependencies",

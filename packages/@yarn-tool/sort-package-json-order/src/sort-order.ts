@@ -80,6 +80,7 @@ export const sortOrder = [
 	'c8',
 	'tap',
 	'tsd',
+	'oclif',
 	'resolutions',
 	'dependencies',
 	'devDependencies',
