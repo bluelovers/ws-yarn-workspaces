@@ -1,7 +1,7 @@
 require:
 #  - esm
   - ts-node/register
-  - ./test/bootstrap/node
+  - ./test/bootstrap/node.js
 timeout: 0
 color: true
 extension:
