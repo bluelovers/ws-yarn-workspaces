@@ -4,9 +4,9 @@
     "tslib": ">=2.6.2"
   },
   "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.34",
-    "@types/jest": "^29.5.5",
-    "@types/node": "^20.8.4",
+    "@bluelovers/tsconfig": "^1.0.35",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.20",
     "@yarn-tool/ws-find-up-paths": "^1.0.12"
   },
   "peerDependencies": {

@@ -44,7 +44,7 @@ export declare class WorkspacesProject {
         conventionalCommits?: boolean;
         changelogPreset?: string;
         exact?: boolean;
-        createRelease?: "gitlab" | "github";
+        createRelease?: "github" | "gitlab";
         noPrivate?: boolean;
     }> & Pick<{
         concurrency?: number;
@@ -53,7 +53,7 @@ export declare class WorkspacesProject {
         conventionalCommits?: boolean;
         changelogPreset?: string;
         exact?: boolean;
-        createRelease?: "gitlab" | "github";
+        createRelease?: "github" | "gitlab";
         noPrivate?: boolean;
     } | {
         [k: string]: unknown;
@@ -70,7 +70,7 @@ export declare class WorkspacesProject {
         conventionalCommits?: boolean;
         changelogPreset?: string;
         exact?: boolean;
-        createRelease?: "gitlab" | "github";
+        createRelease?: "github" | "gitlab";
         noPrivate?: boolean;
     }>> & import("ts-type").ITSPickBothDiff<{
         [k: string]: unknown;

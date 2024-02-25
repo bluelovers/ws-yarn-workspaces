@@ -1,5 +1,5 @@
 import { IComparatorArrayInput, IComparatorSetInput } from '../types';
-export declare function includeAny(comparatorsArray: IComparatorArrayInput): import("semver/classes/comparator");
+export declare function includeAny(comparatorsArray: IComparatorArrayInput): import("semver").Comparator;
 /**
  * if we have any that are `*`, then the range is just `*`
  */
