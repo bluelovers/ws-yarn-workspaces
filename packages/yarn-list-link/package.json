@@ -1,6 +1,6 @@
 {
   "name": "yarn-list-link",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "show list of yarn link",
   "keywords": [],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/yarn-list-link#readme",

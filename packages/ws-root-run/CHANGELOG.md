@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.47](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-root-spawn@1.0.46...ws-root-spawn@1.0.47) (2024-02-28)
+
+
+
+### 📌　Dependencies
+
+* update deps ([d48c90a](https://github.com/bluelovers/ws-yarn-workspaces/commit/d48c90a1f35e626fb9a4dcbb7bad5c5e1164dce1))
+
+
+
 ## [1.0.46](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-root-spawn@1.0.45...ws-root-spawn@1.0.46) (2022-11-14)
 
 

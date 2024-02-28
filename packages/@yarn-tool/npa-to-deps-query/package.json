@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/npa-to-deps-query",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "",
   "keywords": [
     "yarn",
@@ -53,7 +53,7 @@
   },
   "dependencies": {
     "@yarn-tool/npa-to-deps": "^3.0.0",
-    "@yarn-tool/pkg-version-query": "^3.0.0",
+    "@yarn-tool/pkg-version-query": "^3.0.1",
     "bluebird": "^3.7.2",
     "package-json": "<7 >=6.5",
     "ts-type": "^3.0.1",

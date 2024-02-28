@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-entry-util@3.0.0...@yarn-tool/pkg-entry-util@3.0.1) (2024-02-28)
+
+
+
+### ✨　Features
+
+* sort semver release type ([df4aec1](https://github.com/bluelovers/ws-yarn-workspaces/commit/df4aec11272e125af14776937a549fa3b1715ae7))
+
+
+### 📌　Dependencies
+
+* update deps ([d48c90a](https://github.com/bluelovers/ws-yarn-workspaces/commit/d48c90a1f35e626fb9a4dcbb7bad5c5e1164dce1))
+
+
+
 # [3.0.0](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-entry-util@2.0.25...@yarn-tool/pkg-entry-util@3.0.0) (2023-10-10)
 
 

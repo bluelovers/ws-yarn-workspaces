@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.1](https://github.com/bluelovers/ws-yarn-workspaces/compare/cache-path@4.0.0...cache-path@4.0.1) (2024-02-28)
+
+
+
+### 🚨　Tests
+
+* update snap ([654f517](https://github.com/bluelovers/ws-yarn-workspaces/commit/654f51731ff9bbec0081d83b8bfb8bfc7313f8fe))
+
+
+### 📌　Dependencies
+
+* update deps ([d48c90a](https://github.com/bluelovers/ws-yarn-workspaces/commit/d48c90a1f35e626fb9a4dcbb7bad5c5e1164dce1))
+
+
+
 # [4.0.0](https://github.com/bluelovers/ws-yarn-workspaces/compare/cache-path@3.0.14...cache-path@4.0.0) (2023-10-10)
 
 

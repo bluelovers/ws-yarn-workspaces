@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarnlock-util",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "",
   "keywords": [
     "yarn",
@@ -45,9 +45,9 @@
   },
   "dependencies": {
     "@yarn-tool/npm-package-arg-util": "^2.0.0",
-    "@yarn-tool/yarn-struct-utils": "^2.0.0",
-    "@yarn-tool/yarnlock-parse-assert": "^2.0.0",
-    "@yarn-tool/yarnlock-parse-raw": "^2.0.0",
+    "@yarn-tool/yarn-struct-utils": "^2.0.1",
+    "@yarn-tool/yarnlock-parse-assert": "^2.0.1",
+    "@yarn-tool/yarnlock-parse-raw": "^2.0.1",
     "tslib": ">=2"
   },
   "publishConfig": {

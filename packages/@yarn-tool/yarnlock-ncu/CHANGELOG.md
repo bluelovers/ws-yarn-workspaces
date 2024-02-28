@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-ncu@3.0.0...@yarn-tool/yarnlock-ncu@3.0.1) (2024-02-28)
+
+
+
+### 🐛　Bug Fixes
+
+* support more fetchSpec ([28b1aec](https://github.com/bluelovers/ws-yarn-workspaces/commit/28b1aec1c5cc0291cc169f587559c0fde6d6e65c))
+
+
+### ✨　Features
+
+* support alias (only work for `npm:`) ([4d187cc](https://github.com/bluelovers/ws-yarn-workspaces/commit/4d187cc8d38d57d28d4bc6524362db5cb39401d5))
+
+
+### 📌　Dependencies
+
+* update deps ([d48c90a](https://github.com/bluelovers/ws-yarn-workspaces/commit/d48c90a1f35e626fb9a4dcbb7bad5c5e1164dce1))
+
+
+
 # [3.0.0](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-ncu@2.0.23...@yarn-tool/yarnlock-ncu@3.0.0) (2023-10-10)
 
 

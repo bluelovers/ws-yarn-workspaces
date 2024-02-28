@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/version-recommended@3.0.0...@yarn-tool/version-recommended@3.0.1) (2024-02-28)
+
+
+### BREAKING CHANGES
+
+* support `preid`
+
+
+
+### 🐛　Bug Fixes
+
+* support `preid` ([c5489a2](https://github.com/bluelovers/ws-yarn-workspaces/commit/c5489a238f85a8befd1692c0a4bfb56e6ec625b2))
+
+
+### 📌　Dependencies
+
+* update deps ([d48c90a](https://github.com/bluelovers/ws-yarn-workspaces/commit/d48c90a1f35e626fb9a4dcbb7bad5c5e1164dce1))
+
+
+
 # [3.0.0](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/version-recommended@2.0.22...@yarn-tool/version-recommended@3.0.0) (2023-10-10)
 
 
