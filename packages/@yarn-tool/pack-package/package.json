@@ -33,7 +33,7 @@
   "dependencies": {
     "@lerna/get-packed": "^6.4.1",
     "@lerna/log-packed": "^6.4.1",
-    "@npmcli/arborist": "^7.3.1",
+    "@npmcli/arborist": "^7.4.0",
     "@ts-type/package-dts": "^2.0.8",
     "npm-packlist": "^8.0.2",
     "tar": "^6.2.0",
