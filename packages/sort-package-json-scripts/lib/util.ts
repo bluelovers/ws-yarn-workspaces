@@ -84,6 +84,11 @@ export const defaultNpmScriptsOrder = new Set([
 
 	'version',
 
+	'major',
+	'minor',
+	'patch',
+	'prerelease',
+
 	'prepareOnly',
 	'prepublish',
 	'prepare',
@@ -99,6 +104,7 @@ export const defaultNpmScriptsOrder = new Set([
 	'postpublishOnly',
 
 	'shrinkwrap',
+	'dependencies',
 
 ])
 

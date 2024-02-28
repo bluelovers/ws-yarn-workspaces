@@ -70,6 +70,10 @@ exports.defaultNpmScriptsOrder = new Set([
     'lerna',
     'ws',
     'version',
+    'major',
+    'minor',
+    'patch',
+    'prerelease',
     'prepareOnly',
     'prepublish',
     'prepare',
@@ -82,6 +86,7 @@ exports.defaultNpmScriptsOrder = new Set([
     // yarn-tool
     'postpublishOnly',
     'shrinkwrap',
+    'dependencies',
 ]);
 /**
  * avoid omitKey wrong parse script name (e.g. prettier
