@@ -1,12 +1,19 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.setupToYargs = void 0;
+/**
+ * @see https://classic.yarnpkg.com/lang/en/docs/cli/version/
+ */
 function setupToYargs(yargs) {
     const _return = yargs
         .option('no-git-tag-version', {
         desc: 'no git tag version',
         boolean: true,
         default: true,
+    })
+        .option('no-commit-hooks', {
+        desc: 'Bypasses running commit hooks when committing the new version.',
+        boolean: true,
     })
         .option('new-version', {
         desc: 'new version',
@@ -47,6 +54,14 @@ function setupToYargs(yargs) {
     })
         .option('bump', {
         desc: 'bump version of packages',
+        string: true,
+    })
+        .option('preid', {
+        desc: 'Adds an identifier specified by <pre-identifier> to be used to prefix premajor, preminor, prepatch or prerelease version increments.',
+        string: true,
+    })
+        .option('default-preid', {
+        desc: 'Adds an identifier specified by <pre-identifier> to be used to prefix premajor, preminor, prepatch or prerelease version increments.',
         string: true,
     });
     return _return;

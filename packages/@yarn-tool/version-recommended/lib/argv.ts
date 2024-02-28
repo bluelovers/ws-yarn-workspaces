@@ -1,6 +1,9 @@
 import { Argv } from 'yargs';
 import { IYargsSync, IYargsUnPackArgv } from '@yarn-tool/types';
 
+/**
+ * @see https://classic.yarnpkg.com/lang/en/docs/cli/version/
+ */
 export function setupToYargs<T>(yargs: Argv<T>)
 {
 	const _return = yargs
@@ -8,6 +11,10 @@ export function setupToYargs<T>(yargs: Argv<T>)
 			desc: 'no git tag version',
 			boolean: true,
 			default: true,
+		})
+		.option('no-commit-hooks', {
+			desc: 'Bypasses running commit hooks when committing the new version.',
+			boolean: true,
 		})
 		.option('new-version', {
 			desc: 'new version',
@@ -50,6 +57,15 @@ export function setupToYargs<T>(yargs: Argv<T>)
 			desc: 'bump version of packages',
 			string: true,
 		})
+		.option('preid', {
+			desc: 'Adds an identifier specified by <pre-identifier> to be used to prefix premajor, preminor, prepatch or prerelease version increments.',
+			string: true,
+		})
+		.option('default-preid', {
+			desc: 'Adds an identifier specified by <pre-identifier> to be used to prefix premajor, preminor, prepatch or prerelease version increments.',
+			string: true,
+		})
+	;
 
 	return _return as any as IYargsSync<typeof _return>
 }

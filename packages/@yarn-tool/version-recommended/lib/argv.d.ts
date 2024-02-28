@@ -1,7 +1,12 @@
 import { Argv } from 'yargs';
 import { IYargsSync } from '@yarn-tool/types';
+/**
+ * @see https://classic.yarnpkg.com/lang/en/docs/cli/version/
+ */
 export declare function setupToYargs<T>(yargs: Argv<T>): IYargsSync<Argv<T & {
     "no-git-tag-version": boolean;
+} & {
+    "no-commit-hooks": boolean;
 } & {
     "new-version": string;
 } & {
@@ -22,4 +27,8 @@ export declare function setupToYargs<T>(yargs: Argv<T>): IYargsSync<Argv<T & {
     "non-interactive": boolean;
 } & {
     bump: string;
+} & {
+    preid: string;
+} & {
+    "default-preid": string;
 }>>;

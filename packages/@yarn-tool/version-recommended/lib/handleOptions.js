@@ -1,12 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.handleOptions = void 0;
+exports.detectPreidByVersion = exports.releaseTypesIsPre = exports.handleOptions = void 0;
 const types_1 = require("./types");
-function handleOptions(options) {
+const semver_1 = require("semver");
+function handleOptions(options, oldVersion) {
+    var _a, _b, _c;
     options = {
         ...options,
     };
-    let bump = options.bump;
+    let bump = ((_a = options.bump) === null || _a === void 0 ? void 0 : _a.length) ? options.bump : void 0;
     if (!bump) {
         for (let type of types_1.releaseTypes) {
             if (options[type] === true) {
@@ -15,6 +17,16 @@ function handleOptions(options) {
             }
         }
     }
+    if ((oldVersion === null || oldVersion === void 0 ? void 0 : oldVersion.length) && (!bump || releaseTypesIsPre(bump))) {
+        options.bump = bump;
+        const dt = detectPreidByVersion(oldVersion, options);
+        if (dt) {
+            bump = dt.bump;
+            (_b = options.preid) !== null && _b !== void 0 ? _b : (options.preid = dt.preid);
+            (_c = options.identifierBase) !== null && _c !== void 0 ? _c : (options.identifierBase = dt.identifierBase);
+        }
+    }
+    options.bump = bump;
     /*
     for (let type of releaseTypes)
     {
@@ -24,4 +36,43 @@ function handleOptions(options) {
     return options;
 }
 exports.handleOptions = handleOptions;
+function releaseTypesIsPre(bump) {
+    return bump.startsWith('pre');
+}
+exports.releaseTypesIsPre = releaseTypesIsPre;
+function detectPreidByVersion(oldVersion, options) {
+    var _a;
+    if (oldVersion.length) {
+        const sv = (0, semver_1.parse)(oldVersion);
+        if ((_a = sv.prerelease) === null || _a === void 0 ? void 0 : _a.length) {
+            options !== null && options !== void 0 ? options : (options = {});
+            let preid = options.preid;
+            let identifierBase = options.identifierBase;
+            let prerelease = sv.prerelease[0].toString();
+            if (sv.prerelease.length > 1) {
+                preid !== null && preid !== void 0 ? preid : (preid = prerelease);
+            }
+            else if (/^\d+$/.test(prerelease)) {
+                identifierBase !== null && identifierBase !== void 0 ? identifierBase : (identifierBase = false);
+            }
+            else {
+                preid !== null && preid !== void 0 ? preid : (preid = options.defaultPreid);
+            }
+            let bump = options.bump;
+            if (!(bump === null || bump === void 0 ? void 0 : bump.length)) {
+                bump = void 0;
+            }
+            else if (!releaseTypesIsPre(bump)) {
+                bump = 'pre' + bump;
+            }
+            return {
+                bump: (bump !== null && bump !== void 0 ? bump : 'prerelease'),
+                preid,
+                identifierBase,
+            };
+        }
+    }
+    return null;
+}
+exports.detectPreidByVersion = detectPreidByVersion;
 //# sourceMappingURL=handleOptions.js.map

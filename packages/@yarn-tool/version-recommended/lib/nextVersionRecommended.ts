@@ -6,9 +6,11 @@ export function nextVersionRecommended(oldVersion: string,
 	options?: INextVersionRecommendedOptions,
 ): INextVersionRecommended
 {
-	let bump = handleOptions(options)?.bump ?? 'patch';
+	options = handleOptions(options, oldVersion);
 
-	const newVersion = semverIncrement(oldVersion, bump);
+	let bump = options.bump ?? 'patch';
+
+	const newVersion = semverIncrement(oldVersion, bump, options.preid, options.identifierBase as any);
 
 	return {
 		bump,
