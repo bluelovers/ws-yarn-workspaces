@@ -6,6 +6,8 @@ import { npa } from '@yarn-tool/npm-package-arg-util';
 import { AliasResult } from 'npm-package-arg';
 import { EnumSemverVersion } from '@lazy-node/semver-ampersand/lib/const';
 import { parseSimpleSemVerRange } from '@lazy-node/semver-simple-parse/lib/parseSimpleSemVerRange';
+import { PackageNotFoundError, VersionNotFoundError } from 'package-json';
+import { console } from 'debug-color2';
 
 export async function updateYarnLockTag(yarnlock_old: Buffer | string)
 {
@@ -78,7 +80,13 @@ export async function updateYarnLockTag(yarnlock_old: Buffer | string)
 
 				if (typeof semver === 'string')
 				{
-					version_new = await queryVersionWithCache(name, semver);
+					version_new = await queryVersionWithCache(name, semver)
+						.catch(VersionNotFoundError, (e) =>
+						{
+							console.warn(String(e), `, by '${data.key}'`);
+							return null
+						})
+					;
 				}
 
 				if (version_new?.length && version_new !== version && gt(version_new, version))

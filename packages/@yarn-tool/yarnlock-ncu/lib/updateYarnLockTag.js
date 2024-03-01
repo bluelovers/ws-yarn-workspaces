@@ -6,6 +6,8 @@ const queryVersion_1 = require("@yarn-tool/pkg-version-query/lib/queryVersion");
 const semver_1 = require("semver");
 const npm_package_arg_util_1 = require("@yarn-tool/npm-package-arg-util");
 const parseSimpleSemVerRange_1 = require("@lazy-node/semver-simple-parse/lib/parseSimpleSemVerRange");
+const package_json_1 = require("package-json");
+const debug_color2_1 = require("debug-color2");
 async function updateYarnLockTag(yarnlock_old) {
     const obj = (0, fromContent_1.fromContent)(yarnlock_old);
     yarnlock_old = obj.stringify();
@@ -53,7 +55,11 @@ async function updateYarnLockTag(yarnlock_old) {
                     semver = '^' + version;
                 }
                 if (typeof semver === 'string') {
-                    version_new = await (0, queryVersion_1.queryVersionWithCache)(name, semver);
+                    version_new = await (0, queryVersion_1.queryVersionWithCache)(name, semver)
+                        .catch(package_json_1.VersionNotFoundError, (e) => {
+                        debug_color2_1.console.warn(String(e), `, by '${data.key}'`);
+                        return null;
+                    });
                 }
                 if ((version_new === null || version_new === void 0 ? void 0 : version_new.length) && version_new !== version && (0, semver_1.gt)(version_new, version)) {
                     obj.del(key);
