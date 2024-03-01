@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarnlock-ncu",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "update yarnlock v1 and berry",
   "keywords": [
     "yarn",

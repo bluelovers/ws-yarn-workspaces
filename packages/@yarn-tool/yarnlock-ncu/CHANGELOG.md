@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.2](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-ncu@3.0.1...@yarn-tool/yarnlock-ncu@3.0.2) (2024-03-01)
+
+
+
+### 🐛　Bug Fixes
+
+* support `VersionNotFoundError` ([541c4df](https://github.com/bluelovers/ws-yarn-workspaces/commit/541c4dfb818c767881b64ba67ee5ff9c749324c8))
+
+
+
 ## [3.0.1](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-ncu@3.0.0...@yarn-tool/yarnlock-ncu@3.0.1) (2024-02-28)
 
 
