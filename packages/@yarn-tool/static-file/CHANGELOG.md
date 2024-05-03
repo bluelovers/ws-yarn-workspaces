@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.2...@yarn-tool/static-file@3.0.3) (2024-05-03)
+
+
+
+### ♻️　Chores
+
+* test/fixtures/.gitkeep ([b668154](https://github.com/bluelovers/ws-yarn-workspaces/commit/b6681546c8b559f2c79ba857c81f1867edd344d3))
+
+
+
 ## [3.0.2](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.1...@yarn-tool/static-file@3.0.2) (2024-05-03)
 
 

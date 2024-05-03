@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/create-yarn-workspaces@3.0.2...create-yarn-workspaces@3.0.3) (2024-05-03)
+
+**Note:** Version bump only for package create-yarn-workspaces
+
+
+
+
+
 ## [3.0.2](https://github.com/bluelovers/ws-yarn-workspaces/compare/create-yarn-workspaces@3.0.1...create-yarn-workspaces@3.0.2) (2024-05-03)
 
 
