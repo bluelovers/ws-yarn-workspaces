@@ -39,7 +39,7 @@
   "dependencies": {
     "@ts-type/package-dts": "^2.0.8",
     "@yarn-tool/semver-diff": "^2.0.11",
-    "cli-table3": "^0.6.3",
+    "cli-table3": "^0.6.4",
     "tslib": ">=2"
   },
   "publishConfig": {

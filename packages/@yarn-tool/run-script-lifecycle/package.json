@@ -38,7 +38,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@npmcli/run-script": "^7.0.4",
+    "@npmcli/run-script": "^8.1.0",
     "@ts-type/package-dts": "^2.0.8",
     "@yarn-tool/script-lifecycle": "^2.0.8",
     "tslib": ">=2"

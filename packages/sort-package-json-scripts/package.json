@@ -37,7 +37,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "sort-object-keys2": "^3.0.5",
+    "sort-object-keys2": "^3.0.7",
     "tslib": ">=2"
   },
   "gitHead": "46d4d576f34d2d5218822811286119ea7a44d08b"

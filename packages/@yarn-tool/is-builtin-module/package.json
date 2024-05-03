@@ -33,7 +33,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "builtins": "^5.0.1",
+    "builtins": "^5.1.0",
     "tslib": ">=2"
   },
   "publishConfig": {

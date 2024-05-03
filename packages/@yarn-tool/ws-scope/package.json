@@ -63,7 +63,7 @@
     "@yarn-tool/find-root": "^2.0.13",
     "@yarn-tool/sort-lerna-json": "^3.0.1",
     "@yarn-tool/write-package-json": "^1.0.12",
-    "array-hyper-unique": "^2.1.4",
+    "array-hyper-unique": "^2.1.6",
     "fs-extra": "^11.2.0",
     "path-in-dir": "^1.0.9",
     "tslib": ">=2",

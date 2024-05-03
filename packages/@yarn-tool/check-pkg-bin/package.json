@@ -45,13 +45,13 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@bluelovers/string-natural-compare": "^2.0.11",
+    "@bluelovers/string-natural-compare": "^2.0.13",
     "@ts-type/package-dts": "^2.0.8",
     "@yarn-tool/find-root": "^2.0.13",
     "@yarn-tool/get-pkg-bin": "^2.0.11",
     "@yarn-tool/shebang": "^1.0.19",
     "@yarn-tool/table": "^2.0.13",
-    "cli-table3": "^0.6.3",
+    "cli-table3": "^0.6.4",
     "debug-color2": "^1.3.2",
     "fs-extra": "^11.2.0",
     "pkg-dir": "<6 >=5",

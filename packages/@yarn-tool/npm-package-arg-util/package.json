@@ -46,7 +46,7 @@
   "dependencies": {
     "@types/npm-package-arg": "*",
     "@yarn-tool/pkg-name-util": "^1.0.7",
-    "npm-package-arg": "^11.0.1",
+    "npm-package-arg": "^11.0.2",
     "tslib": ">=2"
   },
   "engines": {
