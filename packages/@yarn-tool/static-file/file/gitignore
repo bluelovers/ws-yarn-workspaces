@@ -224,3 +224,5 @@ dist/*.umd.*.*s
 
 !/.run/
 !/.storybook/
+
+test/fixtures/.gitkeep

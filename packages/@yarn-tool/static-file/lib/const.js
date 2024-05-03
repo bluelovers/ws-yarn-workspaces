@@ -23,6 +23,7 @@ const _defaultCopyStaticFiles = [
     ['tsdx.config.js.tpl', 'file/tsdx.config.js', 'tsdx.config.js'],
     ['tsc-multi.json.tpl', 'file/tsc-multi.json.tpl', 'tsc-multi.json'],
     ['test/__root.ts', 'file/test/__root.ts'],
+    ['test/fixtures/.gitkeep', 'file/test/fixtures/.gitkeep'],
     //['changelog-option.js.tpl', 'file/changelog-option.js', 'changelog-option.js'],
 ];
 const _defaultCopyStaticFilesRootOnly = [

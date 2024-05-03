@@ -39,6 +39,7 @@ const _defaultCopyStaticFiles = [
 	['tsc-multi.json.tpl', 'file/tsc-multi.json.tpl', 'tsc-multi.json'],
 
 	['test/__root.ts', 'file/test/__root.ts'],
+	['test/fixtures/.gitkeep', 'file/test/fixtures/.gitkeep'],
 
 	//['changelog-option.js.tpl', 'file/changelog-option.js', 'changelog-option.js'],
 
