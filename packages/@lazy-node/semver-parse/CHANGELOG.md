@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/bluelovers/ws-yarn-workspaces/compare/@lazy-node/semver-simple-parse@3.0.0...@lazy-node/semver-simple-parse@3.0.1) (2024-05-03)
+
+
+
+### 🛠　Build System
+
+* update typescript ([ffa656a](https://github.com/bluelovers/ws-yarn-workspaces/commit/ffa656aefe53966db445d52234eb0efe4651e3dd))
+
+
+
 # [3.0.0](https://github.com/bluelovers/ws-yarn-workspaces/compare/@lazy-node/semver-simple-parse@2.0.9...@lazy-node/semver-simple-parse@3.0.0) (2023-10-10)
 
 

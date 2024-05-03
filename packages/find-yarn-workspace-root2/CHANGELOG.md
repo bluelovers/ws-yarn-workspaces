@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.50](https://github.com/bluelovers/ws-yarn-workspaces/compare/find-yarn-workspace-root2@1.2.49...find-yarn-workspace-root2@1.2.50) (2024-05-03)
+
+
+
+### 🛠　Build System
+
+* update typescript ([ffa656a](https://github.com/bluelovers/ws-yarn-workspaces/commit/ffa656aefe53966db445d52234eb0efe4651e3dd))
+
+
+
 ## [1.2.49](https://github.com/bluelovers/ws-yarn-workspaces/compare/find-yarn-workspace-root2@1.2.48...find-yarn-workspace-root2@1.2.49) (2022-11-14)
 
 

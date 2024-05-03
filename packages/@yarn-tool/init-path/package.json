@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/init-path",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/init-path#readme",
   "bugs": {
@@ -33,11 +33,11 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/search-workspace-prefix-by-name": "^2.0.1",
-    "@yarn-tool/validate-npm-package-name": "^3.0.19",
+    "@yarn-tool/search-workspace-prefix-by-name": "^2.0.2",
+    "@yarn-tool/validate-npm-package-name": "^3.0.20",
     "fs-extra": "^11.2.0",
     "tslib": ">=2",
-    "workspaces-config": "^2.0.1"
+    "workspaces-config": "^2.0.2"
   },
   "publishConfig": {
     "access": "public"

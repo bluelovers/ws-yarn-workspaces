@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/pkg-list-to-types",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "",
   "keywords": [
     "yarn",
@@ -72,7 +72,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/npm-package-arg-util": "^2.0.0",
+    "@yarn-tool/npm-package-arg-util": "^2.0.1",
     "array-hyper-unique": "^2.1.6",
     "tslib": ">=2"
   },

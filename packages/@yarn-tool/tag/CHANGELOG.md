@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.2](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/tag@3.0.1...@yarn-tool/tag@3.0.2) (2024-05-03)
+
+
+
+### 🛠　Build System
+
+* update typescript ([b91efb1](https://github.com/bluelovers/ws-yarn-workspaces/commit/b91efb1bb556bab9713379503d0f9dd802ea3a0e))
+* update typescript ([ffa656a](https://github.com/bluelovers/ws-yarn-workspaces/commit/ffa656aefe53966db445d52234eb0efe4651e3dd))
+
+
+### 📌　Dependencies
+
+* update deps ([f731d88](https://github.com/bluelovers/ws-yarn-workspaces/commit/f731d88db6e63d180e2db2e493beb42e84eb8e16))
+
+
+
 ## [3.0.1](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/tag@3.0.0...@yarn-tool/tag@3.0.1) (2024-02-28)
 
 

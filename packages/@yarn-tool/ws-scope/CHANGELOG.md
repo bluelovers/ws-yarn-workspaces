@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.2](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ws-scope@3.0.1...@yarn-tool/ws-scope@3.0.2) (2024-05-03)
+
+
+
+### 🐛　Bug Fixes
+
+* **deps:** {yawn-yaml/cjs => yawn-yaml} ([3d051f1](https://github.com/bluelovers/ws-yarn-workspaces/commit/3d051f1fc73ce15c855a7e581c7374aa5bc57314))
+
+
+### 🛠　Build System
+
+* update typescript ([ffa656a](https://github.com/bluelovers/ws-yarn-workspaces/commit/ffa656aefe53966db445d52234eb0efe4651e3dd))
+
+
+### 📌　Dependencies
+
+* update deps ([f731d88](https://github.com/bluelovers/ws-yarn-workspaces/commit/f731d88db6e63d180e2db2e493beb42e84eb8e16))
+
+
+
 ## [3.0.1](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ws-scope@3.0.0...@yarn-tool/ws-scope@3.0.1) (2024-02-28)
 
 

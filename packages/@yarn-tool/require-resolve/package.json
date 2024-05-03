@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/require-resolve",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "require.resolve with search on extra paths",
   "keywords": [
     "yarn",
@@ -44,7 +44,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/get-paths-by-type": "^2.0.9",
+    "@yarn-tool/get-paths-by-type": "^2.0.10",
     "global-dirs": "^3.0.1",
     "tslib": ">=2"
   },

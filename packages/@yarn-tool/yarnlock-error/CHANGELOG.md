@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.17](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-error@1.0.16...@yarn-tool/yarnlock-error@1.0.17) (2024-05-03)
+
+
+
+### 🛠　Build System
+
+* update typescript ([ffa656a](https://github.com/bluelovers/ws-yarn-workspaces/commit/ffa656aefe53966db445d52234eb0efe4651e3dd))
+
+
+
 ## [1.0.16](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-error@1.0.15...@yarn-tool/yarnlock-error@1.0.16) (2022-12-09)
 
 

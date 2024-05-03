@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.12](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/resolve-package@2.0.11...@yarn-tool/resolve-package@2.0.12) (2024-05-03)
+
+
+
+### 🛠　Build System
+
+* update typescript ([ffa656a](https://github.com/bluelovers/ws-yarn-workspaces/commit/ffa656aefe53966db445d52234eb0efe4651e3dd))
+
+
+
 ## [2.0.11](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/resolve-package@2.0.10...@yarn-tool/resolve-package@2.0.11) (2022-11-14)
 
 

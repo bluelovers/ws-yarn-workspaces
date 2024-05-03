@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.22](https://github.com/bluelovers/ws-yarn-workspaces/compare/@lazy-node/semver-part@1.0.21...@lazy-node/semver-part@1.0.22) (2024-05-03)
+
+
+
+### 🛠　Build System
+
+* update typescript ([ffa656a](https://github.com/bluelovers/ws-yarn-workspaces/commit/ffa656aefe53966db445d52234eb0efe4651e3dd))
+
+
+
 ## [1.0.21](https://github.com/bluelovers/ws-yarn-workspaces/compare/@lazy-node/semver-part@1.0.20...@lazy-node/semver-part@1.0.21) (2022-11-14)
 
 

@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.20](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/validate-npm-package-name@3.0.19...@yarn-tool/validate-npm-package-name@3.0.20) (2024-05-03)
+
+
+
+### 🛠　Build System
+
+* update typescript ([ffa656a](https://github.com/bluelovers/ws-yarn-workspaces/commit/ffa656aefe53966db445d52234eb0efe4651e3dd))
+
+
+
 ## [3.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/validate-npm-package-name@3.0.18...@yarn-tool/validate-npm-package-name@3.0.19) (2022-12-09)
 
 

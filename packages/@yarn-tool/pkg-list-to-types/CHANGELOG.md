@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-list-to-types@2.0.0...@yarn-tool/pkg-list-to-types@2.0.1) (2024-05-03)
+
+
+
+### 🛠　Build System
+
+* update typescript ([ffa656a](https://github.com/bluelovers/ws-yarn-workspaces/commit/ffa656aefe53966db445d52234eb0efe4651e3dd))
+
+
+### 📌　Dependencies
+
+* update deps ([f731d88](https://github.com/bluelovers/ws-yarn-workspaces/commit/f731d88db6e63d180e2db2e493beb42e84eb8e16))
+
+
+
 # [2.0.0](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-list-to-types@1.0.13...@yarn-tool/pkg-list-to-types@2.0.0) (2023-10-10)
 
 **Note:** Version bump only for package @yarn-tool/pkg-list-to-types

@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/env-run-path@2.0.18...env-run-path@2.0.19) (2024-05-03)
+
+
+
+### 🛠　Build System
+
+* update typescript ([ffa656a](https://github.com/bluelovers/ws-yarn-workspaces/commit/ffa656aefe53966db445d52234eb0efe4651e3dd))
+
+
+
 ## [2.0.18](https://github.com/bluelovers/ws-yarn-workspaces/compare/env-run-path@2.0.17...env-run-path@2.0.18) (2022-11-14)
 
 
