@@ -1,6 +1,6 @@
 import { pathExistsSync, readFileSync, writeFileSync } from 'fs-extra';
 import { IJsonObject, ScopeJsonObject } from './json-object';
-import YAWN from 'yawn-yaml/cjs';
+import YAWN from 'yawn-yaml';
 
 const SymRaw = Symbol.for('raw');
 
