@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.stringifySemverFull = exports.stringifySimpleSemVer = void 0;
+exports.stringifySimpleSemVer = stringifySimpleSemVer;
+exports.stringifySemverFull = stringifySemverFull;
 const checker_1 = require("./checker");
 function stringifySimpleSemVer(obj) {
     var _a, _b, _c, _d, _e;
@@ -19,11 +20,9 @@ function stringifySimpleSemVer(obj) {
     }
     return str;
 }
-exports.stringifySimpleSemVer = stringifySimpleSemVer;
 function stringifySemverFull(obj) {
     var _a;
     return ((_a = obj.operator) !== null && _a !== void 0 ? _a : '') + stringifySimpleSemVer(obj);
 }
-exports.stringifySemverFull = stringifySemverFull;
 exports.default = stringifySimpleSemVer;
 //# sourceMappingURL=stringifySimpleSemVer.js.map

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getSemverFromNpaResult = void 0;
+exports.getSemverFromNpaResult = getSemverFromNpaResult;
 function getSemverFromNpaResult(npaResult) {
     let semver;
     switch (npaResult.type) {
@@ -13,6 +13,5 @@ function getSemverFromNpaResult(npaResult) {
     }
     return semver;
 }
-exports.getSemverFromNpaResult = getSemverFromNpaResult;
 exports.default = getSemverFromNpaResult;
 //# sourceMappingURL=getSemverFromNpaResult.js.map

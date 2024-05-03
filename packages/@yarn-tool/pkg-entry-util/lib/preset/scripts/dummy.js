@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.fillDummyScripts = exports._fillDummyScriptsCore = void 0;
+exports._fillDummyScriptsCore = _fillDummyScriptsCore;
+exports.fillDummyScripts = fillDummyScripts;
 const dummy_1 = require("../../util/scripts/dummy");
 function _fillDummyScriptsCore(scripts, prefix, fields) {
     // @ts-ignore
@@ -13,7 +14,6 @@ function _fillDummyScriptsCore(scripts, prefix, fields) {
     });
     return scripts;
 }
-exports._fillDummyScriptsCore = _fillDummyScriptsCore;
 function fillDummyScripts(scripts, prefix) {
     return _fillDummyScriptsCore(scripts, prefix, [
         'preversion',
@@ -33,5 +33,4 @@ function fillDummyScripts(scripts, prefix) {
         'ci:install',
     ]);
 }
-exports.fillDummyScripts = fillDummyScripts;
 //# sourceMappingURL=dummy.js.map

@@ -23,7 +23,14 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports._unshiftArray = exports.requireResolveExtra = exports.importExtra = exports.requireExtra = exports.isErrorModuleNotFound = exports.handleOptionsPaths = exports.requireResolveCore = exports.SymbolModuleMain = exports.SymbolGlobalYarn = exports.SymbolGlobalNpm = exports.SymbolGlobal = exports.SymbolCurrentDirectory = void 0;
+exports.SymbolModuleMain = exports.SymbolGlobalYarn = exports.SymbolGlobalNpm = exports.SymbolGlobal = exports.SymbolCurrentDirectory = void 0;
+exports.requireResolveCore = requireResolveCore;
+exports.handleOptionsPaths = handleOptionsPaths;
+exports.isErrorModuleNotFound = isErrorModuleNotFound;
+exports.requireExtra = requireExtra;
+exports.importExtra = importExtra;
+exports.requireResolveExtra = requireResolveExtra;
+exports._unshiftArray = _unshiftArray;
 const get_paths_by_type_1 = require("@yarn-tool/get-paths-by-type");
 Object.defineProperty(exports, "SymbolCurrentDirectory", { enumerable: true, get: function () { return get_paths_by_type_1.SymbolCurrentDirectory; } });
 Object.defineProperty(exports, "SymbolGlobal", { enumerable: true, get: function () { return get_paths_by_type_1.SymbolGlobal; } });
@@ -66,7 +73,6 @@ function requireResolveCore(name, options) {
         paths: handleOptionsPaths(paths, options.cwd),
     });
 }
-exports.requireResolveCore = requireResolveCore;
 function handleOptionsPaths(paths, cwd) {
     if (paths === null || paths === void 0 ? void 0 : paths.length) {
         paths = paths.reduce((paths, value) => {
@@ -91,19 +97,15 @@ function handleOptionsPaths(paths, cwd) {
     }
     return paths;
 }
-exports.handleOptionsPaths = handleOptionsPaths;
 function isErrorModuleNotFound(error) {
     return error.code === 'MODULE_NOT_FOUND';
 }
-exports.isErrorModuleNotFound = isErrorModuleNotFound;
 function requireExtra(name, options) {
     return require(requireResolveCore(name, options));
 }
-exports.requireExtra = requireExtra;
 function importExtra(name, options) {
     return Promise.resolve(`${requireResolveCore(name, options)}`).then(s => __importStar(require(s)));
 }
-exports.importExtra = importExtra;
 function requireResolveExtra(name, options) {
     let error;
     let result;
@@ -125,11 +127,9 @@ function requireResolveExtra(name, options) {
         throw error;
     }
 }
-exports.requireResolveExtra = requireResolveExtra;
 function _unshiftArray(array, item) {
     (array[0] !== item) && array.unshift(item);
     return array;
 }
-exports._unshiftArray = _unshiftArray;
 exports.default = requireResolveExtra;
 //# sourceMappingURL=index.js.map

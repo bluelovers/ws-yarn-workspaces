@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import { IYarnLockRawSourceV1, IYarnLockRawSourceV1Full } from '@yarn-tool/yarnlock-types';
 declare module '@yarnpkg/lockfile' {
     function parse<T extends IYarnLockRawSourceV1Full = IYarnLockRawSourceV1Full>(source: string, fileLoc?: string): T;

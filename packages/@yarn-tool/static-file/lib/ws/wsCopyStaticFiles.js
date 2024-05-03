@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getWsCopyStaticFiles = void 0;
+exports.getWsCopyStaticFiles = getWsCopyStaticFiles;
 const const_1 = require("../const");
 const reMapStaticFilesMapArray_1 = require("../reMapStaticFilesMapArray");
 const remap = {
@@ -15,6 +15,5 @@ function getWsCopyStaticFiles() {
         ...const_1.defaultCopyStaticFilesWsRootOnly,
     ], remap);
 }
-exports.getWsCopyStaticFiles = getWsCopyStaticFiles;
 exports.default = getWsCopyStaticFiles;
 //# sourceMappingURL=wsCopyStaticFiles.js.map

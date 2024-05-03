@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.fillPkgHostedInfo = exports._hostedGitInfoToFields = void 0;
+exports._hostedGitInfoToFields = _hostedGitInfoToFields;
+exports.fillPkgHostedInfo = fillPkgHostedInfo;
 const find_root_1 = require("@yarn-tool/find-root");
 const upath2_1 = require("upath2");
 const pkg_git_info_1 = require("@yarn-tool/pkg-git-info");
@@ -44,7 +45,6 @@ function _hostedGitInfoToFields(pkg, options) {
     }
     return pkg;
 }
-exports._hostedGitInfoToFields = _hostedGitInfoToFields;
 function fillPkgHostedInfo(pkg, options) {
     if ((options === null || options === void 0 ? void 0 : options.overwriteHostedGitInfo) || !pkg.homepage || !pkg.bugs || !pkg.repository) {
         let { targetDir, rootData, branch, hostedGitInfo } = options !== null && options !== void 0 ? options : {};
@@ -63,6 +63,5 @@ function fillPkgHostedInfo(pkg, options) {
     }
     return pkg;
 }
-exports.fillPkgHostedInfo = fillPkgHostedInfo;
 exports.default = fillPkgHostedInfo;
 //# sourceMappingURL=index.js.map

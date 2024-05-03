@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.defaultRootScripts = void 0;
+exports.defaultRootScripts = defaultRootScripts;
 const shared_root_scripts_1 = require("./shared-root-scripts");
 const pkg_scripts_1 = require("./pkg-scripts");
 function defaultRootScripts() {
@@ -36,5 +36,4 @@ function defaultRootScripts() {
         "ncu": "yarn-tool ncu -u",
     };
 }
-exports.defaultRootScripts = defaultRootScripts;
 //# sourceMappingURL=root-scripts.js.map

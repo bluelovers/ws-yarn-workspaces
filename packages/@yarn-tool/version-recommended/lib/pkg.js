@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.nextVersionRecommendedByPackageFindUp = exports.nextVersionRecommendedByPackage = void 0;
+exports.nextVersionRecommendedByPackage = nextVersionRecommendedByPackage;
+exports.nextVersionRecommendedByPackageFindUp = nextVersionRecommendedByPackageFindUp;
 const ws_1 = require("./ws");
 const find_root_1 = require("@yarn-tool/find-root");
 const package_dts_1 = require("@ts-type/package-dts");
@@ -14,7 +15,6 @@ function nextVersionRecommendedByPackage(pkg, options) {
         pkg,
     };
 }
-exports.nextVersionRecommendedByPackage = nextVersionRecommendedByPackage;
 function nextVersionRecommendedByPackageFindUp(options) {
     var _a;
     options !== null && options !== void 0 ? options : (options = {});
@@ -25,5 +25,4 @@ function nextVersionRecommendedByPackageFindUp(options) {
     // @ts-ignore
     return nextVersionRecommendedByPackage(pkg, options);
 }
-exports.nextVersionRecommendedByPackageFindUp = nextVersionRecommendedByPackageFindUp;
 //# sourceMappingURL=pkg.js.map

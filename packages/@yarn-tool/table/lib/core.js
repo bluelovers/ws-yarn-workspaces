@@ -3,7 +3,7 @@
  * Created by user on 2020/6/11.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createDependencyTable = void 0;
+exports.createDependencyTable = createDependencyTable;
 const tslib_1 = require("tslib");
 const cli_table3_1 = tslib_1.__importDefault(require("cli-table3"));
 function createDependencyTable(options) {
@@ -30,5 +30,4 @@ function createDependencyTable(options) {
         ...options,
     });
 }
-exports.createDependencyTable = createDependencyTable;
 //# sourceMappingURL=core.js.map

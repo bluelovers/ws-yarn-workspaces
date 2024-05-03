@@ -1,5 +1,5 @@
 import { IJsonObject, ScopeJsonObject } from './json-object';
-import YAWN from 'yawn-yaml/cjs';
+import YAWN from 'yawn-yaml';
 declare const SymRaw: unique symbol;
 export { SymRaw };
 export declare class ScopeYaml<K extends string = 'packages'> extends ScopeJsonObject<K> {

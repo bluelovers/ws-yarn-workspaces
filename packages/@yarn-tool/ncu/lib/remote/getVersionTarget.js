@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getVersionTarget = exports._getVersionTarget = void 0;
+exports._getVersionTarget = _getVersionTarget;
+exports.getVersionTarget = getVersionTarget;
 const types_1 = require("../types");
 function _getVersionTarget(options) {
     // @ts-ignore
@@ -8,7 +9,6 @@ function _getVersionTarget(options) {
         options.greatest ? types_1.EnumPackageManagersNpmMethod.greatest :
             types_1.EnumPackageManagersNpmMethod.latest);
 }
-exports._getVersionTarget = _getVersionTarget;
 function getVersionTarget(options) {
     if (typeof options === 'string') {
         // @ts-ignore
@@ -19,5 +19,4 @@ function getVersionTarget(options) {
     }
     return _getVersionTarget(options);
 }
-exports.getVersionTarget = getVersionTarget;
 //# sourceMappingURL=getVersionTarget.js.map

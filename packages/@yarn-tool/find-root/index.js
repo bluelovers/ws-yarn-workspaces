@@ -1,6 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.listMatchedPatternByPath = exports.pathEqual = exports.pathNormalize = exports.assertHasAndNotWorkspacesRoot = exports.assertNotWorkspacesRoot = exports.assertHasWorkspaces = exports.newFakeRootData = exports.findRoot = exports.findRootLazy = void 0;
+exports.pathEqual = exports.pathNormalize = void 0;
+exports.findRootLazy = findRootLazy;
+exports.findRoot = findRoot;
+exports.newFakeRootData = newFakeRootData;
+exports.assertHasWorkspaces = assertHasWorkspaces;
+exports.assertNotWorkspacesRoot = assertNotWorkspacesRoot;
+exports.assertHasAndNotWorkspacesRoot = assertHasAndNotWorkspacesRoot;
+exports.listMatchedPatternByPath = listMatchedPatternByPath;
 const tslib_1 = require("tslib");
 const upath2_1 = require("upath2");
 Object.defineProperty(exports, "pathNormalize", { enumerable: true, get: function () { return upath2_1.normalize; } });
@@ -15,7 +22,6 @@ function findRootLazy(options, _throwError) {
     (_a = options.cwd) !== null && _a !== void 0 ? _a : (options.cwd = process.cwd());
     return findRoot(options, _throwError);
 }
-exports.findRootLazy = findRootLazy;
 function findRoot(options, _throwError) {
     var _a;
     if (!((_a = options.cwd) === null || _a === void 0 ? void 0 : _a.length)) {
@@ -71,7 +77,6 @@ function findRoot(options, _throwError) {
     }
     return rootData;
 }
-exports.findRoot = findRoot;
 function newFakeRootData(rootData, input) {
     var _a, _b;
     const isRoot = (_a = input.isRoot) !== null && _a !== void 0 ? _a : (0, path_is_same_1.pathIsSame)(input.pkg, rootData.root);
@@ -84,7 +89,6 @@ function newFakeRootData(rootData, input) {
     };
     return _rootDataFake;
 }
-exports.newFakeRootData = newFakeRootData;
 function assertHasWorkspaces(rootData) {
     var _a;
     if (!((_a = rootData.pkg) === null || _a === void 0 ? void 0 : _a.length) || rootData.hasWorkspace !== true) {
@@ -93,7 +97,6 @@ function assertHasWorkspaces(rootData) {
         });
     }
 }
-exports.assertHasWorkspaces = assertHasWorkspaces;
 function assertNotWorkspacesRoot(rootData) {
     if (rootData.hasWorkspace === true) {
         if (rootData.isWorkspace === true) {
@@ -103,12 +106,10 @@ function assertNotWorkspacesRoot(rootData) {
         }
     }
 }
-exports.assertNotWorkspacesRoot = assertNotWorkspacesRoot;
 function assertHasAndNotWorkspacesRoot(rootData) {
     assertHasWorkspaces(rootData);
     assertNotWorkspacesRoot(rootData);
 }
-exports.assertHasAndNotWorkspacesRoot = assertHasAndNotWorkspacesRoot;
 function listMatchedPatternByPath(ws, pkg) {
     const manifest = (0, core_1.readPackageJSON)(ws);
     if (!manifest || !manifest.workspaces) {
@@ -142,6 +143,5 @@ function listMatchedPatternByPath(ws, pkg) {
         return a;
     }, []);
 }
-exports.listMatchedPatternByPath = listMatchedPatternByPath;
 exports.default = findRoot;
 //# sourceMappingURL=index.js.map

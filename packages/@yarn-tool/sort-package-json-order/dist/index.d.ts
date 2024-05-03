@@ -105,7 +105,8 @@ export declare const sortOrder: readonly [
 	"badges",
 	"galleryBanner",
 	"preview",
-	"markdown"
+	"markdown",
+	"pnpm"
 ];
 
 export {

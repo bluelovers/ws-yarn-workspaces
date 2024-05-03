@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.handleOptions = void 0;
+exports.handleOptions = handleOptions;
 const lodash_1 = require("lodash");
 const require_resolve_1 = require("@yarn-tool/require-resolve");
 const path_1 = require("path");
@@ -33,7 +33,6 @@ function handleOptions(options) {
     (_b = options.changelogPreset) !== null && _b !== void 0 ? _b : (options.changelogPreset = 'conventional-changelog-angular');
     return options;
 }
-exports.handleOptions = handleOptions;
 function tryRequire(name) {
     try {
         return (0, require_resolve_1.requireResolveCore)(name, {

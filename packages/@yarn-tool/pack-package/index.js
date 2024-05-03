@@ -3,7 +3,8 @@
  * Created by user on 2020/4/9.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.packPackage = exports.getPackedTarballInfo = exports.printPackedTarballInfo = exports.packTargetPackage = void 0;
+exports.getPackedTarballInfo = exports.printPackedTarballInfo = exports.packTargetPackage = void 0;
+exports.packPackage = packPackage;
 const pack_1 = require("./lib/pack");
 const info_1 = require("./lib/info");
 const print_1 = require("./lib/print");
@@ -29,6 +30,5 @@ function packPackage(options) {
         return object;
     });
 }
-exports.packPackage = packPackage;
 exports.default = packPackage;
 //# sourceMappingURL=index.js.map

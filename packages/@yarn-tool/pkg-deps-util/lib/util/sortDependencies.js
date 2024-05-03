@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.sortDependencies = void 0;
+exports.sortDependencies = sortDependencies;
 const tslib_1 = require("tslib");
 const core_1 = tslib_1.__importDefault(require("sort-object-keys2/core"));
 function sortDependencies(pkg) {
@@ -14,5 +14,4 @@ function sortDependencies(pkg) {
     (0, core_1.default)((_d = pkg.optionalDependencies) !== null && _d !== void 0 ? _d : {}, opts);
     return pkg;
 }
-exports.sortDependencies = sortDependencies;
 //# sourceMappingURL=sortDependencies.js.map

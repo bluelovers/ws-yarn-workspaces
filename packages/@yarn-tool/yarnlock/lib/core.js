@@ -3,7 +3,11 @@
  * Created by user on 2020/6/11.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.exportYarnLock = exports.filterDuplicateYarnLock = exports.removeResolutionsCore = exports.removeResolutions = exports.filterResolutions = void 0;
+exports.filterResolutions = filterResolutions;
+exports.removeResolutions = removeResolutions;
+exports.removeResolutionsCore = removeResolutionsCore;
+exports.filterDuplicateYarnLock = filterDuplicateYarnLock;
+exports.exportYarnLock = exportYarnLock;
 const tslib_1 = require("tslib");
 const semver_1 = tslib_1.__importDefault(require("semver"));
 const util_1 = require("./util");
@@ -16,7 +20,6 @@ function filterResolutions(pkg, yarnlock) {
     }
     return null;
 }
-exports.filterResolutions = filterResolutions;
 /**
  *
  * @example ```
@@ -33,7 +36,6 @@ function removeResolutions(pkg, yarnlock_old) {
     let result = filterResolutions(pkg, yarnlock_old);
     return removeResolutionsCore(result, yarnlock_old);
 }
-exports.removeResolutions = removeResolutions;
 function removeResolutionsCore(result, yarnlock_old) {
     // @ts-ignore
     let yarnlock_new = result.names
@@ -61,7 +63,6 @@ function removeResolutionsCore(result, yarnlock_old) {
         result,
     };
 }
-exports.removeResolutionsCore = removeResolutionsCore;
 function filterDuplicateYarnLock(yarnlock) {
     let fy = exportYarnLock(yarnlock);
     let ks = Object.keys(fy.installed)
@@ -73,7 +74,6 @@ function filterDuplicateYarnLock(yarnlock) {
         return ks.includes(n);
     });
 }
-exports.filterDuplicateYarnLock = filterDuplicateYarnLock;
 function exportYarnLock(yarnlock, filter) {
     let ks = Object.keys(yarnlock);
     if (filter) {
@@ -116,5 +116,4 @@ function exportYarnLock(yarnlock, filter) {
         max: {},
     });
 }
-exports.exportYarnLock = exportYarnLock;
 //# sourceMappingURL=core.js.map

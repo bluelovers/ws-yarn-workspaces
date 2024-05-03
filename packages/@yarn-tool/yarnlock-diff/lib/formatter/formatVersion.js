@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports._formatVersion = void 0;
+exports._formatVersion = _formatVersion;
 function _formatVersion(rhsOrLhs) {
     switch (typeof rhsOrLhs) {
         case "string":
@@ -13,5 +13,4 @@ function _formatVersion(rhsOrLhs) {
             return `${rhsOrLhs}`;
     }
 }
-exports._formatVersion = _formatVersion;
 //# sourceMappingURL=formatVersion.js.map

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.runLifecycleScript = void 0;
+exports.runLifecycleScript = runLifecycleScript;
 const tslib_1 = require("tslib");
 /**
  * Created by user on 2020/4/8.
@@ -58,6 +58,5 @@ async function runLifecycleScript(options) {
     return (0, util_1.runLifecycleScriptCore)(options)
         .then(result => [result]);
 }
-exports.runLifecycleScript = runLifecycleScript;
 exports.default = runLifecycleScript;
 //# sourceMappingURL=index.js.map

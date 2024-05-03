@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.parseOptionsOrLoose = void 0;
+exports.parseOptionsOrLoose = parseOptionsOrLoose;
 const index_1 = require("../util/index");
 const fixBooleanProperty_1 = require("../util/fixBooleanProperty");
 function parseOptionsOrLoose(options) {
@@ -22,5 +22,4 @@ function parseOptionsOrLoose(options) {
     }
     return options;
 }
-exports.parseOptionsOrLoose = parseOptionsOrLoose;
 //# sourceMappingURL=parseOptionsOrLoose.js.map

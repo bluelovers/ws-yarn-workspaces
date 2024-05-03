@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.groupYarnLockParsedEntries = void 0;
+exports.groupYarnLockParsedEntries = groupYarnLockParsedEntries;
 const parseYarnLockRowV1_1 = require("../v1/parseYarnLockRowV1");
 const parseYarnLockRowV2_1 = require("../v2/parseYarnLockRowV2");
 const reduceYarnLockParsedEntries_1 = require("./reduceYarnLockParsedEntries");
@@ -31,5 +31,4 @@ function groupYarnLockParsedEntries(parsedOldPackage, options) {
         return data;
     });
 }
-exports.groupYarnLockParsedEntries = groupYarnLockParsedEntries;
 //# sourceMappingURL=groupYarnLockParsedEntries.js.map

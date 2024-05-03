@@ -1,7 +1,6 @@
 /**
  * Created by user on 2020/4/9.
  */
-/// <reference types="node" />
 import { StdioOptions } from "child_process";
 import { IPackageJson } from '@ts-type/package-dts';
 export interface IResultBase {

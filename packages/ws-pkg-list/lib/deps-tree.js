@@ -3,7 +3,8 @@
  * Created by user on 2020/6/13.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.wsPkgDepsListableRecord = exports.wsPkgDepsListable = void 0;
+exports.wsPkgDepsListable = wsPkgDepsListable;
+exports.wsPkgDepsListableRecord = wsPkgDepsListableRecord;
 const util_1 = require("./util");
 const find_root_1 = require("@yarn-tool/find-root");
 const listable_1 = require("./listable");
@@ -34,10 +35,8 @@ function wsPkgDepsListable(cwd, options) {
         handler,
     });
 }
-exports.wsPkgDepsListable = wsPkgDepsListable;
 function wsPkgDepsListableRecord(cwd, options) {
     return (0, util_1.listableToRecord)(wsPkgDepsListable(cwd, options));
 }
-exports.wsPkgDepsListableRecord = wsPkgDepsListableRecord;
 exports.default = wsPkgDepsListableRecord;
 //# sourceMappingURL=deps-tree.js.map

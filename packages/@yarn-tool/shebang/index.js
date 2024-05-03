@@ -1,6 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.matchShebang = exports.removeShebang = exports.shebang = exports.reShebang = void 0;
+exports.reShebang = void 0;
+exports.shebang = shebang;
+exports.removeShebang = removeShebang;
+exports.matchShebang = matchShebang;
 exports.reShebang = /^\s*#!\s*([^\s]+)(?:\s+([^\s]+)(?:\s+([^\r\n]+))?(?=\r|\n|$))?/;
 /**
  * Extract normalized shebang command token.
@@ -19,11 +22,9 @@ function shebang(line) {
     var _a;
     return (_a = matchShebang(line)) === null || _a === void 0 ? void 0 : _a.script;
 }
-exports.shebang = shebang;
 function removeShebang(line) {
     return line.replace(exports.reShebang, '');
 }
-exports.removeShebang = removeShebang;
 function matchShebang(line) {
     const matched = line.match(exports.reShebang);
     if ((matched === null || matched === void 0 ? void 0 : matched.length) > 0) {
@@ -48,6 +49,5 @@ function matchShebang(line) {
         };
     }
 }
-exports.matchShebang = matchShebang;
 exports.default = shebang;
 //# sourceMappingURL=index.js.map

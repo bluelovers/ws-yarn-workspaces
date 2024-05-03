@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.gitPackageTag = void 0;
+exports.gitPackageTag = gitPackageTag;
 const core_1 = require("./core");
 const tag_1 = require("@git-lazy/tag");
 const path_is_same_1 = require("path-is-same");
@@ -54,6 +54,5 @@ async function gitPackageTag(options, spawnOptions) {
     };
     return (0, tag_1.gitTag)(tag, options, spawnOptions);
 }
-exports.gitPackageTag = gitPackageTag;
 exports.default = gitPackageTag;
 //# sourceMappingURL=git-tag.js.map

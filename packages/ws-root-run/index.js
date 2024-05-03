@@ -1,6 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.spawnWsRootExecSync = exports.spawnWsRootRunSync = exports.spawnWsRootExec = exports.spawnWsRootRun = void 0;
+exports.spawnWsRootRun = spawnWsRootRun;
+exports.spawnWsRootExec = spawnWsRootExec;
+exports.spawnWsRootRunSync = spawnWsRootRunSync;
+exports.spawnWsRootExecSync = spawnWsRootExecSync;
 const tslib_1 = require("tslib");
 const core_1 = tslib_1.__importDefault(require("find-yarn-workspace-root2/core"));
 const cross_spawn_extra_1 = tslib_1.__importDefault(require("cross-spawn-extra"));
@@ -15,7 +18,6 @@ function spawnWsRootRun(argv, opts) {
         cwd,
     });
 }
-exports.spawnWsRootRun = spawnWsRootRun;
 function spawnWsRootExec(argv, opts) {
     let cwd = (0, core_1.default)(opts === null || opts === void 0 ? void 0 : opts.cwd);
     return cross_spawn_extra_1.default.async((opts === null || opts === void 0 ? void 0 : opts.npmClient) || 'yarn', [
@@ -27,7 +29,6 @@ function spawnWsRootExec(argv, opts) {
         cwd,
     });
 }
-exports.spawnWsRootExec = spawnWsRootExec;
 function spawnWsRootRunSync(argv, opts) {
     let cwd = (0, core_1.default)(opts === null || opts === void 0 ? void 0 : opts.cwd);
     return cross_spawn_extra_1.default.sync((opts === null || opts === void 0 ? void 0 : opts.npmClient) || 'yarn', [
@@ -39,7 +40,6 @@ function spawnWsRootRunSync(argv, opts) {
         cwd,
     });
 }
-exports.spawnWsRootRunSync = spawnWsRootRunSync;
 function spawnWsRootExecSync(argv, opts) {
     let cwd = (0, core_1.default)(opts === null || opts === void 0 ? void 0 : opts.cwd);
     return cross_spawn_extra_1.default.sync((opts === null || opts === void 0 ? void 0 : opts.npmClient) || 'yarn', [
@@ -51,6 +51,5 @@ function spawnWsRootExecSync(argv, opts) {
         cwd,
     });
 }
-exports.spawnWsRootExecSync = spawnWsRootExecSync;
 exports.default = spawnWsRootRun;
 //# sourceMappingURL=index.js.map

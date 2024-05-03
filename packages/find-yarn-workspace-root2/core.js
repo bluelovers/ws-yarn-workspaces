@@ -1,6 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.readPackageJSON = exports.extractWorkspaces = exports.isMatchWorkspaces = exports.checkWorkspaces = exports.findWorkspaceRoot = void 0;
+exports.findWorkspaceRoot = findWorkspaceRoot;
+exports.checkWorkspaces = checkWorkspaces;
+exports.isMatchWorkspaces = isMatchWorkspaces;
+exports.extractWorkspaces = extractWorkspaces;
+exports.readPackageJSON = readPackageJSON;
 const tslib_1 = require("tslib");
 const upath2_1 = require("upath2");
 const pkg_dir_1 = tslib_1.__importDefault(require("pkg-dir"));
@@ -35,7 +39,6 @@ function findWorkspaceRoot(initial) {
     } while (current !== previous);
     return null;
 }
-exports.findWorkspaceRoot = findWorkspaceRoot;
 function checkWorkspaces(current, initial) {
     const manifest = readPackageJSON(current);
     const workspaces = extractWorkspaces(manifest);
@@ -58,17 +61,14 @@ function checkWorkspaces(current, initial) {
         relativePath,
     };
 }
-exports.checkWorkspaces = checkWorkspaces;
 function isMatchWorkspaces(relativePath, workspaces) {
     let ls = (0, micromatch_1.default)([relativePath], workspaces);
     return ls.length > 0;
 }
-exports.isMatchWorkspaces = isMatchWorkspaces;
 function extractWorkspaces(manifest) {
     const workspaces = (manifest || {}).workspaces;
     return (workspaces && workspaces.packages) || (Array.isArray(workspaces) ? workspaces : null);
 }
-exports.extractWorkspaces = extractWorkspaces;
 function readPackageJSON(dir) {
     const file = (0, upath2_1.join)(dir, 'package.json');
     if ((0, fs_1.existsSync)(file)) {
@@ -76,7 +76,6 @@ function readPackageJSON(dir) {
     }
     return null;
 }
-exports.readPackageJSON = readPackageJSON;
 findWorkspaceRoot.findWorkspaceRoot = findWorkspaceRoot;
 findWorkspaceRoot.readPackageJSON = readPackageJSON;
 findWorkspaceRoot.extractWorkspaces = extractWorkspaces;

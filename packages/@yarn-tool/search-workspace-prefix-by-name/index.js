@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.searchWorkspacePrefixByName = void 0;
+exports.searchWorkspacePrefixByName = searchWorkspacePrefixByName;
 const tslib_1 = require("tslib");
 const micromatch_1 = tslib_1.__importDefault(require("micromatch"));
 function searchWorkspacePrefixByName({ inputName, workspacesConfig, }) {
@@ -25,6 +25,5 @@ function searchWorkspacePrefixByName({ inputName, workspacesConfig, }) {
     }
     return workspacePrefix;
 }
-exports.searchWorkspacePrefixByName = searchWorkspacePrefixByName;
 exports.default = searchWorkspacePrefixByName;
 //# sourceMappingURL=index.js.map

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getTargetDir = void 0;
+exports.getTargetDir = getTargetDir;
 const tslib_1 = require("tslib");
 const validate_npm_package_name_1 = require("@yarn-tool/validate-npm-package-name");
 const path_1 = require("path");
@@ -54,6 +54,5 @@ function getTargetDir(options) {
         scopedPackagePattern,
     };
 }
-exports.getTargetDir = getTargetDir;
 exports.default = getTargetDir;
 //# sourceMappingURL=index.js.map

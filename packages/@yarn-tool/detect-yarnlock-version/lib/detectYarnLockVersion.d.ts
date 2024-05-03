@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import { EnumDetectYarnLock, EnumDetectYarnLockInputType } from '@yarn-tool/yarnlock-types';
 export declare function _detectYarnLockVersionSimple(buf: Buffer | string): EnumDetectYarnLock;
 export declare function _detectYarnLockVersionCore<T extends Buffer | string>(input: T): {

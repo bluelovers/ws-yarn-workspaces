@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.handleSemverForDependencies = exports.isUpdateAbleVersion = exports.isUpdateAbleVersionByNpmPackageArgResult = void 0;
+exports.isUpdateAbleVersionByNpmPackageArgResult = isUpdateAbleVersionByNpmPackageArgResult;
+exports.isUpdateAbleVersion = isUpdateAbleVersion;
+exports.handleSemverForDependencies = handleSemverForDependencies;
 const tslib_1 = require("tslib");
 const npm_package_arg_util_1 = tslib_1.__importDefault(require("@yarn-tool/npm-package-arg-util"));
 const detect_1 = require("@yarn-tool/npm-package-arg-util/lib/detect");
@@ -11,7 +13,6 @@ function isUpdateAbleVersionByNpmPackageArgResult(npaResult) {
         return isUpdateAbleVersion(npaResult.fetchSpec);
     }
 }
-exports.isUpdateAbleVersionByNpmPackageArgResult = isUpdateAbleVersionByNpmPackageArgResult;
 function isUpdateAbleVersion(version) {
     const list = (0, parseSimpleSemVerRange_1.default)(version);
     if (list.length === 1) {
@@ -21,10 +22,8 @@ function isUpdateAbleVersion(version) {
         }
     }
 }
-exports.isUpdateAbleVersion = isUpdateAbleVersion;
 function handleSemverForDependencies(packageName) {
     const result = (0, npm_package_arg_util_1.default)(packageName);
     return isUpdateAbleVersionByNpmPackageArgResult(result);
 }
-exports.handleSemverForDependencies = handleSemverForDependencies;
 //# sourceMappingURL=handleSemverForDependencies.js.map

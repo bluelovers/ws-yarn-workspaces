@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.queryDepsValueByNpa = exports.queryDepsValueByNpaResult = void 0;
+exports.queryDepsValueByNpaResult = queryDepsValueByNpaResult;
+exports.queryDepsValueByNpa = queryDepsValueByNpa;
 const tslib_1 = require("tslib");
 const npa_to_deps_1 = require("@yarn-tool/npa-to-deps");
 const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
@@ -26,7 +27,6 @@ function queryDepsValueByNpaResult(depsResult, options) {
         };
     });
 }
-exports.queryDepsValueByNpaResult = queryDepsValueByNpaResult;
 function queryDepsValueByNpa(input, options) {
     return bluebird_1.default.resolve()
         .then(() => {
@@ -42,6 +42,5 @@ function queryDepsValueByNpa(input, options) {
         });
     });
 }
-exports.queryDepsValueByNpa = queryDepsValueByNpa;
 exports.default = queryDepsValueByNpa;
 //# sourceMappingURL=index.js.map

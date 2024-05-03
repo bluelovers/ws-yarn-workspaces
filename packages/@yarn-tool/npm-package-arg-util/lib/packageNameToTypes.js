@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.packageNameToTypes = void 0;
+exports.packageNameToTypes = packageNameToTypes;
 const escapePackageNameToTypes_1 = require("./escapePackageNameToTypes");
 const parseArgvPkgName_1 = require("./parseArgvPkgName");
 const pkg_name_util_1 = require("@yarn-tool/pkg-name-util");
@@ -22,5 +22,4 @@ function packageNameToTypes(packageName, prefix) {
         subname,
     };
 }
-exports.packageNameToTypes = packageNameToTypes;
 //# sourceMappingURL=packageNameToTypes.js.map

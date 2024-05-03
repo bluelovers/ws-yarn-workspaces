@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports._check = exports._createAble = exports.handleOptions = void 0;
+exports.handleOptions = handleOptions;
+exports._createAble = _createAble;
+exports._check = _check;
 const finder_1 = require("./finder");
 const array_hyper_unique_1 = require("array-hyper-unique");
 const findPkgModuleCachePath_1 = require("./finder/findPkgModuleCachePath");
@@ -28,11 +30,9 @@ function handleOptions(options) {
     options.create = !!options.create;
     return options;
 }
-exports.handleOptions = handleOptions;
 function _createAble(options, fn) {
     return ((options === null || options === void 0 ? void 0 : options.create) === true || fn === finder_1.findPkgModuleCachePath || fn === findPkgModuleCachePath_1.findPkgModulePath || fn === findPkgModuleCachePath_1.findPkgPath);
 }
-exports._createAble = _createAble;
 function _check(dir, options) {
     if (!(dir === null || dir === void 0 ? void 0 : dir.length)) {
         throw new Error(`can't found cache path`);
@@ -53,5 +53,4 @@ function _check(dir, options) {
     }
     return true;
 }
-exports._check = _check;
 //# sourceMappingURL=util.js.map

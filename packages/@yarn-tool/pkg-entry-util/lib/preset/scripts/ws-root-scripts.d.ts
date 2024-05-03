@@ -1,5 +1,5 @@
 import { EnumScriptsEntry } from '../../field/scripts';
-export declare function _runAllOrSince<T extends string>(script: T): { [x in `${T}:all`]: string; } & { [y in `${T}:since`]: string; };
+export declare function _runAllOrSince<T extends string>(script: T): ({ [x in `${T}:all`]: string; } & { [y in `${T}:since`]: string; });
 export declare function defaultWorkspaceRootScripts(): {
     "prepublishOnly:root": string;
     "prepublishOnly:lockfile": string;

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getRootCopyStaticFilesAuto = void 0;
+exports.getRootCopyStaticFilesAuto = getRootCopyStaticFilesAuto;
 const const_1 = require("../const");
 function getRootCopyStaticFilesAuto(rootData) {
     let file_map = [
@@ -16,5 +16,4 @@ function getRootCopyStaticFilesAuto(rootData) {
     }
     return file_map;
 }
-exports.getRootCopyStaticFilesAuto = getRootCopyStaticFilesAuto;
 //# sourceMappingURL=getRootCopyStaticFiles.js.map

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.listToTypes = void 0;
+exports.listToTypes = listToTypes;
 const array_hyper_unique_1 = require("array-hyper-unique");
 const packageNameToTypes_1 = require("@yarn-tool/npm-package-arg-util/lib/packageNameToTypes");
 const generatePackageArg_1 = require("@yarn-tool/npm-package-arg-util/lib/generatePackageArg");
@@ -11,6 +11,5 @@ function listToTypes(input, includeVersion) {
         return a;
     }, []));
 }
-exports.listToTypes = listToTypes;
 exports.default = listToTypes;
 //# sourceMappingURL=index.js.map

@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getPathsByType = exports.SymbolModuleMain = exports.SymbolGlobalYarn = exports.SymbolGlobalNpm = exports.SymbolGlobal = exports.SymbolCurrentDirectory = void 0;
+exports.SymbolModuleMain = exports.SymbolGlobalYarn = exports.SymbolGlobalNpm = exports.SymbolGlobal = exports.SymbolCurrentDirectory = void 0;
+exports.getPathsByType = getPathsByType;
 const global_dirs_1 = require("global-dirs");
 const SymbolCurrentDirectory = Symbol.for('cwd');
 exports.SymbolCurrentDirectory = SymbolCurrentDirectory;
@@ -41,6 +42,5 @@ function getPathsByType(valueType, cwd) {
     }
     return paths;
 }
-exports.getPathsByType = getPathsByType;
 exports.default = getPathsByType;
 //# sourceMappingURL=index.js.map

@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.wsGitChanged = exports.wsGitChangedPrefix = void 0;
+exports.wsGitChangedPrefix = wsGitChangedPrefix;
+exports.wsGitChanged = wsGitChanged;
 const tslib_1 = require("tslib");
 const listable_1 = require("ws-pkg-list/lib/listable");
 const git_util_1 = require("./git-util");
@@ -29,7 +30,6 @@ function wsGitChangedPrefix(cwd, options) {
         list,
     };
 }
-exports.wsGitChangedPrefix = wsGitChangedPrefix;
 function wsGitChanged(cwd, options) {
     let data = wsGitChangedPrefix(cwd, options);
     let list = (0, listable_1.wsPkgListableFromPaths)(data.list, data.cwd);
@@ -39,6 +39,5 @@ function wsGitChanged(cwd, options) {
         list,
     };
 }
-exports.wsGitChanged = wsGitChanged;
 exports.default = wsGitChanged;
 //# sourceMappingURL=git-changed.js.map

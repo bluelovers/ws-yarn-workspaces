@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports._handleNcuYarnLock = void 0;
+exports._handleNcuYarnLock = _handleNcuYarnLock;
 const read_1 = require("@yarn-tool/yarnlock-fs/lib/read");
 const yarnlock_ncu_1 = require("@yarn-tool/yarnlock-ncu");
 const fs_extra_1 = require("fs-extra");
@@ -24,5 +24,4 @@ async function _handleNcuYarnLock(argv, runtime) {
         }
     }
 }
-exports._handleNcuYarnLock = _handleNcuYarnLock;
 //# sourceMappingURL=ncu-yarnlock.js.map

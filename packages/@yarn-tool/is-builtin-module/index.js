@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isBuiltinModule = exports.builtins = exports.createNewIsBuiltinModule = void 0;
+exports.isBuiltinModule = exports.builtins = void 0;
+exports.createNewIsBuiltinModule = createNewIsBuiltinModule;
 const tslib_1 = require("tslib");
 const builtins_1 = tslib_1.__importDefault(require("builtins"));
 function createNewIsBuiltinModule(options) {
@@ -15,7 +16,6 @@ function createNewIsBuiltinModule(options) {
         },
     };
 }
-exports.createNewIsBuiltinModule = createNewIsBuiltinModule;
 const { builtins, isBuiltinModule, } = createNewIsBuiltinModule();
 exports.builtins = builtins;
 exports.isBuiltinModule = isBuiltinModule;

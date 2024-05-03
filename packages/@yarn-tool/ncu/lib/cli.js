@@ -3,7 +3,7 @@
  * Created by user on 2020/6/12.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.setupNcuToYargs = void 0;
+exports.setupNcuToYargs = setupNcuToYargs;
 /**
  * @see https://github.com/raineorshine/npm-check-updates/blob/main/src/cli-options.ts
  */
@@ -67,6 +67,5 @@ function setupNcuToYargs(yargs) {
         array: true,
     });
 }
-exports.setupNcuToYargs = setupNcuToYargs;
 exports.default = setupNcuToYargs;
 //# sourceMappingURL=cli.js.map

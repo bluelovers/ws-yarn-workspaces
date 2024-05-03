@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getDefaultTsconfig = exports.getDefaultPackageJson = void 0;
+exports.getDefaultPackageJson = getDefaultPackageJson;
+exports.getDefaultTsconfig = getDefaultTsconfig;
 const ws_root_scripts_1 = require("@yarn-tool/pkg-entry-util/lib/preset/scripts/ws-root-scripts");
 const dummy_1 = require("@yarn-tool/pkg-entry-util/lib/preset/scripts/dummy");
 const package_demo_json_1 = require("./package.demo.json");
@@ -25,11 +26,9 @@ function getDefaultPackageJson(name) {
     (0, dummy_1.fillDummyScripts)(json.scripts, 'workspaces');
     return json;
 }
-exports.getDefaultPackageJson = getDefaultPackageJson;
 function getDefaultTsconfig() {
     return {
         extends: "@bluelovers/tsconfig/esm/mapfile.json",
     };
 }
-exports.getDefaultTsconfig = getDefaultTsconfig;
 //# sourceMappingURL=index.js.map

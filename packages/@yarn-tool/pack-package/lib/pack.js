@@ -3,7 +3,9 @@
  * Created by user on 2020/4/9.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.packTargetPackage = exports.packTargetDirectory = exports.packlist = void 0;
+exports.packlist = packlist;
+exports.packTargetDirectory = packTargetDirectory;
+exports.packTargetPackage = packTargetPackage;
 const tslib_1 = require("tslib");
 const npm_packlist_1 = tslib_1.__importDefault(require("npm-packlist"));
 const tar_1 = require("tar");
@@ -15,7 +17,6 @@ function packlist(options) {
     const arborist = new arborist_1.default(options);
     return arborist.loadActual().then(npm_packlist_1.default);
 }
-exports.packlist = packlist;
 function packTargetDirectory({ packageDir, packageTarball, }) {
     return packlist({ path: packageDir })
         .then(async (files) => {
@@ -31,7 +32,6 @@ function packTargetDirectory({ packageDir, packageTarball, }) {
         return files;
     });
 }
-exports.packTargetDirectory = packTargetDirectory;
 function packTargetPackage(options) {
     let { pkg, packageDir } = options;
     packageDir = (0, fs_1.realpathSync)(packageDir);
@@ -55,6 +55,5 @@ function packTargetPackage(options) {
         };
     });
 }
-exports.packTargetPackage = packTargetPackage;
 exports.default = packTargetPackage;
 //# sourceMappingURL=pack.js.map

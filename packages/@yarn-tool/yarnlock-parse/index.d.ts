@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import { EnumDetectYarnLock, IYarnLockParsedV1, IYarnLockParsedV2, IYarnLockRawSourceV1, IYarnLockRawSourceV2, IYarnLockSource } from '@yarn-tool/yarnlock-types';
 export declare function _yarnLockParseRawCore<T extends IYarnLockSource = IYarnLockSource>(verType: EnumDetectYarnLock, yarnlock_old: Buffer | string): {
     verType: EnumDetectYarnLock.v1 | EnumDetectYarnLock.v2 | EnumDetectYarnLock.v3;

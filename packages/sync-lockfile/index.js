@@ -3,7 +3,7 @@
  * Created by user on 2020/1/8.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.syncLockfile = void 0;
+exports.syncLockfile = syncLockfile;
 const tslib_1 = require("tslib");
 const ws_pkg_list_1 = require("ws-pkg-list");
 const find_root_1 = tslib_1.__importDefault(require("@yarn-tool/find-root"));
@@ -39,7 +39,6 @@ function syncLockfile(cwd, options = {}) {
     print && console.timeEnd(label);
     return true;
 }
-exports.syncLockfile = syncLockfile;
 function throwError(message) {
     throw new Error(message);
 }

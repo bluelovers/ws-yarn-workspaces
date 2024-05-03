@@ -1,5 +1,3 @@
-/// <reference types="node" />
-/// <reference types="node" />
 import { ObjectEncodingOptions } from "fs";
 export type IBufferOrString = Buffer | string;
 export interface IOptionsReadFile extends ObjectEncodingOptions {

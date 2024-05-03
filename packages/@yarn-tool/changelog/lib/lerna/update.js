@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateChangelog = void 0;
+exports.updateChangelog = updateChangelog;
 const update_changelog_1 = require("@lerna/conventional-commits/lib/update-changelog");
 const util_1 = require("./util");
 const upath2_1 = require("upath2");
@@ -21,6 +21,5 @@ function updateChangelog(pkg, options) {
         };
     });
 }
-exports.updateChangelog = updateChangelog;
 exports.default = updateChangelog;
 //# sourceMappingURL=update.js.map

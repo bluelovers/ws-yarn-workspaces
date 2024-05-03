@@ -3,7 +3,9 @@
  * Created by user on 2018/5/13/013.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createDirByPackages = exports._createYarnWorkspaces = exports.createYarnWorkspaces = void 0;
+exports.createYarnWorkspaces = createYarnWorkspaces;
+exports._createYarnWorkspaces = _createYarnWorkspaces;
+exports.createDirByPackages = createDirByPackages;
 const tslib_1 = require("tslib");
 const upath2_1 = require("upath2");
 const logger_1 = require("debug-color2/logger");
@@ -61,7 +63,6 @@ function createYarnWorkspaces(cwd, options = {}) {
     }
     return _createYarnWorkspaces(targetPath);
 }
-exports.createYarnWorkspaces = createYarnWorkspaces;
 function _createYarnWorkspaces(targetPath, options = {}) {
     logger_1.consoleLogger.info(`create in target path "${targetPath}"`);
     let pkg;
@@ -148,7 +149,6 @@ function _createYarnWorkspaces(targetPath, options = {}) {
     createDirByPackages(targetPath, packages);
     return true;
 }
-exports._createYarnWorkspaces = _createYarnWorkspaces;
 function createDirByPackages(cwd, packages) {
     return packages.some(function (value) {
         let bool;
@@ -163,6 +163,5 @@ function createDirByPackages(cwd, packages) {
         return bool;
     });
 }
-exports.createDirByPackages = createDirByPackages;
 exports.default = createYarnWorkspaces;
 //# sourceMappingURL=index.js.map

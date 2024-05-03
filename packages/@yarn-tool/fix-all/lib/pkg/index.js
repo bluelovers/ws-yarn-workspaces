@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports._initPkgListableByRootData = exports._runEachPackagesAsync = exports._handler = void 0;
+exports._handler = _handler;
+exports._runEachPackagesAsync = _runEachPackagesAsync;
+exports._initPkgListableByRootData = _initPkgListableByRootData;
 const tslib_1 = require("tslib");
 const ws_pkg_list_1 = require("ws-pkg-list");
 const find_root_1 = require("@yarn-tool/find-root");
@@ -29,7 +31,6 @@ function _handler(cwd, ...argv) {
         pkg: argv[1],
     };
 }
-exports._handler = _handler;
 function _runEachPackagesAsync(list, options) {
     const { rootData, overwriteHostedGitInfo, hostedGitInfo, branch, resetStaticFiles, } = options;
     let logger;
@@ -123,7 +124,6 @@ function _runEachPackagesAsync(list, options) {
         });
     });
 }
-exports._runEachPackagesAsync = _runEachPackagesAsync;
 function _initPkgListableByRootData(rootData) {
     let cwd = rootData.root;
     if (rootData.hasWorkspace) {
@@ -141,5 +141,4 @@ function _initPkgListableByRootData(rootData) {
         },
     });
 }
-exports._initPkgListableByRootData = _initPkgListableByRootData;
 //# sourceMappingURL=index.js.map

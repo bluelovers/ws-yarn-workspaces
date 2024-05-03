@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.parseSimpleSemVer = void 0;
+exports.parseSimpleSemVer = parseSimpleSemVer;
 const const_1 = require("./const");
 const SimpleSemVer_1 = require("./SimpleSemVer");
 const checker_1 = require("./checker");
@@ -27,6 +27,5 @@ function parseSimpleSemVer(version) {
     }
     return ver;
 }
-exports.parseSimpleSemVer = parseSimpleSemVer;
 exports.default = parseSimpleSemVer;
 //# sourceMappingURL=parseSimpleSemVer.js.map

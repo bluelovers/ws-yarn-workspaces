@@ -1,6 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.envObject = exports.envPathObject = exports.setEnvPathValue = exports.getEnvPathValue = exports.envPathKey = exports.processEnv = exports.delimiter = void 0;
+exports.delimiter = void 0;
+exports.processEnv = processEnv;
+exports.envPathKey = envPathKey;
+exports.getEnvPathValue = getEnvPathValue;
+exports.setEnvPathValue = setEnvPathValue;
+exports.envPathObject = envPathObject;
+exports.envObject = envObject;
 const value_from_record_1 = require("value-from-record");
 const path_env2_1 = require("path-env2");
 const path_1 = require("path");
@@ -16,17 +22,14 @@ function processEnv(ignoreErrors) {
         }
     }
 }
-exports.processEnv = processEnv;
 function envPathKey(env) {
     return (0, value_from_record_1.keyFromRecord)('PATH', env !== null && env !== void 0 ? env : processEnv());
 }
-exports.envPathKey = envPathKey;
 function getEnvPathValue(env, key) {
     env !== null && env !== void 0 ? env : (env = processEnv());
     key !== null && key !== void 0 ? key : (key = envPathKey(env));
     return (0, value_from_record_1.valueFromRecord)(key, env);
 }
-exports.getEnvPathValue = getEnvPathValue;
 function setEnvPathValue(value, env, key, delim) {
     env !== null && env !== void 0 ? env : (env = processEnv());
     key !== null && key !== void 0 ? key : (key = envPathKey(env));
@@ -35,11 +38,9 @@ function setEnvPathValue(value, env, key, delim) {
     }
     return (0, value_from_record_1.setRecordValue)(value, key, env);
 }
-exports.setEnvPathValue = setEnvPathValue;
 function envPathObject(env, key, delim) {
     return envObject(env, key, delim).path;
 }
-exports.envPathObject = envPathObject;
 function envObject(env, key, delim) {
     env !== null && env !== void 0 ? env : (env = processEnv());
     key !== null && key !== void 0 ? key : (key = envPathKey(env));
@@ -49,6 +50,5 @@ function envObject(env, key, delim) {
     }
     return (0, path_env2_1.pathEnv)(env, key, delim);
 }
-exports.envObject = envObject;
 exports.default = envPathObject;
 //# sourceMappingURL=index.js.map

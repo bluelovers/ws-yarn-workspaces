@@ -3,7 +3,7 @@
  * Created by user on 2020/6/11.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.toDependencyTable = void 0;
+exports.toDependencyTable = toDependencyTable;
 const semver_diff_1 = require("@yarn-tool/semver-diff");
 const core_1 = require("./core");
 function toDependencyTable(args) {
@@ -18,6 +18,5 @@ function toDependencyTable(args) {
     rows.forEach(row => table.push(row));
     return table;
 }
-exports.toDependencyTable = toDependencyTable;
 exports.default = toDependencyTable;
 //# sourceMappingURL=deps-table.js.map

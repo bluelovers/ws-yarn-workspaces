@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.initWithPreserveDeps = void 0;
+exports.initWithPreserveDeps = initWithPreserveDeps;
 const cross_spawn_extra_1 = require("cross-spawn-extra");
 const npm_package_json_loader_1 = require("npm-package-json-loader");
 function initWithPreserveDeps({ npmClient, cwd, args, old_pkg, pkg_file_path }) {
@@ -22,6 +22,5 @@ function initWithPreserveDeps({ npmClient, cwd, args, old_pkg, pkg_file_path }) 
     }
     return { cp };
 }
-exports.initWithPreserveDeps = initWithPreserveDeps;
 exports.default = initWithPreserveDeps;
 //# sourceMappingURL=initWithPreserveDeps.js.map

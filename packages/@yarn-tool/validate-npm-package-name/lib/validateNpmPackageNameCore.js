@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.validate = void 0;
+exports.validate = validate;
 const types_1 = require("./types");
 const handleResult_1 = require("./handleResult");
 const is_builtin_module_1 = require("@yarn-tool/is-builtin-module");
@@ -75,6 +75,5 @@ function validate(name, options) {
     }
     return (0, handleResult_1.handleResult)(warnings, errors);
 }
-exports.validate = validate;
 exports.default = validate;
 //# sourceMappingURL=validateNpmPackageNameCore.js.map

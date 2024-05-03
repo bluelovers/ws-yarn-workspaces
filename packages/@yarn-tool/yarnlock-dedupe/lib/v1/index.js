@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.listDuplicates = exports.fixDuplicates = exports.yarnDedupe = void 0;
+exports.listDuplicates = exports.fixDuplicates = void 0;
+exports.yarnDedupe = yarnDedupe;
 const fixDuplicates_1 = require("./fixDuplicates");
 Object.defineProperty(exports, "fixDuplicates", { enumerable: true, get: function () { return fixDuplicates_1.fixDuplicates; } });
 const listDuplicates_1 = require("./listDuplicates");
@@ -23,7 +24,6 @@ function yarnDedupe(yarnlock_old, options) {
         yarnlock_changed: yarnlock_old !== yarnlock_new,
     };
 }
-exports.yarnDedupe = yarnDedupe;
 const v1 = {
     fixDuplicates: fixDuplicates_1.fixDuplicates,
     listDuplicates: listDuplicates_1.listDuplicates,

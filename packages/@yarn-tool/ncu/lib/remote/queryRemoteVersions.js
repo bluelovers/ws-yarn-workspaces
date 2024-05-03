@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.queryRemoteVersions = void 0;
+exports.queryRemoteVersions = queryRemoteVersions;
 const tslib_1 = require("tslib");
 const types_1 = require("../types");
 const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
@@ -77,5 +77,4 @@ function queryRemoteVersions(packageMap, options = {}) {
         });
     });
 }
-exports.queryRemoteVersions = queryRemoteVersions;
 //# sourceMappingURL=queryRemoteVersions.js.map

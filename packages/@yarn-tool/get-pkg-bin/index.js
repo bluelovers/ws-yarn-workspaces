@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.defaultPackageBin = exports.normalizePackageBins = void 0;
+exports.normalizePackageBins = normalizePackageBins;
+exports.defaultPackageBin = defaultPackageBin;
 const tslib_1 = require("tslib");
 const upath2_1 = require("upath2");
 const util_1 = require("./util");
@@ -19,7 +20,6 @@ function normalizePackageBins(options) {
     }
     return (0, util_1.handlePackageBins)(bins);
 }
-exports.normalizePackageBins = normalizePackageBins;
 function defaultPackageBin(options, defaultKey) {
     let { pkgRoot, pkg, name } = (0, util_1.getPackageInfo)(options);
     let bins = normalizePackageBins({
@@ -36,6 +36,5 @@ function defaultPackageBin(options, defaultKey) {
     }
     return (0, util_1.firstPackageBin)(bins);
 }
-exports.defaultPackageBin = defaultPackageBin;
 exports.default = normalizePackageBins;
 //# sourceMappingURL=index.js.map

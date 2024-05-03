@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports._handleNcuResolutions = void 0;
+exports._handleNcuResolutions = _handleNcuResolutions;
 const ncu_1 = require("@yarn-tool/ncu");
 const yargs_util_1 = require("@yarn-tool/yargs-util");
 const debug_color2_1 = require("debug-color2");
@@ -73,5 +73,4 @@ async function _handleNcuResolutions(argv, runtime) {
         }
     }
 }
-exports._handleNcuResolutions = _handleNcuResolutions;
 //# sourceMappingURL=ncu-resolutions.js.map

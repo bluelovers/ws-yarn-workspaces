@@ -1,6 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.resolvePackage = exports.readModulePackageJson = exports.createResolveLocationFn = exports.resolvePackageJsonLocation = exports.resolvePackageRoot = exports.resolvePackageCore = void 0;
+exports.resolvePackageCore = resolvePackageCore;
+exports.resolvePackageRoot = resolvePackageRoot;
+exports.resolvePackageJsonLocation = resolvePackageJsonLocation;
+exports.createResolveLocationFn = createResolveLocationFn;
+exports.readModulePackageJson = readModulePackageJson;
+exports.resolvePackage = resolvePackage;
 const upath2_1 = require("upath2");
 const pkg_dir_1 = require("pkg-dir");
 function resolvePackageCore(moduleName, options) {
@@ -18,24 +23,19 @@ function resolvePackageCore(moduleName, options) {
         entryPointLocation,
     };
 }
-exports.resolvePackageCore = resolvePackageCore;
 function resolvePackageRoot(moduleName, options) {
     return resolvePackageCore(moduleName, options).pkgRoot;
 }
-exports.resolvePackageRoot = resolvePackageRoot;
 function resolvePackageJsonLocation(moduleName, options) {
     return (0, upath2_1.resolve)(resolvePackageRoot(moduleName, options), 'package.json');
 }
-exports.resolvePackageJsonLocation = resolvePackageJsonLocation;
 function createResolveLocationFn(moduleName, options) {
     const { pkgRoot } = resolvePackageCore(moduleName, options);
     return (path, ...paths) => (0, upath2_1.resolve)(pkgRoot, path, ...paths);
 }
-exports.createResolveLocationFn = createResolveLocationFn;
 function readModulePackageJson(moduleName, options) {
     return require(resolvePackageJsonLocation(moduleName, options));
 }
-exports.readModulePackageJson = readModulePackageJson;
 function resolvePackage(moduleName, options) {
     const _ = resolvePackageCore(moduleName, options);
     const { pkgRoot } = _;
@@ -49,6 +49,5 @@ function resolvePackage(moduleName, options) {
         },
     };
 }
-exports.resolvePackage = resolvePackage;
 exports.default = resolvePackage;
 //# sourceMappingURL=index.js.map

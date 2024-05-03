@@ -1,6 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.parseRange = exports.reduceComparatorList = exports.filterRangeListForComparator = exports.parseRangeCore = exports.normalizeRangeInputForComparator = exports.getMemoOpts = void 0;
+exports.getMemoOpts = getMemoOpts;
+exports.normalizeRangeInputForComparator = normalizeRangeInputForComparator;
+exports.parseRangeCore = parseRangeCore;
+exports.filterRangeListForComparator = filterRangeListForComparator;
+exports.reduceComparatorList = reduceComparatorList;
+exports.parseRange = parseRange;
 const cache_1 = require("./cache");
 const semver_1 = require("semver");
 const detect_1 = require("../comparator/detect");
@@ -16,7 +21,6 @@ const normalizeRangeInput_1 = require("./normalizeRangeInput");
 function getMemoOpts(options) {
     return Object.keys(options).filter(k => options[k]).join(',');
 }
-exports.getMemoOpts = getMemoOpts;
 function normalizeRangeInputForComparator(range, options) {
     let rangeList = (0, split_1.splitSpace)(range)
         .map(comp => (0, util_1.parseComparator)(comp, options));
@@ -25,7 +29,6 @@ function normalizeRangeInputForComparator(range, options) {
         .map(comp => (0, util_1.replaceGTE0)(comp, options));
     return (0, array_hyper_unique_1.array_unique_overwrite)(rangeList);
 }
-exports.normalizeRangeInputForComparator = normalizeRangeInputForComparator;
 function parseRangeCore(range, options) {
     range = (0, normalizeRangeInput_1.normalizeRangeInput)(range, options);
     // At this point, the range is completely trimmed and
@@ -39,7 +42,6 @@ function parseRangeCore(range, options) {
     const result = reduceComparatorList(compList);
     return result;
 }
-exports.parseRangeCore = parseRangeCore;
 /**
  * in loose mode, throw out any that are not valid comparators
  */
@@ -47,7 +49,6 @@ function filterRangeListForComparator(rangeList, options) {
     const compRe = options.loose ? re_1.re[re_1.t.COMPARATORLOOSE] : re_1.re[re_1.t.COMPARATOR];
     return rangeList.filter(comp => !!comp.match(compRe));
 }
-exports.filterRangeListForComparator = filterRangeListForComparator;
 /**
  * if any comparators are the null set, then replace with JUST null set
  * if more than one comparator, remove any * comparators
@@ -68,7 +69,6 @@ function reduceComparatorList(compList) {
     const result = [...rangeMap.values()];
     return result;
 }
-exports.reduceComparatorList = reduceComparatorList;
 function parseRange(range, options) {
     range = range.trim();
     // memoize range parsing for performance.
@@ -83,5 +83,4 @@ function parseRange(range, options) {
     cache_1.cache.set(memoKey, result);
     return result;
 }
-exports.parseRange = parseRange;
 //# sourceMappingURL=parseRange.js.map

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.reMapStaticFilesMapArray = void 0;
+exports.reMapStaticFilesMapArray = reMapStaticFilesMapArray;
 const parseStaticMap_1 = require("./parseStaticMap");
 const getRowOfStaticFilesMapArray_1 = require("./getRowOfStaticFilesMapArray");
 const replaceTargetOfStaticFilesMapArrayEntry_1 = require("./replaceTargetOfStaticFilesMapArrayEntry");
@@ -17,5 +17,4 @@ function reMapStaticFilesMapArray(file_map, replaceMap) {
     }, []);
     return (0, array_hyper_unique_1.array_unique_overwrite)(arr.concat(ls));
 }
-exports.reMapStaticFilesMapArray = reMapStaticFilesMapArray;
 //# sourceMappingURL=reMapStaticFilesMapArray.js.map

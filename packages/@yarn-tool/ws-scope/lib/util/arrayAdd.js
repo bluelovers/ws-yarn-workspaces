@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.arrayRemove = exports.arrayAdd = void 0;
+exports.arrayAdd = arrayAdd;
+exports.arrayRemove = arrayRemove;
 const array_hyper_unique_1 = require("array-hyper-unique");
 function arrayAdd(scope, value) {
     value !== null && value !== void 0 ? value : (value = []);
@@ -18,7 +19,6 @@ function arrayAdd(scope, value) {
         value,
     };
 }
-exports.arrayAdd = arrayAdd;
 function arrayRemove(scope, value) {
     let changed = false;
     if (value && value.includes(scope)) {
@@ -31,5 +31,4 @@ function arrayRemove(scope, value) {
         value,
     };
 }
-exports.arrayRemove = arrayRemove;
 //# sourceMappingURL=arrayAdd.js.map

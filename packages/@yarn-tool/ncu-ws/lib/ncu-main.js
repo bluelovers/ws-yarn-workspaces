@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports._handleNcuArgv = void 0;
+exports._handleNcuArgv = _handleNcuArgv;
 const ncu_1 = require("@yarn-tool/ncu");
 const write_package_json_1 = require("@yarn-tool/write-package-json");
 const ncu_yarnlock_1 = require("./ncu-yarnlock");
@@ -33,5 +33,4 @@ async function _handleNcuArgv(argv, runtimeInput, isWorkspace) {
     }
     !isWorkspace && await (0, ncu_yarnlock_1._handleNcuYarnLock)(argv, runtime);
 }
-exports._handleNcuArgv = _handleNcuArgv;
 //# sourceMappingURL=ncu-main.js.map

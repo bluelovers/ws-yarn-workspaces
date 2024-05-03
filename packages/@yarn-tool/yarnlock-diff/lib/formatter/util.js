@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.stripAnsiValues = void 0;
+exports.stripAnsiValues = stripAnsiValues;
 const tslib_1 = require("tslib");
 const strip_ansi_1 = tslib_1.__importDefault(require("strip-ansi"));
 function stripAnsiValues(input, overwrite) {
@@ -17,5 +17,4 @@ function stripAnsiValues(input, overwrite) {
         return arr;
     });
 }
-exports.stripAnsiValues = stripAnsiValues;
 //# sourceMappingURL=util.js.map

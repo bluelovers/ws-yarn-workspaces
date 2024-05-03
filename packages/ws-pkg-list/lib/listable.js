@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.wsPkgListable = exports.wsPkgListableFromPaths = exports.wsPkgListableFromReaded = void 0;
+exports.wsPkgListableFromReaded = wsPkgListableFromReaded;
+exports.wsPkgListableFromPaths = wsPkgListableFromPaths;
+exports.wsPkgListable = wsPkgListable;
 /**
  * Created by user on 2020/6/5.
  */
@@ -28,16 +30,13 @@ function wsPkgListableFromReaded(readed, options) {
         return row;
     });
 }
-exports.wsPkgListableFromReaded = wsPkgListableFromReaded;
 function wsPkgListableFromPaths(paths, cwd, options) {
     cwd = cwd !== null && cwd !== void 0 ? cwd : process.cwd();
     return wsPkgListableFromReaded((0, readpkg_1.readPackages)(paths, cwd), options);
 }
-exports.wsPkgListableFromPaths = wsPkgListableFromPaths;
 function wsPkgListable(cwd, options) {
     cwd = cwd !== null && cwd !== void 0 ? cwd : process.cwd();
     return wsPkgListableFromPaths((0, listpkg_1.workspacesPackagesList)(cwd), cwd, options);
 }
-exports.wsPkgListable = wsPkgListable;
 exports.default = wsPkgListable;
 //# sourceMappingURL=listable.js.map

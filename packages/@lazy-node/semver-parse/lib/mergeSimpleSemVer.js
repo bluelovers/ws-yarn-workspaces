@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.mergeSimpleSemVer = void 0;
+exports.mergeSimpleSemVer = mergeSimpleSemVer;
 const checker_1 = require("./checker");
 const isAllowedMergeAbleValue_1 = require("./util/isAllowedMergeAbleValue");
 function mergeSimpleSemVer(target, b) {
@@ -27,6 +27,5 @@ function mergeSimpleSemVer(target, b) {
         changed,
     };
 }
-exports.mergeSimpleSemVer = mergeSimpleSemVer;
 exports.default = mergeSimpleSemVer;
 //# sourceMappingURL=mergeSimpleSemVer.js.map

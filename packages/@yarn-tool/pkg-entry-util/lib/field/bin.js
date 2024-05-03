@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.fixPkgBinField = exports.fixBinPath = void 0;
+exports.fixBinPath = fixBinPath;
+exports.fixPkgBinField = fixPkgBinField;
 const fs_extra_1 = require("fs-extra");
 const upath2_1 = require("upath2");
 function fixBinPath(bin, root) {
@@ -10,7 +11,6 @@ function fixBinPath(bin, root) {
     }
     return null;
 }
-exports.fixBinPath = fixBinPath;
 function fixPkgBinField(pkg, root) {
     if (pkg.bin) {
         if (typeof pkg.bin === 'string') {
@@ -34,5 +34,4 @@ function fixPkgBinField(pkg, root) {
     }
     return pkg;
 }
-exports.fixPkgBinField = fixPkgBinField;
 //# sourceMappingURL=bin.js.map

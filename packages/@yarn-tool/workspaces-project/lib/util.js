@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.checkPaths = exports.EnumCheckPaths = void 0;
+exports.EnumCheckPaths = void 0;
+exports.checkPaths = checkPaths;
 const tslib_1 = require("tslib");
 const path_dir_normalize_1 = tslib_1.__importDefault(require("path-dir-normalize"));
 var EnumCheckPaths;
@@ -29,5 +30,4 @@ function checkPaths(input, options) {
     }
     return -1 /* EnumCheckPaths.failed */;
 }
-exports.checkPaths = checkPaths;
 //# sourceMappingURL=util.js.map

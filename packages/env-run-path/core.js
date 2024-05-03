@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.findBinPathCore = void 0;
+exports.findBinPathCore = findBinPathCore;
 const path_1 = require("path");
 const fs_1 = require("fs");
 function findBinPathCore(options = {}) {
@@ -48,6 +48,5 @@ function findBinPathCore(options = {}) {
         history,
     };
 }
-exports.findBinPathCore = findBinPathCore;
 exports.default = findBinPathCore;
 //# sourceMappingURL=core.js.map

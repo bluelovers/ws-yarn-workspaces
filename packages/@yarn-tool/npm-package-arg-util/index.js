@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.npaTry = exports.npa = exports.getSemverFromNpaResult = void 0;
+exports.getSemverFromNpaResult = void 0;
+exports.npa = npa;
+exports.npaTry = npaTry;
 const tslib_1 = require("tslib");
 const npm_package_arg_1 = tslib_1.__importDefault(require("npm-package-arg"));
 const assert_1 = require("./lib/assert");
@@ -11,7 +13,6 @@ function npa(arg, where) {
     (0, assert_1.assertNpaResultHasName)(result);
     return result;
 }
-exports.npa = npa;
 function npaTry(arg, where) {
     try {
         return npa(arg, where);
@@ -19,6 +20,5 @@ function npaTry(arg, where) {
     catch (e) {
     }
 }
-exports.npaTry = npaTry;
 exports.default = npa;
 //# sourceMappingURL=index.js.map

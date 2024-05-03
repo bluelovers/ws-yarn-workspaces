@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.normalizeName = void 0;
+exports.normalizeName = normalizeName;
 const tslib_1 = require("tslib");
 const hash_sum_1 = tslib_1.__importDefault(require("hash-sum"));
 /**
@@ -23,5 +23,4 @@ function normalizeName(name, hash) {
     }
     return normalized;
 }
-exports.normalizeName = normalizeName;
 //# sourceMappingURL=normalizeName.js.map

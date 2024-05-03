@@ -1,6 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.yarnDedupe = exports.yarnDedupeFile = exports.fixDuplicates = exports.listDuplicates = void 0;
+exports.listDuplicates = listDuplicates;
+exports.fixDuplicates = fixDuplicates;
+exports.yarnDedupeFile = yarnDedupeFile;
+exports.yarnDedupe = yarnDedupe;
 const tslib_1 = require("tslib");
 const detectYarnLockVersion_1 = require("@yarn-tool/detect-yarnlock-version/lib/detectYarnLockVersion");
 const v2_1 = tslib_1.__importDefault(require("./lib/v2"));
@@ -19,7 +22,6 @@ function listDuplicates(yarnlock_old, options) {
     }
     throw new TypeError(`can't detect yarn.lock version`);
 }
-exports.listDuplicates = listDuplicates;
 function fixDuplicates(yarnlock_old, options) {
     yarnlock_old = yarnlock_old.toString();
     let verType = (0, detectYarnLockVersion_1.detectYarnLockVersion)(yarnlock_old);
@@ -32,11 +34,9 @@ function fixDuplicates(yarnlock_old, options) {
     }
     throw new TypeError(`can't detect yarn.lock version`);
 }
-exports.fixDuplicates = fixDuplicates;
 function yarnDedupeFile(yarnlock_old_file, options) {
     return yarnDedupe((0, fs_1.readFileSync)(yarnlock_old_file), options);
 }
-exports.yarnDedupeFile = yarnDedupeFile;
 function yarnDedupe(yarnlock_old, options) {
     yarnlock_old = yarnlock_old.toString();
     const yarnlock_new = fixDuplicates(yarnlock_old, options);
@@ -55,7 +55,6 @@ function yarnDedupe(yarnlock_old, options) {
         yarnlock_changed: yarnlock_old !== yarnlock_new,
     };
 }
-exports.yarnDedupe = yarnDedupe;
 const auto = {
     listDuplicates,
     fixDuplicates,

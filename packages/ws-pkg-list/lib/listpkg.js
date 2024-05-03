@@ -3,7 +3,7 @@
  * Created by user on 2020/6/5.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.workspacesPackagesList = void 0;
+exports.workspacesPackagesList = workspacesPackagesList;
 const tslib_1 = require("tslib");
 const core_1 = tslib_1.__importDefault(require("find-yarn-workspace-root2/core"));
 const workspaces_config_1 = require("workspaces-config");
@@ -34,6 +34,5 @@ function workspacesPackagesList(cwd, absolute) {
         return p;
     });
 }
-exports.workspacesPackagesList = workspacesPackagesList;
 exports.default = workspacesPackagesList;
 //# sourceMappingURL=listpkg.js.map

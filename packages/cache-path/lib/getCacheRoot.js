@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getCacheRootAsync = exports.getCacheRoot = void 0;
+exports.getCacheRoot = getCacheRoot;
+exports.getCacheRootAsync = getCacheRootAsync;
 const tslib_1 = require("tslib");
 const fs_extra_1 = require("fs-extra");
 const upath2_1 = require("upath2");
@@ -27,7 +28,6 @@ function getCacheRoot(_options) {
     (0, util_1._check)(dir, options);
     return (0, upath2_1.resolve)(dir);
 }
-exports.getCacheRoot = getCacheRoot;
 function getCacheRootAsync(options) {
     return bluebird_1.default.resolve((0, util_1.handleOptions)(options))
         .then(async function (options) {
@@ -52,5 +52,4 @@ function getCacheRootAsync(options) {
         return (0, upath2_1.resolve)(dir);
     });
 }
-exports.getCacheRootAsync = getCacheRootAsync;
 //# sourceMappingURL=getCacheRoot.js.map

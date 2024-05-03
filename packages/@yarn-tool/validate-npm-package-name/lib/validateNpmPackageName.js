@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.validateNpmPackageName = void 0;
+exports.validateNpmPackageName = validateNpmPackageName;
 const validateNpmPackageNameCore_1 = require("./validateNpmPackageNameCore");
 const types_1 = require("./types");
 function validateNpmPackageName(name, options) {
@@ -28,6 +28,5 @@ function validateNpmPackageName(name, options) {
     }
     return ret;
 }
-exports.validateNpmPackageName = validateNpmPackageName;
 exports.default = validateNpmPackageName;
 //# sourceMappingURL=validateNpmPackageName.js.map

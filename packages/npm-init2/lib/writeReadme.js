@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.writeReadme = void 0;
+exports.writeReadme = writeReadme;
 const tslib_1 = require("tslib");
 const fs_extra_1 = require("fs-extra");
 const template_1 = tslib_1.__importDefault(require("lodash/template"));
@@ -17,5 +17,4 @@ function writeReadme(options) {
         }
     }
 }
-exports.writeReadme = writeReadme;
 //# sourceMappingURL=writeReadme.js.map

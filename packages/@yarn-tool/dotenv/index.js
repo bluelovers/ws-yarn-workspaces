@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.wsEnvConfig = exports.dotEnvFiles = void 0;
+exports.dotEnvFiles = dotEnvFiles;
+exports.wsEnvConfig = wsEnvConfig;
 const dotenv_1 = require("dotenv");
 const path_parents_1 = require("@yarn-tool/path-parents");
 const upath2_1 = require("upath2");
@@ -25,7 +26,6 @@ function dotEnvFiles(options) {
         dotenvFiles,
     };
 }
-exports.dotEnvFiles = dotEnvFiles;
 function wsEnvConfig(cwd, options) {
     cwd = (0, upath2_1.resolve)(cwd !== null && cwd !== void 0 ? cwd : process.cwd());
     const files = dotEnvFiles(options).dotenvFiles;
@@ -61,6 +61,5 @@ function wsEnvConfig(cwd, options) {
         fileExists,
     };
 }
-exports.wsEnvConfig = wsEnvConfig;
 exports.default = wsEnvConfig;
 //# sourceMappingURL=index.js.map

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.wrapDedupe = void 0;
+exports.wrapDedupe = wrapDedupe;
 const object_1 = require("@yarn-tool/yarnlock-dedupe/object");
 const yarnlock_diff_1 = require("@yarn-tool/yarnlock-diff");
 const fs_extra_1 = require("fs-extra");
@@ -111,5 +111,4 @@ function wrapDedupe(yarg, argv, options) {
         cache,
     };
 }
-exports.wrapDedupe = wrapDedupe;
 //# sourceMappingURL=wrapDedupe.js.map

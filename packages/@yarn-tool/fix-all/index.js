@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.npmAutoFixAll = void 0;
+exports.npmAutoFixAll = npmAutoFixAll;
 const tslib_1 = require("tslib");
 const find_root_1 = require("@yarn-tool/find-root");
 const pkg_git_info_1 = require("@yarn-tool/pkg-git-info");
@@ -90,6 +90,5 @@ function npmAutoFixAll(cwd, options) {
         });
     }).then(() => void 0);
 }
-exports.npmAutoFixAll = npmAutoFixAll;
 exports.default = npmAutoFixAll;
 //# sourceMappingURL=index.js.map

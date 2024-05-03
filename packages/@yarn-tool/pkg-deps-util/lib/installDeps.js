@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.filterInstallDeps = void 0;
+exports.filterInstallDeps = filterInstallDeps;
 const installDepsFromWorkspaces_1 = require("./installDepsFromWorkspaces");
 const find_root_1 = require("@yarn-tool/find-root");
 function filterInstallDeps(packageNames, options = {}) {
@@ -30,5 +30,4 @@ function filterInstallDeps(packageNames, options = {}) {
         packageNames,
     };
 }
-exports.filterInstallDeps = filterInstallDeps;
 //# sourceMappingURL=installDeps.js.map

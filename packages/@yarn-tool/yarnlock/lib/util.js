@@ -3,7 +3,7 @@
  * Created by user on 2020/6/11.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.stripDepsName = void 0;
+exports.stripDepsName = stripDepsName;
 function stripDepsName(name) {
     let m = name.match(/^(@?.+?)@(.+)$/);
     if (!m) {
@@ -14,5 +14,4 @@ function stripDepsName(name) {
     //process.exit()
     return r;
 }
-exports.stripDepsName = stripDepsName;
 //# sourceMappingURL=util.js.map

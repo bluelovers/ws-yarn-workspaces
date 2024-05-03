@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.computeHashmapOfPackageAndVersionList = void 0;
+exports.computeHashmapOfPackageAndVersionList = computeHashmapOfPackageAndVersionList;
 const parseYarnLockRowV1_1 = require("@yarn-tool/yarnlock-util/lib/v1/parseYarnLockRowV1");
 const parseYarnLockRowV2_1 = require("@yarn-tool/yarnlock-util/lib/v2/parseYarnLockRowV2");
 const array_hyper_unique_1 = require("array-hyper-unique");
@@ -49,5 +49,4 @@ function computeHashmapOfPackageAndVersionList(alreadyComputedPackage, parsedOld
     });
     return alreadyComputedPackage;
 }
-exports.computeHashmapOfPackageAndVersionList = computeHashmapOfPackageAndVersionList;
 //# sourceMappingURL=computeHashmapOfPackageAndVersionList.js.map

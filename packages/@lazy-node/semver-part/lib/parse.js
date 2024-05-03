@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.parseVersionsAndCompare = exports.parseVersions = void 0;
+exports.parseVersions = parseVersions;
+exports.parseVersionsAndCompare = parseVersionsAndCompare;
 const _core_1 = require("./_core");
 const compare_1 = require("./compare");
 function parseVersions(versionOld, versionNew) {
@@ -16,7 +17,6 @@ function parseVersions(versionOld, versionNew) {
         index,
     };
 }
-exports.parseVersions = parseVersions;
 function parseVersionsAndCompare(versionOld, versionNew, optionsOrLoose) {
     const data = parseVersions(versionOld, versionNew);
     let comp = (0, compare_1.tryCompare)(data.partsNew[data.index], data.partsOld[data.index], optionsOrLoose);
@@ -25,5 +25,4 @@ function parseVersionsAndCompare(versionOld, versionNew, optionsOrLoose) {
         comp,
     };
 }
-exports.parseVersionsAndCompare = parseVersionsAndCompare;
 //# sourceMappingURL=parse.js.map

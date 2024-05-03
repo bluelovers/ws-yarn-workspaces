@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isSamePath = void 0;
+exports.isSamePath = isSamePath;
 const path_1 = require("path");
 const path_is_same_1 = require("path-is-same");
 /**
@@ -16,5 +16,4 @@ function isSamePath(p1, p2) {
     let s = (0, path_1.relative)(p1, p2);
     return (s === '.' || s === '');
 }
-exports.isSamePath = isSamePath;
 //# sourceMappingURL=util.js.map

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.checkResolutionsUpdate = void 0;
+exports.checkResolutionsUpdate = checkResolutionsUpdate;
 const bluebird_1 = require("bluebird");
 const util_1 = require("../util");
 const semver_1 = require("semver");
@@ -82,5 +82,4 @@ function checkResolutionsUpdate(resolutions, yarnlock_old_obj, options) {
         };
     });
 }
-exports.checkResolutionsUpdate = checkResolutionsUpdate;
 //# sourceMappingURL=checkResolutionsUpdate.js.map

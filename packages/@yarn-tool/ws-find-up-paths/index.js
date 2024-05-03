@@ -1,6 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.findUpPathsWorkspacesAsync = exports.findUpPathsWorkspaces = exports.pathParentsWorkspaces = exports.handleOptions = void 0;
+exports.handleOptions = handleOptions;
+exports.pathParentsWorkspaces = pathParentsWorkspaces;
+exports.findUpPathsWorkspaces = findUpPathsWorkspaces;
+exports.findUpPathsWorkspacesAsync = findUpPathsWorkspacesAsync;
 const find_up_paths_1 = require("find-up-paths");
 const find_root_1 = require("@yarn-tool/find-root");
 const path_parents_1 = require("path-parents");
@@ -20,21 +23,17 @@ function handleOptions(cwd, opts) {
     }
     return runtime;
 }
-exports.handleOptions = handleOptions;
 function pathParentsWorkspaces(cwd, opts) {
     const runtime = handleOptions(cwd, opts);
     return [...(0, path_parents_1.pathParentsGeneratorRuntime)(runtime)];
 }
-exports.pathParentsWorkspaces = pathParentsWorkspaces;
 function findUpPathsWorkspaces(pattern, opts) {
     const runtime = handleOptions(opts);
     return (0, find_up_paths_1.findUpPathsRuntime)(pattern, runtime);
 }
-exports.findUpPathsWorkspaces = findUpPathsWorkspaces;
 function findUpPathsWorkspacesAsync(pattern, opts) {
     const runtime = handleOptions(opts);
     return (0, find_up_paths_1.findUpPathsRuntimeAsync)(pattern, runtime);
 }
-exports.findUpPathsWorkspacesAsync = findUpPathsWorkspacesAsync;
 exports.default = findUpPathsWorkspaces;
 //# sourceMappingURL=index.js.map

@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.fixBooleanProperty = exports.opts = void 0;
+exports.opts = void 0;
+exports.fixBooleanProperty = fixBooleanProperty;
 exports.opts = ['includePrerelease', 'loose', 'rtl'];
 function fixBooleanProperty(options, fields = exports.opts, mode) {
     fields.forEach(k => {
@@ -11,5 +12,4 @@ function fixBooleanProperty(options, fields = exports.opts, mode) {
     });
     return options;
 }
-exports.fixBooleanProperty = fixBooleanProperty;
 //# sourceMappingURL=fixBooleanProperty.js.map

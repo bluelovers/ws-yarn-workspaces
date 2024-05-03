@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.assertExecInstall = void 0;
+exports.assertExecInstall = assertExecInstall;
 const tslib_1 = require("tslib");
 const err_code_1 = tslib_1.__importDefault(require("err-code"));
 function assertExecInstall(cp) {
@@ -12,5 +12,4 @@ function assertExecInstall(cp) {
     }
     return cp;
 }
-exports.assertExecInstall = assertExecInstall;
 //# sourceMappingURL=assertExecInstall.js.map

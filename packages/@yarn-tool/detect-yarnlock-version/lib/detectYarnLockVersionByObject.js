@@ -1,6 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.checkExistsMeta = exports._checkExistsMetaCore = exports.checkV1 = exports.checkV2 = exports._checkV2Row = exports.detectYarnLockVersionByObject = void 0;
+exports.detectYarnLockVersionByObject = detectYarnLockVersionByObject;
+exports._checkV2Row = _checkV2Row;
+exports.checkV2 = checkV2;
+exports.checkV1 = checkV1;
+exports._checkExistsMetaCore = _checkExistsMetaCore;
+exports.checkExistsMeta = checkExistsMeta;
 const util_1 = require("./util");
 const detectYarnLockVersionWithMetadata_1 = require("./detectYarnLockVersionWithMetadata");
 const yarnlock_types_1 = require("@yarn-tool/yarnlock-types");
@@ -23,12 +28,10 @@ function detectYarnLockVersionByObject(yarnLockObject) {
     }
     return yarnlock_types_1.EnumDetectYarnLock.unknown;
 }
-exports.detectYarnLockVersionByObject = detectYarnLockVersionByObject;
 function _checkV2Row(row) {
     // @ts-ignore
     return row.version && row.resolution && row.linkType;
 }
-exports._checkV2Row = _checkV2Row;
 /**
  * check v2 and v3
  */
@@ -50,7 +53,6 @@ function checkV2(obj) {
         return verType;
     }
 }
-exports.checkV2 = checkV2;
 function checkV1(obj) {
     let ks = Object.keys(obj)
         .slice(2);
@@ -59,7 +61,6 @@ function checkV1(obj) {
         return yarnlock_types_1.EnumDetectYarnLock.v1;
     }
 }
-exports.checkV1 = checkV1;
 function _checkExistsMetaCore(obj) {
     const entryKeys = Object.keys(obj)
         .filter(k => k !== '__metadata');
@@ -80,10 +81,8 @@ function _checkExistsMetaCore(obj) {
         entryKeys,
     };
 }
-exports._checkExistsMetaCore = _checkExistsMetaCore;
 function checkExistsMeta(obj) {
     return _checkExistsMetaCore(obj).onlyExistsMeta;
 }
-exports.checkExistsMeta = checkExistsMeta;
 exports.default = detectYarnLockVersionByObject;
 //# sourceMappingURL=detectYarnLockVersionByObject.js.map

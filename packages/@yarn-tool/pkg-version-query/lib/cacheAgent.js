@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getCache = exports.initCache = void 0;
+exports.initCache = initCache;
+exports.getCache = getCache;
 const tslib_1 = require("tslib");
 const lru_cache_fs2_1 = tslib_1.__importDefault(require("lru-cache-fs2"));
 const cache_path_1 = require("cache-path");
@@ -33,10 +34,8 @@ function initCache(options) {
     const cache = new lru_cache_fs2_1.default(cacheAgentOptions);
     return cache;
 }
-exports.initCache = initCache;
 function getCache(options) {
     var _a;
     return (_a = options === null || options === void 0 ? void 0 : options.cacheAgent) !== null && _a !== void 0 ? _a : (cache !== null && cache !== void 0 ? cache : (cache = initCache(options)));
 }
-exports.getCache = getCache;
 //# sourceMappingURL=cacheAgent.js.map

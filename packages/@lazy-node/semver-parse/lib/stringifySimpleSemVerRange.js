@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.stringifySimpleSemVerRange = void 0;
+exports.stringifySimpleSemVerRange = stringifySimpleSemVerRange;
 const checker_1 = require("./checker");
 const SimpleSemVer_1 = require("./SimpleSemVer");
 const stringifySimpleSemVer_1 = require("./stringifySimpleSemVer");
@@ -25,6 +25,5 @@ function stringifySimpleSemVerRange(arr) {
         return a;
     }, []).join(' ');
 }
-exports.stringifySimpleSemVerRange = stringifySimpleSemVerRange;
 exports.default = stringifySimpleSemVerRange;
 //# sourceMappingURL=stringifySimpleSemVerRange.js.map

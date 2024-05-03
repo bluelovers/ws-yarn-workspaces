@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports._handleNcuArgvAuto = void 0;
+exports._handleNcuArgvAuto = _handleNcuArgvAuto;
 const tslib_1 = require("tslib");
 const find_root_1 = require("@yarn-tool/find-root");
 const ws_pkg_list_1 = require("ws-pkg-list");
@@ -76,6 +76,5 @@ function _handleNcuArgvAuto(argv, runtimeInput, isWorkspace, includeRoot) {
         runtimeInput.consoleDebug.gray.info(msg);
     });
 }
-exports._handleNcuArgvAuto = _handleNcuArgvAuto;
 exports.default = _handleNcuArgvAuto;
 //# sourceMappingURL=index.js.map

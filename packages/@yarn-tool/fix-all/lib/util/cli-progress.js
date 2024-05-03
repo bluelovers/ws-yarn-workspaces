@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createProgressEstimator = void 0;
+exports.createProgressEstimator = createProgressEstimator;
 const tslib_1 = require("tslib");
 const fs_extra_1 = require("fs-extra");
 const path_1 = require("path");
@@ -15,5 +15,4 @@ function createProgressEstimator(root) {
         storagePath,
     });
 }
-exports.createProgressEstimator = createProgressEstimator;
 //# sourceMappingURL=cli-progress.js.map

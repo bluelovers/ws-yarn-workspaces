@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.fixTsdxPackage = void 0;
+exports.fixTsdxPackage = fixTsdxPackage;
 const dot_values2_1 = require("dot-values2");
 function fixTsdxPackage(pkg, config) {
     var _a, _b, _c, _d, _e;
@@ -21,5 +21,4 @@ function fixTsdxPackage(pkg, config) {
     }
     return pkg;
 }
-exports.fixTsdxPackage = fixTsdxPackage;
 //# sourceMappingURL=fix.js.map

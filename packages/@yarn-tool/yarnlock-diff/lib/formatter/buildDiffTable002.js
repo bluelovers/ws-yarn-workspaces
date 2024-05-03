@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports._buildDiffTableCore = exports._handleDiffTable = exports.buildDiffTable = void 0;
+exports.buildDiffTable = buildDiffTable;
+exports._handleDiffTable = _handleDiffTable;
+exports._buildDiffTableCore = _buildDiffTableCore;
 const tslib_1 = require("tslib");
 const formatVersion_1 = require("./formatVersion");
 const diffArray002_1 = require("./diffArray002");
@@ -11,7 +13,6 @@ const strip_ansi_1 = tslib_1.__importDefault(require("strip-ansi"));
 function buildDiffTable(diff, options) {
     return _handleDiffTable(_buildDiffTableCore(diff, options), options);
 }
-exports.buildDiffTable = buildDiffTable;
 function _handleDiffTable(result, options) {
     const { _ok, table, } = result;
     let output = _ok ? table.toString() : '';
@@ -20,7 +21,6 @@ function _handleDiffTable(result, options) {
     }
     return _ok ? output : '';
 }
-exports._handleDiffTable = _handleDiffTable;
 function _buildDiffTableCore(diff, options) {
     var _a;
     // @ts-ignore
@@ -76,5 +76,4 @@ function _buildDiffTableCore(diff, options) {
         formatedDiff,
     };
 }
-exports._buildDiffTableCore = _buildDiffTableCore;
 //# sourceMappingURL=buildDiffTable002.js.map

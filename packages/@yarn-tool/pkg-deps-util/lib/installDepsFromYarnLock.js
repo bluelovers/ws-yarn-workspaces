@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.installDepsFromYarnLock = exports.installDepsFromYarnLockCore = exports.filterDepsFromYarnLock = void 0;
+exports.filterDepsFromYarnLock = filterDepsFromYarnLock;
+exports.installDepsFromYarnLockCore = installDepsFromYarnLockCore;
+exports.installDepsFromYarnLock = installDepsFromYarnLock;
 const tslib_1 = require("tslib");
 const find_root_1 = require("@yarn-tool/find-root");
 const package_dts_1 = require("@ts-type/package-dts");
@@ -18,7 +20,6 @@ function filterDepsFromYarnLock(packageNames, parsedOldPackage, options) {
     let group = (0, groupYarnLockParsedEntries_1.groupYarnLockParsedEntries)(parsedOldPackage, options);
     return (0, lodash_1.pick)(group, packageNames.map((name) => (0, npm_package_arg_util_1.default)(name).name));
 }
-exports.filterDepsFromYarnLock = filterDepsFromYarnLock;
 async function installDepsFromYarnLockCore(packageNames, parsedOldPackage, options = {}) {
     var _a, _b;
     let names = packageNames.map((name) => (0, npm_package_arg_util_1.default)(name).name);
@@ -68,7 +69,6 @@ async function installDepsFromYarnLockCore(packageNames, parsedOldPackage, optio
     result;
     return result;
 }
-exports.installDepsFromYarnLockCore = installDepsFromYarnLockCore;
 /**
  * 檢查並且過濾要安裝的版本是否已經存在於 yarn.lock 內
  */
@@ -85,5 +85,4 @@ async function installDepsFromYarnLock(packageNames, options = {}) {
         }
     }
 }
-exports.installDepsFromYarnLock = installDepsFromYarnLock;
 //# sourceMappingURL=installDepsFromYarnLock.js.map

@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.setup = exports.defaultCopyStaticFilesTsdx = exports.updatePackageJson = void 0;
+exports.defaultCopyStaticFilesTsdx = void 0;
+exports.updatePackageJson = updatePackageJson;
+exports.setup = setup;
 const scripts_1 = require("@yarn-tool/pkg-entry-util/lib/field/scripts");
 const fix_1 = require("./fix");
 const fs_extra_1 = require("fs-extra");
@@ -44,7 +46,6 @@ function updatePackageJson(pkg, config) {
     (0, fix_1.fixTsdxPackage)(pkg, config);
     return pkg;
 }
-exports.updatePackageJson = updatePackageJson;
 const _defaultCopyStaticFilesTsdx = [
     ['tsconfig.json', 'file/tsconfig.tsdx.json.tpl', 'tsconfig.json'],
     ['test/tsconfig.json', 'file/test/tsconfig.json.tpl', 'test/tsconfig.json'],
@@ -65,5 +66,4 @@ function setup(config) {
         file_map,
     };
 }
-exports.setup = setup;
 //# sourceMappingURL=index.js.map

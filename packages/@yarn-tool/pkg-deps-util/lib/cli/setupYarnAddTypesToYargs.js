@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.setupYarnAddTypesToYargs = void 0;
+exports.setupYarnAddTypesToYargs = setupYarnAddTypesToYargs;
 const setupYarnAddToYargs_1 = require("./setupYarnAddToYargs");
 function setupYarnAddTypesToYargs(yargs) {
     return (0, setupYarnAddToYargs_1.setupYarnAddToYargs)(yargs, {
@@ -20,5 +20,4 @@ function setupYarnAddTypesToYargs(yargs) {
     })
         .strict(false);
 }
-exports.setupYarnAddTypesToYargs = setupYarnAddTypesToYargs;
 //# sourceMappingURL=setupYarnAddTypesToYargs.js.map

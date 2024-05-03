@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.setupYarnAddToYargs = void 0;
+exports.setupYarnAddToYargs = setupYarnAddToYargs;
 function setupYarnAddToYargs(yargs, opts = {}) {
     return yargs
         .option('dev', {
@@ -49,5 +49,4 @@ function setupYarnAddToYargs(yargs, opts = {}) {
         boolean: true,
     });
 }
-exports.setupYarnAddToYargs = setupYarnAddToYargs;
 //# sourceMappingURL=setupYarnAddToYargs.js.map

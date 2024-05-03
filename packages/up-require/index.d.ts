@@ -1,4 +1,3 @@
-/// <reference types="node" />
 declare const MODULE_NOT_FOUND: "MODULE_NOT_FOUND";
 export { MODULE_NOT_FOUND };
 export interface IErrnoException extends NodeJS.ErrnoException, Error {

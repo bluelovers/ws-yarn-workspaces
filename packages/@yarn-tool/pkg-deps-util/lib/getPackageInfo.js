@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getPackageInfo = void 0;
+exports.getPackageInfo = getPackageInfo;
 const packageNameToTypes_1 = require("@yarn-tool/npm-package-arg-util/lib/packageNameToTypes");
 const core_1 = require("@yarn-tool/pkg-version-query/lib/core");
 const package_json_1 = require("package-json");
@@ -23,5 +23,4 @@ function getPackageInfo(packageName, excludeVersion) {
     })
         .catch(package_json_1.PackageNotFoundError, err => void 0);
 }
-exports.getPackageInfo = getPackageInfo;
 //# sourceMappingURL=getPackageInfo.js.map

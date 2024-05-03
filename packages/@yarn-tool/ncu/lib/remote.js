@@ -3,7 +3,13 @@
  * Created by user on 2020/6/12.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateSemver = exports.isUpgradeable = exports.packageMapToKeyObject = exports.queryPackageManagersNpm = exports.getVersionTarget = exports.fetchVersion = exports.requestVersion = exports.queryRemoteVersions = void 0;
+exports.getVersionTarget = exports.queryRemoteVersions = void 0;
+exports.requestVersion = requestVersion;
+exports.fetchVersion = fetchVersion;
+exports.queryPackageManagersNpm = queryPackageManagersNpm;
+exports.packageMapToKeyObject = packageMapToKeyObject;
+exports.isUpgradeable = isUpgradeable;
+exports.updateSemver = updateSemver;
 const tslib_1 = require("tslib");
 const types_1 = require("./types");
 const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
@@ -28,7 +34,6 @@ function requestVersion(packageName) {
         return store_1.remoteCacheMap.set(packageName, result);
     });
 }
-exports.requestVersion = requestVersion;
 function fetchVersion(packageName, options = {}, ncuOptions) {
     let { field = 'versions' } = options;
     return requestVersion(packageName)
@@ -55,7 +60,6 @@ function fetchVersion(packageName, options = {}, ncuOptions) {
         return result;
     });
 }
-exports.fetchVersion = fetchVersion;
 function queryPackageManagersNpm(name, version = '0', versionTarget = types_1.EnumVersionValue.latest) {
     let method = types_1.EnumPackageManagersNpmMethod[versionTarget];
     if (version == null) {
@@ -83,7 +87,6 @@ function queryPackageManagersNpm(name, version = '0', versionTarget = types_1.En
         return value;
     });
 }
-exports.queryPackageManagersNpm = queryPackageManagersNpm;
 function packageMapToKeyObject(packageMap, versionTarget) {
     return Object
         .entries(packageMap)
@@ -93,13 +96,10 @@ function packageMapToKeyObject(packageMap, versionTarget) {
         });
     });
 }
-exports.packageMapToKeyObject = packageMapToKeyObject;
 function isUpgradeable(current, latest) {
     return (0, versionmanager_1.isUpgradeable)(current, latest);
 }
-exports.isUpgradeable = isUpgradeable;
 function updateSemver(current, latest, options = {}) {
     return (0, versionmanager_1.upgradeDependencyDeclaration)(current, latest, options);
 }
-exports.updateSemver = updateSemver;
 //# sourceMappingURL=remote.js.map

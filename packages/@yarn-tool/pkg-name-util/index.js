@@ -1,6 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.validScope = exports.assertScope = exports.stripScope = exports.formatPackageName = void 0;
+exports.formatPackageName = formatPackageName;
+exports.stripScope = stripScope;
+exports.assertScope = assertScope;
+exports.validScope = validScope;
 function formatPackageName(data) {
     var _a, _b;
     if (!((_a = data.name) === null || _a === void 0 ? void 0 : _a.length)) {
@@ -13,12 +16,10 @@ function formatPackageName(data) {
     }
     return data.name;
 }
-exports.formatPackageName = formatPackageName;
 function stripScope(packageName) {
     const index = packageName.indexOf('/') + 1;
     return packageName.slice(index);
 }
-exports.stripScope = stripScope;
 function assertScope(scope, includeAtSign) {
     if (typeof includeAtSign === 'boolean' && includeAtSign !== (scope[0] === '@')) {
         throw new TypeError(`Invalid scope '${scope}' when includeAtSign is ${includeAtSign}`);
@@ -28,7 +29,6 @@ function assertScope(scope, includeAtSign) {
         throw new TypeError(`Invalid scope '${scope}'`);
     }
 }
-exports.assertScope = assertScope;
 function validScope(scope, includeAtSign) {
     try {
         assertScope(scope, includeAtSign);
@@ -38,6 +38,5 @@ function validScope(scope, includeAtSign) {
     }
     return false;
 }
-exports.validScope = validScope;
 exports.default = formatPackageName;
 //# sourceMappingURL=index.js.map

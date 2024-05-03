@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.setupToYargs = void 0;
+exports.setupToYargs = setupToYargs;
 function setupToYargs(yargs) {
     const _return = yargs
         .option('overwriteHostedGitInfo', {
@@ -16,5 +16,4 @@ function setupToYargs(yargs) {
     });
     return _return;
 }
-exports.setupToYargs = setupToYargs;
 //# sourceMappingURL=yargs-setting.js.map

@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import { IOptionsFindUpPaths, IRuntimeFindUpPaths } from 'find-up-paths';
 import { IFindRootReturnType } from '@yarn-tool/find-root';
 export interface IOptionsFindUpPathsWorkspaces extends IOptionsFindUpPaths {

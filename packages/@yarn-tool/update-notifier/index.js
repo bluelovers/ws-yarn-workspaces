@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateNotifier = exports.notNpxMaybe = void 0;
+exports.notNpxMaybe = notNpxMaybe;
+exports.updateNotifier = updateNotifier;
 const tslib_1 = require("tslib");
 const path_1 = require("path");
 const ci_detect_1 = tslib_1.__importDefault(require("@npmcli/ci-detect"));
@@ -12,7 +13,6 @@ function notNpxMaybe(__dirname) {
         __dirname,
     });
 }
-exports.notNpxMaybe = notNpxMaybe;
 function updateNotifier(__dirname, force, inputNoticeOptions) {
     if (Array.isArray(__dirname)) {
         __dirname = (0, path_1.join)(...__dirname);
@@ -34,6 +34,5 @@ function updateNotifier(__dirname, force, inputNoticeOptions) {
     }
     return null;
 }
-exports.updateNotifier = updateNotifier;
 exports.default = updateNotifier;
 //# sourceMappingURL=index.js.map

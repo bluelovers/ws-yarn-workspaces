@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.parseResolutionOrDescriptor = void 0;
+exports.parseResolutionOrDescriptor = parseResolutionOrDescriptor;
 const core_1 = require("@yarnpkg/core");
 const parseResolution_1 = require("@yarn-tool/yarnlock-parse-raw/lib/v2/parseResolution");
 const parseRange_1 = require("./lib/parseRange");
@@ -33,5 +33,4 @@ function parseResolutionOrDescriptor(rawInput) {
     }
     return null;
 }
-exports.parseResolutionOrDescriptor = parseResolutionOrDescriptor;
 //# sourceMappingURL=index.js.map

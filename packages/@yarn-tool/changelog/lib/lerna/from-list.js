@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateChangelogByCwd = void 0;
+exports.updateChangelogByCwd = updateChangelogByCwd;
 const tslib_1 = require("tslib");
 const ws_pkg_list_1 = require("ws-pkg-list");
 const find_root_1 = require("@yarn-tool/find-root");
@@ -34,6 +34,5 @@ function updateChangelogByCwd(cwd, options) {
         };
     });
 }
-exports.updateChangelogByCwd = updateChangelogByCwd;
 exports.default = updateChangelogByCwd;
 //# sourceMappingURL=from-list.js.map

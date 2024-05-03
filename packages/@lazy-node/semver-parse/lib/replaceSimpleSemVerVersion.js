@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.replaceSimpleSemVerVersion = void 0;
+exports.replaceSimpleSemVerVersion = replaceSimpleSemVerVersion;
 const parseSimpleSemVer_1 = require("./parseSimpleSemVer");
 const checker_1 = require("./checker");
 function replaceSimpleSemVerVersion(oldSemVer, new_version) {
@@ -14,5 +14,4 @@ function replaceSimpleSemVerVersion(oldSemVer, new_version) {
     obj.operator = operator;
     return obj;
 }
-exports.replaceSimpleSemVerVersion = replaceSimpleSemVerVersion;
 //# sourceMappingURL=replaceSimpleSemVerVersion.js.map

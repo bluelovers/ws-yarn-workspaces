@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.normalizeRangeInput = void 0;
+exports.normalizeRangeInput = normalizeRangeInput;
 const tslib_1 = require("tslib");
 const re_1 = require("semver/internal/re");
 const util_1 = require("./util");
@@ -22,5 +22,4 @@ function normalizeRangeInput(range, options) {
     range = range.replace(const_1.reSpaces, ' ');
     return range;
 }
-exports.normalizeRangeInput = normalizeRangeInput;
 //# sourceMappingURL=normalizeRangeInput.js.map

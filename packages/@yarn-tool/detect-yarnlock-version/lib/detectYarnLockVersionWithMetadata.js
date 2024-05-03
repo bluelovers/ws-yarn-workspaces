@@ -1,13 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports._detectYarnLockVersionWithMetadataCore = exports.detectYarnLockVersionWithMetadata = void 0;
+exports.detectYarnLockVersionWithMetadata = detectYarnLockVersionWithMetadata;
+exports._detectYarnLockVersionWithMetadataCore = _detectYarnLockVersionWithMetadataCore;
 const util_1 = require("./util");
 const yarnlock_types_1 = require("@yarn-tool/yarnlock-types");
 function detectYarnLockVersionWithMetadata(yarnLockObject) {
     const metaVersion = (0, util_1.getMetadataVersion)(yarnLockObject);
     return _detectYarnLockVersionWithMetadataCore(metaVersion);
 }
-exports.detectYarnLockVersionWithMetadata = detectYarnLockVersionWithMetadata;
 function _detectYarnLockVersionWithMetadataCore(metaVersion) {
     switch (metaVersion) {
         case '4':
@@ -24,5 +24,4 @@ function _detectYarnLockVersionWithMetadataCore(metaVersion) {
             }
     }
 }
-exports._detectYarnLockVersionWithMetadataCore = _detectYarnLockVersionWithMetadataCore;
 //# sourceMappingURL=detectYarnLockVersionWithMetadata.js.map

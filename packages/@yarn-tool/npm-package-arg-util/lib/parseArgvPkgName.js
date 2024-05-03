@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.parsePackageName = exports.parseArgvPkgName = void 0;
+exports.parseArgvPkgName = parseArgvPkgName;
+exports.parsePackageName = parsePackageName;
 const index_1 = require("../index");
 const pkg_name_util_1 = require("@yarn-tool/pkg-name-util");
 /**
@@ -18,7 +19,6 @@ function parseArgvPkgName(input) {
         };
     }
 }
-exports.parseArgvPkgName = parseArgvPkgName;
 function parsePackageName(packageName) {
     const result = (0, index_1.npa)(packageName);
     const subname = (0, pkg_name_util_1.stripScope)(result.name);
@@ -35,5 +35,4 @@ function parsePackageName(packageName) {
         result,
     };
 }
-exports.parsePackageName = parsePackageName;
 //# sourceMappingURL=parseArgvPkgName.js.map

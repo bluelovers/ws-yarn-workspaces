@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.parseYarnLockRowV1 = void 0;
+exports.parseYarnLockRowV1 = parseYarnLockRowV1;
 const const_1 = require("../const");
 const npm_package_arg_util_1 = require("@yarn-tool/npm-package-arg-util");
 const getSemverFromNpaResult_1 = require("@yarn-tool/npm-package-arg-util/lib/getSemverFromNpaResult");
@@ -19,5 +19,4 @@ function parseYarnLockRowV1(packageName, packageData) {
         };
     }
 }
-exports.parseYarnLockRowV1 = parseYarnLockRowV1;
 //# sourceMappingURL=parseYarnLockRowV1.js.map

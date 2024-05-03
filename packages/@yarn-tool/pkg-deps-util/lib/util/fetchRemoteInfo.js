@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.fetchRemoteInfo = void 0;
+exports.fetchRemoteInfo = fetchRemoteInfo;
 const tslib_1 = require("tslib");
 const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
 const parseArgvPkgName_1 = require("@yarn-tool/npm-package-arg-util/lib/parseArgvPkgName");
@@ -18,5 +18,4 @@ function fetchRemoteInfo(packageNames, options = {}) {
         return data;
     }, {});
 }
-exports.fetchRemoteInfo = fetchRemoteInfo;
 //# sourceMappingURL=fetchRemoteInfo.js.map

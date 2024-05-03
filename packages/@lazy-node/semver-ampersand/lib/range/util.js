@@ -1,6 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.replaceStars = exports.replaceXRange = exports.replaceXRanges = exports.replaceCaret = exports.replaceCarets = exports.replaceTilde = exports.replaceTildes = exports.parseComparator = exports.replaceGTE0 = exports.isX = exports.hyphenReplace = void 0;
+exports.hyphenReplace = hyphenReplace;
+exports.isX = isX;
+exports.replaceGTE0 = replaceGTE0;
+exports.parseComparator = parseComparator;
+exports.replaceTildes = replaceTildes;
+exports.replaceTilde = replaceTilde;
+exports.replaceCarets = replaceCarets;
+exports.replaceCaret = replaceCaret;
+exports.replaceXRanges = replaceXRanges;
+exports.replaceXRange = replaceXRange;
+exports.replaceStars = replaceStars;
 const re_1 = require("semver/internal/re");
 /**
  * This function is passed to string.replace(re[t.HYPHENRANGE])
@@ -47,16 +57,13 @@ function hyphenReplace(incPr) {
         return (`${from} ${to}`).trim();
     };
 }
-exports.hyphenReplace = hyphenReplace;
 function isX(id) {
     return !id || id.toLowerCase() === 'x' || id === '*';
 }
-exports.isX = isX;
 function replaceGTE0(comp, options) {
     return comp.trim()
         .replace(re_1.re[(options === null || options === void 0 ? void 0 : options.includePrerelease) ? re_1.t.GTE0PRE : re_1.t.GTE0], '');
 }
-exports.replaceGTE0 = replaceGTE0;
 /**
  * comprised of xranges, tildes, stars, and gtlt's at this point.
  * already replaced the hyphen ranges
@@ -69,7 +76,6 @@ function parseComparator(comp, options) {
     comp = replaceStars(comp, options);
     return comp;
 }
-exports.parseComparator = parseComparator;
 /**
  * ~, ~> --> * (any, kinda silly)
  * ~2, ~2.x, ~2.x.x, ~>2, ~>2.x ~>2.x.x --> >=2.0.0 <3.0.0-0
@@ -81,7 +87,6 @@ function replaceTildes(comp, options) {
         return replaceTilde(comp, options);
     }).join(' ');
 }
-exports.replaceTildes = replaceTildes;
 function replaceTilde(comp, options) {
     const r = options.loose ? re_1.re[re_1.t.TILDELOOSE] : re_1.re[re_1.t.TILDE];
     return comp.replace(r, (_, M, m, p, pr) => {
@@ -106,7 +111,6 @@ function replaceTilde(comp, options) {
         return ret;
     });
 }
-exports.replaceTilde = replaceTilde;
 /**
  * ^ --> * (any, kinda silly)
  * ^2, ^2.x, ^2.x.x --> >=2.0.0 <3.0.0-0
@@ -120,7 +124,6 @@ function replaceCarets(comp, options) {
         return replaceCaret(comp, options);
     }).join(' ');
 }
-exports.replaceCarets = replaceCarets;
 function replaceCaret(comp, options) {
     const r = options.loose ? re_1.re[re_1.t.CARETLOOSE] : re_1.re[re_1.t.CARET];
     const z = options.includePrerelease ? '-0' : '';
@@ -169,13 +172,11 @@ function replaceCaret(comp, options) {
         return ret;
     });
 }
-exports.replaceCaret = replaceCaret;
 function replaceXRanges(comp, options) {
     return comp.split(/\s+/).map((comp) => {
         return replaceXRange(comp, options);
     }).join(' ');
 }
-exports.replaceXRanges = replaceXRanges;
 function replaceXRange(comp, options) {
     comp = comp.trim();
     const r = options.loose ? re_1.re[re_1.t.XRANGELOOSE] : re_1.re[re_1.t.XRANGE];
@@ -246,7 +247,6 @@ function replaceXRange(comp, options) {
         return ret;
     });
 }
-exports.replaceXRange = replaceXRange;
 /**
  * and '' means "any version", just remove the *s entirely.
  */
@@ -254,5 +254,4 @@ function replaceStars(comp, options) {
     // Looseness is ignored here.  star is always as loose as it gets!
     return comp.trim().replace(re_1.re[re_1.t.STAR], '');
 }
-exports.replaceStars = replaceStars;
 //# sourceMappingURL=util.js.map

@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.linkToNodeModules = exports.linkToNodeModulesCore = void 0;
+exports.linkToNodeModulesCore = linkToNodeModulesCore;
+exports.linkToNodeModules = linkToNodeModules;
 const upath2_1 = require("upath2");
 const find_root_1 = require("@yarn-tool/find-root");
 const core_1 = require("find-yarn-workspace-root2/core");
@@ -17,7 +18,6 @@ function linkToNodeModulesCore(options) {
         resultPath,
     };
 }
-exports.linkToNodeModulesCore = linkToNodeModulesCore;
 function linkToNodeModules(options) {
     var _a, _b, _c, _d;
     options !== null && options !== void 0 ? options : (options = {});
@@ -30,6 +30,5 @@ function linkToNodeModules(options) {
     (_d = options.name) !== null && _d !== void 0 ? _d : (options.name = (0, core_1.readPackageJSON)(options.sourcePackagePath).name);
     return linkToNodeModulesCore(options);
 }
-exports.linkToNodeModules = linkToNodeModules;
 exports.default = linkToNodeModules;
 //# sourceMappingURL=index.js.map

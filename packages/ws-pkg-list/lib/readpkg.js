@@ -3,7 +3,7 @@
  * Created by user on 2020/6/5.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.readPackages = void 0;
+exports.readPackages = readPackages;
 const upath2_1 = require("upath2");
 const fs_extra_1 = require("fs-extra");
 function readPackages(ls, cwd) {
@@ -22,6 +22,5 @@ function readPackages(ls, cwd) {
         return a;
     }, {});
 }
-exports.readPackages = readPackages;
 exports.default = readPackages;
 //# sourceMappingURL=readpkg.js.map

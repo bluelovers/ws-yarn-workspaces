@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.fixPublishConfig = void 0;
+exports.fixPublishConfig = fixPublishConfig;
 function fixPublishConfig(pkg) {
     if (!pkg.publishConfig
         && !pkg.private
@@ -12,5 +12,4 @@ function fixPublishConfig(pkg) {
     }
     return pkg;
 }
-exports.fixPublishConfig = fixPublishConfig;
 //# sourceMappingURL=publishConfig.js.map

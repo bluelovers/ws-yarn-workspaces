@@ -3,7 +3,7 @@
  * Created by user on 2020/6/11.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.colorizeDiff = void 0;
+exports.colorizeDiff = colorizeDiff;
 const debug_color2_1 = require("debug-color2");
 const core_1 = require("./core");
 function colorizeDiff(from, to, options) {
@@ -19,5 +19,4 @@ function colorizeDiff(from, to, options) {
         });
     }, (_a = options === null || options === void 0 ? void 0 : options.console) !== null && _a !== void 0 ? _a : debug_color2_1.console);
 }
-exports.colorizeDiff = colorizeDiff;
 //# sourceMappingURL=colorize.js.map

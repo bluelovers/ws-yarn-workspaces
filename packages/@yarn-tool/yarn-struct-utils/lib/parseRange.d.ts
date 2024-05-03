@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import { ParsedUrlQuery } from 'querystring';
 export type IParseRangeOptions = {
     /** Throw an error if bindings are missing */

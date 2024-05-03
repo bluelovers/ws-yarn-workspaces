@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.processRunPathCore = exports.getExePath = exports.findBinPath = void 0;
+exports.findBinPath = findBinPath;
+exports.getExePath = getExePath;
+exports.processRunPathCore = processRunPathCore;
 const path_1 = require("path");
 const find_root_1 = require("@yarn-tool/find-root");
 const core_1 = require("./core");
@@ -31,12 +33,10 @@ function findBinPath(options = {}) {
         history,
     };
 }
-exports.findBinPath = findBinPath;
 function getExePath(options) {
     let { cwd = process.cwd(), execPath = process.execPath, } = options;
     return (0, path_1.resolve)(cwd, execPath, '..');
 }
-exports.getExePath = getExePath;
 function processRunPathCore(options = {}) {
     let processEnv = (options.processEnv || (0, env_path_1.processEnv)());
     const pathKey = (0, env_path_1.envPathKey)(processEnv);
@@ -55,5 +55,4 @@ function processRunPathCore(options = {}) {
         processEnv,
     };
 }
-exports.processRunPathCore = processRunPathCore;
 //# sourceMappingURL=lib.js.map

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports._handleRuntime = void 0;
+exports._handleRuntime = _handleRuntime;
 const find_root_1 = require("@yarn-tool/find-root");
 const upath2_1 = require("upath2");
 const package_dts_1 = require("@ts-type/package-dts");
@@ -33,5 +33,4 @@ function _handleRuntime(argv, runtimeInput) {
         doWorkspace,
     };
 }
-exports._handleRuntime = _handleRuntime;
 //# sourceMappingURL=runtime.js.map

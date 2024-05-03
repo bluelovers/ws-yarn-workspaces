@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.fixYarnWorkspaceLinks = void 0;
+exports.fixYarnWorkspaceLinks = fixYarnWorkspaceLinks;
 const tslib_1 = require("tslib");
 const listable_1 = require("ws-pkg-list/lib/listable");
 const ws_find_paths_1 = require("@yarn-tool/node-modules/lib/ws-find-paths");
@@ -89,6 +89,5 @@ function fixYarnWorkspaceLinks(cwd, options) {
         verbose && logger_1.default.debug(`no exists sub package has modules with sub install`);
     }
 }
-exports.fixYarnWorkspaceLinks = fixYarnWorkspaceLinks;
 exports.default = fixYarnWorkspaceLinks;
 //# sourceMappingURL=index.js.map

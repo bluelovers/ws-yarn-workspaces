@@ -1,6 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports._tryParseObject = exports._tryParse = exports.detectYarnLockVersion = exports._detectYarnLockVersionCore = exports._detectYarnLockVersionSimple = void 0;
+exports._detectYarnLockVersionSimple = _detectYarnLockVersionSimple;
+exports._detectYarnLockVersionCore = _detectYarnLockVersionCore;
+exports.detectYarnLockVersion = detectYarnLockVersion;
+exports._tryParse = _tryParse;
+exports._tryParseObject = _tryParseObject;
 const detectYarnLockVersionByObject_1 = require("./detectYarnLockVersionByObject");
 const yarnlock_types_1 = require("@yarn-tool/yarnlock-types");
 const yarnlock_parse_raw_1 = require("@yarn-tool/yarnlock-parse-raw");
@@ -17,7 +21,6 @@ function _detectYarnLockVersionSimple(buf) {
     }
     return yarnlock_types_1.EnumDetectYarnLock.unknown;
 }
-exports._detectYarnLockVersionSimple = _detectYarnLockVersionSimple;
 function _detectYarnLockVersionCore(input) {
     let verType = _detectYarnLockVersionSimple(input);
     if (verType) {
@@ -40,11 +43,9 @@ function _detectYarnLockVersionCore(input) {
         input,
     };
 }
-exports._detectYarnLockVersionCore = _detectYarnLockVersionCore;
 function detectYarnLockVersion(buf) {
     return _detectYarnLockVersionCore(buf).verType;
 }
-exports.detectYarnLockVersion = detectYarnLockVersion;
 /**
  * only check v2 and v3
  */
@@ -56,11 +57,9 @@ function _tryParse(buf) {
     catch (e) {
     }
 }
-exports._tryParse = _tryParse;
 function _tryParseObject(yarnLockObject) {
     const result = (0, detectYarnLockVersionByObject_1.detectYarnLockVersionByObject)(yarnLockObject);
     return (result === yarnlock_types_1.EnumDetectYarnLock.v2 || result === yarnlock_types_1.EnumDetectYarnLock.v3) ? result : void 0;
 }
-exports._tryParseObject = _tryParseObject;
 exports.default = detectYarnLockVersion;
 //# sourceMappingURL=detectYarnLockVersion.js.map

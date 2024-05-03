@@ -3,7 +3,7 @@
  * Created by user on 2020/6/5.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.tsConfigPaths = void 0;
+exports.tsConfigPaths = tsConfigPaths;
 const tslib_1 = require("tslib");
 const readpkg_1 = require("./readpkg");
 const array_hyper_unique_1 = require("array-hyper-unique");
@@ -28,6 +28,5 @@ function tsConfigPaths(ls) {
         return a;
     }, {});
 }
-exports.tsConfigPaths = tsConfigPaths;
 exports.default = tsConfigPaths;
 //# sourceMappingURL=tsconfig.js.map

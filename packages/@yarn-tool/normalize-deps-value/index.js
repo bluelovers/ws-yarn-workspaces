@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.normalizeDepsValue = exports._getNpaResult = exports.normalizeResultToDepsValue = void 0;
+exports.normalizeResultToDepsValue = normalizeResultToDepsValue;
+exports._getNpaResult = _getNpaResult;
+exports.normalizeDepsValue = normalizeDepsValue;
 const npm_package_arg_util_1 = require("@yarn-tool/npm-package-arg-util");
 const buildRangeSet_1 = require("@lazy-node/semver-ampersand/lib/range/buildRangeSet");
 const stringifyRangeSet_1 = require("@lazy-node/semver-ampersand/lib/range/stringifyRangeSet");
@@ -29,7 +31,6 @@ function normalizeResultToDepsValue(result) {
     }
     return value !== null && value !== void 0 ? value : "*" /* EnumSemverVersion.STAR */;
 }
-exports.normalizeResultToDepsValue = normalizeResultToDepsValue;
 function _getNpaResult(value) {
     let result;
     try {
@@ -51,11 +52,9 @@ function _getNpaResult(value) {
     }
     return result;
 }
-exports._getNpaResult = _getNpaResult;
 function normalizeDepsValue(value) {
     const result = _getNpaResult(value);
     return normalizeResultToDepsValue(result);
 }
-exports.normalizeDepsValue = normalizeDepsValue;
 exports.default = normalizeDepsValue;
 //# sourceMappingURL=index.js.map

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.sortPackageJson = void 0;
+exports.sortPackageJson = sortPackageJson;
 const tslib_1 = require("tslib");
 // @ts-ignore
 const sort_package_json_1 = require("sort-package-json");
@@ -26,6 +26,5 @@ function sortPackageJson(pkg) {
     }
     return pkg;
 }
-exports.sortPackageJson = sortPackageJson;
 exports.default = sortPackageJson;
 //# sourceMappingURL=index.js.map

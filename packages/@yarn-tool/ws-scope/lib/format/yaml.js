@@ -4,7 +4,7 @@ exports.ScopeYaml = exports.SymRaw = void 0;
 const tslib_1 = require("tslib");
 const fs_extra_1 = require("fs-extra");
 const json_object_1 = require("./json-object");
-const cjs_1 = tslib_1.__importDefault(require("yawn-yaml/cjs"));
+const yawn_yaml_1 = tslib_1.__importDefault(require("yawn-yaml"));
 const SymRaw = Symbol.for('raw');
 exports.SymRaw = SymRaw;
 class ScopeYaml extends json_object_1.ScopeJsonObject {
@@ -39,7 +39,7 @@ class ScopeYaml extends json_object_1.ScopeJsonObject {
     loadFile(reload) {
         if (reload || !this.opened) {
             let input = (0, fs_extra_1.readFileSync)(this.file).toString();
-            let raw = new cjs_1.default(input);
+            let raw = new yawn_yaml_1.default(input);
             this[SymRaw] = raw;
         }
         return this.json;

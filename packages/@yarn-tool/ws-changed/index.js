@@ -3,7 +3,8 @@
  * Created by user on 2020/6/8.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.wsChanged = exports.wsGitChanged = exports.lernaChanged = void 0;
+exports.wsGitChanged = exports.lernaChanged = void 0;
+exports.wsChanged = wsChanged;
 const git_changed_1 = require("./lib/git-changed");
 Object.defineProperty(exports, "wsGitChanged", { enumerable: true, get: function () { return git_changed_1.wsGitChanged; } });
 const lerna_changed_1 = require("./lib/lerna-changed");
@@ -18,6 +19,5 @@ function wsChanged(cwd, options) {
         staged: data2.list,
     };
 }
-exports.wsChanged = wsChanged;
 exports.default = wsChanged;
 //# sourceMappingURL=index.js.map

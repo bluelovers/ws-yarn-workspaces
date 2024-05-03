@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.findYarnCachePath = void 0;
+exports.findYarnCachePath = findYarnCachePath;
 const upath2_1 = require("upath2");
 const fs_extra_1 = require("fs-extra");
 const cross_spawn_extra_1 = require("cross-spawn-extra");
@@ -26,5 +26,4 @@ function findYarnCachePath(cwd, processEnv = process.env) {
         return (0, upath2_1.normalize)(processEnv.YARN_CACHE_FOLDER);
     }
 }
-exports.findYarnCachePath = findYarnCachePath;
 //# sourceMappingURL=findYarnCachePath.js.map

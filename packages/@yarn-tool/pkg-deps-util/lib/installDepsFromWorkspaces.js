@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.installDepsFromWorkspaces = void 0;
+exports.installDepsFromWorkspaces = installDepsFromWorkspaces;
 const listable_1 = require("ws-pkg-list/lib/listable");
 const find_root_1 = require("@yarn-tool/find-root");
 const package_dts_1 = require("@ts-type/package-dts");
@@ -65,5 +65,4 @@ function installDepsFromWorkspaces(packageNames, options = {}) {
     result;
     return result;
 }
-exports.installDepsFromWorkspaces = installDepsFromWorkspaces;
 //# sourceMappingURL=installDepsFromWorkspaces.js.map

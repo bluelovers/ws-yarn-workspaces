@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.defaultWorkspaceRootScripts = exports._runAllOrSince = void 0;
+exports._runAllOrSince = _runAllOrSince;
+exports.defaultWorkspaceRootScripts = defaultWorkspaceRootScripts;
 const shared_root_scripts_1 = require("./shared-root-scripts");
 function _runAllOrSince(script) {
     const all = `${script}:all`;
@@ -10,7 +11,6 @@ function _runAllOrSince(script) {
         [since]: `yarn run ${script}:all -- --since`,
     };
 }
-exports._runAllOrSince = _runAllOrSince;
 function defaultWorkspaceRootScripts() {
     const bumpVersion = (bump) => {
         return [
@@ -59,5 +59,4 @@ function defaultWorkspaceRootScripts() {
         "tsc:showConfig": "ynpx get-current-tsconfig -p",
     };
 }
-exports.defaultWorkspaceRootScripts = defaultWorkspaceRootScripts;
 //# sourceMappingURL=ws-root-scripts.js.map

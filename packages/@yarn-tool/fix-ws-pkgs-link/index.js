@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.fixWorkspacesPackageLinks = void 0;
+exports.fixWorkspacesPackageLinks = fixWorkspacesPackageLinks;
 const listable_1 = require("ws-pkg-list/lib/listable");
 const find_root_1 = require("@yarn-tool/find-root");
 const util_1 = require("@yarn-tool/node-modules/lib/util");
@@ -28,6 +28,5 @@ function fixWorkspacesPackageLinks(cwd) {
         }
     });
 }
-exports.fixWorkspacesPackageLinks = fixWorkspacesPackageLinks;
 exports.default = fixWorkspacesPackageLinks;
 //# sourceMappingURL=index.js.map

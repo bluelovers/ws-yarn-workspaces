@@ -1,4 +1,3 @@
-/// <reference types="bluebird" />
 import { IResult } from '@yarn-tool/npm-package-arg-util';
 import { IOptionsQueryVersion } from './types';
 import { Options } from 'package-json';

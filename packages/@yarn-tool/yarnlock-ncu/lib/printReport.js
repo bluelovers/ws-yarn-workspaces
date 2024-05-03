@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.printReport = void 0;
+exports.printReport = printReport;
 const core_1 = require("@yarn-tool/table/lib/core");
 const semver_diff_1 = require("@yarn-tool/semver-diff");
 const debug_color2_1 = require("debug-color2");
@@ -35,5 +35,4 @@ function printReport(report, options) {
     table.push(...Object.values(formatedDiff));
     return _ok ? table.toString() : '';
 }
-exports.printReport = printReport;
 //# sourceMappingURL=printReport.js.map

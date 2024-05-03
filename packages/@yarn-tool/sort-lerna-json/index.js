@@ -1,6 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.sortLernaJsonFile = exports.sortLernaJson = exports.sortLernaJsonCommand = exports.sortLernaJsonCommandEntry = void 0;
+exports.sortLernaJsonCommandEntry = sortLernaJsonCommandEntry;
+exports.sortLernaJsonCommand = sortLernaJsonCommand;
+exports.sortLernaJson = sortLernaJson;
+exports.sortLernaJsonFile = sortLernaJsonFile;
 const sort_object_keys2_1 = require("sort-object-keys2");
 const fs_json_1 = require("@bluelovers/fs-json");
 const write_package_json_1 = require("@yarn-tool/write-package-json");
@@ -21,7 +24,6 @@ function sortLernaJsonCommandEntry(value) {
         useSource: true,
     });
 }
-exports.sortLernaJsonCommandEntry = sortLernaJsonCommandEntry;
 function sortLernaJsonCommand(value) {
     Object.values(value).forEach(sortLernaJsonCommandEntry);
     return (0, sort_object_keys2_1.sortObjectKeys)(value, {
@@ -34,7 +36,6 @@ function sortLernaJsonCommand(value) {
         useSource: true,
     });
 }
-exports.sortLernaJsonCommand = sortLernaJsonCommand;
 function sortLernaJson(json) {
     sortLernaJsonCommand(json.command);
     return (0, sort_object_keys2_1.sortObjectKeys)(json, {
@@ -49,10 +50,8 @@ function sortLernaJson(json) {
         useSource: true,
     });
 }
-exports.sortLernaJson = sortLernaJson;
 function sortLernaJsonFile(file) {
     return (0, write_package_json_1.writePackageJSONSync)(file, sortLernaJson((0, fs_json_1.readJSONSync)(file)));
 }
-exports.sortLernaJsonFile = sortLernaJsonFile;
 exports.default = sortLernaJson;
 //# sourceMappingURL=index.js.map

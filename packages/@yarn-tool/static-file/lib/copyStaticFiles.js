@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.copyStaticFiles = void 0;
+exports.copyStaticFiles = copyStaticFiles;
 const fs_extra_1 = require("fs-extra");
 const const_1 = require("./const");
 const parseStaticMap_1 = require("./parseStaticMap");
@@ -24,5 +24,4 @@ function copyStaticFiles(options) {
         return (0, copyStaticFilesEntry_1.copyStaticFilesEntry)(entry, cwd, staticRoot, overwrite);
     });
 }
-exports.copyStaticFiles = copyStaticFiles;
 //# sourceMappingURL=copyStaticFiles.js.map

@@ -3,7 +3,7 @@
  * Created by user on 2020/6/12.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.npmCheckUpdatesOptions = void 0;
+exports.npmCheckUpdatesOptions = npmCheckUpdatesOptions;
 function npmCheckUpdatesOptions(ncuOptions) {
     ncuOptions = {
         ...ncuOptions,
@@ -19,5 +19,4 @@ function npmCheckUpdatesOptions(ncuOptions) {
     ncuOptions.jsonUpgraded = true;
     return ncuOptions;
 }
-exports.npmCheckUpdatesOptions = npmCheckUpdatesOptions;
 //# sourceMappingURL=options.js.map

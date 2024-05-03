@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.flagsYarnAdd = void 0;
+exports.flagsYarnAdd = flagsYarnAdd;
 const lazyFlags_1 = require("../util/lazyFlags");
 function flagsYarnAdd(argv) {
     return (0, lazyFlags_1.lazyFlags)([
@@ -13,5 +13,4 @@ function flagsYarnAdd(argv) {
         'audit',
     ], argv);
 }
-exports.flagsYarnAdd = flagsYarnAdd;
 //# sourceMappingURL=flagsYarnAdd.js.map

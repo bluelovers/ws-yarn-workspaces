@@ -3,7 +3,9 @@
  * Created by user on 2020/6/13.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.checkPkgJson = exports.checkFile = exports.hasShebang = void 0;
+exports.hasShebang = hasShebang;
+exports.checkFile = checkFile;
+exports.checkPkgJson = checkPkgJson;
 const fs_extra_1 = require("fs-extra");
 const shebang_1 = require("@yarn-tool/shebang");
 const get_pkg_bin_1 = require("@yarn-tool/get-pkg-bin");
@@ -12,13 +14,11 @@ function hasShebang(buf) {
     var _a, _b;
     return ((_b = (_a = (0, shebang_1.matchShebang)(buf.toString())) === null || _a === void 0 ? void 0 : _a.script) === null || _b === void 0 ? void 0 : _b.length) > 0;
 }
-exports.hasShebang = hasShebang;
 function checkFile(file) {
     if ((0, fs_extra_1.existsSync)(file)) {
         return hasShebang((0, fs_extra_1.readFileSync)(file));
     }
 }
-exports.checkFile = checkFile;
 function checkPkgJson(pkg, cwd) {
     var _a;
     return Object.entries((_a = (0, get_pkg_bin_1.getPackageBins)(pkg)) !== null && _a !== void 0 ? _a : [])
@@ -34,5 +34,4 @@ function checkPkgJson(pkg, cwd) {
         return a;
     }, []);
 }
-exports.checkPkgJson = checkPkgJson;
 //# sourceMappingURL=core.js.map

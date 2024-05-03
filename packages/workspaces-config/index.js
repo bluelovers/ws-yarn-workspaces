@@ -3,7 +3,10 @@
  * Created by user on 2018/5/14/014.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.findPkg = exports.parseStaticPackagesPaths = exports.parseWorkspaces = exports.getConfig = void 0;
+exports.findPkg = void 0;
+exports.getConfig = getConfig;
+exports.parseWorkspaces = parseWorkspaces;
+exports.parseStaticPackagesPaths = parseStaticPackagesPaths;
 const tslib_1 = require("tslib");
 const find_pkg_ws_1 = tslib_1.__importDefault(require("find-pkg-ws"));
 exports.findPkg = find_pkg_ws_1.default;
@@ -17,14 +20,12 @@ function getConfig(cwd) {
     let pkg = (0, fs_extra_1.readJSONSync)(file);
     return parseWorkspaces(pkg.workspaces);
 }
-exports.getConfig = getConfig;
 function parseWorkspaces(workspaces) {
     let ws = Array.isArray(workspaces) ? {
         packages: workspaces,
     } : workspaces;
     return ws;
 }
-exports.parseWorkspaces = parseWorkspaces;
 function parseStaticPackagesPaths(workspaces) {
     workspaces = parseWorkspaces(workspaces);
     return (workspaces.packages || [])
@@ -60,6 +61,5 @@ function parseStaticPackagesPaths(workspaces) {
         all: [],
     });
 }
-exports.parseStaticPackagesPaths = parseStaticPackagesPaths;
 exports.default = getConfig;
 //# sourceMappingURL=index.js.map

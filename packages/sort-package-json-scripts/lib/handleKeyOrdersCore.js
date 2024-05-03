@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.handleKeyOrdersCore = void 0;
+exports.handleKeyOrdersCore = handleKeyOrdersCore;
 function handleKeyOrdersCore(names, { otherScriptNames, defaultNpmScriptsOrder, omitKeyFn, sortKeyFn, }) {
     const prefixable = new Set();
     const keymap = {};
@@ -100,6 +100,5 @@ function handleKeyOrdersCore(names, { otherScriptNames, defaultNpmScriptsOrder, 
     }, []);
     return order;
 }
-exports.handleKeyOrdersCore = handleKeyOrdersCore;
 exports.default = handleKeyOrdersCore;
 //# sourceMappingURL=handleKeyOrdersCore.js.map

@@ -3,7 +3,8 @@
  * Created by user on 2020/6/11.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.colorizeDiffCore = exports.parseVersionsDiffCore = void 0;
+exports.parseVersionsDiffCore = parseVersionsDiffCore;
+exports.colorizeDiffCore = colorizeDiffCore;
 const _core_1 = require("@lazy-node/semver-part/lib/_core");
 const parse_1 = require("@lazy-node/semver-part/lib/parse");
 function parseVersionsDiffCore(from, to, options) {
@@ -30,7 +31,6 @@ function parseVersionsDiffCore(from, to, options) {
         resultAppend,
     };
 }
-exports.parseVersionsDiffCore = parseVersionsDiffCore;
 function colorizeDiffCore(from, to, options) {
     let { leadingWildcard, result, middot, resultAppend, color, comp, } = parseVersionsDiffCore(from, to, options);
     if (options.stripAnsi !== true) {
@@ -43,5 +43,4 @@ function colorizeDiffCore(from, to, options) {
         middot +
         resultAppend;
 }
-exports.colorizeDiffCore = colorizeDiffCore;
 //# sourceMappingURL=core.js.map

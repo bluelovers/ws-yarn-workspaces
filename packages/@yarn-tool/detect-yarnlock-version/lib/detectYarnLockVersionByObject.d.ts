@@ -7,7 +7,7 @@ export declare function _checkV2Row(row: unknown): boolean;
 export declare function checkV2(obj: any): EnumDetectYarnLock.unknown | IYarnLockVersionSyml;
 export declare function checkV1(obj: any): EnumDetectYarnLock;
 export declare function _checkExistsMetaCore(obj: unknown): {
-    verType: EnumDetectYarnLock.unknown | IYarnLockVersionSyml;
+    verType: IYarnLockVersionSyml | EnumDetectYarnLock.unknown;
     metaVersion: `${number}`;
     existsMeta: boolean;
     emptyEntries: boolean;

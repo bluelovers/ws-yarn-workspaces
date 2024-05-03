@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.validRange = void 0;
+exports.validRange = validRange;
 const tslib_1 = require("tslib");
 const parseOptionsOrLoose_1 = require("./internal/parseOptionsOrLoose");
 const Range_1 = tslib_1.__importDefault(require("./Range"));
@@ -22,6 +22,5 @@ function validRange(range, optionsOrLoose) {
     }
     return null;
 }
-exports.validRange = validRange;
 exports.default = validRange;
 //# sourceMappingURL=validRange.js.map

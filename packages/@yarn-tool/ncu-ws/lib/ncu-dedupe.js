@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports._handleDedupe = void 0;
+exports._handleDedupe = _handleDedupe;
 const ncu_1 = require("@yarn-tool/ncu");
 const yarnlock_stringify_1 = require("@yarn-tool/yarnlock-stringify");
 const read_1 = require("@yarn-tool/yarnlock-fs/lib/read");
@@ -43,5 +43,4 @@ async function _handleDedupe(argv, runtime, pkgNcu) {
         consoleDebug.log(`you can do `, console.bold.cyan.chalk(`yt install`), ` , for upgrade dependencies now`);
     }
 }
-exports._handleDedupe = _handleDedupe;
 //# sourceMappingURL=ncu-dedupe.js.map

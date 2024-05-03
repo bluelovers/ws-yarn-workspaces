@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.applyStyleBorderless = void 0;
+exports.applyStyleBorderless = applyStyleBorderless;
 function applyStyleBorderless(table) {
     Object.assign(table.options, {
         chars: {
@@ -23,5 +23,4 @@ function applyStyleBorderless(table) {
     });
     return table;
 }
-exports.applyStyleBorderless = applyStyleBorderless;
 //# sourceMappingURL=style.js.map

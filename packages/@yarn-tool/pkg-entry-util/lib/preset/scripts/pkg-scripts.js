@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.defaultPkgNotOldExists = exports.defaultPkgScripts = void 0;
+exports.defaultPkgScripts = defaultPkgScripts;
+exports.defaultPkgNotOldExists = defaultPkgNotOldExists;
 function defaultPkgScripts() {
     return {
         "test": "yarn run test:jest",
@@ -13,7 +14,6 @@ function defaultPkgScripts() {
         "tsc:showConfig": "ynpx get-current-tsconfig -p",
     };
 }
-exports.defaultPkgScripts = defaultPkgScripts;
 function defaultPkgNotOldExists() {
     return {
         ...defaultPkgScripts(),
@@ -35,5 +35,4 @@ function defaultPkgNotOldExists() {
         "tsc:esm": "tsc -p tsconfig.esm.json",
     };
 }
-exports.defaultPkgNotOldExists = defaultPkgNotOldExists;
 //# sourceMappingURL=pkg-scripts.js.map

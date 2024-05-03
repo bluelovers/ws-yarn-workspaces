@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.checkAndReadYarnLockFileSafe = void 0;
+exports.checkAndReadYarnLockFileSafe = checkAndReadYarnLockFileSafe;
 const fs_extra_1 = require("fs-extra");
 const fs_extra_2 = require("fs-extra");
 const notEmpty_1 = require("./notEmpty");
@@ -12,5 +12,4 @@ function checkAndReadYarnLockFileSafe(file, options) {
         }
     }
 }
-exports.checkAndReadYarnLockFileSafe = checkAndReadYarnLockFileSafe;
 //# sourceMappingURL=readYarnLockFile.js.map

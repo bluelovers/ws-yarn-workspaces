@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports._diffArray = void 0;
+exports._diffArray = _diffArray;
 const formatVersion_1 = require("./formatVersion");
 function _diffArray(array, chalk) {
     const item = array.item;
@@ -18,5 +18,4 @@ function _diffArray(array, chalk) {
             return [`[...]`, `[...]`];
     }
 }
-exports._diffArray = _diffArray;
 //# sourceMappingURL=diffArray002.js.map

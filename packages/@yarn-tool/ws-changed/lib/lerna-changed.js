@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.lernaChanged = void 0;
+exports.lernaChanged = lernaChanged;
 const tslib_1 = require("tslib");
 const cross_spawn_extra_1 = tslib_1.__importDefault(require("cross-spawn-extra"));
 const find_root_1 = require("@yarn-tool/find-root");
@@ -27,6 +27,5 @@ function lernaChanged(cwd, options) {
         list,
     };
 }
-exports.lernaChanged = lernaChanged;
 exports.default = lernaChanged;
 //# sourceMappingURL=lerna-changed.js.map

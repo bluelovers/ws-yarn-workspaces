@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.wrapDedupeAsync = void 0;
+exports.wrapDedupeAsync = wrapDedupeAsync;
 const read_1 = require("@yarn-tool/yarnlock-fs/lib/read");
 const object_1 = require("@yarn-tool/yarnlock-dedupe/object");
 const fs_extra_1 = require("fs-extra");
@@ -105,5 +105,4 @@ async function wrapDedupeAsync(yarg, argv, options) {
         cache,
     };
 }
-exports.wrapDedupeAsync = wrapDedupeAsync;
 //# sourceMappingURL=wrapDedupeAsync.js.map

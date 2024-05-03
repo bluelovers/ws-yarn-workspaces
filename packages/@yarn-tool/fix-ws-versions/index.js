@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.fixWsVersions = exports.fixWsVersionsCore = exports.fixPkgDepsVersionsCore = void 0;
+exports.fixPkgDepsVersionsCore = fixPkgDepsVersionsCore;
+exports.fixWsVersionsCore = fixWsVersionsCore;
+exports.fixWsVersions = fixWsVersions;
 const deps_tree_1 = require("ws-pkg-list/lib/deps-tree");
 const types_1 = require("@ts-type/package-dts/lib/package-json/types");
 const util_1 = require("ws-pkg-list/lib/util");
@@ -39,7 +41,6 @@ function fixPkgDepsVersionsCore(row, cache) {
         cache: cache,
     };
 }
-exports.fixPkgDepsVersionsCore = fixPkgDepsVersionsCore;
 function fixWsVersionsCore(listable, cwd) {
     const record = (0, util_1.listableToRecord)(listable);
     const names = Object.keys(record);
@@ -74,10 +75,8 @@ function fixWsVersionsCore(listable, cwd) {
         ...result,
     };
 }
-exports.fixWsVersionsCore = fixWsVersionsCore;
 function fixWsVersions(cwd) {
     return fixWsVersionsCore((0, deps_tree_1.wsPkgDepsListable)(cwd), cwd);
 }
-exports.fixWsVersions = fixWsVersions;
 exports.default = fixWsVersions;
 //# sourceMappingURL=index.js.map

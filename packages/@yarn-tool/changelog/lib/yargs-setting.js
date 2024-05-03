@@ -3,7 +3,7 @@
  * Created by user on 2020/6/15.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.setupToYargs = void 0;
+exports.setupToYargs = setupToYargs;
 function setupToYargs(yargs) {
     const _return = yargs
         .option('preset', {
@@ -31,6 +31,5 @@ function setupToYargs(yargs) {
     });
     return _return;
 }
-exports.setupToYargs = setupToYargs;
 exports.default = setupToYargs;
 //# sourceMappingURL=yargs-setting.js.map

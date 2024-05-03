@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.setupToYargs = void 0;
+exports.setupToYargs = setupToYargs;
 /**
  * @see https://classic.yarnpkg.com/lang/en/docs/cli/version/
  */
@@ -66,5 +66,4 @@ function setupToYargs(yargs) {
     });
     return _return;
 }
-exports.setupToYargs = setupToYargs;
 //# sourceMappingURL=argv.js.map

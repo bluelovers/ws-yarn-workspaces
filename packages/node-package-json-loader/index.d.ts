@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import { IPackageJson } from '@ts-type/package-dts';
 type IFileOrJson = Buffer | string | object | IPackageJson;
 type IPackageJsonLike<T> = Partial<T> | Record<string, any>;

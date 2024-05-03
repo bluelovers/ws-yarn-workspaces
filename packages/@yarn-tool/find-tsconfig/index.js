@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.findTsconfig = void 0;
+exports.findTsconfig = findTsconfig;
 const tsconfig_1 = require("tsconfig");
 const find_root_1 = require("@yarn-tool/find-root");
 const fs_1 = require("fs");
@@ -26,6 +26,5 @@ function findTsconfig(cwd) {
         }
     }
 }
-exports.findTsconfig = findTsconfig;
 exports.default = findTsconfig;
 //# sourceMappingURL=index.js.map

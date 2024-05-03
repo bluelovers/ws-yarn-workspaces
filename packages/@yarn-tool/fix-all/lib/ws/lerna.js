@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports._fixLernaJson = exports._fixLernaJsonCore = void 0;
+exports._fixLernaJsonCore = _fixLernaJsonCore;
+exports._fixLernaJson = _fixLernaJson;
 const path_1 = require("path");
 const fs_extra_1 = require("fs-extra");
 const lodash_1 = require("lodash");
@@ -13,7 +14,6 @@ function _fixLernaJsonCore(current, tpl) {
     (0, array_hyper_unique_1.array_unique_overwrite)(current.command.publish.ignoreChanges);
     return current;
 }
-exports._fixLernaJsonCore = _fixLernaJsonCore;
 function _fixLernaJson(options) {
     const file = (0, path_1.resolve)(options.rootData.root, 'lerna.json');
     if ((0, fs_extra_1.existsSync)(file)) {
@@ -23,5 +23,4 @@ function _fixLernaJson(options) {
         (0, write_package_json_1.writePackageJSONSync)(file, json);
     }
 }
-exports._fixLernaJson = _fixLernaJson;
 //# sourceMappingURL=lerna.js.map

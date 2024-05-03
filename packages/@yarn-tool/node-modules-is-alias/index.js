@@ -1,6 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.modulePathIsAlias = exports.parseModulePathIsAliasUnsafe = exports.parseModulePathIsAlias = exports.parseModulePath = exports.assertIsAbsolutePath = void 0;
+exports.assertIsAbsolutePath = assertIsAbsolutePath;
+exports.parseModulePath = parseModulePath;
+exports.parseModulePathIsAlias = parseModulePathIsAlias;
+exports.parseModulePathIsAliasUnsafe = parseModulePathIsAliasUnsafe;
+exports.modulePathIsAlias = modulePathIsAlias;
 const pkg_dir_1 = require("pkg-dir");
 const parseArgvPkgName_1 = require("@yarn-tool/npm-package-arg-util/lib/parseArgvPkgName");
 const resolve_package_1 = require("@yarn-tool/resolve-package");
@@ -10,7 +14,6 @@ function assertIsAbsolutePath(absolutePath) {
         throw new RangeError(`Input path should be absolute path: ${absolutePath}`);
     }
 }
-exports.assertIsAbsolutePath = assertIsAbsolutePath;
 function parseModulePath(absolutePath) {
     assertIsAbsolutePath(absolutePath);
     const root = (0, upath2_1.normalize)((0, pkg_dir_1.sync)(absolutePath));
@@ -26,7 +29,6 @@ function parseModulePath(absolutePath) {
         inNodeModules,
     };
 }
-exports.parseModulePath = parseModulePath;
 function parseModulePathIsAlias(absolutePath) {
     const data = parseModulePath(absolutePath);
     const resolveData = (0, resolve_package_1.resolvePackage)(absolutePath);
@@ -39,14 +41,11 @@ function parseModulePathIsAlias(absolutePath) {
         isAlias,
     };
 }
-exports.parseModulePathIsAlias = parseModulePathIsAlias;
 function parseModulePathIsAliasUnsafe(absolutePath) {
     return parseModulePathIsAlias((0, resolve_package_1.resolvePackageCore)(absolutePath).pkgRoot);
 }
-exports.parseModulePathIsAliasUnsafe = parseModulePathIsAliasUnsafe;
 function modulePathIsAlias(dir) {
     return parseModulePathIsAlias(dir).isAlias;
 }
-exports.modulePathIsAlias = modulePathIsAlias;
 exports.default = modulePathIsAlias;
 //# sourceMappingURL=index.js.map

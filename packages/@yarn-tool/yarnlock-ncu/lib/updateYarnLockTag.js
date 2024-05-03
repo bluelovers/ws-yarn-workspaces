@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateYarnLockTag = void 0;
+exports.updateYarnLockTag = updateYarnLockTag;
 const fromContent_1 = require("@yarn-tool/yarnlock-entries/lib/fromContent");
 const queryVersion_1 = require("@yarn-tool/pkg-version-query/lib/queryVersion");
 const semver_1 = require("semver");
@@ -80,5 +80,4 @@ async function updateYarnLockTag(yarnlock_old) {
         report,
     };
 }
-exports.updateYarnLockTag = updateYarnLockTag;
 //# sourceMappingURL=updateYarnLockTag.js.map

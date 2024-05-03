@@ -1,6 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports._yarnLockStringifyRawCore = exports.yarnLockStringifyRaw = exports._yarnLockStringifyRaw = exports.yarnLockStringify = void 0;
+exports.yarnLockStringify = yarnLockStringify;
+exports._yarnLockStringifyRaw = _yarnLockStringifyRaw;
+exports.yarnLockStringifyRaw = yarnLockStringifyRaw;
+exports._yarnLockStringifyRawCore = _yarnLockStringifyRawCore;
 const detectYarnLockVersionByObject_1 = require("@yarn-tool/detect-yarnlock-version/lib/detectYarnLockVersionByObject");
 const detectYarnLockVersion_1 = require("@yarn-tool/detect-yarnlock-version/lib/detectYarnLockVersion");
 const yarnlock_error_1 = require("@yarn-tool/yarnlock-error");
@@ -28,16 +31,13 @@ function yarnLockStringify(yarnlock_old) {
     }
     throw (0, yarnlock_error_1.newYarnLockParsedVersionError)();
 }
-exports.yarnLockStringify = yarnLockStringify;
 function _yarnLockStringifyRaw(yarnlockRawJSON) {
     const verType = (0, detectYarnLockVersionByObject_1.detectYarnLockVersionByObject)(yarnlockRawJSON);
     return _yarnLockStringifyRawCore(verType, yarnlockRawJSON);
 }
-exports._yarnLockStringifyRaw = _yarnLockStringifyRaw;
 function yarnLockStringifyRaw(yarnlockRawJSON) {
     return _yarnLockStringifyRaw(yarnlockRawJSON).content;
 }
-exports.yarnLockStringifyRaw = yarnLockStringifyRaw;
 function _yarnLockStringifyRawCore(verType, yarnlockRawJSON) {
     let fn;
     switch (verType) {
@@ -58,6 +58,5 @@ function _yarnLockStringifyRawCore(verType, yarnlockRawJSON) {
         content: fn(yarnlockRawJSON),
     };
 }
-exports._yarnLockStringifyRawCore = _yarnLockStringifyRawCore;
 exports.default = yarnLockStringify;
 //# sourceMappingURL=index.js.map

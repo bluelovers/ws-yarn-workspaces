@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.checkInstallTargetTypes = void 0;
+exports.checkInstallTargetTypes = checkInstallTargetTypes;
 const packageNameToTypes_1 = require("@yarn-tool/npm-package-arg-util/lib/packageNameToTypes");
 const generatePackageArg_1 = require("@yarn-tool/npm-package-arg-util/lib/generatePackageArg");
 const existsDependencies_1 = require("./util/existsDependencies");
@@ -49,5 +49,4 @@ async function checkInstallTargetTypes(packageName, options) {
         msg: `add ${target} to dependency`,
     };
 }
-exports.checkInstallTargetTypes = checkInstallTargetTypes;
 //# sourceMappingURL=installTypes.js.map

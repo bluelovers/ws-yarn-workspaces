@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.fsYarnLockSafe = exports.fsYarnLock = void 0;
+exports.fsYarnLock = fsYarnLock;
+exports.fsYarnLockSafe = fsYarnLockSafe;
 const path_1 = require("path");
 const readYarnLockFile_1 = require("./readYarnLockFile");
 const notEmpty_1 = require("./notEmpty");
@@ -18,7 +19,6 @@ function fsYarnLock(root) {
         yarnlock_old,
     };
 }
-exports.fsYarnLock = fsYarnLock;
 function fsYarnLockSafe(root) {
     const yarnlock_file = (0, path_1.join)(root, 'yarn.lock');
     const yarnlock_old = (0, readYarnLockFile_1.checkAndReadYarnLockFileSafe)(yarnlock_file, 'utf8');
@@ -29,6 +29,5 @@ function fsYarnLockSafe(root) {
         yarnlock_old,
     };
 }
-exports.fsYarnLockSafe = fsYarnLockSafe;
 exports.default = fsYarnLockSafe;
 //# sourceMappingURL=read.js.map

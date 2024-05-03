@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.findNpmCachePath = void 0;
+exports.findNpmCachePath = findNpmCachePath;
 const cross_spawn_extra_1 = require("cross-spawn-extra");
 /**
  * try get npm global cache path
@@ -16,5 +16,4 @@ function findNpmCachePath(cwd, processEnv = process.env) {
     })) === null || _a === void 0 ? void 0 : _a.stdout) === null || _b === void 0 ? void 0 : _b.toString) === null || _c === void 0 ? void 0 : _c.call(_b);
     return cache;
 }
-exports.findNpmCachePath = findNpmCachePath;
 //# sourceMappingURL=findNpmCachePath.js.map

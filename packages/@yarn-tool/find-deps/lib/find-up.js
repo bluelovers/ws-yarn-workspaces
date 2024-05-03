@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.findUpDepsAllDeep = exports.findUpDepsAllDeepRecordCore = exports.findUpDepsDeepRecordCore = void 0;
+exports.findUpDepsDeepRecordCore = findUpDepsDeepRecordCore;
+exports.findUpDepsAllDeepRecordCore = findUpDepsAllDeepRecordCore;
+exports.findUpDepsAllDeep = findUpDepsAllDeep;
 const types_1 = require("@ts-type/package-dts/lib/package-json/types");
 const array_hyper_unique_1 = require("array-hyper-unique");
 const find_1 = require("./find");
@@ -27,7 +29,6 @@ function findUpDepsDeepRecordCore(target, record, map = {}) {
     (0, array_hyper_unique_1.array_unique_overwrite)(map[target]);
     return map;
 }
-exports.findUpDepsDeepRecordCore = findUpDepsDeepRecordCore;
 function findUpDepsAllDeepRecordCore(targets, record, map = {}) {
     return targets
         .reduce((map, target) => {
@@ -35,7 +36,6 @@ function findUpDepsAllDeepRecordCore(targets, record, map = {}) {
         return map;
     }, map);
 }
-exports.findUpDepsAllDeepRecordCore = findUpDepsAllDeepRecordCore;
 function findUpDepsAllDeep(targets, record) {
     let map = findUpDepsAllDeepRecordCore(targets, record);
     let map2 = (0, find_1.findDepsAllDeepRecordCore)(Object.keys(map), record);
@@ -50,6 +50,5 @@ function findUpDepsAllDeep(targets, record) {
     });
     return list;
 }
-exports.findUpDepsAllDeep = findUpDepsAllDeep;
 exports.default = findUpDepsAllDeep;
 //# sourceMappingURL=find-up.js.map

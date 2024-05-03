@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.processRunPathEnv = exports.processRunPath = void 0;
+exports.processRunPath = processRunPath;
+exports.processRunPathEnv = processRunPathEnv;
 const lib_1 = require("./lib");
 function processRunPath(options = {}) {
     let { binPaths, execPath, envPath, pathKey, delimiter, processEnv } = (0, lib_1.processRunPathCore)(options);
@@ -25,7 +26,6 @@ function processRunPath(options = {}) {
         delimiter,
     };
 }
-exports.processRunPath = processRunPath;
 function processRunPathEnv(options = {}) {
     let { processEnv, pathKey, result } = processRunPath({
         ...options,
@@ -39,6 +39,5 @@ function processRunPathEnv(options = {}) {
     processEnv[pathKey] = result;
     return processEnv;
 }
-exports.processRunPathEnv = processRunPathEnv;
 exports.default = processRunPathEnv;
 //# sourceMappingURL=index.js.map

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.defaultSharedRootScripts = void 0;
+exports.defaultSharedRootScripts = defaultSharedRootScripts;
 function defaultSharedRootScripts() {
     return {
         "ci:install": `yarn install --frozen-lockfile && yarn add -W ${[
@@ -21,5 +21,4 @@ function defaultSharedRootScripts() {
         "ws:fix-all:resetStaticFiles": "yarn run ws:fix-all -- --resetStaticFiles",
     };
 }
-exports.defaultSharedRootScripts = defaultSharedRootScripts;
 //# sourceMappingURL=shared-root-scripts.js.map

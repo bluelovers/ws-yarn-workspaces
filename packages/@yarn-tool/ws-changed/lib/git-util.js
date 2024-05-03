@@ -3,7 +3,9 @@
  * Created by user on 2020/6/9.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.wsGitDiffStagedDir = exports.wsGitDiffStagedFiles = exports.wsRootWithGitRoot = void 0;
+exports.wsRootWithGitRoot = wsRootWithGitRoot;
+exports.wsGitDiffStagedFiles = wsGitDiffStagedFiles;
+exports.wsGitDiffStagedDir = wsGitDiffStagedDir;
 const find_root_1 = require("@yarn-tool/find-root");
 const diff_staged_1 = require("@git-lazy/diff-staged");
 const core_1 = require("git-root2/core");
@@ -19,7 +21,6 @@ function wsRootWithGitRoot(cwd) {
     }
     return ws_root;
 }
-exports.wsRootWithGitRoot = wsRootWithGitRoot;
 function wsGitDiffStagedFiles(cwd, options) {
     cwd = wsRootWithGitRoot(cwd);
     let list = (0, diff_staged_1.gitDiffStaged)(cwd, {
@@ -30,7 +31,6 @@ function wsGitDiffStagedFiles(cwd, options) {
         list,
     };
 }
-exports.wsGitDiffStagedFiles = wsGitDiffStagedFiles;
 function wsGitDiffStagedDir(cwd, options) {
     cwd = wsRootWithGitRoot(cwd);
     let list = (0, diff_staged_1.gitDiffStagedDir)(cwd, {
@@ -41,5 +41,4 @@ function wsGitDiffStagedDir(cwd, options) {
         list,
     };
 }
-exports.wsGitDiffStagedDir = wsGitDiffStagedDir;
 //# sourceMappingURL=git-util.js.map

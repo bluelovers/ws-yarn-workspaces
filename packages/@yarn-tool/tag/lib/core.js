@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.formatPackageTag = exports.handleOptions = void 0;
+exports.handleOptions = handleOptions;
+exports.formatPackageTag = formatPackageTag;
 function handleOptions(options) {
     var _a, _b, _c;
     let version = (_a = options.version) !== null && _a !== void 0 ? _a : options.pkg.version;
@@ -22,7 +23,6 @@ function handleOptions(options) {
         tagPrefix,
     };
 }
-exports.handleOptions = handleOptions;
 function formatPackageTag(options) {
     var _a, _b, _c;
     let tag = (_a = options.version) !== null && _a !== void 0 ? _a : options.pkg.version;
@@ -41,5 +41,4 @@ function formatPackageTag(options) {
     }
     return tag;
 }
-exports.formatPackageTag = formatPackageTag;
 //# sourceMappingURL=core.js.map

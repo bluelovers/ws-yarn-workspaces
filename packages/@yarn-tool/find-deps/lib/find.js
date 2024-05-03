@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.findDepsDeep = exports.findDepsAllDeep = exports.findDepsAllDeepRecordCore = void 0;
+exports.findDepsAllDeepRecordCore = findDepsAllDeepRecordCore;
+exports.findDepsAllDeep = findDepsAllDeep;
+exports.findDepsDeep = findDepsDeep;
 const types_1 = require("@ts-type/package-dts/lib/package-json/types");
 function findDepsAllDeepRecordCore(names, record, map = {}) {
     return names
@@ -18,7 +20,6 @@ function findDepsAllDeepRecordCore(names, record, map = {}) {
         return map;
     }, map);
 }
-exports.findDepsAllDeepRecordCore = findDepsAllDeepRecordCore;
 function findDepsAllDeep(names, record) {
     let map = findDepsAllDeepRecordCore(names, record);
     let list = Object.entries(map);
@@ -32,7 +33,6 @@ function findDepsAllDeep(names, record) {
     });
     return list;
 }
-exports.findDepsAllDeep = findDepsAllDeep;
 function findDepsDeep(name, record, list = []) {
     if (name in record) {
         let row = record[name];
@@ -50,6 +50,5 @@ function findDepsDeep(name, record, list = []) {
     }
     return list;
 }
-exports.findDepsDeep = findDepsDeep;
 exports.default = findDepsAllDeep;
 //# sourceMappingURL=find.js.map

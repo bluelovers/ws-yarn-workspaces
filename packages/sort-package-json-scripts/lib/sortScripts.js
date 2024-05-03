@@ -3,7 +3,9 @@
  * Created by user on 2020/6/20.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.sortPackageJsonScripts = exports.sortPackageJsonScriptsOld = exports._core = void 0;
+exports._core = _core;
+exports.sortPackageJsonScriptsOld = sortPackageJsonScriptsOld;
+exports.sortPackageJsonScripts = sortPackageJsonScripts;
 const handleOptions_1 = require("./handleOptions");
 const handleKeyOrdersCore_1 = require("./handleKeyOrdersCore");
 const sort_object_keys2_1 = require("sort-object-keys2");
@@ -20,12 +22,10 @@ function _core(scripts, opts) {
         sort: opts.sortKeyFn,
     });
 }
-exports._core = _core;
 function sortPackageJsonScriptsOld(scripts, opts) {
     opts = (0, handleOptions_1.handleOptions)(opts);
     return _core(scripts, opts);
 }
-exports.sortPackageJsonScriptsOld = sortPackageJsonScriptsOld;
 function sortPackageJsonScripts(scripts, opts) {
     opts = (0, handleOptions_1.handleOptions)(opts);
     const { omitKeyFn, sortKeyFn } = opts;
@@ -78,6 +78,5 @@ function sortPackageJsonScripts(scripts, opts) {
         sort: opts.sortKeyFn,
     });
 }
-exports.sortPackageJsonScripts = sortPackageJsonScripts;
 exports.default = sortPackageJsonScripts;
 //# sourceMappingURL=sortScripts.js.map

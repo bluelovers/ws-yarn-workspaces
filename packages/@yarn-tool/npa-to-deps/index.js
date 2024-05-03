@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.npaToDepsValue = exports.npaResultToDepsValue = void 0;
+exports.npaResultToDepsValue = npaResultToDepsValue;
+exports.npaToDepsValue = npaToDepsValue;
 const npm_package_arg_util_1 = require("@yarn-tool/npm-package-arg-util");
 const parseSimpleSemVerRange_1 = require("@lazy-node/semver-simple-parse/lib/parseSimpleSemVerRange");
 function npaResultToDepsValue(result, options) {
@@ -68,11 +69,9 @@ function npaResultToDepsValue(result, options) {
         result,
     };
 }
-exports.npaResultToDepsValue = npaResultToDepsValue;
 function npaToDepsValue(arg, options) {
     let result = (0, npm_package_arg_util_1.npa)(arg, options === null || options === void 0 ? void 0 : options.where);
     return npaResultToDepsValue(result);
 }
-exports.npaToDepsValue = npaToDepsValue;
 exports.default = npaToDepsValue;
 //# sourceMappingURL=index.js.map

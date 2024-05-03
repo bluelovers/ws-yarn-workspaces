@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.queryVersion = exports.queryVersionWithCache = void 0;
+exports.queryVersionWithCache = queryVersionWithCache;
+exports.queryVersion = queryVersion;
 const tslib_1 = require("tslib");
 const package_json_1 = require("package-json");
 const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
@@ -29,7 +30,6 @@ function queryVersionWithCache(name, targetVersion = 'latest', options) {
         });
     });
 }
-exports.queryVersionWithCache = queryVersionWithCache;
 function queryVersion(name, targetVersion = 'latest', save = true, options) {
     let version = targetVersion !== null && targetVersion !== void 0 ? targetVersion : (targetVersion = 'latest');
     let key = (0, createCacheKey_1._createCacheKey)(name, targetVersion);
@@ -71,6 +71,5 @@ function queryVersion(name, targetVersion = 'latest', save = true, options) {
         });
     });
 }
-exports.queryVersion = queryVersion;
 exports.default = queryVersionWithCache;
 //# sourceMappingURL=queryVersion.js.map

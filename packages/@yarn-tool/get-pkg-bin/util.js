@@ -3,7 +3,10 @@
  * Created by user on 2020/2/16.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getPackageInfo = exports.firstPackageBin = exports.handlePackageBins = exports.getPackageBins = void 0;
+exports.getPackageBins = getPackageBins;
+exports.handlePackageBins = handlePackageBins;
+exports.firstPackageBin = firstPackageBin;
+exports.getPackageInfo = getPackageInfo;
 const tslib_1 = require("tslib");
 const upath2_1 = require("upath2");
 const resolve_package_1 = require("@yarn-tool/resolve-package");
@@ -22,7 +25,6 @@ function getPackageBins(pkg) {
         }
     }
 }
-exports.getPackageBins = getPackageBins;
 function handlePackageBins(bins, resolveFn) {
     const _cwd = '.' + upath2_1.sep;
     return Object.entries(bins)
@@ -41,7 +43,6 @@ function handlePackageBins(bins, resolveFn) {
         return a;
     }, {});
 }
-exports.handlePackageBins = handlePackageBins;
 function firstPackageBin(bins) {
     bins = bins || {};
     let keys = Object.keys(bins);
@@ -49,7 +50,6 @@ function firstPackageBin(bins) {
         return bins[keys[0]];
     }
 }
-exports.firstPackageBin = firstPackageBin;
 function getPackageInfo(options) {
     let { pkgRoot, pkg, name } = options;
     if (pkg) {
@@ -71,5 +71,4 @@ function getPackageInfo(options) {
         pkg: pkg,
     };
 }
-exports.getPackageInfo = getPackageInfo;
 //# sourceMappingURL=util.js.map

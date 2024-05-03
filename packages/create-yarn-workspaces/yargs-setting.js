@@ -3,7 +3,7 @@
  * Created by user on 2019/5/16.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.setupWorkspacesInitToYargs = void 0;
+exports.setupWorkspacesInitToYargs = setupWorkspacesInitToYargs;
 function setupWorkspacesInitToYargs(yargs) {
     return yargs
         .default({
@@ -26,6 +26,5 @@ function setupWorkspacesInitToYargs(yargs) {
         boolean: true,
     });
 }
-exports.setupWorkspacesInitToYargs = setupWorkspacesInitToYargs;
 exports.default = setupWorkspacesInitToYargs;
 //# sourceMappingURL=yargs-setting.js.map

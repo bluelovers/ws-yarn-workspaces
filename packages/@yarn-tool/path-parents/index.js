@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.pathUpToWorkspaces = exports.pathUpToWorkspacesGenerator = void 0;
+exports.pathUpToWorkspacesGenerator = pathUpToWorkspacesGenerator;
+exports.pathUpToWorkspaces = pathUpToWorkspaces;
 const path_parents_1 = require("path-parents");
 const find_root_1 = require("@yarn-tool/find-root");
 const upath2_1 = require("upath2");
@@ -24,10 +25,8 @@ function* pathUpToWorkspacesGenerator(cwd, options) {
         }
     }
 }
-exports.pathUpToWorkspacesGenerator = pathUpToWorkspacesGenerator;
 function pathUpToWorkspaces(cwd, options) {
     return [...pathUpToWorkspacesGenerator(cwd, options)];
 }
-exports.pathUpToWorkspaces = pathUpToWorkspaces;
 exports.default = pathUpToWorkspaces;
 //# sourceMappingURL=index.js.map

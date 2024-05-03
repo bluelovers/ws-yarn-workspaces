@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.handleWrapDedupeOptions = void 0;
+exports.handleWrapDedupeOptions = handleWrapDedupeOptions;
 const upath2_1 = require("upath2");
 const find_root_1 = require("@yarn-tool/find-root");
 const read_1 = require("@yarn-tool/yarnlock-fs/lib/read");
@@ -37,5 +37,4 @@ function handleWrapDedupeOptions(yarg, argv, options) {
         cache,
     };
 }
-exports.handleWrapDedupeOptions = handleWrapDedupeOptions;
 //# sourceMappingURL=handleWrapDedupeOptions.js.map

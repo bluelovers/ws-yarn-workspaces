@@ -3,7 +3,12 @@
  * Created by user on 2020/6/12.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.setVersionCacheMap = exports.hasQueryedVersionCache = exports.strVersionCache = exports.objVersionCacheValue = exports.objVersionCache = exports.remoteCacheMap = exports.versionCacheMap = void 0;
+exports.remoteCacheMap = exports.versionCacheMap = void 0;
+exports.objVersionCache = objVersionCache;
+exports.objVersionCacheValue = objVersionCacheValue;
+exports.strVersionCache = strVersionCache;
+exports.hasQueryedVersionCache = hasQueryedVersionCache;
+exports.setVersionCacheMap = setVersionCacheMap;
 exports.versionCacheMap = new Map();
 exports.remoteCacheMap = new Map();
 function objVersionCache({ name, versionTarget, version_old, }) {
@@ -13,7 +18,6 @@ function objVersionCache({ name, versionTarget, version_old, }) {
         version_old,
     };
 }
-exports.objVersionCache = objVersionCache;
 function objVersionCacheValue({ name, versionTarget, version_old, version_new, }) {
     return {
         name,
@@ -22,17 +26,13 @@ function objVersionCacheValue({ name, versionTarget, version_old, version_new, }
         version_new,
     };
 }
-exports.objVersionCacheValue = objVersionCacheValue;
 function strVersionCache(key) {
     return JSON.stringify(objVersionCache(key));
 }
-exports.strVersionCache = strVersionCache;
 function hasQueryedVersionCache(key) {
     return exports.versionCacheMap.has(strVersionCache(key));
 }
-exports.hasQueryedVersionCache = hasQueryedVersionCache;
 function setVersionCacheMap(data) {
     return exports.versionCacheMap.set(strVersionCache(data), objVersionCacheValue(data));
 }
-exports.setVersionCacheMap = setVersionCacheMap;
 //# sourceMappingURL=store.js.map

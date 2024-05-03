@@ -1,12 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.otherScriptNames = exports.defaultNpmScriptsOrder = exports.omitKey = exports.firstPartKey = exports.trimKey = void 0;
+exports.otherScriptNames = exports.defaultNpmScriptsOrder = void 0;
+exports.trimKey = trimKey;
+exports.firstPartKey = firstPartKey;
+exports.omitKey = omitKey;
 function trimKey(name, skipNumber) {
     return name
         .replace(/^[_:\-]+/, '')
         .replace(skipNumber ? /[_:\-]+$/ : /[\d_:\-]+$/, '');
 }
-exports.trimKey = trimKey;
 function firstPartKey(name) {
     let key = trimKey(name);
     let first = key.split(/[_:\-]+/)[0];
@@ -16,7 +18,6 @@ function firstPartKey(name) {
     }
     return first;
 }
-exports.firstPartKey = firstPartKey;
 /**
  * omit key logic
  */
@@ -39,7 +40,6 @@ function omitKey(name) {
         omitted,
     };
 }
-exports.omitKey = omitKey;
 /**
  * group / sore scripts order, by default is follow npm lifecycle scripts
  */

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.publishRetry = void 0;
+exports.publishRetry = publishRetry;
 const tslib_1 = require("tslib");
 const ws_pkg_list_1 = require("ws-pkg-list");
 const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
@@ -25,6 +25,5 @@ async function publishRetry(cwd) {
         }
     });
 }
-exports.publishRetry = publishRetry;
 exports.default = publishRetry;
 //# sourceMappingURL=index.js.map

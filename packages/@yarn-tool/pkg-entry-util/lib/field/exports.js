@@ -1,6 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.pkgExportsVerify = exports._isPackageExportsEntry = exports.pkgExportsAddPJsonEntry = exports._pkgExportsAddPJsonEntryCore = void 0;
+exports._pkgExportsAddPJsonEntryCore = _pkgExportsAddPJsonEntryCore;
+exports.pkgExportsAddPJsonEntry = pkgExportsAddPJsonEntry;
+exports._isPackageExportsEntry = _isPackageExportsEntry;
+exports.pkgExportsVerify = pkgExportsVerify;
 const fs_extra_1 = require("fs-extra");
 const find_root_1 = require("@yarn-tool/find-root");
 const resolve_package_1 = require("@yarn-tool/resolve-package");
@@ -11,16 +14,13 @@ function _pkgExportsAddPJsonEntryCore(pkgExports) {
     }
     return pkgExports;
 }
-exports._pkgExportsAddPJsonEntryCore = _pkgExportsAddPJsonEntryCore;
 function pkgExportsAddPJsonEntry(pkg) {
     _pkgExportsAddPJsonEntryCore(pkg.exports);
     return pkg;
 }
-exports.pkgExportsAddPJsonEntry = pkgExportsAddPJsonEntry;
 function _isPackageExportsEntry(entry, value) {
     return entry.startsWith('./') && !!(value !== null && value !== void 0 ? value : false);
 }
-exports._isPackageExportsEntry = _isPackageExportsEntry;
 function pkgExportsVerify(pkg, options) {
     if (typeof pkg.exports === 'object') {
         const rootData = (0, find_root_1.findRootLazy)({
@@ -63,5 +63,4 @@ function pkgExportsVerify(pkg, options) {
     }
     return null;
 }
-exports.pkgExportsVerify = pkgExportsVerify;
 //# sourceMappingURL=exports.js.map

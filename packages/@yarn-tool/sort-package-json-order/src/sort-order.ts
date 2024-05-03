@@ -107,5 +107,6 @@ export const sortOrder = [
 	'galleryBanner',
 	'preview',
 	'markdown',
+	'pnpm',
 ] as const;
 

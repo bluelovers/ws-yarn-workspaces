@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.detectPreidByVersion = exports.releaseTypesIsPre = exports.handleOptions = void 0;
+exports.handleOptions = handleOptions;
+exports.releaseTypesIsPre = releaseTypesIsPre;
+exports.detectPreidByVersion = detectPreidByVersion;
 const types_1 = require("./types");
 const semver_1 = require("semver");
 function handleOptions(options, oldVersion) {
@@ -35,11 +37,9 @@ function handleOptions(options, oldVersion) {
      */
     return options;
 }
-exports.handleOptions = handleOptions;
 function releaseTypesIsPre(bump) {
     return bump.startsWith('pre');
 }
-exports.releaseTypesIsPre = releaseTypesIsPre;
 function detectPreidByVersion(oldVersion, options) {
     var _a;
     if (oldVersion.length) {
@@ -74,5 +74,4 @@ function detectPreidByVersion(oldVersion, options) {
     }
     return null;
 }
-exports.detectPreidByVersion = detectPreidByVersion;
 //# sourceMappingURL=handleOptions.js.map

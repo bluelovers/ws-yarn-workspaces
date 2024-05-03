@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports._fixWsRoot = exports._fixRoot = void 0;
+exports._fixRoot = _fixRoot;
+exports._fixWsRoot = _fixWsRoot;
 const pkg_hosted_info_1 = require("@yarn-tool/pkg-hosted-info");
 const upath2_1 = require("upath2");
 const pkg_git_info_1 = require("@yarn-tool/pkg-git-info");
@@ -36,7 +37,6 @@ function _fixRoot(options) {
         overwriteHostedGitInfo,
     };
 }
-exports._fixRoot = _fixRoot;
 function _fixWsRoot(options) {
     var _a;
     if (!((_a = options.rootData.ws) === null || _a === void 0 ? void 0 : _a.length)) {
@@ -74,5 +74,4 @@ function _fixWsRoot(options) {
     wss.save();
     return runtime;
 }
-exports._fixWsRoot = _fixWsRoot;
 //# sourceMappingURL=index.js.map

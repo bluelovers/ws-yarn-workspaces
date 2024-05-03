@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.handleAmpersandAndSpaces = void 0;
+exports.handleAmpersandAndSpaces = handleAmpersandAndSpaces;
 const const_1 = require("./const");
 function handleAmpersandAndSpaces(versionRange, options) {
     if (typeof versionRange === 'string') {
@@ -8,6 +8,5 @@ function handleAmpersandAndSpaces(versionRange, options) {
     }
     return versionRange;
 }
-exports.handleAmpersandAndSpaces = handleAmpersandAndSpaces;
 exports.default = handleAmpersandAndSpaces;
 //# sourceMappingURL=handleAmpersandAndSpaces.js.map

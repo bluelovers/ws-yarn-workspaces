@@ -1,6 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isKnownLifecycleKey = exports.entryToList = exports.getLifecycleList = exports.getLifecycle = exports.getLifecycleCore = void 0;
+exports.getLifecycleCore = getLifecycleCore;
+exports.getLifecycle = getLifecycle;
+exports.getLifecycleList = getLifecycleList;
+exports.entryToList = entryToList;
+exports.isKnownLifecycleKey = isKnownLifecycleKey;
 const tslib_1 = require("tslib");
 const lifecycle_1 = tslib_1.__importDefault(require("./lib/lifecycle"));
 function getLifecycleCore(scriptName) {
@@ -9,7 +13,6 @@ function getLifecycleCore(scriptName) {
     }
     //return (lifecycleMap as ILifecycleMap)[scriptName]
 }
-exports.getLifecycleCore = getLifecycleCore;
 function getLifecycle(scriptName, currentScriptOnly) {
     let entry;
     if (!currentScriptOnly) {
@@ -26,11 +29,9 @@ function getLifecycle(scriptName, currentScriptOnly) {
         ],
     };
 }
-exports.getLifecycle = getLifecycle;
 function getLifecycleList(scriptName, includeSelf, currentScriptOnly) {
     return entryToList(getLifecycle(scriptName, currentScriptOnly), includeSelf);
 }
-exports.getLifecycleList = getLifecycleList;
 function entryToList(entry, includeSelf) {
     var _a, _b;
     let result = [];
@@ -45,9 +46,7 @@ function entryToList(entry, includeSelf) {
     }
     return result;
 }
-exports.entryToList = entryToList;
 function isKnownLifecycleKey(scriptName) {
     return scriptName in lifecycle_1.default;
 }
-exports.isKnownLifecycleKey = isKnownLifecycleKey;
 //# sourceMappingURL=index.js.map

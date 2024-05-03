@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.buildRangeSet = void 0;
+exports.buildRangeSet = buildRangeSet;
 const split_1 = require("../util/split");
 const array_hyper_unique_1 = require("array-hyper-unique");
 const handleAmpersandAndSpaces_1 = require("../handleAmpersandAndSpaces");
@@ -16,5 +16,4 @@ function buildRangeSet(range, options = {}) {
     rangeSet = (0, array_hyper_unique_1.array_unique_overwrite)(rangeSet);
     return rangeSet;
 }
-exports.buildRangeSet = buildRangeSet;
 //# sourceMappingURL=buildRangeSet.js.map

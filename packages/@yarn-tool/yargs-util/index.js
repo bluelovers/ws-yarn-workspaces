@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.yargsProcessExit = void 0;
+exports.yargsProcessExit = yargsProcessExit;
 function yargsProcessExit(msg, code = 1) {
     if (!(msg instanceof Error)) {
         msg = new Error(msg);
@@ -11,5 +11,4 @@ function yargsProcessExit(msg, code = 1) {
     require('yargs').exit(code, msg);
     process.exit(code);
 }
-exports.yargsProcessExit = yargsProcessExit;
 //# sourceMappingURL=index.js.map

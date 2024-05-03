@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.handleOptions = void 0;
+exports.handleOptions = handleOptions;
 const util_1 = require("./util");
 function handleOptions(opts) {
     var _a, _b, _c;
@@ -12,6 +12,5 @@ function handleOptions(opts) {
         sortKeyFn: opts === null || opts === void 0 ? void 0 : opts.sortKeyFn,
     };
 }
-exports.handleOptions = handleOptions;
 exports.default = handleOptions;
 //# sourceMappingURL=handleOptions.js.map

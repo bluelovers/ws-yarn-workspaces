@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.assertScopePath = void 0;
+exports.assertScopePath = assertScopePath;
 const upath2_1 = require("upath2");
 const path_in_dir_1 = require("path-in-dir");
 function assertScopePath(scope, __root) {
@@ -12,5 +12,4 @@ function assertScopePath(scope, __root) {
         throw new Error(`Invalid path: ${__dir}`);
     }
 }
-exports.assertScopePath = assertScopePath;
 //# sourceMappingURL=check-scope.js.map

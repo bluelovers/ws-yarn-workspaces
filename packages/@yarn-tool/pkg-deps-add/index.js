@@ -1,6 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.addDependenciesOverwrite = exports.addDependenciesIfNotExists = exports.addDependencies = exports._add_to_deps_field = exports._add_to_deps_field_core = exports.checkDependenciesExistsAll = exports._checkDependenciesExistsAll = exports.checkDependenciesExists = exports._checkDependenciesExists = exports.EnumResultAddDependencies = void 0;
+exports.EnumResultAddDependencies = void 0;
+exports._checkDependenciesExists = _checkDependenciesExists;
+exports.checkDependenciesExists = checkDependenciesExists;
+exports._checkDependenciesExistsAll = _checkDependenciesExistsAll;
+exports.checkDependenciesExistsAll = checkDependenciesExistsAll;
+exports._add_to_deps_field_core = _add_to_deps_field_core;
+exports._add_to_deps_field = _add_to_deps_field;
+exports.addDependencies = addDependencies;
+exports.addDependenciesIfNotExists = addDependenciesIfNotExists;
+exports.addDependenciesOverwrite = addDependenciesOverwrite;
 const types_1 = require("@ts-type/package-dts/lib/package-json/types");
 var EnumResultAddDependencies;
 (function (EnumResultAddDependencies) {
@@ -11,11 +20,9 @@ function _checkDependenciesExists(record, name) {
     var _a;
     return ((_a = record === null || record === void 0 ? void 0 : record[name]) === null || _a === void 0 ? void 0 : _a.length) > 0;
 }
-exports._checkDependenciesExists = _checkDependenciesExists;
 function checkDependenciesExists(pkg, field, name) {
     return _checkDependenciesExists(pkg[field], name);
 }
-exports.checkDependenciesExists = checkDependenciesExists;
 function _checkDependenciesExistsAll(pkg, fields, name) {
     return fields
         .reduce((map, field) => {
@@ -30,18 +37,15 @@ function _checkDependenciesExistsAll(pkg, fields, name) {
         _field: [],
     });
 }
-exports._checkDependenciesExistsAll = _checkDependenciesExistsAll;
 function checkDependenciesExistsAll(pkg, name) {
     return _checkDependenciesExistsAll(pkg, types_1.packageJsonDependenciesFields, name);
 }
-exports.checkDependenciesExistsAll = checkDependenciesExistsAll;
 function _add_to_deps_field_core(pkg, field, name, semver) {
     var _a;
     (_a = pkg[field]) !== null && _a !== void 0 ? _a : (pkg[field] = {});
     pkg[field][name] = semver;
     return pkg;
 }
-exports._add_to_deps_field_core = _add_to_deps_field_core;
 function _add_to_deps_field(pkg, field, name, semver, override, bool, existsOnly) {
     var _a;
     const record = (_a = pkg[field]) !== null && _a !== void 0 ? _a : {};
@@ -72,7 +76,6 @@ function _add_to_deps_field(pkg, field, name, semver, override, bool, existsOnly
     }
     return bool;
 }
-exports._add_to_deps_field = _add_to_deps_field;
 function addDependencies(pkg, name, semver, options = {}, override, existsOnly) {
     let bool = null;
     if (options.dev) {
@@ -92,14 +95,11 @@ function addDependencies(pkg, name, semver, options = {}, override, existsOnly) 
         bool,
     };
 }
-exports.addDependencies = addDependencies;
 function addDependenciesIfNotExists(pkg, name, semver, options = {}) {
     return addDependencies(pkg, name, semver, options, false);
 }
-exports.addDependenciesIfNotExists = addDependenciesIfNotExists;
 function addDependenciesOverwrite(pkg, name, semver, options = {}) {
     return addDependencies(pkg, name, semver, options, true);
 }
-exports.addDependenciesOverwrite = addDependenciesOverwrite;
 exports.default = addDependencies;
 //# sourceMappingURL=index.js.map

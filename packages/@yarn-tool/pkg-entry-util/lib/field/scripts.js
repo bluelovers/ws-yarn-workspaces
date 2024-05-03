@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.scriptsEntryIsNoTestSpecified = exports.EnumScriptsEntry = void 0;
+exports.EnumScriptsEntry = void 0;
+exports.scriptsEntryIsNoTestSpecified = scriptsEntryIsNoTestSpecified;
 var EnumScriptsEntry;
 (function (EnumScriptsEntry) {
     EnumScriptsEntry["JEST_TEST"] = "jest --passWithNoTests";
@@ -12,5 +13,4 @@ var EnumScriptsEntry;
 function scriptsEntryIsNoTestSpecified(value) {
     return value === "echo \"Error: no test specified\" && exit 1" /* EnumScriptsEntry.NO_TEST_SPECIFIED_EXIT */ || value === "echo \"Error: no test specified\"" /* EnumScriptsEntry.NO_TEST_SPECIFIED */;
 }
-exports.scriptsEntryIsNoTestSpecified = scriptsEntryIsNoTestSpecified;
 //# sourceMappingURL=scripts.js.map

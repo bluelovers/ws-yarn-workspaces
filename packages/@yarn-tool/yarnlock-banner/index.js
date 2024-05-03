@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.existsYarnLockBanner = exports.EnumYarnLockBanner = void 0;
+exports.EnumYarnLockBanner = void 0;
+exports.existsYarnLockBanner = existsYarnLockBanner;
 const crlf_normalize_1 = require("crlf-normalize");
 var EnumYarnLockBanner;
 (function (EnumYarnLockBanner) {
@@ -34,6 +35,5 @@ function existsYarnLockBanner(yarnlock_old) {
         content,
     };
 }
-exports.existsYarnLockBanner = existsYarnLockBanner;
 exports.default = existsYarnLockBanner;
 //# sourceMappingURL=index.js.map

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.nextVersionRecommended = void 0;
+exports.nextVersionRecommended = nextVersionRecommended;
 const semver_1 = require("semver");
 const handleOptions_1 = require("./handleOptions");
 function nextVersionRecommended(oldVersion, options) {
@@ -14,5 +14,4 @@ function nextVersionRecommended(oldVersion, options) {
         newVersion,
     };
 }
-exports.nextVersionRecommended = nextVersionRecommended;
 //# sourceMappingURL=nextVersionRecommended.js.map

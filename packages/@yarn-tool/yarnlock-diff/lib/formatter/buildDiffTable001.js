@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.buildDiffTable = void 0;
+exports.buildDiffTable = buildDiffTable;
 const tslib_1 = require("tslib");
 const cli_table_1 = tslib_1.__importDefault(require("cli-table"));
 const chalk_1 = tslib_1.__importDefault(require("chalk"));
@@ -58,5 +58,4 @@ function buildDiffTable(diff) {
     Object.values(formatedDiff).forEach(tableRow => table.push(tableRow));
     return table.toString();
 }
-exports.buildDiffTable = buildDiffTable;
 //# sourceMappingURL=buildDiffTable001.js.map

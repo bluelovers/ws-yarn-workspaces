@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.npmCheckUpdates = void 0;
+exports.npmCheckUpdates = npmCheckUpdates;
 const tslib_1 = require("tslib");
 const options_1 = require("../options");
 const npm_check_updates_1 = require("npm-check-updates");
@@ -86,5 +86,4 @@ async function npmCheckUpdates(cache, ncuOptions) {
     table && console.log(`\n${table}\n`);
     return ncuOptions;
 }
-exports.npmCheckUpdates = npmCheckUpdates;
 //# sourceMappingURL=npmCheckUpdates.js.map

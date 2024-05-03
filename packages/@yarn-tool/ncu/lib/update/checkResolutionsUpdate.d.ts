@@ -1,5 +1,3 @@
-/// <reference types="node" />
-/// <reference types="bluebird" />
 import { IPackageMap, IOptionsNpmCheckUpdates, IVersionCacheMapValue } from '../types';
 import { EnumDetectYarnLock, IYarnLockSource } from '@yarn-tool/yarnlock-types';
 import { ITSExcludeEnumValue } from 'ts-type/lib/helper/record/enum';

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.infoFromDedupeCache = void 0;
+exports.infoFromDedupeCache = infoFromDedupeCache;
 function infoFromDedupeCache(cache) {
     let { yarnlock_changed, yarnlock_old_exists } = cache;
     let { yarnlock_file, yarnlock_exists } = cache.yarnlock_cache;
@@ -12,5 +12,4 @@ function infoFromDedupeCache(cache) {
         yarnlock_changed,
     };
 }
-exports.infoFromDedupeCache = infoFromDedupeCache;
 //# sourceMappingURL=infoFromDedupeCache.js.map

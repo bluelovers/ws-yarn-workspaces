@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.parseSimpleSemVerRange = void 0;
+exports.parseSimpleSemVerRange = parseSimpleSemVerRange;
 const SimpleSemVer_1 = require("./SimpleSemVer");
 const const_1 = require("./const");
 function parseSimpleSemVerRange(str) {
@@ -24,6 +24,5 @@ function parseSimpleSemVerRange(str) {
     }
     return arr;
 }
-exports.parseSimpleSemVerRange = parseSimpleSemVerRange;
 exports.default = parseSimpleSemVerRange;
 //# sourceMappingURL=parseSimpleSemVerRange.js.map
