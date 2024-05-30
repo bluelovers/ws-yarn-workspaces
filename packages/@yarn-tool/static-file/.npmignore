@@ -157,3 +157,9 @@ __fixtures__
 
 !/file/ws-root/jest-preset.js
 !/file/ws-root/.run/**/*
+
+!/file/node-version
+
+/file/test/*.d.ts
+/file/test/*.js
+/file/test/*.js.map

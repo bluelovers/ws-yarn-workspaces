@@ -24,6 +24,12 @@ const _defaultCopyStaticFiles = [
     ['tsc-multi.json.tpl', 'file/tsc-multi.json.tpl', 'tsc-multi.json'],
     ['test/__root.ts', 'file/test/__root.ts'],
     ['test/fixtures/.gitkeep', 'file/test/fixtures/.gitkeep'],
+    ...([
+        'temp.ts',
+    ].map(file => [
+        `test/${file}`,
+        `file/test/${file}`
+    ])),
     //['changelog-option.js.tpl', 'file/changelog-option.js', 'changelog-option.js'],
 ];
 const _defaultCopyStaticFilesRootOnly = [
@@ -34,6 +40,11 @@ const _defaultCopyStaticFilesRootOnly = [
     ['.github/workflows/build.yml', 'file/github/workflows/build.yml'],
     ['.github/workflows/yarn-lock-changes.yml', 'file/github/workflows/yarn-lock-changes.yml'],
     ['.github/commit-convention.md', 'file/github/commit-convention.md'],
+    ...([
+        'dependabot.yml',
+        'workflows/codeql-analysis.yml',
+    ].map(file => [`.github/${file}`, `file/github/${file}`])),
+    ['.node-version', 'file/node-version'],
     ['tsconfig.json', 'file/tsconfig.json.tpl', 'tsconfig.json'],
     ['.eslintrc.json', 'file/eslintrc.json.tpl', '.eslintrc.json'],
     //['changelog-option.js', 'file/changelog-option.js', 'changelog-option.js.tpl'],

@@ -1,4 +1,4 @@
-import { _Key, IStaticFilesKey, IStaticFilesMapArray } from './types';
+import { _Key, IStaticFilesKey, IStaticFilesMapArray, IStaticFilesMapArrayEntry } from './types';
 
 const _defaultCopyStaticFiles = [
 
@@ -41,9 +41,16 @@ const _defaultCopyStaticFiles = [
 	['test/__root.ts', 'file/test/__root.ts'],
 	['test/fixtures/.gitkeep', 'file/test/fixtures/.gitkeep'],
 
+	...(([
+		'temp.ts',
+	] as const).map(file => [
+		`test/${file}`,
+		`file/test/${file}`
+	] as const satisfies IStaticFilesMapArrayEntry<string>)),
+
 	//['changelog-option.js.tpl', 'file/changelog-option.js', 'changelog-option.js'],
 
-] as const;
+] as const satisfies IStaticFilesMapArray<string>;
 
 const _defaultCopyStaticFilesRootOnly = [
 
@@ -60,6 +67,13 @@ const _defaultCopyStaticFilesRootOnly = [
 	['.github/workflows/yarn-lock-changes.yml', 'file/github/workflows/yarn-lock-changes.yml'],
 
 	['.github/commit-convention.md', 'file/github/commit-convention.md'],
+
+	...(([
+		'dependabot.yml',
+		'workflows/codeql-analysis.yml',
+	] as const).map(file => [`.github/${file}`, `file/github/${file}`] as const satisfies IStaticFilesMapArrayEntry<string>)),
+
+	['.node-version', 'file/node-version'],
 
 	['tsconfig.json', 'file/tsconfig.json.tpl', 'tsconfig.json'],
 
@@ -79,7 +93,7 @@ const _defaultCopyStaticFilesRootOnly = [
 
 	['global.tsdx.d.ts', 'file/root/global.tsdx.d.ts'],
 
-] as const;
+] as const satisfies IStaticFilesMapArray<string>;
 
 const _defaultCopyStaticFilesWsRootOnly = [
 
@@ -98,7 +112,7 @@ const _defaultCopyStaticFilesWsRootOnly = [
 
 	['.run/lerna_publish_yes.run.xml', 'file/ws-root/.run/lerna_publish_yes.run.xml'],
 
-] as const;
+] as const satisfies IStaticFilesMapArray<string>;
 
 export const defaultCopyStaticFiles = Object.freeze(_defaultCopyStaticFiles) as any as IStaticFilesMapArray<_Key<typeof _defaultCopyStaticFiles>>;
 

@@ -22,6 +22,8 @@ jobs:
       
     steps:
       - uses: actions/checkout@main
+        fetch-depth: 2
+        token: ${{ secrets.GITHUB_TOKEN }}
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@main
         with:

@@ -225,3 +225,6 @@ dist/*.umd.*.*s
 /file/tsdx/index.d.cts
 /file/test/__root.d.ts
 /file/test/__root.js
+/file/test/*.d.ts
+/file/test/*.js
+/file/test/*.js.map

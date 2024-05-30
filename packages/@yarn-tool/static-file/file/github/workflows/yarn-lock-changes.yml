@@ -1,5 +1,6 @@
 name: Yarn Lock Changes
 on:
+  workflow_dispatch:
   pull_request:
     paths:
       - yarn.lock
@@ -17,6 +18,8 @@ jobs:
       -
         name: Checkout
         uses: actions/checkout@v3
+        fetch-depth: 2
+        token: ${{ secrets.GITHUB_TOKEN }}
       -
         name: Yarn Lock Changes
         # Please use `main` as version before the stable release will be published as `v1`.

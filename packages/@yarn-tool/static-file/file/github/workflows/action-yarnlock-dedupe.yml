@@ -9,11 +9,6 @@ on:
 #      - next
 #      - canary
   pull_request:
-    branches:
-      - master
-      - main
-      - next
-      - canary
     paths:
       - yarn.lock
 
@@ -23,6 +18,9 @@ jobs:
     #if: "contains(github.event.head_commit.message, '[skip ci]')"
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: yarn.lock deduplication
         uses: bluelovers/action-yarnlock-dedupe@v1
       - name: commit yarn.lock
