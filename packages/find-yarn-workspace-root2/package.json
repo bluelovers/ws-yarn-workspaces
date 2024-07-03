@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "micromatch": "^4.0.5",
-    "pkg-dir": "<6 >=5",
+    "pkg-dir": "^8.0.0",
     "tslib": ">=2",
     "upath2": "^3.1.19"
   },
