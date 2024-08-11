@@ -71,6 +71,7 @@ const _defaultCopyStaticFilesRootOnly = [
 	...(([
 		'dependabot.yml',
 		'workflows/codeql-analysis.yml',
+		'workflows/cmd-rebase.yml',
 	] as const).map(file => [`.github/${file}`, `file/github/${file}`] as const satisfies IStaticFilesMapArrayEntry<string>)),
 
 	['.node-version', 'file/node-version'],

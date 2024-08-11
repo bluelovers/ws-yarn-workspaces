@@ -43,6 +43,7 @@ const _defaultCopyStaticFilesRootOnly = [
     ...([
         'dependabot.yml',
         'workflows/codeql-analysis.yml',
+        'workflows/cmd-rebase.yml',
     ].map(file => [`.github/${file}`, `file/github/${file}`])),
     ['.node-version', 'file/node-version'],
     ['tsconfig.json', 'file/tsconfig.json.tpl', 'tsconfig.json'],
