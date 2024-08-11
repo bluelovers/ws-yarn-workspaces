@@ -1,2 +1,4 @@
 registry=https://registry.npmjs.org/
 color=always
+package-manager-strict=false
+public-hoist-pattern[]=@types/*
