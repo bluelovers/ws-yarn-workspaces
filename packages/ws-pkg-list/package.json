@@ -58,7 +58,7 @@
     "array-hyper-unique": "^2.1.6",
     "find-yarn-workspace-root2": "^1.2.50",
     "fs-extra": "^11.2.0",
-    "micromatch": "^4.0.5",
+    "micromatch": "^4.0.7",
     "ts-type": "^3.0.1",
     "tslib": ">=2",
     "upath2": "^3.1.19",

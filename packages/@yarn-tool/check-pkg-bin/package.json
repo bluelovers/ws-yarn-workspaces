@@ -51,7 +51,7 @@
     "@yarn-tool/get-pkg-bin": "^2.0.12",
     "@yarn-tool/shebang": "^1.0.20",
     "@yarn-tool/table": "^2.0.14",
-    "cli-table3": "^0.6.4",
+    "cli-table3": "^0.6.5",
     "debug-color2": "^1.3.2",
     "fs-extra": "^11.2.0",
     "pkg-dir": "<6 >=5",

@@ -74,7 +74,7 @@
     "debug-color2": "^1.3.2",
     "fs-extra": "^11.2.0",
     "fs-remove-extra": "^1.0.4",
-    "lazy-aggregate-error": "^1.0.20",
+    "lazy-aggregate-error": "^1.0.21",
     "lodash": "^4.17.21",
     "npm-package-json-loader": "^3.0.2",
     "progress-estimator": "^0.3.1",

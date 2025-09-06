@@ -59,7 +59,7 @@
     "bluebird": "^3.7.2",
     "npm-check-updates": "<12 >=11.8.5",
     "package-json": "<7 >=6.5",
-    "semver": "^7.6.0",
+    "semver": "^7.7.2",
     "ts-type": "^3.0.1",
     "tslib": ">=2"
   },

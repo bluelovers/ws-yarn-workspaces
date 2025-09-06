@@ -50,7 +50,7 @@
     "@yarn-tool/yarnlock-diff": "^3.0.2",
     "@yarn-tool/yarnlock-entries": "^3.0.2",
     "debug-color2": "^1.3.2",
-    "semver": "^7.6.0",
+    "semver": "^7.7.2",
     "tslib": ">=2"
   },
   "publishConfig": {

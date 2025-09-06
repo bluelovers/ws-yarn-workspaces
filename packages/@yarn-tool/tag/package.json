@@ -59,7 +59,7 @@
     "pkg-dir": "<6 >=5",
     "tslib": ">=2",
     "v8-compile-cache": "^2.4.0",
-    "yargs": "*"
+    "yargs": "^17.7.2"
   },
   "publishConfig": {
     "access": "public"

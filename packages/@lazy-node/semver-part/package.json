@@ -50,11 +50,11 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "semver": "^7",
+    "semver": "^7.7.2",
     "tslib": ">=2"
   },
   "peerDependencies": {
-    "semver": "^7"
+    "semver": "^7.7.2"
   },
   "publishConfig": {
     "access": "public"

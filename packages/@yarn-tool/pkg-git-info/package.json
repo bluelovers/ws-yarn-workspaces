@@ -41,7 +41,7 @@
   "dependencies": {
     "@git-lazy/info": "^1.0.43",
     "@types/hosted-git-info": "^3.0.5",
-    "hosted-git-info": "^7.0.1",
+    "hosted-git-info": "^7.0.2",
     "tslib": ">=2"
   },
   "engines": {
