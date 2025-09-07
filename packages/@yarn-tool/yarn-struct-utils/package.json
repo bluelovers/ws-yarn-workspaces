@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarn-struct-utils",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "",
   "keywords": [
     "yarn",
@@ -73,7 +73,7 @@
   },
   "dependencies": {
     "@yarn-tool/pkg-name-util": "^1.0.8",
-    "@yarn-tool/yarnlock-parse-raw": "^2.0.2",
+    "@yarn-tool/yarnlock-parse-raw": "^2.0.3",
     "@yarnpkg/core": "^4.1.2",
     "tslib": ">=2"
   },

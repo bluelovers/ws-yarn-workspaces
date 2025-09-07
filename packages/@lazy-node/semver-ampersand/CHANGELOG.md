@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/@lazy-node/semver-ampersand@3.0.2...@lazy-node/semver-ampersand@3.0.3) (2025-09-07)
+
+
+
+### 🐛　Bug Fixes
+
+* override readonly range ([f5cf67e](https://github.com/bluelovers/ws-yarn-workspaces/commit/f5cf67eae86eb61892ca814d7fc24ecb076c769f))
+
+
+### 📌　Dependencies
+
+* fix and update deps avoid use yargs@18 ([5ed9a5c](https://github.com/bluelovers/ws-yarn-workspaces/commit/5ed9a5cd953eeebd28d4ee970e99bed6fb966317))
+
+
+
 ## [3.0.2](https://github.com/bluelovers/ws-yarn-workspaces/compare/@lazy-node/semver-ampersand@3.0.1...@lazy-node/semver-ampersand@3.0.2) (2024-05-03)
 
 

@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/sort-package-json-exports@1.0.3...@yarn-tool/sort-package-json-exports@1.0.4) (2025-09-07)
+
+
+### BREAKING CHANGES
+
+* 暫時性停用 test 與 build 來強制使版本發布成功
+
+
+
+### 🔖　Miscellaneous
+
+* 暫時性停用 test 與 build 來強制使版本發布成功 ([946521d](https://github.com/bluelovers/ws-yarn-workspaces/commit/946521d11511bb65d5ac94233871f68e92589b2e))
+
+
+
 ## [1.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/sort-package-json-exports@1.0.2...@yarn-tool/sort-package-json-exports@1.0.3) (2024-05-03)
 
 

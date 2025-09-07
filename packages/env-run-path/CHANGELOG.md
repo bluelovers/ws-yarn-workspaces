@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.20](https://github.com/bluelovers/ws-yarn-workspaces/compare/env-run-path@2.0.19...env-run-path@2.0.20) (2025-09-07)
+
+
+
+### 🛠　Build System
+
+* update build ([29d39a7](https://github.com/bluelovers/ws-yarn-workspaces/commit/29d39a7b06544a59a7624dfd4d2d33ed08c1b379))
+
+
+
 ## [2.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/env-run-path@2.0.18...env-run-path@2.0.19) (2024-05-03)
 
 

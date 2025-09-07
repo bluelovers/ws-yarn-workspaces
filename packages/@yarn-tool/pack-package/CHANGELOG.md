@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pack-package@3.0.2...@yarn-tool/pack-package@3.0.3) (2025-09-07)
+
+
+### BREAKING CHANGES
+
+* 暫時性停用 test 與 build 來強制使版本發布成功
+
+
+
+### 📌　Dependencies
+
+* fix and update deps avoid use yargs@18 ([5ed9a5c](https://github.com/bluelovers/ws-yarn-workspaces/commit/5ed9a5cd953eeebd28d4ee970e99bed6fb966317))
+
+
+### 🔖　Miscellaneous
+
+* 暫時性停用 test 與 build 來強制使版本發布成功 ([946521d](https://github.com/bluelovers/ws-yarn-workspaces/commit/946521d11511bb65d5ac94233871f68e92589b2e))
+
+
+
 ## [3.0.2](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pack-package@3.0.1...@yarn-tool/pack-package@3.0.2) (2024-05-03)
 
 

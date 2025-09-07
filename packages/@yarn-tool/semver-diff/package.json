@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/semver-diff",
-  "version": "2.0.12",
+  "version": "2.0.13",
   "description": "colorize semver diff",
   "keywords": [
     "semver",
@@ -43,7 +43,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@lazy-node/semver-part": "^1.0.22",
+    "@lazy-node/semver-part": "^1.0.23",
     "debug-color2": "^1.3.2",
     "ts-type": "^3.0.1",
     "tslib": ">=2"

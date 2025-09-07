@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.3...@yarn-tool/static-file@3.0.4) (2025-09-07)
+
+
+
+### ⚙️　Continuous Integration
+
+* comment - Automatic Rebase ([55fc9a2](https://github.com/bluelovers/ws-yarn-workspaces/commit/55fc9a20dbf31883cf36ece29a3dcb64cf2f024e))
+
+
+### ♻️　Chores
+
+* update pnpm config ([7b529b3](https://github.com/bluelovers/ws-yarn-workspaces/commit/7b529b37af6f53550025143a54714fa07013c6a4))
+* add new static files ([994fcef](https://github.com/bluelovers/ws-yarn-workspaces/commit/994fcef7ae3af7d102cfa837bbf0678102b44910))
+
+
+
 ## [3.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.2...@yarn-tool/static-file@3.0.3) (2024-05-03)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarnlock-parse-raw",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Parse and/or write yarn.lock files all version",
   "keywords": [
     "yarn",

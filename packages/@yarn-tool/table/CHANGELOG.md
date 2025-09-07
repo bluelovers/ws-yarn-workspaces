@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.15](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/table@2.0.14...@yarn-tool/table@2.0.15) (2025-09-07)
+
+
+
+### 🚨　Tests
+
+* **snap:** update snap ([354063c](https://github.com/bluelovers/ws-yarn-workspaces/commit/354063c97e31e0e27180ae586f17d05f874affa9))
+
+
+### 📌　Dependencies
+
+* fix and update deps avoid use yargs@18 ([5ed9a5c](https://github.com/bluelovers/ws-yarn-workspaces/commit/5ed9a5cd953eeebd28d4ee970e99bed6fb966317))
+
+
+
 ## [2.0.14](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/table@2.0.13...@yarn-tool/table@2.0.14) (2024-05-03)
 
 

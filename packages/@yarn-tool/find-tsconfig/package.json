@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/find-tsconfig",
-  "version": "2.0.14",
+  "version": "2.0.15",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/find-tsconfig#readme",
   "bugs": {
@@ -31,7 +31,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/find-root": "^2.0.14",
+    "@yarn-tool/find-root": "^2.0.15",
     "tsconfig": "^7.0.0",
     "tslib": ">=2"
   },

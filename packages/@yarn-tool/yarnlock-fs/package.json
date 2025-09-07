@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarnlock-fs",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "read/write yarnlock v1 and berry",
   "keywords": [
     "yarn",
@@ -44,8 +44,8 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/yarnlock-parse": "^3.0.2",
-    "@yarn-tool/yarnlock-stringify": "^2.0.2",
+    "@yarn-tool/yarnlock-parse": "^3.0.3",
+    "@yarn-tool/yarnlock-stringify": "^2.0.3",
     "fs-extra": "^11.2.0",
     "tslib": ">=2"
   },
