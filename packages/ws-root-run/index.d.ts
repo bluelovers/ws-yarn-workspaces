@@ -4,20 +4,20 @@ export declare function spawnWsRootRun(argv: string[], opts?: {
     cwd?: string;
     npmClient?: INpmClient;
     spawnOptions?: SpawnOptions;
-}): SpawnASyncReturnsPromise<Buffer>;
+}): SpawnASyncReturnsPromise<Buffer<ArrayBufferLike>>;
 export declare function spawnWsRootExec(argv: string[], opts?: {
     cwd?: string;
     npmClient?: INpmClient;
     spawnOptions?: SpawnOptions;
-}): SpawnASyncReturnsPromise<Buffer>;
+}): SpawnASyncReturnsPromise<Buffer<ArrayBufferLike>>;
 export declare function spawnWsRootRunSync(argv: string[], opts?: {
     cwd?: string;
     npmClient?: INpmClient;
     spawnOptions?: SpawnSyncOptions;
-}): SpawnSyncReturns<Buffer>;
+}): SpawnSyncReturns<Buffer<ArrayBufferLike>>;
 export declare function spawnWsRootExecSync(argv: string[], opts?: {
     cwd?: string;
     npmClient?: INpmClient;
     spawnOptions?: SpawnSyncOptions;
-}): SpawnSyncReturns<Buffer>;
+}): SpawnSyncReturns<Buffer<ArrayBufferLike>>;
 export default spawnWsRootRun;

@@ -51,18 +51,18 @@ export declare function _createError(err: IErrnoException, data: {
 /**
  * find module by exports
  */
-export declare function getModuleByExports<T = any>(exportModule: T, req?: NodeRequire): INodeModule<T>;
+export declare function getModuleByExports<T = any>(exportModule: T, req?: NodeJS.Require): INodeModule<T>;
 /**
  * find module by full file path
  */
-export declare function getModuleByFile<T = any>(file: string, requireIfNotExists?: boolean, req?: NodeRequire): INodeModule<T>;
+export declare function getModuleByFile<T = any>(file: string, requireIfNotExists?: boolean, req?: NodeJS.Require): INodeModule<T>;
 export interface INodeRequireCache {
     [k: string]: NodeModule;
 }
 /**
  * return require.cache for typescript
  */
-export declare function getRequireCache(req?: NodeRequire): INodeRequireCache;
+export declare function getRequireCache(req?: NodeJS.Require): INodeRequireCache;
 export interface INodeModule<T = any> extends NodeModule {
     exports: T;
     require: NodeRequire;
@@ -80,5 +80,5 @@ export declare function getMainModule<T = any>(id?: string): INodeModule<T>;
 /**
  * get module by package id like require(id)
  */
-export declare function getModuleByID<T = any>(id: string, requireIfNotExists?: boolean, req?: NodeRequire): INodeModule<T>;
+export declare function getModuleByID<T = any>(id: string, requireIfNotExists?: boolean, req?: NodeJS.Require): INodeModule<T>;
 export default requireFromTopParent;

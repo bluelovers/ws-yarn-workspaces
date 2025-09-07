@@ -10,7 +10,11 @@ export declare class WorkspacesScope {
     resolvePath(...paths: [string, ...string[]]): string;
     add(scope: string): string;
     remove(scope: string): string;
-    sync(): void;
+    /**
+     * @deprecated
+     * @alias syncValue
+     */
+    sync(): string[];
     save(): void;
     get value(): string[];
     syncValue(): string[];

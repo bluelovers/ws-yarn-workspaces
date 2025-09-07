@@ -6,6 +6,6 @@ export declare function initWithPreserveDeps({ npmClient, cwd, args, old_pkg, pk
     old_pkg: IPackageJson;
     pkg_file_path: string;
 }): {
-    cp: import("cross-spawn-extra").SpawnSyncReturns<Buffer>;
+    cp: import("cross-spawn-extra").SpawnSyncReturns<Buffer<ArrayBufferLike>>;
 };
 export default initWithPreserveDeps;

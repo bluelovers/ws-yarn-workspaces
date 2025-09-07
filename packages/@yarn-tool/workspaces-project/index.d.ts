@@ -40,18 +40,18 @@ export declare class WorkspacesProject {
     }, {
         concurrency?: number;
         bump?: IReleaseType;
-        allowBranch?: string[];
+        allowBranch?: import("@ts-type/package-dts/lib/types").IBranch[];
         conventionalCommits?: boolean;
-        changelogPreset?: string;
+        changelogPreset?: string | "@bluelovers/conventional-changelog-bluelovers";
         exact?: boolean;
         createRelease?: "gitlab" | "github";
         noPrivate?: boolean;
     }> & Pick<{
         concurrency?: number;
         bump?: IReleaseType;
-        allowBranch?: string[];
+        allowBranch?: import("@ts-type/package-dts/lib/types").IBranch[];
         conventionalCommits?: boolean;
-        changelogPreset?: string;
+        changelogPreset?: string | "@bluelovers/conventional-changelog-bluelovers";
         exact?: boolean;
         createRelease?: "gitlab" | "github";
         noPrivate?: boolean;
@@ -66,9 +66,9 @@ export declare class WorkspacesProject {
     }, {
         concurrency?: number;
         bump?: IReleaseType;
-        allowBranch?: string[];
+        allowBranch?: import("@ts-type/package-dts/lib/types").IBranch[];
         conventionalCommits?: boolean;
-        changelogPreset?: string;
+        changelogPreset?: string | "@bluelovers/conventional-changelog-bluelovers";
         exact?: boolean;
         createRelease?: "gitlab" | "github";
         noPrivate?: boolean;
@@ -81,18 +81,18 @@ export declare class WorkspacesProject {
         bump?: IReleaseType;
         conventionalCommits?: boolean;
         conventionalGraduate?: boolean;
-        distTag?: string;
-        npmClient?: string;
-        allowBranch?: string[];
+        distTag?: import("@yarn-tool/ncu").IPackageJsonTag;
+        npmClient?: import("@ts-type/package-dts/lerna-json").INpmClient;
+        allowBranch?: import("@ts-type/package-dts/lib/types").IBranch[];
         noPrivate?: boolean;
     }> & Pick<{
         concurrency?: number;
         bump?: IReleaseType;
         conventionalCommits?: boolean;
         conventionalGraduate?: boolean;
-        distTag?: string;
-        npmClient?: string;
-        allowBranch?: string[];
+        distTag?: import("@yarn-tool/ncu").IPackageJsonTag;
+        npmClient?: import("@ts-type/package-dts/lerna-json").INpmClient;
+        allowBranch?: import("@ts-type/package-dts/lib/types").IBranch[];
         noPrivate?: boolean;
     } | {
         [k: string]: unknown;
@@ -107,13 +107,13 @@ export declare class WorkspacesProject {
         bump?: IReleaseType;
         conventionalCommits?: boolean;
         conventionalGraduate?: boolean;
-        distTag?: string;
-        npmClient?: string;
-        allowBranch?: string[];
+        distTag?: import("@yarn-tool/ncu").IPackageJsonTag;
+        npmClient?: import("@ts-type/package-dts/lerna-json").INpmClient;
+        allowBranch?: import("@ts-type/package-dts/lib/types").IBranch[];
         noPrivate?: boolean;
     }>>, {
-        changelogPreset: unknown;
-        conventionalGraduate: unknown;
+        changelogPreset: import("@ts-type/package-dts/lerna-json").ILernaJsonCommand["version"]["changelogPreset"];
+        conventionalGraduate: import("@ts-type/package-dts/lerna-json").ILernaJsonCommand["publish"]["conventionalGraduate"];
         bump: IReleaseType;
     }>;
     existsLernaConfigFile(): boolean;

@@ -20,7 +20,7 @@ export declare function processRunPath<P = ProcessEnv>(options?: IOptionsGetRunP
     result: string;
     processEnv: P;
     pathKey: string;
-    delimiter: ":" | ";";
+    delimiter: ";" | ":";
 };
 export interface IOptionsGetRunPathEnv<P = ProcessEnv> extends IOptionsGetRunPath<P> {
     overwrite?: boolean;

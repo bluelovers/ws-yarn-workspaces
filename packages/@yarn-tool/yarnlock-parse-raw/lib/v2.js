@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.parseYarnLockRawV2Root = void 0;
 exports.parseYarnLockRawV2 = parseYarnLockRawV2;
 exports.parseYarnLockRawV2Root = parseYarnLockRawV2;
 exports.getYarnLockRawV2Root = getYarnLockRawV2Root;
