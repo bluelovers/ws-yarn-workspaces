@@ -2,4 +2,4 @@
 
 exports[`createDependencyTable 1`] = `Table []`;
 
-exports[`createDependencyTable 2`] = `" package name  old version(s)    new version(s) "`;
+exports[`createDependencyTable 2`] = `"[31m package name [39m[31m old version(s) [39m[31m  [39m[31m new version(s) [39m"`;
