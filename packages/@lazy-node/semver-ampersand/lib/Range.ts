@@ -23,13 +23,14 @@ export class SemverRange<RAW extends ISemverRangeInput> extends classWithoutCall
 {
 	readonly rawSource?: RAW;
 
-	override readonly range: string;
 	override readonly raw: string;
 	override readonly set: IComparatorSet;
 
 	override readonly options: IOptions;
 	override readonly loose: boolean;
 	override readonly includePrerelease: boolean;
+
+	protected readonly formatted: string;
 
 	constructor(rawSource: RAW, optionsOrLoose?: IOptionsOrLoose<IOptions>)
 	{
@@ -139,11 +140,18 @@ export class SemverRange<RAW extends ISemverRangeInput> extends classWithoutCall
 		_copyOptions(this, options);
 	}
 
-	override format()
+	// @ts-ignore
+	override get range()
 	{
-		(this as any as semverRange).range = stringifyComparatorsSet(this.set);
-		return this.range
+		// @ts-ignore
+		this.formatted = stringifyComparatorsSet(this.set);
+		return this.formatted
 	}
+
+//	override format()
+//	{
+//		return this.range
+//	}
 
 	/**
 	 * Return '*' instead of '' so that truthiness works.

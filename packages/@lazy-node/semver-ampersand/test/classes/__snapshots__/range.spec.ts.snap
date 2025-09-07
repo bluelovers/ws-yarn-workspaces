@@ -2,13 +2,13 @@
 
 exports[`range as argument to range ctor 1`] = `
 SemverRange {
+  "formatted": "1.2.3",
   "includePrerelease": false,
   "loose": true,
   "options": {
     "includePrerelease": false,
     "loose": true,
   },
-  "range": "1.2.3",
   "raw": "1.2.3",
   "set": [
     [
@@ -42,13 +42,13 @@ SemverRange {
 
 exports[`range as argument to range ctor 2`] = `
 SemverRange {
+  "formatted": "1.2.3",
   "includePrerelease": true,
   "loose": false,
   "options": {
     "includePrerelease": true,
     "loose": false,
   },
-  "range": "1.2.3",
   "raw": "1.2.3",
   "set": [
     [

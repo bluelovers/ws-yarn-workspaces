@@ -2,13 +2,13 @@
 
 exports[`check cache is work 1`] = `
 SemverRange {
+  "formatted": ">1.2.3",
   "includePrerelease": false,
   "loose": true,
   "options": {
     "includePrerelease": false,
     "loose": true,
   },
-  "range": ">1.2.3",
   "raw": ">01.02.03",
   "set": [
     [

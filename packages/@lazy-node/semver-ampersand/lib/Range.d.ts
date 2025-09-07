@@ -4,12 +4,12 @@ import { Comparator } from 'semver';
 declare const SemverRange_base: typeof semverRange & (new () => semverRange);
 export declare class SemverRange<RAW extends ISemverRangeInput> extends SemverRange_base {
     readonly rawSource?: RAW;
-    readonly range: string;
     readonly raw: string;
     readonly set: IComparatorSet;
     readonly options: IOptions;
     readonly loose: boolean;
     readonly includePrerelease: boolean;
+    protected readonly formatted: string;
     constructor(rawSource: RAW, optionsOrLoose?: IOptionsOrLoose<IOptions>);
     protected _buildComparatorsSet(range: string, options: IOptions): IComparatorSetInput;
     parseRange(range: string): readonly Comparator[];
@@ -19,7 +19,7 @@ export declare class SemverRange<RAW extends ISemverRangeInput> extends SemverRa
         set: readonly (readonly Comparator[])[];
     };
     protected _inheritOptions(options: IOptions): void;
-    format(): string;
+    get range(): string;
     /**
      * Return '*' instead of '' so that truthiness works.
      */

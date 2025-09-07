@@ -85,10 +85,16 @@ class SemverRange extends (0, class_without_call_parent_constructor_1.classWitho
         this.options = options;
         (0, options_1._copyOptions)(this, options);
     }
-    format() {
-        this.range = (0, stringifyComparators_1.stringifyComparatorsSet)(this.set);
-        return this.range;
+    // @ts-ignore
+    get range() {
+        // @ts-ignore
+        this.formatted = (0, stringifyComparators_1.stringifyComparatorsSet)(this.set);
+        return this.formatted;
     }
+    //	override format()
+    //	{
+    //		return this.range
+    //	}
     /**
      * Return '*' instead of '' so that truthiness works.
      */
