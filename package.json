@@ -89,6 +89,7 @@
   },
   "resolutions": {},
   "dependencies": {
+    "@lerna/conventional-commits": "^6.4.1",
     "array-hyper-unique": "^2.1.6",
     "chalk": "< 3 >= 2",
     "crlf-normalize": "^1.0.20",
