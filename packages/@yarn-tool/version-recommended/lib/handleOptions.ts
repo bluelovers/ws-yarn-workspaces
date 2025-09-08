@@ -1,8 +1,9 @@
 import { INextVersionRecommendedOptions, IPreReleaseType, IResultDetectPreid, releaseTypes } from './types';
 import { parse, ReleaseType } from 'semver';
 import { IdentifierBase } from 'semver/functions/inc';
+import WorkspacesProject from '@yarn-tool/workspaces-project';
 
-export function handleOptions(options?: INextVersionRecommendedOptions, oldVersion?: string)
+export function handleOptions(options?: INextVersionRecommendedOptions, oldVersion?: string, wsProject?: WorkspacesProject)
 {
 	options = {
 		...options,
@@ -36,7 +37,7 @@ export function handleOptions(options?: INextVersionRecommendedOptions, oldVersi
 		}
 	}
 
-	options.bump = bump;
+	options.bump = bump ?? wsProject?.bump;
 
 	/*
 	for (let type of releaseTypes)

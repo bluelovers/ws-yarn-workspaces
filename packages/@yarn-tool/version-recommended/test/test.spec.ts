@@ -9,11 +9,39 @@ import { nextVersionRecommended } from '../lib/nextVersionRecommended';
 import { detectPreidByVersion, handleOptions, releaseTypesIsPre } from '../lib/handleOptions';
 import { parse, ReleaseType } from 'semver';
 import { inc as semverIncrement } from 'semver';
+import { nextVersionRecommendedByPackageFindUp } from '../lib/pkg';
 
 beforeAll(async () =>
 {
 
 });
+
+describe('nextVersionRecommendedByPackageFindUp', () =>
+{
+	describe.each([...releaseTypes])('bump: %j', (bump) =>
+	{
+		if (bump)
+		{
+			test(`bump: ${bump}`, () =>
+			{
+				let actual = nextVersionRecommendedByPackageFindUp({
+					bump,
+				});
+
+				expect(actual).toHaveProperty('bump', bump)
+			})
+
+			test(`flag: ${bump}`, () =>
+			{
+				let actual = nextVersionRecommendedByPackageFindUp({
+					[bump]: true,
+				});
+
+				expect(actual).toHaveProperty('bump', bump)
+			})
+		}
+	})
+})
 
 describe('version', () =>
 {

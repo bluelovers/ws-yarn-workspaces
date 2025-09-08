@@ -1,3 +1,5 @@
 import { nextVersionRecommendedByPackageFindUp } from '../lib/pkg';
 
-console.dir(nextVersionRecommendedByPackageFindUp())
+console.dir(nextVersionRecommendedByPackageFindUp({
+	minor: true,
+}))
