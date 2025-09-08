@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/version-recommended@3.0.3...@yarn-tool/version-recommended@3.0.4) (2025-09-08)
+
+
+### BREAKING CHANGES
+
+* add workspaces project support for version bump detection
+
+
+
+### ✨　Features
+
+* add workspaces project support for version bump detection ([29bae9d](https://github.com/bluelovers/ws-yarn-workspaces/commit/29bae9d1b9a8feb3cffb9b8d7b9da23172fabfd5))
+
+
+### 🛠　Build System
+
+* update build ([0e507d1](https://github.com/bluelovers/ws-yarn-workspaces/commit/0e507d1c8e97e845be6295c8fe7141b1c8c60776))
+
+
+### 🔖　Miscellaneous
+
+* . ([b961197](https://github.com/bluelovers/ws-yarn-workspaces/commit/b96119764bec0fce1af9c3a99ccc5dd8d92cbeb7))
+* . ([c2d7c12](https://github.com/bluelovers/ws-yarn-workspaces/commit/c2d7c122e926379d7644d3eb7a73944b52f5387e))
+
+
+
 ## [3.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/version-recommended@3.0.2...@yarn-tool/version-recommended@3.0.3) (2025-09-07)
 
 
