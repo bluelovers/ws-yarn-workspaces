@@ -5731,7 +5731,7 @@ exports[`version 5.5.0 bump: "premajor" preid: undefined identifierBase: 1 nextV
 {
   "actual": {
     "bump": "premajor",
-    "newVersion": "6.0.0-1.0",
+    "newVersion": null,
     "oldVersion": "5.5.0",
   },
   "options": {
@@ -5815,7 +5815,7 @@ exports[`version 5.5.0 bump: "premajor" preid: undefined identifierBase: true ne
 {
   "actual": {
     "bump": "premajor",
-    "newVersion": "6.0.0-true.0",
+    "newVersion": null,
     "oldVersion": "5.5.0",
   },
   "options": {
@@ -7201,7 +7201,7 @@ exports[`version 5.5.0 bump: "preminor" preid: undefined identifierBase: 1 nextV
 {
   "actual": {
     "bump": "preminor",
-    "newVersion": "5.6.0-1.0",
+    "newVersion": null,
     "oldVersion": "5.5.0",
   },
   "options": {
@@ -7285,7 +7285,7 @@ exports[`version 5.5.0 bump: "preminor" preid: undefined identifierBase: true ne
 {
   "actual": {
     "bump": "preminor",
-    "newVersion": "5.6.0-true.0",
+    "newVersion": null,
     "oldVersion": "5.5.0",
   },
   "options": {
@@ -8671,7 +8671,7 @@ exports[`version 5.5.0 bump: "prepatch" preid: undefined identifierBase: 1 nextV
 {
   "actual": {
     "bump": "prepatch",
-    "newVersion": "5.5.1-1.0",
+    "newVersion": null,
     "oldVersion": "5.5.0",
   },
   "options": {
@@ -8755,7 +8755,7 @@ exports[`version 5.5.0 bump: "prepatch" preid: undefined identifierBase: true ne
 {
   "actual": {
     "bump": "prepatch",
-    "newVersion": "5.5.1-true.0",
+    "newVersion": null,
     "oldVersion": "5.5.0",
   },
   "options": {
@@ -10141,7 +10141,7 @@ exports[`version 5.5.0 bump: "prerelease" preid: undefined identifierBase: 1 nex
 {
   "actual": {
     "bump": "prerelease",
-    "newVersion": "5.5.1-1.0",
+    "newVersion": null,
     "oldVersion": "5.5.0",
   },
   "options": {
@@ -10225,7 +10225,7 @@ exports[`version 5.5.0 bump: "prerelease" preid: undefined identifierBase: true 
 {
   "actual": {
     "bump": "prerelease",
-    "newVersion": "5.5.1-true.0",
+    "newVersion": null,
     "oldVersion": "5.5.0",
   },
   "options": {
@@ -19818,7 +19818,7 @@ exports[`version 5.5.0-20240225 bump: "premajor" preid: undefined identifierBase
 {
   "actual": {
     "bump": "premajor",
-    "newVersion": "6.0.0-1.0",
+    "newVersion": null,
     "oldVersion": "5.5.0-20240225",
   },
   "options": {
@@ -19936,7 +19936,7 @@ exports[`version 5.5.0-20240225 bump: "premajor" preid: undefined identifierBase
 {
   "actual": {
     "bump": "premajor",
-    "newVersion": "6.0.0-true.0",
+    "newVersion": null,
     "oldVersion": "5.5.0-20240225",
   },
   "options": {
@@ -21883,7 +21883,7 @@ exports[`version 5.5.0-20240225 bump: "preminor" preid: undefined identifierBase
 {
   "actual": {
     "bump": "preminor",
-    "newVersion": "5.6.0-1.0",
+    "newVersion": null,
     "oldVersion": "5.5.0-20240225",
   },
   "options": {
@@ -22001,7 +22001,7 @@ exports[`version 5.5.0-20240225 bump: "preminor" preid: undefined identifierBase
 {
   "actual": {
     "bump": "preminor",
-    "newVersion": "5.6.0-true.0",
+    "newVersion": null,
     "oldVersion": "5.5.0-20240225",
   },
   "options": {
@@ -23948,7 +23948,7 @@ exports[`version 5.5.0-20240225 bump: "prepatch" preid: undefined identifierBase
 {
   "actual": {
     "bump": "prepatch",
-    "newVersion": "5.5.1-1.0",
+    "newVersion": null,
     "oldVersion": "5.5.0-20240225",
   },
   "options": {
@@ -24066,7 +24066,7 @@ exports[`version 5.5.0-20240225 bump: "prepatch" preid: undefined identifierBase
 {
   "actual": {
     "bump": "prepatch",
-    "newVersion": "5.5.1-true.0",
+    "newVersion": null,
     "oldVersion": "5.5.0-20240225",
   },
   "options": {
@@ -26013,7 +26013,7 @@ exports[`version 5.5.0-20240225 bump: "prerelease" preid: undefined identifierBa
 {
   "actual": {
     "bump": "prerelease",
-    "newVersion": "5.5.0-1.0",
+    "newVersion": null,
     "oldVersion": "5.5.0-20240225",
   },
   "options": {
@@ -26131,7 +26131,7 @@ exports[`version 5.5.0-20240225 bump: "prerelease" preid: undefined identifierBa
 {
   "actual": {
     "bump": "prerelease",
-    "newVersion": "5.5.0-true.0",
+    "newVersion": null,
     "oldVersion": "5.5.0-20240225",
   },
   "options": {
@@ -28078,7 +28078,7 @@ exports[`version 5.5.0-20240225 bump: undefined preid: undefined identifierBase:
 {
   "actual": {
     "bump": "prerelease",
-    "newVersion": "5.5.0-1.0",
+    "newVersion": null,
     "oldVersion": "5.5.0-20240225",
   },
   "options": {
@@ -28196,7 +28196,7 @@ exports[`version 5.5.0-20240225 bump: undefined preid: undefined identifierBase:
 {
   "actual": {
     "bump": "prerelease",
-    "newVersion": "5.5.0-true.0",
+    "newVersion": null,
     "oldVersion": "5.5.0-20240225",
   },
   "options": {
