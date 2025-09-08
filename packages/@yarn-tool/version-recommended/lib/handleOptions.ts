@@ -35,9 +35,13 @@ export function handleOptions(options?: INextVersionRecommendedOptions, oldVersi
 			options.preid ??= dt.preid;
 			options.identifierBase ??= dt.identifierBase;
 		}
+		else
+		{
+			bump ??= wsProject?.bump;
+		}
 	}
 
-	options.bump = bump ?? wsProject?.bump;
+	options.bump = bump;
 
 	/*
 	for (let type of releaseTypes)

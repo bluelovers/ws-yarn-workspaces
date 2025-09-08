@@ -27,8 +27,11 @@ function handleOptions(options, oldVersion, wsProject) {
             (_b = options.preid) !== null && _b !== void 0 ? _b : (options.preid = dt.preid);
             (_c = options.identifierBase) !== null && _c !== void 0 ? _c : (options.identifierBase = dt.identifierBase);
         }
+        else {
+            bump !== null && bump !== void 0 ? bump : (bump = wsProject === null || wsProject === void 0 ? void 0 : wsProject.bump);
+        }
     }
-    options.bump = bump !== null && bump !== void 0 ? bump : wsProject === null || wsProject === void 0 ? void 0 : wsProject.bump;
+    options.bump = bump;
     /*
     for (let type of releaseTypes)
     {
