@@ -5,7 +5,7 @@ exports.releaseTypesIsPre = releaseTypesIsPre;
 exports.detectPreidByVersion = detectPreidByVersion;
 const types_1 = require("./types");
 const semver_1 = require("semver");
-function handleOptions(options, oldVersion) {
+function handleOptions(options, oldVersion, wsProject) {
     var _a, _b, _c;
     options = {
         ...options,
@@ -28,7 +28,7 @@ function handleOptions(options, oldVersion) {
             (_c = options.identifierBase) !== null && _c !== void 0 ? _c : (options.identifierBase = dt.identifierBase);
         }
     }
-    options.bump = bump;
+    options.bump = bump !== null && bump !== void 0 ? bump : wsProject === null || wsProject === void 0 ? void 0 : wsProject.bump;
     /*
     for (let type of releaseTypes)
     {
