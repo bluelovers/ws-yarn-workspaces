@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/fix-ws-links",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "",
   "keywords": [],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/fix-ws-links#readme",
@@ -41,7 +41,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/fix-ws-pkgs-link": "^3.0.3",
+    "@yarn-tool/fix-ws-pkgs-link": "^3.0.4",
     "@yarn-tool/node-modules": "^3.0.3",
     "cross-spawn-extra": "^3.0.3",
     "debug-color2": "^1.3.2",
