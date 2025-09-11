@@ -17,7 +17,7 @@ function fixWorkspacesPackageLinks(cwd) {
     const listable = (0, listable_1.wsPkgListable)(rootData.root);
     return listable.filter((entry) => {
         let target = (0, path_1.join)(node_modules, entry.name);
-        if (!(0, fs_stat_1.isSymbolicLinkSync)(target) && !(0, path_is_same_1.fsSameRealpath)(target, entry.location)) {
+        if (!(0, fs_extra_1.pathExistsSync)(target) || !(0, fs_stat_1.isSymbolicLinkSync)(target) && !(0, path_is_same_1.fsSameRealpath)(target, entry.location)) {
             if ((0, fs_extra_1.pathExistsSync)(target)) {
                 (0, fs_extra_1.renameSync)(target, target + '.old_' + Math.random());
             }

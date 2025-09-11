@@ -21,7 +21,7 @@ export function fixWorkspacesPackageLinks(cwd?: string)
 
 		let target = join(node_modules, entry.name);
 
-		if (!isSymbolicLinkSync(target) && !fsSameRealpath(target, entry.location))
+		if (!pathExistsSync(target) || !isSymbolicLinkSync(target) && !fsSameRealpath(target, entry.location))
 		{
 			if (pathExistsSync(target))
 			{
