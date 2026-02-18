@@ -89,6 +89,7 @@
   },
   "resolutions": {},
   "dependencies": {
+    "@bluelovers/jest-config": "^1.1.11",
     "@lerna/conventional-commits": "^6.4.1",
     "array-hyper-unique": "^2.1.6",
     "chalk": "< 3 >= 2",

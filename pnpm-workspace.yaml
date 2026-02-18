@@ -1,0 +1,20 @@
+packages:
+  - packages/@yarn-tool/*
+  - packages/@lazy-node/*
+  # all packages in subdirs of packages/ and components/
+  - packages/*
+  # exclude packages that are inside test/ directories
+  - '!**/test/**'
+
+publicHoistPattern:
+  # - "@lazy-cjk/*"
+  # - "@node-novel/*"
+  - "@novel-segment/*"
+  - "novel-segment*"
+  - "workspace:segment-dict"
+  - "ts-type"
+  - "yargs"
+  - "@bluelovers/jest-config"
+  - "@bluelovers/string-natural-compare"
+
+linkWorkspacePackages: true
