@@ -1,7 +1,7 @@
 {
   "name": "@yarn-tool/setup-module-env",
   "version": "3.0.3",
-  "description": "",
+  "description": "用於設定 tsdx 專案環境的工具，自動配置 package.json 與靜態檔案 (Tool for setting up tsdx project environment, auto-configuring package.json and static files)",
   "keywords": [
     "yarn",
     "yarn-tool",
