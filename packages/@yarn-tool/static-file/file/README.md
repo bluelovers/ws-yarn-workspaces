@@ -8,5 +8,6 @@
 yarn add <%= name %>
 yarn-tool add <%= name %>
 yt add <%= name %>
+pnpm add <%= name %>
 ```
 
