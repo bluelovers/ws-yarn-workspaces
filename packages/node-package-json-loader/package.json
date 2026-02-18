@@ -2,7 +2,7 @@
   "name": "npm-package-json-loader",
   "version": "3.0.3",
   "private": false,
-  "description": "Find and load configuration from a package.json",
+  "description": "用於載入、處理和寫入 package.json 的工具類別，支援自動修復、排序與驗證功能",
   "keywords": [
     "conf",
     "config",
@@ -30,7 +30,6 @@
   "author": "",
   "contributors": [],
   "main": "index.js",
-  "bin": {},
   "directories": {
     "test": "test"
   },
@@ -51,7 +50,6 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "config": {},
-  "resolutions": {},
   "dependencies": {
     "@bluelovers/fs-json": "^1.0.13",
     "@ts-type/package-dts": "^2.0.8",

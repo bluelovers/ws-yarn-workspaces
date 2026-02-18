@@ -1,8 +1,18 @@
+/**
+ * @yarn-tool/fix-all/lib/pkg
+ *
+ * package.json 自動修復處理模組
+ * package.json auto-fix processing module
+ *
+ * 處理 workspace 中每個套件的迭代與修復
+ * Handles the iteration and fixing of each package in the workspace
+ */
 import { IOptionsPkgListable, normalizeListableRowExtra, wsPkgListable, wsPkgListableFromPaths } from 'ws-pkg-list';
 import { IFindRootReturnType, newFakeRootData } from '@yarn-tool/find-root';
 import { PackageJsonLoader } from 'npm-package-json-loader';
 import { pkgExportsVerify } from '@yarn-tool/pkg-entry-util';
 import { AggregateErrorExtra } from 'lazy-aggregate-error';
+// @ts-ignore
 import Bluebird from 'bluebird';
 import { createProgressEstimator } from '../util/cli-progress';
 import { consoleLogger } from 'debug-color2/logger';
@@ -25,6 +35,14 @@ import { fixTsdxPackage } from '@yarn-tool/setup-module-env/lib/preset/tsdx/fix'
 import { _resetStaticFiles } from '../file/reset';
 import { INpmAutoFixAll } from '../../index';
 
+/**
+ * 處理套件列表項目的 handler 函數
+ * Handler function for processing package list entries
+ *
+ * @param {string} cwd - 當前工作目錄 / Current working directory
+ * @param {Parameters<IOptionsPkgListable["handler"]>} argv - Handler 參數 / Handler arguments
+ * @returns {object} 處理後的項目物件 / Processed entry object
+ */
 export function _handler(cwd: string, ...argv: Parameters<IOptionsPkgListable["handler"]>)
 {
 	return {
@@ -33,13 +51,39 @@ export function _handler(cwd: string, ...argv: Parameters<IOptionsPkgListable["h
 	}
 }
 
+/**
+ * _handler 返回的項目類型
+ * Entry type returned by _handler
+ */
 export type IEntry = ReturnType<typeof _handler>
 
+/**
+ * 執行每個套件修復的選項
+ * Options for running each package fix
+ */
 export interface IOptionsRunEachPackages extends ITSRequiredPick<IFillPkgHostedInfoOptions & INpmAutoFixAll, 'overwriteHostedGitInfo' | 'branch' | 'rootData' | 'hostedGitInfo' | 'resetStaticFiles'>
 {
 
 }
 
+/**
+ * 非同步執行每個套件的修復操作
+ * Run fix operations on each package asynchronously
+ *
+ * 對每個套件執行以下操作：
+ * Performs the following operations on each package:
+ * 1. 驗證套件匯出 / Verify package exports
+ * 2. 填充託管 git 資訊 / Fill hosted git info
+ * 3. 修復 tsdx 套件（如適用）/ Fix tsdx package (if applicable)
+ * 4. 修復依賴版本 / Fix dependency versions
+ * 5. 標準化依賴值 / Normalize dependency values
+ * 6. 設定預設腳本 / Set default scripts
+ * 7. 排序並寫入 package.json / Sort and write package.json
+ *
+ * @param {IEntry[]} list - 套件項目列表 / List of package entries
+ * @param {IOptionsRunEachPackages} options - 修復操作的選項 / Options for the fix operation
+ * @returns {Bluebird<void>} Promise 物件 / Promise object
+ */
 export function _runEachPackagesAsync(list: IEntry[],
 	options: IOptionsRunEachPackages,
 )
@@ -53,11 +97,13 @@ export function _runEachPackagesAsync(list: IEntry[],
 	} = options;
 
 	let logger: ProgressEstimator;
+	// 依賴版本修復的快取 / Cache for dependency version fixing
 	let cache: ICacheInput<IEntry> = {} as any;
 
 	return Bluebird.resolve(list)
 		.tap((listable) =>
 		{
+			// 建立進度估計器 / Create progress estimator
 			logger = createProgressEstimator(rootData.root);
 
 			consoleLogger.info(`auto check/fix packages`);
@@ -67,20 +113,22 @@ export function _runEachPackagesAsync(list: IEntry[],
 		})
 		.mapSeries(async (row) =>
 		{
-			//console.dir(row);
-
+			// 錯誤收集器 / Error aggregator for collecting errors
 			const err = new AggregateErrorExtra();
 
 			const promiseLogger = logger((async () =>
 			{
+				// 為套件建立假的根資料 / Create fake root data for the package
 				const _rootDataFake = newFakeRootData(rootData, {
 					pkg: row.location,
 				});
 
 				const { isRoot, isWorkspace } = _rootDataFake;
 
+				// 載入 package.json / Load package.json
 				const pkg = new PackageJsonLoader(row.manifestLocation);
 
+				// 若選項啟用則重置靜態檔案 / Reset static files if option enabled
 				if (resetStaticFiles)
 				{
 					_resetStaticFiles(_rootDataFake.pkg, {
@@ -88,6 +136,7 @@ export function _runEachPackagesAsync(list: IEntry[],
 					});
 				}
 
+				// 複製靜態檔案到套件目錄 / Copy static files to package directory
 				const file_map = getRootCopyStaticFilesAuto(_rootDataFake);
 
 				copyStaticFiles({
@@ -95,6 +144,7 @@ export function _runEachPackagesAsync(list: IEntry[],
 					file_map,
 				});
 
+				// 驗證套件匯出 / Verify package exports
 				try
 				{
 					pkgExportsVerify(pkg.data, {
@@ -106,6 +156,7 @@ export function _runEachPackagesAsync(list: IEntry[],
 					err.push(e);
 				}
 
+				// 填充託管 git 資訊（homepage, repository, bugs）/ Fill hosted git info
 				fillPkgHostedInfo(pkg.data, {
 					targetDir: row.location,
 					overwriteHostedGitInfo,
@@ -113,6 +164,7 @@ export function _runEachPackagesAsync(list: IEntry[],
 					branch,
 				});
 
+				// 若適用則修復 tsdx 套件 / Fix tsdx package if applicable
 				if (isTsdxPackage(pkg.data))
 				{
 					fixTsdxPackage(pkg.data, {
@@ -120,8 +172,10 @@ export function _runEachPackagesAsync(list: IEntry[],
 					});
 				}
 
+				// 修復依賴版本 / Fix dependency versions
 				fixPkgDepsVersionsCore(pkg.data, cache);
 
+				// 標準化依賴值 / Normalize dependency values
 				packageJsonDependenciesFields
 					.forEach(field => {
 
@@ -135,30 +189,42 @@ export function _runEachPackagesAsync(list: IEntry[],
 					})
 				;
 
+				// 設定預設腳本 / Set default scripts
 				pkg.data.scripts = {
 					...defaultPkgScripts(),
 					...(pkg.data.scripts ?? {}),
 				};
 
+				// 處理根套件與非根套件 / Handle root vs non-root packages
 				if (isRoot)
 				{
 					if (isWorkspace)
 					{
-
+						// Workspace 根套件 - 無特殊處理 / Workspace root - no special handling
 					}
 					else
 					{
-
+						// 單一套件根 - 無特殊處理 / Single package root - no special handling
 					}
 				}
 				else
 				{
+					// 非根套件：修復 preversion 腳本並移除 packageManager
+					// Non-root package: fix preversion script and remove packageManager
 					if (!pkg.data.scripts['_preversion']?.length && isDummyEchoMaybeOrEmpty(pkg.data.scripts.preversion))
 					{
 						pkg.data.scripts.preversion = EnumScriptsEntry.preversion;
 					}
+
+					// 從非根套件移除 packageManager 欄位
+					// Remove packageManager field from non-root packages
+					if (pkg.data['packageManager'])
+					{
+						delete pkg.data['packageManager'];
+					}
 				}
 
+				// 排序並寫入 package.json / Sort and write package.json
 				pkg.data = sortPackageJson(pkg.data);
 
 				pkg.autofix();
@@ -176,6 +242,7 @@ export function _runEachPackagesAsync(list: IEntry[],
 				})
 				.then(() =>
 				{
+					// 若有錯誤則記錄 / Log errors if any
 					if (err.length)
 					{
 						console.error(err);
@@ -185,10 +252,22 @@ export function _runEachPackagesAsync(list: IEntry[],
 		;
 }
 
+/**
+ * 從根資料初始化套件列表
+ * Initialize package list from root data
+ *
+ * 根據 workspace 或單一套件模式返回要處理的套件列表
+ * Returns list of packages to process based on workspace or single package mode
+ *
+ * @param {Pick<IFindRootReturnType, 'root' | 'hasWorkspace'>} rootData - 根資料物件 / Root data object
+ * @returns {IEntry[]} 套件項目列表 / List of package entries
+ */
 export function _initPkgListableByRootData(rootData: Pick<IFindRootReturnType, 'root' | 'hasWorkspace'>)
 {
 	let cwd = rootData.root;
 
+	// Workspace 模式：取得 workspace 中的所有套件
+	// Workspace mode: get all packages in workspace
 	if (rootData.hasWorkspace)
 	{
 		return wsPkgListable(cwd, {
@@ -199,6 +278,8 @@ export function _initPkgListableByRootData(rootData: Pick<IFindRootReturnType, '
 		})
 	}
 
+	// 單一套件模式：僅返回根套件
+	// Single package mode: return only the root package
 	return wsPkgListableFromPaths([
 		cwd,
 	], cwd, {

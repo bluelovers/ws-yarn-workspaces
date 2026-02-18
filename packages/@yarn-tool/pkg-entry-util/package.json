@@ -1,7 +1,7 @@
 {
   "name": "@yarn-tool/pkg-entry-util",
   "version": "3.0.3",
-  "description": "",
+  "description": "用於處理 package.json entry 相關欄位的工具庫，包含 bin、exports、publishConfig 欄位的修復與驗證功能",
   "keywords": [
     "yarn",
     "yarn-tool",

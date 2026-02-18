@@ -1,7 +1,7 @@
 {
   "name": "@yarn-tool/fix-all",
   "version": "3.0.4",
-  "description": "auto check/fix workspaces/package",
+  "description": "自動檢查和修復 workspaces/package 的工具，支援 git 資訊更新、靜態檔案複製與版本修正",
   "keywords": [
     "yarn",
     "yarn-tool",
