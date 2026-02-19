@@ -6,7 +6,7 @@
 
 1. [packages/find-yarn-workspace-root2](#1-packagesfind-yarn-workspace-root2)
 2. [packages/find-pkg-ws](#2-packagesfind-pkg-ws)
-3. [packages/@yarn-tool/find-root](#3-packagesyarn-toolfind-root)
+3. [packages/@yarn-tool/find-root](#3-packagesyarn-toolfind-root) ⭐ 推薦使用
 4. [packages/@yarn-tool/find-deps](#4-packagesyarn-toolfind-deps)
 5. [packages/cache-path](#5-packagescache-path)
 
@@ -15,6 +15,24 @@
 ## 1. packages/find-yarn-workspace-root2
 
 **Description / Description:** Algorithm for finding the root of a yarn workspace, extracted from yarnpkg.com
+
+> ⚠️ **重要提示 / Important Notice:** 
+> 
+> **推薦使用 [`@yarn-tool/find-root`](#3-packagesyarn-toolfind-root) 取代此模組**
+> 
+> **Recommended to use [`@yarn-tool/find-root`](#3-packagesyarn-toolfind-root) instead of this module**
+> 
+> `@yarn-tool/find-root` 提供更完整的功能，包括：
+> - 路徑驗證與錯誤處理
+> - 斷言函數
+> - 延遲初始化
+> - 更詳細的返回資訊
+> 
+> `@yarn-tool/find-root` provides more complete features, including:
+> - Path validation and error handling
+> - Assertion functions
+> - Lazy initialization
+> - More detailed return information
 
 ### Updated Files
 
@@ -53,9 +71,27 @@
 
 ---
 
-## 3. packages/@yarn-tool/find-root
+## 3. packages/@yarn-tool/find-root ⭐
 
-**Description:** Find root directory information for yarn workspaces
+**Description:** 尋找 Yarn workspace 根目錄的工具，提供路徑驗證、錯誤處理和斷言函數
+
+**English Description:** Find Yarn workspace root directory with path validation, error handling, and assertion functions
+
+> 🌟 **為什麼選擇 @yarn-tool/find-root？ / Why choose @yarn-tool/find-root?**
+> 
+> 相比 `find-yarn-workspace-root2`，此模組提供：
+> 
+> Compared to `find-yarn-workspace-root2`, this module provides:
+> 
+> | 功能 / Feature | find-yarn-workspace-root2 | @yarn-tool/find-root |
+> |---------------|---------------------------|---------------------|
+> | 尋找 workspace 根目錄 / Find workspace root | ✅ | ✅ |
+> | 尋找套件根目錄 / Find package root | ❌ | ✅ |
+> | 返回完整路徑資訊 / Return complete path info | ❌ | ✅ |
+> | 錯誤處理選項 / Error handling options | ❌ | ✅ |
+> | 斷言函數 / Assertion functions | ❌ | ✅ |
+> | 延遲初始化 / Lazy initialization | ❌ | ✅ |
+> | Workspace 模式匹配 / Workspace pattern matching | ❌ | ✅ |
 
 ### Updated Files
 
@@ -67,20 +103,49 @@
 
 | Interface | Description |
 |-----------|-------------|
-| `IFindRootReturnType` | Return type for root finding functions |
+| `IFindRootReturnType` | Return type for root finding functions, contains all path information and status flags |
 | `IFindRootOptions` | Options for root finding functions |
 
 ### Exported Functions
 
 | Function | Description |
 |----------|-------------|
-| `findRootLazy(options?, _throwError?)` | Find root with lazy initialization |
-| `findRoot(options, _throwError?)` | Find root directory information |
-| `newFakeRootData(rootData, input)` | Create fake root data object |
-| `assertHasWorkspaces(rootData)` | Assert that workspace has workspaces |
+| `findRootLazy(options?, _throwError?)` | Find root with lazy initialization, all options are optional |
+| `findRoot(options, _throwError?)` | Find root directory information with full options |
+| `newFakeRootData(rootData, input)` | Create fake root data object for testing |
+| `assertHasWorkspaces(rootData)` | Assert that current directory is inside a workspace |
 | `assertNotWorkspacesRoot(rootData)` | Assert that current directory is not workspace root |
-| `assertHasAndNotWorkspacesRoot(rootData)` | Combined assertion for workspaces |
-| `listMatchedPatternByPath(ws, pkg)` | List matched workspace patterns by path |
+| `assertHasAndNotWorkspacesRoot(rootData)` | Combined assertion: inside workspace but not root |
+| `listMatchedPatternByPath(ws, pkg)` | List workspace patterns that match the specified path |
+
+### Migration Guide / 遷移指南
+
+從 `find-yarn-workspace-root2` 遷移到 `@yarn-tool/find-root`：
+
+Migrating from `find-yarn-workspace-root2` to `@yarn-tool/find-root`:
+
+```typescript
+// ❌ 舊的方式 / Old way
+import { findWorkspaceRoot } from 'find-yarn-workspace-root2';
+const root = findWorkspaceRoot('/path/to/dir');
+
+// ✅ 新的方式 / New way (推薦 / Recommended)
+import { findRoot, findRootLazy } from '@yarn-tool/find-root';
+
+// 方式 1: 使用 findRootLazy（最簡單）
+// Method 1: Using findRootLazy (simplest)
+const rootData = findRootLazy();
+console.log(rootData?.root);  // workspace 根目錄 / workspace root
+console.log(rootData?.ws);    // workspace 根目錄 / workspace root
+console.log(rootData?.pkg);   // 套件根目錄 / package root
+
+// 方式 2: 使用 findRoot（更多控制）
+// Method 2: Using findRoot (more control)
+const rootData2 = findRoot({
+  cwd: '/path/to/dir',
+  throwError: true,  // 找不到時拋出錯誤 / throw error if not found
+});
+```
 
 ---
 
@@ -140,22 +205,6 @@
 
 ---
 
-### Example
-
-```typescript
-/**
- * Find the root directory of a yarn workspace
- *
- * Adapted from yarnpkg.com implementation
- *
- * @param {string} [initial] - Initial directory to start searching from
- * @returns {string | null} Absolute path to workspace root, or null if not found
- */
-export function findWorkspaceRoot(initial?: string): string | null
-```
-
----
-
 ## Related Links
 
 - [analyze-code-commenter Skill](https://github.com/bluelovers/ws-yarn-workspaces/tree/master/skills/analyze-code-commenter)
@@ -163,4 +212,4 @@ export function findWorkspaceRoot(initial?: string): string | null
 
 ---
 
-*Last updated: 2026-02-18*
+*Last updated: 2026-02-19*
