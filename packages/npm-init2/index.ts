@@ -369,7 +369,7 @@ if (!cp.error)
 			isRoot: !wsProject,
 		});
 
-		let mdFile = join(targetDir, 'README.md');
+		const mdFile = join(targetDir, 'README.md');
 
 		let existsReadme = !oldExists || !existsSync(mdFile);
 
@@ -430,7 +430,7 @@ if (!cp.error)
 		if (existsReadme)
 		{
 			writeReadme({
-				file: join(targetDir, 'README.md'),
+				file: mdFile,
 				variable: pkg.data,
 			})
 		}

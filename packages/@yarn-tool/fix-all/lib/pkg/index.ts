@@ -34,6 +34,9 @@ import { isTsdxPackage } from '@yarn-tool/setup-module-env/lib/preset/tsdx/is-ts
 import { fixTsdxPackage } from '@yarn-tool/setup-module-env/lib/preset/tsdx/fix';
 import { _resetStaticFiles } from '../file/reset';
 import { INpmAutoFixAll } from '../../index';
+import { join } from 'upath2';
+import { existsSync, statSync } from 'fs-extra';
+import { writeReadme } from '@yarn-tool/pkg-readme-tpl/lib/writeReadme';
 
 /**
  * 處理套件列表項目的 handler 函數
@@ -120,13 +123,40 @@ export function _runFixPackagesCore(row: IEntry, options: IOptionsRunEachPackage
 		});
 	}
 
-	// 複製靜態檔案到套件目錄 / Copy static files to package directory
-	const file_map = getRootCopyStaticFilesAuto(_rootDataFake);
+	// 檢查 README.md 是否存在或檔案過小，若符合條件則標記需要生成
+	// Check if README.md exists or file is too small, mark for generation if condition met
+	const mdFile = join(row.location, 'README.md');
+	let shouldWriteReadme = false;
 
+	if (!existsSync(mdFile))
+	{
+		// README.md 不存在，需要生成 / README.md doesn't exist, needs generation
+		shouldWriteReadme = true;
+	}
+	else
+	{
+		// 檢查檔案大小，若小於 1KB 則重新生成 / Check file size, regenerate if smaller than 1KB
+		const stats = statSync(mdFile);
+		if (stats.size < 1024)
+		{
+			shouldWriteReadme = true;
+		}
+	}
+
+	// 複製靜態檔案到套件目錄 / Copy static files to package directory
 	copyStaticFiles({
 		cwd: row.location,
-		file_map,
+		file_map: getRootCopyStaticFilesAuto(_rootDataFake),
 	});
+
+	// 若 README.md 不存在或小於 1KB 則自動生成 / Auto-generate README.md if it doesn't exist or is smaller than 1KB
+	if (shouldWriteReadme)
+	{
+		writeReadme({
+			file: mdFile,
+			variable: pkg.data,
+		})
+	}
 
 	// 驗證套件匯出 / Verify package exports
 	try
