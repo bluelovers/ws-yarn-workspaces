@@ -262,7 +262,7 @@ if (!cp.error) {
             hasWorkspace: !!wsProject,
             isRoot: !wsProject,
         });
-        let mdFile = (0, upath2_1.join)(targetDir, 'README.md');
+        const mdFile = (0, upath2_1.join)(targetDir, 'README.md');
         let existsReadme = !oldExists || !(0, fs_1.existsSync)(mdFile);
         if (cli.argv.tsdx) {
             ({
@@ -310,7 +310,7 @@ if (!cp.error) {
         });
         if (existsReadme) {
             (0, writeReadme_1.writeReadme)({
-                file: (0, upath2_1.join)(targetDir, 'README.md'),
+                file: mdFile,
                 variable: pkg.data,
             });
         }
