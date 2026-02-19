@@ -61,6 +61,5 @@
     "v8-compile-cache": "^2.4.0",
     "ws-pkg-list": "^3.0.3"
   },
-  "packageManager": "yarn@1.22.19",
   "gitHead": "46d4d576f34d2d5218822811286119ea7a44d08b"
 }

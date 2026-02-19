@@ -78,7 +78,6 @@
     "tslib": ">=2",
     "ws-pkg-list": "^3.0.3"
   },
-  "packageManager": "yarn@1.22.19",
   "publishConfig": {
     "access": "public"
   }

@@ -66,7 +66,6 @@
     "sort-object-keys2": "^3.0.7",
     "tslib": ">=2"
   },
-  "packageManager": "yarn@1.22.19",
   "publishConfig": {
     "access": "public"
   },

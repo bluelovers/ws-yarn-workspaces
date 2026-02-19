@@ -91,7 +91,6 @@
   "devDependencies": {
     "sort-package-json": "^2.10.0"
   },
-  "packageManager": "yarn@1.22.19",
   "publishConfig": {
     "access": "public"
   }

@@ -74,7 +74,6 @@
   "dependencies": {
     "@types/yargs": "^17"
   },
-  "packageManager": "yarn@1.22.19",
   "publishConfig": {
     "access": "public"
   }

@@ -70,7 +70,6 @@
     "upath2": "^3.1.19",
     "yawn-yaml": "^2.2.0"
   },
-  "packageManager": "yarn@1.22.19",
   "publishConfig": {
     "access": "public"
   },

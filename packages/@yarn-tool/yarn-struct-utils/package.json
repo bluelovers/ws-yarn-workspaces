@@ -77,7 +77,6 @@
     "@yarnpkg/core": "^4.1.2",
     "tslib": ">=2"
   },
-  "packageManager": "yarn@1.22.19",
   "publishConfig": {
     "access": "public"
   },

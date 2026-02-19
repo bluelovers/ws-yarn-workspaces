@@ -76,7 +76,6 @@
     "array-hyper-unique": "^2.1.6",
     "tslib": ">=2"
   },
-  "packageManager": "yarn@1.22.19",
   "publishConfig": {
     "access": "public"
   },

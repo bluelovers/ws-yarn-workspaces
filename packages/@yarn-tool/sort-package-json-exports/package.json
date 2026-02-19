@@ -91,7 +91,6 @@
     "is-plain-obj": "<4 >=3",
     "sort-object-keys2": "^3.0.7"
   },
-  "packageManager": "yarn@1.22.19",
   "publishConfig": {
     "access": "public"
   }

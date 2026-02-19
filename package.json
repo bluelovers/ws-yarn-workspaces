@@ -87,7 +87,6 @@
     "sort-package-json:ws": "npx yarn-tool ws exec yarn-tool sort",
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
-  "resolutions": {},
   "dependencies": {
     "@bluelovers/jest-config": "^1.1.11",
     "@lerna/conventional-commits": "^6.4.1",
