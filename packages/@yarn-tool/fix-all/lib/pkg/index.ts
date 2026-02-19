@@ -60,12 +60,38 @@ export type IEntry = ReturnType<typeof _handler>
 /**
  * 執行每個套件修復的選項
  * Options for running each package fix
+ *
+ * 繼承自 IFillPkgHostedInfoOptions 和 INpmAutoFixAll 的必要屬性
+ * Inherits required properties from IFillPkgHostedInfoOptions and INpmAutoFixAll
+ *
+ * @extends {ITSRequiredPick<IFillPkgHostedInfoOptions & INpmAutoFixAll, ...>}
  */
 export interface IOptionsRunEachPackages extends ITSRequiredPick<IFillPkgHostedInfoOptions & INpmAutoFixAll, 'overwriteHostedGitInfo' | 'branch' | 'rootData' | 'hostedGitInfo' | 'resetStaticFiles'>
 {
 
 }
 
+/**
+ * 執行單一套件修復的核心函數
+ * Core function for fixing a single package
+ *
+ * 此函數負責對單一套件執行完整的修復流程，包括：
+ * This function performs the complete fix process for a single package, including:
+ * 1. 重置靜態檔案（如啟用）/ Reset static files (if enabled)
+ * 2. 複製靜態檔案到套件目錄 / Copy static files to package directory
+ * 3. 驗證套件匯出 / Verify package exports
+ * 4. 填充託管 git 資訊 / Fill hosted git info
+ * 5. 修復 tsdx 套件（如適用）/ Fix tsdx package (if applicable)
+ * 6. 修復依賴版本 / Fix dependency versions
+ * 7. 標準化依賴值 / Normalize dependency values
+ * 8. 設定預設腳本 / Set default scripts
+ * 9. 排序並寫入 package.json / Sort and write package.json
+ *
+ * @param {IEntry} row - 套件項目資料 / Package entry data
+ * @param {IOptionsRunEachPackages} options - 修復操作的選項 / Options for the fix operation
+ * @param {ICacheInput<IEntry>} cache - 依賴版本修復的快取 / Cache for dependency version fixing
+ * @param {AggregateErrorExtra} err - 錯誤聚合器 / Error aggregator
+ */
 export function _runFixPackagesCore(row: IEntry, options: IOptionsRunEachPackages, cache: ICacheInput<IEntry>, err: AggregateErrorExtra)
 {
 	const {
@@ -76,118 +102,117 @@ export function _runFixPackagesCore(row: IEntry, options: IOptionsRunEachPackage
 		resetStaticFiles,
 	} = options;
 
+	// 為套件建立假的根資料 / Create fake root data for the package
+	const _rootDataFake = newFakeRootData(rootData, {
+		pkg: row.location,
+	});
 
-				// 為套件建立假的根資料 / Create fake root data for the package
-				const _rootDataFake = newFakeRootData(rootData, {
-					pkg: row.location,
-				});
+	const { isRoot, isWorkspace } = _rootDataFake;
 
-				const { isRoot, isWorkspace } = _rootDataFake;
+	// 載入 package.json / Load package.json
+	const pkg = new PackageJsonLoader(row.manifestLocation);
 
-				// 載入 package.json / Load package.json
-				const pkg = new PackageJsonLoader(row.manifestLocation);
+	// 若選項啟用則重置靜態檔案 / Reset static files if option enabled
+	if (resetStaticFiles)
+	{
+		_resetStaticFiles(_rootDataFake.pkg, {
+			rootData: _rootDataFake,
+		});
+	}
 
-				// 若選項啟用則重置靜態檔案 / Reset static files if option enabled
-				if (resetStaticFiles)
-				{
-					_resetStaticFiles(_rootDataFake.pkg, {
-						rootData: _rootDataFake,
-					});
-				}
+	// 複製靜態檔案到套件目錄 / Copy static files to package directory
+	const file_map = getRootCopyStaticFilesAuto(_rootDataFake);
 
-				// 複製靜態檔案到套件目錄 / Copy static files to package directory
-				const file_map = getRootCopyStaticFilesAuto(_rootDataFake);
+	copyStaticFiles({
+		cwd: row.location,
+		file_map,
+	});
 
-				copyStaticFiles({
-					cwd: row.location,
-					file_map,
-				});
+	// 驗證套件匯出 / Verify package exports
+	try
+	{
+		pkgExportsVerify(pkg.data, {
+			cwd: row.location,
+		});
+	}
+	catch (e)
+	{
+		err.push(e);
+	}
 
-				// 驗證套件匯出 / Verify package exports
-				try
-				{
-					pkgExportsVerify(pkg.data, {
-						cwd: row.location,
-					});
-				}
-				catch (e)
-				{
-					err.push(e);
-				}
+	// 填充託管 git 資訊（homepage, repository, bugs）/ Fill hosted git info
+	fillPkgHostedInfo(pkg.data, {
+		targetDir: row.location,
+		overwriteHostedGitInfo,
+		hostedGitInfo,
+		branch,
+	});
 
-				// 填充託管 git 資訊（homepage, repository, bugs）/ Fill hosted git info
-				fillPkgHostedInfo(pkg.data, {
-					targetDir: row.location,
-					overwriteHostedGitInfo,
-					hostedGitInfo,
-					branch,
-				});
+	// 若適用則修復 tsdx 套件 / Fix tsdx package if applicable
+	if (isTsdxPackage(pkg.data))
+	{
+		fixTsdxPackage(pkg.data, {
+			rootData: _rootDataFake,
+		});
+	}
 
-				// 若適用則修復 tsdx 套件 / Fix tsdx package if applicable
-				if (isTsdxPackage(pkg.data))
-				{
-					fixTsdxPackage(pkg.data, {
-						rootData: _rootDataFake,
-					});
-				}
+	// 修復依賴版本 / Fix dependency versions
+	fixPkgDepsVersionsCore(pkg.data, cache);
 
-				// 修復依賴版本 / Fix dependency versions
-				fixPkgDepsVersionsCore(pkg.data, cache);
+	// 標準化依賴值 / Normalize dependency values
+	packageJsonDependenciesFields
+		.forEach(field => {
 
-				// 標準化依賴值 / Normalize dependency values
-				packageJsonDependenciesFields
-					.forEach(field => {
+			Object.keys(pkg.data[field] ?? {})
+				.forEach(name => {
+					const _value = normalizeDepsValue(pkg.data[field][name]);
+					pkg.data[field][name] = _value;
+				})
+			;
 
-						Object.keys(pkg.data[field] ?? {})
-							.forEach(name => {
-								const _value = normalizeDepsValue(pkg.data[field][name]);
-								pkg.data[field][name] = _value;
-							})
-						;
+		})
+	;
 
-					})
-				;
+	// 設定預設腳本 / Set default scripts
+	pkg.data.scripts = {
+		...defaultPkgScripts(),
+		...(pkg.data.scripts ?? {}),
+	};
 
-				// 設定預設腳本 / Set default scripts
-				pkg.data.scripts = {
-					...defaultPkgScripts(),
-					...(pkg.data.scripts ?? {}),
-				};
+	// 處理根套件與非根套件 / Handle root vs non-root packages
+	if (isRoot)
+	{
+		if (isWorkspace)
+		{
+			// Workspace 根套件 - 無特殊處理 / Workspace root - no special handling
+		}
+		else
+		{
+			// 單一套件根 - 無特殊處理 / Single package root - no special handling
+		}
+	}
+	else
+	{
+		// 非根套件：修復 preversion 腳本並移除 packageManager
+		// Non-root package: fix preversion script and remove packageManager
+		if (!pkg.data.scripts['_preversion']?.length && isDummyEchoMaybeOrEmpty(pkg.data.scripts.preversion))
+		{
+			pkg.data.scripts.preversion = EnumScriptsEntry.preversion;
+		}
 
-				// 處理根套件與非根套件 / Handle root vs non-root packages
-				if (isRoot)
-				{
-					if (isWorkspace)
-					{
-						// Workspace 根套件 - 無特殊處理 / Workspace root - no special handling
-					}
-					else
-					{
-						// 單一套件根 - 無特殊處理 / Single package root - no special handling
-					}
-				}
-				else
-				{
-					// 非根套件：修復 preversion 腳本並移除 packageManager
-					// Non-root package: fix preversion script and remove packageManager
-					if (!pkg.data.scripts['_preversion']?.length && isDummyEchoMaybeOrEmpty(pkg.data.scripts.preversion))
-					{
-						pkg.data.scripts.preversion = EnumScriptsEntry.preversion;
-					}
+		// 從非根套件移除 packageManager 欄位
+		// Remove packageManager field from non-root packages
+		if (pkg.data['packageManager'])
+		{
+			delete pkg.data['packageManager'];
+		}
+	}
 
-					// 從非根套件移除 packageManager 欄位
-					// Remove packageManager field from non-root packages
-					if (pkg.data['packageManager'])
-					{
-						delete pkg.data['packageManager'];
-					}
-				}
+	// 排序並寫入 package.json / Sort and write package.json
+	pkg.data = sortPackageJson(pkg.data);
 
-				// 排序並寫入 package.json / Sort and write package.json
-				pkg.data = sortPackageJson(pkg.data);
-
-				pkg.autofix();
-				pkg.write();
+	pkg.autofix();
+	pkg.write();
 }
 
 /**
