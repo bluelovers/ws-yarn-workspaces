@@ -7,14 +7,14 @@ packages:
   - '!**/test/**'
 
 publicHoistPattern:
-  # - "@lazy-cjk/*"
-  # - "@node-novel/*"
-  - "@novel-segment/*"
-  - "novel-segment*"
-  - "workspace:segment-dict"
   - "ts-type"
   - "yargs"
-  - "@bluelovers/jest-config"
-  - "@bluelovers/string-natural-compare"
+  - "@yarn-tool/*"
+  - "@lazy-node/*"
+  - "path-is-same"
+  - "bluebird"
+  - "@ts-type/*"
+  - "upath2"
 
 linkWorkspacePackages: true
+save-workspace-protocol: false

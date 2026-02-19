@@ -3,3 +3,16 @@ packages:
   - 'packages/*'
   # exclude packages that are inside test/ directories
   - '!**/test/**'
+
+publicHoistPattern:
+  - "ts-type"
+  - "@bluelovers/tsconfig"
+  - "@types/node"
+  - "@types/jest"
+  - "jest"
+  - "ts-jest"
+  - "ts-node"
+  - "tsx"
+
+linkWorkspacePackages: true
+save-workspace-protocol: false
