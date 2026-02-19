@@ -66,27 +66,7 @@ export interface IOptionsRunEachPackages extends ITSRequiredPick<IFillPkgHostedI
 
 }
 
-/**
- * 非同步執行每個套件的修復操作
- * Run fix operations on each package asynchronously
- *
- * 對每個套件執行以下操作：
- * Performs the following operations on each package:
- * 1. 驗證套件匯出 / Verify package exports
- * 2. 填充託管 git 資訊 / Fill hosted git info
- * 3. 修復 tsdx 套件（如適用）/ Fix tsdx package (if applicable)
- * 4. 修復依賴版本 / Fix dependency versions
- * 5. 標準化依賴值 / Normalize dependency values
- * 6. 設定預設腳本 / Set default scripts
- * 7. 排序並寫入 package.json / Sort and write package.json
- *
- * @param {IEntry[]} list - 套件項目列表 / List of package entries
- * @param {IOptionsRunEachPackages} options - 修復操作的選項 / Options for the fix operation
- * @returns {Bluebird<void>} Promise 物件 / Promise object
- */
-export function _runEachPackagesAsync(list: IEntry[],
-	options: IOptionsRunEachPackages,
-)
+export function _runFixPackagesCore(row: IEntry, options: IOptionsRunEachPackages, cache: ICacheInput<IEntry>, err: AggregateErrorExtra)
 {
 	const {
 		rootData,
@@ -96,28 +76,7 @@ export function _runEachPackagesAsync(list: IEntry[],
 		resetStaticFiles,
 	} = options;
 
-	let logger: ProgressEstimator;
-	// 依賴版本修復的快取 / Cache for dependency version fixing
-	let cache: ICacheInput<IEntry> = {} as any;
 
-	return Bluebird.resolve(list)
-		.tap((listable) =>
-		{
-			// 建立進度估計器 / Create progress estimator
-			logger = createProgressEstimator(rootData.root);
-
-			consoleLogger.info(`auto check/fix packages`);
-
-			cache.listable = listable;
-
-		})
-		.mapSeries(async (row) =>
-		{
-			// 錯誤收集器 / Error aggregator for collecting errors
-			const err = new AggregateErrorExtra();
-
-			const promiseLogger = logger((async () =>
-			{
 				// 為套件建立假的根資料 / Create fake root data for the package
 				const _rootDataFake = newFakeRootData(rootData, {
 					pkg: row.location,
@@ -229,6 +188,54 @@ export function _runEachPackagesAsync(list: IEntry[],
 
 				pkg.autofix();
 				pkg.write();
+}
+
+/**
+ * 非同步執行每個套件的修復操作
+ * Run fix operations on each package asynchronously
+ *
+ * 對每個套件執行以下操作：
+ * Performs the following operations on each package:
+ * 1. 驗證套件匯出 / Verify package exports
+ * 2. 填充託管 git 資訊 / Fill hosted git info
+ * 3. 修復 tsdx 套件（如適用）/ Fix tsdx package (if applicable)
+ * 4. 修復依賴版本 / Fix dependency versions
+ * 5. 標準化依賴值 / Normalize dependency values
+ * 6. 設定預設腳本 / Set default scripts
+ * 7. 排序並寫入 package.json / Sort and write package.json
+ *
+ * @param {IEntry[]} list - 套件項目列表 / List of package entries
+ * @param {IOptionsRunEachPackages} options - 修復操作的選項 / Options for the fix operation
+ * @returns {Bluebird<void>} Promise 物件 / Promise object
+ */
+export function _runEachPackagesAsync(list: IEntry[],
+	options: IOptionsRunEachPackages,
+)
+{
+	let logger: ProgressEstimator;
+	// 依賴版本修復的快取 / Cache for dependency version fixing
+	let cache: ICacheInput<IEntry> = {} as any;
+
+	return Bluebird.resolve(list)
+		.tap((listable) =>
+		{
+			// 建立進度估計器 / Create progress estimator
+			logger = createProgressEstimator(options.rootData.root);
+
+			consoleLogger.info(`auto check/fix packages`);
+
+			cache.listable = listable;
+
+		})
+		.mapSeries(async (row) =>
+		{
+			// 錯誤收集器 / Error aggregator for collecting errors
+			const err = new AggregateErrorExtra();
+
+			const promiseLogger = logger((async () =>
+			{
+
+				_runFixPackagesCore(row, options, cache, err);
 
 			})().catch(e => {
 				e.row = row;
