@@ -63,6 +63,7 @@
     "@yarn-tool/pkg-entry-util": "^3.0.3",
     "@yarn-tool/pkg-git-info": "^2.0.3",
     "@yarn-tool/pkg-hosted-info": "^3.0.3",
+    "@yarn-tool/pkg-readme-tpl": "^1.0.0",
     "@yarn-tool/setup-module-env": "^3.0.3",
     "@yarn-tool/static-file": "^3.0.4",
     "@yarn-tool/types": "^1.0.16",

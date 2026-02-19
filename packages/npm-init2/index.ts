@@ -9,7 +9,7 @@ import { IPackageJson } from '@ts-type/package-dts';
 import { setupToYargs } from './lib/yargs-setting';
 import { findRoot } from '@yarn-tool/find-root';
 import { existsSync } from 'fs';
-import { writeReadme } from './lib/writeReadme';
+import { writeReadme } from '@yarn-tool/pkg-readme-tpl/lib/writeReadme';
 import { sortPackageJsonScripts } from 'sort-package-json-scripts';
 import { WorkspacesProject } from '@yarn-tool/workspaces-project';
 import { pathIsSame } from 'path-is-same';
