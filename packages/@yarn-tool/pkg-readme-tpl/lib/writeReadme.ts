@@ -1,19 +1,29 @@
-import { existsSync, readFileSync } from "fs-extra";
+import { existsSync, readFileSync, writeFileSync } from "fs-extra";
 import { join } from "path";
 import lodashTemplate from 'lodash/template';
-import { writeFileSync } from "fs";
 
-export function writeReadme(options: {
+export interface IOptionsWriteReadme<T extends Record<any, any> = Record<any, any>>
+{
 	file: string,
-	variable: Record<any, any>,
-})
+	variable: T,
+}
+
+export function _readReadmeTplCore(md1: string | Buffer)
+{
+	let compiled = lodashTemplate(md1.toString(), {
+		//escape: new RegExp('_'),
+	})
+
+	return compiled;
+}
+
+export function writeReadme<T extends Record<any, any> = Record<any, any>>(options: IOptionsWriteReadme<T>)
 {
 	if (existsSync(options.file))
 	{
 		let md1 = readFileSync(options.file).toString();
-		let compiled = lodashTemplate(md1.toString(), {
-			//escape: new RegExp('_'),
-		})
+
+		let compiled = _readReadmeTplCore(md1);
 
 		let md2 = compiled(options.variable)
 
