@@ -2,41 +2,239 @@ import { IPackageJson } from '@ts-type/package-dts';
 type IFileOrJson = Buffer | string | object | IPackageJson;
 type IPackageJsonLike<T> = Partial<T> | Record<string, any>;
 type IItemOrItemArray<T> = T | T[];
+/**
+ * package.json 載入器類別
+ * Package.json loader class
+ *
+ * 提供載入、修改、排序、驗證和寫入 package.json 的完整功能
+ * Provides complete functionality for loading, modifying, sorting, verifying, and writing package.json
+ *
+ * @template T - package.json 類型參數 / package.json type parameter
+ *
+ * @example
+ * // 從檔案路徑載入 / Load from file path
+ * const pkg = new PackageJsonLoader('/path/to/package.json');
+ * pkg.read().autofix().sort().write();
+ *
+ * @example
+ * // 從模組名稱載入 / Load from module name
+ * const pkg = PackageJsonLoader.loadByModuleName('lodash');
+ */
 export declare class PackageJsonLoader<T extends IPackageJsonLike<IPackageJson> = IPackageJson> {
+    /**
+     * package.json 檔案路徑
+     * Path to package.json file
+     */
     readonly file: string;
+    /**
+     * 解析後的 JSON 資料
+     * Parsed JSON data
+     */
     protected json: T;
+    /**
+     * 是否已載入資料
+     * Whether data has been loaded
+     */
     loaded: boolean;
+    /**
+     * 自訂處理函式佇列
+     * Queue of custom processing functions
+     */
     protected _use: ((json: IPackageJsonLike<T>) => void)[];
+    /**
+     * 建立 PackageJsonLoader 實例的工廠方法
+     * Factory method to create PackageJsonLoader instance
+     *
+     * @template T - package.json 類型參數 / package.json type parameter
+     * @param {IFileOrJson} file - 檔案路徑或 JSON 物件 / File path or JSON object
+     * @param {any[]} argv - 額外參數 / Additional arguments
+     * @returns {PackageJsonLoader<T>} PackageJsonLoader 實例 / PackageJsonLoader instance
+     */
     static create<T = IPackageJson>(file: IFileOrJson, ...argv: any[]): PackageJsonLoader<T>;
+    /**
+     * 從 JSON 物件建立實例
+     * Create instance from JSON object
+     *
+     * @template T - package.json 類型參數 / package.json type parameter
+     * @param {T} json - JSON 物件 / JSON object
+     * @param {any[]} argv - 額外參數 / Additional arguments
+     * @returns {PackageJsonLoader<T>} PackageJsonLoader 實例 / PackageJsonLoader instance
+     */
     static createByJson<T = IPackageJson>(json: T, ...argv: any[]): PackageJsonLoader<T>;
+    /**
+     * 透過模組名稱尋找 package.json 路徑
+     * Find package.json path by module name
+     *
+     * @param {string} name - 模組名稱 / Module name
+     * @returns {string} package.json 的絕對路徑 / Absolute path to package.json
+     */
     static findPackageJsonPath(name: string): string;
+    /**
+     * 透過模組名稱載入 package.json
+     * Load package.json by module name
+     *
+     * @template T - package.json 類型參數 / package.json type parameter
+     * @param {string} name - 模組名稱 / Module name
+     * @returns {PackageJsonLoader<T>} PackageJsonLoader 實例 / PackageJsonLoader instance
+     * @throws {TypeError} 當套件名稱不符時拋出錯誤 / Throws when package name doesn't match
+     */
     static loadByModuleName<T = IPackageJson>(name: string): PackageJsonLoader<T>;
+    /**
+     * 建構子
+     * Constructor
+     *
+     * @param {IFileOrJson} fileOrJson - 檔案路徑、Buffer 或 JSON 物件 / File path, Buffer, or JSON object
+     * @param {any[]} argv - 額外參數 / Additional arguments
+     */
     constructor(fileOrJson: IFileOrJson, ...argv: any[]);
+    /**
+     * 註冊自訂處理函式
+     * Register custom processing function
+     *
+     * @param {IItemOrItemArray<(json: IPackageJsonLike<T>) => void>} ls - 處理函式或函式陣列 / Processing function or array of functions
+     */
     use(ls: IItemOrItemArray<(json: IPackageJsonLike<T>) => void>): void;
+    /**
+     * 設定檔案名稱
+     * Set filename
+     *
+     * @param {string} file - 檔案路徑 / File path
+     * @returns {this} 当前實例 / Current instance
+     */
     setFilename(file: string): this;
+    /**
+     * 設定 JSON 資料
+     * Set JSON data
+     *
+     * @param {object | T} json - JSON 物件 / JSON object
+     * @returns {this} 当前實例 / Current instance
+     */
     setJson(json: object | T): this;
+    /**
+     * 讀取 package.json 檔案
+     * Read package.json file
+     *
+     * @param {boolean} reload - 是否強制重新載入 / Whether to force reload
+     * @returns {this} 当前實例 / Current instance
+     */
     read(reload?: boolean): this;
+    /**
+     * 重新載入 package.json
+     * Reload package.json
+     *
+     * @returns {this} 当前實例 / Current instance
+     */
     reload(): this;
+    /**
+     * 取得 package.json 所在目錄
+     * Get directory of package.json
+     *
+     * @returns {string} 目錄路徑 / Directory path
+     */
     get dir(): string;
     /**
-     * skip typescript type check
+     * 取得跳過 TypeScript 類型檢查的資料
+     * Get data without TypeScript type checking
+     *
+     * 用於需要靈活操作 JSON 資料的場景
+     * Use when flexible JSON data manipulation is needed
      */
     get unsafeTypeData(): IPackageJsonLike<T>;
     /**
-     * skip typescript type check
+     * 設定跳過 TypeScript 類型檢查的資料
+     * Set data without TypeScript type checking
      */
     set unsafeTypeData(json: IPackageJsonLike<T>);
+    /**
+     * 設定 package.json 資料
+     * Set package.json data
+     */
     set data(json: T);
+    /**
+     * 取得 package.json 資料
+     * Get package.json data
+     *
+     * 若尚未載入會自動讀取檔案
+     * Automatically reads file if not loaded yet
+     *
+     * @returns {T} package.json 資料 / package.json data
+     */
     get data(): T;
+    /**
+     * 覆寫 JSON 資料
+     * Overwrite JSON data
+     *
+     * @param {object | T} json - 新的 JSON 資料 / New JSON data
+     * @returns {this} 当前實例 / Current instance
+     */
     overwrite(json: object | T): this;
+    /**
+     * 自動修復 package.json 欄位
+     * Auto-fix package.json fields
+     *
+     * 執行以下修復操作：
+     * 1. 修復 bin 欄位路徑
+     * 2. 修復 publishConfig 欄位
+     * 3. 添加 exports 中的 package.json entry
+     * 4. 清理空欄位
+     *
+     * Performs the following fix operations:
+     * 1. Fix bin field paths
+     * 2. Fix publishConfig field
+     * 3. Add package.json entry in exports
+     * 4. Clean empty fields
+     */
     autofix(): void;
+    /**
+     * 執行處理流程
+     * Run processing pipeline
+     *
+     * @param {object} options - 選項 / Options
+     * @param {boolean} options.autofix - 是否執行自動修復 / Whether to run auto-fix
+     * @returns {this} 当前實例 / Current instance
+     */
     run(options?: {
         autofix?: boolean;
     }): this;
+    /**
+     * 檢查檔案是否存在
+     * Check if file exists
+     *
+     * @returns {boolean} 檔案是否存在 / Whether file exists
+     */
     exists(): boolean;
+    /**
+     * 將 JSON 資料轉換為字串
+     * Convert JSON data to string
+     *
+     * @returns {string} 格式化的 JSON 字串 / Formatted JSON string
+     */
     stringify(): string;
+    /**
+     * 排序 package.json 欄位
+     * Sort package.json fields
+     *
+     * 使用 sort-package-json3 套件進行標準化排序
+     * Use sort-package-json3 package for standardized sorting
+     *
+     * @returns {this} 当前實例 / Current instance
+     * @throws {Error} 當資料為 undefined 或 null 時拋出錯誤 / Throws when data is undefined or null
+     */
     sort(): this;
+    /**
+     * 寫入 package.json 檔案
+     * Write package.json file
+     *
+     * @returns {this} 当前實例 / Current instance
+     * @throws {Error} 當檔案路徑未設定時拋出錯誤 / Throws when file path is not set
+     */
     write(): this;
+    /**
+     * 僅在已載入時寫入
+     * Write only when loaded
+     *
+     * @returns {boolean} 是否已寫入 / Whether written
+     */
     writeOnlyWhenLoaded(): boolean;
 }
 export default PackageJsonLoader;

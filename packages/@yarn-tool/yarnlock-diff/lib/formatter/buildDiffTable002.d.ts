@@ -5,7 +5,7 @@ export declare function buildDiffTable(diff: IDiffNode<IComputedPackage, IComput
 export declare function _handleDiffTable(result: ReturnType<typeof _buildDiffTableCore>, options: IOptionsParseVersionsDiff): string;
 export declare function _buildDiffTableCore(diff: IDiffNode<IComputedPackage, IComputedPackage>[], options?: IOptionsParseVersionsDiff): {
     _ok: boolean;
-    table: import("cli-table3").Table;
+    table: import("@yarn-tool/table").ITable;
     formatedDiff: {
         [k: string]: [string, string, string, string];
     };

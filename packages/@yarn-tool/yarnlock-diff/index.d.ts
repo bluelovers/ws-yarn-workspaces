@@ -7,7 +7,7 @@ export { buildDiffTable };
 export declare function yarnLockDiff(yarnlock_old: ITSValueOrArray<Buffer | string>, yarnlock_new: ITSValueOrArray<Buffer | string>, options?: IOptionsParseVersionsDiff): string;
 export declare function _yarnLockDiffCore(yarnlock_old: ITSValueOrArray<Buffer | string>, yarnlock_new: ITSValueOrArray<Buffer | string>, options: IOptionsParseVersionsDiff): {
     _ok: boolean;
-    table: import("cli-table3").Table;
+    table: import("@yarn-tool/table").ITable;
     formatedDiff: {
         [k: string]: [string, string, string, string];
     };
