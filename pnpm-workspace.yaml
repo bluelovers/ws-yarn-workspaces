@@ -15,6 +15,10 @@ publicHoistPattern:
   - "bluebird"
   - "@ts-type/*"
   - "upath2"
+  - "fs-extra"
+  - "micromatch"
+  - "strip-ansi"
+
 
 linkWorkspacePackages: true
 save-workspace-protocol: false

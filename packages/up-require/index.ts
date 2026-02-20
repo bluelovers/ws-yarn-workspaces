@@ -177,6 +177,7 @@ export function getModuleByExports<T = any>(exportModule: T, req = require): INo
 
 		if (mod.exports === exportModule)
 		{
+			// @ts-ignore
 			return mod;
 		}
 	}
@@ -199,6 +200,7 @@ export function getModuleByFile<T = any>(file: string, requireIfNotExists?: bool
 		let key = ks[i];
 		let mod = cache[key];
 
+		// @ts-ignore
 		if (mod.filename === file)
 		{
 			return mod;
@@ -254,6 +256,7 @@ export function getMainModule<T = any>(id = '.'): INodeModule<T>
 {
 	let pm = module;
 
+	// @ts-ignore
 	do
 	{
 		if (pm.id === id)

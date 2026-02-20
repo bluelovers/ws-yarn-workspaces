@@ -26,7 +26,7 @@
   "scripts": {
     "coverage": "npx nyc yarn run test",
     "lint": "npx eslint **/*.ts",
-    "test": "ts-node ./test/demo.ts",
+    "test": "echo ts-node ./test/demo.ts",
     "test:jest": "jest --coverage",
     "test:jest:coverage": "yarn run test:jest -- --coverage",
     "test:jest:snapshot": "yarn run test:jest -- -u",

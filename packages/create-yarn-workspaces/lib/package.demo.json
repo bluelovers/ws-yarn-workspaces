@@ -6,8 +6,8 @@
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.35",
     "@types/jest": "^30.0.0",
-    "@types/node": "^24.3.1",
-    "@yarn-tool/ws-find-up-paths": "^1.0.13"
+    "@types/node": "^25.3.0",
+    "@yarn-tool/ws-find-up-paths": "^1.0.14"
   },
   "peerDependencies": {
     "@bluelovers/conventional-changelog-bluelovers": "*",

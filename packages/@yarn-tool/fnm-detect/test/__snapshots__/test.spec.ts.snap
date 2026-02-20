@@ -2,7 +2,7 @@
 
 exports[`fnm "C:/Users/xxxxxxx/AppData/Local/fnm_multishells" detectFnmByAll 1`] = `
 {
-  "aliasDefaultPath": "C:/Users/zzzzzzz/AppData/Roaming/fnm/aliases/default",
+  "aliasesDefaultPath": "C:/Users/zzzzzzz/AppData/Roaming/fnm/aliases/default",
   "detectedBy": [
     "env",
   ],
@@ -17,22 +17,26 @@ exports[`fnm "C:/Users/xxxxxxx/AppData/Local/fnm_multishells" detectFnmByAll 1`]
 
 exports[`fnm "C:/Users/xxxxxxx/AppData/Local/fnm_multishells" detectFnmByEnv 1`] = `
 {
-  "aliasDefaultPath": "C:/Users/zzzzzzz/AppData/Roaming/fnm/aliases/default",
+  "aliasesDefaultPath": "C:/Users/zzzzzzz/AppData/Roaming/fnm/aliases/default",
+  "aliasesDefaultPathReal": undefined,
   "detectedBy": "env",
   "fnmDir": "C:/Users/zzzzzzz/AppData/Roaming/fnm",
   "fnmPath": "C:/Users/zzzzzzz/AppData/Roaming/fnm/node-versions/v24.13.1/installation",
   "fnmPathType": "node-versions",
   "installationPath": "C:/Users/zzzzzzz/AppData/Roaming/fnm/node-versions/v24.13.1/installation",
   "isFnm": true,
+  "isSameAsAliasDefault": undefined,
   "version": "v24.13.1",
 }
 `;
 
 exports[`fnm "C:/Users/xxxxxxx/AppData/Local/fnm_multishells" detectFnmByExecPath 1`] = `
 {
-  "aliasDefaultPath": undefined,
+  "aliasesDefaultPath": undefined,
+  "aliasesDefaultPathReal": undefined,
   "detectedBy": "execpath",
   "isFnm": false,
+  "isSameAsAliasDefault": undefined,
 }
 `;
 
@@ -53,11 +57,13 @@ exports[`fnm "C:/Users/xxxxxxx/AppData/Local/fnm_multishells/7064_1771483456556"
 
 exports[`fnm "C:/Users/xxxxxxx/AppData/Local/fnm_multishells/7064_1771483456556" detectFnmByEnv 1`] = `
 {
-  "aliasDefaultPath": undefined,
+  "aliasesDefaultPath": undefined,
+  "aliasesDefaultPathReal": undefined,
   "detectedBy": "env",
   "fnmPath": "C:/Users/yyyyyyy/AppData/Local/fnm_multishells/7064_1771483456556",
   "fnmPathType": "fnm_multishells",
   "isFnm": true,
+  "isSameAsAliasDefault": undefined,
   "multishellDir": "C:/Users/yyyyyyy/AppData/Local/fnm_multishells",
   "multishellKey": "7064_1771483456556",
   "multishellPath": "C:/Users/yyyyyyy/AppData/Local/fnm_multishells/7064_1771483456556",
@@ -66,11 +72,13 @@ exports[`fnm "C:/Users/xxxxxxx/AppData/Local/fnm_multishells/7064_1771483456556"
 
 exports[`fnm "C:/Users/xxxxxxx/AppData/Local/fnm_multishells/7064_1771483456556" detectFnmByExecPath 1`] = `
 {
-  "aliasDefaultPath": undefined,
+  "aliasesDefaultPath": undefined,
+  "aliasesDefaultPathReal": undefined,
   "detectedBy": "execpath",
   "fnmPath": "C:/Users/xxxxxxx/AppData/Local/fnm_multishells/7064_1771483456556",
   "fnmPathType": "fnm_multishells",
   "isFnm": true,
+  "isSameAsAliasDefault": undefined,
   "multishellDir": "C:/Users/xxxxxxx/AppData/Local/fnm_multishells",
   "multishellKey": "7064_1771483456556",
   "multishellPath": "C:/Users/xxxxxxx/AppData/Local/fnm_multishells/7064_1771483456556",
@@ -79,7 +87,7 @@ exports[`fnm "C:/Users/xxxxxxx/AppData/Local/fnm_multishells/7064_1771483456556"
 
 exports[`fnm "C:/Users/xxxxxxx/AppData/Roaming/fnm" detectFnmByAll 1`] = `
 {
-  "aliasDefaultPath": "C:/Users/zzzzzzz/AppData/Roaming/fnm/aliases/default",
+  "aliasesDefaultPath": "C:/Users/zzzzzzz/AppData/Roaming/fnm/aliases/default",
   "detectedBy": [
     "env",
   ],
@@ -94,28 +102,32 @@ exports[`fnm "C:/Users/xxxxxxx/AppData/Roaming/fnm" detectFnmByAll 1`] = `
 
 exports[`fnm "C:/Users/xxxxxxx/AppData/Roaming/fnm" detectFnmByEnv 1`] = `
 {
-  "aliasDefaultPath": "C:/Users/zzzzzzz/AppData/Roaming/fnm/aliases/default",
+  "aliasesDefaultPath": "C:/Users/zzzzzzz/AppData/Roaming/fnm/aliases/default",
+  "aliasesDefaultPathReal": undefined,
   "detectedBy": "env",
   "fnmDir": "C:/Users/zzzzzzz/AppData/Roaming/fnm",
   "fnmPath": "C:/Users/zzzzzzz/AppData/Roaming/fnm/node-versions/v24.13.1/installation",
   "fnmPathType": "node-versions",
   "installationPath": "C:/Users/zzzzzzz/AppData/Roaming/fnm/node-versions/v24.13.1/installation",
   "isFnm": true,
+  "isSameAsAliasDefault": undefined,
   "version": "v24.13.1",
 }
 `;
 
 exports[`fnm "C:/Users/xxxxxxx/AppData/Roaming/fnm" detectFnmByExecPath 1`] = `
 {
-  "aliasDefaultPath": undefined,
+  "aliasesDefaultPath": undefined,
+  "aliasesDefaultPathReal": undefined,
   "detectedBy": "execpath",
   "isFnm": false,
+  "isSameAsAliasDefault": undefined,
 }
 `;
 
 exports[`fnm "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/default" detectFnmByAll 1`] = `
 {
-  "aliasDefaultPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/default",
+  "aliasesDefaultPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/default",
   "aliasesName": "default",
   "aliasesPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/default",
   "detectedBy": [
@@ -133,7 +145,8 @@ exports[`fnm "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/default" detectFnmByA
 
 exports[`fnm "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/default" detectFnmByEnv 1`] = `
 {
-  "aliasDefaultPath": "C:/Users/yyyyyyy/AppData/Roaming/fnm/aliases/default",
+  "aliasesDefaultPath": "C:/Users/yyyyyyy/AppData/Roaming/fnm/aliases/default",
+  "aliasesDefaultPathReal": undefined,
   "aliasesName": "default",
   "aliasesPath": "C:/Users/yyyyyyy/AppData/Roaming/fnm/aliases/default",
   "detectedBy": "env",
@@ -142,13 +155,15 @@ exports[`fnm "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/default" detectFnmByE
   "fnmPathType": "aliases",
   "installationPath": "C:/Users/yyyyyyy/AppData/Roaming/fnm/node-versions/v24.13.1/installation",
   "isFnm": true,
+  "isSameAsAliasDefault": undefined,
   "version": "v24.13.1",
 }
 `;
 
 exports[`fnm "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/default" detectFnmByExecPath 1`] = `
 {
-  "aliasDefaultPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/default",
+  "aliasesDefaultPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/default",
+  "aliasesDefaultPathReal": undefined,
   "aliasesName": "default",
   "aliasesPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/default",
   "detectedBy": "execpath",
@@ -157,13 +172,14 @@ exports[`fnm "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/default" detectFnmByE
   "fnmPathType": "aliases",
   "installationPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/node-versions/v24.13.1/installation",
   "isFnm": true,
+  "isSameAsAliasDefault": undefined,
   "version": "v24.13.1",
 }
 `;
 
 exports[`fnm "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/latest" detectFnmByAll 1`] = `
 {
-  "aliasDefaultPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/default",
+  "aliasesDefaultPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/default",
   "aliasesName": "latest",
   "aliasesPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/latest",
   "detectedBy": [
@@ -181,7 +197,8 @@ exports[`fnm "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/latest" detectFnmByAl
 
 exports[`fnm "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/latest" detectFnmByEnv 1`] = `
 {
-  "aliasDefaultPath": "C:/Users/yyyyyyy/AppData/Roaming/fnm/aliases/default",
+  "aliasesDefaultPath": "C:/Users/yyyyyyy/AppData/Roaming/fnm/aliases/default",
+  "aliasesDefaultPathReal": undefined,
   "aliasesName": "latest",
   "aliasesPath": "C:/Users/yyyyyyy/AppData/Roaming/fnm/aliases/latest",
   "detectedBy": "env",
@@ -190,13 +207,15 @@ exports[`fnm "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/latest" detectFnmByEn
   "fnmPathType": "aliases",
   "installationPath": "C:/Users/yyyyyyy/AppData/Roaming/fnm/node-versions/v24.13.1/installation",
   "isFnm": true,
+  "isSameAsAliasDefault": undefined,
   "version": "v24.13.1",
 }
 `;
 
 exports[`fnm "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/latest" detectFnmByExecPath 1`] = `
 {
-  "aliasDefaultPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/default",
+  "aliasesDefaultPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/default",
+  "aliasesDefaultPathReal": undefined,
   "aliasesName": "latest",
   "aliasesPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/latest",
   "detectedBy": "execpath",
@@ -205,13 +224,14 @@ exports[`fnm "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/latest" detectFnmByEx
   "fnmPathType": "aliases",
   "installationPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/node-versions/v24.13.1/installation",
   "isFnm": true,
+  "isSameAsAliasDefault": undefined,
   "version": "v24.13.1",
 }
 `;
 
 exports[`fnm "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/lts-latest" detectFnmByAll 1`] = `
 {
-  "aliasDefaultPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/default",
+  "aliasesDefaultPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/default",
   "aliasesName": "lts-latest",
   "aliasesPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/lts-latest",
   "detectedBy": [
@@ -229,7 +249,8 @@ exports[`fnm "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/lts-latest" detectFnm
 
 exports[`fnm "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/lts-latest" detectFnmByEnv 1`] = `
 {
-  "aliasDefaultPath": "C:/Users/yyyyyyy/AppData/Roaming/fnm/aliases/default",
+  "aliasesDefaultPath": "C:/Users/yyyyyyy/AppData/Roaming/fnm/aliases/default",
+  "aliasesDefaultPathReal": undefined,
   "aliasesName": "lts-latest",
   "aliasesPath": "C:/Users/yyyyyyy/AppData/Roaming/fnm/aliases/lts-latest",
   "detectedBy": "env",
@@ -238,13 +259,15 @@ exports[`fnm "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/lts-latest" detectFnm
   "fnmPathType": "aliases",
   "installationPath": "C:/Users/yyyyyyy/AppData/Roaming/fnm/node-versions/v24.13.1/installation",
   "isFnm": true,
+  "isSameAsAliasDefault": undefined,
   "version": "v24.13.1",
 }
 `;
 
 exports[`fnm "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/lts-latest" detectFnmByExecPath 1`] = `
 {
-  "aliasDefaultPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/default",
+  "aliasesDefaultPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/default",
+  "aliasesDefaultPathReal": undefined,
   "aliasesName": "lts-latest",
   "aliasesPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/lts-latest",
   "detectedBy": "execpath",
@@ -253,13 +276,14 @@ exports[`fnm "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/lts-latest" detectFnm
   "fnmPathType": "aliases",
   "installationPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/node-versions/v24.13.1/installation",
   "isFnm": true,
+  "isSameAsAliasDefault": undefined,
   "version": "v24.13.1",
 }
 `;
 
 exports[`fnm "C:/Users/xxxxxxx/AppData/Roaming/fnm/node-versions/v24.13.1/installation" detectFnmByAll 1`] = `
 {
-  "aliasDefaultPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/default",
+  "aliasesDefaultPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/default",
   "detectedBy": [
     "execpath",
     "env",
@@ -275,26 +299,30 @@ exports[`fnm "C:/Users/xxxxxxx/AppData/Roaming/fnm/node-versions/v24.13.1/instal
 
 exports[`fnm "C:/Users/xxxxxxx/AppData/Roaming/fnm/node-versions/v24.13.1/installation" detectFnmByEnv 1`] = `
 {
-  "aliasDefaultPath": "C:/Users/yyyyyyy/AppData/Roaming/fnm/aliases/default",
+  "aliasesDefaultPath": "C:/Users/yyyyyyy/AppData/Roaming/fnm/aliases/default",
+  "aliasesDefaultPathReal": undefined,
   "detectedBy": "env",
   "fnmDir": "C:/Users/yyyyyyy/AppData/Roaming/fnm",
   "fnmPath": "C:/Users/yyyyyyy/AppData/Roaming/fnm/node-versions/v24.13.1/installation",
   "fnmPathType": "node-versions",
   "installationPath": "C:/Users/yyyyyyy/AppData/Roaming/fnm/node-versions/v24.13.1/installation",
   "isFnm": true,
+  "isSameAsAliasDefault": undefined,
   "version": "v24.13.1",
 }
 `;
 
 exports[`fnm "C:/Users/xxxxxxx/AppData/Roaming/fnm/node-versions/v24.13.1/installation" detectFnmByExecPath 1`] = `
 {
-  "aliasDefaultPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/default",
+  "aliasesDefaultPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/default",
+  "aliasesDefaultPathReal": undefined,
   "detectedBy": "execpath",
   "fnmDir": "C:/Users/xxxxxxx/AppData/Roaming/fnm",
   "fnmPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/node-versions/v24.13.1/installation",
   "fnmPathType": "node-versions",
   "installationPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/node-versions/v24.13.1/installation",
   "isFnm": true,
+  "isSameAsAliasDefault": undefined,
   "version": "v24.13.1",
 }
 `;

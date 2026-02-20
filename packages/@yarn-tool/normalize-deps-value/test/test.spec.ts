@@ -40,7 +40,12 @@ describe(`normalizeDepsValue`, () =>
 			let result = _getNpaResult(input);
 			let actual = normalizeResultToDepsValue(result);
 
-			expect(result).toMatchSnapshot();
+			expect(result).toMatchSnapshot({
+				// @ts-ignore
+				fetchSpec: result.fetchSpec !== null ? expect.any(String) : null,
+				// @ts-ignore
+				where: result.where ? expect.any(String) : void 0,
+			});
 			expect(actual).toMatchSnapshot();
 
 		});

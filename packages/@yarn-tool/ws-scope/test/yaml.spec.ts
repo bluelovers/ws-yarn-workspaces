@@ -1,7 +1,6 @@
 //@noUnusedParameters:false
 /// <reference types="jest" />
 /// <reference types="node" />
-/// <reference types="expect" />
 
 import { basename, extname, join } from 'path';
 import { __ROOT_WS } from '../../../../__root_ws';

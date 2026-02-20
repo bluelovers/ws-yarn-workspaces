@@ -5,12 +5,13 @@
   "keywords": [
     "yarn",
     "yarn-tool",
+    "pnpm",
+    "monorepo",
+    "workspaces",
     "npm",
     "lerna",
-    "workspaces",
     "pkg",
     "dependencies",
-    "monorepo",
     "yarnlock",
     "node-modules",
     "packages",
@@ -100,6 +101,8 @@
     "package-json": "<7 >=6.5",
     "pkg-up": "< 4 >= 3.1.0",
     "semver": "^7.7.2",
+    "strip-ansi": "<7 >=6.0.1",
+    "ts-node": "^10.9.2",
     "tslib": ">=2.6.2"
   },
   "devDependencies": {
