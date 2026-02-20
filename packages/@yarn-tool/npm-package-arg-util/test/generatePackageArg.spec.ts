@@ -99,55 +99,55 @@ describe('_allowedResultType', () =>
 	{
 		const result = _allowedResultType('version');
 
-		expect(result).toMatchSnapshot();
+		expect(result).toBeTruthy();
 	});
 
 	test('should return true for range type', () =>
 	{
 		const result = _allowedResultType('range');
 
-		expect(result).toMatchSnapshot();
+		expect(result).toBeTruthy();
 	});
 
 	test('should return true for tag type', () =>
 	{
 		const result = _allowedResultType('tag');
 
-		expect(result).toMatchSnapshot();
+		expect(result).toBeTruthy();
 	});
 
 	test('should return false for git type', () =>
 	{
 		const result = _allowedResultType('git');
 
-		expect(result).toMatchSnapshot();
+		expect(result).toBeFalsy();
 	});
 
 	test('should return false for file type', () =>
 	{
 		const result = _allowedResultType('file');
 
-		expect(result).toMatchSnapshot();
+		expect(result).toBeFalsy();
 	});
 
 	test('should return false for directory type', () =>
 	{
 		const result = _allowedResultType('directory');
 
-		expect(result).toMatchSnapshot();
+		expect(result).toBeFalsy();
 	});
 
 	test('should return false for alias type', () =>
 	{
 		const result = _allowedResultType('alias');
 
-		expect(result).toMatchSnapshot();
+		expect(result).toBeFalsy();
 	});
 
 	test('should return false for remote type', () =>
 	{
 		const result = _allowedResultType('remote');
 
-		expect(result).toMatchSnapshot();
+		expect(result).toBeFalsy();
 	});
 });

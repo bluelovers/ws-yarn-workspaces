@@ -3,15 +3,16 @@
  * @description 類型守衛函數的測試
  */
 
-import npa from '../index';
+import { isURLResult } from '../lib/detect';
 import {
-	isAliasResult,
-	isFileResult,
-	isRegistryResult,
-	isHostedGitResult,
-	isURLResult,
-	isNpmPackageArgResult,
-} from '../lib/detect';
+	_lazyTestIsAliasResult,
+	_lazyTestIsFileResult,
+	_lazyTestIsRegistryResult,
+	_lazyTestIsHostedGitResult,
+	_lazyTestIsURLResult,
+	_lazyTestNpmPackageArgResult001,
+	_lazyTestNpaTypeGuard,
+} from './lib/test';
 
 /**
  * Tests for isAliasResult function
@@ -21,18 +22,12 @@ describe('isAliasResult', () =>
 {
 	test('should return true for alias packages', () =>
 	{
-		const result = npa('my-lodash@npm:lodash@4.17.21');
-		const actual = isAliasResult(result);
-
-		expect(actual).toMatchSnapshot();
+		_lazyTestIsAliasResult('my-lodash@npm:lodash@4.17.21');
 	});
 
 	test('should return false for non-alias packages', () =>
 	{
-		const result = npa('lodash@4.17.21');
-		const actual = isAliasResult(result);
-
-		expect(actual).toMatchSnapshot();
+		_lazyTestIsAliasResult('lodash@4.17.21', null, false);
 	});
 });
 
@@ -44,26 +39,21 @@ describe('isFileResult', () =>
 {
 	test('should return true for file packages', () =>
 	{
-		const result = npa('./packages/my-pkg');
-		const actual = isFileResult(result);
-
-		expect(actual).toMatchSnapshot();
+		_lazyTestIsFileResult('./packages/my-pkg', {
+			type: 'directory',
+		});
 	});
 
 	test('should return true for directory packages', () =>
 	{
-		const result = npa('../other-pkg');
-		const actual = isFileResult(result);
-
-		expect(actual).toMatchSnapshot();
+		_lazyTestIsFileResult('../other-pkg', {
+			type: 'directory',
+		});
 	});
 
 	test('should return false for registry packages', () =>
 	{
-		const result = npa('lodash@4.17.21');
-		const actual = isFileResult(result);
-
-		expect(actual).toMatchSnapshot();
+		_lazyTestIsFileResult('lodash@4.17.21', null, false);
 	});
 });
 
@@ -75,42 +65,37 @@ describe('isRegistryResult', () =>
 {
 	test('should return true for version packages', () =>
 	{
-		const result = npa('lodash@4.17.21');
-		const actual = isRegistryResult(result);
-
-		expect(actual).toMatchSnapshot();
+		_lazyTestIsRegistryResult('lodash@4.17.21', {
+			type: 'version',
+		});
 	});
 
 	test('should return true for range packages', () =>
 	{
-		const result = npa('lodash@^4.17.0');
-		const actual = isRegistryResult(result);
-
-		expect(actual).toMatchSnapshot();
+		_lazyTestIsRegistryResult('lodash@^4.17.0', {
+			type: 'range',
+		});
 	});
 
 	test('should return true for tag packages', () =>
 	{
-		const result = npa('lodash@beta');
-		const actual = isRegistryResult(result);
-
-		expect(actual).toMatchSnapshot();
+		_lazyTestIsRegistryResult('lodash@beta', {
+			type: 'tag',
+		});
 	});
 
-	test('should return true for packages without version (defaults to tag)', () =>
+	test('should return true for packages without version (defaults to range)', () =>
 	{
-		const result = npa('lodash');
-		const actual = isRegistryResult(result);
-
-		expect(actual).toMatchSnapshot();
+		_lazyTestIsRegistryResult('lodash', {
+			type: 'range',
+		});
 	});
 
 	test('should return false for git packages', () =>
 	{
-		const result = npa('bluelovers/ws-yarn-workspaces');
-		const actual = isRegistryResult(result);
-
-		expect(actual).toMatchSnapshot();
+		_lazyTestIsRegistryResult('bluelovers/ws-yarn-workspaces', {
+			type: 'git',
+		}, false);
 	});
 });
 
@@ -122,26 +107,21 @@ describe('isHostedGitResult', () =>
 {
 	test('should return true for GitHub shorthand', () =>
 	{
-		const result = npa('bluelovers/ws-yarn-workspaces');
-		const actual = isHostedGitResult(result);
-
-		expect(actual).toMatchSnapshot();
+		_lazyTestIsHostedGitResult('bluelovers/ws-yarn-workspaces', {
+			type: 'git',
+		});
 	});
 
 	test('should return true for GitHub URL', () =>
 	{
-		const result = npa('github:bluelovers/ws-yarn-workspaces');
-		const actual = isHostedGitResult(result);
-
-		expect(actual).toMatchSnapshot();
+		_lazyTestIsHostedGitResult('github:bluelovers/ws-yarn-workspaces', {
+			type: 'git',
+		});
 	});
 
 	test('should return false for registry packages', () =>
 	{
-		const result = npa('lodash@4.17.21');
-		const actual = isHostedGitResult(result);
-
-		expect(actual).toMatchSnapshot();
+		_lazyTestIsHostedGitResult('lodash@4.17.21', null, false);
 	});
 });
 
@@ -153,20 +133,23 @@ describe('isURLResult', () =>
 {
 	test('should return false for GitHub shorthand (hosted)', () =>
 	{
-		const result = npa('bluelovers/ws-yarn-workspaces');
-		const actual = isURLResult(result);
-
 		// GitHub shorthand is hosted, not URL
 		// GitHub 簡寫是託管的，不是 URL
-		expect(actual).toMatchSnapshot();
+		_lazyTestNpaTypeGuard('bluelovers/ws-yarn-workspaces', {
+			propertyMatchers: {
+				type: 'git',
+			},
+			actualExpected: false,
+			fn: isURLResult,
+		});
 	});
 
 	test('should return false for registry packages', () =>
 	{
-		const result = npa('lodash@4.17.21');
-		const actual = isURLResult(result);
-
-		expect(actual).toMatchSnapshot();
+		_lazyTestNpaTypeGuard('lodash@4.17.21', {
+			actualExpected: false,
+			fn: isURLResult,
+		});
 	});
 });
 
@@ -178,33 +161,29 @@ describe('isNpmPackageArgResult', () =>
 {
 	test('should return true for registry packages', () =>
 	{
-		const result = npa('lodash@4.17.21');
-		const actual = isNpmPackageArgResult(result);
-
-		expect(actual).toMatchSnapshot();
+		_lazyTestNpaTypeGuard('lodash@4.17.21');
 	});
 
 	test('should return true for git packages', () =>
 	{
-		const result = npa('bluelovers/ws-yarn-workspaces');
-		const actual = isNpmPackageArgResult(result);
-
-		expect(actual).toMatchSnapshot();
+		_lazyTestNpaTypeGuard('bluelovers/ws-yarn-workspaces', {
+			propertyMatchers: {
+				type: 'git',
+			}
+		});
 	});
 
 	test('should return true for alias packages', () =>
 	{
-		const result = npa('my-lodash@npm:lodash@4.17.21');
-		const actual = isNpmPackageArgResult(result);
-
-		expect(actual).toMatchSnapshot();
+		_lazyTestNpaTypeGuard('my-lodash@npm:lodash@4.17.21');
 	});
 
 	test('should return true for file packages', () =>
 	{
-		const result = npa('./packages/my-pkg');
-		const actual = isNpmPackageArgResult(result);
-
-		expect(actual).toMatchSnapshot();
+		_lazyTestNpaTypeGuard('./packages/my-pkg', {
+			propertyMatchers: {
+				type: 'directory',
+			}
+		});
 	});
 });

@@ -3,7 +3,8 @@
  * @description 主要 npa 函數的測試
  */
 
-import npa, { npaTry, getSemverFromNpaResult } from '../index';
+import { npaTry } from '../index';
+import { _lazyTestNpa, _lazyTestGetSemver } from './lib/test';
 
 /**
  * Tests for npa function
@@ -19,30 +20,28 @@ describe('npa', () =>
 	{
 		test('should parse package name without version', () =>
 		{
-			const result = npa('lodash');
-
-			expect(result).toMatchSnapshot();
+			_lazyTestNpa('lodash');
 		});
 
 		test('should parse package name with exact version', () =>
 		{
-			const result = npa('lodash@4.17.21');
-
-			expect(result).toMatchSnapshot();
+			_lazyTestNpa('lodash@4.17.21', {
+				type: 'version',
+			});
 		});
 
 		test('should parse package name with version range', () =>
 		{
-			const result = npa('lodash@^4.17.0');
-
-			expect(result).toMatchSnapshot();
+			_lazyTestNpa('lodash@^4.17.0', {
+				type: 'range',
+			});
 		});
 
 		test('should parse package name with tag', () =>
 		{
-			const result = npa('lodash@beta');
-
-			expect(result).toMatchSnapshot();
+			_lazyTestNpa('lodash@beta', {
+				type: 'tag',
+			});
 		});
 	});
 
@@ -54,23 +53,25 @@ describe('npa', () =>
 	{
 		test('should parse scoped package without version', () =>
 		{
-			const result = npa('@types/node');
-
-			expect(result).toMatchSnapshot();
+			_lazyTestNpa('@types/node', {
+				scope: '@types',
+			});
 		});
 
 		test('should parse scoped package with version', () =>
 		{
-			const result = npa('@types/node@18.0.0');
-
-			expect(result).toMatchSnapshot();
+			_lazyTestNpa('@types/node@18.0.0', {
+				type: 'version',
+				scope: '@types',
+			});
 		});
 
 		test('should parse scoped package with range', () =>
 		{
-			const result = npa('@types/node@^18.0.0');
-
-			expect(result).toMatchSnapshot();
+			_lazyTestNpa('@types/node@^18.0.0', {
+				type: 'range',
+				scope: '@types',
+			});
 		});
 	});
 
@@ -82,23 +83,23 @@ describe('npa', () =>
 	{
 		test('should parse GitHub shorthand', () =>
 		{
-			const result = npa('bluelovers/ws-yarn-workspaces');
-
-			expect(result).toMatchSnapshot();
+			_lazyTestNpa('bluelovers/ws-yarn-workspaces', {
+				type: 'git',
+			});
 		});
 
 		test('should parse GitHub shorthand with package name', () =>
 		{
-			const result = npa('ws-yarn-workspaces@bluelovers/ws-yarn-workspaces');
-
-			expect(result).toMatchSnapshot();
+			_lazyTestNpa('ws-yarn-workspaces@bluelovers/ws-yarn-workspaces', {
+				type: 'git',
+			});
 		});
 
 		test('should parse GitHub URL', () =>
 		{
-			const result = npa('github:bluelovers/ws-yarn-workspaces');
-
-			expect(result).toMatchSnapshot();
+			_lazyTestNpa('github:bluelovers/ws-yarn-workspaces', {
+				type: 'git',
+			});
 		});
 	});
 
@@ -110,14 +111,8 @@ describe('npa', () =>
 	{
 		test('should parse npm alias', () =>
 		{
-			const result = npa('my-lodash@npm:lodash@4.17.21');
-
-			expect(result).toMatchSnapshot({
-				"name": "my-lodash",
-				"subSpec": {
-					"name": "lodash",
-					"rawSpec": "4.17.21",
-				}
+			_lazyTestNpa('my-lodash@npm:lodash@4.17.21', {
+				type: 'alias',
 			});
 		});
 	});
@@ -154,41 +149,26 @@ describe('getSemverFromNpaResult', () =>
 {
 	test('should extract version from version type', () =>
 	{
-		const result = npa('lodash@4.17.21');
-		const semver = getSemverFromNpaResult(result);
-
-		expect(semver).toMatchSnapshot();
+		_lazyTestGetSemver('lodash@4.17.21');
 	});
 
 	test('should extract version from range type', () =>
 	{
-		const result = npa('lodash@^4.17.0');
-		const semver = getSemverFromNpaResult(result);
-
-		expect(semver).toMatchSnapshot();
+		_lazyTestGetSemver('lodash@^4.17.0');
 	});
 
 	test('should extract version from tag type', () =>
 	{
-		const result = npa('lodash@beta');
-		const semver = getSemverFromNpaResult(result);
-
-		expect(semver).toMatchSnapshot();
+		_lazyTestGetSemver('lodash@beta');
 	});
 
 	test('should extract version from alias type', () =>
 	{
-		const result = npa('my-lodash@npm:lodash@4.17.21');
-		const semver = getSemverFromNpaResult(result);
-
-		expect(semver).toMatchSnapshot();
+		_lazyTestGetSemver('my-lodash@npm:lodash@4.17.21');
 	});
 
-	test('should return empty string for package without version', () =>
+	test('should return latest for package without version', () =>
 	{
-		const result = npa('lodash');
-		const semver = getSemverFromNpaResult(result);
-
-		expect(semver).toMatchSnapshot();
+		_lazyTestGetSemver('lodash');
 	});
 });
