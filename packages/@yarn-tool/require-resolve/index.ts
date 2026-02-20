@@ -35,7 +35,7 @@ export {
  * 核心解析選項介面
  * Core resolution options interface
  */
-export interface IOptionsCore
+export interface IOptionsRequireResolveCore
 {
 	/** 模組解析的搜尋路徑 / Search paths for module resolution */
 	paths?: (string | IPathItem)[];
@@ -45,7 +45,7 @@ export interface IOptionsCore
  * require.resolve 擴充選項介面
  * Extended options interface for require.resolve
  */
-export interface IOptions extends IOptionsCore
+export interface IOptionsRequireResolve extends IOptionsRequireResolveCore
 {
 	/** 模組名稱對應表 / Module name mapping table */
 	map?: Record<string, string>;
@@ -70,14 +70,14 @@ export interface IOptions extends IOptionsCore
  * @param options - 解析選項 / Resolution options
  * @returns 解析後的模組路徑 / Resolved module path
  */
-export function requireResolveCore(name: string, options?: IOptions)
+export function requireResolveCore(name: string, options?: IOptionsRequireResolve)
 {
 	options ??= {};
 
 	// 取得目標路徑，優先使用自訂對應表 / Get target path, prefer custom mapping
 	const target: string = options.map?.[name] ?? defaultMap[name] ?? name;
 
-	let paths: IOptionsCore["paths"] = options.paths;
+	let paths: IOptionsRequireResolveCore["paths"] = options.paths;
 
 	// 處理全域路徑包含選項 / Handle global paths inclusion option
 	if (options.includeGlobal)
@@ -138,7 +138,7 @@ export type IErrorModuleNotFound<E> = E & {
  * @param cwd - 工作目錄 / Working directory
  * @returns 轉換後的實際路徑陣列 / Converted actual path array
  */
-export function handleOptionsPaths(paths: IOptionsCore["paths"], cwd?: string): string[]
+export function handleOptionsPaths(paths: IOptionsRequireResolveCore["paths"], cwd?: string): string[]
 {
 	if (paths?.length)
 	{
@@ -196,7 +196,7 @@ export function isErrorModuleNotFound<T extends Error>(error: T): error is IErro
  * @param options - 解析選項 / Resolution options
  * @returns 載入的模組 / Loaded module
  */
-export function requireExtra<T extends any>(name: string, options?: IOptions): T
+export function requireExtra<T extends any>(name: string, options?: IOptionsRequireResolve): T
 {
 	return require(requireResolveCore(name, options))
 }
@@ -210,7 +210,7 @@ export function requireExtra<T extends any>(name: string, options?: IOptions): T
  * @param options - 解析選項 / Resolution options
  * @returns 模組的 Promise / Promise of the module
  */
-export function importExtra<T extends any>(name: string, options?: IOptions): Promise<T>
+export function importExtra<T extends any>(name: string, options?: IOptionsRequireResolve): Promise<T>
 {
 	return import(requireResolveCore(name, options))
 }
@@ -226,7 +226,7 @@ export function importExtra<T extends any>(name: string, options?: IOptions): Pr
  * @param options - 解析選項 / Resolution options
  * @returns 包含結果和錯誤的物件 / Object containing result and error
  */
-export function requireResolveExtra(name: string, options?: IOptions)
+export function requireResolveExtra(name: string, options?: IOptionsRequireResolve)
 {
 	let error: IErrorModuleNotFound<Error>;
 	let result: string;
@@ -279,7 +279,7 @@ export function _unshiftArray<T extends any>(array: T[], item: T)
  *
  * @see RequireResolve
  */
-export interface IOptions
+export interface IOptionsRequireResolveNode
 {
 	/** 模組解析的搜尋路徑 / Search paths for module resolution */
 	paths?: string[];
@@ -297,7 +297,7 @@ export interface IOptions
  * @param options - 解析選項 / Resolution options
  * @returns 包含模組名稱、套件根目錄和入口點位置的物件 / Object containing module name, package root, and entry point location
  */
-export function resolvePackageCore(moduleName: string, options?: IOptions)
+export function resolvePackageCore(moduleName: string, options?: IOptionsRequireResolveNode)
 {
 	let entryPointLocation: string;
 
@@ -330,7 +330,7 @@ export function resolvePackageCore(moduleName: string, options?: IOptions)
  * @param options - 解析選項 / Resolution options
  * @returns 套件根目錄的絕對路徑 / Absolute path to the package root directory
  */
-export function resolvePackageRoot(moduleName: string, options?: IOptions)
+export function resolvePackageRoot(moduleName: string, options?: IOptionsRequireResolveNode)
 {
 	return resolvePackageCore(moduleName, options).pkgRoot
 }
@@ -343,7 +343,7 @@ export function resolvePackageRoot(moduleName: string, options?: IOptions)
  * @param options - 解析選項 / Resolution options
  * @returns package.json 檔案的絕對路徑 / Absolute path to the package.json file
  */
-export function resolvePackageJsonLocation(moduleName: string, options?: IOptions)
+export function resolvePackageJsonLocation(moduleName: string, options?: IOptionsRequireResolveNode)
 {
 	return resolve(resolvePackageRoot(moduleName, options), 'package.json')
 }
@@ -356,7 +356,7 @@ export function resolvePackageJsonLocation(moduleName: string, options?: IOption
  * @param options - 解析選項 / Resolution options
  * @returns 接受路徑參數並返回絕對路徑的函數 / Function that accepts path arguments and returns absolute paths
  */
-export function createResolveLocationFn(moduleName: string, options?: IOptions)
+export function createResolveLocationFn(moduleName: string, options?: IOptionsRequireResolveNode)
 {
 	const { pkgRoot } = resolvePackageCore(moduleName, options);
 	return (path: string, ...paths: string[]) => resolve(pkgRoot, path, ...paths)
@@ -371,7 +371,7 @@ export function createResolveLocationFn(moduleName: string, options?: IOptions)
  * @param options - 解析選項 / Resolution options
  * @returns 解析後的 package.json 物件 / Parsed package.json object
  */
-export function readModulePackageJson<P extends IPackageJson>(moduleName: string, options?: IOptions): P
+export function readModulePackageJson<P extends IPackageJson>(moduleName: string, options?: IOptionsRequireResolveNode): P
 {
 	return require(resolvePackageJsonLocation(moduleName, options))
 }
@@ -391,7 +391,7 @@ export function readModulePackageJson<P extends IPackageJson>(moduleName: string
  * @param options - 解析選項 / Resolution options
  * @returns 包含完整套件資訊的物件 / Object containing complete package information
  */
-export function resolvePackage<P extends IPackageJson>(moduleName: string, options?: IOptions)
+export function resolvePackage<P extends IPackageJson>(moduleName: string, options?: IOptionsRequireResolveNode)
 {
 	const _ = resolvePackageCore(moduleName, options);
 	const { pkgRoot } = _;
