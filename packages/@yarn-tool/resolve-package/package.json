@@ -63,9 +63,8 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "pkg-dir": "<6 >=5",
-    "tslib": ">=2",
-    "upath2": "^3.1.19"
+    "@yarn-tool/require-resolve": "^3.0.2",
+    "tslib": ">=2"
   },
   "devDependencies": {
     "@ts-type/package-dts": "^2.0.8"
