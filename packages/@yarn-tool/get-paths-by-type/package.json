@@ -1,17 +1,20 @@
 {
   "name": "@yarn-tool/get-paths-by-type",
   "version": "2.0.10",
-  "description": "",
+  "description": "根據類型 Symbol 取得對應的路徑陣列（支援全域 npm/yarn 路徑） / Get corresponding path array based on type Symbol (supports global npm/yarn paths)",
   "keywords": [
-    "yarn",
     "yarn-tool",
+    "get-paths",
+    "global-dirs",
+    "global-paths",
+    "symbol",
+    "path-resolver",
+    "npm-global",
+    "yarn-global",
+    "yarn",
     "npm",
-    "lerna",
     "workspaces",
-    "pkg",
-    "dependencies",
     "monorepo",
-    "yarnlock",
     "node-modules",
     "packages",
     "package"
@@ -45,7 +48,8 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "global-dirs": "^3.0.1",
+    "@yarn-tool/fnm-detect": "^1.0.0",
+    "global-dirs": "<4 >=3.0.1",
     "tslib": ">=2"
   },
   "publishConfig": {

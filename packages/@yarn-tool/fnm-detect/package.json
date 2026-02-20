@@ -1,21 +1,22 @@
 {
   "name": "@yarn-tool/fnm-detect",
   "version": "1.0.0",
-  "description": "",
+  "description": "fnm (Fast Node Manager) 環境偵測模組 / A module for detecting whether the current Node.js process is running within an fnm-managed environment",
   "keywords": [
-    "yarn",
     "yarn-tool",
+    "fnm",
+    "fnm-detect",
+    "fast-node-manager",
+    "node-version-manager",
+    "environment-detection",
+    "multishell",
+    "node",
+    "nodejs",
+    "version-manager",
+    "yarn",
     "npm",
-    "lerna",
     "workspaces",
-    "pkg",
-    "dependencies",
-    "monorepo",
-    "yarnlock",
-    "node-modules",
-    "packages",
-    "package",
-    "create-by-yarn-tool"
+    "monorepo"
   ],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/fnm-detect#readme",
   "bugs": {

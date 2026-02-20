@@ -1,8 +1,11 @@
 {
   "name": "@yarn-tool/resolve-package",
   "version": "2.0.12",
-  "description": "resolve package root and package.json paths , work on node 17 too",
+  "description": "解析 Node.js 套件的根目錄與 package.json 路徑的工具庫 / A utility for resolving package root and package.json paths",
   "keywords": [
+    "yarn-tool",
+    "pkg-dir",
+    "upath2",
     "resolve",
     "package",
     "json",

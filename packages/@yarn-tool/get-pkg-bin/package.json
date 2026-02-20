@@ -1,7 +1,19 @@
 {
   "name": "@yarn-tool/get-pkg-bin",
   "version": "2.0.12",
-  "description": "get bin script from package.json",
+  "description": "從 package.json 取得 bin 腳本路徑的工具庫 / A utility for getting bin script paths from package.json",
+  "keywords": [
+    "yarn-tool",
+    "get-pkg-bin",
+    "package-bin",
+    "bin-scripts",
+    "cli-path",
+    "package-json",
+    "npm-bin",
+    "resolve-bin",
+    "yarn",
+    "npm"
+  ],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/get-pkg-bin#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"

@@ -10,7 +10,7 @@
  */
 
 import { dirname, join, normalize } from "upath2";
-import { ITSMergeBoth, ITSPartialPick, ITSPartialRecord, ITSTypeAndStringLiteral } from 'ts-type';
+import { ITSMergeBoth, ITSOverwrite, ITSPartialPick, ITSPartialRecord, ITSTypeAndStringLiteral } from 'ts-type';
 import { pathExists, pathExistsSync, realpathSync } from "fs-extra";
 import { sortObjectKeys } from 'sort-object-keys2';
 
@@ -79,6 +79,48 @@ export interface IDetectFnmByResult<T extends EnumDetectFnmBy = EnumDetectFnmBy>
 	isFnm: boolean;
 
 	/**
+	 * Detection source marker
+	 * 偵測來源標記
+	 *
+	 * @description
+	 * Indicates which detection method was used (execpath or env).
+	 * 指示使用的偵測方法（execpath 或 env）。
+	 */
+	detectedBy: ITSTypeAndStringLiteral<T>;
+
+	/**
+	 * Type of fnm path detected
+	 * 偵測到的 fnm 路徑類型
+	 *
+	 * @description
+	 * Indicates the type of fnm path: fnm_multishells, aliases, or node-versions.
+	 * 指示 fnm 路徑的類型：fnm_multishells、aliases 或 node-versions。
+	 */
+	fnmPathType?: EnumDetectFnmPathType;
+
+	/**
+	 * Whether the resolved path exists
+	 * 解析後的路徑是否存在
+	 */
+	exists?: boolean;
+
+	/**
+	 * The detected fnm path
+	 * 偵測到的 fnm 路徑
+	 */
+	fnmPath?: string;
+
+	/**
+	 * Real path after resolving symlinks (using realpathSync)
+	 * 解析真實路徑後的路徑（使用 realpathSync）
+	 *
+	 * @description
+	 * The actual path after resolving all symbolic links.
+	 * 解析所有符號連結後的實際路徑。
+	 */
+	fnmPathReal?: string;
+
+	/**
 	 * FNM_DIR environment variable value
 	 * FNM_DIR 環境變數值
 	 *
@@ -100,24 +142,34 @@ export interface IDetectFnmByResult<T extends EnumDetectFnmBy = EnumDetectFnmBy>
 	multishellPath?: string;
 
 	/**
-	 * Detection source marker
-	 * 偵測來源標記
-	 *
-	 * @description
-	 * Indicates which detection method was used (execpath or env).
-	 * 指示使用的偵測方法（execpath 或 env）。
+	 * Multishell directory (base path)
+	 * Multishell 目錄（基礎路徑）
 	 */
-	detectedBy: ITSTypeAndStringLiteral<T>;
+	multishellDir?: string;
 
 	/**
-	 * Real path after resolving symlinks (using realpathSync)
-	 * 解析真實路徑後的路徑（使用 realpathSync）
-	 *
-	 * @description
-	 * The actual path after resolving all symbolic links.
-	 * 解析所有符號連結後的實際路徑。
+	 * Multishell key (session identifier)
+	 * Multishell 鍵值（工作階段識別碼）
 	 */
-	fnmPathReal?: string,
+	multishellKey?: string;
+
+	/**
+	 * Default alias path
+	 * 預設別名路徑
+	 */
+	aliasesDefaultPath?: string;
+
+	/**
+	 * Real path of default alias
+	 * 預設別名的真實路徑
+	 */
+	aliasesDefaultPathReal?: string;
+
+	/**
+	 * Whether the default alias is detected
+	 * 此路徑是否與預設別名為相同路徑
+	 */
+	isSameAsAliasDefault?: boolean;
 
 	/**
 	 * Aliases directory path
@@ -128,6 +180,18 @@ export interface IDetectFnmByResult<T extends EnumDetectFnmBy = EnumDetectFnmBy>
 	 * fnm 別名目錄的路徑。
 	 */
 	aliasesPath?: string;
+
+	/**
+	 * Alias name
+	 * 別名名稱
+	 */
+	aliasesName?: string;
+
+	/**
+	 * Node version string
+	 * Node 版本字串
+	 */
+	version?: string;
 
 	/**
 	 * Node version installation path
@@ -180,11 +244,12 @@ export interface IDetectFnmByEnvResult extends IDetectFnmByResult<EnumDetectFnmB
  * 	isFnm: true,
  * 	fnmPathType: 'fnm_multishells',
  * 	exists: true,
+ * 	isSameAsAliasDefault: true,
  * 	fnmPath: 'C:/Users/User/AppData/Local/fnm_multishells/20128_1771488837711',
  * 	fnmPathReal: 'C:/Users/User/AppData/Roaming/fnm/node-versions/v24.13.1/installation',
  * 	fnmDir: 'C:/Users/User/AppData/Roaming/fnm',
- * 	aliasDefaultPath: 'C:/Users/User/AppData/Roaming/fnm/aliases/default',
- * 	aliasDefaultPathReal: 'C:/Users/User/AppData/Roaming/fnm/node-versions/v24.13.1/installation',
+ * 	aliasesDefaultPath: 'C:/Users/User/AppData/Roaming/fnm/aliases/default',
+ * 	aliasesDefaultPathReal: 'C:/Users/User/AppData/Roaming/fnm/node-versions/v24.13.1/installation',
  * 	installationPath: 'C:/Users/User/AppData/Roaming/fnm/node-versions/v24.13.1/installation',
  * 	multishellDir: 'C:/Users/User/AppData/Local/fnm_multishells',
  * 	multishellKey: '20128_1771488837711',
@@ -463,7 +528,7 @@ export function _fillMergeRecord<T extends Record<string, any>, R extends Record
 		}
 	}
 
-	return source as any as ITSMergeBoth<T, R>
+	return source as any as ITSOverwrite<R, T>
 }
 
 
@@ -490,7 +555,7 @@ export function _fillMergeRecord<T extends Record<string, any>, R extends Record
  * // Result: { isFnm: true, fnmPathType: 'fnm_multishells', ... }
  * ```
  */
-export function detectFnmByExecPath(execPath: string = process.execPath, nodeVersion: string = process.version)
+export function detectFnmByExecPath(execPath: string = process.execPath, nodeVersion: string = process.version): IDetectFnmByExecPathResult
 {
 	// Normalize path style (using upath2 to convert to Unix style)
 	// 統一路徑風格（使用 upath2 轉換為 Unix 風格）
@@ -518,7 +583,7 @@ export function detectFnmByExecPath(execPath: string = process.execPath, nodeVer
  * @param nodeVersion - Node.js version / Node.js 版本
  * @returns Complete detection result / 完整的偵測結果
  */
-export function _handleDetectFnmByResult<T extends EnumDetectFnmBy>(detectedBy: T, fnmPathType: ReturnType<typeof detectFnmPathType>, nodeVersion?: string)
+export function _handleDetectFnmByResult<T extends EnumDetectFnmBy>(detectedBy: T, fnmPathType: ReturnType<typeof detectFnmPathType>, nodeVersion?: string): IDetectFnmByResult<T>
 {
 
 	// Determine if this is an fnm environment from execPath
@@ -527,8 +592,10 @@ export function _handleDetectFnmByResult<T extends EnumDetectFnmBy>(detectedBy: 
 
 	let fnmPathReal: string;
 	let exists: boolean = null;
-	let aliasDefaultPath: string;
-	let aliasDefaultPathReal: string;
+	let aliasesDefaultPath: string;
+	let aliasesDefaultPathReal: string;
+
+	let isSameAsAliasDefault: boolean;
 
 	// Process based on path type
 	// 根據路徑類型進行處理
@@ -595,12 +662,14 @@ export function _handleDetectFnmByResult<T extends EnumDetectFnmBy>(detectedBy: 
 
 		// Compute the default alias path
 		// 計算預設別名路徑
-		aliasDefaultPath = (fnmPathType.fnmDir) && _toFnmPathAliases(fnmPathType.fnmDir, EnumDetectFnmPathAliases.default);
+		aliasesDefaultPath = (fnmPathType.fnmDir) && _toFnmPathAliases(fnmPathType.fnmDir, EnumDetectFnmPathAliases.default);
 
 		// Resolve the real path of the default alias
 		// 解析預設別名的真實路徑
 		try {
-			aliasDefaultPathReal = normalize(realpathSync(aliasDefaultPath));
+			aliasesDefaultPathReal = normalize(realpathSync(aliasesDefaultPath));
+
+			isSameAsAliasDefault = aliasesDefaultPathReal && aliasesDefaultPathReal === fnmPathReal;
 		} catch { }
 	}
 
@@ -609,8 +678,9 @@ export function _handleDetectFnmByResult<T extends EnumDetectFnmBy>(detectedBy: 
 		detectedBy,
 		fnmPathReal,
 		exists,
-		aliasDefaultPath,
-		aliasDefaultPathReal,
+		aliasesDefaultPath,
+		aliasesDefaultPathReal,
+		isSameAsAliasDefault,
 	}, fnmPathType);
 }
 
@@ -637,7 +707,7 @@ export function _handleDetectFnmByResult<T extends EnumDetectFnmBy>(detectedBy: 
  * // Otherwise, uses FNM_DIR combined with nodeVersion
  * ```
  */
-export function detectFnmByEnv(env: IDetectFnmByEnv = process.env, nodeVersion: string = process.version)
+export function detectFnmByEnv(env: IDetectFnmByEnv = process.env, nodeVersion: string = process.version): IDetectFnmByEnvResult
 {
 	// Use detectFnmPathType to parse path type from FNM_MULTISHELL_PATH
 	// 使用 detectFnmPathType 解析 FNM_MULTISHELL_PATH 的路徑類型
@@ -667,7 +737,7 @@ export function detectFnmByEnv(env: IDetectFnmByEnv = process.env, nodeVersion: 
  * @param result - The detection result object / 偵測結果物件
  * @returns Sorted result object / 排序後的結果物件
  */
-export function sortDetectFnmByResult<T>(result: T)
+export function sortDetectFnmByResult<T extends Partial<Omit<IDetectFnmByResult, 'detectedBy'>>>(result: T)
 {
 	return sortObjectKeys(result, {
 		keys: [
@@ -675,6 +745,7 @@ export function sortDetectFnmByResult<T>(result: T)
 			'detectedBy',
 			'fnmPathType',
 			'exists',
+			'isSameAsAliasDefault',
 			'fnmPath',
 			'fnmPathReal',
 			'fnmDir',

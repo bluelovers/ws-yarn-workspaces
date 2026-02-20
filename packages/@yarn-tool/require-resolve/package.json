@@ -1,10 +1,15 @@
 {
   "name": "@yarn-tool/require-resolve",
   "version": "3.0.2",
-  "description": "require.resolve with search on extra paths",
+  "description": "擴充版 require.resolve，支援在額外路徑中搜尋模組 / An extended require.resolve with support for searching modules in extra paths",
   "keywords": [
-    "yarn",
     "yarn-tool",
+    "require-resolve",
+    "require-extra",
+    "resolve",
+    "global-paths",
+    "module-resolution",
+    "yarn",
     "npm",
     "lerna",
     "workspaces",
