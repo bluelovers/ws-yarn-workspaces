@@ -125,6 +125,7 @@ function getModuleByExports(exportModule, req = require) {
         let key = ks[i];
         let mod = req.cache[key];
         if (mod.exports === exportModule) {
+            // @ts-ignore
             return mod;
         }
     }
@@ -140,6 +141,7 @@ function getModuleByFile(file, requireIfNotExists, req = require) {
     while (--i) {
         let key = ks[i];
         let mod = cache[key];
+        // @ts-ignore
         if (mod.filename === file) {
             return mod;
         }
@@ -165,6 +167,7 @@ function getRequireCache(req = require) {
  */
 function getMainModule(id = '.') {
     let pm = module;
+    // @ts-ignore
     do {
         if (pm.id === id) {
             return pm;

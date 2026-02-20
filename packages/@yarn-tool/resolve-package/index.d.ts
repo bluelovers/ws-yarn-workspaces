@@ -1,25 +1,16 @@
-import type { IPackageJson } from '@ts-type/package-dts';
 /**
- * @see RequireResolve
+ * @fileoverview 套件解析模組 - 重新匯出 @yarn-tool/require-resolve 的套件解析功能
+ * Package resolution module - Re-exports package resolution functions from @yarn-tool/require-resolve
+ *
+ * 此模組提供解析 Node.js 套件的根目錄與 package.json 路徑的功能。
+ * This module provides functionality to resolve Node.js package root and package.json paths.
+ *
+ * @module @yarn-tool/resolve-package
+ * @deprecated
  */
-export interface IOptions {
-    paths?: string[];
-}
-export declare function resolvePackageCore(moduleName: string, options?: IOptions): {
-    name: string;
-    pkgRoot: string;
-    entryPointLocation: string;
-};
-export declare function resolvePackageRoot(moduleName: string, options?: IOptions): string;
-export declare function resolvePackageJsonLocation(moduleName: string, options?: IOptions): string;
-export declare function createResolveLocationFn(moduleName: string, options?: IOptions): (path: string, ...paths: string[]) => string;
-export declare function readModulePackageJson<P extends IPackageJson>(moduleName: string, options?: IOptions): P;
-export declare function resolvePackage<P extends IPackageJson>(moduleName: string, options?: IOptions): {
-    pkg: P;
-    pkgJsonLocation: string;
-    resolveLocation(path: string, ...paths: string[]): string;
-    name: string;
-    pkgRoot: string;
-    entryPointLocation: string;
-};
-export default resolvePackage;
+export { resolvePackageCore, resolvePackageRoot, resolvePackageJsonLocation, createResolveLocationFn, readModulePackageJson, resolvePackage, resolvePackage as default, } from '@yarn-tool/require-resolve';
+export type { IOptionsRequireResolve, IOptionsRequireResolveCore, IPackageCoreInfo, IPackageInfo, IPathItem, 
+/**
+ * @deprecated 使用 IOptionsRequireResolve 代替 / Use IOptionsRequireResolve instead
+ */
+IOptionsRequireResolve as IOptions, } from '@yarn-tool/require-resolve';

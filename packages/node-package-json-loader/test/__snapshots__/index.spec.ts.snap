@@ -60,7 +60,6 @@ exports[`should sort 1`] = `
     "type": "git",
     "url": "git+https://github.com/bluelovers/npm-init2.git",
   },
-  "resolutions": {},
   "scripts": {
     "ncu": "npx yarn-tool ncu -u",
     "npm:publish": "npm publish",
@@ -93,7 +92,6 @@ exports[`should sort 2`] = `
   "directories",
   "scripts",
   "config",
-  "resolutions",
   "dependencies",
   "devDependencies",
   "bundleDependencies",
@@ -149,7 +147,6 @@ exports[`should sort 3`] = `
     "sort-package-json": "npx yarn-tool sort"
   },
   "config": {},
-  "resolutions": {},
   "dependencies": {
     "@yarn-tool/find-root": "^1.0.5",
     "@yarn-tool/pkg-git-info": "^1.0.3",

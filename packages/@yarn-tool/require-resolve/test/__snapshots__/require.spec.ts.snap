@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`describe ts-jest 1`] = `
+exports[`整合測試 ts-jest 1`] = `
 {
   "error": undefined,
   "result": Any<String>,
 }
 `;
 
-exports[`describe typescript 1`] = `
+exports[`整合測試 typescript 1`] = `
 {
   "error": undefined,
   "result": Any<String>,

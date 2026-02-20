@@ -1,9 +1,3 @@
 "use strict";
-/**
- * Created by user on 2020/6/13.
- *
- * 類型定義模組
- * Type definitions module
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 //# sourceMappingURL=types.js.map

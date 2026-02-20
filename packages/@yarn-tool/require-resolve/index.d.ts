@@ -1,27 +1,30 @@
-import { IPathItem, SymbolCurrentDirectory, SymbolGlobal, SymbolGlobalNpm, SymbolGlobalYarn, SymbolModuleMain } from '@yarn-tool/get-paths-by-type';
-export { IPathItem, SymbolCurrentDirectory, SymbolGlobal, SymbolGlobalNpm, SymbolGlobalYarn, SymbolModuleMain, };
-export interface IOptionsCore {
-    paths?: (string | IPathItem)[];
-}
-export interface IOptions extends IOptionsCore {
-    map?: Record<string, string>;
-    require?: NodeRequire;
-    includeGlobal?: boolean | IPathItem[];
-    includeCurrentDirectory?: boolean;
-    cwd?: string;
-}
-export declare function requireResolveCore(name: string, options?: IOptions): string;
-export type IErrorModuleNotFound<E> = E & {
-    code: string | 'MODULE_NOT_FOUND';
-    requireStack: string[];
-};
-export declare function handleOptionsPaths(paths: IOptionsCore["paths"], cwd?: string): string[];
-export declare function isErrorModuleNotFound<T extends Error>(error: T): error is IErrorModuleNotFound<T>;
-export declare function requireExtra<T extends any>(name: string, options?: IOptions): T;
-export declare function importExtra<T extends any>(name: string, options?: IOptions): Promise<T>;
-export declare function requireResolveExtra(name: string, options?: IOptions): {
-    result: string;
-    error: IErrorModuleNotFound<Error>;
-};
-export declare function _unshiftArray<T extends any>(array: T[], item: T): T[];
-export default requireResolveExtra;
+/**
+ * @yarn-tool/require-resolve
+ *
+ * 擴充版 require.resolve，支援在額外路徑中搜尋模組
+ * An extended require.resolve with support for searching modules in extra paths
+ *
+ * @module @yarn-tool/require-resolve
+ * @author bluelovers
+ * @license ISC
+ */
+export type { IOptionsRequireResolveCore, IOptionsRequireResolve, IErrorModuleNotFound, IOptionsRequireResolveNode, IPackageCoreInfo, IPackageInfo, IResolveResult, IPathItem, IPackageJson, } from './lib/types';
+export { SymbolCurrentDirectory, SymbolGlobal, SymbolGlobalNpm, SymbolGlobalYarn, SymbolModuleMain, defaultMap, handleOptionsPaths, getTargetName, unshiftArray, isValidPathSymbol, validSymbols, } from './lib/util';
+import { unshiftArray } from './lib/util';
+export { isErrorModuleNotFound, createModuleNotFoundError, } from './lib/error';
+export { requireResolveCore, requireResolveExtra, buildResolvePaths, } from './lib/core';
+export { requireExtra, importExtra, tryRequireExtra, tryImportExtra, } from './lib/loader';
+export { resolvePackageCore, resolvePackageRoot, resolvePackageJsonLocation, createResolveLocationFn, readModulePackageJson, resolvePackage, } from './lib/package';
+/**
+ * @deprecated 使用 unshiftArray 代替 / Use unshiftArray instead
+ *
+ * 將元素插入陣列開頭（若不存在）
+ * Unshift item to array if not already at beginning
+ *
+ * @typeParam T - 陣列元素類型 / Array element type
+ * @param array - 目標陣列 / Target array
+ * @param item - 要插入的元素 / Item to insert
+ * @returns 修改後的陣列 / Modified array
+ */
+export { unshiftArray as _unshiftArray };
+export { requireResolveExtra as default } from './lib/core';

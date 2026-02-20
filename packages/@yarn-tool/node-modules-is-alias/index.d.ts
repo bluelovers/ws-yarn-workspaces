@@ -8,14 +8,7 @@ export declare function parseModulePath(absolutePath: string): {
 };
 export declare function parseModulePathIsAlias(absolutePath: string): {
     parsed: import("@yarn-tool/npm-package-arg-util/lib/types").IParsePackageName;
-    resolveData: {
-        pkg: import("@ts-type/package-dts").IPackageJson<unknown>;
-        pkgJsonLocation: string;
-        resolveLocation(path: string, ...paths: string[]): string;
-        name: string;
-        pkgRoot: string;
-        entryPointLocation: string;
-    };
+    resolveData: import("@yarn-tool/resolve-package").IPackageInfo<import("@ts-type/package-dts").IPackageJson<unknown>>;
     isAlias: boolean;
     root: string;
     moduleBasename: string;
@@ -25,14 +18,7 @@ export declare function parseModulePathIsAlias(absolutePath: string): {
 };
 export declare function parseModulePathIsAliasUnsafe(absolutePath: string): {
     parsed: import("@yarn-tool/npm-package-arg-util/lib/types").IParsePackageName;
-    resolveData: {
-        pkg: import("@ts-type/package-dts").IPackageJson<unknown>;
-        pkgJsonLocation: string;
-        resolveLocation(path: string, ...paths: string[]): string;
-        name: string;
-        pkgRoot: string;
-        entryPointLocation: string;
-    };
+    resolveData: import("@yarn-tool/resolve-package").IPackageInfo<import("@ts-type/package-dts").IPackageJson<unknown>>;
     isAlias: boolean;
     root: string;
     moduleBasename: string;
