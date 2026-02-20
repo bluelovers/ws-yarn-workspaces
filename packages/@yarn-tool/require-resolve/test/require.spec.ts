@@ -2,7 +2,9 @@ import requireResolveExtra, { isErrorModuleNotFound } from '../index';
 
 describe(`describe`, () =>
 {
-	const tsdx_path = requireResolveExtra('tsdx').result;
+	const tsdx_path = requireResolveExtra('@bluelovers/tsdx', {
+		includeGlobal: true,
+	}).result;
 
 	console.dir(tsdx_path)
 
