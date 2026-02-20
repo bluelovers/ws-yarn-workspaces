@@ -77,13 +77,11 @@ export function requireResolveCore(name: string, options?: IOptionsRequireResolv
 	// 取得目標路徑，優先使用自訂對應表 / Get target path, prefer custom mapping
 	const target: string = options.map?.[name] ?? defaultMap[name] ?? name;
 
-	let paths: IOptionsRequireResolveCore["paths"] = options.paths;
+	let paths: IOptionsRequireResolveCore["paths"] = options.paths ?? [];
 
 	// 處理全域路徑包含選項 / Handle global paths inclusion option
 	if (options.includeGlobal)
 	{
-		paths = paths ?? [];
-
 		if (Array.isArray(options.includeGlobal))
 		{
 			(options.includeGlobal)
