@@ -79,6 +79,14 @@ export interface IDetectFnmByResult<T extends EnumDetectFnmBy = EnumDetectFnmBy>
 	isFnm: boolean;
 
 	/**
+	 * Whether the resolved path exists
+	 * 解析後的路徑是否存在
+	 *
+	 * 比 isFnm 更加安全的能夠確認 fnm 環境真實存在
+	 */
+	exists?: boolean;
+
+	/**
 	 * Detection source marker
 	 * 偵測來源標記
 	 *
@@ -97,12 +105,6 @@ export interface IDetectFnmByResult<T extends EnumDetectFnmBy = EnumDetectFnmBy>
 	 * 指示 fnm 路徑的類型：fnm_multishells、aliases 或 node-versions。
 	 */
 	fnmPathType?: EnumDetectFnmPathType;
-
-	/**
-	 * Whether the resolved path exists
-	 * 解析後的路徑是否存在
-	 */
-	exists?: boolean;
 
 	/**
 	 * The detected fnm path

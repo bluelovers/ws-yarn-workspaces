@@ -6,6 +6,7 @@
  */
 
 import { IPackageJson } from '@ts-type/package-dts';
+import type { IPathItem } from '@yarn-tool/get-paths-by-type';
 
 /**
  * 類似 package.json 的物件類型
@@ -18,12 +19,39 @@ import { IPackageJson } from '@ts-type/package-dts';
 export type IPackageJsonLike = IPackageJson | Record<string, any>;
 
 /**
+ * 核心解析選項介面（與 @yarn-tool/require-resolve 相容）
+ * Core resolution options interface (compatible with @yarn-tool/require-resolve)
+ */
+export interface IOptionsResolveCore
+{
+	/** 模組解析的搜尋路徑 / Search paths for module resolution */
+	paths?: (string | IPathItem)[];
+}
+
+/**
+ * 擴充解析選項介面（與 @yarn-tool/require-resolve 相容）
+ * Extended resolution options interface (compatible with @yarn-tool/require-resolve)
+ */
+export interface IOptionsResolveExtended extends IOptionsResolveCore
+{
+	/** 是否包含全域路徑 / Whether to include global paths */
+	includeGlobal?: boolean | IPathItem[];
+	/** 是否包含當前目錄 / Whether to include current directory */
+	includeCurrentDirectory?: boolean;
+	/** 工作目錄 / Working directory */
+	cwd?: string;
+}
+
+/**
  * get-pkg-bin 的選項配置
  * Options configuration for get-pkg-bin
  *
  * @description
  * 此類型定義了取得套件 bin 腳本時所需的選項。
  * This type defines the options needed to get package bin scripts.
+ *
+ * 支援與 @yarn-tool/require-resolve 相同的擴充選項。
+ * Supports the same extended options as @yarn-tool/require-resolve.
  *
  * 必須提供 `name` 或 `pkg` 其中之一。
  * Either `name` or `pkg` must be provided.
@@ -36,6 +64,12 @@ export type IPackageJsonLike = IPackageJson | Record<string, any>;
  * // 使用 package.json 物件
  * const options: IOptions = { pkg: require('./package.json') };
  *
+ * // 使用全域路徑搜尋
+ * const options: IOptions = {
+ *   name: 'typescript',
+ *   includeGlobal: true,
+ * };
+ *
  * // 兩者都提供
  * const options: IOptions = {
  *   name: 'my-package',
@@ -44,7 +78,7 @@ export type IPackageJsonLike = IPackageJson | Record<string, any>;
  * };
  * ```
  */
-export type IOptions = {
+export type IOptions = IOptionsResolveExtended & {
 	/**
 	 * 套件根目錄路徑
 	 * Package root directory path
@@ -67,15 +101,6 @@ export type IOptions = {
 	 */
 	usePathResolve?: boolean,
 
-	/**
-	 * 模組解析的搜尋路徑
-	 * Search paths for module resolution
-	 *
-	 * @description
-	 * 傳遞給 require.resolve 的 paths 選項。
-	 * Passed to require.resolve as paths option.
-	 */
-	paths?: string[],
 } & ({
 	/**
 	 * 套件名稱（可選，若有提供 pkg）

@@ -131,13 +131,16 @@ export function firstPackageBin(bins: Record<string, string>): string
  * 根據選項配置取得套件的名稱、根目錄和 package.json 內容。
  * Gets the package name, root directory, and package.json content based on options.
  *
+ * 支援與 @yarn-tool/require-resolve 相同的擴充選項（includeGlobal、includeCurrentDirectory、cwd）。
+ * Supports the same extended options as @yarn-tool/require-resolve (includeGlobal, includeCurrentDirectory, cwd).
+ *
  * @param options - 選項配置 / Options configuration
  * @returns 套件資訊物件 / Package information object
  * @throws TypeError 若未提供有效的 name 或 pkg / If valid name or pkg is not provided
  */
 export function getPackageInfo(options: IOptions)
 {
-	let { pkgRoot, pkg, name } = options;
+	let { pkgRoot, pkg, name, paths, includeGlobal, includeCurrentDirectory, cwd } = options;
 
 	// 若有提供 pkg，從中取得名稱 / If pkg is provided, get name from it
 	if (pkg)
@@ -147,8 +150,12 @@ export function getPackageInfo(options: IOptions)
 	else if (name)
 	{
 		// 若有提供 name，解析套件資訊 / If name is provided, resolve package info
+		// 使用擴充選項 / Use extended options
 		let data = resolvePackage(options.name, {
-			paths: options.paths,
+			paths,
+			includeGlobal,
+			includeCurrentDirectory,
+			cwd,
 		});
 		pkg = data.pkg;
 		pkgRoot = pkgRoot || data.pkgRoot;

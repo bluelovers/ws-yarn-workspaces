@@ -21,6 +21,9 @@ export * from './util';
  * 從 package.json 的 bin 欄位取得所有 bin 腳本，並解析為絕對路徑。
  * Gets all bin scripts from the package.json bin field and resolves them to absolute paths.
  *
+ * 支援與 @yarn-tool/require-resolve 相同的擴充選項（includeGlobal、includeCurrentDirectory、cwd）。
+ * Supports the same extended options as @yarn-tool/require-resolve (includeGlobal, includeCurrentDirectory, cwd).
+ *
  * @param options - 選項配置 / Options configuration
  * @returns 包含 bin 名稱與對應路徑的物件 / Object containing bin names and their paths
  *
@@ -31,6 +34,12 @@ export * from './util';
  * // 使用套件名稱
  * const bins = normalizePackageBins({ name: 'ts-node' });
  * // { 'ts-node': '/path/to/ts-node/dist/bin.js', 'ts-script': '/path/to/ts-node/dist/script.js' }
+ *
+ * // 使用全域路徑搜尋
+ * const bins = normalizePackageBins({
+ *   name: 'typescript',
+ *   includeGlobal: true,
+ * });
  *
  * // 使用 pkgRoot + pkg
  * const bins = normalizePackageBins({
@@ -72,6 +81,9 @@ export function normalizePackageBins(options: IOptions)
  * Gets the primary bin script of a package. If a bin name matches the package name,
  * returns that script; otherwise returns the first bin script.
  *
+ * 支援與 @yarn-tool/require-resolve 相同的擴充選項（includeGlobal、includeCurrentDirectory、cwd）。
+ * Supports the same extended options as @yarn-tool/require-resolve (includeGlobal, includeCurrentDirectory, cwd).
+ *
  * @param options - 選項配置 / Options configuration
  * @param defaultKey - 預設的 bin 名稱（可選）/ Default bin name (optional)
  * @returns bin 腳本的絕對路徑 / Absolute path to the bin script
@@ -83,6 +95,12 @@ export function normalizePackageBins(options: IOptions)
  * // 取得 ts-node 的預設 bin
  * const binPath = defaultPackageBin({ name: 'ts-node' });
  * // '/path/to/ts-node/dist/bin.js'
+ *
+ * // 使用全域路徑搜尋
+ * const binPath = defaultPackageBin({
+ *   name: 'typescript',
+ *   includeGlobal: true,
+ * });
  *
  * // 指定預設的 bin 名稱
  * const binPath = defaultPackageBin({ name: 'some-package' }, 'cli');

@@ -18,11 +18,18 @@ export {
 	createResolveLocationFn,
 	readModulePackageJson,
 	resolvePackage,
-	IOptions,
+	resolvePackage as default,
 } from '@yarn-tool/require-resolve';
 
-// 匯入類型以供預設匯出使用
-// Import types for default export
-import { resolvePackage } from '@yarn-tool/require-resolve';
-
-export default resolvePackage;
+// 匯出類型 / Export types
+export type {
+	IOptionsRequireResolve,
+	IOptionsRequireResolveCore,
+	IPackageCoreInfo,
+	IPackageInfo,
+	IPathItem,
+	/**
+	 * @deprecated 使用 IOptionsRequireResolve 代替 / Use IOptionsRequireResolve instead
+	 */
+	IOptionsRequireResolve as IOptions,
+} from '@yarn-tool/require-resolve';

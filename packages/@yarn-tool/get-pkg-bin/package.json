@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "@ts-type/package-dts": "^2.0.8",
+    "@yarn-tool/get-paths-by-type": "^2.0.10",
     "@yarn-tool/resolve-package": "^2.0.12",
     "tslib": ">=2",
     "upath2": "^3.1.19"
