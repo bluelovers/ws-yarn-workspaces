@@ -1,0 +1,13 @@
+{
+  "name": "test-pkg",
+  "version": "1.0.0",
+  "scripts": {
+    "preinstall": "echo preinstall",
+    "install": "echo install",
+    "postinstall": "echo postinstall",
+    "prebuild": "echo prebuild",
+    "build": "echo build",
+    "postbuild": "echo postbuild",
+    "test": "echo test"
+  }
+}

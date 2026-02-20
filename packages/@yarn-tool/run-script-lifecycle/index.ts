@@ -1,6 +1,29 @@
 /**
  * Created by user on 2020/4/8.
  */
+
+/**
+ * 生命週期腳本執行模組
+ * Lifecycle Script Execution Module
+ *
+ * @module @yarn-tool/run-script-lifecycle
+ * @description 提供 npm/yarn 生命週期腳本執行功能，支援前置和後置腳本
+ *              Provides npm/yarn lifecycle script execution functionality with support for pre and post scripts
+ *
+ * @example
+ * import runLifecycleScript from '@yarn-tool/run-script-lifecycle';
+ *
+ * // 執行 install 生命週期腳本（包含 preinstall 和 postinstall）
+ * // Run install lifecycle script (including preinstall and postinstall)
+ * const results = await runLifecycleScript({
+ *   event: 'install',
+ *   path: '/path/to/package'
+ * });
+ *
+ * // results 為執行結果陣列，可能包含 preinstall、install、postinstall 的結果
+ * // results is an array of execution results, possibly containing preinstall, install, postinstall results
+ */
+
 import runScriptPkg from '@npmcli/run-script/lib/run-script-pkg';
 import { pathExistsSync } from 'fs-extra';
 import { join } from 'path';
@@ -9,17 +32,64 @@ import { IRunLifecycleScriptOptions, IError, IResult, IResultNotExists, IPackage
 import { runLifecycleScriptCore, _options, runLifecycleScriptList } from './lib/util';
 import rpj from 'read-package-json-fast';
 
+/**
+ * 執行生命週期腳本
+ * Run lifecycle script
+ *
+ * @async
+ * @function runLifecycleScript
+ * @param {IRunLifecycleScriptOptions} options - 執行選項 (Execution options)
+ * @returns {Promise<(IResultNotExists | IResult)[]>} 執行結果陣列 (Array of execution results)
+ * @description 執行指定的生命週期腳本，自動處理前置 (pre) 和後置 (post) 腳本
+ *              Executes the specified lifecycle script, automatically handling pre and post scripts
+ *
+ * 執行順序 (Execution order):
+ * 1. 前置腳本 (pre-scripts)，如 preinstall
+ * 2. 主要腳本 (main script)，如 install
+ * 3. 後置腳本 (post-scripts)，如 postinstall
+ *
+ * @example
+ * // 執行 build 生命週期腳本
+ * // Run build lifecycle script
+ * const results = await runLifecycleScript({
+ *   event: 'build',
+ *   path: '/path/to/package',
+ *   stdio: 'inherit'
+ * });
+ *
+ * // 檢查執行結果
+ * // Check execution results
+ * results.forEach(result => {
+ *   if (result.code === 0) {
+ *     console.log(`${result.event} completed successfully`);
+ *   }
+ * });
+ *
+ * @throws {IError} 當腳本執行失敗時拋出錯誤 (Throws error when script execution fails)
+ */
 export async function runLifecycleScript(options: IRunLifecycleScriptOptions)
 {
+	// 建立 package.json 的完整路徑
+	// Build full path to package.json
 	const pkg_path = join(options.path, 'package.json');
 
+	console.log('pathExistsSync', pkg_path, pathExistsSync(pkg_path))
+
+	// 檢查 package.json 是否存在
+	// Check if package.json exists
 	if (pathExistsSync(pkg_path))
 	{
+		// 讀取並解析 package.json
+		// Read and parse package.json
 		return (rpj(pkg_path) as Promise<IPackageJson2>)
 			.then(async (pkg: IPackageJson2) =>
 			{
+				// 取得生命週期配置，包含前置和後置腳本列表
+				// Get lifecycle configuration, including pre and post script lists
 				let lifecycle = getLifecycle(options.event);
 
+				// 準備執行選項，用於前置和後置腳本
+				// Prepare execution options for pre and post scripts
 				let tmpOptions = _options({
 					...options,
 					args: [],
@@ -27,8 +97,12 @@ export async function runLifecycleScript(options: IRunLifecycleScriptOptions)
 					pkg,
 				})
 
+				// 儲存所有執行結果的陣列
+				// Array to store all execution results
 				const resultList: (IResultNotExists | IResult)[] = [];
 
+				// 執行前置腳本 (如 preinstall)
+				// Run pre-scripts (e.g., preinstall)
 				if (lifecycle.before?.length)
 				{
 					const results = await runLifecycleScriptList({
@@ -44,6 +118,8 @@ export async function runLifecycleScript(options: IRunLifecycleScriptOptions)
 					resultList.push(...results)
 				}
 
+				// 執行主要腳本 (如 install)
+				// Run main script (e.g., install)
 				const result = await runLifecycleScriptCore({
 					...options,
 					pkg,
@@ -51,6 +127,8 @@ export async function runLifecycleScript(options: IRunLifecycleScriptOptions)
 
 				resultList.push(result)
 
+				// 執行後置腳本 (如 postinstall)
+				// Run post-scripts (e.g., postinstall)
 				if (lifecycle.after?.length)
 				{
 					const results = await runLifecycleScriptList({
@@ -65,12 +143,18 @@ export async function runLifecycleScript(options: IRunLifecycleScriptOptions)
 					resultList.push(...results)
 				}
 
+				// 返回所有執行結果
+				// Return all execution results
 				return resultList
 			})
 	}
 
+	// 如果 package.json 不存在，直接執行腳本
+	// If package.json doesn't exist, execute script directly
 	return runLifecycleScriptCore(options)
 		.then(result => [result])
 }
 
+// 匯出預設函數
+// Export default function
 export default runLifecycleScript
