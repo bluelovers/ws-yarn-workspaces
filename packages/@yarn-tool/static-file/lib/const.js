@@ -22,8 +22,10 @@ const _defaultCopyStaticFiles = [
     // TypeScript configuration / TypeScript 配置
     ['tsconfig.json.tpl', 'file/tsconfig.json.tpl', 'tsconfig.json'],
     ['test/tsconfig.json.tpl', 'file/test/tsconfig.json.tpl', 'test/tsconfig.json'],
+    ['test/tsconfig.json', 'file/test/tsconfig.json.tpl'],
     ['tsconfig.esm.json.tpl', 'file/tsconfig.esm.json.tpl', 'tsconfig.esm.json'],
     ['tsconfig.tsdx.json.tpl', 'file/tsconfig.tsdx.json.tpl', 'tsconfig.tsdx.json'],
+    ['tsconfig.json', 'file/tsconfig.json.tpl'],
     // ESLint configuration / ESLint 配置
     ['.eslintrc.json.tpl', 'file/eslintrc.json.tpl', '.eslintrc.json'],
     // Documentation / 文檔
@@ -78,7 +80,6 @@ const _defaultCopyStaticFilesRootOnly = [
     ['.node-version', 'file/nvmrc'],
     ['.nvmrc', 'file/nvmrc'],
     // Root TypeScript configuration / 根目錄 TypeScript 配置
-    ['tsconfig.json', 'file/tsconfig.json.tpl', 'tsconfig.json'],
     ['.eslintrc.json', 'file/eslintrc.json.tpl', '.eslintrc.json'],
     //['changelog-option.js', 'file/changelog-option.js', 'changelog-option.js.tpl'],
     // Package manager configuration / 套件管理器配置
@@ -111,8 +112,6 @@ const _defaultCopyStaticFilesWsRootOnly = [
     ['lerna.json.tpl', 'file/lerna.json.tpl'],
     // pnpm workspace configuration / pnpm 工作區配置
     ['pnpm-workspace.yaml', 'file/pnpm-workspace.yaml'],
-    // TypeScript configuration / TypeScript 配置
-    ['tsconfig.json', 'file/tsconfig.json.tpl'],
     // TSC multi configuration / TSC 多配置
     ['tsc-multi.json.tpl', 'file/tsc-multi.json.tpl', 'tsc-multi.json'],
     // Workspace root file / 工作區根目錄檔案

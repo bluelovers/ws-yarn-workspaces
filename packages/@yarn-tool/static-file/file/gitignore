@@ -226,3 +226,12 @@ dist/*.umd.*.*s
 !/.storybook/
 
 test/fixtures/.gitkeep
+
+!.clinerules
+!.kilocode
+!.cline
+!.junie
+!.gemini
+!.copilot
+!.claude
+!.agents
