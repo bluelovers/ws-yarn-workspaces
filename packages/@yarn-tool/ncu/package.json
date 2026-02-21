@@ -1,8 +1,10 @@
 {
   "name": "@yarn-tool/ncu",
   "version": "3.0.3",
-  "description": "",
+  "description": "A wrapper tool for npm-check-updates that checks and updates package dependencies with semver support and yarn.lock integration. 封裝 npm-check-updates 的依賴版本檢查與更新工具，支援 semver 版本範圍處理與 yarn.lock 整合。",
   "keywords": [
+    "npm-check-updates",
+    "ncu",
     "cli",
     "install",
     "npm",

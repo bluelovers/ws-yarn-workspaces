@@ -1,5 +1,10 @@
 /**
- * Created by user on 2020/6/12.
+ * Type definitions for @yarn-tool/ncu.
+ * @yarn-tool/ncu 的類型定義。
+ *
+ * @packageDocumentation
+ *
+ * 包含 npm-check-updates 選項、版本快取、遠端套件查詢等相關類型。
  */
 import { Argv } from 'yargs';
 import IPackageJson from '@ts-type/package-dts/package-json';

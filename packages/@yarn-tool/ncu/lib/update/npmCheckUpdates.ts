@@ -1,3 +1,16 @@
+/**
+ * Core npm-check-updates wrapper function.
+ * npm-check-updates 的核心封裝函數。
+ *
+ * 此模組提供主要功能：
+ * - 檢查 package.json 中依賴套件的可用更新
+ * - 比較當前版本與最新版本
+ * - 支援 semver 版本範圍處理
+ * - 整合版本快取機制
+ *
+ * @module update/npmCheckUpdates
+ */
+
 import { IOptionsNpmCheckUpdates, IDependency } from '../types';
 import { npmCheckUpdatesOptions } from '../options';
 import { run as _npmCheckUpdates } from 'npm-check-updates';
@@ -14,7 +27,7 @@ import { getCache } from '@yarn-tool/pkg-version-query';
 import { toDependencyTable } from '@yarn-tool/table/lib/deps-table';
 import { npa } from '@yarn-tool/npm-package-arg-util';
 
-export async function npmCheckUpdates<C extends IWrapDedupeCache>(cache: Partial<C>,
+export function npmCheckUpdates<C extends IWrapDedupeCache>(cache: Partial<C>,
 	ncuOptions: ITSRequireAtLeastOne<IOptionsNpmCheckUpdates, 'json_old' | 'packageData'>,
 )
 {
@@ -27,31 +40,35 @@ export async function npmCheckUpdates<C extends IWrapDedupeCache>(cache: Partial
 
 	//ncuOptions.loglevel = 'verbose';
 
-	ncuOptions = npmCheckUpdatesOptions(ncuOptions);
-
-	ncuOptions.cwd = cache.cwd;
-
-	ncuOptions.json_new = JSON.parse(ncuOptions.packageData);
-
-	ncuOptions.list_updated = await _npmCheckUpdates(ncuOptions) as Record<string, string>;
-
 	let json_changed = false;
 
 	const current: IDependency = {};
 	const list_updated: IDependency = {};
 
-	await Bluebird
-		.resolve([
-			'dependencies',
-			'devDependencies',
-			'peerDependencies',
-			'optionalDependencies',
-		] as IPackageJsonDependenciesField[])
+	return Bluebird
+		.resolve()
+		.then(async () => {
+
+			ncuOptions = npmCheckUpdatesOptions(ncuOptions);
+
+			ncuOptions.cwd = cache.cwd;
+
+			ncuOptions.json_new = JSON.parse(ncuOptions.packageData);
+
+			ncuOptions.list_updated = await _npmCheckUpdates(ncuOptions) as Record<string, string>;
+
+			return [
+				'dependencies',
+				'devDependencies',
+				'peerDependencies',
+				'optionalDependencies',
+			] as IPackageJsonDependenciesField[];
+		})
 		.each(async (key) =>
 		{
 			const deps = ncuOptions.json_new[key] ?? {};
 
-			await Bluebird
+			return Bluebird
 				.resolve(Object.keys(deps))
 				.each(async (name) =>
 				{
@@ -109,22 +126,22 @@ export async function npmCheckUpdates<C extends IWrapDedupeCache>(cache: Partial
 					}
 
 				})
+		}).then(async () => {
 
+			await getCache().fsDump();
+
+			ncuOptions.json_changed = json_changed;
+			ncuOptions.list_updated = list_updated;
+			ncuOptions.current = current;
+
+			const table = toDependencyTable({
+				from: ncuOptions.current,
+				to: ncuOptions.list_updated,
+			}).toString();
+
+			table && console.log(`\n${table}\n`);
+
+			return ncuOptions as IOptionsNpmCheckUpdates;
 		})
 	;
-
-	await getCache().fsDump();
-
-	ncuOptions.json_changed = json_changed;
-	ncuOptions.list_updated = list_updated;
-	ncuOptions.current = current;
-
-	const table = toDependencyTable({
-		from: ncuOptions.current,
-		to: ncuOptions.list_updated,
-	}).toString();
-
-	table && console.log(`\n${table}\n`);
-
-	return ncuOptions;
 }
