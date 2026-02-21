@@ -10,7 +10,7 @@
  * 同時在 TypeScript 中提供類型縮小。
  */
 import { AliasResult, FileResult, HostedGitResult, RegistryResult, URLResult } from 'npm-package-arg';
-import { IResult } from './types';
+import { IResult, IResultAll } from './types';
 /**
  * Check if the result is an AliasResult
  * 檢查結果是否為 AliasResult
@@ -102,7 +102,7 @@ export declare function isRegistryResult(npaResult: IResult): npaResult is Regis
  * const result = npa('bluelovers/ws-yarn-workspaces');
  * isHostedGitResult(result); // true
  */
-export declare function isHostedGitResult(npaResult: IResult): npaResult is HostedGitResult;
+export declare function isHostedGitResult(npaResult: IResultAll): npaResult is HostedGitResult;
 /**
  * Check if the result is a URLResult
  * 檢查結果是否為 URLResult

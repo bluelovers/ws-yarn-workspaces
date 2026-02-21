@@ -54,7 +54,7 @@ function assertNpaResultHasName(result) {
     // Check if the result has a valid non-empty name
     // 檢查結果是否具有有效的非空名稱
     if (!((_a = result.name) === null || _a === void 0 ? void 0 : _a.length)) {
-        throw new Error(`Invalid input: ${result.raw}. name is required`);
+        throw new Error(`Invalid input: ${result.raw}. name is required` + (result.type ? ` for ${result.type} type` : ''));
     }
 }
 /**
@@ -137,23 +137,48 @@ function assertNpaResultAll(result, options) {
     // Validate allowed types if specified
     // 如果指定了允許的類型則驗證
     (allowedType === null || allowedType === void 0 ? void 0 : allowedType.length) && assert_1.default.ok(allowedType.includes(result.type), `Type '${result.type}' not allowed, only allow [${allowedType.join(', ')}]`);
+    if (!['range', 'version', 'alias', 'tag'].includes(result.type)) {
+        assert_1.default.ok(result.saveSpec, `saveSpec is required for ${result.type} type`);
+    }
     // Type-specific validation
     // 特定類型的驗證
-    if (result.type === 'git') {
-        // Git type requires hosted information
-        // Git 類型需要 hosted 資訊
-        assert_1.default.ok(result.hosted, 'hosted is required for git type');
-        assert_1.default.ok((0, detect_1.isHostedGitResult)(result), 'hosted.domain is required for git type');
+    switch (result.type) {
+        case 'git':
+            if (!result.fetchSpec) {
+                // Git type requires hosted information
+                // Git 類型需要 hosted 資訊
+                // assert.ok(result.hosted, 'hosted is required for git type');
+                assert_1.default.ok((0, detect_1.isHostedGitResult)(result), 'hosted.domain is required for git type when fetchSpec is not present');
+            }
+            else {
+                assert_1.default.ok(result.fetchSpec, 'fetchSpec is required for git type when hosted is not present');
+            }
+            break;
+        case 'directory':
+            // Directory type requires where path
+            // Directory 類型需要 where 路徑
+            assert_1.default.ok(result.where, 'where is required for directory type');
+        case 'file':
+        case 'remote':
+        case 'range':
+        case 'tag':
+        case 'version':
+            assert_1.default.ok(result.fetchSpec, `fetchSpec is required for ${result.type} type`);
+            break;
+        case 'alias':
+            assert_1.default.ok(result.subSpec, `subSpec is required for ${result.type} type`);
+            break;
+        default:
+            // Other types default to requiring name validation
+            // 其他類型預設需要名稱驗證
+            shouldHasName !== null && shouldHasName !== void 0 ? shouldHasName : (shouldHasName = true);
+            break;
     }
-    else if (result.type === 'directory') {
-        // Directory type requires where path
-        // Directory 類型需要 where 路徑
-        assert_1.default.ok(result.where, 'where is required for directory type');
+    if (typeof result.scope === 'string') {
+        assert_1.default.ok(result.scope.charCodeAt(0) === 64, `scope must start with @`);
     }
-    else {
-        // Other types default to requiring name validation
-        // 其他類型預設需要名稱驗證
-        shouldHasName || (shouldHasName = true);
+    if (['range', 'version', 'alias', 'tag'].includes(result.type)) {
+        shouldHasName !== null && shouldHasName !== void 0 ? shouldHasName : (shouldHasName = true);
     }
     // Validate name if required
     // 如果需要則驗證名稱
