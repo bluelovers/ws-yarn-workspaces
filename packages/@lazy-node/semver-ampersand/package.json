@@ -53,7 +53,7 @@
     "tslib": ">=2"
   },
   "peerDependencies": {
-    "semver": "^7.7.2"
+    "semver": "^7.7.4"
   },
   "publishConfig": {
     "access": "public"

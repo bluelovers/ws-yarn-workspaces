@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "find-pkg-ws": "^1.0.49",
-    "fs-extra": "^11.2.0",
+    "fs-extra": "^11.3.3",
     "tslib": ">=2"
   },
   "gitHead": "67f2bf3be478106378700eb513da557943b2f9f3"

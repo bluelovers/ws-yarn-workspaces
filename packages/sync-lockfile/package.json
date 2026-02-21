@@ -42,10 +42,10 @@
   },
   "dependencies": {
     "@yarn-tool/find-root": "^2.0.15",
-    "fs-extra": "^11.2.0",
+    "fs-extra": "^11.3.3",
     "tslib": ">=2",
     "ws-pkg-list": "^3.0.3",
-    "yargs": "^17.7.2"
+    "yargs": "<18 >=17.7.2"
   },
   "gitHead": "46d4d576f34d2d5218822811286119ea7a44d08b"
 }

@@ -49,7 +49,7 @@
     "@yarn-tool/yarnlock-parse": "^3.0.3",
     "@yarn-tool/yarnlock-stringify": "^2.0.3",
     "@yarn-tool/yarnlock-util": "^3.0.3",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "ts-type": "^3.0.1",
     "tslib": ">=2"
   },

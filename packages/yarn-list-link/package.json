@@ -38,9 +38,9 @@
   },
   "dependencies": {
     "find-yarn-workspace-root2": "^1.2.51",
-    "fs-extra": "^11.2.0",
+    "fs-extra": "^11.3.3",
     "tslib": ">=2",
-    "upath2": "^3.1.19"
+    "upath2": "^3.1.20"
   },
   "gitHead": "40676553ac196265d354e537459d4c78d67f0a8c"
 }

@@ -46,7 +46,7 @@
   "dependencies": {
     "@yarn-tool/yarnlock-parse": "^3.0.3",
     "@yarn-tool/yarnlock-stringify": "^2.0.3",
-    "fs-extra": "^11.2.0",
+    "fs-extra": "^11.3.3",
     "tslib": ">=2"
   },
   "publishConfig": {
