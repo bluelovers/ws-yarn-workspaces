@@ -1,4 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`missing range parameter in range intersect 1`] = `"a Range is required"`;
 
 exports[`range as argument to range ctor 1`] = `
 SemverRange {
@@ -81,3 +83,5 @@ SemverRange {
 exports[`range parsing >01.02.03 undefined null 1`] = `"Invalid comparator: >01.02.03"`;
 
 exports[`range parsing ~1.2.3beta undefined null 1`] = `"Invalid comparator: ~1.2.3beta"`;
+
+exports[`throw for empty comparator set, even in loose mode 1`] = `"Invalid SemVer Range: sadf||asdf"`;

@@ -41,7 +41,7 @@ describe('range parsing', () =>
 
 test('throw for empty comparator set, even in loose mode', () =>
 {
-	expect(() => new Range('sadf||asdf', { loose: true })).toThrowError(TypeError('Invalid SemVer Range: sadf||asdf'))
+	expect(() => new Range('sadf||asdf', { loose: true })).toThrowErrorMatchingSnapshot()
 })
 
 test('convert comparator to range', () =>
@@ -120,6 +120,6 @@ test('missing range parameter in range intersect', () =>
 	{
 		// @ts-expect-error
 		new Range('1.0.0').intersects()
-	}).toThrowError(new TypeError('a Range is required'))
+	}).toThrowErrorMatchingSnapshot()
 })
 

@@ -49,17 +49,17 @@ describe(basename(__filename, extname(__filename)), () =>
 
 	test(`throw`, () => {
 
-		expect(() => yarnLockParsedToRawJSON(parsedObject)).toThrowError();
+		expect(() => yarnLockParsedToRawJSON(parsedObject)).toThrow();
 
 		expect(() => yarnLockParsedToRawJSON({
 			...(parsedObject as any as IYarnLockParsedV1),
 			verType: EnumDetectYarnLock.v1,
-		})).not.toThrowError();
+		})).not.toThrow();
 
 		expect(() => yarnLockParsedToRawJSON({
 			...(parsedObject as any as IYarnLockParsedV2),
 			verType: EnumDetectYarnLock.v2,
-		})).not.toThrowError();
+		})).not.toThrow();
 
 	});
 
