@@ -17,6 +17,7 @@ A comprehensive utility library for parsing npm package arguments, providing enh
 - 🔄 **@types Conversion** - Convert package names to TypeScript @types format / 將套件名稱轉換為 TypeScript @types 格式
 - ⚡ **Safe Parsing** - Try-parse without throwing errors / 嘗試解析但不拋出錯誤
 - 🔧 **Flexible Validation** - Customizable validation options / 可自定義的驗證選項
+- ✅ **Assertion Functions** - Comprehensive validation functions / 全面驗證函數
 - 🛡️ **TypeScript Support** - Full TypeScript type definitions / 完整的 TypeScript 類型定義
 
 ## Installation / 安裝
@@ -45,6 +46,7 @@ const result = npa('lodash@4.17.21');
 console.log(result.name);    // 'lodash'
 console.log(result.type);    // 'version'
 console.log(result.rawSpec); // '4.17.21'
+console.log(result.fetchSpec); // '4.17.21'
 
 // Parse with flexible options (new version)
 // 使用靈活選項解析（新版本）
@@ -54,8 +56,9 @@ const result2 = npa2('lodash@^4.17.0', {
 
 // Parse a scoped package / 解析範圍套件
 const scoped = npa('@types/node@^18.0.0');
-console.log(scoped.name);  // '@types/node'
-console.log(scoped.scope); // 'types'
+console.log(scoped.name);   // '@types/node'
+console.log(scoped.scope);  // '@types'
+console.log(scoped.escapedName); // '@types%2fnode'
 
 // Safe parsing without errors / 安全解析不拋出錯誤
 const safe = npaTry('invalid-package-argument');
@@ -112,13 +115,42 @@ if (isRegistryResult(result)) {
   // TypeScript knows result is RegistryResult
   // TypeScript 知道 result 是 RegistryResult
   console.log('Package from npm registry / 來自 npm registry 的套件');
+  console.log('fetchSpec:', result.fetchSpec); // '^4.17.0'
 }
 
 if (isHostedGitResult(result)) {
   // TypeScript knows result is HostedGitResult
   // TypeScript 知道 result 是 HostedGitResult
   console.log('Package from GitHub/GitLab / 來自 GitHub/GitLab 的套件');
+  console.log('domain:', result.hosted?.domain); // 'github.com'
 }
+```
+
+### Assertion Functions / 斷言函數
+
+```typescript
+import { 
+  assertNpaResultHasName, 
+  assertNpaResultByType, 
+  assertNpaResultAll 
+} from '@yarn-tool/npm-package-arg-util/lib/assert';
+
+const result = npa('lodash@4.17.21');
+
+// Assert result has a valid name
+// 斷言結果具有有效名稱
+assertNpaResultHasName(result);
+
+// Assert result has specific type
+// 斷言結果具有特定類型
+assertNpaResultByType(result, 'version');
+
+// Comprehensive validation with options
+// 使用選項進行全面驗證
+assertNpaResultAll(result, {
+  shouldHasName: true,
+  allowedType: ['version', 'range'],
+});
 ```
 
 ### Version Extraction / 版本提取
@@ -134,6 +166,11 @@ console.log(version); // '^4.17.21'
 const alias = npa('my-lodash@npm:lodash@4.17.21');
 const aliasVersion = getSemverFromNpaResult(alias);
 console.log(aliasVersion); // '4.17.21'
+
+// Package without version returns '*'
+// 沒有版本的套件返回 '*'
+const noVersion = npa('lodash');
+console.log(getSemverFromNpaResult(noVersion)); // '*'
 ```
 
 ### Package Name Parsing / 套件名稱解析
@@ -146,7 +183,7 @@ console.log(parsed);
 // {
 //   type: 'range',
 //   name: '@types/node',
-//   scope: 'types',
+//   scope: '@types',
 //   subname: 'node',
 //   semver: '^18.0.0',
 //   result: ...
@@ -215,6 +252,22 @@ interface IOptionsNpaUtil {
 }
 ```
 
+### Result Types / 結果類型
+
+```typescript
+// Union type for all result types with names
+// 所有帶有名稱的結果類型的聯合類型
+type IResult = AliasResult | FileResult | RegistryResult | HostedGitResult | URLResult;
+
+// Union type including results without names (git URLs, etc.)
+// 包含沒有名稱的結果的聯合類型（git URL 等）
+type IResultAll = IResult | Result;
+
+// Result type string
+// 結果類型字串
+type IResultType = 'alias' | 'file' | 'directory' | 'version' | 'range' | 'tag' | 'git' | 'remote';
+```
+
 ### Type Guards / 類型守衛
 
 | Function | Description |
@@ -250,10 +303,29 @@ interface IOptionsNpaUtil {
 | `tag` | `pkg@latest` | Dist-tag / 分發標籤 |
 | `git` | `user/repo` | GitHub shorthand / GitHub 簡寫 |
 | `git` | `git+https://...` | Git URL / Git URL |
-| `file` | `./path/to/pkg` | Local file / 本地檔案 |
+| `file` | `./path/to/pkg.tar.gz` | Local file / 本地檔案 |
 | `directory` | `./path/to/dir` | Local directory / 本地目錄 |
 | `alias` | `pkg@npm:other@1.0.0` | Package alias / 套件別名 |
 | `remote` | `https://...tar.gz` | Remote tarball / 遠端 tarball |
+
+## Result Properties / 結果屬性
+
+| Property | Description |
+|----------|-------------|
+| `type` | Result type string / 結果類型字串 |
+| `name` | Package name (may be undefined for git URLs) / 套件名稱（git URL 可能為 undefined） |
+| `escapedName` | URL-encoded name / URL 編碼的名稱 |
+| `scope` | Package scope with @ prefix / 帶 @ 前綴的套件範圍 |
+| `rawSpec` | Raw version specifier / 原始版本指定符 |
+| `fetchSpec` | Normalized spec for fetching / 用於獲取的標準化規格 |
+| `saveSpec` | Spec for saving to package.json / 用於保存到 package.json 的規格 |
+| `raw` | Original input string / 原始輸入字串 |
+| `where` | Base directory path / 基礎目錄路徑 |
+| `hosted` | GitHost object (for hosted git) / GitHost 物件（用於託管 git） |
+| `gitCommittish` | Git commit/branch/tag / git 提交/分支/標籤 |
+| `gitRange` | Git semver range / git semver 範圍 |
+| `gitSubdir` | Git subdirectory path / git 子目錄路徑 |
+| `subSpec` | Sub-specification (for aliases) / 子規格（用於別名） |
 
 ## Related Projects / 相關專案
 
