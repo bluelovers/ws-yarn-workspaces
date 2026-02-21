@@ -17,6 +17,8 @@ export declare function wsEnvConfig<E extends {
     current: string;
     fileExists: boolean;
     error?: Error & {
+        code: "MISSING_DATA" | "INVALID_DOTENV_KEY" | "NOT_FOUND_DOTENV_ENVIRONMENT" | "DECRYPTION_FAILED" | "OBJECT_REQUIRED";
+    } & {
         code?: string;
     };
     parsed?: DotenvParseOutput & E;

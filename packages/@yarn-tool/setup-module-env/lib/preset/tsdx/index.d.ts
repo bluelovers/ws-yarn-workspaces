@@ -43,7 +43,7 @@ export declare function updatePackageJson<P extends IPackageJson>(pkg: P, config
  * Defines static files that need to be copied to the target project,
  * each entry follows [targetPath, sourcePath, ?sourceFileName] format.
  */
-declare const _defaultCopyStaticFilesTsdx: readonly [readonly ["tsconfig.json", "file/tsconfig.tsdx.json.tpl", "tsconfig.json"], readonly ["test/tsconfig.json", "file/test/tsconfig.json.tpl", "test/tsconfig.json"], readonly ["src/index.cts", "file/tsdx/index.cts"], readonly ["src/tsconfig.json", "file/tsdx/tsconfig.json.tpl"]];
+declare const _defaultCopyStaticFilesTsdx: readonly [readonly ["tsconfig.json", "file/tsconfig.tsdx.json.tpl"], readonly ["test/tsconfig.json", "file/test/tsconfig.json.tpl"], readonly ["src/index.cts", "file/tsdx/index.cts"], readonly ["src/tsconfig.json", "file/tsdx/tsconfig.json.tpl"]];
 /**
  * 凍結的預設靜態檔案映射表
  * Frozen default static file mapping table

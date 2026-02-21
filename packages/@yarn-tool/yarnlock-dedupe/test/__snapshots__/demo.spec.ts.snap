@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`yarnlock-dedupe v1 next.js.lock fixDuplicates 1`] = `1`;
 

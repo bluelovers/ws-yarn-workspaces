@@ -126,10 +126,10 @@ function updatePackageJson(pkg, config) {
 const _defaultCopyStaticFilesTsdx = [
     // 根目錄的 tsconfig.json 設定檔
     // Root tsconfig.json configuration file
-    ['tsconfig.json', 'file/tsconfig.tsdx.json.tpl', 'tsconfig.json'],
+    ['tsconfig.json', 'file/tsconfig.tsdx.json.tpl'],
     // 測試目錄的 tsconfig.json 設定檔
     // Test directory tsconfig.json configuration file
-    ['test/tsconfig.json', 'file/test/tsconfig.json.tpl', 'test/tsconfig.json'],
+    ['test/tsconfig.json', 'file/test/tsconfig.json.tpl'],
     // src 目錄下的 index.cts 檔案
     // index.cts file under src directory
     ['src/index.cts', 'file/tsdx/index.cts'],

@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`lazy.spec @strictsoftware/typedoc-plugin-monorepo@npm:0.2.2 1`] = `
 {

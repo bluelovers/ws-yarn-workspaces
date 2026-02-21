@@ -6,7 +6,7 @@ import type { IPackageJson } from '@ts-type/package-dts';
  */
 export interface IOptionsRequireResolveCore {
     /** 模組解析的搜尋路徑 / Search paths for module resolution */
-    paths?: (string | IPathItem)[];
+    paths?: (string | IPathItem | undefined)[];
 }
 /**
  * require.resolve 擴充選項介面
