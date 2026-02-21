@@ -1,0 +1,656 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`isAliasResult should return false for non-alias packages 1`] = `
+{
+  "actual": false,
+  "inputSpec": "lodash@4.17.21",
+  "result": {
+    "escapedName": "lodash",
+    "fetchSpec": "4.17.21",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "name": "lodash",
+    "raw": "lodash@4.17.21",
+    "rawSpec": "4.17.21",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "version",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`isAliasResult should return true for alias packages 1`] = `
+{
+  "actual": true,
+  "inputSpec": "my-lodash@npm:lodash@4.17.21",
+  "result": {
+    "escapedName": "my-lodash",
+    "fetchSpec": null,
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "name": "my-lodash",
+    "raw": "my-lodash@npm:lodash@4.17.21",
+    "rawSpec": "npm:lodash@4.17.21",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "subSpec": {
+      "escapedName": "lodash",
+      "fetchSpec": "4.17.21",
+      "gitCommittish": undefined,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "lodash",
+      "raw": "lodash@4.17.21",
+      "rawSpec": "4.17.21",
+      "registry": true,
+      "saveSpec": null,
+      "scope": undefined,
+      "type": "version",
+      "where": undefined,
+    },
+    "type": "alias",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`isFileResult should return false for registry packages 1`] = `
+{
+  "actual": false,
+  "inputSpec": "lodash@4.17.21",
+  "result": {
+    "escapedName": "lodash",
+    "fetchSpec": "4.17.21",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "name": "lodash",
+    "raw": "lodash@4.17.21",
+    "rawSpec": "4.17.21",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "version",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`isFileResult should return true for directory packages 1`] = `
+{
+  "actual": true,
+  "inputSpec": "../other-pkg",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": "C:\\Users\\User\\WebstormProjects\\nodejs-yarn\\ws-yarn-workspaces\\packages\\@yarn-tool\\other-pkg",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "../other-pkg",
+    "rawSpec": "../other-pkg",
+    "registry": undefined,
+    "saveSpec": "file:../other-pkg",
+    "scope": undefined,
+    "type": "directory",
+    "where": "C:\\Users\\User\\WebstormProjects\\nodejs-yarn\\ws-yarn-workspaces\\packages\\@yarn-tool\\npm-package-arg-util",
+  },
+}
+`;
+
+exports[`isFileResult should return true for file packages 1`] = `
+{
+  "actual": true,
+  "inputSpec": "./packages/my-pkg",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": "C:\\Users\\User\\WebstormProjects\\nodejs-yarn\\ws-yarn-workspaces\\packages\\@yarn-tool\\npm-package-arg-util\\packages\\my-pkg",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "./packages/my-pkg",
+    "rawSpec": "./packages/my-pkg",
+    "registry": undefined,
+    "saveSpec": "file:packages/my-pkg",
+    "scope": undefined,
+    "type": "directory",
+    "where": "C:\\Users\\User\\WebstormProjects\\nodejs-yarn\\ws-yarn-workspaces\\packages\\@yarn-tool\\npm-package-arg-util",
+  },
+}
+`;
+
+exports[`isHostedGitResult should return false for registry packages 1`] = `
+{
+  "actual": false,
+  "inputSpec": "lodash@4.17.21",
+  "result": {
+    "escapedName": "lodash",
+    "fetchSpec": "4.17.21",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "name": "lodash",
+    "raw": "lodash@4.17.21",
+    "rawSpec": "4.17.21",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "version",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`isHostedGitResult should return true for GitHub URL 1`] = `
+{
+  "actual": true,
+  "inputSpec": "github:bluelovers/ws-yarn-workspaces",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": null,
+    "gitCommittish": null,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": GitHost {
+      "auth": null,
+      "blobpath": "blob",
+      "browseblobtemplate": [Function],
+      "browsetemplate": [Function],
+      "browsetreetemplate": [Function],
+      "bugstemplate": [Function],
+      "committish": null,
+      "default": "shortcut",
+      "docstemplate": [Function],
+      "domain": "github.com",
+      "editpath": "edit",
+      "edittemplate": [Function],
+      "extract": [Function],
+      "filetemplate": [Function],
+      "gittemplate": [Function],
+      "hashformat": [Function],
+      "httpstemplate": [Function],
+      "opts": {
+        "noCommittish": true,
+        "noGitPlus": true,
+      },
+      "pathtemplate": [Function],
+      "project": "ws-yarn-workspaces",
+      "protocols": [
+        "git:",
+        "http:",
+        "git+ssh:",
+        "git+https:",
+        "ssh:",
+        "https:",
+      ],
+      "shortcuttemplate": [Function],
+      "sshtemplate": [Function],
+      "sshurltemplate": [Function],
+      "tarballtemplate": [Function],
+      "treepath": "tree",
+      "type": "github",
+      "user": "bluelovers",
+    },
+    "name": undefined,
+    "raw": "github:bluelovers/ws-yarn-workspaces",
+    "rawSpec": "github:bluelovers/ws-yarn-workspaces",
+    "registry": undefined,
+    "saveSpec": "github:bluelovers/ws-yarn-workspaces",
+    "scope": undefined,
+    "type": "git",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`isHostedGitResult should return true for GitHub shorthand 1`] = `
+{
+  "actual": true,
+  "inputSpec": "bluelovers/ws-yarn-workspaces",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": null,
+    "gitCommittish": null,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": GitHost {
+      "auth": null,
+      "blobpath": "blob",
+      "browseblobtemplate": [Function],
+      "browsetemplate": [Function],
+      "browsetreetemplate": [Function],
+      "bugstemplate": [Function],
+      "committish": null,
+      "default": "shortcut",
+      "docstemplate": [Function],
+      "domain": "github.com",
+      "editpath": "edit",
+      "edittemplate": [Function],
+      "extract": [Function],
+      "filetemplate": [Function],
+      "gittemplate": [Function],
+      "hashformat": [Function],
+      "httpstemplate": [Function],
+      "opts": {
+        "noCommittish": true,
+        "noGitPlus": true,
+      },
+      "pathtemplate": [Function],
+      "project": "ws-yarn-workspaces",
+      "protocols": [
+        "git:",
+        "http:",
+        "git+ssh:",
+        "git+https:",
+        "ssh:",
+        "https:",
+      ],
+      "shortcuttemplate": [Function],
+      "sshtemplate": [Function],
+      "sshurltemplate": [Function],
+      "tarballtemplate": [Function],
+      "treepath": "tree",
+      "type": "github",
+      "user": "bluelovers",
+    },
+    "name": undefined,
+    "raw": "bluelovers/ws-yarn-workspaces",
+    "rawSpec": "bluelovers/ws-yarn-workspaces",
+    "registry": undefined,
+    "saveSpec": "github:bluelovers/ws-yarn-workspaces",
+    "scope": undefined,
+    "type": "git",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`isNpmPackageArgResult should return true for alias packages 1`] = `
+{
+  "actual": true,
+  "inputSpec": "my-lodash@npm:lodash@4.17.21",
+  "result": {
+    "escapedName": "my-lodash",
+    "fetchSpec": null,
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "name": "my-lodash",
+    "raw": "my-lodash@npm:lodash@4.17.21",
+    "rawSpec": "npm:lodash@4.17.21",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "subSpec": {
+      "escapedName": "lodash",
+      "fetchSpec": "4.17.21",
+      "gitCommittish": undefined,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "lodash",
+      "raw": "lodash@4.17.21",
+      "rawSpec": "4.17.21",
+      "registry": true,
+      "saveSpec": null,
+      "scope": undefined,
+      "type": "version",
+      "where": undefined,
+    },
+    "type": "alias",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`isNpmPackageArgResult should return true for file packages 1`] = `
+{
+  "actual": true,
+  "inputSpec": "./packages/my-pkg",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": "C:\\Users\\User\\WebstormProjects\\nodejs-yarn\\ws-yarn-workspaces\\packages\\@yarn-tool\\npm-package-arg-util\\packages\\my-pkg",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "./packages/my-pkg",
+    "rawSpec": "./packages/my-pkg",
+    "registry": undefined,
+    "saveSpec": "file:packages/my-pkg",
+    "scope": undefined,
+    "type": "directory",
+    "where": "C:\\Users\\User\\WebstormProjects\\nodejs-yarn\\ws-yarn-workspaces\\packages\\@yarn-tool\\npm-package-arg-util",
+  },
+}
+`;
+
+exports[`isNpmPackageArgResult should return true for git packages 1`] = `
+{
+  "actual": true,
+  "inputSpec": "bluelovers/ws-yarn-workspaces",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": null,
+    "gitCommittish": null,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": GitHost {
+      "auth": null,
+      "blobpath": "blob",
+      "browseblobtemplate": [Function],
+      "browsetemplate": [Function],
+      "browsetreetemplate": [Function],
+      "bugstemplate": [Function],
+      "committish": null,
+      "default": "shortcut",
+      "docstemplate": [Function],
+      "domain": "github.com",
+      "editpath": "edit",
+      "edittemplate": [Function],
+      "extract": [Function],
+      "filetemplate": [Function],
+      "gittemplate": [Function],
+      "hashformat": [Function],
+      "httpstemplate": [Function],
+      "opts": {
+        "noCommittish": true,
+        "noGitPlus": true,
+      },
+      "pathtemplate": [Function],
+      "project": "ws-yarn-workspaces",
+      "protocols": [
+        "git:",
+        "http:",
+        "git+ssh:",
+        "git+https:",
+        "ssh:",
+        "https:",
+      ],
+      "shortcuttemplate": [Function],
+      "sshtemplate": [Function],
+      "sshurltemplate": [Function],
+      "tarballtemplate": [Function],
+      "treepath": "tree",
+      "type": "github",
+      "user": "bluelovers",
+    },
+    "name": undefined,
+    "raw": "bluelovers/ws-yarn-workspaces",
+    "rawSpec": "bluelovers/ws-yarn-workspaces",
+    "registry": undefined,
+    "saveSpec": "github:bluelovers/ws-yarn-workspaces",
+    "scope": undefined,
+    "type": "git",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`isNpmPackageArgResult should return true for registry packages 1`] = `
+{
+  "actual": true,
+  "inputSpec": "lodash@4.17.21",
+  "result": {
+    "escapedName": "lodash",
+    "fetchSpec": "4.17.21",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "name": "lodash",
+    "raw": "lodash@4.17.21",
+    "rawSpec": "4.17.21",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "version",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`isRegistryResult should return false for git packages 1`] = `
+{
+  "actual": false,
+  "inputSpec": "bluelovers/ws-yarn-workspaces",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": null,
+    "gitCommittish": null,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": GitHost {
+      "auth": null,
+      "blobpath": "blob",
+      "browseblobtemplate": [Function],
+      "browsetemplate": [Function],
+      "browsetreetemplate": [Function],
+      "bugstemplate": [Function],
+      "committish": null,
+      "default": "shortcut",
+      "docstemplate": [Function],
+      "domain": "github.com",
+      "editpath": "edit",
+      "edittemplate": [Function],
+      "extract": [Function],
+      "filetemplate": [Function],
+      "gittemplate": [Function],
+      "hashformat": [Function],
+      "httpstemplate": [Function],
+      "opts": {
+        "noCommittish": true,
+        "noGitPlus": true,
+      },
+      "pathtemplate": [Function],
+      "project": "ws-yarn-workspaces",
+      "protocols": [
+        "git:",
+        "http:",
+        "git+ssh:",
+        "git+https:",
+        "ssh:",
+        "https:",
+      ],
+      "shortcuttemplate": [Function],
+      "sshtemplate": [Function],
+      "sshurltemplate": [Function],
+      "tarballtemplate": [Function],
+      "treepath": "tree",
+      "type": "github",
+      "user": "bluelovers",
+    },
+    "name": undefined,
+    "raw": "bluelovers/ws-yarn-workspaces",
+    "rawSpec": "bluelovers/ws-yarn-workspaces",
+    "registry": undefined,
+    "saveSpec": "github:bluelovers/ws-yarn-workspaces",
+    "scope": undefined,
+    "type": "git",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`isRegistryResult should return true for packages without version (defaults to range) 1`] = `
+{
+  "actual": true,
+  "inputSpec": "lodash",
+  "result": {
+    "escapedName": "lodash",
+    "fetchSpec": "*",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": "lodash",
+    "raw": "lodash",
+    "rawSpec": "*",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "range",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`isRegistryResult should return true for range packages 1`] = `
+{
+  "actual": true,
+  "inputSpec": "lodash@^4.17.0",
+  "result": {
+    "escapedName": "lodash",
+    "fetchSpec": "^4.17.0",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": "lodash",
+    "raw": "lodash@^4.17.0",
+    "rawSpec": "^4.17.0",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "range",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`isRegistryResult should return true for tag packages 1`] = `
+{
+  "actual": true,
+  "inputSpec": "lodash@beta",
+  "result": {
+    "escapedName": "lodash",
+    "fetchSpec": "beta",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": "lodash",
+    "raw": "lodash@beta",
+    "rawSpec": "beta",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "tag",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`isRegistryResult should return true for version packages 1`] = `
+{
+  "actual": true,
+  "inputSpec": "lodash@4.17.21",
+  "result": {
+    "escapedName": "lodash",
+    "fetchSpec": "4.17.21",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": "lodash",
+    "raw": "lodash@4.17.21",
+    "rawSpec": "4.17.21",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "version",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`isURLResult should return false for GitHub shorthand (hosted) 1`] = `
+{
+  "actual": false,
+  "inputSpec": "bluelovers/ws-yarn-workspaces",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": null,
+    "gitCommittish": null,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": GitHost {
+      "auth": null,
+      "blobpath": "blob",
+      "browseblobtemplate": [Function],
+      "browsetemplate": [Function],
+      "browsetreetemplate": [Function],
+      "bugstemplate": [Function],
+      "committish": null,
+      "default": "shortcut",
+      "docstemplate": [Function],
+      "domain": "github.com",
+      "editpath": "edit",
+      "edittemplate": [Function],
+      "extract": [Function],
+      "filetemplate": [Function],
+      "gittemplate": [Function],
+      "hashformat": [Function],
+      "httpstemplate": [Function],
+      "opts": {
+        "noCommittish": true,
+        "noGitPlus": true,
+      },
+      "pathtemplate": [Function],
+      "project": "ws-yarn-workspaces",
+      "protocols": [
+        "git:",
+        "http:",
+        "git+ssh:",
+        "git+https:",
+        "ssh:",
+        "https:",
+      ],
+      "shortcuttemplate": [Function],
+      "sshtemplate": [Function],
+      "sshurltemplate": [Function],
+      "tarballtemplate": [Function],
+      "treepath": "tree",
+      "type": "github",
+      "user": "bluelovers",
+    },
+    "name": undefined,
+    "raw": "bluelovers/ws-yarn-workspaces",
+    "rawSpec": "bluelovers/ws-yarn-workspaces",
+    "registry": undefined,
+    "saveSpec": "github:bluelovers/ws-yarn-workspaces",
+    "scope": undefined,
+    "type": "git",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`isURLResult should return false for registry packages 1`] = `
+{
+  "actual": false,
+  "inputSpec": "lodash@4.17.21",
+  "result": {
+    "escapedName": "lodash",
+    "fetchSpec": "4.17.21",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "name": "lodash",
+    "raw": "lodash@4.17.21",
+    "rawSpec": "4.17.21",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "version",
+    "where": undefined,
+  },
+}
+`;

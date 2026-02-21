@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`should throw an error 1`] = `"Invalid input: jonchurch/botkit#multi-hears. name is required"`;

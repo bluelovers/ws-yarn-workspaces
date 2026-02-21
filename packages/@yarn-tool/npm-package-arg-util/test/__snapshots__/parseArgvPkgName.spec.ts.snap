@@ -1,0 +1,199 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`parseArgvPkgName should parse package name and version 1`] = `
+{
+  "input": "lodash@4.17.21",
+  "name": "lodash",
+  "namespace": undefined,
+  "result": {
+    "escapedName": "lodash",
+    "fetchSpec": "4.17.21",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "name": "lodash",
+    "raw": "lodash@4.17.21",
+    "rawSpec": "4.17.21",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "version",
+    "where": undefined,
+  },
+  "version": "4.17.21",
+}
+`;
+
+exports[`parseArgvPkgName should parse scoped package 1`] = `
+{
+  "input": "@types/node@^18.0.0",
+  "name": "node",
+  "namespace": "@types",
+  "result": {
+    "escapedName": "@types%2fnode",
+    "fetchSpec": "^18.0.0",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "name": "@types/node",
+    "raw": "@types/node@^18.0.0",
+    "rawSpec": "^18.0.0",
+    "registry": true,
+    "saveSpec": null,
+    "scope": "@types",
+    "type": "range",
+    "where": undefined,
+  },
+  "version": "^18.0.0",
+}
+`;
+
+exports[`parsePackageName scoped packages should parse scoped package with range 1`] = `
+{
+  "name": "@types/node",
+  "result": {
+    "escapedName": "@types%2fnode",
+    "fetchSpec": "^18.0.0",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "name": "@types/node",
+    "raw": "@types/node@^18.0.0",
+    "rawSpec": "^18.0.0",
+    "registry": true,
+    "saveSpec": null,
+    "scope": "@types",
+    "type": "range",
+    "where": undefined,
+  },
+  "scope": "@types",
+  "semver": "^18.0.0",
+  "subname": "node",
+  "type": "range",
+}
+`;
+
+exports[`parsePackageName scoped packages should parse scoped package with version 1`] = `
+{
+  "name": "@types/node",
+  "result": {
+    "escapedName": "@types%2fnode",
+    "fetchSpec": "18.0.0",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "name": "@types/node",
+    "raw": "@types/node@18.0.0",
+    "rawSpec": "18.0.0",
+    "registry": true,
+    "saveSpec": null,
+    "scope": "@types",
+    "type": "version",
+    "where": undefined,
+  },
+  "scope": "@types",
+  "semver": "18.0.0",
+  "subname": "node",
+  "type": "version",
+}
+`;
+
+exports[`parsePackageName scoped packages should parse scoped package without version 1`] = `
+{
+  "name": "@types/node",
+  "result": {
+    "escapedName": "@types%2fnode",
+    "fetchSpec": "*",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "name": "@types/node",
+    "raw": "@types/node",
+    "rawSpec": "*",
+    "registry": true,
+    "saveSpec": null,
+    "scope": "@types",
+    "type": "range",
+    "where": undefined,
+  },
+  "scope": "@types",
+  "semver": "*",
+  "subname": "node",
+  "type": "range",
+}
+`;
+
+exports[`parsePackageName simple packages should parse package with version 1`] = `
+{
+  "name": "lodash",
+  "result": {
+    "escapedName": "lodash",
+    "fetchSpec": "4.17.21",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "name": "lodash",
+    "raw": "lodash@4.17.21",
+    "rawSpec": "4.17.21",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "version",
+    "where": undefined,
+  },
+  "scope": undefined,
+  "semver": "4.17.21",
+  "subname": "lodash",
+  "type": "version",
+}
+`;
+
+exports[`parsePackageName simple packages should parse package with version range 1`] = `
+{
+  "name": "lodash",
+  "result": {
+    "escapedName": "lodash",
+    "fetchSpec": "^4.17.0",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "name": "lodash",
+    "raw": "lodash@^4.17.0",
+    "rawSpec": "^4.17.0",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "range",
+    "where": undefined,
+  },
+  "scope": undefined,
+  "semver": "^4.17.0",
+  "subname": "lodash",
+  "type": "range",
+}
+`;
+
+exports[`parsePackageName simple packages should parse package without version 1`] = `
+{
+  "name": "lodash",
+  "result": {
+    "escapedName": "lodash",
+    "fetchSpec": "*",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "name": "lodash",
+    "raw": "lodash",
+    "rawSpec": "*",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "range",
+    "where": undefined,
+  },
+  "scope": undefined,
+  "semver": "*",
+  "subname": "lodash",
+  "type": "range",
+}
+`;
