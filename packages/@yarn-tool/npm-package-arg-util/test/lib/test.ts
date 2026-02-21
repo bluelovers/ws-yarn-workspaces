@@ -3,7 +3,7 @@
  * @description npm-package-arg-util 的測試工具函數
  */
 
-import npa, { IResult } from '../..';
+import { IResult, npa2 } from '../..';
 import { getSemverFromNpaResult } from '../../lib/getSemverFromNpaResult';
 import {
 	isNpmPackageArgResult,
@@ -50,7 +50,7 @@ export function _lazyTestNpaTypeGuard<T extends IResult = IResult>(
 )
 {
 	let { propertyMatchers, fn = isNpmPackageArgResult, actualExpected } = options;
-	const result: T = npa(inputSpec);
+	const result: T = npa2(inputSpec);
 	const actual = fn(result);
 
 	actualExpected ??= true;
@@ -187,7 +187,7 @@ export function _lazyTestNpa<T extends IResult = IResult>(
 	propertyMatchers?: Partial<T>,
 )
 {
-	const result: T = npa(inputSpec);
+	const result: T = npa2(inputSpec);
 
 	expect({
 		inputSpec,
@@ -211,7 +211,7 @@ export function _lazyTestNpa<T extends IResult = IResult>(
  */
 export function _lazyTestGetSemver(inputSpec: string)
 {
-	const result = npa(inputSpec);
+	const result = npa2(inputSpec);
 	const semver = getSemverFromNpaResult(result);
 
 	expect({

@@ -5,9 +5,9 @@
 
 > A utility library for parsing and handling npm package arguments / 用於解析和處理 npm 套件參數的工具函式庫
 
-A comprehensive utility library for parsing npm package arguments, providing enhanced functionality for yarn tools. This library wraps [npm-package-arg](https://github.com/npm/npm-package-arg) with additional features like type guards, version extraction, and TypeScript @types package name conversion.
+A comprehensive utility library for parsing npm package arguments, providing enhanced functionality for yarn tools. This library wraps [npm-package-arg](https://github.com/npm/npm-package-arg) with additional features like type guards, version extraction, flexible validation options, and TypeScript @types package name conversion.
 
-一個全面的 npm 套件參數解析工具函式庫，為 yarn 工具提供增強功能。此函式庫封裝了 [npm-package-arg](https://github.com/npm/npm-package-arg)，並提供額外功能如類型守衛、版本提取和 TypeScript @types 套件名稱轉換。
+一個全面的 npm 套件參數解析工具函式庫，為 yarn 工具提供增強功能。此函式庫封裝了 [npm-package-arg](https://github.com/npm/npm-package-arg)，並提供額外功能如類型守衛、版本提取、靈活的驗證選項和 TypeScript @types 套件名稱轉換。
 
 ## Features / 功能特色
 
@@ -16,6 +16,7 @@ A comprehensive utility library for parsing npm package arguments, providing enh
 - 📝 **Version Extraction** - Extract semver from various package formats / 從各種套件格式提取語意版本
 - 🔄 **@types Conversion** - Convert package names to TypeScript @types format / 將套件名稱轉換為 TypeScript @types 格式
 - ⚡ **Safe Parsing** - Try-parse without throwing errors / 嘗試解析但不拋出錯誤
+- 🔧 **Flexible Validation** - Customizable validation options / 可自定義的驗證選項
 - 🛡️ **TypeScript Support** - Full TypeScript type definitions / 完整的 TypeScript 類型定義
 
 ## Installation / 安裝
@@ -36,13 +37,20 @@ npm install @yarn-tool/npm-package-arg-util
 ### Basic Parsing / 基本解析
 
 ```typescript
-import npa, { npaTry } from '@yarn-tool/npm-package-arg-util';
+import npa, { npa2, npaTry, npaTry2 } from '@yarn-tool/npm-package-arg-util';
 
-// Parse a package with version / 解析帶版本的套件
+// Parse a package with version (legacy, strict name validation)
+// 解析帶版本的套件（舊版，嚴格名稱驗證）
 const result = npa('lodash@4.17.21');
 console.log(result.name);    // 'lodash'
 console.log(result.type);    // 'version'
 console.log(result.rawSpec); // '4.17.21'
+
+// Parse with flexible options (new version)
+// 使用靈活選項解析（新版本）
+const result2 = npa2('lodash@^4.17.0', {
+  allowedType: ['version', 'range']
+});
 
 // Parse a scoped package / 解析範圍套件
 const scoped = npa('@types/node@^18.0.0');
@@ -52,6 +60,39 @@ console.log(scoped.scope); // 'types'
 // Safe parsing without errors / 安全解析不拋出錯誤
 const safe = npaTry('invalid-package-argument');
 console.log(safe); // undefined if parsing fails / 如果解析失敗則為 undefined
+```
+
+### Validation Options / 驗證選項
+
+```typescript
+import { npa2, npaTry2 } from '@yarn-tool/npm-package-arg-util';
+import type { IOptionsNpaUtil } from '@yarn-tool/npm-package-arg-util';
+
+// Options for parsing
+// 解析選項
+const options: IOptionsNpaUtil = {
+  // Base directory for resolving relative paths
+  // 解析相對路徑的基礎目錄
+  where: process.cwd(),
+  
+  // Whether to validate that result has a name
+  // 是否驗證結果有名稱
+  shouldHasName: true,
+  
+  // Array of allowed result types
+  // 允許的結果類型陣列
+  allowedType: ['version', 'range', 'tag'],
+};
+
+// Parse with options
+// 使用選項解析
+const result = npa2('lodash@^4.17.0', options);
+
+// Parse GitHub repo without name validation
+// 解析 GitHub 儲存庫但不驗證名稱
+const gitRepo = npa2('user/repo#branch', {
+  shouldHasName: false
+});
 ```
 
 ### Type Guards / 類型守衛
@@ -150,9 +191,29 @@ console.log(arg2); // 'lodash@^4.17.0'
 
 | Function | Description |
 |----------|-------------|
-| `npa(arg, where?)` | Parse npm package argument / 解析 npm 套件參數 |
-| `npaTry(arg, where?)` | Try parse without throwing / 嘗試解析但不拋出錯誤 |
+| `npa(arg, where?, options?)` | Parse npm package argument (legacy, strict name validation) / 解析 npm 套件參數（舊版，嚴格名稱驗證） |
+| `npa2(arg, where?, options?)` | Parse npm package argument with flexible options / 使用靈活選項解析 npm 套件參數 |
+| `npaTry(arg, where?, options?)` | Try parse without throwing (legacy) / 嘗試解析但不拋出錯誤（舊版） |
+| `npaTry2(arg, where?, options?)` | Try parse without throwing (new) / 嘗試解析但不拋出錯誤（新版） |
 | `getSemverFromNpaResult(result)` | Extract version from result / 從結果提取版本 |
+
+### Options Interface / 選項介面
+
+```typescript
+interface IOptionsNpaUtil {
+  /** Base directory for resolving relative paths / 解析相對路徑的基礎目錄 */
+  where?: string;
+  
+  /** Whether to validate that result has a name / 是否驗證結果有名稱 */
+  shouldHasName?: boolean;
+  
+  /** Array of allowed result types / 允許的結果類型陣列 */
+  allowedType?: IResultType[];
+  
+  /** Custom npa function to use / 使用的自定義 npa 函數 */
+  npa?: typeof _npa;
+}
+```
 
 ### Type Guards / 類型守衛
 
@@ -171,6 +232,14 @@ console.log(arg2); // 'lodash@^4.17.0'
 | `parsePackageName(name)` | Parse package name details / 解析套件名稱詳情 |
 | `packageNameToTypes(name, prefix?)` | Convert to @types format / 轉換為 @types 格式 |
 | `generatePackageArg(input, includeVersion?)` | Generate package argument / 生成套件參數 |
+
+### Assertion Functions / 斷言函數
+
+| Function | Description |
+|----------|-------------|
+| `assertNpaResultHasName(result)` | Assert result has a valid name / 斷言結果具有有效名稱 |
+| `assertNpaResultByType(result, type)` | Assert result has specific type / 斷言結果具有特定類型 |
+| `assertNpaResultAll(result, options?)` | Comprehensive validation / 全面驗證 |
 
 ## Supported Package Formats / 支援的套件格式
 
