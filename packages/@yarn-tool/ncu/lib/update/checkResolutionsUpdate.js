@@ -1,4 +1,15 @@
 "use strict";
+/**
+ * Check and update resolutions in yarn.lock.
+ * 檢查並更新 yarn.lock 中的 resolutions 版本。
+ *
+ * 此模組提供功能：
+ * - 解析 yarn.lock 檔案（支援 v1 和 v2 格式）
+ * - 檢查 resolutions 中套件的可用更新
+ * - 更新 yarn.lock 中的版本資訊
+ *
+ * @module update/checkResolutionsUpdate
+ */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.checkResolutionsUpdate = checkResolutionsUpdate;
 const bluebird_1 = require("bluebird");

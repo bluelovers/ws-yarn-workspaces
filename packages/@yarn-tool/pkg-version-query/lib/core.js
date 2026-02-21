@@ -1,4 +1,12 @@
 "use strict";
+/**
+ * Core version query function using package-json.
+ * 使用 package-json 的核心版本查詢函數。
+ *
+ * @module core
+ *
+ * 提供底層的 npm registry 查詢功能，封裝 package-json 模組。
+ */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports._queryVersion = _queryVersion;
 const tslib_1 = require("tslib");

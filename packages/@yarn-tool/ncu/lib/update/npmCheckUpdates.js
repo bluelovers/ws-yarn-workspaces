@@ -1,4 +1,16 @@
 "use strict";
+/**
+ * Core npm-check-updates wrapper function.
+ * npm-check-updates 的核心封裝函數。
+ *
+ * 此模組提供主要功能：
+ * - 檢查 package.json 中依賴套件的可用更新
+ * - 比較當前版本與最新版本
+ * - 支援 semver 版本範圍處理
+ * - 整合版本快取機制
+ *
+ * @module update/npmCheckUpdates
+ */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.npmCheckUpdates = npmCheckUpdates;
 const tslib_1 = require("tslib");
@@ -13,30 +25,33 @@ const stringifySimpleSemVer_1 = require("@lazy-node/semver-simple-parse/lib/stri
 const pkg_version_query_1 = require("@yarn-tool/pkg-version-query");
 const deps_table_1 = require("@yarn-tool/table/lib/deps-table");
 const npm_package_arg_util_1 = require("@yarn-tool/npm-package-arg-util");
-async function npmCheckUpdates(cache, ncuOptions) {
+function npmCheckUpdates(cache, ncuOptions) {
     //ncuOptions.silent = false;
     //ncuOptions.json = false;
     //ncuOptions.cli = true;
     //ncuOptions.args = [];
     //ncuOptions.loglevel = 'verbose';
-    ncuOptions = (0, options_1.npmCheckUpdatesOptions)(ncuOptions);
-    ncuOptions.cwd = cache.cwd;
-    ncuOptions.json_new = JSON.parse(ncuOptions.packageData);
-    ncuOptions.list_updated = await (0, npm_check_updates_1.run)(ncuOptions);
     let json_changed = false;
     const current = {};
     const list_updated = {};
-    await bluebird_1.default
-        .resolve([
-        'dependencies',
-        'devDependencies',
-        'peerDependencies',
-        'optionalDependencies',
-    ])
+    return bluebird_1.default
+        .resolve()
+        .then(async () => {
+        ncuOptions = (0, options_1.npmCheckUpdatesOptions)(ncuOptions);
+        ncuOptions.cwd = cache.cwd;
+        ncuOptions.json_new = JSON.parse(ncuOptions.packageData);
+        ncuOptions.list_updated = await (0, npm_check_updates_1.run)(ncuOptions);
+        return [
+            'dependencies',
+            'devDependencies',
+            'peerDependencies',
+            'optionalDependencies',
+        ];
+    })
         .each(async (key) => {
         var _a;
         const deps = (_a = ncuOptions.json_new[key]) !== null && _a !== void 0 ? _a : {};
-        await bluebird_1.default
+        return bluebird_1.default
             .resolve(Object.keys(deps))
             .each(async (name) => {
             var _a;
@@ -74,16 +89,17 @@ async function npmCheckUpdates(cache, ncuOptions) {
                 }
             }
         });
+    }).then(async () => {
+        await (0, pkg_version_query_1.getCache)().fsDump();
+        ncuOptions.json_changed = json_changed;
+        ncuOptions.list_updated = list_updated;
+        ncuOptions.current = current;
+        const table = (0, deps_table_1.toDependencyTable)({
+            from: ncuOptions.current,
+            to: ncuOptions.list_updated,
+        }).toString();
+        table && console.log(`\n${table}\n`);
+        return ncuOptions;
     });
-    await (0, pkg_version_query_1.getCache)().fsDump();
-    ncuOptions.json_changed = json_changed;
-    ncuOptions.list_updated = list_updated;
-    ncuOptions.current = current;
-    const table = (0, deps_table_1.toDependencyTable)({
-        from: ncuOptions.current,
-        to: ncuOptions.list_updated,
-    }).toString();
-    table && console.log(`\n${table}\n`);
-    return ncuOptions;
 }
 //# sourceMappingURL=npmCheckUpdates.js.map

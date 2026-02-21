@@ -1,3 +1,11 @@
+/**
+ * Type definitions for @yarn-tool/ncu-ws.
+ * @yarn-tool/ncu-ws 的類型定義。
+ *
+ * @packageDocumentation
+ *
+ * 包含 runtime 配置、argv 參數、以及 workspace 相關類型定義。
+ */
 import { Console2 } from 'debug-color2';
 import { IFindRootReturnType } from '@yarn-tool/find-root';
 import { IUnpackYargsArgv } from '@yarn-tool/yargs-util';

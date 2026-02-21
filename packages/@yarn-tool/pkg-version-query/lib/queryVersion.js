@@ -1,4 +1,16 @@
 "use strict";
+/**
+ * Query package versions with cache support.
+ * 查詢套件版本並支援快取機制。
+ *
+ * @module queryVersion
+ *
+ * 主要功能：
+ * - 從 npm registry 查詢套件版本
+ * - 支援 LRU 快取，減少重複查詢
+ * - 處理版本範圍語法 (如 ^, ~, npm: 協議)
+ * - 錯誤處理與快取錯誤結果
+ */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.queryVersionWithCache = queryVersionWithCache;
 exports.queryVersion = queryVersion;
@@ -11,6 +23,24 @@ const core_1 = require("./core");
 const queryVersionCacheRaw_1 = require("./queryVersionCacheRaw");
 const handleAmpersandAndSpaces_1 = require("@lazy-node/semver-ampersand/lib/handleAmpersandAndSpaces");
 const const_1 = require("@lazy-node/semver-ampersand/lib/const");
+/**
+ * Query package version with LRU cache.
+ * 使用 LRU 快取查詢套件版本。
+ *
+ * @param name - Package name / 套件名稱
+ * @param targetVersion - Target version or range (default: 'latest') / 目標版本或範圍
+ * @param options - Query options / 查詢選項
+ * @returns Promise resolving to version string / 回傳版本字串的 Promise
+ *
+ * @example
+ * ```ts
+ * const version = await queryVersionWithCache('lodash');
+ * // => '4.17.21'
+ *
+ * const version = await queryVersionWithCache('typescript', '^4.0.0');
+ * // => '4.9.5'
+ * ```
+ */
 function queryVersionWithCache(name, targetVersion = 'latest', options) {
     return bluebird_1.default.resolve((0, queryVersionCacheRaw_1.queryVersionCacheRaw)(name, targetVersion, options))
         .then(data => {
