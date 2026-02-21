@@ -223,3 +223,12 @@ dist/*.umd.*.*s
 .turbo
 
 !/.run/
+
+!.clinerules
+!.kilocode
+!.cline
+!.junie
+!.gemini
+!.copilot
+!.claude
+!.agents
