@@ -51,7 +51,7 @@
     "install:resetLockfile": "yarn-tool install --reset-lockfile",
     "build:all": "lerna run build --concurrency 1",
     "build:since": "yarn run build:all -- --since",
-    "ci:install": "yarn install --frozen-lockfile && yarn add -W typescript@next jest ts-jest ts-node ynpx lerna yarn-tool",
+    "ci:install": "yarn install --frozen-lockfile && yarn add -W typescript@next jest ts-jest ts-node ynpx lerna yarn-tool pnpm",
     "ci:build": "echo ci:build",
     "lerna:publish": "yarn run prepublishOnly:root && lerna publish --no-private && yarn run postpublishOnly",
     "lerna:publish:yes": "yarn run lerna:publish:yes:patch",
