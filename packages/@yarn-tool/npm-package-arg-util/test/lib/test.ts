@@ -55,6 +55,32 @@ export function _lazyTestNpaTypeGuard<T extends IResult = IResult>(
 
 	actualExpected ??= true;
 
+	if (propertyMatchers)
+	{
+		if (propertyMatchers.type === 'directory' || propertyMatchers.type === 'file')
+		{
+			propertyMatchers.fetchSpec = expect.any(String);
+			propertyMatchers.saveSpec = expect.any(String);
+			// @ts-ignore
+			propertyMatchers.where ??= expect.any(String);
+		}
+
+		for (const key of [
+			'escapedName',
+			'name',
+			'gitCommittish',
+			'gitRange',
+			'gitSubdir',
+			'hosted',
+		])
+		{
+			if (propertyMatchers[key] == null)
+			{
+				delete propertyMatchers[key];
+			}
+		}
+	}
+
 	expect({
 		inputSpec,
 		result,

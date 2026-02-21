@@ -1,0 +1,1778 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`basic /path/to/foo 1`] = `
+{
+  "actual": true,
+  "inputSpec": "/path/to/foo",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": Any<String>,
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "/path/to/foo",
+    "rawSpec": "/path/to/foo",
+    "registry": undefined,
+    "saveSpec": Any<String>,
+    "scope": undefined,
+    "type": "directory",
+    "where": Any<String>,
+  },
+}
+`;
+
+exports[`basic /path/to/foo.tar 1`] = `
+{
+  "actual": true,
+  "inputSpec": "/path/to/foo.tar",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": Any<String>,
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "/path/to/foo.tar",
+    "rawSpec": "/path/to/foo.tar",
+    "registry": undefined,
+    "saveSpec": Any<String>,
+    "scope": undefined,
+    "type": "file",
+    "where": Any<String>,
+  },
+}
+`;
+
+exports[`basic /path/to/foo.tgz 1`] = `
+{
+  "actual": true,
+  "inputSpec": "/path/to/foo.tgz",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": Any<String>,
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "/path/to/foo.tgz",
+    "rawSpec": "/path/to/foo.tgz",
+    "registry": undefined,
+    "saveSpec": Any<String>,
+    "scope": undefined,
+    "type": "file",
+    "where": Any<String>,
+  },
+}
+`;
+
+exports[`basic @f fo o al/ a d s ;f 1`] = `
+{
+  "actual": true,
+  "inputSpec": "@f fo o al/ a d s ;f",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": Any<String>,
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "@f fo o al/ a d s ;f",
+    "rawSpec": "@f fo o al/ a d s ;f",
+    "registry": undefined,
+    "saveSpec": Any<String>,
+    "scope": undefined,
+    "type": "directory",
+    "where": Any<String>,
+  },
+}
+`;
+
+exports[`basic @foo/bar 1`] = `
+{
+  "actual": true,
+  "inputSpec": "@foo/bar",
+  "result": {
+    "escapedName": "@foo%2fbar",
+    "fetchSpec": "*",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": "@foo/bar",
+    "raw": "@foo/bar",
+    "rawSpec": "*",
+    "registry": true,
+    "saveSpec": null,
+    "scope": "@foo",
+    "type": "range",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic @foo/bar@ 1`] = `
+{
+  "actual": true,
+  "inputSpec": "@foo/bar@",
+  "result": {
+    "escapedName": "@foo%2fbar",
+    "fetchSpec": "*",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": "@foo/bar",
+    "raw": "@foo/bar@",
+    "rawSpec": "*",
+    "registry": true,
+    "saveSpec": null,
+    "scope": "@foo",
+    "type": "range",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic @foo/bar@baz 1`] = `
+{
+  "actual": true,
+  "inputSpec": "@foo/bar@baz",
+  "result": {
+    "escapedName": "@foo%2fbar",
+    "fetchSpec": "baz",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": "@foo/bar",
+    "raw": "@foo/bar@baz",
+    "rawSpec": "baz",
+    "registry": true,
+    "saveSpec": null,
+    "scope": "@foo",
+    "type": "tag",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic @foo/bar@git+ssh://notgithub.com/user/foo 1`] = `
+{
+  "actual": true,
+  "inputSpec": "@foo/bar@git+ssh://notgithub.com/user/foo",
+  "result": {
+    "escapedName": "@foo%2fbar",
+    "fetchSpec": "ssh://notgithub.com/user/foo",
+    "gitCommittish": null,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": "@foo/bar",
+    "raw": "@foo/bar@git+ssh://notgithub.com/user/foo",
+    "rawSpec": "git+ssh://notgithub.com/user/foo",
+    "registry": undefined,
+    "saveSpec": "git+ssh://notgithub.com/user/foo",
+    "scope": "@foo",
+    "type": "git",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic file:../path/to/foo 1`] = `
+{
+  "actual": true,
+  "inputSpec": "file:../path/to/foo",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": Any<String>,
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "file:../path/to/foo",
+    "rawSpec": "file:../path/to/foo",
+    "registry": undefined,
+    "saveSpec": Any<String>,
+    "scope": undefined,
+    "type": "directory",
+    "where": Any<String>,
+  },
+}
+`;
+
+exports[`basic file:./path/to/foo 1`] = `
+{
+  "actual": true,
+  "inputSpec": "file:./path/to/foo",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": Any<String>,
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "file:./path/to/foo",
+    "rawSpec": "file:./path/to/foo",
+    "registry": undefined,
+    "saveSpec": Any<String>,
+    "scope": undefined,
+    "type": "directory",
+    "where": Any<String>,
+  },
+}
+`;
+
+exports[`basic file:/../path/to/foo 1`] = `
+{
+  "actual": true,
+  "inputSpec": "file:/../path/to/foo",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": Any<String>,
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "file:/../path/to/foo",
+    "rawSpec": "file:/../path/to/foo",
+    "registry": undefined,
+    "saveSpec": Any<String>,
+    "scope": undefined,
+    "type": "directory",
+    "where": Any<String>,
+  },
+}
+`;
+
+exports[`basic file:/./path/to/foo 1`] = `
+{
+  "actual": true,
+  "inputSpec": "file:/./path/to/foo",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": Any<String>,
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "file:/./path/to/foo",
+    "rawSpec": "file:/./path/to/foo",
+    "registry": undefined,
+    "saveSpec": Any<String>,
+    "scope": undefined,
+    "type": "directory",
+    "where": Any<String>,
+  },
+}
+`;
+
+exports[`basic file:/.path/to/foo 1`] = `
+{
+  "actual": true,
+  "inputSpec": "file:/.path/to/foo",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": Any<String>,
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "file:/.path/to/foo",
+    "rawSpec": "file:/.path/to/foo",
+    "registry": undefined,
+    "saveSpec": Any<String>,
+    "scope": undefined,
+    "type": "directory",
+    "where": Any<String>,
+  },
+}
+`;
+
+exports[`basic file://. 1`] = `
+{
+  "actual": true,
+  "inputSpec": "file://.",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": Any<String>,
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "file://.",
+    "rawSpec": "file://.",
+    "registry": undefined,
+    "saveSpec": Any<String>,
+    "scope": undefined,
+    "type": "directory",
+    "where": Any<String>,
+  },
+}
+`;
+
+exports[`basic file://../path/to/foo 1`] = `
+{
+  "actual": true,
+  "inputSpec": "file://../path/to/foo",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": Any<String>,
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "file://../path/to/foo",
+    "rawSpec": "file://../path/to/foo",
+    "registry": undefined,
+    "saveSpec": Any<String>,
+    "scope": undefined,
+    "type": "directory",
+    "where": Any<String>,
+  },
+}
+`;
+
+exports[`basic file://./path/to/foo 1`] = `
+{
+  "actual": true,
+  "inputSpec": "file://./path/to/foo",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": Any<String>,
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "file://./path/to/foo",
+    "rawSpec": "file://./path/to/foo",
+    "registry": undefined,
+    "saveSpec": Any<String>,
+    "scope": undefined,
+    "type": "directory",
+    "where": Any<String>,
+  },
+}
+`;
+
+exports[`basic file:////path/to/foo 1`] = `
+{
+  "actual": true,
+  "inputSpec": "file:////path/to/foo",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": Any<String>,
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "file:////path/to/foo",
+    "rawSpec": "file:////path/to/foo",
+    "registry": undefined,
+    "saveSpec": Any<String>,
+    "scope": undefined,
+    "type": "directory",
+    "where": Any<String>,
+  },
+}
+`;
+
+exports[`basic file:///path/to/foo 1`] = `
+{
+  "actual": true,
+  "inputSpec": "file:///path/to/foo",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": Any<String>,
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "file:///path/to/foo",
+    "rawSpec": "file:///path/to/foo",
+    "registry": undefined,
+    "saveSpec": Any<String>,
+    "scope": undefined,
+    "type": "directory",
+    "where": Any<String>,
+  },
+}
+`;
+
+exports[`basic file://path/to/foo 1`] = `
+{
+  "actual": true,
+  "inputSpec": "file://path/to/foo",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": Any<String>,
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "file://path/to/foo",
+    "rawSpec": "file://path/to/foo",
+    "registry": undefined,
+    "saveSpec": Any<String>,
+    "scope": undefined,
+    "type": "directory",
+    "where": Any<String>,
+  },
+}
+`;
+
+exports[`basic file:/~/path/to/foo 1`] = `
+{
+  "actual": true,
+  "inputSpec": "file:/~/path/to/foo",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": Any<String>,
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "file:/~/path/to/foo",
+    "rawSpec": "file:/~/path/to/foo",
+    "registry": undefined,
+    "saveSpec": Any<String>,
+    "scope": undefined,
+    "type": "directory",
+    "where": Any<String>,
+  },
+}
+`;
+
+exports[`basic file:/~path/to/foo 1`] = `
+{
+  "actual": true,
+  "inputSpec": "file:/~path/to/foo",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": Any<String>,
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "file:/~path/to/foo",
+    "rawSpec": "file:/~path/to/foo",
+    "registry": undefined,
+    "saveSpec": Any<String>,
+    "scope": undefined,
+    "type": "directory",
+    "where": Any<String>,
+  },
+}
+`;
+
+exports[`basic file:/path/to/foo 1`] = `
+{
+  "actual": true,
+  "inputSpec": "file:/path/to/foo",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": Any<String>,
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "file:/path/to/foo",
+    "rawSpec": "file:/path/to/foo",
+    "registry": undefined,
+    "saveSpec": Any<String>,
+    "scope": undefined,
+    "type": "directory",
+    "where": Any<String>,
+  },
+}
+`;
+
+exports[`basic file:~/path/to/foo 1`] = `
+{
+  "actual": true,
+  "inputSpec": "file:~/path/to/foo",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": Any<String>,
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "file:~/path/to/foo",
+    "rawSpec": "file:~/path/to/foo",
+    "registry": undefined,
+    "saveSpec": Any<String>,
+    "scope": undefined,
+    "type": "directory",
+    "where": Any<String>,
+  },
+}
+`;
+
+exports[`basic file:path/to/foo 1`] = `
+{
+  "actual": true,
+  "inputSpec": "file:path/to/foo",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": Any<String>,
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "file:path/to/foo",
+    "rawSpec": "file:path/to/foo",
+    "registry": undefined,
+    "saveSpec": Any<String>,
+    "scope": undefined,
+    "type": "directory",
+    "where": Any<String>,
+  },
+}
+`;
+
+exports[`basic file:path/to/foo.tar.gz 1`] = `
+{
+  "actual": true,
+  "inputSpec": "file:path/to/foo.tar.gz",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": Any<String>,
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "file:path/to/foo.tar.gz",
+    "rawSpec": "file:path/to/foo.tar.gz",
+    "registry": undefined,
+    "saveSpec": Any<String>,
+    "scope": undefined,
+    "type": "file",
+    "where": Any<String>,
+  },
+}
+`;
+
+exports[`basic foo 1`] = `
+{
+  "actual": true,
+  "inputSpec": "foo",
+  "result": {
+    "escapedName": "foo",
+    "fetchSpec": "*",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": "foo",
+    "raw": "foo",
+    "rawSpec": "*",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "range",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic foo@ 1.2  1`] = `
+{
+  "actual": true,
+  "inputSpec": "foo@ 1.2 ",
+  "result": {
+    "escapedName": "foo",
+    "fetchSpec": "1.2",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": "foo",
+    "raw": "foo@ 1.2 ",
+    "rawSpec": " 1.2 ",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "range",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic foo@ 1.2.3  1`] = `
+{
+  "actual": true,
+  "inputSpec": "foo@ 1.2.3 ",
+  "result": {
+    "escapedName": "foo",
+    "fetchSpec": "1.2.3",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": "foo",
+    "raw": "foo@ 1.2.3 ",
+    "rawSpec": " 1.2.3 ",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "version",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic foo@ 1.2.3 1`] = `
+{
+  "actual": true,
+  "inputSpec": "foo@ 1.2.3",
+  "result": {
+    "escapedName": "foo",
+    "fetchSpec": "1.2.3",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": "foo",
+    "raw": "foo@ 1.2.3",
+    "rawSpec": " 1.2.3",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "version",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic foo@=v1.2.3 1`] = `
+{
+  "actual": true,
+  "inputSpec": "foo@=v1.2.3",
+  "result": {
+    "escapedName": "foo",
+    "fetchSpec": "=v1.2.3",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": "foo",
+    "raw": "foo@=v1.2.3",
+    "rawSpec": "=v1.2.3",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "version",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic foo@~1.2 1`] = `
+{
+  "actual": true,
+  "inputSpec": "foo@~1.2",
+  "result": {
+    "escapedName": "foo",
+    "fetchSpec": "~1.2",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": "foo",
+    "raw": "foo@~1.2",
+    "rawSpec": "~1.2",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "range",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic foo@1.2 1`] = `
+{
+  "actual": true,
+  "inputSpec": "foo@1.2",
+  "result": {
+    "escapedName": "foo",
+    "fetchSpec": "1.2",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": "foo",
+    "raw": "foo@1.2",
+    "rawSpec": "1.2",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "range",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic foo@1.2.3  1`] = `
+{
+  "actual": true,
+  "inputSpec": "foo@1.2.3 ",
+  "result": {
+    "escapedName": "foo",
+    "fetchSpec": "1.2.3",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": "foo",
+    "raw": "foo@1.2.3 ",
+    "rawSpec": "1.2.3 ",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "version",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic foo@1.2.3 1`] = `
+{
+  "actual": true,
+  "inputSpec": "foo@1.2.3",
+  "result": {
+    "escapedName": "foo",
+    "fetchSpec": "1.2.3",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": "foo",
+    "raw": "foo@1.2.3",
+    "rawSpec": "1.2.3",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "version",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic foo@latest 1`] = `
+{
+  "actual": true,
+  "inputSpec": "foo@latest",
+  "result": {
+    "escapedName": "foo",
+    "fetchSpec": "latest",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": "foo",
+    "raw": "foo@latest",
+    "rawSpec": "latest",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "tag",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic foo@npm:bar 1`] = `
+{
+  "actual": true,
+  "inputSpec": "foo@npm:bar",
+  "result": {
+    "escapedName": "foo",
+    "fetchSpec": null,
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": "foo",
+    "raw": "foo@npm:bar",
+    "rawSpec": "npm:bar",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "subSpec": {
+      "escapedName": "bar",
+      "fetchSpec": "*",
+      "gitCommittish": undefined,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "hosted": undefined,
+      "name": "bar",
+      "raw": "bar",
+      "rawSpec": "*",
+      "registry": true,
+      "saveSpec": null,
+      "scope": undefined,
+      "type": "range",
+      "where": undefined,
+    },
+    "type": "alias",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic git+file://path/to/repo#1.2.3 1`] = `
+{
+  "actual": true,
+  "inputSpec": "git+file://path/to/repo#1.2.3",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": "file://path/to/repo",
+    "gitCommittish": "1.2.3",
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "git+file://path/to/repo#1.2.3",
+    "rawSpec": "git+file://path/to/repo#1.2.3",
+    "registry": undefined,
+    "saveSpec": "git+file://path/to/repo#1.2.3",
+    "scope": undefined,
+    "type": "git",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic git+ssh://git@github.com/user/foo#1.2.3 1`] = `
+{
+  "actual": true,
+  "inputSpec": "git+ssh://git@github.com/user/foo#1.2.3",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": "ssh://git@github.com/user/foo.git",
+    "gitCommittish": "1.2.3",
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": GitHost {
+      "auth": null,
+      "blobpath": "blob",
+      "browseblobtemplate": [Function],
+      "browsetemplate": [Function],
+      "browsetreetemplate": [Function],
+      "bugstemplate": [Function],
+      "committish": "1.2.3",
+      "default": "sshurl",
+      "docstemplate": [Function],
+      "domain": "github.com",
+      "editpath": "edit",
+      "edittemplate": [Function],
+      "extract": [Function],
+      "filetemplate": [Function],
+      "gittemplate": [Function],
+      "hashformat": [Function],
+      "httpstemplate": [Function],
+      "opts": {
+        "noCommittish": true,
+        "noGitPlus": true,
+      },
+      "pathtemplate": [Function],
+      "project": "foo",
+      "protocols": [
+        "git:",
+        "http:",
+        "git+ssh:",
+        "git+https:",
+        "ssh:",
+        "https:",
+      ],
+      "shortcuttemplate": [Function],
+      "sshtemplate": [Function],
+      "sshurltemplate": [Function],
+      "tarballtemplate": [Function],
+      "treepath": "tree",
+      "type": "github",
+      "user": "user",
+    },
+    "name": undefined,
+    "raw": "git+ssh://git@github.com/user/foo#1.2.3",
+    "rawSpec": "git+ssh://git@github.com/user/foo#1.2.3",
+    "registry": undefined,
+    "saveSpec": "git+ssh://git@github.com/user/foo.git#1.2.3",
+    "scope": undefined,
+    "type": "git",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic git+ssh://git@github.com/user/foo#semver:^1.2.3 1`] = `
+{
+  "actual": true,
+  "inputSpec": "git+ssh://git@github.com/user/foo#semver:^1.2.3",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": "ssh://git@github.com/user/foo.git",
+    "gitCommittish": undefined,
+    "gitRange": "^1.2.3",
+    "gitSubdir": undefined,
+    "hosted": GitHost {
+      "auth": null,
+      "blobpath": "blob",
+      "browseblobtemplate": [Function],
+      "browsetemplate": [Function],
+      "browsetreetemplate": [Function],
+      "bugstemplate": [Function],
+      "committish": "semver:^1.2.3",
+      "default": "sshurl",
+      "docstemplate": [Function],
+      "domain": "github.com",
+      "editpath": "edit",
+      "edittemplate": [Function],
+      "extract": [Function],
+      "filetemplate": [Function],
+      "gittemplate": [Function],
+      "hashformat": [Function],
+      "httpstemplate": [Function],
+      "opts": {
+        "noCommittish": true,
+        "noGitPlus": true,
+      },
+      "pathtemplate": [Function],
+      "project": "foo",
+      "protocols": [
+        "git:",
+        "http:",
+        "git+ssh:",
+        "git+https:",
+        "ssh:",
+        "https:",
+      ],
+      "shortcuttemplate": [Function],
+      "sshtemplate": [Function],
+      "sshurltemplate": [Function],
+      "tarballtemplate": [Function],
+      "treepath": "tree",
+      "type": "github",
+      "user": "user",
+    },
+    "name": undefined,
+    "raw": "git+ssh://git@github.com/user/foo#semver:^1.2.3",
+    "rawSpec": "git+ssh://git@github.com/user/foo#semver:^1.2.3",
+    "registry": undefined,
+    "saveSpec": "git+ssh://git@github.com/user/foo.git#semver:^1.2.3",
+    "scope": undefined,
+    "type": "git",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic git+ssh://git@github.com:user/foo#semver:^1.2.3 1`] = `
+{
+  "actual": true,
+  "inputSpec": "git+ssh://git@github.com:user/foo#semver:^1.2.3",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": "ssh://git@github.com/user/foo.git",
+    "gitCommittish": undefined,
+    "gitRange": "^1.2.3",
+    "gitSubdir": undefined,
+    "hosted": GitHost {
+      "auth": null,
+      "blobpath": "blob",
+      "browseblobtemplate": [Function],
+      "browsetemplate": [Function],
+      "browsetreetemplate": [Function],
+      "bugstemplate": [Function],
+      "committish": "semver:^1.2.3",
+      "default": "sshurl",
+      "docstemplate": [Function],
+      "domain": "github.com",
+      "editpath": "edit",
+      "edittemplate": [Function],
+      "extract": [Function],
+      "filetemplate": [Function],
+      "gittemplate": [Function],
+      "hashformat": [Function],
+      "httpstemplate": [Function],
+      "opts": {
+        "noCommittish": true,
+        "noGitPlus": true,
+      },
+      "pathtemplate": [Function],
+      "project": "foo",
+      "protocols": [
+        "git:",
+        "http:",
+        "git+ssh:",
+        "git+https:",
+        "ssh:",
+        "https:",
+      ],
+      "shortcuttemplate": [Function],
+      "sshtemplate": [Function],
+      "sshurltemplate": [Function],
+      "tarballtemplate": [Function],
+      "treepath": "tree",
+      "type": "github",
+      "user": "user",
+    },
+    "name": undefined,
+    "raw": "git+ssh://git@github.com:user/foo#semver:^1.2.3",
+    "rawSpec": "git+ssh://git@github.com:user/foo#semver:^1.2.3",
+    "registry": undefined,
+    "saveSpec": "git+ssh://git@github.com/user/foo.git#semver:^1.2.3",
+    "scope": undefined,
+    "type": "git",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic git+ssh://git@notgithub.com/user/foo 1`] = `
+{
+  "actual": true,
+  "inputSpec": "git+ssh://git@notgithub.com/user/foo",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": "ssh://git@notgithub.com/user/foo",
+    "gitCommittish": null,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "git+ssh://git@notgithub.com/user/foo",
+    "rawSpec": "git+ssh://git@notgithub.com/user/foo",
+    "registry": undefined,
+    "saveSpec": "git+ssh://git@notgithub.com/user/foo",
+    "scope": undefined,
+    "type": "git",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic git+ssh://git@notgithub.com/user/foo#0d7bd85a85fa2571fa532d2fc842ed099b236ad2 1`] = `
+{
+  "actual": true,
+  "inputSpec": "git+ssh://git@notgithub.com/user/foo#0d7bd85a85fa2571fa532d2fc842ed099b236ad2",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": "ssh://git@notgithub.com/user/foo",
+    "gitCommittish": "0d7bd85a85fa2571fa532d2fc842ed099b236ad2",
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "git+ssh://git@notgithub.com/user/foo#0d7bd85a85fa2571fa532d2fc842ed099b236ad2",
+    "rawSpec": "git+ssh://git@notgithub.com/user/foo#0d7bd85a85fa2571fa532d2fc842ed099b236ad2",
+    "registry": undefined,
+    "saveSpec": "git+ssh://git@notgithub.com/user/foo#0d7bd85a85fa2571fa532d2fc842ed099b236ad2",
+    "scope": undefined,
+    "type": "git",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic git+ssh://git@notgithub.com/user/foo#1.2.3 1`] = `
+{
+  "actual": true,
+  "inputSpec": "git+ssh://git@notgithub.com/user/foo#1.2.3",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": "ssh://git@notgithub.com/user/foo",
+    "gitCommittish": "1.2.3",
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "git+ssh://git@notgithub.com/user/foo#1.2.3",
+    "rawSpec": "git+ssh://git@notgithub.com/user/foo#1.2.3",
+    "registry": undefined,
+    "saveSpec": "git+ssh://git@notgithub.com/user/foo#1.2.3",
+    "scope": undefined,
+    "type": "git",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic git+ssh://git@notgithub.com/user/foo#8e3a9b3579ab330238c06b761e7f1b5dc5b4ac6e5a96da4dd2fb3b7411009df8 1`] = `
+{
+  "actual": true,
+  "inputSpec": "git+ssh://git@notgithub.com/user/foo#8e3a9b3579ab330238c06b761e7f1b5dc5b4ac6e5a96da4dd2fb3b7411009df8",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": "ssh://git@notgithub.com/user/foo",
+    "gitCommittish": "8e3a9b3579ab330238c06b761e7f1b5dc5b4ac6e5a96da4dd2fb3b7411009df8",
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "git+ssh://git@notgithub.com/user/foo#8e3a9b3579ab330238c06b761e7f1b5dc5b4ac6e5a96da4dd2fb3b7411009df8",
+    "rawSpec": "git+ssh://git@notgithub.com/user/foo#8e3a9b3579ab330238c06b761e7f1b5dc5b4ac6e5a96da4dd2fb3b7411009df8",
+    "registry": undefined,
+    "saveSpec": "git+ssh://git@notgithub.com/user/foo#8e3a9b3579ab330238c06b761e7f1b5dc5b4ac6e5a96da4dd2fb3b7411009df8",
+    "scope": undefined,
+    "type": "git",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic git+ssh://git@notgithub.com/user/foo#semver:^1.2.3 1`] = `
+{
+  "actual": true,
+  "inputSpec": "git+ssh://git@notgithub.com/user/foo#semver:^1.2.3",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": "ssh://git@notgithub.com/user/foo",
+    "gitCommittish": undefined,
+    "gitRange": "^1.2.3",
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "git+ssh://git@notgithub.com/user/foo#semver:^1.2.3",
+    "rawSpec": "git+ssh://git@notgithub.com/user/foo#semver:^1.2.3",
+    "registry": undefined,
+    "saveSpec": "git+ssh://git@notgithub.com/user/foo#semver:^1.2.3",
+    "scope": undefined,
+    "type": "git",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic git+ssh://git@notgithub.com:user/foo 1`] = `
+{
+  "actual": true,
+  "inputSpec": "git+ssh://git@notgithub.com:user/foo",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": "git@notgithub.com:user/foo",
+    "gitCommittish": null,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "git+ssh://git@notgithub.com:user/foo",
+    "rawSpec": "git+ssh://git@notgithub.com:user/foo",
+    "registry": undefined,
+    "saveSpec": "git+ssh://git@notgithub.com:user/foo",
+    "scope": undefined,
+    "type": "git",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic git+ssh://git@notgithub.com:user/foo#1.2.3 1`] = `
+{
+  "actual": true,
+  "inputSpec": "git+ssh://git@notgithub.com:user/foo#1.2.3",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": "git@notgithub.com:user/foo",
+    "gitCommittish": "1.2.3",
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "git+ssh://git@notgithub.com:user/foo#1.2.3",
+    "rawSpec": "git+ssh://git@notgithub.com:user/foo#1.2.3",
+    "registry": undefined,
+    "saveSpec": "git+ssh://git@notgithub.com:user/foo#1.2.3",
+    "scope": undefined,
+    "type": "git",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic git+ssh://git@notgithub.com:user/foo#semver:^1.2.3 1`] = `
+{
+  "actual": true,
+  "inputSpec": "git+ssh://git@notgithub.com:user/foo#semver:^1.2.3",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": "git@notgithub.com:user/foo",
+    "gitCommittish": undefined,
+    "gitRange": "^1.2.3",
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "git+ssh://git@notgithub.com:user/foo#semver:^1.2.3",
+    "rawSpec": "git+ssh://git@notgithub.com:user/foo#semver:^1.2.3",
+    "registry": undefined,
+    "saveSpec": "git+ssh://git@notgithub.com:user/foo#semver:^1.2.3",
+    "scope": undefined,
+    "type": "git",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic git+ssh://mydomain.com:1234#1.2.3 1`] = `
+{
+  "actual": true,
+  "inputSpec": "git+ssh://mydomain.com:1234#1.2.3",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": "ssh://mydomain.com:1234",
+    "gitCommittish": "1.2.3",
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "git+ssh://mydomain.com:1234#1.2.3",
+    "rawSpec": "git+ssh://mydomain.com:1234#1.2.3",
+    "registry": undefined,
+    "saveSpec": "git+ssh://mydomain.com:1234#1.2.3",
+    "scope": undefined,
+    "type": "git",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic git+ssh://mydomain.com:1234/hey 1`] = `
+{
+  "actual": true,
+  "inputSpec": "git+ssh://mydomain.com:1234/hey",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": "ssh://mydomain.com:1234/hey",
+    "gitCommittish": null,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "git+ssh://mydomain.com:1234/hey",
+    "rawSpec": "git+ssh://mydomain.com:1234/hey",
+    "registry": undefined,
+    "saveSpec": "git+ssh://mydomain.com:1234/hey",
+    "scope": undefined,
+    "type": "git",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic git+ssh://mydomain.com:1234/hey#1.2.3 1`] = `
+{
+  "actual": true,
+  "inputSpec": "git+ssh://mydomain.com:1234/hey#1.2.3",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": "ssh://mydomain.com:1234/hey",
+    "gitCommittish": "1.2.3",
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "git+ssh://mydomain.com:1234/hey#1.2.3",
+    "rawSpec": "git+ssh://mydomain.com:1234/hey#1.2.3",
+    "registry": undefined,
+    "saveSpec": "git+ssh://mydomain.com:1234/hey#1.2.3",
+    "scope": undefined,
+    "type": "git",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic git+ssh://mydomain.com:foo 1`] = `
+{
+  "actual": true,
+  "inputSpec": "git+ssh://mydomain.com:foo",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": "mydomain.com:foo",
+    "gitCommittish": null,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "git+ssh://mydomain.com:foo",
+    "rawSpec": "git+ssh://mydomain.com:foo",
+    "registry": undefined,
+    "saveSpec": "git+ssh://mydomain.com:foo",
+    "scope": undefined,
+    "type": "git",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic git+ssh://mydomain.com:foo#1.2.3 1`] = `
+{
+  "actual": true,
+  "inputSpec": "git+ssh://mydomain.com:foo#1.2.3",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": "mydomain.com:foo",
+    "gitCommittish": "1.2.3",
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "git+ssh://mydomain.com:foo#1.2.3",
+    "rawSpec": "git+ssh://mydomain.com:foo#1.2.3",
+    "registry": undefined,
+    "saveSpec": "git+ssh://mydomain.com:foo#1.2.3",
+    "scope": undefined,
+    "type": "git",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic git+ssh://mydomain.com:foo/bar#1.2.3 1`] = `
+{
+  "actual": true,
+  "inputSpec": "git+ssh://mydomain.com:foo/bar#1.2.3",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": "mydomain.com:foo/bar",
+    "gitCommittish": "1.2.3",
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "git+ssh://mydomain.com:foo/bar#1.2.3",
+    "rawSpec": "git+ssh://mydomain.com:foo/bar#1.2.3",
+    "registry": undefined,
+    "saveSpec": "git+ssh://mydomain.com:foo/bar#1.2.3",
+    "scope": undefined,
+    "type": "git",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic git+ssh://username:password@mydomain.com:1234/hey#1.2.3 1`] = `
+{
+  "actual": true,
+  "inputSpec": "git+ssh://username:password@mydomain.com:1234/hey#1.2.3",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": "ssh://username:password@mydomain.com:1234/hey",
+    "gitCommittish": "1.2.3",
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "git+ssh://username:password@mydomain.com:1234/hey#1.2.3",
+    "rawSpec": "git+ssh://username:password@mydomain.com:1234/hey#1.2.3",
+    "registry": undefined,
+    "saveSpec": "git+ssh://username:password@mydomain.com:1234/hey#1.2.3",
+    "scope": undefined,
+    "type": "git",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic git://notgithub.com/user/foo 1`] = `
+{
+  "actual": true,
+  "inputSpec": "git://notgithub.com/user/foo",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": "git://notgithub.com/user/foo",
+    "gitCommittish": null,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "git://notgithub.com/user/foo",
+    "rawSpec": "git://notgithub.com/user/foo",
+    "registry": undefined,
+    "saveSpec": "git://notgithub.com/user/foo",
+    "scope": undefined,
+    "type": "git",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic git@npm:not-git 1`] = `
+{
+  "actual": true,
+  "inputSpec": "git@npm:not-git",
+  "result": {
+    "escapedName": "git",
+    "fetchSpec": null,
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": "git",
+    "raw": "git@npm:not-git",
+    "rawSpec": "npm:not-git",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "subSpec": {
+      "escapedName": "not-git",
+      "fetchSpec": "*",
+      "gitCommittish": undefined,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "hosted": undefined,
+      "name": "not-git",
+      "raw": "not-git",
+      "rawSpec": "*",
+      "registry": true,
+      "saveSpec": null,
+      "scope": undefined,
+      "type": "range",
+      "where": undefined,
+    },
+    "type": "alias",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic http://insecure.com/foo.tgz 1`] = `
+{
+  "actual": true,
+  "inputSpec": "http://insecure.com/foo.tgz",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": "http://insecure.com/foo.tgz",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "http://insecure.com/foo.tgz",
+    "rawSpec": "http://insecure.com/foo.tgz",
+    "registry": undefined,
+    "saveSpec": "http://insecure.com/foo.tgz",
+    "scope": undefined,
+    "type": "remote",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic https://server.com/foo.tgz 1`] = `
+{
+  "actual": true,
+  "inputSpec": "https://server.com/foo.tgz",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": "https://server.com/foo.tgz",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "https://server.com/foo.tgz",
+    "rawSpec": "https://server.com/foo.tgz",
+    "registry": undefined,
+    "saveSpec": "https://server.com/foo.tgz",
+    "scope": undefined,
+    "type": "remote",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic not-git@hostname.com:some/repo 1`] = `
+{
+  "actual": true,
+  "inputSpec": "not-git@hostname.com:some/repo",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": "not-git@hostname.com:some/repo",
+    "gitCommittish": null,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": undefined,
+    "name": undefined,
+    "raw": "not-git@hostname.com:some/repo",
+    "rawSpec": "git+ssh://not-git@hostname.com:some/repo",
+    "registry": undefined,
+    "saveSpec": "git+ssh://not-git@hostname.com:some/repo",
+    "scope": undefined,
+    "type": "git",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic user/foo#1234::path:dist 1`] = `
+{
+  "actual": true,
+  "inputSpec": "user/foo#1234::path:dist",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": null,
+    "gitCommittish": "1234",
+    "gitRange": undefined,
+    "gitSubdir": "/dist",
+    "hosted": GitHost {
+      "auth": null,
+      "blobpath": "blob",
+      "browseblobtemplate": [Function],
+      "browsetemplate": [Function],
+      "browsetreetemplate": [Function],
+      "bugstemplate": [Function],
+      "committish": "1234::path:dist",
+      "default": "shortcut",
+      "docstemplate": [Function],
+      "domain": "github.com",
+      "editpath": "edit",
+      "edittemplate": [Function],
+      "extract": [Function],
+      "filetemplate": [Function],
+      "gittemplate": [Function],
+      "hashformat": [Function],
+      "httpstemplate": [Function],
+      "opts": {
+        "noCommittish": true,
+        "noGitPlus": true,
+      },
+      "pathtemplate": [Function],
+      "project": "foo",
+      "protocols": [
+        "git:",
+        "http:",
+        "git+ssh:",
+        "git+https:",
+        "ssh:",
+        "https:",
+      ],
+      "shortcuttemplate": [Function],
+      "sshtemplate": [Function],
+      "sshurltemplate": [Function],
+      "tarballtemplate": [Function],
+      "treepath": "tree",
+      "type": "github",
+      "user": "user",
+    },
+    "name": undefined,
+    "raw": "user/foo#1234::path:dist",
+    "rawSpec": "user/foo#1234::path:dist",
+    "registry": undefined,
+    "saveSpec": "github:user/foo#1234::path:dist",
+    "scope": undefined,
+    "type": "git",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic user/foo#notimplemented:value 1`] = `
+{
+  "actual": true,
+  "inputSpec": "user/foo#notimplemented:value",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": null,
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "hosted": GitHost {
+      "auth": null,
+      "blobpath": "blob",
+      "browseblobtemplate": [Function],
+      "browsetemplate": [Function],
+      "browsetreetemplate": [Function],
+      "bugstemplate": [Function],
+      "committish": "notimplemented:value",
+      "default": "shortcut",
+      "docstemplate": [Function],
+      "domain": "github.com",
+      "editpath": "edit",
+      "edittemplate": [Function],
+      "extract": [Function],
+      "filetemplate": [Function],
+      "gittemplate": [Function],
+      "hashformat": [Function],
+      "httpstemplate": [Function],
+      "opts": {
+        "noCommittish": true,
+        "noGitPlus": true,
+      },
+      "pathtemplate": [Function],
+      "project": "foo",
+      "protocols": [
+        "git:",
+        "http:",
+        "git+ssh:",
+        "git+https:",
+        "ssh:",
+        "https:",
+      ],
+      "shortcuttemplate": [Function],
+      "sshtemplate": [Function],
+      "sshurltemplate": [Function],
+      "tarballtemplate": [Function],
+      "treepath": "tree",
+      "type": "github",
+      "user": "user",
+    },
+    "name": undefined,
+    "raw": "user/foo#notimplemented:value",
+    "rawSpec": "user/foo#notimplemented:value",
+    "registry": undefined,
+    "saveSpec": "github:user/foo#notimplemented:value",
+    "scope": undefined,
+    "type": "git",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic user/foo#path:dist 1`] = `
+{
+  "actual": true,
+  "inputSpec": "user/foo#path:dist",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": null,
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": "/dist",
+    "hosted": GitHost {
+      "auth": null,
+      "blobpath": "blob",
+      "browseblobtemplate": [Function],
+      "browsetemplate": [Function],
+      "browsetreetemplate": [Function],
+      "bugstemplate": [Function],
+      "committish": "path:dist",
+      "default": "shortcut",
+      "docstemplate": [Function],
+      "domain": "github.com",
+      "editpath": "edit",
+      "edittemplate": [Function],
+      "extract": [Function],
+      "filetemplate": [Function],
+      "gittemplate": [Function],
+      "hashformat": [Function],
+      "httpstemplate": [Function],
+      "opts": {
+        "noCommittish": true,
+        "noGitPlus": true,
+      },
+      "pathtemplate": [Function],
+      "project": "foo",
+      "protocols": [
+        "git:",
+        "http:",
+        "git+ssh:",
+        "git+https:",
+        "ssh:",
+        "https:",
+      ],
+      "shortcuttemplate": [Function],
+      "sshtemplate": [Function],
+      "sshurltemplate": [Function],
+      "tarballtemplate": [Function],
+      "treepath": "tree",
+      "type": "github",
+      "user": "user",
+    },
+    "name": undefined,
+    "raw": "user/foo#path:dist",
+    "rawSpec": "user/foo#path:dist",
+    "registry": undefined,
+    "saveSpec": "github:user/foo#path:dist",
+    "scope": undefined,
+    "type": "git",
+    "where": undefined,
+  },
+}
+`;
+
+exports[`basic user/foo#semver:^1.2.3 1`] = `
+{
+  "actual": true,
+  "inputSpec": "user/foo#semver:^1.2.3",
+  "result": {
+    "escapedName": undefined,
+    "fetchSpec": null,
+    "gitCommittish": undefined,
+    "gitRange": "^1.2.3",
+    "gitSubdir": undefined,
+    "hosted": GitHost {
+      "auth": null,
+      "blobpath": "blob",
+      "browseblobtemplate": [Function],
+      "browsetemplate": [Function],
+      "browsetreetemplate": [Function],
+      "bugstemplate": [Function],
+      "committish": "semver:^1.2.3",
+      "default": "shortcut",
+      "docstemplate": [Function],
+      "domain": "github.com",
+      "editpath": "edit",
+      "edittemplate": [Function],
+      "extract": [Function],
+      "filetemplate": [Function],
+      "gittemplate": [Function],
+      "hashformat": [Function],
+      "httpstemplate": [Function],
+      "opts": {
+        "noCommittish": true,
+        "noGitPlus": true,
+      },
+      "pathtemplate": [Function],
+      "project": "foo",
+      "protocols": [
+        "git:",
+        "http:",
+        "git+ssh:",
+        "git+https:",
+        "ssh:",
+        "https:",
+      ],
+      "shortcuttemplate": [Function],
+      "sshtemplate": [Function],
+      "sshurltemplate": [Function],
+      "tarballtemplate": [Function],
+      "treepath": "tree",
+      "type": "github",
+      "user": "user",
+    },
+    "name": undefined,
+    "raw": "user/foo#semver:^1.2.3",
+    "rawSpec": "user/foo#semver:^1.2.3",
+    "registry": undefined,
+    "saveSpec": "github:user/foo#semver:^1.2.3",
+    "scope": undefined,
+    "type": "git",
+    "where": undefined,
+  },
+}
+`;
