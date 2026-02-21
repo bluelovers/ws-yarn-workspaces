@@ -41,6 +41,8 @@ describe('isFileResult', () =>
 	{
 		_lazyTestIsFileResult('./packages/my-pkg', {
 			type: 'directory',
+			fetchSpec: expect.any(String),
+			where: expect.any(String),
 		});
 	});
 
@@ -48,6 +50,8 @@ describe('isFileResult', () =>
 	{
 		_lazyTestIsFileResult('../other-pkg', {
 			type: 'directory',
+			fetchSpec: expect.any(String),
+			where: expect.any(String),
 		});
 	});
 
@@ -183,6 +187,8 @@ describe('isNpmPackageArgResult', () =>
 		_lazyTestNpaTypeGuard('./packages/my-pkg', {
 			propertyMatchers: {
 				type: 'directory',
+				fetchSpec: expect.any(String),
+				where: expect.any(String),
 			}
 		});
 	});

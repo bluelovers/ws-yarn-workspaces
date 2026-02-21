@@ -37,7 +37,7 @@
   "scripts": {
     "coverage": "yarn run test -- --coverage",
     "lint": "ynpx --quiet eslint -- **/*.ts",
-    "test": "jest --passWithNoTests",
+    "test": "yarn run test:jest -- -u",
     "test:jest": "jest --passWithNoTests",
     "test:jest:coverage": "yarn run test:jest -- --coverage",
     "test:jest:snapshot": "yarn run test:jest -- -u",

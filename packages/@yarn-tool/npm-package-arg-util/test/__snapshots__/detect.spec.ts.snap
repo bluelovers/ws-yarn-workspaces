@@ -87,7 +87,7 @@ exports[`isFileResult should return true for directory packages 1`] = `
   "inputSpec": "../other-pkg",
   "result": {
     "escapedName": undefined,
-    "fetchSpec": "C:\\Users\\User\\WebstormProjects\\nodejs-yarn\\ws-yarn-workspaces\\packages\\@yarn-tool\\other-pkg",
+    "fetchSpec": Any<String>,
     "gitCommittish": undefined,
     "gitRange": undefined,
     "gitSubdir": undefined,
@@ -99,7 +99,7 @@ exports[`isFileResult should return true for directory packages 1`] = `
     "saveSpec": "file:../other-pkg",
     "scope": undefined,
     "type": "directory",
-    "where": "C:\\Users\\User\\WebstormProjects\\nodejs-yarn\\ws-yarn-workspaces\\packages\\@yarn-tool\\npm-package-arg-util",
+    "where": Any<String>,
   },
 }
 `;
@@ -110,7 +110,7 @@ exports[`isFileResult should return true for file packages 1`] = `
   "inputSpec": "./packages/my-pkg",
   "result": {
     "escapedName": undefined,
-    "fetchSpec": "C:\\Users\\User\\WebstormProjects\\nodejs-yarn\\ws-yarn-workspaces\\packages\\@yarn-tool\\npm-package-arg-util\\packages\\my-pkg",
+    "fetchSpec": Any<String>,
     "gitCommittish": undefined,
     "gitRange": undefined,
     "gitSubdir": undefined,
@@ -122,7 +122,7 @@ exports[`isFileResult should return true for file packages 1`] = `
     "saveSpec": "file:packages/my-pkg",
     "scope": undefined,
     "type": "directory",
-    "where": "C:\\Users\\User\\WebstormProjects\\nodejs-yarn\\ws-yarn-workspaces\\packages\\@yarn-tool\\npm-package-arg-util",
+    "where": Any<String>,
   },
 }
 `;
@@ -316,7 +316,7 @@ exports[`isNpmPackageArgResult should return true for file packages 1`] = `
   "inputSpec": "./packages/my-pkg",
   "result": {
     "escapedName": undefined,
-    "fetchSpec": "C:\\Users\\User\\WebstormProjects\\nodejs-yarn\\ws-yarn-workspaces\\packages\\@yarn-tool\\npm-package-arg-util\\packages\\my-pkg",
+    "fetchSpec": Any<String>,
     "gitCommittish": undefined,
     "gitRange": undefined,
     "gitSubdir": undefined,
@@ -328,7 +328,7 @@ exports[`isNpmPackageArgResult should return true for file packages 1`] = `
     "saveSpec": "file:packages/my-pkg",
     "scope": undefined,
     "type": "directory",
-    "where": "C:\\Users\\User\\WebstormProjects\\nodejs-yarn\\ws-yarn-workspaces\\packages\\@yarn-tool\\npm-package-arg-util",
+    "where": Any<String>,
   },
 }
 `;
