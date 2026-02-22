@@ -1,7 +1,17 @@
 {
   "name": "sort-package-json3",
   "version": "3.0.3",
-  "description": "",
+  "description": "Enhanced sort-package-json with scripts and exports sorting / 增強版 sort-package-json，支援 scripts 和 exports 排序",
+  "keywords": [
+    "npm",
+    "package-json",
+    "sort",
+    "sort-json",
+    "sort-package-json",
+    "scripts",
+    "exports",
+    "lifecycle"
+  ],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/sort-package-json3#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"

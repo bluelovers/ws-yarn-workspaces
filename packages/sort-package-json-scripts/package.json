@@ -1,7 +1,18 @@
 {
   "name": "sort-package-json-scripts",
   "version": "1.1.28",
-  "description": "a better sort package.json scripts, by default is follow npm lifecycle scripts",
+  "description": "Sort package.json scripts field following npm lifecycle scripts order / 排序 package.json scripts 欄位，遵循 npm 生命週期腳本順序",
+  "keywords": [
+    "npm",
+    "package-json",
+    "scripts",
+    "sort",
+    "sort-json",
+    "sort-object-keys",
+    "lifecycle",
+    "pre",
+    "post"
+  ],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/sort-package-json-scripts#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"
