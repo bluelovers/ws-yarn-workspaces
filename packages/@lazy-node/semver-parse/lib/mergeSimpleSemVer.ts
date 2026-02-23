@@ -35,10 +35,19 @@ import {
  * Merge two SimpleSemVer objects
  *
  * 將來源物件的版本屬性合併到目標物件中。
- * 只有當目標和來源的值都允許合併時，才會進行合併。
- *
  * Merges version properties from source object into target object.
- * Only merges when both target and source values are allowed for merging.
+ *
+ * **重要限制：只允許更新目標物件中已經存在的值。**
+ * **Important limitation: Only updates values that already exist in the target object.**
+ *
+ * 合併規則：
+ * Merge rules:
+ * 1. 只有當目標物件的屬性值存在且有效時，才會被來源物件的值更新
+ *    Only updates when the target's property value exists and is valid
+ * 2. 有效的值：非空字串且不是萬用字元（`*` 或 `x`）
+ *    Valid values: non-empty string and not wildcards (`*` or `x`)
+ * 3. 如果目標物件沒有該屬性，則不會新增該屬性
+ *    If target doesn't have the property, it won't be added
  *
  * @template T - semver 類型 / Semver type
  * @param {T} target - 目標 semver 物件 / Target semver object
@@ -50,17 +59,25 @@ import {
  *
  * @example
  * ```typescript
- * // 合併版本部分 / Merge version parts
+ * // 合併版本部分（目標已有該屬性）/ Merge version parts (target has the property)
  * const target = { major: '1', minor: '0', patch: '0' };
  * const source = { minor: '2', patch: '3' };
  * mergeSimpleSemVer(target, source);
  * // => { target: { major: '1', minor: '2', patch: '3' }, changed: { minor: '2', patch: '3' } }
  *
- * // 合併預發布標籤 / Merge pre-release tag
+ * // 不會新增目標沒有的屬性 / Won't add properties that target doesn't have
  * const target = { major: '1', minor: '0', patch: '0' };
- * const source = { minor: '2', release: 'beta.1' };
+ * const source = { release: 'beta.1' };
  * mergeSimpleSemVer(target, source);
- * // => { target: { major: '1', minor: '2', patch: '0', release: 'beta.1' }, changed: { minor: '2', release: 'beta.1' } }
+ * // => { target: { major: '1', minor: '0', patch: '0' }, changed: undefined }
+ * // 注意：release 不會被新增，因為 target 沒有 release 屬性
+ * // Note: release won't be added because target doesn't have release property
+ *
+ * // 更新已存在的預發布標籤 / Update existing pre-release tag
+ * const target = { major: '1', minor: '0', patch: '0', release: 'alpha.1' };
+ * const source = { release: 'beta.1' };
+ * mergeSimpleSemVer(target, source);
+ * // => { target: { major: '1', minor: '0', patch: '0', release: 'beta.1' }, changed: { release: 'beta.1' } }
  *
  * // 萬用字元不會被合併 / Wildcards are not merged
  * const target = { major: '1', minor: '2', patch: '3' };
@@ -77,7 +94,31 @@ export function mergeSimpleSemVer<T extends ISimpleSemVer, R extends ISimpleSemV
 	// 斷言目標和來源都是有效的版本物件
 	// Assert both target and source are valid version objects
 	assertSimpleSemVerObjectLike(target);
-	assertSimpleSemVerObjectLike(b);
+	// assertSimpleSemVerObjectLike(b);
+
+	const entries = Object.entries(b);
+
+	let not_ok = true;
+
+	for (const [k, v] of entries)
+	{
+		if (typeof v === 'string')
+		{
+			not_ok = false;
+			continue;
+		}
+		else if (v === null || v === undefined)
+		{
+			continue;
+		}
+
+		throw new TypeError(`Invalid '${k}' value: ${v}`);
+	}
+
+	if (not_ok)
+	{
+		throw new TypeError(`Invalid 'b' value: ${JSON.stringify(b)}`);
+	}
 
 	// 記錄變更的屬性
 	// Track changed properties

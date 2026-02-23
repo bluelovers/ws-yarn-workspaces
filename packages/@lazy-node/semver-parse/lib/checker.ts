@@ -112,7 +112,7 @@ export function assertSimpleSemVerObjectLike<T extends ISimpleSemVerObjectBase>(
 {
 	if (notThrow !== true && !isSimpleSemVerObjectLike(obj))
 	{
-		throw new TypeError(`obj not a SimpleSemVerObject. ${obj}`)
+		throw new TypeError(`obj not a SimpleSemVerObject. ${JSON.stringify(obj)}`)
 	}
 }
 
@@ -158,9 +158,9 @@ export function isSimpleSemVerObjectWithOperatorLike<T extends ISimpleSemVerObje
  */
 export function assertSimpleSemVerObjectWithOperatorLike<T extends ISimpleSemVerObjectBase>(obj: T, notThrow?: boolean): asserts obj is IToSimpleSemVerObjectWithOperator<T>
 {
-	if (notThrow !== true && !isSimpleSemVerObjectLike(obj))
+	if (notThrow !== true && !isSimpleSemVerObjectWithOperatorLike(obj))
 	{
-		throw new TypeError(`obj not a SimpleSemVerObject`)
+		throw new TypeError(`obj not a SimpleSemVerObjectWithOperator. ${JSON.stringify(obj)}`)
 	}
 }
 

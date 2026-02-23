@@ -218,14 +218,40 @@ Merge two SimpleSemVer objects.
 >
 > ⚠️ **Note**: This function only supports single version range.
 
+**重要限制 / Important Limitations:**
+
+- **只允許更新目標物件中已經存在的值** - 如果目標物件沒有該屬性，則不會新增該屬性
+- **Only updates values that already exist in the target object** - If the target object doesn't have a property, it won't be added
+
+**合併規則 / Merge Rules:**
+
+1. 只有當目標物件的屬性值存在且有效時，才會被來源物件的值更新
+2. 有效的值：非空字串且不是萬用字元（`*` 或 `x`）
+3. 無效的值（空字串、`*`、`x`）不會被合併
+
 ```typescript
 import { mergeSimpleSemVer } from '@lazy-node/semver-parse/lib/mergeSimpleSemVer';
 
+// 基本合併 / Basic merge
 const target = { major: '1', minor: '0', patch: '0' };
 const source = { minor: '2', patch: '3' };
 
 mergeSimpleSemVer(target, source);
 // { major: '1', minor: '2', patch: '3' }
+
+// 不會新增目標沒有的屬性 / Won't add properties that target doesn't have
+const target2 = { major: '1', minor: '0' };
+const source2 = { patch: '3', build: 'abc' };
+
+mergeSimpleSemVer(target2, source2);
+// { major: '1', minor: '0' } - patch 和 build 不會被新增，因為 target2 沒有這些屬性
+
+// 萬用字元不會被合併 / Wildcards won't be merged
+const target3 = { major: '1', minor: '0', patch: '0' };
+const source3 = { minor: 'x', patch: '*' };
+
+mergeSimpleSemVer(target3, source3);
+// { major: '1', minor: '0', patch: '0' } - 'x' 和 '*' 是萬用字元，不會被合併
 ```
 
 #### `replaceSimpleSemVerVersion(obj, version)`
