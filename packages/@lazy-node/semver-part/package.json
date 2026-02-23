@@ -1,7 +1,7 @@
 {
   "name": "@lazy-node/semver-part",
   "version": "1.0.23",
-  "description": "compare part of version",
+  "description": "比較 semver 版本部分字串的工具庫 - Utility library for comparing semver version part strings without requiring complete semver versions",
   "keywords": [
     "semver",
     "compare",
@@ -13,7 +13,10 @@
     "semantic",
     "diff",
     "difference",
-    "util"
+    "util",
+    "version-part",
+    "partial-version",
+    "version-compare"
   ],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@lazy-node/semver-part#readme",
   "bugs": {

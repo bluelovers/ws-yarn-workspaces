@@ -1,12 +1,21 @@
 {
   "name": "@lazy-node/semver-simple-parse",
   "version": "3.0.1",
-  "description": "Tools for manipulating semver strings and objects",
+  "description": "簡易 semver 解析與字串化工具庫 - Lightweight semver parsing and stringification utilities for manipulating version strings and objects",
   "keywords": [
     "semver",
+    "semver-parse",
     "parse",
     "parseRange",
-    "range"
+    "range",
+    "stringify",
+    "version",
+    "versioning",
+    "semantic-versioning",
+    "semver-utils",
+    "merge",
+    "replace",
+    "lazy-node"
   ],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@lazy-node/semver-parse#readme",
   "bugs": {

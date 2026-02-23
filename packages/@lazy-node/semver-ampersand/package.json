@@ -1,7 +1,7 @@
 {
   "name": "@lazy-node/semver-ampersand",
   "version": "3.0.3",
-  "description": "semver with support (&)ampersand",
+  "description": "支援 ampersand (&) 語法的 semver 範圍處理工具庫 - Semver range handling utilities with ampersand (&) syntax support for yarn/npm workspaces",
   "keywords": [
     "semver",
     "ampersand",
@@ -14,7 +14,10 @@
     "pkg",
     "dependencies",
     "packages",
-    "package"
+    "package",
+    "semver-range",
+    "version-range",
+    "satisfies"
   ],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@lazy-node/semver-ampersand#readme",
   "bugs": {
