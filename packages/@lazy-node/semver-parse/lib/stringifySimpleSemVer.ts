@@ -8,7 +8,7 @@
  * @packageDocumentation
  */
 
-import { IOptionsSimpleSemVerStringify, ISimpleSemVerObject } from './types';
+import { IOptionsSimpleSemVerStringify, ISimpleSemVer, ISimpleSemVerObject, ISimpleSemVerObjectBase } from './types';
 import { EnumVersionExtra } from './const';
 import SimpleSemVer from './SimpleSemVer';
 import { assertSimpleSemVerOperatorLike, assertSimpleSemVerObjectLike } from './checker';
@@ -46,7 +46,7 @@ import { assertSimpleSemVerOperatorLike, assertSimpleSemVerObjectLike } from './
  * // => '1.0.0'
  * ```
  */
-export function stringifySimpleSemVer(obj: ISimpleSemVerObject | SimpleSemVer, options?: IOptionsSimpleSemVerStringify)
+export function stringifySimpleSemVer(obj: ISimpleSemVerObjectBase, options?: IOptionsSimpleSemVerStringify)
 {
 	// 斷言物件為有效的版本物件
 	// Assert object is a valid version object

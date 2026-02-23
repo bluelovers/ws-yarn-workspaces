@@ -18,6 +18,8 @@ import {
 	IToSimpleSemVerObject,
 	IToSimpleSemVerObjectWithOperator,
 	IToSimpleSemVerObjectOrOperator,
+	ISimpleSemVerObjectBaseCoreVersion,
+	ISimpleSemVerObjectBaseCoreOperator,
 } from './types';
 
 /**
@@ -88,6 +90,11 @@ export function assertSimpleSemVerOperatorLike<T extends ISimpleSemVerObjectBase
 export function isSimpleSemVerObjectLike<T extends ISimpleSemVerObjectBase>(obj: T): obj is IToSimpleSemVerObject<T>
 {
 	return obj.major?.length > 0
+}
+
+export function isSimpleSemVerVersionLike<T extends ISimpleSemVerObjectBaseCoreVersion>(obj: T): obj is T & Required<ISimpleSemVerObjectBaseCoreVersion>
+{
+	return (obj && (obj.major?.length || obj.minor?.length || obj.patch?.length) > 0)
 }
 
 /**
@@ -181,7 +188,7 @@ export function assertSimpleSemVerObjectWithOperatorLike<T extends ISimpleSemVer
  * hasOperator({ major: '1' }); // false
  * ```
  */
-export function hasOperator<T extends ISimpleSemVerObjectBase>(obj: T): obj is IHasOperator<T>
+export function hasOperator<T extends ISimpleSemVerObjectBaseCoreOperator>(obj: T): obj is IHasOperator<T>
 {
 	return obj.operator?.length > 0
 }

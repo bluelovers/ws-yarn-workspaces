@@ -10,6 +10,37 @@
 
 import { ITSRequiredWith, ITSPickExtra, ITSPartialRecord, ITSRequiredPick  } from 'ts-type/lib/type/record';
 import SimpleSemVer from './SimpleSemVer';
+import { ITSTypeAndStringLiteral } from 'ts-type';
+
+/**
+ * 基礎運算子列舉
+ * Base operator enum
+ *
+ * 定義 semver 範圍運算子的基本集合
+ * Defines the basic set of semver range operators
+ */
+export const enum EnumOperatorBase {
+	/** 相容版本 (Compatible with version) */
+	TILDE = '~',
+	/** 插入版本 (Caret version) */
+	CARET = '^',
+	/** 大於等於 (Greater than or equal) */
+	GTE = '>=',
+	/** 小於等於 (Less than or equal) */
+	LTE = '<=',
+	/** 等於 (Equal) */
+	EQ = '=',
+	/** 範圍 (Range) */
+	HYPHEN = '-',
+	/** 或 (Or) */
+	OR = '||',
+	/** 相容版本 (Compatible with version, alternative) */
+	TILDE_ALT = '~>',
+	/** 大於 (Greater than) */
+	GT = '>',
+	/** 小於 (Less than) */
+	LT = '<',
+}
 
 /**
  * 基礎運算子類型
@@ -18,7 +49,8 @@ import SimpleSemVer from './SimpleSemVer';
  * 定義 semver 範圍運算子的基本集合
  * Defines the basic set of semver range operators
  */
-export type IOperatorBase = '~' | '^' | '>=' | '<=' | '=' | '-' | '||' | '=' | '~>';
+// export type IOperatorBase = '~' | '^' | '>=' | '<=' | '=' | '-' | '||' | '=' | '~>' | '>' | '<';
+export type IOperatorBase = ITSTypeAndStringLiteral<EnumOperatorBase>;
 
 /**
  * 運算子類型
@@ -28,6 +60,18 @@ export type IOperatorBase = '~' | '^' | '>=' | '<=' | '=' | '-' | '||' | '=' | '
  * Extends base operator type to support custom operators
  */
 export type IOperator = IOperatorBase | string;
+
+export interface ISimpleSemVerObjectBaseCoreVersion
+{
+	major?: string,
+	minor?: string,
+	patch?: string,
+}
+
+export interface ISimpleSemVerObjectBaseCoreOperator
+{
+	operator?: IOperator,
+}
 
 /**
  * SimpleSemVer 物件基礎介面
@@ -45,14 +89,10 @@ export type IOperator = IOperatorBase | string;
  * @property {string} release - 預發布標籤 / Pre-release tag
  * @property {string} build - 建置元資料 / Build metadata
  */
-export interface ISimpleSemVerObjectBase
+export interface ISimpleSemVerObjectBase extends ISimpleSemVerObjectBaseCoreVersion, ISimpleSemVerObjectBaseCoreOperator
 {
-	operator?: IOperator,
 	version?: string,
 	semver?: string,
-	major?: string,
-	minor?: string,
-	patch?: string,
 	release?: string
 	build?: string
 }
@@ -102,7 +142,7 @@ export interface ISimpleSemVerOperator extends ITSPartialRecord<Exclude<keyof IS
  */
 export type ISimpleSemVer = ISimpleSemVerObject | ISimpleSemVerOperator | ISimpleSemVerObjectWithOperator;
 
-export type ISimpleSemVerRuntime = ISimpleSemVer | SimpleSemVer
+export type ISimpleSemVerRuntime = ISimpleSemVer | SimpleSemVer | ISimpleSemVerObjectBase;
 
 /**
  * 具有運算子的類型標記
@@ -111,9 +151,7 @@ export type ISimpleSemVerRuntime = ISimpleSemVer | SimpleSemVer
  * 將 T 類型標記為具有 operator 屬性
  * Marks type T as having an operator property
  */
-export type IHasOperator<T extends ISimpleSemVerObjectBase> = T & {
-	operator: IOperator,
-}
+export type IHasOperator<T extends ISimpleSemVerObjectBaseCoreOperator> = T & Required<ISimpleSemVerObjectBaseCoreOperator>
 
 /**
  * 轉換為 SimpleSemVer 運算子類型

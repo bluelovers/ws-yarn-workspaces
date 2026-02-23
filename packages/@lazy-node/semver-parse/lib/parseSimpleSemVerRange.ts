@@ -56,6 +56,10 @@ import { pruned } from './util/pruned';
  * // 使用萬用字元 / Using wildcards
  * parseSimpleSemVerRange('1.2.x');
  * // => [SimpleSemVer { major: '1', minor: '2', patch: 'x' }]
+ *
+ * // 同時包含預發布標籤和建置元資料 / With both pre-release and build metadata
+ * parseSimpleSemVerRange('1.0.0-alpha+build.123');
+ * // => [SimpleSemVer { major: '1', minor: '0', patch: '0', release: 'alpha', build: 'build.123' }]
  * ```
  */
 export function parseSimpleSemVerRange(str: string)
@@ -67,6 +71,30 @@ export function parseSimpleSemVerRange(str: string)
 	// Use global regex to iteratively match all version conditions
 	while (m = reSemverRange.exec(str))
 	{
+		// 捕獲組索引說明 / Capture group index explanation:
+		// m[2] = 邏輯運算子 (|| 或 -) / Logical operator (|| or -)
+		// m[3] = 完整版本部分（含運算子） / Full version part (with operator)
+		// m[4] = 比較運算子 / Comparison operator
+		// m[5] = v 前綴 / v prefix
+		// m[6] = major 版本 / major version
+		// m[8] = minor 版本 / minor version
+		// m[10] = patch 版本 / patch version
+		// m[12] = release 內容 (不含 -) / release content (without -)
+		// m[14] = build 內容 (不含 +) / build content (without +)
+
+		// 建構 semver 字串（只包含版本部分，不含運算子）
+		// Build semver string (version part only, without operator)
+		let semver = '';
+
+		/*
+		if (m[5]) semver += m[5]; // v 前綴 / v prefix
+		semver += m[6]; // major
+		if (m[8] !== undefined) semver += '.' + m[8]; // minor
+		if (m[10] !== undefined) semver += '.' + m[10]; // patch
+		if (m[12]) semver += '-' + m[12]; // release
+		if (m[14]) semver += '+' + m[14]; // build
+		*/
+
 		// 建立基礎 semver 物件
 		// Build base semver object
 		let obj: ISimpleSemVer = {
@@ -77,17 +105,16 @@ export function parseSimpleSemVerRange(str: string)
 			, patch: m[10],
 		};
 
-		// 處理額外版本資訊（建置或預發布）
-		// Handle extra version information (build or pre-release)
-		if (EnumVersionExtra.build === m[12])
+		// 處理預發布標籤 / Handle pre-release tag
+		if (m[12])
 		{
-			// 建置元資料 / Build metadata
-			obj.build = m[13];
+			obj.release = m[12];
 		}
-		if (EnumVersionExtra.release === m[12])
+
+		// 處理建置元資料 / Handle build metadata
+		if (m[14])
 		{
-			// 預發布標籤 / Pre-release tag
-			obj.release = m[13];
+			obj.build = m[14];
 		}
 
 		// 建立 SimpleSemVer 實例並加入陣列
