@@ -8,6 +8,8 @@
  * @packageDocumentation
  */
 
+import { EnumSemverWildcard } from '../types';
+
 /**
  * 檢查值是否允許用於合併
  * Check if value is allowed for merging
@@ -36,5 +38,5 @@ export function isAllowedMergeAbleValue(value: string)
 {
 	// 值必須是字串、長度大於 0、且不是 '*' 或 'x' 萬用字元
 	// Value must be a string, length > 0, and not '*' or 'x' wildcard
-	return (typeof value === 'string' && value.length > 0 && value !== '*' && value !== 'x')
+	return (typeof value === 'string' && value.length > 0 && value !== EnumSemverWildcard.star && value !== EnumSemverWildcard.x)
 }

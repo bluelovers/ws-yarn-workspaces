@@ -20,6 +20,7 @@ import {
 	IToSimpleSemVerObjectOrOperator,
 	ISimpleSemVerObjectBaseCoreVersion,
 	ISimpleSemVerObjectBaseCoreOperator,
+	ISimpleSemVerObjectBaseCoreWildcardOnly,
 } from './types';
 
 /**
@@ -92,9 +93,14 @@ export function isSimpleSemVerObjectLike<T extends ISimpleSemVerObjectBase>(obj:
 	return obj.major?.length > 0
 }
 
-export function isSimpleSemVerVersionLike<T extends ISimpleSemVerObjectBaseCoreVersion>(obj: T): obj is T & Required<ISimpleSemVerObjectBaseCoreVersion>
+export function isSimpleSemVerVersionLike(obj: ISimpleSemVerObjectBaseCoreVersion): obj is Required<ISimpleSemVerObjectBaseCoreVersion>
 {
 	return (obj && (obj.major?.length || obj.minor?.length || obj.patch?.length) > 0)
+}
+
+export function isSimpleSemVerWildcardOnlyLike(obj: ISimpleSemVerObjectBase): obj is Required<ISimpleSemVerObjectBaseCoreWildcardOnly>
+{
+	return (obj && !isSimpleSemVerVersionLike(obj) && !hasOperator(obj))
 }
 
 /**

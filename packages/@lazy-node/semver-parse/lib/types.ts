@@ -10,7 +10,7 @@
 
 import { ITSRequiredWith, ITSPickExtra, ITSPartialRecord, ITSRequiredPick  } from 'ts-type/lib/type/record';
 import SimpleSemVer from './SimpleSemVer';
-import { ITSTypeAndStringLiteral } from 'ts-type';
+import { ITSToStringLiteral, ITSTypeAndStringLiteral } from 'ts-type';
 
 /**
  * 基礎運算子列舉
@@ -19,7 +19,8 @@ import { ITSTypeAndStringLiteral } from 'ts-type';
  * 定義 semver 範圍運算子的基本集合
  * Defines the basic set of semver range operators
  */
-export const enum EnumOperatorBase {
+export const enum EnumOperatorBase
+{
 	/** 相容版本 (Compatible with version) */
 	TILDE = '~',
 	/** 插入版本 (Caret version) */
@@ -42,6 +43,12 @@ export const enum EnumOperatorBase {
 	LT = '<',
 }
 
+export const enum EnumSemverWildcard
+{
+	x = 'x',
+	star = '*',
+}
+
 /**
  * 基礎運算子類型
  * Base operator type
@@ -51,6 +58,11 @@ export const enum EnumOperatorBase {
  */
 // export type IOperatorBase = '~' | '^' | '>=' | '<=' | '=' | '-' | '||' | '=' | '~>' | '>' | '<';
 export type IOperatorBase = ITSTypeAndStringLiteral<EnumOperatorBase>;
+
+export type ISemverWildcard = ITSTypeAndStringLiteral<EnumSemverWildcard>;
+
+export type ISemverNumber = ITSTypeAndStringLiteral<number>;
+export type ISemverNumberString = ITSToStringLiteral<number>;
 
 /**
  * 運算子類型
@@ -63,9 +75,14 @@ export type IOperator = IOperatorBase | string;
 
 export interface ISimpleSemVerObjectBaseCoreVersion
 {
-	major?: string,
-	minor?: string,
-	patch?: string,
+	major?: string | ISemverNumberString,
+	minor?: string | ISemverWildcard | ISemverNumberString,
+	patch?: string | ISemverWildcard | ISemverNumberString,
+}
+
+export interface ISimpleSemVerObjectBaseCoreWildcardOnly
+{
+	semver?: ISemverWildcard,
 }
 
 export interface ISimpleSemVerObjectBaseCoreOperator

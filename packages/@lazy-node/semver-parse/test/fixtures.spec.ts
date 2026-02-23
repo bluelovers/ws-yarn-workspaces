@@ -1,4 +1,4 @@
-import { hasOperator, isSimpleSemVerOperatorLike } from '../lib/checker';
+import { hasOperator, isSimpleSemVerOperatorLike, isSimpleSemVerWildcardOnlyLike } from '../lib/checker';
 import { parse, parseRange } from '..';
 import { ISimpleSemVer } from '../lib/types';
 import validMultipleVersionRangeFixtures, { validMultipleVersionRangeFixturesWildcards } from './fixtures/multiple-version-range/valid';
@@ -71,17 +71,15 @@ function _testMultipleVersionRangeFixtures(validMultipleFixtures: IFixturesEntry
 							expected,
 							i,
 							e2: expected[i],
+
+							isSimpleSemVerOperatorLike: isSimpleSemVerOperatorLike(result_current),
+							isSimpleSemVerWildcardOnlyLike: isSimpleSemVerWildcardOnlyLike(result_current),
 						});
 
 						let _fn = test;
-						if (!result_current || isSimpleSemVerOperatorLike(result_current))
+						if (!result_current || !isSimpleSemVerWildcardOnlyLike(result_current) && isSimpleSemVerOperatorLike(result_current))
 						{
 							_fn = test.skip;
-
-							console.dir({
-								o: isSimpleSemVerOperatorLike(result_current),
-								_fn,
-							});
 						}
 
 						_fn(`[${i}]parseRange(${result_current})`, () =>
