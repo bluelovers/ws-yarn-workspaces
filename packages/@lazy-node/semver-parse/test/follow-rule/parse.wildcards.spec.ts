@@ -1,5 +1,5 @@
 import { parse, parseRange } from "../..";
-import { EnumSemverWildcard } from "../../lib/types";
+import { EnumOperatorBase, EnumSemverWildcard, ISimpleSemVerObjectBase } from "../../lib/types";
 
 describe('wildcards', () =>
 {
@@ -14,6 +14,22 @@ describe('wildcards', () =>
 	{
 		_testW(EnumSemverWildcard.x);
 	})
+
+	test(`parseRange('x || *')`, () =>
+	{
+
+		const input = 'x || *';
+
+		let result = parseRange(input);
+
+		_testCore001(EnumSemverWildcard.x, result[0]);
+
+		expect(result[1]).toHaveProperty('operator', EnumOperatorBase.OR);
+
+		_testCore001(EnumSemverWildcard.star, result[2]);
+
+	})
+
 });
 
 function _testW(input: string)
@@ -23,8 +39,7 @@ function _testW(input: string)
 
 		let result = parseRange(input);
 
-		expect(result[0]).toBeTruthy();
-		expect(result[0]).toHaveProperty('semver', input);
+		_testCore001(input, result[0]);
 
 	});
 
@@ -33,8 +48,13 @@ function _testW(input: string)
 
 		let result = parse(input);
 
-		expect(result).toBeTruthy();
-		expect(result).toHaveProperty('semver', input);
+		_testCore001(input, result);
 
 	});
+}
+
+function _testCore001(input: string, result: ISimpleSemVerObjectBase)
+{
+	expect(result).toBeTruthy();
+	expect(result).toHaveProperty('semver', input);
 }
