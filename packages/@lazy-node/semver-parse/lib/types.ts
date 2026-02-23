@@ -154,3 +154,9 @@ export type IToSimpleSemVerObjectWithOperator<T extends ISimpleSemVerObjectBase>
  * Can be either operator type or version object type
  */
 export type IToSimpleSemVerObjectOrOperator<T extends ISimpleSemVerObjectBase> = IToSimpleSemVerOperator<T> | IToSimpleSemVerObject<T>
+
+export interface IOptionsSimpleSemVerStringify
+{
+	removeBuild?: boolean;
+	removeRelease?: boolean;
+}

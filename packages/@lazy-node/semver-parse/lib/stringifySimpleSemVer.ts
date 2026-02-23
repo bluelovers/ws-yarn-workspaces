@@ -8,7 +8,7 @@
  * @packageDocumentation
  */
 
-import { ISimpleSemVerObject } from './types';
+import { IOptionsSimpleSemVerStringify, ISimpleSemVerObject } from './types';
 import { EnumVersionExtra } from './const';
 import SimpleSemVer from './SimpleSemVer';
 import { assertSimpleSemVerOperatorLike, assertSimpleSemVerObjectLike } from './checker';
@@ -46,7 +46,7 @@ import { assertSimpleSemVerOperatorLike, assertSimpleSemVerObjectLike } from './
  * // => '1.0.0'
  * ```
  */
-export function stringifySimpleSemVer(obj: ISimpleSemVerObject | SimpleSemVer)
+export function stringifySimpleSemVer(obj: ISimpleSemVerObject | SimpleSemVer, options?: IOptionsSimpleSemVerStringify)
 {
 	// 斷言物件為有效的版本物件
 	// Assert object is a valid version object
@@ -63,16 +63,19 @@ export function stringifySimpleSemVer(obj: ISimpleSemVerObject | SimpleSemVer)
 	// 組合修補版本號 / Compose patch version
 	str += obj.patch ?? '0';
 
-	// 添加預發布標籤 / Add pre-release tag
-	if (obj.release?.length > 0)
+	if (!options?.removeRelease)
 	{
-		str += EnumVersionExtra.release + obj.release;
-	}
+		// 添加預發布標籤 / Add pre-release tag
+		if (obj.release?.length > 0)
+		{
+			str += EnumVersionExtra.release + obj.release;
+		}
 
-	// 添加建置元資料 / Add build metadata
-	if (obj.build?.length > 0)
-	{
-		str += EnumVersionExtra.build + obj.build;
+		// 添加建置元資料 / Add build metadata
+		if (!options?.removeBuild && obj.build?.length > 0)
+		{
+			str += EnumVersionExtra.build + obj.build;
+		}
 	}
 
 	return str;
