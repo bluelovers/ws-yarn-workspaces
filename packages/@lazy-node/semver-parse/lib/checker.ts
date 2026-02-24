@@ -9,18 +9,17 @@
  */
 
 import {
-	ISimpleSemVer,
-	ISimpleSemVerOperator,
-	ISimpleSemVerObject,
+	EnumSemverWildcard,
 	IHasOperator,
+	ISemverWildcard,
 	ISimpleSemVerObjectBase,
-	IToSimpleSemVerOperator,
-	IToSimpleSemVerObject,
-	IToSimpleSemVerObjectWithOperator,
-	IToSimpleSemVerObjectOrOperator,
-	ISimpleSemVerObjectBaseCoreVersion,
 	ISimpleSemVerObjectBaseCoreOperator,
+	ISimpleSemVerObjectBaseCoreVersion,
 	ISimpleSemVerObjectBaseCoreWildcardOnly,
+	IToSimpleSemVerObject,
+	IToSimpleSemVerObjectOrOperator,
+	IToSimpleSemVerObjectWithOperator,
+	IToSimpleSemVerOperator,
 } from './types';
 
 /**
@@ -100,7 +99,18 @@ export function isSimpleSemVerVersionLike(obj: ISimpleSemVerObjectBaseCoreVersio
 
 export function isSimpleSemVerWildcardOnlyLike(obj: ISimpleSemVerObjectBase): obj is Required<ISimpleSemVerObjectBaseCoreWildcardOnly>
 {
-	return (obj && !isSimpleSemVerVersionLike(obj) && !hasOperator(obj))
+	// 純萬用字元必須有 semver 屬性，且值為 * 或 x
+	// Pure wildcard must have semver property with value * or x
+	return (obj &&
+		!isSimpleSemVerVersionLike(obj) &&
+		!hasOperator(obj) &&
+		obj.semver !== undefined &&
+		isSemverWildcard(obj.semver))
+}
+
+export function isSemverWildcard(value: string): value is ISemverWildcard
+{
+	return value === EnumSemverWildcard.star || value === EnumSemverWildcard.x
 }
 
 /**
@@ -240,12 +250,13 @@ export function assertHasOperator<T extends ISimpleSemVerObjectBase>(obj: T, not
  * ```typescript
  * isSimpleSemVerObjectOrOperatorLike({ major: '1' }); // true
  * isSimpleSemVerObjectOrOperatorLike({ operator: '||' }); // true
+ * isSimpleSemVerObjectOrOperatorLike({ semver: '*' }); // true (純萬用字元 / Pure wildcard)
  * isSimpleSemVerObjectOrOperatorLike({}); // false
  * ```
  */
 export function isSimpleSemVerObjectOrOperatorLike<T extends ISimpleSemVerObjectBase>(obj: T): obj is IToSimpleSemVerObjectOrOperator<T>
 {
-	return isSimpleSemVerObjectLike(obj) || hasOperator(obj)
+	return isSimpleSemVerObjectLike(obj) || hasOperator(obj) || isSimpleSemVerWildcardOnlyLike(obj)
 }
 
 /**
@@ -273,4 +284,80 @@ export function assertSimpleSemVerObjectOrOperatorLike<T extends ISimpleSemVerOb
 	{
 		throw new TypeError(`obj not a SimpleSemVerObject or SimpleSemVerOperator`)
 	}
+}
+
+/**
+ * 檢查版本是否為有效的 semver 版本
+ * Check if version is a valid semver version
+ *
+ * 驗證版本字串是否符合 semver 規範
+ * Validates if version string conforms to semver specification
+ *
+ * @param originalInput - 原始輸入字串 / Original input string
+ * @param major - major 版本 / Major version
+ * @param minor - minor 版本 / Minor version
+ * @param patch - patch 版本 / Patch version
+ * @param release - 預發布標籤 / Pre-release tag
+ * @param build - 建置元資料 / Build metadata
+ * @returns {boolean} 是否為有效版本 / Whether it's a valid version
+ */
+export function isValidVersion(
+	originalInput: string,
+	major: string | undefined,
+	minor: string | undefined,
+	patch: string | undefined,
+	release: string | undefined,
+	build: string | undefined,
+): boolean
+{
+	// 檢查 release 和 build 是否以無效字元結尾
+	// Check if release and build end with invalid characters
+	// release 和 build 不能以 . 結尾
+	// release and build cannot end with .
+	if ((release !== undefined && release.endsWith('.')) ||
+		(build !== undefined && build.endsWith('.')))
+	{
+		return false;
+	}
+
+	// 檢查 build 後面是否還有 +（多個 + 號）
+	// Check if there's another + after build (multiple + signs)
+	// 透過檢查原始輸入來判斷
+	// Check by examining original input
+	if (build !== undefined)
+	{
+		// 計算原始輸入中 + 的數量
+		// Count + signs in original input
+		const plusCount = (originalInput.match(/\+/g) || []).length;
+		if (plusCount > 1)
+		{
+			return false;
+		}
+	}
+
+	// 檢查是否有 minor 或 patch 部分
+	// Check if there's minor or patch part
+	const hasMinor = minor !== undefined;
+	const hasPatch = patch !== undefined;
+
+	// 檢查是否為萬用字元版本
+	// Check if it's a wildcard version
+	const minorIsWildcard = isSemverWildcard(minor);
+	const patchIsWildcard = isSemverWildcard(patch);
+
+	// 有效的版本需要滿足以下條件之一：
+	// Valid version needs to satisfy one of the following:
+	// 1. 完整版本 (major.minor.patch) / Full version (major.minor.patch)
+	// 2. 包含萬用字元的版本 (如 1.x, 1.0.x) / Version with wildcards (e.g., 1.x, 1.0.x)
+	const isFullVersion = hasMinor && hasPatch;
+	const hasWildcard = minorIsWildcard || patchIsWildcard;
+
+	// 如果不是完整版本且沒有萬用字元，則視為無效版本
+	// If not a full version and no wildcard, treat as invalid version
+	if (!isFullVersion && !hasWildcard)
+	{
+		return false;
+	}
+
+	return true;
 }

@@ -9,7 +9,7 @@
  */
 
 import { ITSRequiredWith, ITSPickExtra, ITSPartialRecord, ITSRequiredPick  } from 'ts-type/lib/type/record';
-import SimpleSemVer from './SimpleSemVer';
+import { SimpleSemVer } from './SimpleSemVer';
 import { ITSToStringLiteral, ITSTypeAndStringLiteral } from 'ts-type';
 
 /**

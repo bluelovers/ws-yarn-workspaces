@@ -1,9 +1,9 @@
-# @lazy-node/semver-parse
+# @lazy-node/semver-simple-parse
 
 > 簡易 semver 解析與字串化工具庫 / Lightweight semver parsing and stringification utilities
 
-[![NPM version](https://img.shields.io/npm/v/@lazy-node/semver-parse.svg)](https://www.npmjs.com/package/@lazy-node/semver-parse)
-[![License](https://img.shields.io/npm/l/@lazy-node/semver-parse.svg)](https://github.com/bluelovers/ws-yarn-workspaces/blob/master/packages/@lazy-node/semver-parse/LICENSE)
+[![NPM version](https://img.shields.io/npm/v/@lazy-node/semver-simple-parse.svg)](https://www.npmjs.com/package/@lazy-node/semver-simple-parse)
+[![License](https://img.shields.io/npm/l/@lazy-node/semver-simple-parse.svg)](https://github.com/bluelovers/ws-yarn-workspaces/blob/master/packages/@lazy-node/semver-parse/LICENSE)
 
 ## 簡介 / Introduction
 
@@ -15,18 +15,18 @@ This module provides lightweight semver parsing functionality, converting versio
 
 ```bash
 # 使用 yarn / Using yarn
-yarn add @lazy-node/semver-parse
+yarn add @lazy-node/semver-simple-parse
 
 # 使用 yarn-tool / Using yarn-tool
-yarn-tool add @lazy-node/semver-parse
+yarn-tool add @lazy-node/semver-simple-parse
 # yt 是 yarn-tool 的別名 / yt is an alias for yarn-tool
-yt add @lazy-node/semver-parse
+yt add @lazy-node/semver-simple-parse
 
 # 使用 pnpm / Using pnpm
-pnpm add @lazy-node/semver-parse
+pnpm add @lazy-node/semver-simple-parse
 
 # 使用 npm / Using npm
-npm install @lazy-node/semver-parse
+npm install @lazy-node/semver-simple-parse
 ```
 
 ## 功能特色 / Features
@@ -82,7 +82,7 @@ Parse a semver string into a structured object.
 > ⚠️ **Note**: This function only supports single version range. For multiple range combinations, use `parseRange()`.
 
 ```typescript
-import { parse } from '@lazy-node/semver-parse';
+import { parse } from '@lazy-node/semver-simple-parse';
 
 const semver = parse('>=1.2.3-beta.1+build.123');
 // {
@@ -115,7 +115,7 @@ parse('1.0.6-1+build-623');
 Convert a semver object to a version string (without operator).
 
 ```typescript
-import { stringify } from '@lazy-node/semver-parse';
+import { stringify } from '@lazy-node/semver-simple-parse';
 
 stringify({
   major: '1',
@@ -134,7 +134,7 @@ stringify({
 Convert a semver object to a full version string (with operator).
 
 ```typescript
-import { stringifyFull } from '@lazy-node/semver-parse';
+import { stringifyFull } from '@lazy-node/semver-simple-parse';
 
 stringifyFull({
   operator: '>=',
@@ -157,7 +157,7 @@ Parse a range string into an array of semver objects.
 > ✅ **This function supports multiple version range combinations** (e.g., `>=1.0.0 <2.0.0` or `^1.0.0 || ^2.0.0`).
 
 ```typescript
-import { parseRange } from '@lazy-node/semver-parse';
+import { parseRange } from '@lazy-node/semver-simple-parse';
 
 parseRange('>= 1.1.7 < 2.0.0 || 1.1.3');
 // [
@@ -195,7 +195,7 @@ parseRange('>= 1.1.7 < 2.0.0 || 1.1.3');
 Convert an array of semver objects to a range string.
 
 ```typescript
-import { stringifyRange } from '@lazy-node/semver-parse';
+import { stringifyRange } from '@lazy-node/semver-simple-parse';
 
 stringifyRange([
   { semver: '>= v1.1.7', operator: '>=', major: 1, minor: 1, patch: 7 },
@@ -230,7 +230,7 @@ Merge two SimpleSemVer objects.
 3. 無效的值（空字串、`*`、`x`）不會被合併
 
 ```typescript
-import { mergeSimpleSemVer } from '@lazy-node/semver-parse/lib/mergeSimpleSemVer';
+import { mergeSimpleSemVer } from '@lazy-node/semver-simple-parse/lib/mergeSimpleSemVer';
 
 // 基本合併 / Basic merge
 const target = { major: '1', minor: '0', patch: '0' };
@@ -265,7 +265,7 @@ Replace the version part of a SimpleSemVer object.
 > ⚠️ **Note**: This function only supports single version range.
 
 ```typescript
-import { replaceSimpleSemVerVersion } from '@lazy-node/semver-parse/lib/replaceSimpleSemVerVersion';
+import { replaceSimpleSemVerVersion } from '@lazy-node/semver-simple-parse/lib/replaceSimpleSemVerVersion';
 
 const semver = { operator: '>=', major: '1', minor: '0', patch: '0' };
 replaceSimpleSemVerVersion(semver, '2.3.4');
@@ -294,7 +294,7 @@ interface ISimpleSemVerObject {
 ### 1. 版本字串解析 / Version String Parsing
 
 ```typescript
-import { parse, stringify } from '@lazy-node/semver-parse';
+import { parse, stringify } from '@lazy-node/semver-simple-parse';
 
 const version = parse('1.2.3-beta.1+build.123');
 console.log(`Major: ${version.major}, Minor: ${version.minor}, Patch: ${version.patch}`);
@@ -306,7 +306,7 @@ console.log(stringify(version)); // '1.2.3-beta.1+build.123'
 ### 2. 版本範圍處理 / Version Range Handling
 
 ```typescript
-import { parseRange, stringifyRange } from '@lazy-node/semver-parse';
+import { parseRange, stringifyRange } from '@lazy-node/semver-simple-parse';
 
 const range = parseRange('^1.2.0 || >=2.0.0 <3.0.0');
 
@@ -324,7 +324,7 @@ const rangeString = stringifyRange(range);
 ### 3. 版本物件合併 / Version Object Merging
 
 ```typescript
-import { parse, mergeSimpleSemVer, stringify } from '@lazy-node/semver-parse';
+import { parse, mergeSimpleSemVer, stringify } from '@lazy-node/semver-simple-parse';
 
 const baseVersion = parse('1.0.0');
 const updateVersion = { minor: '2', patch: '5' };
@@ -336,7 +336,7 @@ console.log(stringify(merged)); // '1.2.5'
 ### 4. 建構版本範圍 / Building Version Ranges
 
 ```typescript
-import { stringifyRange } from '@lazy-node/semver-parse';
+import { stringifyRange } from '@lazy-node/semver-simple-parse';
 
 const customRange = [
   { operator: '>=', major: '1', minor: '0', patch: '0' },

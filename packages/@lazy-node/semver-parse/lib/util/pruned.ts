@@ -10,6 +10,7 @@
 
 import { ISimpleSemVerObjectBase, ISimpleSemVer } from '../types';
 import { simpleSemVerKeys } from '../const';
+import { isSimpleSemVerObjectLike } from '../checker';
 
 /**
  * 移除物件中的 undefined 屬性
@@ -108,6 +109,22 @@ export function prunedSimpleSemVer<T extends ISimpleSemVer>(obj: T, o = {} as T)
 	}
 
 	return o;
+}
+
+export function normalizeSemVerObjectInput<T extends ISimpleSemVer>(obj: T, opts: {
+	init?: boolean,
+} = {})
+{
+	if (!opts?.init && isSimpleSemVerObjectLike(obj))
+	{
+		//o.operator ??= '';
+	}
+	else if (obj.operator === '')
+	{
+		delete obj.operator
+	}
+
+	return obj
 }
 
 export default prunedSimpleSemVer

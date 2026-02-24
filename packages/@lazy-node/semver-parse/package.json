@@ -5,6 +5,7 @@
   "keywords": [
     "semver",
     "semver-parse",
+    "semver-simple-parse",
     "parse",
     "parseRange",
     "range",
@@ -15,6 +16,9 @@
     "semver-utils",
     "merge",
     "replace",
+    "wildcard",
+    "pre-release",
+    "build-metadata",
     "lazy-node"
   ],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@lazy-node/semver-parse#readme",

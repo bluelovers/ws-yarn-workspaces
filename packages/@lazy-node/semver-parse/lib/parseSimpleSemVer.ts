@@ -14,21 +14,22 @@
  * @packageDocumentation
  */
 
-import { reSemver, reSemverWithRange } from './const';
+import { reSemver, reSemverWithRange, reSemverWithRangeAndWildcards } from './const';
 import { SimpleSemVer } from './SimpleSemVer';
 import { pruned } from './util/pruned';
-import { ISimpleSemVer, ISimpleSemVerObject, IToSimpleSemVerObject } from './types';
-import { assertSimpleSemVerObjectLike } from './checker';
+import { EnumSemverWildcard, ISimpleSemVer, ISimpleSemVerObject, IToSimpleSemVerObject } from './types';
+import { assertSimpleSemVerObjectLike, isSemverWildcard } from './checker';
+import { createSimpleSemVerFromMatch } from './util/parseSemverMatch';
 
 /**
  * 解析 semver 版本字串
  * Parse a semver version string
  *
  * 將 semver 版本字串解析為結構化的 SimpleSemVer 物件。
- * 支援選擇性的 v 前綴和範圍運算子。
+ * 支援選擇性的 v 前綴、範圍運算子和萬用字元。
  *
  * Parses a semver version string into a structured SimpleSemVer object.
- * Supports optional v prefix and range operators.
+ * Supports optional v prefix, range operators, and wildcards.
  *
  * @template T - semver 物件類型 / Semver object type
  * @param {string} version - 要解析的版本字串 / Version string to parse
@@ -54,6 +55,13 @@ import { assertSimpleSemVerObjectLike } from './checker';
  * //   major: '1', minor: '2', patch: '3',
  * //   release: 'beta.1', build: 'build.123'
  * // }
+ *
+ * // 帶萬用字元 / With wildcards
+ * parseSimpleSemVer('1.2.x');
+ * // => SimpleSemVer { major: '1', minor: '2', patch: 'x' }
+ *
+ * parseSimpleSemVer('1.*');
+ * // => SimpleSemVer { major: '1', minor: '*' }
  * ```
  */
 export function parseSimpleSemVer<T extends ISimpleSemVerObject = ISimpleSemVerObject>(version: string): IToSimpleSemVerObject<SimpleSemVer<IToSimpleSemVerObject<T>>>
@@ -64,36 +72,85 @@ export function parseSimpleSemVer<T extends ISimpleSemVerObject = ISimpleSemVerO
 	// https://github.com/isaacs/node-semver/issues/10
 	// 可選的 v 前綴 / Optional v prefix
 
-	// 使用正規表達式匹配版本字串
-	// Use regex to match version string
-	const m = reSemverWithRange.exec(version);
 	let ver: IToSimpleSemVerObject<SimpleSemVer<IToSimpleSemVerObject<T>>>;
+
+	// 處理純萬用字元情況（只有 `*` 或 `x`）
+	// Handle pure wildcard case (only `*` or `x`)
+	if (version === EnumSemverWildcard.star || version === EnumSemverWildcard.x)
+	{
+		ver = new SimpleSemVer({
+			semver: version,
+		} as any) as any;
+		return ver;
+	}
+
+	// 使用支援萬用字元的正規表達式匹配版本字串
+	// Use regex with wildcard support to match version string
+	const m = reSemverWithRangeAndWildcards.exec(version);
 
 	if (m?.length > 0)
 	{
-		// 解構匹配結果 / Destructure match results
+		// 捕獲組索引說明 / Capture group index explanation:
 		// m[0] = 完整匹配 / Full match
 		// m[1] = 運算子 / Operator
-		// m[2] = 版本字串 / Version string
-		// m[3] = 主版本號 / Major version
-		// m[4] = 次版本號 / Minor version
-		// m[5] = 修補版本號 / Patch version
-		// m[6] = 預發布標籤 / Pre-release tag
-		// m[7] = 建置元資料 / Build metadata
-		let [semver, operator, version, major, minor, patch, release, build] = m;
+		// m[2] = v 前綴 / v prefix
+		// m[3] = major 版本 / Major version
+		// m[4] = .minor 部分 / .minor part
+		// m[5] = minor 版本 / Minor version
+		// m[6] = .patch 部分 / .patch part
+		// m[7] = patch 版本 / Patch version
+		// m[8] = -release 部分 (包含 -) / -release part (including -)
+		// m[9] = release 內容 (不含 -) / Release content (without -)
+		// m[10] = +build 部分 (包含 +) / +build part (including +)
+		// m[11] = build 內容 (不含 +) / Build content (without +)
+
+		// 檢查是否為無效的部分版本
+		// Check if it's an invalid partial version
+		const hasMinor = m[4] !== undefined; // 有 .minor 部分 / Has .minor part
+		const hasPatch = m[6] !== undefined; // 有 .patch 部分 / Has .patch part
+		const minorIsWildcard = isSemverWildcard(m[5]);
+		const patchIsWildcard = isSemverWildcard(m[7]);
+
+		// 有效的版本需要滿足以下條件之一：
+		// Valid version needs to satisfy one of the following:
+		// 1. 完整版本 (major.minor.patch) / Full version (major.minor.patch)
+		// 2. 包含萬用字元的版本 (如 1.x, 1.0.x) / Version with wildcards (e.g., 1.x, 1.0.x)
+		const isFullVersion = hasMinor && hasPatch;
+		const hasWildcard = minorIsWildcard || patchIsWildcard;
+
+		// 如果不是完整版本且沒有萬用字元，則視為無效版本
+		// If not a full version and no wildcard, treat as invalid version
+		if (!isFullVersion && !hasWildcard)
+		{
+			return ver;
+		}
+
+		// 檢查 release 和 build 是否以無效字元結尾
+		// Check if release and build end with invalid characters
+		const release = m[9];
+		const build = m[11];
+
+		// release 和 build 不能以 . 結尾
+		// release and build cannot end with .
+		if ((release !== undefined && release.endsWith('.')) ||
+			(build !== undefined && build.endsWith('.')))
+		{
+			return ver;
+		}
 
 		// 建立 SimpleSemVer 實例
 		// Create SimpleSemVer instance
-		ver = new SimpleSemVer({
-			operator,
-			semver,
-			version,
-			major,
-			minor,
-			patch,
-			release,
-			build,
-		}) as any
+		ver = createSimpleSemVerFromMatch(
+			m,
+			1,  // operatorIndex
+			3,  // majorIndex
+			5,  // minorIndex
+			7,  // patchIndex
+			9,  // releaseIndex
+			11, // buildIndex
+			undefined, // semverIndex - 使用 input 自動構建
+			version,   // input - 原始輸入字串
+		) as any;
 
 		// 斷言解析結果為有效的版本物件
 		// Assert parsed result is a valid version object

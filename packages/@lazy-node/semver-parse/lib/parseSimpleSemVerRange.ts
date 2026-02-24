@@ -15,9 +15,10 @@
  */
 
 import { SimpleSemVer } from './SimpleSemVer';
-import { reSemverRange, EnumVersionExtra } from './const';
-import { ISimpleSemVer, IOperator, IToSimpleSemVerObjectOrOperator, ISimpleSemVerObjectBase } from './types';
-import { pruned } from './util/pruned';
+import { reSemverRange } from './const';
+import { IOperator, ISimpleSemVer, IToSimpleSemVerObjectOrOperator } from './types';
+import { normalizeSemVerObjectInput } from './util/pruned';
+import { isSemverWildcard, isValidVersion } from './checker';
 
 /**
  * 解析 semver 版本範圍字串
@@ -64,12 +65,66 @@ import { pruned } from './util/pruned';
  */
 export function parseSimpleSemVerRange(str: string)
 {
-	let m: RegExpExecArray;
 	const arr: (IToSimpleSemVerObjectOrOperator<SimpleSemVer>)[] = [];
+
+	// 處理純萬用字元情況（只有 `*` 或 `x`）
+	// Handle pure wildcard case (only `*` or `x`)
+	if (isSemverWildcard(str))
+	{
+		arr.push(new SimpleSemVer({
+			semver: str,
+		} as any) as any);
+		return arr;
+	}
+
+	// 檢查是否包含 || 運算子，如果有的話需要分割處理
+	// Check if it contains || operator, if so need to split and process
+	if (str.includes('||'))
+	{
+		// 使用正則表達式分割，保留 ||
+		// Split using regex, preserve ||
+		const parts = str.split(/\s*(\|\|)\s*/);
+
+		for (const part of parts)
+		{
+			if (part === '||')
+			{
+				arr.push(new SimpleSemVer({
+					operator: '||' as IOperator,
+				} as any) as any);
+			}
+			else if (part.trim())
+			{
+				// 遞迴調用 parseSimpleSemVerRange 來處理 AND 範圍
+				// Recursively call parseSimpleSemVerRange to handle AND ranges
+				const result = parseSimpleSemVerRange(part.trim());
+				if (result.length === 0)
+				{
+					// 無效版本，返回空陣列
+					// Invalid version, return empty array
+					return [];
+				}
+				// 將結果展開加入陣列
+				// Flatten the result into the array
+				arr.push(...result);
+			}
+		}
+
+		return arr;
+	}
+
+	// 不包含 || 的情況，使用原本的邏輯
+	// No || case, use original logic
+	let m: RegExpExecArray;
+	reSemverRange.lastIndex = 0;
+
+	// 記錄已匹配的字元範圍，用於檢查是否覆蓋整個字串
+	// Track matched character ranges to check if entire string is covered
+	let totalMatchedLength = 0;
 
 	// 使用全域正規表達式迭代匹配所有版本條件
 	// Use global regex to iteratively match all version conditions
-	while (m = reSemverRange.exec(str))
+	while ((m = reSemverRange.exec(str)) !== null)
 	{
 		// 捕獲組索引說明 / Capture group index explanation:
 		// m[2] = 邏輯運算子 (|| 或 -) / Logical operator (|| or -)
@@ -82,44 +137,95 @@ export function parseSimpleSemVerRange(str: string)
 		// m[12] = release 內容 (不含 -) / release content (without -)
 		// m[14] = build 內容 (不含 +) / build content (without +)
 
-		// 建構 semver 字串（只包含版本部分，不含運算子）
-		// Build semver string (version part only, without operator)
-		let semver = '';
+		// 計算匹配的字元數（包含空白）
+		// Count matched characters (including whitespace)
+		totalMatchedLength += m[0].length;
 
-		/*
-		if (m[5]) semver += m[5]; // v 前綴 / v prefix
-		semver += m[6]; // major
-		if (m[8] !== undefined) semver += '.' + m[8]; // minor
-		if (m[10] !== undefined) semver += '.' + m[10]; // patch
-		if (m[12]) semver += '-' + m[12]; // release
-		if (m[14]) semver += '+' + m[14]; // build
-		*/
+		// 如果是邏輯運算子（|| 或 -），需要特殊處理
+		// If it's a logical operator (|| or -), need special handling
+		if (m[2] && !m[3])
+		{
+			// 對於 `-` 運算子，需要檢查它是否真的是邏輯運算子
+			// For `-` operator, need to check if it's really a logical operator
+			// 如果 `-` 後面沒有版本，則視為無效
+			// If there's no version after `-`, treat as invalid
+			if (m[2] === '-')
+			{
+				// 檢查 `-` 後面是否還有內容
+				// Check if there's content after `-`
+				const afterDash = str.substring(m.index + m[0].length).trim();
+				if (!afterDash)
+				{
+					// `-` 後面沒有內容，視為無效版本
+					// No content after `-`, treat as invalid version
+					return [];
+				}
+			}
+
+			arr.push(new SimpleSemVer({
+				operator: m[2] as IOperator,
+			} as any) as any);
+			continue;
+		}
+
+		// 如果沒有版本部分，跳過
+		// If no version part, skip
+		if (!m[3])
+		{
+			continue;
+		}
+
+		const major = m[6];
+		const minor = m[8];
+		const patch = m[10];
+		const release = m[12];
+		const build = m[14];
+
+		// 驗證版本是否有效
+		// Validate if version is valid
+		if (!isValidVersion(str, major, minor, patch, release, build))
+		{
+			// 無效版本，返回空陣列
+			// Invalid version, return empty array
+			return [];
+		}
 
 		// 建立基礎 semver 物件
 		// Build base semver object
 		let obj: ISimpleSemVer = {
 			semver: m[3]
-			, operator: (m[4] || m[2]) as IOperator
-			, major: m[6]
-			, minor: m[8]
-			, patch: m[10],
+			, operator: m[4] as IOperator
+			, major: major
+			, minor: minor
+			, patch: patch,
 		};
 
 		// 處理預發布標籤 / Handle pre-release tag
-		if (m[12])
+		if (release)
 		{
-			obj.release = m[12];
+			obj.release = release;
 		}
 
 		// 處理建置元資料 / Handle build metadata
-		if (m[14])
+		if (build)
 		{
-			obj.build = m[14];
+			obj.build = build;
 		}
+
+		normalizeSemVerObjectInput(obj, {
+			init: true,
+		});
 
 		// 建立 SimpleSemVer 實例並加入陣列
 		// Create SimpleSemVer instance and add to array
 		arr.push(new SimpleSemVer(obj) as any);
+	}
+
+	// 檢查是否覆蓋整個字串（比較原始字串長度）
+	// Check if entire string is covered (compare original string length)
+	if (totalMatchedLength !== str.length)
+	{
+		return [];
 	}
 
 	return arr;

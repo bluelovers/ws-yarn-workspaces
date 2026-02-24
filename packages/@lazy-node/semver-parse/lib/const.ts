@@ -40,6 +40,47 @@ export const reSemver = /^v?((\d+)\.(\d+)\.(\d+))(?:-([\dA-Za-z\-]+(?:\.[\dA-Za-
 export const reSemverWithRange = /^(?:((?:(?:~?[<>]?)|\^?)=?)\s*)?v?((\d+)\.(\d+)\.(\d+))(?:-([\dA-Za-z\-]+(?:\.[\dA-Za-z\-]+)*))?(?:\+([\dA-Za-z\-]+(?:\.[\dA-Za-z\-]+)*))?$/;
 
 /**
+ * 帶範圍運算子和萬用字元的 Semver 正規表達式
+ * Semver regular expression with range operators and wildcards
+ *
+ * 匹配帶有範圍運算子和萬用字元的 semver 版本字串
+ * Matches semver version strings with range operators and wildcards
+ *
+ * 支援的運算子 / Supported operators:
+ * - `^` - 相容版本 / Compatible version
+ * - `~` - 大約版本 / Approximately version
+ * - `>=`, `<=`, `>`, `<` - 比較運算子 / Comparison operators
+ * - `=` - 精確匹配 / Exact match
+ *
+ * 支援的萬用字元 / Supported wildcards:
+ * - `x` - 萬用字元 / Wildcard
+ * - `*` - 星號萬用字元 / Asterisk wildcard
+ *
+ * 匹配範例 / Match examples:
+ * - `1.0.0` - 完整版本 / Full version
+ * - `1.x` - minor 萬用字元 / Minor wildcard
+ * - `1.0.x` - patch 萬用字元 / Patch wildcard
+ * - `1.*` - minor 星號萬用字元 / Minor asterisk wildcard
+ * - `>=1.0.x` - 帶運算子的萬用字元版本 / Wildcard version with operator
+ * - `x` - 單一萬用字元 / Single wildcard
+ * - `*` - 單一星號萬用字元 / Single asterisk wildcard
+ *
+ * 捕獲組說明 / Capture groups:
+ * - 群組 1: 運算子 (如 `^`, `~`, `>=` 等) / Operator (e.g., `^`, `~`, `>=`, etc.)
+ * - 群組 2: 完整版本字串 / Full version string
+ * - 群組 3: major 版本 / Major version
+ * - 群組 4: `.minor` 部分 / `.minor` part
+ * - 群組 5: minor 版本 / Minor version
+ * - 群組 6: `.patch` 部分 / `.patch` part
+ * - 群組 7: patch 版本 / Patch version
+ * - 群組 8: `-release` 部分 (包含 `-`) / `-release` part (including `-`)
+ * - 群組 9: release 內容 (不含 `-`) / Release content (without `-`)
+ * - 群組 10: `+build` 部分 (包含 `+`) / `+build` part (including `+`)
+ * - 群組 11: build 內容 (不含 `+`) / Build content (without `+`)
+ */
+export const reSemverWithRangeAndWildcards = /^(?:((?:(?:~?[<>]?)|\^?)=?)\s*)?(v)?([0-9]+)(\.(x|\*|[0-9]+))?(\.(x|\*|[0-9]+))?(-([a-zA-Z0-9\.-]+))?(\+([a-zA-Z0-9\.-]+))?$/;
+
+/**
  * Semver 範圍正規表達式
  * Semver range regular expression
  *
