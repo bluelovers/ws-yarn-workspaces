@@ -15,10 +15,10 @@ describe('wildcards', () =>
 		_testW(EnumSemverWildcard.x);
 	})
 
-	test(`parseRange('x || *')`, () =>
+	test(`parseRange('${EnumSemverWildcard.x} || ${EnumSemverWildcard.star}')`, () =>
 	{
 
-		const input = 'x || *';
+		const input = `${EnumSemverWildcard.x} || ${EnumSemverWildcard.star}`;
 
 		let result = parseRange(input);
 

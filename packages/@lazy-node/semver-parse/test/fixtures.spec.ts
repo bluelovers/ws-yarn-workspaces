@@ -1,8 +1,8 @@
 import { hasOperator, isSimpleSemVerOperatorLike, isSimpleSemVerWildcardOnlyLike } from '../lib/checker';
 import { parse, parseRange } from '..';
 import { ISimpleSemVer } from '../lib/types';
-import validMultipleVersionRangeFixtures, { validMultipleVersionRangeFixturesWildcards } from './fixtures/multiple-version-range/valid';
-import validSingleVersionRangeFixtures from './fixtures/single-version-range/valid';
+import { validMultipleVersionRangeFixtures, validMultipleVersionRangeFixturesWildcards } from './fixtures/multiple-version-range/valid';
+import { validSingleVersionRangeFixtures } from './fixtures/single-version-range/valid';
 import { IFixturesEntryMultipleVersionRange } from './lib/types';
 import stringifySimpleSemVer from '../lib/stringifySimpleSemVer';
 

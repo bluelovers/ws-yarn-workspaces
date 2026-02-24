@@ -1,6 +1,6 @@
 /**
  * 測試 checker 功能 / Test checker functionality
- * 
+ *
  * 此測試檔案專注於 checker 模組的完整測試覆蓋
  * This test file focuses on complete test coverage for the checker module
  */
@@ -284,11 +284,13 @@ describe('checker', () =>
 		test('should correctly identify range components', () =>
 		{
 			const range = parseRange('>=1.0.0 <2.0.0');
-			
+
+			expect(range).toHaveLength(2);
+
 			expect(isSimpleSemVerObjectWithOperatorLike(range[0])).toBe(true);
 			expect(hasOperator(range[0])).toBe(true);
 			expect(isSimpleSemVerObjectLike(range[0])).toBe(true);
-			
+
 			expect(isSimpleSemVerObjectWithOperatorLike(range[1])).toBe(true);
 			expect(hasOperator(range[1])).toBe(true);
 		});
@@ -296,27 +298,29 @@ describe('checker', () =>
 		test('should correctly identify OR operator in range', () =>
 		{
 			const range = parseRange('~1.0.0 || ~2.0.0');
-			
+
 			expect(isSimpleSemVerObjectLike(range[0])).toBe(true);
 			expect(hasOperator(range[0])).toBe(true);
-			
+
 			expect(isSimpleSemVerOperatorLike(range[1])).toBe(true);
 			expect(hasOperator(range[1])).toBe(true);
 			expect(isSimpleSemVerObjectLike(range[1])).toBe(false);
-			
+
 			expect(isSimpleSemVerObjectLike(range[2])).toBe(true);
 		});
 
 		test('should correctly identify hyphen range', () =>
 		{
 			const range = parseRange('1.0.0 - 2.0.0');
-			
+
+			expect(range).toHaveLength(3);
+
 			expect(isSimpleSemVerObjectLike(range[0])).toBe(true);
 			expect(hasOperator(range[0])).toBe(false);
-			
+
 			expect(isSimpleSemVerOperatorLike(range[1])).toBe(true);
 			expect(range[1].operator).toBe('-');
-			
+
 			expect(isSimpleSemVerObjectLike(range[2])).toBe(true);
 		});
 	});

@@ -59,7 +59,7 @@ describe('satisfies with hyphen range', () =>
 						 */
 						it(`original semver satisfies should return ${expected}`, () =>
 						{
-							expect(semverSatisfies(version, equivalentRange)).toBe(expected);
+							expect(semverSatisfies(version, range)).toBe(expected);
 						});
 
 						/**
