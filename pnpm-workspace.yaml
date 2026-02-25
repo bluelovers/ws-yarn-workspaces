@@ -21,4 +21,4 @@ publicHoistPattern:
 
 
 linkWorkspacePackages: true
-save-workspace-protocol: false
+saveWorkspaceProtocol: false

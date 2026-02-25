@@ -15,4 +15,4 @@ publicHoistPattern:
   - "tsx"
 
 linkWorkspacePackages: true
-save-workspace-protocol: false
+saveWorkspaceProtocol: false
