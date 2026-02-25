@@ -1,4 +1,5 @@
 // @ts-check
+// @deprecated replace by jest.config.auto.js
 
 const { join, dirname } = require('path');
 const { tryRealpath } = require('jest-util');

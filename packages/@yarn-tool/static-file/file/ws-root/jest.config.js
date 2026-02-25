@@ -2,8 +2,9 @@
 const { resolve } = require('path');
 
 /**
- * // @type { import('@jest/types').Config.InitialOptions }
- * @type { import('ts-jest').InitialOptionsTsJest }
+ * @_type { import('@jest/types').Config.InitialOptions }
+ * @_type { import('ts-jest').InitialOptionsTsJest }
+ * @type { import('ts-jest').JestConfigWithTsJest }
  */
 const jestConfig = {
 	preset: __dirname,
