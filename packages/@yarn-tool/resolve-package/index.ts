@@ -18,12 +18,10 @@ export {
 	createResolveLocationFn,
 	readModulePackageJson,
 	resolvePackage,
-	resolvePackage as default,
-} from '@yarn-tool/require-resolve';
 
-// 匯出類型 / Export types
-export type {
-	IOptionsRequireResolve,
+	resolvePackage as default,
+
+		IOptionsRequireResolve,
 	IOptionsRequireResolveCore,
 	IPackageCoreInfo,
 	IPackageInfo,

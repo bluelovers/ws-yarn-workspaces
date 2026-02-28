@@ -1,21 +1,55 @@
+/**
+ * Lifecycle map - contains predefined configurations for known npm/yarn lifecycle events.
+ * 生命週期映射 - 包含已知 npm/yarn 生命週期事件的預定義配置。
+ *
+ * This module exports a map of known lifecycle events and their configurations.
+ * Each configuration defines the before/after scripts that should be executed.
+ *
+ * 此模組匯出已知生命週期事件及其配置的映射。
+ * 每個配置定義了應執行的前置/後置腳本。
+ *
+ * @module @yarn-tool/script-lifecycle/lib/lifecycle
+ *
+ * @example
+ * ```typescript
+ * import { lifecycleMap } from '@yarn-tool/script-lifecycle/lib/lifecycle';
+ *
+ * console.log(lifecycleMap.install);
+ * // { name: 'install', ignoreSelf: false, before: ['preinstall'], after: ['postinstall', ...] }
+ * ```
+ */
+/**
+ * Map of known lifecycle events to their configurations.
+ * 已知生命週期事件到其配置的映射。
+ *
+ * Supported lifecycle events:
+ * - `install`: npm install lifecycle scripts
+ * - `pack`: npm pack lifecycle scripts
+ * - `publish`: npm publish lifecycle scripts
+ *
+ * 支援的生命週期事件：
+ * - `install`: npm install 生命週期腳本
+ * - `pack`: npm pack 生命週期腳本
+ * - `publish`: npm publish 生命週期腳本
+ */
 export declare const lifecycleMap: {
-    install: {
-        name: "install";
-        ignoreSelf: boolean;
-        before: string[];
-        after: string[];
+    readonly install: {
+        readonly name: "install";
+        readonly ignoreSelf: false;
+        readonly before: ["preinstall"];
+        readonly after: ["postinstall", "prepublish", "prepare", "preshrinkwrap", "shrinkwrap", "postshrinkwrap"];
     };
-    pack: {
-        name: "pack";
-        ignoreSelf: boolean;
-        before: string[];
-        after: string[];
+    readonly pack: {
+        readonly name: "pack";
+        readonly ignoreSelf: true;
+        readonly before: ["prepublish", "prepare", "prepack"];
+        readonly after: ["postpack"];
     };
-    publish: {
-        name: "publish";
-        ignoreSelf: boolean;
-        before: string[];
-        after: string[];
+    readonly publish: {
+        readonly name: "publish";
+        readonly ignoreSelf: false;
+        readonly before: ["prepublish", "prepare", "prepublishOnly", "prepack", "postpack"];
+        readonly after: ["postpublish"];
     };
 };
 export default lifecycleMap;

@@ -8,8 +8,7 @@
  * @module @yarn-tool/resolve-package
  * @deprecated
  */
-export { resolvePackageCore, resolvePackageRoot, resolvePackageJsonLocation, createResolveLocationFn, readModulePackageJson, resolvePackage, resolvePackage as default, } from '@yarn-tool/require-resolve';
-export type { IOptionsRequireResolve, IOptionsRequireResolveCore, IPackageCoreInfo, IPackageInfo, IPathItem, 
+export { resolvePackageCore, resolvePackageRoot, resolvePackageJsonLocation, createResolveLocationFn, readModulePackageJson, resolvePackage, resolvePackage as default, IOptionsRequireResolve, IOptionsRequireResolveCore, IPackageCoreInfo, IPackageInfo, IPathItem, 
 /**
  * @deprecated 使用 IOptionsRequireResolve 代替 / Use IOptionsRequireResolve instead
  */
