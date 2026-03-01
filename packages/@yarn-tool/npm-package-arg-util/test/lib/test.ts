@@ -13,6 +13,7 @@ import {
 	isHostedGitResult,
 	isURLResult,
 } from '../../lib/detect';
+import { _parsePackageNameCore } from '../../lib/parseArgvPkgName';
 
 /**
  * Options for lazy test functions
@@ -85,6 +86,9 @@ export function _lazyTestNpaTypeGuard<T extends IResult = IResult>(
 		inputSpec,
 		result,
 		actual,
+
+		getSemverFromNpaResult: getSemverFromNpaResult(result),
+		_parsePackageNameCore: result.name && _parsePackageNameCore(result),
 	}).toMatchSnapshot(propertyMatchers ? {
 		result: propertyMatchers,
 		actual: actualExpected,

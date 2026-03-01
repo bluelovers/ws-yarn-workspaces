@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/require-resolve",
-  "version": "3.0.2",
+  "version": "4.0.0",
   "description": "擴充版 require.resolve，支援在額外路徑中搜尋模組 / An extended require.resolve with support for searching modules in extra paths",
   "keywords": [
     "yarn-tool",

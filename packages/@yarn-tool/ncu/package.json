@@ -50,7 +50,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@lazy-node/semver-simple-parse": "^3.0.1",
+    "@lazy-node/semver-simple-parse": "^4.0.0",
     "@ts-type/package-dts": "^2.0.8",
     "@yarn-tool/npm-package-arg-util": "^2.0.2",
     "@yarn-tool/pkg-version-query": "^3.0.3",

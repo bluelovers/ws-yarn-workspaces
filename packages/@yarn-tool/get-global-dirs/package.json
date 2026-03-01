@@ -4,8 +4,8 @@
   "description": "獲取全局安裝目錄的工具，支援 npm、yarn 和 pnpm。Get global installation directories for npm, yarn, and pnpm.",
   "keywords": [
     "global",
-		"path",
-		"paths",
+    "path",
+    "paths",
     "yarn",
     "yarn-tool",
     "pnpm",
