@@ -60,9 +60,9 @@ export declare function parseArgvPkgName(input: string): {
  * // Returns: { type: 'version', name: '@types/node', scope: 'types', subname: 'node', semver: '18.0.0', result: ... }
  *
  * @example
- * // Parse without version
- * // 解析不含版本
+ * // Parse without a version / 解析不含版本
  * parsePackageName('lodash');
  * // Returns: { type: 'tag', name: 'lodash', scope: undefined, subname: 'lodash', semver: undefined, result: ... }
  */
 export declare function parsePackageName(packageName: string): IParsePackageName;
+export declare function _parsePackageNameCore(result: IResult): IParsePackageName;

@@ -143,6 +143,7 @@ function getModuleByFile(file, requireIfNotExists, req = require) {
         let mod = cache[key];
         // @ts-ignore
         if (mod.filename === file) {
+            // @ts-ignore
             return mod;
         }
     }
@@ -170,6 +171,7 @@ function getMainModule(id = '.') {
     // @ts-ignore
     do {
         if (pm.id === id) {
+            // @ts-ignore
             return pm;
         }
     } while (pm = pm.parent);

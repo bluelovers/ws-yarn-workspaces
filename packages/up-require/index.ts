@@ -203,6 +203,7 @@ export function getModuleByFile<T = any>(file: string, requireIfNotExists?: bool
 		// @ts-ignore
 		if (mod.filename === file)
 		{
+			// @ts-ignore
 			return mod;
 		}
 	}
@@ -261,6 +262,7 @@ export function getMainModule<T = any>(id = '.'): INodeModule<T>
 	{
 		if (pm.id === id)
 		{
+			// @ts-ignore
 			return pm;
 		}
 	}

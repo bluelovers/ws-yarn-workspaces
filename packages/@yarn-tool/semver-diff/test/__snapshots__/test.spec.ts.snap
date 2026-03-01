@@ -8,7 +8,7 @@ exports[`parseVersionsDiffCore 1`] = `
     "green",
   ],
   "color": "green",
-  "comp": 1,
+  "comp": -1,
   "index": 2,
   "leadingWildcard": "",
   "middot": ".",

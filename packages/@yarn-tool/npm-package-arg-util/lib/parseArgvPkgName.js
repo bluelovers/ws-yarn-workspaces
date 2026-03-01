@@ -12,6 +12,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.parseArgvPkgName = parseArgvPkgName;
 exports.parsePackageName = parsePackageName;
+exports._parsePackageNameCore = _parsePackageNameCore;
 const index_1 = require("../index");
 const pkg_name_util_1 = require("@yarn-tool/pkg-name-util");
 /**
@@ -72,8 +73,7 @@ function parseArgvPkgName(input) {
  * // Returns: { type: 'version', name: '@types/node', scope: 'types', subname: 'node', semver: '18.0.0', result: ... }
  *
  * @example
- * // Parse without version
- * // 解析不含版本
+ * // Parse without a version / 解析不含版本
  * parsePackageName('lodash');
  * // Returns: { type: 'tag', name: 'lodash', scope: undefined, subname: 'lodash', semver: undefined, result: ... }
  */
@@ -81,6 +81,9 @@ function parsePackageName(packageName) {
     // Parse the package name using npa
     // 使用 npa 解析套件名稱
     const result = (0, index_1.npa)(packageName);
+    return _parsePackageNameCore(result);
+}
+function _parsePackageNameCore(result) {
     // Strip the scope from the name to get the subname
     // 從名稱中移除範圍以獲取子名稱
     const subname = (0, pkg_name_util_1.stripScope)(result.name);

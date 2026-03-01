@@ -2,7 +2,30 @@
 
 exports[`isAliasResult should return false for non-alias packages 1`] = `
 {
+  "_parsePackageNameCore": {
+    "name": "lodash",
+    "result": {
+      "escapedName": "lodash",
+      "fetchSpec": "4.17.21",
+      "gitCommittish": undefined,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "lodash",
+      "raw": "lodash@4.17.21",
+      "rawSpec": "4.17.21",
+      "registry": true,
+      "saveSpec": null,
+      "scope": undefined,
+      "type": "version",
+      "where": undefined,
+    },
+    "scope": undefined,
+    "semver": "4.17.21",
+    "subname": "lodash",
+    "type": "version",
+  },
   "actual": false,
+  "getSemverFromNpaResult": "4.17.21",
   "inputSpec": "lodash@4.17.21",
   "result": {
     "escapedName": "lodash",
@@ -24,7 +47,45 @@ exports[`isAliasResult should return false for non-alias packages 1`] = `
 
 exports[`isAliasResult should return true for alias packages 1`] = `
 {
+  "_parsePackageNameCore": {
+    "name": "my-lodash",
+    "result": {
+      "escapedName": "my-lodash",
+      "fetchSpec": null,
+      "gitCommittish": undefined,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "my-lodash",
+      "raw": "my-lodash@npm:lodash@4.17.21",
+      "rawSpec": "npm:lodash@4.17.21",
+      "registry": true,
+      "saveSpec": null,
+      "scope": undefined,
+      "subSpec": {
+        "escapedName": "lodash",
+        "fetchSpec": "4.17.21",
+        "gitCommittish": undefined,
+        "gitRange": undefined,
+        "gitSubdir": undefined,
+        "name": "lodash",
+        "raw": "lodash@4.17.21",
+        "rawSpec": "4.17.21",
+        "registry": true,
+        "saveSpec": null,
+        "scope": undefined,
+        "type": "version",
+        "where": undefined,
+      },
+      "type": "alias",
+      "where": undefined,
+    },
+    "scope": undefined,
+    "semver": "4.17.21",
+    "subname": "my-lodash",
+    "type": "alias",
+  },
   "actual": true,
+  "getSemverFromNpaResult": "4.17.21",
   "inputSpec": "my-lodash@npm:lodash@4.17.21",
   "result": {
     "escapedName": "my-lodash",
@@ -61,7 +122,30 @@ exports[`isAliasResult should return true for alias packages 1`] = `
 
 exports[`isFileResult should return false for registry packages 1`] = `
 {
+  "_parsePackageNameCore": {
+    "name": "lodash",
+    "result": {
+      "escapedName": "lodash",
+      "fetchSpec": "4.17.21",
+      "gitCommittish": undefined,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "lodash",
+      "raw": "lodash@4.17.21",
+      "rawSpec": "4.17.21",
+      "registry": true,
+      "saveSpec": null,
+      "scope": undefined,
+      "type": "version",
+      "where": undefined,
+    },
+    "scope": undefined,
+    "semver": "4.17.21",
+    "subname": "lodash",
+    "type": "version",
+  },
   "actual": false,
+  "getSemverFromNpaResult": "4.17.21",
   "inputSpec": "lodash@4.17.21",
   "result": {
     "escapedName": "lodash",
@@ -83,7 +167,9 @@ exports[`isFileResult should return false for registry packages 1`] = `
 
 exports[`isFileResult should return true for directory packages 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "../other-pkg",
   "inputSpec": "../other-pkg",
   "result": {
     "escapedName": undefined,
@@ -106,7 +192,9 @@ exports[`isFileResult should return true for directory packages 1`] = `
 
 exports[`isFileResult should return true for file packages 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "./packages/my-pkg",
   "inputSpec": "./packages/my-pkg",
   "result": {
     "escapedName": undefined,
@@ -129,7 +217,30 @@ exports[`isFileResult should return true for file packages 1`] = `
 
 exports[`isHostedGitResult should return false for registry packages 1`] = `
 {
+  "_parsePackageNameCore": {
+    "name": "lodash",
+    "result": {
+      "escapedName": "lodash",
+      "fetchSpec": "4.17.21",
+      "gitCommittish": undefined,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "lodash",
+      "raw": "lodash@4.17.21",
+      "rawSpec": "4.17.21",
+      "registry": true,
+      "saveSpec": null,
+      "scope": undefined,
+      "type": "version",
+      "where": undefined,
+    },
+    "scope": undefined,
+    "semver": "4.17.21",
+    "subname": "lodash",
+    "type": "version",
+  },
   "actual": false,
+  "getSemverFromNpaResult": "4.17.21",
   "inputSpec": "lodash@4.17.21",
   "result": {
     "escapedName": "lodash",
@@ -151,7 +262,9 @@ exports[`isHostedGitResult should return false for registry packages 1`] = `
 
 exports[`isHostedGitResult should return true for GitHub URL 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "github:bluelovers/ws-yarn-workspaces",
   "inputSpec": "github:bluelovers/ws-yarn-workspaces",
   "result": {
     "escapedName": undefined,
@@ -213,7 +326,9 @@ exports[`isHostedGitResult should return true for GitHub URL 1`] = `
 
 exports[`isHostedGitResult should return true for GitHub shorthand 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "bluelovers/ws-yarn-workspaces",
   "inputSpec": "bluelovers/ws-yarn-workspaces",
   "result": {
     "escapedName": undefined,
@@ -275,7 +390,45 @@ exports[`isHostedGitResult should return true for GitHub shorthand 1`] = `
 
 exports[`isNpmPackageArgResult should return true for alias packages 1`] = `
 {
+  "_parsePackageNameCore": {
+    "name": "my-lodash",
+    "result": {
+      "escapedName": "my-lodash",
+      "fetchSpec": null,
+      "gitCommittish": undefined,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "my-lodash",
+      "raw": "my-lodash@npm:lodash@4.17.21",
+      "rawSpec": "npm:lodash@4.17.21",
+      "registry": true,
+      "saveSpec": null,
+      "scope": undefined,
+      "subSpec": {
+        "escapedName": "lodash",
+        "fetchSpec": "4.17.21",
+        "gitCommittish": undefined,
+        "gitRange": undefined,
+        "gitSubdir": undefined,
+        "name": "lodash",
+        "raw": "lodash@4.17.21",
+        "rawSpec": "4.17.21",
+        "registry": true,
+        "saveSpec": null,
+        "scope": undefined,
+        "type": "version",
+        "where": undefined,
+      },
+      "type": "alias",
+      "where": undefined,
+    },
+    "scope": undefined,
+    "semver": "4.17.21",
+    "subname": "my-lodash",
+    "type": "alias",
+  },
   "actual": true,
+  "getSemverFromNpaResult": "4.17.21",
   "inputSpec": "my-lodash@npm:lodash@4.17.21",
   "result": {
     "escapedName": "my-lodash",
@@ -312,7 +465,9 @@ exports[`isNpmPackageArgResult should return true for alias packages 1`] = `
 
 exports[`isNpmPackageArgResult should return true for file packages 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "./packages/my-pkg",
   "inputSpec": "./packages/my-pkg",
   "result": {
     "escapedName": undefined,
@@ -335,7 +490,9 @@ exports[`isNpmPackageArgResult should return true for file packages 1`] = `
 
 exports[`isNpmPackageArgResult should return true for git packages 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "bluelovers/ws-yarn-workspaces",
   "inputSpec": "bluelovers/ws-yarn-workspaces",
   "result": {
     "escapedName": undefined,
@@ -397,7 +554,30 @@ exports[`isNpmPackageArgResult should return true for git packages 1`] = `
 
 exports[`isNpmPackageArgResult should return true for registry packages 1`] = `
 {
+  "_parsePackageNameCore": {
+    "name": "lodash",
+    "result": {
+      "escapedName": "lodash",
+      "fetchSpec": "4.17.21",
+      "gitCommittish": undefined,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "lodash",
+      "raw": "lodash@4.17.21",
+      "rawSpec": "4.17.21",
+      "registry": true,
+      "saveSpec": null,
+      "scope": undefined,
+      "type": "version",
+      "where": undefined,
+    },
+    "scope": undefined,
+    "semver": "4.17.21",
+    "subname": "lodash",
+    "type": "version",
+  },
   "actual": true,
+  "getSemverFromNpaResult": "4.17.21",
   "inputSpec": "lodash@4.17.21",
   "result": {
     "escapedName": "lodash",
@@ -419,7 +599,9 @@ exports[`isNpmPackageArgResult should return true for registry packages 1`] = `
 
 exports[`isRegistryResult should return false for git packages 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": false,
+  "getSemverFromNpaResult": "bluelovers/ws-yarn-workspaces",
   "inputSpec": "bluelovers/ws-yarn-workspaces",
   "result": {
     "escapedName": undefined,
@@ -481,7 +663,30 @@ exports[`isRegistryResult should return false for git packages 1`] = `
 
 exports[`isRegistryResult should return true for packages without version (defaults to range) 1`] = `
 {
+  "_parsePackageNameCore": {
+    "name": "lodash",
+    "result": {
+      "escapedName": "lodash",
+      "fetchSpec": "*",
+      "gitCommittish": undefined,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "lodash",
+      "raw": "lodash",
+      "rawSpec": "*",
+      "registry": true,
+      "saveSpec": null,
+      "scope": undefined,
+      "type": "range",
+      "where": undefined,
+    },
+    "scope": undefined,
+    "semver": "*",
+    "subname": "lodash",
+    "type": "range",
+  },
   "actual": true,
+  "getSemverFromNpaResult": "*",
   "inputSpec": "lodash",
   "result": {
     "escapedName": "lodash",
@@ -504,7 +709,30 @@ exports[`isRegistryResult should return true for packages without version (defau
 
 exports[`isRegistryResult should return true for range packages 1`] = `
 {
+  "_parsePackageNameCore": {
+    "name": "lodash",
+    "result": {
+      "escapedName": "lodash",
+      "fetchSpec": "^4.17.0",
+      "gitCommittish": undefined,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "lodash",
+      "raw": "lodash@^4.17.0",
+      "rawSpec": "^4.17.0",
+      "registry": true,
+      "saveSpec": null,
+      "scope": undefined,
+      "type": "range",
+      "where": undefined,
+    },
+    "scope": undefined,
+    "semver": "^4.17.0",
+    "subname": "lodash",
+    "type": "range",
+  },
   "actual": true,
+  "getSemverFromNpaResult": "^4.17.0",
   "inputSpec": "lodash@^4.17.0",
   "result": {
     "escapedName": "lodash",
@@ -527,7 +755,30 @@ exports[`isRegistryResult should return true for range packages 1`] = `
 
 exports[`isRegistryResult should return true for tag packages 1`] = `
 {
+  "_parsePackageNameCore": {
+    "name": "lodash",
+    "result": {
+      "escapedName": "lodash",
+      "fetchSpec": "beta",
+      "gitCommittish": undefined,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "lodash",
+      "raw": "lodash@beta",
+      "rawSpec": "beta",
+      "registry": true,
+      "saveSpec": null,
+      "scope": undefined,
+      "type": "tag",
+      "where": undefined,
+    },
+    "scope": undefined,
+    "semver": "beta",
+    "subname": "lodash",
+    "type": "tag",
+  },
   "actual": true,
+  "getSemverFromNpaResult": "beta",
   "inputSpec": "lodash@beta",
   "result": {
     "escapedName": "lodash",
@@ -550,7 +801,30 @@ exports[`isRegistryResult should return true for tag packages 1`] = `
 
 exports[`isRegistryResult should return true for version packages 1`] = `
 {
+  "_parsePackageNameCore": {
+    "name": "lodash",
+    "result": {
+      "escapedName": "lodash",
+      "fetchSpec": "4.17.21",
+      "gitCommittish": undefined,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "lodash",
+      "raw": "lodash@4.17.21",
+      "rawSpec": "4.17.21",
+      "registry": true,
+      "saveSpec": null,
+      "scope": undefined,
+      "type": "version",
+      "where": undefined,
+    },
+    "scope": undefined,
+    "semver": "4.17.21",
+    "subname": "lodash",
+    "type": "version",
+  },
   "actual": true,
+  "getSemverFromNpaResult": "4.17.21",
   "inputSpec": "lodash@4.17.21",
   "result": {
     "escapedName": "lodash",
@@ -573,7 +847,9 @@ exports[`isRegistryResult should return true for version packages 1`] = `
 
 exports[`isURLResult should return false for GitHub shorthand (hosted) 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": false,
+  "getSemverFromNpaResult": "bluelovers/ws-yarn-workspaces",
   "inputSpec": "bluelovers/ws-yarn-workspaces",
   "result": {
     "escapedName": undefined,
@@ -635,7 +911,30 @@ exports[`isURLResult should return false for GitHub shorthand (hosted) 1`] = `
 
 exports[`isURLResult should return false for registry packages 1`] = `
 {
+  "_parsePackageNameCore": {
+    "name": "lodash",
+    "result": {
+      "escapedName": "lodash",
+      "fetchSpec": "4.17.21",
+      "gitCommittish": undefined,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "lodash",
+      "raw": "lodash@4.17.21",
+      "rawSpec": "4.17.21",
+      "registry": true,
+      "saveSpec": null,
+      "scope": undefined,
+      "type": "version",
+      "where": undefined,
+    },
+    "scope": undefined,
+    "semver": "4.17.21",
+    "subname": "lodash",
+    "type": "version",
+  },
   "actual": false,
+  "getSemverFromNpaResult": "4.17.21",
   "inputSpec": "lodash@4.17.21",
   "result": {
     "escapedName": "lodash",

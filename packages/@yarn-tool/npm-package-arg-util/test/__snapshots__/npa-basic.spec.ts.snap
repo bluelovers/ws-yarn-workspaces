@@ -2,7 +2,9 @@
 
 exports[`basic /path/to/foo 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "/path/to/foo",
   "inputSpec": "/path/to/foo",
   "result": {
     "escapedName": undefined,
@@ -25,7 +27,9 @@ exports[`basic /path/to/foo 1`] = `
 
 exports[`basic /path/to/foo.tar 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "/path/to/foo.tar",
   "inputSpec": "/path/to/foo.tar",
   "result": {
     "escapedName": undefined,
@@ -48,7 +52,9 @@ exports[`basic /path/to/foo.tar 1`] = `
 
 exports[`basic /path/to/foo.tgz 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "/path/to/foo.tgz",
   "inputSpec": "/path/to/foo.tgz",
   "result": {
     "escapedName": undefined,
@@ -71,7 +77,9 @@ exports[`basic /path/to/foo.tgz 1`] = `
 
 exports[`basic @f fo o al/ a d s ;f 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "@f fo o al/ a d s ;f",
   "inputSpec": "@f fo o al/ a d s ;f",
   "result": {
     "escapedName": undefined,
@@ -94,7 +102,30 @@ exports[`basic @f fo o al/ a d s ;f 1`] = `
 
 exports[`basic @foo/bar 1`] = `
 {
+  "_parsePackageNameCore": {
+    "name": "@foo/bar",
+    "result": {
+      "escapedName": "@foo%2fbar",
+      "fetchSpec": "*",
+      "gitCommittish": undefined,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "@foo/bar",
+      "raw": "@foo/bar",
+      "rawSpec": "*",
+      "registry": true,
+      "saveSpec": null,
+      "scope": "@foo",
+      "type": "range",
+      "where": undefined,
+    },
+    "scope": "@foo",
+    "semver": "*",
+    "subname": "bar",
+    "type": "range",
+  },
   "actual": true,
+  "getSemverFromNpaResult": "*",
   "inputSpec": "@foo/bar",
   "result": {
     "escapedName": "@foo%2fbar",
@@ -117,7 +148,30 @@ exports[`basic @foo/bar 1`] = `
 
 exports[`basic @foo/bar@ 1`] = `
 {
+  "_parsePackageNameCore": {
+    "name": "@foo/bar",
+    "result": {
+      "escapedName": "@foo%2fbar",
+      "fetchSpec": "*",
+      "gitCommittish": undefined,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "@foo/bar",
+      "raw": "@foo/bar@",
+      "rawSpec": "*",
+      "registry": true,
+      "saveSpec": null,
+      "scope": "@foo",
+      "type": "range",
+      "where": undefined,
+    },
+    "scope": "@foo",
+    "semver": "*",
+    "subname": "bar",
+    "type": "range",
+  },
   "actual": true,
+  "getSemverFromNpaResult": "*",
   "inputSpec": "@foo/bar@",
   "result": {
     "escapedName": "@foo%2fbar",
@@ -140,7 +194,30 @@ exports[`basic @foo/bar@ 1`] = `
 
 exports[`basic @foo/bar@baz 1`] = `
 {
+  "_parsePackageNameCore": {
+    "name": "@foo/bar",
+    "result": {
+      "escapedName": "@foo%2fbar",
+      "fetchSpec": "baz",
+      "gitCommittish": undefined,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "@foo/bar",
+      "raw": "@foo/bar@baz",
+      "rawSpec": "baz",
+      "registry": true,
+      "saveSpec": null,
+      "scope": "@foo",
+      "type": "tag",
+      "where": undefined,
+    },
+    "scope": "@foo",
+    "semver": "baz",
+    "subname": "bar",
+    "type": "tag",
+  },
   "actual": true,
+  "getSemverFromNpaResult": "baz",
   "inputSpec": "@foo/bar@baz",
   "result": {
     "escapedName": "@foo%2fbar",
@@ -163,7 +240,30 @@ exports[`basic @foo/bar@baz 1`] = `
 
 exports[`basic @foo/bar@git+ssh://notgithub.com/user/foo 1`] = `
 {
+  "_parsePackageNameCore": {
+    "name": "@foo/bar",
+    "result": {
+      "escapedName": "@foo%2fbar",
+      "fetchSpec": "ssh://notgithub.com/user/foo",
+      "gitCommittish": null,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "@foo/bar",
+      "raw": "@foo/bar@git+ssh://notgithub.com/user/foo",
+      "rawSpec": "git+ssh://notgithub.com/user/foo",
+      "registry": undefined,
+      "saveSpec": "git+ssh://notgithub.com/user/foo",
+      "scope": "@foo",
+      "type": "git",
+      "where": undefined,
+    },
+    "scope": "@foo",
+    "semver": "git+ssh://notgithub.com/user/foo",
+    "subname": "bar",
+    "type": "git",
+  },
   "actual": true,
+  "getSemverFromNpaResult": "git+ssh://notgithub.com/user/foo",
   "inputSpec": "@foo/bar@git+ssh://notgithub.com/user/foo",
   "result": {
     "escapedName": "@foo%2fbar",
@@ -186,7 +286,9 @@ exports[`basic @foo/bar@git+ssh://notgithub.com/user/foo 1`] = `
 
 exports[`basic file:../path/to/foo 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "file:../path/to/foo",
   "inputSpec": "file:../path/to/foo",
   "result": {
     "escapedName": undefined,
@@ -209,7 +311,9 @@ exports[`basic file:../path/to/foo 1`] = `
 
 exports[`basic file:./path/to/foo 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "file:./path/to/foo",
   "inputSpec": "file:./path/to/foo",
   "result": {
     "escapedName": undefined,
@@ -232,7 +336,9 @@ exports[`basic file:./path/to/foo 1`] = `
 
 exports[`basic file:/../path/to/foo 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "file:/../path/to/foo",
   "inputSpec": "file:/../path/to/foo",
   "result": {
     "escapedName": undefined,
@@ -255,7 +361,9 @@ exports[`basic file:/../path/to/foo 1`] = `
 
 exports[`basic file:/./path/to/foo 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "file:/./path/to/foo",
   "inputSpec": "file:/./path/to/foo",
   "result": {
     "escapedName": undefined,
@@ -278,7 +386,9 @@ exports[`basic file:/./path/to/foo 1`] = `
 
 exports[`basic file:/.path/to/foo 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "file:/.path/to/foo",
   "inputSpec": "file:/.path/to/foo",
   "result": {
     "escapedName": undefined,
@@ -301,7 +411,9 @@ exports[`basic file:/.path/to/foo 1`] = `
 
 exports[`basic file://. 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "file://.",
   "inputSpec": "file://.",
   "result": {
     "escapedName": undefined,
@@ -324,7 +436,9 @@ exports[`basic file://. 1`] = `
 
 exports[`basic file://../path/to/foo 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "file://../path/to/foo",
   "inputSpec": "file://../path/to/foo",
   "result": {
     "escapedName": undefined,
@@ -347,7 +461,9 @@ exports[`basic file://../path/to/foo 1`] = `
 
 exports[`basic file://./path/to/foo 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "file://./path/to/foo",
   "inputSpec": "file://./path/to/foo",
   "result": {
     "escapedName": undefined,
@@ -370,7 +486,9 @@ exports[`basic file://./path/to/foo 1`] = `
 
 exports[`basic file:////path/to/foo 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "file:////path/to/foo",
   "inputSpec": "file:////path/to/foo",
   "result": {
     "escapedName": undefined,
@@ -393,7 +511,9 @@ exports[`basic file:////path/to/foo 1`] = `
 
 exports[`basic file:///path/to/foo 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "file:///path/to/foo",
   "inputSpec": "file:///path/to/foo",
   "result": {
     "escapedName": undefined,
@@ -416,7 +536,9 @@ exports[`basic file:///path/to/foo 1`] = `
 
 exports[`basic file://path/to/foo 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "file://path/to/foo",
   "inputSpec": "file://path/to/foo",
   "result": {
     "escapedName": undefined,
@@ -439,7 +561,9 @@ exports[`basic file://path/to/foo 1`] = `
 
 exports[`basic file:/~/path/to/foo 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "file:/~/path/to/foo",
   "inputSpec": "file:/~/path/to/foo",
   "result": {
     "escapedName": undefined,
@@ -462,7 +586,9 @@ exports[`basic file:/~/path/to/foo 1`] = `
 
 exports[`basic file:/~path/to/foo 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "file:/~path/to/foo",
   "inputSpec": "file:/~path/to/foo",
   "result": {
     "escapedName": undefined,
@@ -485,7 +611,9 @@ exports[`basic file:/~path/to/foo 1`] = `
 
 exports[`basic file:/path/to/foo 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "file:/path/to/foo",
   "inputSpec": "file:/path/to/foo",
   "result": {
     "escapedName": undefined,
@@ -508,7 +636,9 @@ exports[`basic file:/path/to/foo 1`] = `
 
 exports[`basic file:~/path/to/foo 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "file:~/path/to/foo",
   "inputSpec": "file:~/path/to/foo",
   "result": {
     "escapedName": undefined,
@@ -531,7 +661,9 @@ exports[`basic file:~/path/to/foo 1`] = `
 
 exports[`basic file:path/to/foo 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "file:path/to/foo",
   "inputSpec": "file:path/to/foo",
   "result": {
     "escapedName": undefined,
@@ -554,7 +686,9 @@ exports[`basic file:path/to/foo 1`] = `
 
 exports[`basic file:path/to/foo.tar.gz 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "file:path/to/foo.tar.gz",
   "inputSpec": "file:path/to/foo.tar.gz",
   "result": {
     "escapedName": undefined,
@@ -577,7 +711,30 @@ exports[`basic file:path/to/foo.tar.gz 1`] = `
 
 exports[`basic foo 1`] = `
 {
+  "_parsePackageNameCore": {
+    "name": "foo",
+    "result": {
+      "escapedName": "foo",
+      "fetchSpec": "*",
+      "gitCommittish": undefined,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "foo",
+      "raw": "foo",
+      "rawSpec": "*",
+      "registry": true,
+      "saveSpec": null,
+      "scope": undefined,
+      "type": "range",
+      "where": undefined,
+    },
+    "scope": undefined,
+    "semver": "*",
+    "subname": "foo",
+    "type": "range",
+  },
   "actual": true,
+  "getSemverFromNpaResult": "*",
   "inputSpec": "foo",
   "result": {
     "escapedName": "foo",
@@ -600,7 +757,30 @@ exports[`basic foo 1`] = `
 
 exports[`basic foo@ 1.2  1`] = `
 {
+  "_parsePackageNameCore": {
+    "name": "foo",
+    "result": {
+      "escapedName": "foo",
+      "fetchSpec": "1.2",
+      "gitCommittish": undefined,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "foo",
+      "raw": "foo@ 1.2 ",
+      "rawSpec": " 1.2 ",
+      "registry": true,
+      "saveSpec": null,
+      "scope": undefined,
+      "type": "range",
+      "where": undefined,
+    },
+    "scope": undefined,
+    "semver": " 1.2 ",
+    "subname": "foo",
+    "type": "range",
+  },
   "actual": true,
+  "getSemverFromNpaResult": " 1.2 ",
   "inputSpec": "foo@ 1.2 ",
   "result": {
     "escapedName": "foo",
@@ -623,7 +803,30 @@ exports[`basic foo@ 1.2  1`] = `
 
 exports[`basic foo@ 1.2.3  1`] = `
 {
+  "_parsePackageNameCore": {
+    "name": "foo",
+    "result": {
+      "escapedName": "foo",
+      "fetchSpec": "1.2.3",
+      "gitCommittish": undefined,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "foo",
+      "raw": "foo@ 1.2.3 ",
+      "rawSpec": " 1.2.3 ",
+      "registry": true,
+      "saveSpec": null,
+      "scope": undefined,
+      "type": "version",
+      "where": undefined,
+    },
+    "scope": undefined,
+    "semver": " 1.2.3 ",
+    "subname": "foo",
+    "type": "version",
+  },
   "actual": true,
+  "getSemverFromNpaResult": " 1.2.3 ",
   "inputSpec": "foo@ 1.2.3 ",
   "result": {
     "escapedName": "foo",
@@ -646,7 +849,30 @@ exports[`basic foo@ 1.2.3  1`] = `
 
 exports[`basic foo@ 1.2.3 1`] = `
 {
+  "_parsePackageNameCore": {
+    "name": "foo",
+    "result": {
+      "escapedName": "foo",
+      "fetchSpec": "1.2.3",
+      "gitCommittish": undefined,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "foo",
+      "raw": "foo@ 1.2.3",
+      "rawSpec": " 1.2.3",
+      "registry": true,
+      "saveSpec": null,
+      "scope": undefined,
+      "type": "version",
+      "where": undefined,
+    },
+    "scope": undefined,
+    "semver": " 1.2.3",
+    "subname": "foo",
+    "type": "version",
+  },
   "actual": true,
+  "getSemverFromNpaResult": " 1.2.3",
   "inputSpec": "foo@ 1.2.3",
   "result": {
     "escapedName": "foo",
@@ -669,7 +895,30 @@ exports[`basic foo@ 1.2.3 1`] = `
 
 exports[`basic foo@=v1.2.3 1`] = `
 {
+  "_parsePackageNameCore": {
+    "name": "foo",
+    "result": {
+      "escapedName": "foo",
+      "fetchSpec": "=v1.2.3",
+      "gitCommittish": undefined,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "foo",
+      "raw": "foo@=v1.2.3",
+      "rawSpec": "=v1.2.3",
+      "registry": true,
+      "saveSpec": null,
+      "scope": undefined,
+      "type": "version",
+      "where": undefined,
+    },
+    "scope": undefined,
+    "semver": "=v1.2.3",
+    "subname": "foo",
+    "type": "version",
+  },
   "actual": true,
+  "getSemverFromNpaResult": "=v1.2.3",
   "inputSpec": "foo@=v1.2.3",
   "result": {
     "escapedName": "foo",
@@ -692,7 +941,30 @@ exports[`basic foo@=v1.2.3 1`] = `
 
 exports[`basic foo@~1.2 1`] = `
 {
+  "_parsePackageNameCore": {
+    "name": "foo",
+    "result": {
+      "escapedName": "foo",
+      "fetchSpec": "~1.2",
+      "gitCommittish": undefined,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "foo",
+      "raw": "foo@~1.2",
+      "rawSpec": "~1.2",
+      "registry": true,
+      "saveSpec": null,
+      "scope": undefined,
+      "type": "range",
+      "where": undefined,
+    },
+    "scope": undefined,
+    "semver": "~1.2",
+    "subname": "foo",
+    "type": "range",
+  },
   "actual": true,
+  "getSemverFromNpaResult": "~1.2",
   "inputSpec": "foo@~1.2",
   "result": {
     "escapedName": "foo",
@@ -715,7 +987,30 @@ exports[`basic foo@~1.2 1`] = `
 
 exports[`basic foo@1.2 1`] = `
 {
+  "_parsePackageNameCore": {
+    "name": "foo",
+    "result": {
+      "escapedName": "foo",
+      "fetchSpec": "1.2",
+      "gitCommittish": undefined,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "foo",
+      "raw": "foo@1.2",
+      "rawSpec": "1.2",
+      "registry": true,
+      "saveSpec": null,
+      "scope": undefined,
+      "type": "range",
+      "where": undefined,
+    },
+    "scope": undefined,
+    "semver": "1.2",
+    "subname": "foo",
+    "type": "range",
+  },
   "actual": true,
+  "getSemverFromNpaResult": "1.2",
   "inputSpec": "foo@1.2",
   "result": {
     "escapedName": "foo",
@@ -738,7 +1033,30 @@ exports[`basic foo@1.2 1`] = `
 
 exports[`basic foo@1.2.3  1`] = `
 {
+  "_parsePackageNameCore": {
+    "name": "foo",
+    "result": {
+      "escapedName": "foo",
+      "fetchSpec": "1.2.3",
+      "gitCommittish": undefined,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "foo",
+      "raw": "foo@1.2.3 ",
+      "rawSpec": "1.2.3 ",
+      "registry": true,
+      "saveSpec": null,
+      "scope": undefined,
+      "type": "version",
+      "where": undefined,
+    },
+    "scope": undefined,
+    "semver": "1.2.3 ",
+    "subname": "foo",
+    "type": "version",
+  },
   "actual": true,
+  "getSemverFromNpaResult": "1.2.3 ",
   "inputSpec": "foo@1.2.3 ",
   "result": {
     "escapedName": "foo",
@@ -761,7 +1079,30 @@ exports[`basic foo@1.2.3  1`] = `
 
 exports[`basic foo@1.2.3 1`] = `
 {
+  "_parsePackageNameCore": {
+    "name": "foo",
+    "result": {
+      "escapedName": "foo",
+      "fetchSpec": "1.2.3",
+      "gitCommittish": undefined,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "foo",
+      "raw": "foo@1.2.3",
+      "rawSpec": "1.2.3",
+      "registry": true,
+      "saveSpec": null,
+      "scope": undefined,
+      "type": "version",
+      "where": undefined,
+    },
+    "scope": undefined,
+    "semver": "1.2.3",
+    "subname": "foo",
+    "type": "version",
+  },
   "actual": true,
+  "getSemverFromNpaResult": "1.2.3",
   "inputSpec": "foo@1.2.3",
   "result": {
     "escapedName": "foo",
@@ -784,7 +1125,30 @@ exports[`basic foo@1.2.3 1`] = `
 
 exports[`basic foo@latest 1`] = `
 {
+  "_parsePackageNameCore": {
+    "name": "foo",
+    "result": {
+      "escapedName": "foo",
+      "fetchSpec": "latest",
+      "gitCommittish": undefined,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "foo",
+      "raw": "foo@latest",
+      "rawSpec": "latest",
+      "registry": true,
+      "saveSpec": null,
+      "scope": undefined,
+      "type": "tag",
+      "where": undefined,
+    },
+    "scope": undefined,
+    "semver": "latest",
+    "subname": "foo",
+    "type": "tag",
+  },
   "actual": true,
+  "getSemverFromNpaResult": "latest",
   "inputSpec": "foo@latest",
   "result": {
     "escapedName": "foo",
@@ -807,7 +1171,45 @@ exports[`basic foo@latest 1`] = `
 
 exports[`basic foo@npm:bar 1`] = `
 {
+  "_parsePackageNameCore": {
+    "name": "foo",
+    "result": {
+      "escapedName": "foo",
+      "fetchSpec": null,
+      "gitCommittish": undefined,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "foo",
+      "raw": "foo@npm:bar",
+      "rawSpec": "npm:bar",
+      "registry": true,
+      "saveSpec": null,
+      "scope": undefined,
+      "subSpec": {
+        "escapedName": "bar",
+        "fetchSpec": "*",
+        "gitCommittish": undefined,
+        "gitRange": undefined,
+        "gitSubdir": undefined,
+        "name": "bar",
+        "raw": "bar",
+        "rawSpec": "*",
+        "registry": true,
+        "saveSpec": null,
+        "scope": undefined,
+        "type": "range",
+        "where": undefined,
+      },
+      "type": "alias",
+      "where": undefined,
+    },
+    "scope": undefined,
+    "semver": "*",
+    "subname": "foo",
+    "type": "alias",
+  },
   "actual": true,
+  "getSemverFromNpaResult": "*",
   "inputSpec": "foo@npm:bar",
   "result": {
     "escapedName": "foo",
@@ -846,7 +1248,9 @@ exports[`basic foo@npm:bar 1`] = `
 
 exports[`basic git+file://path/to/repo#1.2.3 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "git+file://path/to/repo#1.2.3",
   "inputSpec": "git+file://path/to/repo#1.2.3",
   "result": {
     "escapedName": undefined,
@@ -869,7 +1273,9 @@ exports[`basic git+file://path/to/repo#1.2.3 1`] = `
 
 exports[`basic git+ssh://git@github.com/user/foo#1.2.3 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "git+ssh://git@github.com/user/foo#1.2.3",
   "inputSpec": "git+ssh://git@github.com/user/foo#1.2.3",
   "result": {
     "escapedName": undefined,
@@ -931,7 +1337,9 @@ exports[`basic git+ssh://git@github.com/user/foo#1.2.3 1`] = `
 
 exports[`basic git+ssh://git@github.com/user/foo#semver:^1.2.3 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "git+ssh://git@github.com/user/foo#semver:^1.2.3",
   "inputSpec": "git+ssh://git@github.com/user/foo#semver:^1.2.3",
   "result": {
     "escapedName": undefined,
@@ -993,7 +1401,9 @@ exports[`basic git+ssh://git@github.com/user/foo#semver:^1.2.3 1`] = `
 
 exports[`basic git+ssh://git@github.com:user/foo#semver:^1.2.3 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "git+ssh://git@github.com:user/foo#semver:^1.2.3",
   "inputSpec": "git+ssh://git@github.com:user/foo#semver:^1.2.3",
   "result": {
     "escapedName": undefined,
@@ -1055,7 +1465,9 @@ exports[`basic git+ssh://git@github.com:user/foo#semver:^1.2.3 1`] = `
 
 exports[`basic git+ssh://git@notgithub.com/user/foo 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "git+ssh://git@notgithub.com/user/foo",
   "inputSpec": "git+ssh://git@notgithub.com/user/foo",
   "result": {
     "escapedName": undefined,
@@ -1078,7 +1490,9 @@ exports[`basic git+ssh://git@notgithub.com/user/foo 1`] = `
 
 exports[`basic git+ssh://git@notgithub.com/user/foo#0d7bd85a85fa2571fa532d2fc842ed099b236ad2 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "git+ssh://git@notgithub.com/user/foo#0d7bd85a85fa2571fa532d2fc842ed099b236ad2",
   "inputSpec": "git+ssh://git@notgithub.com/user/foo#0d7bd85a85fa2571fa532d2fc842ed099b236ad2",
   "result": {
     "escapedName": undefined,
@@ -1101,7 +1515,9 @@ exports[`basic git+ssh://git@notgithub.com/user/foo#0d7bd85a85fa2571fa532d2fc842
 
 exports[`basic git+ssh://git@notgithub.com/user/foo#1.2.3 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "git+ssh://git@notgithub.com/user/foo#1.2.3",
   "inputSpec": "git+ssh://git@notgithub.com/user/foo#1.2.3",
   "result": {
     "escapedName": undefined,
@@ -1124,7 +1540,9 @@ exports[`basic git+ssh://git@notgithub.com/user/foo#1.2.3 1`] = `
 
 exports[`basic git+ssh://git@notgithub.com/user/foo#8e3a9b3579ab330238c06b761e7f1b5dc5b4ac6e5a96da4dd2fb3b7411009df8 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "git+ssh://git@notgithub.com/user/foo#8e3a9b3579ab330238c06b761e7f1b5dc5b4ac6e5a96da4dd2fb3b7411009df8",
   "inputSpec": "git+ssh://git@notgithub.com/user/foo#8e3a9b3579ab330238c06b761e7f1b5dc5b4ac6e5a96da4dd2fb3b7411009df8",
   "result": {
     "escapedName": undefined,
@@ -1147,7 +1565,9 @@ exports[`basic git+ssh://git@notgithub.com/user/foo#8e3a9b3579ab330238c06b761e7f
 
 exports[`basic git+ssh://git@notgithub.com/user/foo#semver:^1.2.3 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "git+ssh://git@notgithub.com/user/foo#semver:^1.2.3",
   "inputSpec": "git+ssh://git@notgithub.com/user/foo#semver:^1.2.3",
   "result": {
     "escapedName": undefined,
@@ -1170,7 +1590,9 @@ exports[`basic git+ssh://git@notgithub.com/user/foo#semver:^1.2.3 1`] = `
 
 exports[`basic git+ssh://git@notgithub.com:user/foo 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "git+ssh://git@notgithub.com:user/foo",
   "inputSpec": "git+ssh://git@notgithub.com:user/foo",
   "result": {
     "escapedName": undefined,
@@ -1193,7 +1615,9 @@ exports[`basic git+ssh://git@notgithub.com:user/foo 1`] = `
 
 exports[`basic git+ssh://git@notgithub.com:user/foo#1.2.3 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "git+ssh://git@notgithub.com:user/foo#1.2.3",
   "inputSpec": "git+ssh://git@notgithub.com:user/foo#1.2.3",
   "result": {
     "escapedName": undefined,
@@ -1216,7 +1640,9 @@ exports[`basic git+ssh://git@notgithub.com:user/foo#1.2.3 1`] = `
 
 exports[`basic git+ssh://git@notgithub.com:user/foo#semver:^1.2.3 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "git+ssh://git@notgithub.com:user/foo#semver:^1.2.3",
   "inputSpec": "git+ssh://git@notgithub.com:user/foo#semver:^1.2.3",
   "result": {
     "escapedName": undefined,
@@ -1239,7 +1665,9 @@ exports[`basic git+ssh://git@notgithub.com:user/foo#semver:^1.2.3 1`] = `
 
 exports[`basic git+ssh://mydomain.com:1234#1.2.3 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "git+ssh://mydomain.com:1234#1.2.3",
   "inputSpec": "git+ssh://mydomain.com:1234#1.2.3",
   "result": {
     "escapedName": undefined,
@@ -1262,7 +1690,9 @@ exports[`basic git+ssh://mydomain.com:1234#1.2.3 1`] = `
 
 exports[`basic git+ssh://mydomain.com:1234/hey 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "git+ssh://mydomain.com:1234/hey",
   "inputSpec": "git+ssh://mydomain.com:1234/hey",
   "result": {
     "escapedName": undefined,
@@ -1285,7 +1715,9 @@ exports[`basic git+ssh://mydomain.com:1234/hey 1`] = `
 
 exports[`basic git+ssh://mydomain.com:1234/hey#1.2.3 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "git+ssh://mydomain.com:1234/hey#1.2.3",
   "inputSpec": "git+ssh://mydomain.com:1234/hey#1.2.3",
   "result": {
     "escapedName": undefined,
@@ -1308,7 +1740,9 @@ exports[`basic git+ssh://mydomain.com:1234/hey#1.2.3 1`] = `
 
 exports[`basic git+ssh://mydomain.com:foo 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "git+ssh://mydomain.com:foo",
   "inputSpec": "git+ssh://mydomain.com:foo",
   "result": {
     "escapedName": undefined,
@@ -1331,7 +1765,9 @@ exports[`basic git+ssh://mydomain.com:foo 1`] = `
 
 exports[`basic git+ssh://mydomain.com:foo#1.2.3 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "git+ssh://mydomain.com:foo#1.2.3",
   "inputSpec": "git+ssh://mydomain.com:foo#1.2.3",
   "result": {
     "escapedName": undefined,
@@ -1354,7 +1790,9 @@ exports[`basic git+ssh://mydomain.com:foo#1.2.3 1`] = `
 
 exports[`basic git+ssh://mydomain.com:foo/bar#1.2.3 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "git+ssh://mydomain.com:foo/bar#1.2.3",
   "inputSpec": "git+ssh://mydomain.com:foo/bar#1.2.3",
   "result": {
     "escapedName": undefined,
@@ -1377,7 +1815,9 @@ exports[`basic git+ssh://mydomain.com:foo/bar#1.2.3 1`] = `
 
 exports[`basic git+ssh://username:password@mydomain.com:1234/hey#1.2.3 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "git+ssh://username:password@mydomain.com:1234/hey#1.2.3",
   "inputSpec": "git+ssh://username:password@mydomain.com:1234/hey#1.2.3",
   "result": {
     "escapedName": undefined,
@@ -1400,7 +1840,9 @@ exports[`basic git+ssh://username:password@mydomain.com:1234/hey#1.2.3 1`] = `
 
 exports[`basic git://notgithub.com/user/foo 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "git://notgithub.com/user/foo",
   "inputSpec": "git://notgithub.com/user/foo",
   "result": {
     "escapedName": undefined,
@@ -1423,7 +1865,45 @@ exports[`basic git://notgithub.com/user/foo 1`] = `
 
 exports[`basic git@npm:not-git 1`] = `
 {
+  "_parsePackageNameCore": {
+    "name": "git",
+    "result": {
+      "escapedName": "git",
+      "fetchSpec": null,
+      "gitCommittish": undefined,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "git",
+      "raw": "git@npm:not-git",
+      "rawSpec": "npm:not-git",
+      "registry": true,
+      "saveSpec": null,
+      "scope": undefined,
+      "subSpec": {
+        "escapedName": "not-git",
+        "fetchSpec": "*",
+        "gitCommittish": undefined,
+        "gitRange": undefined,
+        "gitSubdir": undefined,
+        "name": "not-git",
+        "raw": "not-git",
+        "rawSpec": "*",
+        "registry": true,
+        "saveSpec": null,
+        "scope": undefined,
+        "type": "range",
+        "where": undefined,
+      },
+      "type": "alias",
+      "where": undefined,
+    },
+    "scope": undefined,
+    "semver": "*",
+    "subname": "git",
+    "type": "alias",
+  },
   "actual": true,
+  "getSemverFromNpaResult": "*",
   "inputSpec": "git@npm:not-git",
   "result": {
     "escapedName": "git",
@@ -1462,7 +1942,9 @@ exports[`basic git@npm:not-git 1`] = `
 
 exports[`basic http://insecure.com/foo.tgz 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "http://insecure.com/foo.tgz",
   "inputSpec": "http://insecure.com/foo.tgz",
   "result": {
     "escapedName": undefined,
@@ -1485,7 +1967,9 @@ exports[`basic http://insecure.com/foo.tgz 1`] = `
 
 exports[`basic https://server.com/foo.tgz 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "https://server.com/foo.tgz",
   "inputSpec": "https://server.com/foo.tgz",
   "result": {
     "escapedName": undefined,
@@ -1508,7 +1992,9 @@ exports[`basic https://server.com/foo.tgz 1`] = `
 
 exports[`basic not-git@hostname.com:some/repo 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "git+ssh://not-git@hostname.com:some/repo",
   "inputSpec": "not-git@hostname.com:some/repo",
   "result": {
     "escapedName": undefined,
@@ -1531,7 +2017,9 @@ exports[`basic not-git@hostname.com:some/repo 1`] = `
 
 exports[`basic user/foo#1234::path:dist 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "user/foo#1234::path:dist",
   "inputSpec": "user/foo#1234::path:dist",
   "result": {
     "escapedName": undefined,
@@ -1593,7 +2081,9 @@ exports[`basic user/foo#1234::path:dist 1`] = `
 
 exports[`basic user/foo#notimplemented:value 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "user/foo#notimplemented:value",
   "inputSpec": "user/foo#notimplemented:value",
   "result": {
     "escapedName": undefined,
@@ -1655,7 +2145,9 @@ exports[`basic user/foo#notimplemented:value 1`] = `
 
 exports[`basic user/foo#path:dist 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "user/foo#path:dist",
   "inputSpec": "user/foo#path:dist",
   "result": {
     "escapedName": undefined,
@@ -1717,7 +2209,9 @@ exports[`basic user/foo#path:dist 1`] = `
 
 exports[`basic user/foo#semver:^1.2.3 1`] = `
 {
+  "_parsePackageNameCore": undefined,
   "actual": true,
+  "getSemverFromNpaResult": "user/foo#semver:^1.2.3",
   "inputSpec": "user/foo#semver:^1.2.3",
   "result": {
     "escapedName": undefined,
