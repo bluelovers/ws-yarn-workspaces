@@ -1,0 +1,185 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`parseVersions should handle pre-release versions should handle versions with build metadata 1`] = `
+{
+  "index": 2,
+  "partsNew": [
+    "1",
+    "2",
+    "3+build.2",
+  ],
+  "partsOld": [
+    "1",
+    "2",
+    "3+build.1",
+  ],
+  "versionNew": "1.2.3+build.2",
+  "versionOld": "1.2.3+build.1",
+}
+`;
+
+exports[`parseVersions should handle pre-release versions should handle versions with pre-release 1`] = `
+{
+  "index": 2,
+  "partsNew": [
+    "1",
+    "2",
+    "3-beta.1",
+  ],
+  "partsOld": [
+    "1",
+    "2",
+    "3-alpha.1",
+  ],
+  "versionNew": "1.2.3-beta.1",
+  "versionOld": "1.2.3-alpha.1",
+}
+`;
+
+exports[`parseVersions should parse version differences correctly should detect major version difference 1`] = `
+{
+  "index": 0,
+  "partsNew": [
+    "2",
+    "0",
+    "0",
+  ],
+  "partsOld": [
+    "1",
+    "2",
+    "3",
+  ],
+  "versionNew": "2.0.0",
+  "versionOld": "1.2.3",
+}
+`;
+
+exports[`parseVersions should parse version differences correctly should detect minor version difference 1`] = `
+{
+  "index": 1,
+  "partsNew": [
+    "1",
+    "3",
+    "0",
+  ],
+  "partsOld": [
+    "1",
+    "2",
+    "3",
+  ],
+  "versionNew": "1.3.0",
+  "versionOld": "1.2.3",
+}
+`;
+
+exports[`parseVersions should parse version differences correctly should detect patch version difference 1`] = `
+{
+  "index": 2,
+  "partsNew": [
+    "1",
+    "2",
+    "4",
+  ],
+  "partsOld": [
+    "1",
+    "2",
+    "3",
+  ],
+  "versionNew": "1.2.4",
+  "versionOld": "1.2.3",
+}
+`;
+
+exports[`parseVersions should parse version differences correctly should return index 3 for identical versions 1`] = `
+{
+  "index": 3,
+  "partsNew": [
+    "1",
+    "2",
+    "3",
+  ],
+  "partsOld": [
+    "1",
+    "2",
+    "3",
+  ],
+  "versionNew": "1.2.3",
+  "versionOld": "1.2.3",
+}
+`;
+
+exports[`parseVersionsAndCompare should parse and compare versions correctly should detect major version upgrade 1`] = `
+{
+  "comp": -1,
+  "index": 0,
+  "partsNew": [
+    "2",
+    "0",
+    "0",
+  ],
+  "partsOld": [
+    "1",
+    "2",
+    "3",
+  ],
+  "versionNew": "2.0.0",
+  "versionOld": "1.2.3",
+}
+`;
+
+exports[`parseVersionsAndCompare should parse and compare versions correctly should detect version downgrade 1`] = `
+{
+  "comp": 1,
+  "index": 0,
+  "partsNew": [
+    "1",
+    "0",
+    "0",
+  ],
+  "partsOld": [
+    "2",
+    "0",
+    "0",
+  ],
+  "versionNew": "1.0.0",
+  "versionOld": "2.0.0",
+}
+`;
+
+exports[`parseVersionsAndCompare should parse and compare versions correctly should return comp -1 when new version is greater 1`] = `
+{
+  "comp": -1,
+  "index": 1,
+  "partsNew": [
+    "1",
+    "3",
+    "0",
+  ],
+  "partsOld": [
+    "1",
+    "2",
+    "3",
+  ],
+  "versionNew": "1.3.0",
+  "versionOld": "1.2.3",
+}
+`;
+
+exports[`parseVersionsAndCompare should parse and compare versions correctly should return comp 1 when old version is greater 1`] = `
+{
+  "comp": 1,
+  "index": 1,
+  "partsNew": [
+    "1",
+    "2",
+    "3",
+  ],
+  "partsOld": [
+    "1",
+    "3",
+    "0",
+  ],
+  "versionNew": "1.2.3",
+  "versionOld": "1.3.0",
+}
+`;

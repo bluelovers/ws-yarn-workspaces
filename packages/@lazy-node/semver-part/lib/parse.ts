@@ -100,11 +100,11 @@ export function parseVersions(versionOld: string, versionNew: string)
  * //   partsOld: ['1', '2', '3'],
  * //   partsNew: ['1', '3', '0'],
  * //   index: 1,
- * //   comp: -1  // 因為 '3' > '2'（新版本的 minor 較大）
+ * //   comp: -1  // 舊版本 < 新版本（與 semver.compare 行為一致）
  * // }
  * 
  * parseVersionsAndCompare('2.0.0', '1.0.0');
- * // { ..., index: 0, comp: 1 }  // 舊版本的 major 較大
+ * // { ..., index: 0, comp: 1 }  // 舊版本 > 新版本（與 semver.compare 行為一致）
  * ```
  */
 export function parseVersionsAndCompare(versionOld: string, versionNew: string, optionsOrLoose?: IOptionsOrLoose): {
@@ -118,7 +118,7 @@ export function parseVersionsAndCompare(versionOld: string, versionNew: string, 
 {
 	const data = parseVersions(versionOld, versionNew)
 
-	let comp = tryCompare(data.partsNew[data.index], data.partsOld[data.index], optionsOrLoose);
+	let comp = tryCompare(data.partsOld[data.index], data.partsNew[data.index], optionsOrLoose);
 
 	return {
 		...data,
