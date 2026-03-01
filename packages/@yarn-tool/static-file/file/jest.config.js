@@ -2,6 +2,7 @@
 // @deprecated replace by jest.config.auto.js
 
 const { join, dirname } = require('path');
+// @ts-ignore
 const { tryRealpath } = require('jest-util');
 const { tmpdir } = require('os');
 
@@ -77,7 +78,7 @@ const testExt = [
 const cacheDirectory = getCacheDirectory();
 
 /**
- * // @type { import('@jest/types').Config.InitialOptions }
+ * @_type { import('@jest/types').Config.InitialOptions }
  * @type { import('ts-jest').InitialOptionsTsJest }
  */
 const jestConfig = {
