@@ -81,7 +81,7 @@ export declare class WorkspacesProject {
         bump?: IReleaseType;
         conventionalCommits?: boolean;
         conventionalGraduate?: boolean;
-        distTag?: import("@yarn-tool/ncu").IPackageJsonTag;
+        distTag?: import("@ts-type/package-dts/package-json").IPackageJsonTag;
         npmClient?: import("@ts-type/package-dts/lerna-json").INpmClient;
         allowBranch?: import("@ts-type/package-dts/lib/types").IBranch[];
         noPrivate?: boolean;
@@ -90,7 +90,7 @@ export declare class WorkspacesProject {
         bump?: IReleaseType;
         conventionalCommits?: boolean;
         conventionalGraduate?: boolean;
-        distTag?: import("@yarn-tool/ncu").IPackageJsonTag;
+        distTag?: import("@ts-type/package-dts/package-json").IPackageJsonTag;
         npmClient?: import("@ts-type/package-dts/lerna-json").INpmClient;
         allowBranch?: import("@ts-type/package-dts/lib/types").IBranch[];
         noPrivate?: boolean;
@@ -107,7 +107,7 @@ export declare class WorkspacesProject {
         bump?: IReleaseType;
         conventionalCommits?: boolean;
         conventionalGraduate?: boolean;
-        distTag?: import("@yarn-tool/ncu").IPackageJsonTag;
+        distTag?: import("@ts-type/package-dts/package-json").IPackageJsonTag;
         npmClient?: import("@ts-type/package-dts/lerna-json").INpmClient;
         allowBranch?: import("@ts-type/package-dts/lib/types").IBranch[];
         noPrivate?: boolean;
