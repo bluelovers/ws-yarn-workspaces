@@ -6,7 +6,7 @@ const pkg_scripts_1 = require("./pkg-scripts");
 function defaultRootScripts() {
     const bumpVersion = (bump) => {
         return [
-            `yarn run version:bump` + (bump ? `:${bump}` : ''),
+            `node --run version:bump` + (bump ? ` -- --bump ${bump}` : ''),
             `npm publish`,
         ].join(' && ');
     };
@@ -24,7 +24,7 @@ function defaultRootScripts() {
             'major',
             'prerelease',
         ].reduce((a, bump, idx) => {
-            a[`version:bump:${bump}`] = `yarn run version:bump` + (bump ? ` -- --bump ${bump}` : '');
+            a[`version:bump:${bump}`] = `node --run version:bump` + (bump ? ` -- --bump ${bump}` : '');
             a[`npm:publish:bump:${bump}`] = bumpVersion(bump);
             return a;
         }, {}),
@@ -32,8 +32,10 @@ function defaultRootScripts() {
         "postpublish:git:tag": `ynpx --quiet @yarn-tool/tag`,
         "postpublish:changelog": `ynpx --quiet @yarn-tool/changelog && git add ./CHANGELOG.md`,
         "postpublish:git:push": `git push --follow-tags`,
-        "postpublish": `yarn run postpublish:changelog && yarn run postpublish:git:commit && yarn run postpublish:git:tag && yarn run postpublish:git:push`,
+        "postpublish": `node --run postpublish:changelog && node --run postpublish:git:commit && node --run postpublish:git:tag && node --run postpublish:git:push`,
         "ncu": "yarn-tool ncu -u",
+        "pnpm:dedupe": "pnpm dedupe",
+        "ncu:pnpm": "pnpm update",
     };
 }
 //# sourceMappingURL=root-scripts.js.map

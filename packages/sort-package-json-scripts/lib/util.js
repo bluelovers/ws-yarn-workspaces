@@ -67,6 +67,7 @@ exports.defaultNpmScriptsOrder = new Set([
     'ci',
     'npm',
     'yarn',
+    'pnpm',
     'lerna',
     'ws',
     'version',

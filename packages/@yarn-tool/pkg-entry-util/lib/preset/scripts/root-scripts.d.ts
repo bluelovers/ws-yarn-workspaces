@@ -5,6 +5,8 @@ export declare function defaultRootScripts(): {
     "postpublish:git:push": string;
     postpublish: string;
     ncu: string;
+    "pnpm:dedupe": string;
+    "ncu:pnpm": string;
     "prepublishOnly:check-bin": string;
     "version:bump": string;
     "npm:publish": string;

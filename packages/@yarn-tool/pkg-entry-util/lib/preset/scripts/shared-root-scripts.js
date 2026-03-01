@@ -13,12 +13,13 @@ function defaultSharedRootScripts() {
             "typescript@next",
             '@bluelovers/jest-config',
             'tsx',
+            'pnpm',
         ].join(" ")}`,
         "test:jest:clearCache": "jest --clearCache",
         "install:resetLockfile": "yarn-tool install --reset-lockfile",
         "install:frozenLockfile": "yarn-tool install --frozen-lockfile",
         "ws:fix-all": "yarn-tool fix-all  --overwriteHostedGitInfo",
-        "ws:fix-all:resetStaticFiles": "yarn run ws:fix-all -- --resetStaticFiles",
+        "ws:fix-all:resetStaticFiles": "node --run ws:fix-all -- --resetStaticFiles",
     };
 }
 //# sourceMappingURL=shared-root-scripts.js.map
