@@ -50,7 +50,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@npmcli/run-script": "^10.0.3",
+    "@npmcli/run-script": "^10.0.4",
     "@ts-type/package-dts": "^2.0.8",
     "@yarn-tool/script-lifecycle": "^2.0.9",
     "read-package-json-fast": "^5.0.0",

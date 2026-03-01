@@ -79,8 +79,8 @@
   },
   "dependencies": {
     "@yarn-tool/find-root": "^2.0.15",
-    "find-up-paths": "^1.0.17",
-    "path-parents": "^1.0.33",
+    "find-up-paths": "^1.0.19",
+    "path-parents": "^1.0.35",
     "tslib": ">=2"
   },
   "publishConfig": {

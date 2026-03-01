@@ -52,7 +52,7 @@
     "@yarn-tool/get-paths-by-type": "^2.0.10",
     "@yarn-tool/resolve-package": "^3.0.0",
     "tslib": ">=2",
-    "upath2": "^3.1.20"
+    "upath2": "^3.1.22"
   },
   "publishConfig": {
     "access": "public"

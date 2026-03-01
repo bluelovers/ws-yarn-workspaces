@@ -72,7 +72,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@bluelovers/fs-json": "^1.0.14",
+    "@bluelovers/fs-json": "^1.0.16",
     "tslib": ">=2"
   },
   "publishConfig": {
