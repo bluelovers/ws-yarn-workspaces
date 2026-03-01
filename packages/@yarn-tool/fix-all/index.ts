@@ -92,14 +92,25 @@ export function npmAutoFixAll(cwd: string, options?: INpmAutoFixAll)
 			cwd,
 		});
 
-		// 驗證是否為有效的工作區或套件 / Validate if it's a valid workspace or package
+		/**
+		 * 驗證是否為有效的工作區或套件
+		 * Validate if it's a valid workspace or package
+		 *
+		 * 必須存在 root 屬性才視為有效專案
+		 * Must have root property to be considered a valid project
+		 */
 		if (!rootData?.root)
 		{
 			throw new Error(`Invalid workspaces / package: ${cwd}`)
 		}
 
-		// 若在 workspace 根目錄但不在子套件中，重新尋找根目錄
-		// If at workspace root but not in sub-package, re-find root
+		/**
+		 * 若在 workspace 根目錄但不在子套件中，重新尋找根目錄
+		 * If at workspace root but not in sub-package, re-find root
+		 *
+		 * 這確保我們總是從正確的位置開始處理
+		 * This ensures we always start processing from the correct location
+		 */
 		if (rootData.hasWorkspace && !rootData.isWorkspace)
 		{
 			rootData = findRoot({
@@ -127,10 +138,16 @@ export function npmAutoFixAll(cwd: string, options?: INpmAutoFixAll)
 			});
 		}
 
-		// 複製靜態檔案到 workspace 或根目錄 / Copy static files to workspace or root
+		/**
+		 * 複製靜態檔案到 workspace 或根目錄
+		 * Copy static files to workspace or root
+		 *
+		 * 根據專案類型（workspace 或單一套件）複製對應的模板檔案
+		 * Copy corresponding template files based on project type
+		 */
 		if (rootData.hasWorkspace)
 		{
-			// Workspace 模式：複製 workspace 靜態檔案
+			// Workspace 模式：複製 workspace 靜態檔案（.gitignore, .npmignore 等）
 			// Workspace mode: copy workspace static files
 			const file_map = getWsCopyStaticFiles();
 
@@ -166,11 +183,17 @@ export function npmAutoFixAll(cwd: string, options?: INpmAutoFixAll)
 
 		console.log(`root:`, rootData.root);
 
-		// 修復根目錄 package.json / Fix root package.json
+		/**
+		 * 修復根目錄 package.json
+		 * Fix root package.json
+		 *
+		 * 根據專案類型選擇對應的修復策略
+		 * Select appropriate fix strategy based on project type
+		 */
 		if (rootData.hasWorkspace)
 		{
-			// Workspace 模式：修復 workspace 根目錄
-			// Workspace mode: fix workspace root
+			// Workspace 模式：修復 workspace 根目錄的 package.json
+			// Workspace mode: fix workspace root package.json
 			_fixWsRoot({
 				rootData,
 				hostedGitInfo,
@@ -180,8 +203,8 @@ export function npmAutoFixAll(cwd: string, options?: INpmAutoFixAll)
 		}
 		else
 		{
-			// 單一套件模式：修復套件根目錄
-			// Single package mode: fix package root
+			// 單一套件模式：修復套件根目錄的 package.json
+			// Single package mode: fix package root package.json
 			_fixRoot({
 				rootData,
 				hostedGitInfo,
@@ -191,12 +214,24 @@ export function npmAutoFixAll(cwd: string, options?: INpmAutoFixAll)
 			});
 		}
 
-		// 修復 lerna.json 配置 / Fix lerna.json configuration
+		/**
+		 * 修復 lerna.json 配置
+		 * Fix lerna.json configuration
+		 *
+		 * 確保 lerna 配置與 workspace 設定一致
+		 * Ensure lerna config is consistent with workspace settings
+		 */
 		_fixLernaJson({
 			rootData,
 		});
 
-		// 初始化套件列表並遍歷修復 / Initialize package list and iterate for fixing
+		/**
+		 * 初始化套件列表並遍歷修復
+		 * Initialize package list and iterate for fixing
+		 *
+		 * 對每個子套件執行自動修復操作
+		 * Execute auto-fix operations for each sub-package
+		 */
 		const list = _initPkgListableByRootData(rootData);
 
 		return _runEachPackagesAsync(list, {

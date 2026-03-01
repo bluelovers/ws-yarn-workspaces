@@ -1,20 +1,24 @@
 {
   "name": "@yarn-tool/fix-ws-versions",
   "version": "3.0.3",
-  "description": "fix/sync package dependencies in workspaces",
+  "description": "自動同步和修復 monorepo workspace 中的套件版本依賴 (Auto sync and fix package version dependencies in monorepo workspaces)",
   "keywords": [
-    "yarn",
-    "yarn-tool",
-    "npm",
-    "lerna",
     "workspaces",
-    "pkg",
+    "fix-versions",
+    "sync-versions",
     "dependencies",
     "monorepo",
+    "yarn",
+    "npm",
+    "lerna",
+    "semver",
+    "version",
+    "pkg",
     "yarnlock",
     "node-modules",
     "packages",
     "package",
+    "yarn-tool",
     "create-by-yarn-tool"
   ],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/fix-ws-versions#readme",
@@ -72,7 +76,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@lazy-node/semver-simple-parse": "^3.0.1",
+    "@lazy-node/semver-simple-parse": "^4.0.0",
     "@ts-type/package-dts": "^2.0.8",
     "tslib": ">=2",
     "ws-pkg-list": "^3.0.3"
