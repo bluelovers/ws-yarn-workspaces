@@ -79,6 +79,7 @@ export const defaultNpmScriptsOrder = new Set([
 	'ci',
 	'npm',
 	'yarn',
+	'pnpm',
 	'lerna',
 	'ws',
 

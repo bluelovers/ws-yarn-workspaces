@@ -8,7 +8,7 @@ export function _runAllOrSince<T extends string>(script: T)
 
 	return {
 		[all]: `yarn-tool ws run ${script} --concurrency 1`,
-		[since]: `yarn run ${script}:all -- --since`,
+		[since]: `node --run ${script}:all -- --since`,
 	} as ({
 		[x in `${T}:all`]: string;
 	} & {
@@ -20,7 +20,7 @@ export function defaultWorkspaceRootScripts()
 {
 	const bumpVersion = (bump?: 'major' | 'minor' | 'patch') => {
 		return [
-			`yarn run prepublishOnly:root`,
+			`node --run prepublishOnly:root`,
 			`lerna publish --no-private` + (bump ? ` --yes --bump ${bump}` : ''),
 			`yarn run postpublishOnly`,
 		].join(' && ')
@@ -29,7 +29,7 @@ export function defaultWorkspaceRootScripts()
 	return {
 		...defaultSharedRootScripts(),
 
-		"test": "yarn run test:since",
+		"test": "node --run test:since",
 
 		..._runAllOrSince('test'),
 		..._runAllOrSince('test:tsd'),
@@ -49,24 +49,25 @@ export function defaultWorkspaceRootScripts()
 		] as const).reduce((a, bump, idx) => {
 			if (idx === 0)
 			{
-				a[`lerna:publish:yes`] = `yarn run lerna:publish:yes:${bump}`;
+				a[`lerna:publish:yes`] = `node --run lerna:publish:yes:${bump}`;
+				a[`lerna:publish:yes:force`] = `node --run lerna:publish:yes:${bump} -- --force-publish`;
 			}
 			a[`lerna:publish:yes:${bump}`] = bumpVersion(bump);
 			return a
 		}, {} as Record<string, string>),
 
-		"prepublishOnly:root": "yarn run prepublishOnly:check-bin && yarn run prepare:fix-ws-links",
+		"prepublishOnly:root": "node --run prepublishOnly:check-bin && node --run prepare:fix-ws-links",
 		"prepublishOnly:lockfile": "ynpx --quiet sync-lockfile",
 		"prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
 		"prepare:fix-ws-links": "ynpx --quiet @yarn-tool/fix-ws-links",
 		"prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
-		"ncu": "yarn run ncu:ws",
+		"ncu": "node --run ncu:ws",
 		"ncu:root": "yarn-tool ncu -u",
 		"ncu:ws": "yarn-tool ncu -u --AA",
-		"sort-package-json": "yarn run sort-package-json:root && yarn run sort-package-json:ws",
+		"sort-package-json": "node --run sort-package-json:root && node --run sort-package-json:ws",
 		"sort-package-json:root": "yarn-tool sort",
 		"sort-package-json:ws": "yarn-tool ws sort",
-		"postpublishOnly": "yarn run postpublishOnly:ws-root-changelog & echo postpublishOnly",
+		"postpublishOnly": "node --run postpublishOnly:ws-root-changelog & echo postpublishOnly",
 		"postpublishOnly:ws-root-changelog": "ynpx ws-root-changelog & git add ./CHANGELOG.md & git commit ./CHANGELOG.md -m \"chore(changelog): update changelog toc in workspaces root\" & echo update changelog toc in workspaces root",
 		"tsc:showConfig": "ynpx get-current-tsconfig -p",
 	}
