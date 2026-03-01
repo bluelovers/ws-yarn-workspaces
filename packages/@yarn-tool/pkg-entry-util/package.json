@@ -1,7 +1,7 @@
 {
   "name": "@yarn-tool/pkg-entry-util",
   "version": "3.0.3",
-  "description": "用於處理 package.json entry 相關欄位的工具庫，包含 bin、exports、publishConfig 欄位的修復與驗證功能",
+  "description": "用於處理 package.json entry 相關欄位的工具庫，包含 bin、exports、publishConfig 欄位的修復與驗證功能，並提供各類套件的預設 npm scripts（工作區根目錄、一般套件、根目錄套件）/ Utility for handling package.json entry fields including bin, exports, publishConfig fix/verification, plus preset npm scripts for workspace root, regular packages, and root packages",
   "keywords": [
     "yarn",
     "yarn-tool",
@@ -15,6 +15,17 @@
     "node-modules",
     "packages",
     "package",
+    "scripts",
+    "preset",
+    "npm-scripts",
+    "lifecycle",
+    "init",
+    "npm-init",
+    "create-yarn-workspaces",
+    "workspace-root",
+    "bin",
+    "exports",
+    "publish-config",
     "create-by-yarn-tool"
   ],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/pkg-entry-util#readme",
