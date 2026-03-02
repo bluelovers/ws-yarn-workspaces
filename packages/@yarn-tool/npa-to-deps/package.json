@@ -1,7 +1,7 @@
 {
   "name": "@yarn-tool/npa-to-deps",
   "version": "3.0.2",
-  "description": "",
+  "description": "Convert npm-package-arg results to dependency values / 將 npm-package-arg 結果轉換為依賴值",
   "keywords": [
     "yarn",
     "yarn-tool",
@@ -55,6 +55,9 @@
     "@lazy-node/semver-simple-parse": "^4.0.0",
     "@yarn-tool/npm-package-arg-util": "^2.0.2",
     "tslib": ">=2"
+  },
+  "devDependencies": {
+    "npm-package-arg": "^13.0.2"
   },
   "publishConfig": {
     "access": "public"

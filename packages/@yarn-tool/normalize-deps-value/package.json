@@ -1,7 +1,7 @@
 {
   "name": "@yarn-tool/normalize-deps-value",
   "version": "2.0.3",
-  "description": "",
+  "description": "Normalize dependency values to standardized semver format / 將依賴值正規化為標準化的 semver 格式",
   "keywords": [
     "yarn",
     "yarn-tool",

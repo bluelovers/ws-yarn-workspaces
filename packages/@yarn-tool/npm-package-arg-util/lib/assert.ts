@@ -11,8 +11,8 @@
 
 import { FileResult, HostedGitResult } from 'npm-package-arg';
 import { IOptionsNpaUtil, IResult, IResultAll } from './types';
-import assert from 'assert';
-import { isHostedGitResult } from './detect';
+import { ok as assertOk, strictEqual as assertStrictEqual } from 'assert';
+import { isRawSpecIsEmpty, isHostedGitResult } from './detect';
 
 /**
  * Assert that an npm-package-arg result has a valid name property
@@ -94,7 +94,7 @@ export function assertNpaResultByType<T extends IResult, TT extends IResult['typ
 {
 	// Assert the type matches
 	// 斷言類型匹配
-	assert.strictEqual(result.type, type, `Invalid type: ${result.type}`);
+	assertStrictEqual(result.type, type, `Invalid type: ${result.type}`);
 
 	// Perform all standard validations
 	// 執行所有標準驗證
@@ -145,11 +145,11 @@ export function assertNpaResultAll<T extends IResult>(result: T, options?: IOpti
 
 	// Validate allowed types if specified
 	// 如果指定了允許的類型則驗證
-	allowedType?.length && assert.ok(allowedType.includes(result.type), `Type '${result.type}' not allowed, only allow [${allowedType.join(', ')}]`);
+	allowedType?.length && assertOk(allowedType.includes(result.type), `Type '${result.type}' not allowed, only allow [${allowedType.join(', ')}]`);
 
 	if (!['range', 'version', 'alias', 'tag'].includes(result.type))
 	{
-		assert.ok(result.saveSpec, `saveSpec is required for ${result.type} type`);
+		assertOk(result.saveSpec, `saveSpec is required for ${result.type} type`);
 	}
 
 	// Type-specific validation
@@ -161,29 +161,35 @@ export function assertNpaResultAll<T extends IResult>(result: T, options?: IOpti
 			{
 				// Git type requires hosted information
 				// Git 類型需要 hosted 資訊
-				// assert.ok(result.hosted, 'hosted is required for git type');
-				assert.ok(isHostedGitResult(result), 'hosted.domain is required for git type when fetchSpec is not present');
+				// assertOk(result.hosted, 'hosted is required for git type');
+				assertOk(isHostedGitResult(result), 'hosted.domain is required for git type when fetchSpec is not present');
 			}
 			else
 			{
-				assert.ok(result.fetchSpec, 'fetchSpec is required for git type when hosted is not present');
+				assertOk(result.fetchSpec, 'fetchSpec is required for git type when hosted is not present');
 			}
 			break;
 
 		case 'directory':
 			// Directory type requires where path
 			// Directory 類型需要 where 路徑
-			assert.ok(result.where, 'where is required for directory type');
+			assertOk(result.where, 'where is required for directory type');
+			break;
+		case 'range':
+			if (isRawSpecIsEmpty(result))
+			{
+				shouldHasName ??= false;
+				break;
+			}
 		case 'file':
 		case 'remote':
-		case 'range':
 		case 'tag':
 		case 'version':
-			assert.ok(result.fetchSpec, `fetchSpec is required for ${result.type} type`);
+			assertOk(result.fetchSpec, `fetchSpec is required for ${result.type} type`);
 			break;
 
 		case 'alias':
-			assert.ok(result.subSpec, `subSpec is required for ${result.type} type`);
+			assertOk(result.subSpec, `subSpec is required for ${result.type} type`);
 			break;
 
 		default:
@@ -195,7 +201,7 @@ export function assertNpaResultAll<T extends IResult>(result: T, options?: IOpti
 
 	if (typeof result.scope === 'string')
 	{
-		assert.ok(result.scope.charCodeAt(0) === 64, `scope must start with @`);
+		assertOk(result.scope.charCodeAt(0) === 64, `scope must start with @`);
 	}
 
 	if (['range', 'version', 'alias', 'tag'].includes(result.type))
@@ -210,5 +216,5 @@ export function assertNpaResultAll<T extends IResult>(result: T, options?: IOpti
 		assertNpaResultHasName(result);
 	}
 
-	// assert.ok(result.saveSpec, 'saveSpec is required');
+	// assertOk(result.saveSpec, 'saveSpec is required');
 }

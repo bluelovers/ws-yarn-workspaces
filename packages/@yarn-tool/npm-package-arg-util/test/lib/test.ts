@@ -11,7 +11,7 @@ import {
 	isFileResult,
 	isRegistryResult,
 	isHostedGitResult,
-	isURLResult,
+	isURLResult, isRawSpecIsEmpty, isInputSpecIsEmpty, isNameSameAsRaw, isInputSpecIsStar,
 } from '../../lib/detect';
 import { _parsePackageNameCore } from '../../lib/parseArgvPkgName';
 
@@ -82,25 +82,29 @@ export function _lazyTestNpaTypeGuard<T extends IResult = IResult>(
 		}
 	}
 
-	expect({
+	const ret = {
 		inputSpec,
 		result,
 		actual,
 
 		getSemverFromNpaResult: getSemverFromNpaResult(result),
 		_parsePackageNameCore: result.name && _parsePackageNameCore(result),
-	}).toMatchSnapshot(propertyMatchers ? {
+
+		isRawSpecIsEmpty: isRawSpecIsEmpty(result),
+		isInputSpecIsEmpty: isInputSpecIsEmpty(result),
+		isNameSameAsRaw: isNameSameAsRaw(result),
+		isInputSpecIsStar: isInputSpecIsStar(result),
+
+	};
+
+	expect(ret).toMatchSnapshot(propertyMatchers ? {
 		result: propertyMatchers,
 		actual: actualExpected,
 	} : {
 		actual: actualExpected,
 	});
 
-	return {
-		inputSpec,
-		result,
-		actual,
-	};
+	return ret;
 }
 
 /**

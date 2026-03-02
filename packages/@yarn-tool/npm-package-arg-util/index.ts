@@ -45,7 +45,7 @@ export function _npa2Core<T extends IResult>(arg: string, options?: IOptionsNpaU
 
 	// Validate the result
 	// 驗證結果
-	assertNpaResultAll(result, options);
+	!options?.noThrowError && assertNpaResultAll(result, options);
 
 	return result
 }
