@@ -11,7 +11,6 @@
  * Analyzes Git history based on conventional commits specification
  */
 
-import 'v8-compile-cache';
 import yargs, { Argv, Omit } from 'yargs';
 import { setupToYargs } from '../lib/yargs-setting';
 import { IOptionsWithType, IOptionsUpdateChangelog } from '..';

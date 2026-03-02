@@ -8,7 +8,6 @@
  * Command line interface for generating package changelog overview in workspace root
  */
 
-import 'v8-compile-cache';
 import {
 	getWorkspacesRootChangelogPath,
 	outputWorkspacesRootChangelog,

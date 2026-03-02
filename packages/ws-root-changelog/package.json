@@ -60,7 +60,6 @@
     "@yarn-tool/find-root": "^2.0.16",
     "tslib": ">=2",
     "upath2": "^3.1.23",
-    "v8-compile-cache": "^2.4.0",
     "ws-pkg-list": "^3.0.4"
   },
   "gitHead": "46d4d576f34d2d5218822811286119ea7a44d08b"
