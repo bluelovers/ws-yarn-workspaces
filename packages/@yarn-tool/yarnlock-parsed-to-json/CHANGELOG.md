@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-parsed-to-json@2.0.3...@yarn-tool/yarnlock-parsed-to-json@2.0.4) (2026-03-02)
+
+
+
+### 🚨　Tests
+
+* 改用快照測試驗證錯誤並簡化斷言語法 ([25a5c62](https://github.com/bluelovers/ws-yarn-workspaces/commit/25a5c627a1df5756cf78fb9312d8e47a9de2bd6c))
+
+
+### ♻️　Chores
+
+* Add test config and global types for tsdx ([88a8df6](https://github.com/bluelovers/ws-yarn-workspaces/commit/88a8df6eef5dc59d9e0d9268b21706dceb5ab2a1))
+* 更新 Jest 快照連結並增強類型定義與文件 ([b663b97](https://github.com/bluelovers/ws-yarn-workspaces/commit/b663b97d78d223dc8b3927ea2433938350144de7))
+* remove empty resolutions and redundant packageManager fields ([65b5c5f](https://github.com/bluelovers/ws-yarn-workspaces/commit/65b5c5f929aae82474408b2b46cfc5a471c919f6))
+* add __root.ts test utility to workspace packages ([a771727](https://github.com/bluelovers/ws-yarn-workspaces/commit/a7717278883c86d9ed8ab89f42070d3385c173a7))
+
+
+
 ## [2.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-parsed-to-json@2.0.2...@yarn-tool/yarnlock-parsed-to-json@2.0.3) (2025-09-07)
 
 **Note:** Version bump only for package @yarn-tool/yarnlock-parsed-to-json

@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.5](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-entries@3.0.4...@yarn-tool/yarnlock-entries@3.0.5) (2026-03-02)
+
+
+
+### 🛠　Build System
+
+* Introduce new utility packages for semantic versioning and Yarn tooling, and add CI/CD workflows. ([905a979](https://github.com/bluelovers/ws-yarn-workspaces/commit/905a9795333addd0fe802cad8068d5c5b414a992))
+* update build ([51d49ad](https://github.com/bluelovers/ws-yarn-workspaces/commit/51d49adaa1f1fbfac4a299007dbf406d7ee7a4c7))
+
+
+### ♻️　Chores
+
+* Add test config and global types for tsdx ([88a8df6](https://github.com/bluelovers/ws-yarn-workspaces/commit/88a8df6eef5dc59d9e0d9268b21706dceb5ab2a1))
+* add __root.ts test utility to workspace packages ([a771727](https://github.com/bluelovers/ws-yarn-workspaces/commit/a7717278883c86d9ed8ab89f42070d3385c173a7))
+* **deps:** 升級多項依賴套件版本 ([1382602](https://github.com/bluelovers/ws-yarn-workspaces/commit/1382602ca94ff236b251fd1481b6332468de4621))
+
+
+### 🔖　Miscellaneous
+
+* . ([d0a2adc](https://github.com/bluelovers/ws-yarn-workspaces/commit/d0a2adca7732fe14da2977d24e148f42b10bdd1c))
+
+
+
 ## [3.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-entries@3.0.3...@yarn-tool/yarnlock-entries@3.0.4) (2025-09-11)
 
 

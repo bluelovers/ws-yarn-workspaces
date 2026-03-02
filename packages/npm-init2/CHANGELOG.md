@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.5](https://github.com/bluelovers/ws-yarn-workspaces/compare/npm-init2@3.0.4...npm-init2@3.0.5) (2026-03-02)
+
+
+
+### 🐛　Bug Fixes
+
+* **@yarn-tool/fix-all:** 修正新增 README.md 時沒有更新模板內容的問題 ([6c59e79](https://github.com/bluelovers/ws-yarn-workspaces/commit/6c59e79e03768e1bc570f3b64c5c0808d6fe72b8))
+
+
+### 📦　Code Refactoring
+
+* 將 writeReadme 功能提取至獨立套件 @yarn-tool/pkg-readme-tpl ([135f759](https://github.com/bluelovers/ws-yarn-workspaces/commit/135f7598c432eb6505f8fbd44f6f57d7193d675f))
+
+
+### 📚　Documentation
+
+* **pkg-entry-util,create-yarn-workspaces,npm-init2:** 新增完整雙語文件與 JSDoc 註解 ([c1786e6](https://github.com/bluelovers/ws-yarn-workspaces/commit/c1786e6785abe484c95ee3dee8b8a16358c3904b))
+
+
+### 🛠　Build System
+
+* **pkg-entry-util,create-yarn-workspaces,npm-init2:** 新增完整雙語文件與 JSDoc 註解 ([087d6d6](https://github.com/bluelovers/ws-yarn-workspaces/commit/087d6d6e560c70ed68a79ad73c8eb05868ec4203))
+
+
+### ♻️　Chores
+
+* Add test config and global types for tsdx ([88a8df6](https://github.com/bluelovers/ws-yarn-workspaces/commit/88a8df6eef5dc59d9e0d9268b21706dceb5ab2a1))
+* update README installation commands and add JSDoc comments ([2caaee5](https://github.com/bluelovers/ws-yarn-workspaces/commit/2caaee5185b452ec82768faacc27422aec8104b1))
+* remove empty resolutions and redundant packageManager fields ([65b5c5f](https://github.com/bluelovers/ws-yarn-workspaces/commit/65b5c5f929aae82474408b2b46cfc5a471c919f6))
+* add __root.ts test utility to workspace packages ([a771727](https://github.com/bluelovers/ws-yarn-workspaces/commit/a7717278883c86d9ed8ab89f42070d3385c173a7))
+* **deps:** 升級路徑與檔案系統相關依賴版本 ([78d395b](https://github.com/bluelovers/ws-yarn-workspaces/commit/78d395b5469feecc85f250ca2d8b4977161e7618))
+* **deps:** 更新依賴版本並將腳本執行從 yarn 遷移至 node --run ([389e581](https://github.com/bluelovers/ws-yarn-workspaces/commit/389e581a07cf803dc34c8402b4d3f69af0016b8c))
+* **deps:** 升級多項依賴套件版本 ([1382602](https://github.com/bluelovers/ws-yarn-workspaces/commit/1382602ca94ff236b251fd1481b6332468de4621))
+
+
+
 ## [3.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/npm-init2@3.0.3...npm-init2@3.0.4) (2025-09-07)
 
 

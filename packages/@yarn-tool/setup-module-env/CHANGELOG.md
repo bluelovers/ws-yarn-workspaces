@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/setup-module-env@3.0.3...@yarn-tool/setup-module-env@3.0.4) (2026-03-02)
+
+
+
+### ✨　Features
+
+* **yarn-tool:** 簡化靜態檔案複製配置並新增測試路徑常數 ([8f7660c](https://github.com/bluelovers/ws-yarn-workspaces/commit/8f7660c6df39b7cfd2c69a019f02a5f840193092))
+
+
+### 📚　Documentation
+
+* **setup-module-env:** 為 tsdx 設定模組添加完整的 JSDoc 文檔註釋 ([5def98a](https://github.com/bluelovers/ws-yarn-workspaces/commit/5def98ab905bb3dc50d2d00e5f3f3d4da5d23cf3))
+
+
+### 🛠　Build System
+
+* update build ([51d49ad](https://github.com/bluelovers/ws-yarn-workspaces/commit/51d49adaa1f1fbfac4a299007dbf406d7ee7a4c7))
+
+
+### ♻️　Chores
+
+* Add test config and global types for tsdx ([88a8df6](https://github.com/bluelovers/ws-yarn-workspaces/commit/88a8df6eef5dc59d9e0d9268b21706dceb5ab2a1))
+* 更新 Jest 快照連結並增強類型定義與文件 ([b663b97](https://github.com/bluelovers/ws-yarn-workspaces/commit/b663b97d78d223dc8b3927ea2433938350144de7))
+* remove empty resolutions and redundant packageManager fields ([65b5c5f](https://github.com/bluelovers/ws-yarn-workspaces/commit/65b5c5f929aae82474408b2b46cfc5a471c919f6))
+* add __root.ts test utility to workspace packages ([a771727](https://github.com/bluelovers/ws-yarn-workspaces/commit/a7717278883c86d9ed8ab89f42070d3385c173a7))
+
+
+
 ## [3.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/setup-module-env@3.0.2...@yarn-tool/setup-module-env@3.0.3) (2025-09-07)
 
 **Note:** Version bump only for package @yarn-tool/setup-module-env

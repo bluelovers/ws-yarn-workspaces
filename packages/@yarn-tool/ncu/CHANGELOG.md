@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ncu@3.0.3...@yarn-tool/ncu@3.0.4) (2026-03-02)
+
+
+### BREAKING CHANGES
+
+* **release:** 核心工具鏈套件升級
+- @lazy-node/semver-simple-parse v4.0.0
+- @yarn-tool/require-resolve v4.0.0
+- @yarn-tool/resolve-package v3.0.0
+- @yarn-tool/get-pkg-bin v3.0.0
+- @yarn-tool/check-pkg-bin v4.0.0
+
+更新所有工作區套件以使用相容的主要版本，並重構
+npm-package-arg-util 以抽離 _parsePackageNameCore 核心函式。
+
+
+
+### 📚　Documentation
+
+* **ncu:** 新增 NCU 工具模組文件並增強 JSDoc 註解 ([6a7132f](https://github.com/bluelovers/ws-yarn-workspaces/commit/6a7132f1b1fa0ba801b2939675b584270e042cee))
+* **ncu-ws,ncu:** 新增完整雙語文件與 JSDoc 註解 ([757f84e](https://github.com/bluelovers/ws-yarn-workspaces/commit/757f84e63303800cd37e933398d695f0a9f3ec4a))
+
+
+### 🛠　Build System
+
+* update build ([94c3a8e](https://github.com/bluelovers/ws-yarn-workspaces/commit/94c3a8e57b115ac238c3022d95595fbc53931235))
+* update build ([51d49ad](https://github.com/bluelovers/ws-yarn-workspaces/commit/51d49adaa1f1fbfac4a299007dbf406d7ee7a4c7))
+* **ncu:** add JSDoc documentation for ncu packages ([02b2220](https://github.com/bluelovers/ws-yarn-workspaces/commit/02b22204eea616853507a6ad06118aa73f6c4a9b))
+* **ws-scope:** add JSDoc documentation to type definitions ([9263a85](https://github.com/bluelovers/ws-yarn-workspaces/commit/9263a85ad457c9c47570a57df57a2c495680fef4))
+
+
+### ♻️　Chores
+
+* Add test config and global types for tsdx ([88a8df6](https://github.com/bluelovers/ws-yarn-workspaces/commit/88a8df6eef5dc59d9e0d9268b21706dceb5ab2a1))
+* 更新 Jest 快照連結並增強類型定義與文件 ([b663b97](https://github.com/bluelovers/ws-yarn-workspaces/commit/b663b97d78d223dc8b3927ea2433938350144de7))
+* update README installation commands and add JSDoc comments ([2caaee5](https://github.com/bluelovers/ws-yarn-workspaces/commit/2caaee5185b452ec82768faacc27422aec8104b1))
+* add __root.ts test utility to workspace packages ([a771727](https://github.com/bluelovers/ws-yarn-workspaces/commit/a7717278883c86d9ed8ab89f42070d3385c173a7))
+* **deps:** 升級多項依賴套件版本 ([1382602](https://github.com/bluelovers/ws-yarn-workspaces/commit/1382602ca94ff236b251fd1481b6332468de4621))
+
+
+### 📌　Dependencies
+
+* **release:** 主要版本升級與跨套件相依更新 ([2a24889](https://github.com/bluelovers/ws-yarn-workspaces/commit/2a248893f3667704d1ba0de12544091abf5d341e))
+
+
+
 ## [3.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ncu@3.0.2...@yarn-tool/ncu@3.0.3) (2025-09-07)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/sort-package-json-order",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Predefined sort order for package.json keys / package.json 鍵值的預定義排序順序",
   "keywords": [
     "package-json",

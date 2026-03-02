@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@lazy-node/semver-ampersand@3.0.3...@lazy-node/semver-ampersand@3.0.4) (2026-03-02)
+
+
+
+### 📚　Documentation
+
+* **semver:** 新增 semver-* 套件完整文件與測試案例 ([a89a944](https://github.com/bluelovers/ws-yarn-workspaces/commit/a89a944880ce53ac0678351df4b6744a5feb0b08))
+
+
+### 🚨　Tests
+
+* 修正測試斷言並完善測試工具文檔 ([8abcb1f](https://github.com/bluelovers/ws-yarn-workspaces/commit/8abcb1f23b0e4fa99ae957bad13a09136ef3bad0))
+* 改用快照測試驗證錯誤並簡化斷言語法 ([25a5c62](https://github.com/bluelovers/ws-yarn-workspaces/commit/25a5c627a1df5756cf78fb9312d8e47a9de2bd6c))
+* **semver-ampersand:** 新增連字號範圍測試案例與測試規格 ([4614f01](https://github.com/bluelovers/ws-yarn-workspaces/commit/4614f011be611fe0f803883f18a6780d21498b56))
+
+
+### 🛠　Build System
+
+* Introduce new utility packages for semantic versioning and Yarn tooling, and add CI/CD workflows. ([905a979](https://github.com/bluelovers/ws-yarn-workspaces/commit/905a9795333addd0fe802cad8068d5c5b414a992))
+
+
+### ♻️　Chores
+
+* Add test config and global types for tsdx ([88a8df6](https://github.com/bluelovers/ws-yarn-workspaces/commit/88a8df6eef5dc59d9e0d9268b21706dceb5ab2a1))
+* 更新 Jest 快照連結並增強類型定義與文件 ([b663b97](https://github.com/bluelovers/ws-yarn-workspaces/commit/b663b97d78d223dc8b3927ea2433938350144de7))
+* add __root.ts test utility to workspace packages ([a771727](https://github.com/bluelovers/ws-yarn-workspaces/commit/a7717278883c86d9ed8ab89f42070d3385c173a7))
+* **deps:** 升級多項依賴套件版本 ([1382602](https://github.com/bluelovers/ws-yarn-workspaces/commit/1382602ca94ff236b251fd1481b6332468de4621))
+
+
+
 ## [3.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/@lazy-node/semver-ampersand@3.0.2...@lazy-node/semver-ampersand@3.0.3) (2025-09-07)
 
 

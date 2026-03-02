@@ -3,6 +3,54 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.5](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.4...@yarn-tool/static-file@3.0.5) (2026-03-02)
+
+
+### BREAKING CHANGES
+
+* **static-file:** 重新組織 const.ts 中的檔案映射
+
+
+
+### 🐛　Bug Fixes
+
+* **config:** 更新 npmrc/pnpm-workspace.yaml 工作區設定 ([c127220](https://github.com/bluelovers/ws-yarn-workspaces/commit/c127220ce308de9409a1bc3b72b5bcf2e01432ce))
+* **static-file:** 補齊 gitignore 規則並修正 jest 配置註解 ([d2e7101](https://github.com/bluelovers/ws-yarn-workspaces/commit/d2e710116f3a3a3632a21839cd9629edaee66a8a))
+
+
+### ✨　Features
+
+* **yarn-tool:** 簡化靜態檔案複製配置並新增測試路徑常數 ([8f7660c](https://github.com/bluelovers/ws-yarn-workspaces/commit/8f7660c6df39b7cfd2c69a019f02a5f840193092))
+
+
+### 📦　Code Refactoring
+
+* **jest-config:** 更改模組載入機制並完善文件註解 ([8c1efb9](https://github.com/bluelovers/ws-yarn-workspaces/commit/8c1efb94efc6ca5e6f2a8eec20c428a6449fc5e7))
+* **static-file:** 重構 tsconfig 靜態檔案映射並更新 gitignore ([e79863e](https://github.com/bluelovers/ws-yarn-workspaces/commit/e79863ef29cb41a28d7fa53082a676907c149368))
+
+
+### 📚　Documentation
+
+* **@yarn-tool/ws-find-up-paths:** 新增雙語 JSDoc 註解並更新 README 文件 ([514a876](https://github.com/bluelovers/ws-yarn-workspaces/commit/514a876771481be67af4a41853582776dc444bb9))
+* **setup-module-env:** 為 tsdx 設定模組添加完整的 JSDoc 文檔註釋 ([5def98a](https://github.com/bluelovers/ws-yarn-workspaces/commit/5def98ab905bb3dc50d2d00e5f3f3d4da5d23cf3))
+
+
+### 🛠　Build System
+
+* update build ([51d49ad](https://github.com/bluelovers/ws-yarn-workspaces/commit/51d49adaa1f1fbfac4a299007dbf406d7ee7a4c7))
+
+
+### ♻️　Chores
+
+* Add test config and global types for tsdx ([88a8df6](https://github.com/bluelovers/ws-yarn-workspaces/commit/88a8df6eef5dc59d9e0d9268b21706dceb5ab2a1))
+* update README installation commands and add JSDoc comments ([2caaee5](https://github.com/bluelovers/ws-yarn-workspaces/commit/2caaee5185b452ec82768faacc27422aec8104b1))
+* add __root.ts test utility to workspace packages ([a771727](https://github.com/bluelovers/ws-yarn-workspaces/commit/a7717278883c86d9ed8ab89f42070d3385c173a7))
+* **deps:** 升級路徑與檔案系統相關依賴版本 ([78d395b](https://github.com/bluelovers/ws-yarn-workspaces/commit/78d395b5469feecc85f250ca2d8b4977161e7618))
+* **deps:** 升級多項依賴套件版本 ([1382602](https://github.com/bluelovers/ws-yarn-workspaces/commit/1382602ca94ff236b251fd1481b6332468de4621))
+* **static-file:** 重新組織 const.ts 中的檔案映射 ([43b04e0](https://github.com/bluelovers/ws-yarn-workspaces/commit/43b04e0884b4dcf1ecd39267a68893291136788c))
+
+
+
 ## [3.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.3...@yarn-tool/static-file@3.0.4) (2025-09-07)
 
 

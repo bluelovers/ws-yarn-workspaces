@@ -3,6 +3,48 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/changelog@3.0.3...@yarn-tool/changelog@3.0.4) (2026-03-02)
+
+
+### BREAKING CHANGES
+
+* **release:** 核心工具鏈套件升級
+- @lazy-node/semver-simple-parse v4.0.0
+- @yarn-tool/require-resolve v4.0.0
+- @yarn-tool/resolve-package v3.0.0
+- @yarn-tool/get-pkg-bin v3.0.0
+- @yarn-tool/check-pkg-bin v4.0.0
+
+更新所有工作區套件以使用相容的主要版本，並重構
+npm-package-arg-util 以抽離 _parsePackageNameCore 核心函式。
+
+
+
+### 📚　Documentation
+
+* **changelog,ws-changed,ws-root-changelog:** 新增完整雙語文件與 JSDoc 註解 ([d2274c6](https://github.com/bluelovers/ws-yarn-workspaces/commit/d2274c6d30ca30fd5d6bbf2900ac85fbf602f3ee))
+
+
+### 🛠　Build System
+
+* update build ([ff772db](https://github.com/bluelovers/ws-yarn-workspaces/commit/ff772dbdef672ec3cd1fb7c9ca5709404f11d76d))
+
+
+### ♻️　Chores
+
+* Add test config and global types for tsdx ([88a8df6](https://github.com/bluelovers/ws-yarn-workspaces/commit/88a8df6eef5dc59d9e0d9268b21706dceb5ab2a1))
+* add __root.ts test utility to workspace packages ([a771727](https://github.com/bluelovers/ws-yarn-workspaces/commit/a7717278883c86d9ed8ab89f42070d3385c173a7))
+* **deps:** 升級路徑與檔案系統相關依賴版本 ([78d395b](https://github.com/bluelovers/ws-yarn-workspaces/commit/78d395b5469feecc85f250ca2d8b4977161e7618))
+* **deps:** 更新依賴版本並將腳本執行從 yarn 遷移至 node --run ([389e581](https://github.com/bluelovers/ws-yarn-workspaces/commit/389e581a07cf803dc34c8402b4d3f69af0016b8c))
+* **deps:** 升級多項依賴套件版本 ([1382602](https://github.com/bluelovers/ws-yarn-workspaces/commit/1382602ca94ff236b251fd1481b6332468de4621))
+
+
+### 📌　Dependencies
+
+* **release:** 主要版本升級與跨套件相依更新 ([2a24889](https://github.com/bluelovers/ws-yarn-workspaces/commit/2a248893f3667704d1ba0de12544091abf5d341e))
+
+
+
 ## [3.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/changelog@3.0.2...@yarn-tool/changelog@3.0.3) (2025-09-07)
 
 

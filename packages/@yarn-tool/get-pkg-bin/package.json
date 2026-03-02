@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/get-pkg-bin",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "從 package.json 取得 bin 腳本路徑的工具庫 / A utility for getting bin script paths from package.json",
   "keywords": [
     "yarn-tool",
@@ -49,8 +49,8 @@
   },
   "dependencies": {
     "@ts-type/package-dts": "^2.0.8",
-    "@yarn-tool/get-paths-by-type": "^2.0.10",
-    "@yarn-tool/resolve-package": "^3.0.0",
+    "@yarn-tool/get-paths-by-type": "^2.0.11",
+    "@yarn-tool/resolve-package": "^3.0.1",
     "tslib": ">=2",
     "upath2": "^3.1.23"
   },

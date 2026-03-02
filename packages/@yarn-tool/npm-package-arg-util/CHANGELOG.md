@@ -3,6 +3,67 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/npm-package-arg-util@2.0.2...@yarn-tool/npm-package-arg-util@2.0.3) (2026-03-02)
+
+
+### BREAKING CHANGES
+
+* **release:** 核心工具鏈套件升級
+- @lazy-node/semver-simple-parse v4.0.0
+- @yarn-tool/require-resolve v4.0.0
+- @yarn-tool/resolve-package v3.0.0
+- @yarn-tool/get-pkg-bin v3.0.0
+- @yarn-tool/check-pkg-bin v4.0.0
+
+更新所有工作區套件以使用相容的主要版本，並重構
+npm-package-arg-util 以抽離 _parsePackageNameCore 核心函式。
+* **npm-package-arg-util:** 升級 npm-package-arg 依賴至 ^13.0.2 新增完整雙語文檔並增加測試覆蓋率
+
+
+
+### ✨　Features
+
+* **npm-package-arg-util:** 新增空值與特殊輸入檢測功能 ([c5e9acc](https://github.com/bluelovers/ws-yarn-workspaces/commit/c5e9acccc49e1c544f8e5aefa1532a35f5e99a9d))
+* **npm-package-arg-util:** 新增 EnumResultType 枚舉並完善類型文件與 JSDoc ([34e46e1](https://github.com/bluelovers/ws-yarn-workspaces/commit/34e46e1844b3708d5f6b147b7b8aa993a5d7194f))
+* **npm-package-arg-util:** 增強類型定義與斷言函數驗證 ([88fb780](https://github.com/bluelovers/ws-yarn-workspaces/commit/88fb78054588d32196e7ca6a611ecd383129a8f3))
+
+
+### 📦　Code Refactoring
+
+* **npm-package-arg-util:** 新增靈活驗證選項與 npa2/npaTry2 函數 ([c468023](https://github.com/bluelovers/ws-yarn-workspaces/commit/c4680239532d8e26e7520f8b71c357dfd091ecaf))
+* **npm-package-arg-util:** 重構斷言邏輯並改進測試工具函數 ([6099ef8](https://github.com/bluelovers/ws-yarn-workspaces/commit/6099ef8ff70d8377259d4e1862575dac77cac5a9))
+
+
+### 📚　Documentation
+
+* **npm-package-arg-util:** 升級 npm-package-arg 依賴至 ^13.0.2 新增完整雙語文檔並增加測試覆蓋率 ([9a1d212](https://github.com/bluelovers/ws-yarn-workspaces/commit/9a1d21235fa59ccb1d075638a1a5401b7624cbcd))
+
+
+### 🚨　Tests
+
+* **npm-package-arg-util:** 新增 npa 基礎測試案例並更新快照 ([6794a97](https://github.com/bluelovers/ws-yarn-workspaces/commit/6794a977d93b2824a75dbac2ce49705c3429e680))
+* **npm-package-arg-util:** 使用彈性匹配器改善測試可移植性 ([eca73ab](https://github.com/bluelovers/ws-yarn-workspaces/commit/eca73abbdea5459ff2c3e8785632ddf885ddad10))
+
+
+### 🛠　Build System
+
+* add npa2 functions with flexible parsing options ([b336639](https://github.com/bluelovers/ws-yarn-workspaces/commit/b33663948394ec33d567964d8b82318a6c41b52a))
+* **semver-parse,npm-package-arg-util:** 支援部分版本並新增輸入檢測功能 ([e824769](https://github.com/bluelovers/ws-yarn-workspaces/commit/e8247696151c6ffcd146eacdb46be0ee721ebefd))
+
+
+### ♻️　Chores
+
+* Add test config and global types for tsdx ([88a8df6](https://github.com/bluelovers/ws-yarn-workspaces/commit/88a8df6eef5dc59d9e0d9268b21706dceb5ab2a1))
+* add __root.ts test utility to workspace packages ([a771727](https://github.com/bluelovers/ws-yarn-workspaces/commit/a7717278883c86d9ed8ab89f42070d3385c173a7))
+* **assert:** improve validation logic and error messages ([82e5e06](https://github.com/bluelovers/ws-yarn-workspaces/commit/82e5e06ffc90ddf92d4ffd98a2b78f607de990da))
+
+
+### 📌　Dependencies
+
+* **release:** 主要版本升級與跨套件相依更新 ([2a24889](https://github.com/bluelovers/ws-yarn-workspaces/commit/2a248893f3667704d1ba0de12544091abf5d341e))
+
+
+
 ## [2.0.2](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/npm-package-arg-util@2.0.1...@yarn-tool/npm-package-arg-util@2.0.2) (2025-09-07)
 
 

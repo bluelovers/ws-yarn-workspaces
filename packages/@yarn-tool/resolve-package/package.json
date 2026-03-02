@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/resolve-package",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "解析 Node.js 套件的根目錄與 package.json 路徑的工具庫 / A utility for resolving package root and package.json paths",
   "keywords": [
     "yarn-tool",
@@ -63,7 +63,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/require-resolve": "^4.0.0",
+    "@yarn-tool/require-resolve": "^4.0.1",
     "tslib": ">=2"
   },
   "devDependencies": {

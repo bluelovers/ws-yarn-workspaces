@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-deps@3.0.3...@yarn-tool/find-deps@3.0.4) (2026-03-02)
+
+
+
+### 📚　Documentation
+
+* 為 workspace 路徑工具模組添加完整的 JSDoc 文檔註釋 ([f8fe11c](https://github.com/bluelovers/ws-yarn-workspaces/commit/f8fe11cf9c684f51e9fc284b2964a62293312829))
+
+
+### 🛠　Build System
+
+* update build ([51d49ad](https://github.com/bluelovers/ws-yarn-workspaces/commit/51d49adaa1f1fbfac4a299007dbf406d7ee7a4c7))
+
+
+### ♻️　Chores
+
+* Add test config and global types for tsdx ([88a8df6](https://github.com/bluelovers/ws-yarn-workspaces/commit/88a8df6eef5dc59d9e0d9268b21706dceb5ab2a1))
+* update README installation commands and add JSDoc comments ([2caaee5](https://github.com/bluelovers/ws-yarn-workspaces/commit/2caaee5185b452ec82768faacc27422aec8104b1))
+* add __root.ts test utility to workspace packages ([a771727](https://github.com/bluelovers/ws-yarn-workspaces/commit/a7717278883c86d9ed8ab89f42070d3385c173a7))
+
+
+
 ## [3.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-deps@3.0.2...@yarn-tool/find-deps@3.0.3) (2025-09-07)
 
 **Note:** Version bump only for package @yarn-tool/find-deps

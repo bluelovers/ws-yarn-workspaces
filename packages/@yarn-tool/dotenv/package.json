@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/dotenv",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "load dotenv from workspaces",
   "keywords": [
     "yarn",
@@ -44,7 +44,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/path-parents": "^2.0.15",
+    "@yarn-tool/path-parents": "^2.0.16",
     "dotenv": "^17.3.1",
     "fs-extra": "^11.3.3",
     "tslib": ">=2",

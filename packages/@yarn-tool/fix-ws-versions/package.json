@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/fix-ws-versions",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "自動同步和修復 monorepo workspace 中的套件版本依賴 (Auto sync and fix package version dependencies in monorepo workspaces)",
   "keywords": [
     "workspaces",
@@ -76,10 +76,10 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@lazy-node/semver-simple-parse": "^4.0.0",
+    "@lazy-node/semver-simple-parse": "^4.0.1",
     "@ts-type/package-dts": "^2.0.8",
     "tslib": ">=2",
-    "ws-pkg-list": "^3.0.3"
+    "ws-pkg-list": "^3.0.4"
   },
   "publishConfig": {
     "access": "public"

@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/get-paths-by-type",
-  "version": "2.0.10",
+  "version": "2.0.11",
   "description": "根據類型 Symbol 取得對應的路徑陣列（支援全域 npm/yarn 路徑） / Get corresponding path array based on type Symbol (supports global npm/yarn paths)",
   "keywords": [
     "yarn-tool",
@@ -48,7 +48,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/fnm-detect": "^1.0.0",
+    "@yarn-tool/fnm-detect": "^1.0.1",
     "global-dirs": "<4 >=3.0.1",
     "tslib": ">=2"
   },

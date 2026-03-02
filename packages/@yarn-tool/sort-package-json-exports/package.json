@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/sort-package-json-exports",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Sort package.json exports field with consistent key ordering / 排序 package.json exports 欄位，確保鍵值順序一致",
   "keywords": [
     "yarn",

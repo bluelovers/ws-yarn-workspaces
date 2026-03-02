@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/find-root",
-  "version": "2.0.15",
+  "version": "2.0.16",
   "description": "尋找 Yarn workspace 根目錄的工具，提供路徑驗證、錯誤處理和斷言函數 (Find Yarn workspace root directory with path validation, error handling, and assertion functions)",
   "keywords": [
     "monorepo",
@@ -52,7 +52,7 @@
   "dependencies": {
     "@ts-type/package-dts": "^2.0.8",
     "err-code": "^3.0.1",
-    "find-yarn-workspace-root2": "^1.2.51",
+    "find-yarn-workspace-root2": "^1.2.52",
     "path-is-same": "^1.0.29",
     "pkg-dir": "<6 >=5",
     "tslib": ">=2",

@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/up-require@3.0.3...up-require@3.0.4) (2026-03-02)
+
+
+
+### 🚨　Tests
+
+* **fnm-detect:** correct alias props and update dependencies ([21d1c54](https://github.com/bluelovers/ws-yarn-workspaces/commit/21d1c54c60ae64fb2117eae1e2b86bb42c8b6070))
+
+
+### ♻️　Chores
+
+* Add test config and global types for tsdx ([88a8df6](https://github.com/bluelovers/ws-yarn-workspaces/commit/88a8df6eef5dc59d9e0d9268b21706dceb5ab2a1))
+* add __root.ts test utility to workspace packages ([a771727](https://github.com/bluelovers/ws-yarn-workspaces/commit/a7717278883c86d9ed8ab89f42070d3385c173a7))
+
+
+### 🔖　Miscellaneous
+
+* . ([d0a2adc](https://github.com/bluelovers/ws-yarn-workspaces/commit/d0a2adca7732fe14da2977d24e148f42b10bdd1c))
+
+
+
 ## [3.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/up-require@3.0.2...up-require@3.0.3) (2025-09-07)
 
 

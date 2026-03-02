@@ -3,6 +3,76 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.1](https://github.com/bluelovers/ws-yarn-workspaces/compare/@lazy-node/semver-simple-parse@3.0.1...@lazy-node/semver-simple-parse@4.0.1) (2026-03-02)
+
+
+### BREAKING CHANGES
+
+* **release:** 核心工具鏈套件升級
+- @lazy-node/semver-simple-parse v4.0.0
+- @yarn-tool/require-resolve v4.0.0
+- @yarn-tool/resolve-package v3.0.0
+- @yarn-tool/get-pkg-bin v3.0.0
+- @yarn-tool/check-pkg-bin v4.0.0
+
+更新所有工作區套件以使用相容的主要版本，並重構
+npm-package-arg-util 以抽離 _parsePackageNameCore 核心函式。
+* **semver-parse:** 新增萬用字元版本解析支援
+* **semver-parse:** 重構類型系統並新增完整測試案例
+
+
+
+### 🐛　Bug Fixes
+
+* **semver:** 修正 mergeSimpleSemVer 行為限制與檢查函數錯誤 ([3e99a1d](https://github.com/bluelovers/ws-yarn-workspaces/commit/3e99a1dcf3fcd54943067b58eb0c711217d3b168))
+
+
+### ✨　Features
+
+* **npm-package-arg-util:** 新增空值與特殊輸入檢測功能 ([c5e9acc](https://github.com/bluelovers/ws-yarn-workspaces/commit/c5e9acccc49e1c544f8e5aefa1532a35f5e99a9d))
+* **semver:** 新增 stringifySimpleSemVer 選項控制輸出內容 ([1cbf9f5](https://github.com/bluelovers/ws-yarn-workspaces/commit/1cbf9f5cdcda51817539a0d71800a4ac5c170ff1))
+* **semver-parse:** 新增萬用字元類型檢測功能 ([6cead8d](https://github.com/bluelovers/ws-yarn-workspaces/commit/6cead8dd31e2bee7eec4f107086c2892af9c9c30))
+
+
+### 📦　Code Refactoring
+
+* **semver-parse:** 新增萬用字元版本解析支援 ([0d324d7](https://github.com/bluelovers/ws-yarn-workspaces/commit/0d324d79d9ba344d14e8bb5a410f72ad47c9f89d))
+* **semver-parse:** 重構類型系統並新增完整測試案例 ([099bcee](https://github.com/bluelovers/ws-yarn-workspaces/commit/099bceeb66971c07ddeb6fd15648170eb926095d))
+
+
+### 📚　Documentation
+
+* **semver:** 新增 semver-* 套件完整文件與測試案例 ([a89a944](https://github.com/bluelovers/ws-yarn-workspaces/commit/a89a944880ce53ac0678351df4b6744a5feb0b08))
+
+
+### 🚨　Tests
+
+* 修正測試斷言並完善測試工具文檔 ([8abcb1f](https://github.com/bluelovers/ws-yarn-workspaces/commit/8abcb1f23b0e4fa99ae957bad13a09136ef3bad0))
+* **semver-parse:** 新增多種版本格式測試案例與型別斷言 ([158c518](https://github.com/bluelovers/ws-yarn-workspaces/commit/158c518cff1b78bddee6637cf32eb55682a09578))
+* **semver-parse:** 新增測試快照檔案 ([6991e85](https://github.com/bluelovers/ws-yarn-workspaces/commit/6991e8545b9e3c3b880d29d13c3496b97c64365e))
+* **semver-parse:** 新增 OR 運算符萬用字元測試並重構測試輔助函數 ([73b30d0](https://github.com/bluelovers/ws-yarn-workspaces/commit/73b30d0c389f182ffd25a8cc71e1745af1f97f89))
+* **semver-parse:** 新增無效版本與萬用字元測試案例 ([1432052](https://github.com/bluelovers/ws-yarn-workspaces/commit/1432052013ebc8ec60559696742106568e1fba77))
+
+
+### 🛠　Build System
+
+* Introduce new utility packages for semantic versioning and Yarn tooling, and add CI/CD workflows. ([905a979](https://github.com/bluelovers/ws-yarn-workspaces/commit/905a9795333addd0fe802cad8068d5c5b414a992))
+* **semver-parse,npm-package-arg-util:** 支援部分版本並新增輸入檢測功能 ([e824769](https://github.com/bluelovers/ws-yarn-workspaces/commit/e8247696151c6ffcd146eacdb46be0ee721ebefd))
+
+
+### ♻️　Chores
+
+* Add test config and global types for tsdx ([88a8df6](https://github.com/bluelovers/ws-yarn-workspaces/commit/88a8df6eef5dc59d9e0d9268b21706dceb5ab2a1))
+* 更新 Jest 快照連結並增強類型定義與文件 ([b663b97](https://github.com/bluelovers/ws-yarn-workspaces/commit/b663b97d78d223dc8b3927ea2433938350144de7))
+* add __root.ts test utility to workspace packages ([a771727](https://github.com/bluelovers/ws-yarn-workspaces/commit/a7717278883c86d9ed8ab89f42070d3385c173a7))
+
+
+### 📌　Dependencies
+
+* **release:** 主要版本升級與跨套件相依更新 ([2a24889](https://github.com/bluelovers/ws-yarn-workspaces/commit/2a248893f3667704d1ba0de12544091abf5d341e))
+
+
+
 ## [3.0.1](https://github.com/bluelovers/ws-yarn-workspaces/compare/@lazy-node/semver-simple-parse@3.0.0...@lazy-node/semver-simple-parse@3.0.1) (2024-05-03)
 
 

@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-ws-versions@3.0.3...@yarn-tool/fix-ws-versions@3.0.4) (2026-03-02)
+
+
+
+### 📚　Documentation
+
+* **fix-all, fix-ws-versions:** 完善文件與程式碼註解 ([552d9be](https://github.com/bluelovers/ws-yarn-workspaces/commit/552d9bea7c192ad61a4a488ace697c7b13ae3ccb))
+
+
+### ♻️　Chores
+
+* Add test config and global types for tsdx ([88a8df6](https://github.com/bluelovers/ws-yarn-workspaces/commit/88a8df6eef5dc59d9e0d9268b21706dceb5ab2a1))
+* remove empty resolutions and redundant packageManager fields ([65b5c5f](https://github.com/bluelovers/ws-yarn-workspaces/commit/65b5c5f929aae82474408b2b46cfc5a471c919f6))
+* add __root.ts test utility to workspace packages ([a771727](https://github.com/bluelovers/ws-yarn-workspaces/commit/a7717278883c86d9ed8ab89f42070d3385c173a7))
+
+
+
 ## [3.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-ws-versions@3.0.2...@yarn-tool/fix-ws-versions@3.0.3) (2025-09-07)
 
 **Note:** Version bump only for package @yarn-tool/fix-ws-versions

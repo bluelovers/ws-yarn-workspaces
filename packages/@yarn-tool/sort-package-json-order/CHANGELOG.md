@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/sort-package-json-order@2.0.3...@yarn-tool/sort-package-json-order@2.0.4) (2026-03-02)
+
+
+
+### ✨　Features
+
+* **yarn-tool:** 新增 package.json 排序欄位與測試 ([c9318d7](https://github.com/bluelovers/ws-yarn-workspaces/commit/c9318d70eba03f053147fadb61e440077785c155))
+
+
+### 📚　Documentation
+
+* **sort-package-json:** 新增排序工具集文件並增強 JSDoc 註解 ([dba3f52](https://github.com/bluelovers/ws-yarn-workspaces/commit/dba3f52818072f510a8b70a9b94c85a632789c2e))
+
+
+### 🚨　Tests
+
+* **fnm-detect:** correct alias props and update dependencies ([21d1c54](https://github.com/bluelovers/ws-yarn-workspaces/commit/21d1c54c60ae64fb2117eae1e2b86bb42c8b6070))
+
+
+### ♻️　Chores
+
+* Add test config and global types for tsdx ([88a8df6](https://github.com/bluelovers/ws-yarn-workspaces/commit/88a8df6eef5dc59d9e0d9268b21706dceb5ab2a1))
+* 更新 Jest 快照連結並增強類型定義與文件 ([b663b97](https://github.com/bluelovers/ws-yarn-workspaces/commit/b663b97d78d223dc8b3927ea2433938350144de7))
+* remove empty resolutions and redundant packageManager fields ([65b5c5f](https://github.com/bluelovers/ws-yarn-workspaces/commit/65b5c5f929aae82474408b2b46cfc5a471c919f6))
+* add __root.ts test utility to workspace packages ([a771727](https://github.com/bluelovers/ws-yarn-workspaces/commit/a7717278883c86d9ed8ab89f42070d3385c173a7))
+* **deps:** 升級多項依賴套件版本 ([1382602](https://github.com/bluelovers/ws-yarn-workspaces/commit/1382602ca94ff236b251fd1481b6332468de4621))
+
+
+### 🔖　Miscellaneous
+
+* . ([d0a2adc](https://github.com/bluelovers/ws-yarn-workspaces/commit/d0a2adca7732fe14da2977d24e148f42b10bdd1c))
+
+
+
 ## [2.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/sort-package-json-order@2.0.2...@yarn-tool/sort-package-json-order@2.0.3) (2025-09-07)
 
 

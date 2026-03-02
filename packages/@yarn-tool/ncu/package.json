@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/ncu",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "A wrapper tool for npm-check-updates that checks and updates package dependencies with semver support, version caching, and yarn.lock resolutions integration. Provides CLI options, table output, and efficient batch processing for monorepo workflows. 封裝 npm-check-updates 的依賴版本檢查與更新工具，支援 semver 版本範圍處理、版本快取機制與 yarn.lock resolutions 整合，提供 CLI 選項、表格輸出和適用於 monorepo 工作流程的有效批次處理。",
   "keywords": [
     "npm-check-updates",
@@ -50,14 +50,14 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@lazy-node/semver-simple-parse": "^4.0.0",
+    "@lazy-node/semver-simple-parse": "^4.0.1",
     "@ts-type/package-dts": "^2.0.8",
-    "@yarn-tool/npm-package-arg-util": "^2.0.2",
-    "@yarn-tool/pkg-version-query": "^3.0.3",
-    "@yarn-tool/semver-diff": "^2.0.13",
-    "@yarn-tool/table": "^2.0.15",
-    "@yarn-tool/yargs-util": "^1.0.10",
-    "@yarn-tool/yarnlock": "^3.0.3",
+    "@yarn-tool/npm-package-arg-util": "^2.0.3",
+    "@yarn-tool/pkg-version-query": "^3.0.4",
+    "@yarn-tool/semver-diff": "^2.0.14",
+    "@yarn-tool/table": "^2.0.16",
+    "@yarn-tool/yargs-util": "^1.0.11",
+    "@yarn-tool/yarnlock": "^3.0.4",
     "bluebird": "^3.7.2",
     "npm-check-updates": "<12 >=11.8.5",
     "package-json": "<7 >=6.5",

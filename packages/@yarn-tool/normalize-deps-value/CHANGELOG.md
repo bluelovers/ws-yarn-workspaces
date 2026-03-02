@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/normalize-deps-value@2.0.3...@yarn-tool/normalize-deps-value@2.0.4) (2026-03-02)
+
+
+
+### ✨　Features
+
+* **npm-package-arg-util:** 新增空值與特殊輸入檢測功能 ([c5e9acc](https://github.com/bluelovers/ws-yarn-workspaces/commit/c5e9acccc49e1c544f8e5aefa1532a35f5e99a9d))
+
+
+### 🚨　Tests
+
+* **fnm-detect:** correct alias props and update dependencies ([21d1c54](https://github.com/bluelovers/ws-yarn-workspaces/commit/21d1c54c60ae64fb2117eae1e2b86bb42c8b6070))
+
+
+### 🛠　Build System
+
+* **semver-parse,npm-package-arg-util:** 支援部分版本並新增輸入檢測功能 ([e824769](https://github.com/bluelovers/ws-yarn-workspaces/commit/e8247696151c6ffcd146eacdb46be0ee721ebefd))
+
+
+### ♻️　Chores
+
+* Add test config and global types for tsdx ([88a8df6](https://github.com/bluelovers/ws-yarn-workspaces/commit/88a8df6eef5dc59d9e0d9268b21706dceb5ab2a1))
+* 更新 Jest 快照連結並增強類型定義與文件 ([b663b97](https://github.com/bluelovers/ws-yarn-workspaces/commit/b663b97d78d223dc8b3927ea2433938350144de7))
+* remove empty resolutions and redundant packageManager fields ([65b5c5f](https://github.com/bluelovers/ws-yarn-workspaces/commit/65b5c5f929aae82474408b2b46cfc5a471c919f6))
+* add __root.ts test utility to workspace packages ([a771727](https://github.com/bluelovers/ws-yarn-workspaces/commit/a7717278883c86d9ed8ab89f42070d3385c173a7))
+
+
+
 ## [2.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/normalize-deps-value@2.0.2...@yarn-tool/normalize-deps-value@2.0.3) (2025-09-07)
 
 **Note:** Version bump only for package @yarn-tool/normalize-deps-value

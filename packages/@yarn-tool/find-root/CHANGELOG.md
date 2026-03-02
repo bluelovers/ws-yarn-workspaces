@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.16](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-root@2.0.15...@yarn-tool/find-root@2.0.16) (2026-03-02)
+
+
+
+### 📚　Documentation
+
+* 為 workspace 路徑工具模組添加完整的 JSDoc 文檔註釋 ([f8fe11c](https://github.com/bluelovers/ws-yarn-workspaces/commit/f8fe11cf9c684f51e9fc284b2964a62293312829))
+* **@yarn-tool/find-root:** 新增完整的 README 文件並更新 package.json 描述與關鍵字 ([80e1a06](https://github.com/bluelovers/ws-yarn-workspaces/commit/80e1a065f65f4710c3772d9c7ed5c6aaec16a653))
+
+
+### 🛠　Build System
+
+* update build ([51d49ad](https://github.com/bluelovers/ws-yarn-workspaces/commit/51d49adaa1f1fbfac4a299007dbf406d7ee7a4c7))
+
+
+### ♻️　Chores
+
+* Add test config and global types for tsdx ([88a8df6](https://github.com/bluelovers/ws-yarn-workspaces/commit/88a8df6eef5dc59d9e0d9268b21706dceb5ab2a1))
+* update README installation commands and add JSDoc comments ([2caaee5](https://github.com/bluelovers/ws-yarn-workspaces/commit/2caaee5185b452ec82768faacc27422aec8104b1))
+* add __root.ts test utility to workspace packages ([a771727](https://github.com/bluelovers/ws-yarn-workspaces/commit/a7717278883c86d9ed8ab89f42070d3385c173a7))
+* **deps:** 升級路徑與檔案系統相關依賴版本 ([78d395b](https://github.com/bluelovers/ws-yarn-workspaces/commit/78d395b5469feecc85f250ca2d8b4977161e7618))
+* **deps:** 更新依賴版本並將腳本執行從 yarn 遷移至 node --run ([389e581](https://github.com/bluelovers/ws-yarn-workspaces/commit/389e581a07cf803dc34c8402b4d3f69af0016b8c))
+* **deps:** 升級多項依賴套件版本 ([1382602](https://github.com/bluelovers/ws-yarn-workspaces/commit/1382602ca94ff236b251fd1481b6332468de4621))
+
+
+
 ## [2.0.15](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-root@2.0.14...@yarn-tool/find-root@2.0.15) (2025-09-07)
 
 **Note:** Version bump only for package @yarn-tool/find-root

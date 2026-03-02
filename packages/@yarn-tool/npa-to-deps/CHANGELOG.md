@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/npa-to-deps@3.0.2...@yarn-tool/npa-to-deps@3.0.3) (2026-03-02)
+
+
+### BREAKING CHANGES
+
+* **release:** 核心工具鏈套件升級
+- @lazy-node/semver-simple-parse v4.0.0
+- @yarn-tool/require-resolve v4.0.0
+- @yarn-tool/resolve-package v3.0.0
+- @yarn-tool/get-pkg-bin v3.0.0
+- @yarn-tool/check-pkg-bin v4.0.0
+
+更新所有工作區套件以使用相容的主要版本，並重構
+npm-package-arg-util 以抽離 _parsePackageNameCore 核心函式。
+
+
+
+### 🐛　Bug Fixes
+
+* **npa-to-deps:** 新增名稱與規格相同時的查詢標記邏輯 ([6baa8eb](https://github.com/bluelovers/ws-yarn-workspaces/commit/6baa8eb5b1900ae548e459f5756eb4155f2842f2))
+
+
+### ✨　Features
+
+* **npm-package-arg-util:** 新增空值與特殊輸入檢測功能 ([c5e9acc](https://github.com/bluelovers/ws-yarn-workspaces/commit/c5e9acccc49e1c544f8e5aefa1532a35f5e99a9d))
+
+
+### 🛠　Build System
+
+* **semver-parse,npm-package-arg-util:** 支援部分版本並新增輸入檢測功能 ([e824769](https://github.com/bluelovers/ws-yarn-workspaces/commit/e8247696151c6ffcd146eacdb46be0ee721ebefd))
+
+
+### ♻️　Chores
+
+* Add test config and global types for tsdx ([88a8df6](https://github.com/bluelovers/ws-yarn-workspaces/commit/88a8df6eef5dc59d9e0d9268b21706dceb5ab2a1))
+* 更新 Jest 快照連結並增強類型定義與文件 ([b663b97](https://github.com/bluelovers/ws-yarn-workspaces/commit/b663b97d78d223dc8b3927ea2433938350144de7))
+* remove empty resolutions and redundant packageManager fields ([65b5c5f](https://github.com/bluelovers/ws-yarn-workspaces/commit/65b5c5f929aae82474408b2b46cfc5a471c919f6))
+* add __root.ts test utility to workspace packages ([a771727](https://github.com/bluelovers/ws-yarn-workspaces/commit/a7717278883c86d9ed8ab89f42070d3385c173a7))
+
+
+### 📌　Dependencies
+
+* **release:** 主要版本升級與跨套件相依更新 ([2a24889](https://github.com/bluelovers/ws-yarn-workspaces/commit/2a248893f3667704d1ba0de12544091abf5d341e))
+
+
+
 ## [3.0.2](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/npa-to-deps@3.0.1...@yarn-tool/npa-to-deps@3.0.2) (2025-09-07)
 
 **Note:** Version bump only for package @yarn-tool/npa-to-deps

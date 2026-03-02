@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/types",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "typescript types for share use",
   "keywords": [
     "yarn",

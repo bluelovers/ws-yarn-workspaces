@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.16](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-tsconfig@2.0.15...@yarn-tool/find-tsconfig@2.0.16) (2026-03-02)
+
+
+
+### ♻️　Chores
+
+* Add test config and global types for tsdx ([88a8df6](https://github.com/bluelovers/ws-yarn-workspaces/commit/88a8df6eef5dc59d9e0d9268b21706dceb5ab2a1))
+* update README installation commands and add JSDoc comments ([2caaee5](https://github.com/bluelovers/ws-yarn-workspaces/commit/2caaee5185b452ec82768faacc27422aec8104b1))
+* add __root.ts test utility to workspace packages ([a771727](https://github.com/bluelovers/ws-yarn-workspaces/commit/a7717278883c86d9ed8ab89f42070d3385c173a7))
+
+
+
 ## [2.0.15](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-tsconfig@2.0.14...@yarn-tool/find-tsconfig@2.0.15) (2025-09-07)
 
 **Note:** Version bump only for package @yarn-tool/find-tsconfig

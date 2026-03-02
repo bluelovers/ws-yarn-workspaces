@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.10](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/script-lifecycle@2.0.9...@yarn-tool/script-lifecycle@2.0.10) (2026-03-02)
+
+
+
+### 📚　Documentation
+
+* **sort-package-json:** 新增排序工具集文件並增強 JSDoc 註解 ([dba3f52](https://github.com/bluelovers/ws-yarn-workspaces/commit/dba3f52818072f510a8b70a9b94c85a632789c2e))
+
+
+### 🛠　Build System
+
+* Introduce new utility packages for semantic versioning and Yarn tooling, and add CI/CD workflows. ([905a979](https://github.com/bluelovers/ws-yarn-workspaces/commit/905a9795333addd0fe802cad8068d5c5b414a992))
+
+
+### ♻️　Chores
+
+* Add test config and global types for tsdx ([88a8df6](https://github.com/bluelovers/ws-yarn-workspaces/commit/88a8df6eef5dc59d9e0d9268b21706dceb5ab2a1))
+* 更新 Jest 快照連結並增強類型定義與文件 ([b663b97](https://github.com/bluelovers/ws-yarn-workspaces/commit/b663b97d78d223dc8b3927ea2433938350144de7))
+* add __root.ts test utility to workspace packages ([a771727](https://github.com/bluelovers/ws-yarn-workspaces/commit/a7717278883c86d9ed8ab89f42070d3385c173a7))
+
+
+
 ## [2.0.9](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/script-lifecycle@2.0.8...@yarn-tool/script-lifecycle@2.0.9) (2024-05-03)
 
 

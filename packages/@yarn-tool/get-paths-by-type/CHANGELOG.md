@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.11](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/get-paths-by-type@2.0.10...@yarn-tool/get-paths-by-type@2.0.11) (2026-03-02)
+
+
+
+### 📚　Documentation
+
+* add bilingual documentation and JSDoc comments to multiple packages ([bb47d30](https://github.com/bluelovers/ws-yarn-workspaces/commit/bb47d309c3258006d5261e4d62c2f82c690d452a))
+
+
+### ♻️　Chores
+
+* Add test config and global types for tsdx ([88a8df6](https://github.com/bluelovers/ws-yarn-workspaces/commit/88a8df6eef5dc59d9e0d9268b21706dceb5ab2a1))
+* remove empty resolutions and redundant packageManager fields ([65b5c5f](https://github.com/bluelovers/ws-yarn-workspaces/commit/65b5c5f929aae82474408b2b46cfc5a471c919f6))
+* add __root.ts test utility to workspace packages ([a771727](https://github.com/bluelovers/ws-yarn-workspaces/commit/a7717278883c86d9ed8ab89f42070d3385c173a7))
+
+
+### 🔖　Miscellaneous
+
+* . ([d0a2adc](https://github.com/bluelovers/ws-yarn-workspaces/commit/d0a2adca7732fe14da2977d24e148f42b10bdd1c))
+
+
+
 ## [2.0.10](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/get-paths-by-type@2.0.9...@yarn-tool/get-paths-by-type@2.0.10) (2024-05-03)
 
 

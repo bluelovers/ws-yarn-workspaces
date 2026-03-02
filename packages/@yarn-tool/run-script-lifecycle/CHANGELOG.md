@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.5](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/run-script-lifecycle@3.0.4...@yarn-tool/run-script-lifecycle@3.0.5) (2026-03-02)
+
+
+
+### 🐛　Bug Fixes
+
+* **run-script-lifecycle:** 新增完整雙語文檔並改進套件配置 ([359d235](https://github.com/bluelovers/ws-yarn-workspaces/commit/359d235a9e5e756c6afa516b0f54748d9d9d969f))
+
+
+### ✨　Features
+
+* **yarn-tool:** 新增 package.json 排序欄位與測試 ([c9318d7](https://github.com/bluelovers/ws-yarn-workspaces/commit/c9318d70eba03f053147fadb61e440077785c155))
+
+
+### 🛠　Build System
+
+* Introduce new utility packages for semantic versioning and Yarn tooling, and add CI/CD workflows. ([905a979](https://github.com/bluelovers/ws-yarn-workspaces/commit/905a9795333addd0fe802cad8068d5c5b414a992))
+
+
+### ♻️　Chores
+
+* Add test config and global types for tsdx ([88a8df6](https://github.com/bluelovers/ws-yarn-workspaces/commit/88a8df6eef5dc59d9e0d9268b21706dceb5ab2a1))
+* 更新 Jest 快照連結並增強類型定義與文件 ([b663b97](https://github.com/bluelovers/ws-yarn-workspaces/commit/b663b97d78d223dc8b3927ea2433938350144de7))
+* add __root.ts test utility to workspace packages ([a771727](https://github.com/bluelovers/ws-yarn-workspaces/commit/a7717278883c86d9ed8ab89f42070d3385c173a7))
+* **deps:** 更新依賴版本並將腳本執行從 yarn 遷移至 node --run ([389e581](https://github.com/bluelovers/ws-yarn-workspaces/commit/389e581a07cf803dc34c8402b4d3f69af0016b8c))
+
+
+
 ## [3.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/run-script-lifecycle@3.0.3...@yarn-tool/run-script-lifecycle@3.0.4) (2025-09-11)
 
 

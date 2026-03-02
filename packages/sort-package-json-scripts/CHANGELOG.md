@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.29](https://github.com/bluelovers/ws-yarn-workspaces/compare/sort-package-json-scripts@1.1.28...sort-package-json-scripts@1.1.29) (2026-03-02)
+
+
+
+### ✨　Features
+
+* **pkg-entry-util:** 將預設腳本執行從 yarn run 遷移至 node --run 並新增 pnpm 支援 ([9a414f0](https://github.com/bluelovers/ws-yarn-workspaces/commit/9a414f0b9b8f2970b539ee6ef45708285af29e13))
+
+
+### 📚　Documentation
+
+* **sort-package-json:** 新增排序工具集文件並增強 JSDoc 註解 ([dba3f52](https://github.com/bluelovers/ws-yarn-workspaces/commit/dba3f52818072f510a8b70a9b94c85a632789c2e))
+
+
+### 🛠　Build System
+
+* Introduce new utility packages for semantic versioning and Yarn tooling, and add CI/CD workflows. ([905a979](https://github.com/bluelovers/ws-yarn-workspaces/commit/905a9795333addd0fe802cad8068d5c5b414a992))
+* **pkg-entry-util:** 將腳本執行從 yarn run 遷移至 node --run 並新增 pnpm 支援 ([a2e0302](https://github.com/bluelovers/ws-yarn-workspaces/commit/a2e0302758049af2067e4d0f67f7cc8792f56df2))
+
+
+### ♻️　Chores
+
+* Add test config and global types for tsdx ([88a8df6](https://github.com/bluelovers/ws-yarn-workspaces/commit/88a8df6eef5dc59d9e0d9268b21706dceb5ab2a1))
+* add __root.ts test utility to workspace packages ([a771727](https://github.com/bluelovers/ws-yarn-workspaces/commit/a7717278883c86d9ed8ab89f42070d3385c173a7))
+
+
+
 ## [1.1.28](https://github.com/bluelovers/ws-yarn-workspaces/compare/sort-package-json-scripts@1.1.27...sort-package-json-scripts@1.1.28) (2025-09-07)
 
 

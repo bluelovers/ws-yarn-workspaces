@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.5](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-all@3.0.4...@yarn-tool/fix-all@3.0.5) (2026-03-02)
+
+
+
+### 🐛　Bug Fixes
+
+* **@yarn-tool/fix-all:** 修正新增 README.md 時沒有更新模板內容的問題 ([6c59e79](https://github.com/bluelovers/ws-yarn-workspaces/commit/6c59e79e03768e1bc570f3b64c5c0808d6fe72b8))
+
+
+### 📦　Code Refactoring
+
+* **@yarn-tool/fix-all:** fix indentation and add JSDoc documentation ([724a114](https://github.com/bluelovers/ws-yarn-workspaces/commit/724a114427a9f8adb93a51bd5eab73b4fc66abd6))
+* **@yarn-tool/fix-all:** extract core fix logic into _runFixPackagesCore function ([ae5a045](https://github.com/bluelovers/ws-yarn-workspaces/commit/ae5a045740ffbc95d34c03a76fb643694feccf93))
+
+
+### 📚　Documentation
+
+* 為 fix-all、pkg-entry-util、node-package-json-loader 添加完整的 JSDoc 文檔註釋 ([92d17e5](https://github.com/bluelovers/ws-yarn-workspaces/commit/92d17e5866c9330c4ee66e78b34a7318bb7d3203))
+* **fix-all, fix-ws-versions:** 完善文件與程式碼註解 ([552d9be](https://github.com/bluelovers/ws-yarn-workspaces/commit/552d9bea7c192ad61a4a488ace697c7b13ae3ccb))
+
+
+### 🛠　Build System
+
+* update build ([51d49ad](https://github.com/bluelovers/ws-yarn-workspaces/commit/51d49adaa1f1fbfac4a299007dbf406d7ee7a4c7))
+
+
+### ♻️　Chores
+
+* Add test config and global types for tsdx ([88a8df6](https://github.com/bluelovers/ws-yarn-workspaces/commit/88a8df6eef5dc59d9e0d9268b21706dceb5ab2a1))
+* update README installation commands and add JSDoc comments ([2caaee5](https://github.com/bluelovers/ws-yarn-workspaces/commit/2caaee5185b452ec82768faacc27422aec8104b1))
+* remove empty resolutions and redundant packageManager fields ([65b5c5f](https://github.com/bluelovers/ws-yarn-workspaces/commit/65b5c5f929aae82474408b2b46cfc5a471c919f6))
+* add __root.ts test utility to workspace packages ([a771727](https://github.com/bluelovers/ws-yarn-workspaces/commit/a7717278883c86d9ed8ab89f42070d3385c173a7))
+* **deps:** 升級路徑與檔案系統相關依賴版本 ([78d395b](https://github.com/bluelovers/ws-yarn-workspaces/commit/78d395b5469feecc85f250ca2d8b4977161e7618))
+* **deps:** 更新依賴版本並將腳本執行從 yarn 遷移至 node --run ([389e581](https://github.com/bluelovers/ws-yarn-workspaces/commit/389e581a07cf803dc34c8402b4d3f69af0016b8c))
+* **deps:** 升級多項依賴套件版本 ([1382602](https://github.com/bluelovers/ws-yarn-workspaces/commit/1382602ca94ff236b251fd1481b6332468de4621))
+
+
+
 ## [3.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-all@3.0.3...@yarn-tool/fix-all@3.0.4) (2025-09-07)
 
 

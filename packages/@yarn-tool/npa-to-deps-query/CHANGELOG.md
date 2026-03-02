@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/npa-to-deps-query@3.0.3...@yarn-tool/npa-to-deps-query@3.0.4) (2026-03-02)
+
+
+
+### 📦　Code Refactoring
+
+* **npa-to-deps-query:** 整合 IResult 類型並添加 npm-package-arg-util 依賴 ([7c4471c](https://github.com/bluelovers/ws-yarn-workspaces/commit/7c4471c7ccd1242826b6f47da38bb967a6c44abc))
+
+
+### ♻️　Chores
+
+* Add test config and global types for tsdx ([88a8df6](https://github.com/bluelovers/ws-yarn-workspaces/commit/88a8df6eef5dc59d9e0d9268b21706dceb5ab2a1))
+* 更新 Jest 快照連結並增強類型定義與文件 ([b663b97](https://github.com/bluelovers/ws-yarn-workspaces/commit/b663b97d78d223dc8b3927ea2433938350144de7))
+* remove empty resolutions and redundant packageManager fields ([65b5c5f](https://github.com/bluelovers/ws-yarn-workspaces/commit/65b5c5f929aae82474408b2b46cfc5a471c919f6))
+* add __root.ts test utility to workspace packages ([a771727](https://github.com/bluelovers/ws-yarn-workspaces/commit/a7717278883c86d9ed8ab89f42070d3385c173a7))
+
+
+
 ## [3.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/npa-to-deps-query@3.0.2...@yarn-tool/npa-to-deps-query@3.0.3) (2025-09-07)
 
 **Note:** Version bump only for package @yarn-tool/npa-to-deps-query

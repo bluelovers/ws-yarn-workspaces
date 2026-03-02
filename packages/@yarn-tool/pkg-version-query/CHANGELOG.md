@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-version-query@3.0.3...@yarn-tool/pkg-version-query@3.0.4) (2026-03-02)
+
+
+
+### 📚　Documentation
+
+* **ncu:** 新增 NCU 工具模組文件並增強 JSDoc 註解 ([6a7132f](https://github.com/bluelovers/ws-yarn-workspaces/commit/6a7132f1b1fa0ba801b2939675b584270e042cee))
+
+
+### 🛠　Build System
+
+* **ncu:** add JSDoc documentation for ncu packages ([02b2220](https://github.com/bluelovers/ws-yarn-workspaces/commit/02b22204eea616853507a6ad06118aa73f6c4a9b))
+
+
+### ♻️　Chores
+
+* Add test config and global types for tsdx ([88a8df6](https://github.com/bluelovers/ws-yarn-workspaces/commit/88a8df6eef5dc59d9e0d9268b21706dceb5ab2a1))
+* 更新 Jest 快照連結並增強類型定義與文件 ([b663b97](https://github.com/bluelovers/ws-yarn-workspaces/commit/b663b97d78d223dc8b3927ea2433938350144de7))
+* add __root.ts test utility to workspace packages ([a771727](https://github.com/bluelovers/ws-yarn-workspaces/commit/a7717278883c86d9ed8ab89f42070d3385c173a7))
+* **deps:** 升級多項依賴套件版本 ([1382602](https://github.com/bluelovers/ws-yarn-workspaces/commit/1382602ca94ff236b251fd1481b6332468de4621))
+
+
+
 ## [3.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-version-query@3.0.2...@yarn-tool/pkg-version-query@3.0.3) (2025-09-07)
 
 

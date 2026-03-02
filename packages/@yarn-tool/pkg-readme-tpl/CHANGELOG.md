@@ -1,0 +1,24 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## 1.0.1 (2026-03-02)
+
+
+
+### 🐛　Bug Fixes
+
+* **@yarn-tool/fix-all:** 修正新增 README.md 時沒有更新模板內容的問題 ([6c59e79](https://github.com/bluelovers/ws-yarn-workspaces/commit/6c59e79e03768e1bc570f3b64c5c0808d6fe72b8))
+
+
+### 📦　Code Refactoring
+
+* 將 writeReadme 功能提取至獨立套件 @yarn-tool/pkg-readme-tpl ([135f759](https://github.com/bluelovers/ws-yarn-workspaces/commit/135f7598c432eb6505f8fbd44f6f57d7193d675f))
+* **pkg-readme-tpl:** extract template logic and add generic type ([bbdb13c](https://github.com/bluelovers/ws-yarn-workspaces/commit/bbdb13c97cbb5a3c80f1c4c9ce36ee721fe4ad34))
+
+
+### ♻️　Chores
+
+* Add test config and global types for tsdx ([88a8df6](https://github.com/bluelovers/ws-yarn-workspaces/commit/88a8df6eef5dc59d9e0d9268b21706dceb5ab2a1))
+* update README installation commands and add JSDoc comments ([2caaee5](https://github.com/bluelovers/ws-yarn-workspaces/commit/2caaee5185b452ec82768faacc27422aec8104b1))

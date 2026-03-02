@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.5](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/sort-package-json-exports@1.0.4...@yarn-tool/sort-package-json-exports@1.0.5) (2026-03-02)
+
+
+
+### 📚　Documentation
+
+* **sort-package-json:** 新增排序工具集文件並增強 JSDoc 註解 ([dba3f52](https://github.com/bluelovers/ws-yarn-workspaces/commit/dba3f52818072f510a8b70a9b94c85a632789c2e))
+
+
+### ♻️　Chores
+
+* 更新 Jest 快照連結並增強類型定義與文件 ([b663b97](https://github.com/bluelovers/ws-yarn-workspaces/commit/b663b97d78d223dc8b3927ea2433938350144de7))
+* remove empty resolutions and redundant packageManager fields ([65b5c5f](https://github.com/bluelovers/ws-yarn-workspaces/commit/65b5c5f929aae82474408b2b46cfc5a471c919f6))
+* add __root.ts test utility to workspace packages ([a771727](https://github.com/bluelovers/ws-yarn-workspaces/commit/a7717278883c86d9ed8ab89f42070d3385c173a7))
+
+
+
 ## [1.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/sort-package-json-exports@1.0.3...@yarn-tool/sort-package-json-exports@1.0.4) (2025-09-07)
 
 
