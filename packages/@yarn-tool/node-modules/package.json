@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "@bluelovers/fast-glob": "^3.0.4",
+    "find-yarn-workspace-root2": "^1.2.51",
     "pkg-dir": "<6 >=5",
     "tslib": ">=2",
     "upath2": "^3.1.23",
