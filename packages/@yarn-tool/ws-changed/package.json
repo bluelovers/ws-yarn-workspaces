@@ -1,7 +1,7 @@
 {
   "name": "@yarn-tool/ws-changed",
   "version": "3.0.3",
-  "description": "get package changed list from lerna and git",
+  "description": "Detect changed packages in monorepo workspaces using both Lerna and Git",
   "keywords": [
     "lerna",
     "git",
@@ -9,7 +9,12 @@
     "changed",
     "yarn-tool",
     "ws",
-    "yarn"
+    "yarn",
+    "monorepo",
+    "staged",
+    "diff",
+    "packages",
+    "detect"
   ],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/ws-changed#readme",
   "bugs": {

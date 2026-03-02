@@ -1,7 +1,7 @@
 {
   "name": "ws-root-changelog",
   "version": "3.0.3",
-  "description": "output changelog toc in workspaces root ",
+  "description": "Generate a root CHANGELOG.md with links to all workspace package changelogs",
   "keywords": [
     "workspaces",
     "root",
@@ -16,7 +16,9 @@
     "yarnlock",
     "node-modules",
     "packages",
-    "package"
+    "package",
+    "toc",
+    "overview"
   ],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/ws-root-changelog#readme",
   "bugs": {

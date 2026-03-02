@@ -1,7 +1,20 @@
 {
   "name": "@yarn-tool/changelog",
   "version": "3.0.3",
-  "description": "",
+  "description": "Generate and update CHANGELOG.md using conventional commits for monorepo workspaces",
+  "keywords": [
+    "changelog",
+    "conventional-commits",
+    "lerna",
+    "monorepo",
+    "workspaces",
+    "yarn",
+    "yarn-tool",
+    "semver",
+    "release",
+    "git",
+    "cli"
+  ],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/changelog#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"

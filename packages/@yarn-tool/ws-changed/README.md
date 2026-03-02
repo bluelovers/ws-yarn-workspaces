@@ -1,192 +1,157 @@
-# README.md
+# @yarn-tool/ws-changed
 
-    get package changed list from lerna and git
+Detect changed packages in monorepo workspaces using both Lerna and Git.
 
-## install
+## Features
+
+- **Dual Detection**: Combines Lerna and Git to detect changed packages
+- **Lerna Integration**: Uses `lerna changed` to detect packages changed since last release
+- **Git Staged**: Detects packages with staged changes in Git
+- **Workspace Aware**: Automatically detects workspace root and configuration
+- **Dependency Tracking**: Helps identify affected packages for selective builds
+
+## Install
 
 ```bash
+# Using yarn
 yarn add @yarn-tool/ws-changed
+
+# Using yarn-tool
 yarn-tool add @yarn-tool/ws-changed
+
+# Using yt (alias)
 yt add @yarn-tool/ws-changed
 ```
 
-## demo
+## API Usage
 
-### demo 1
+### Get Changed Packages
 
 ```typescript
-import { wsPkgDepsListableRecord } from 'ws-pkg-list';
 import wsChanged from '@yarn-tool/ws-changed';
-import { findUpDepsAllDeep } from '@yarn-tool/find-deps';
-import Bluebird from 'bluebird';
-import crossSpawnExtra from 'cross-spawn-extra';
 
-export default (async () => {
+const result = wsChanged(process.cwd());
 
-	let record = wsPkgDepsListableRecord()
-
-	const listChanged = wsChanged()
-
-	const cwd = listChanged.cwd;
-
-	let list = listChanged.changed.concat(listChanged.staged).map(row => row.name)
-
-	let list2 = findUpDepsAllDeep(list, record);
-
-	let list3 = list2.reduce((a, b) => {
-
-		a.push(b[0])
-
-		return a
-	}, [] as string[])
-
-	console.log(list2)
-
-	if (list3.includes('cjk-conv'))
-	{
-		let cp = await crossSpawnExtra.async('lerna', [
-			`run`,
-			`--scope`,
-			`cjk-conv`,
-			`--concurrency`,
-			1,
-			`prepublishOnly`,
-		], {
-			cwd,
-			stdio: 'inherit',
-		})
-
-		if (cp.exitCode)
-		{
-			process.exit(cp.exitCode)
-		}
-	}
-
-	if (list3.length)
-	{
-		let cp = await crossSpawnExtra.async('lerna', [
-			`run`,
-			...list3.map(v => `--scope=${v}`),
-			`--concurrency`,
-			1,
-			`prepublishOnly:lerna`,
-		], {
-			cwd,
-			stdio: 'inherit',
-		})
-
-		if (cp.exitCode)
-		{
-			process.exit(cp.exitCode)
-		}
-	}
-
-})();
+console.log(result.cwd);       // Workspace root path
+console.log(result.changed);   // Packages changed according to Lerna
+console.log(result.staged);    // Packages with Git staged changes
 ```
 
-### demo 2
+### Lerna Only
 
 ```typescript
-console.dir(wsChanged(process.cwd())
+import { lernaChanged } from '@yarn-tool/ws-changed';
+
+const result = lernaChanged(process.cwd());
+console.log(result.list);  // Array of changed package info
 ```
+
+### Git Staged Only
+
+```typescript
+import { wsGitChanged } from '@yarn-tool/ws-changed';
+
+const result = wsGitChanged(process.cwd());
+console.log(result.list);  // Array of staged package info
+```
+
+## Return Type
+
+```typescript
+interface IChangedResult {
+  cwd: string;           // Workspace root directory
+  changed: IListableRowExtra[];  // Lerna detected changes
+  staged: IListableRowExtra[];   // Git staged changes
+}
+
+interface IListableRowExtra {
+  name: string;          // Package name
+  version: string;       // Current version
+  private: boolean;      // Is private package
+  location: string;      // Absolute path
+  prefix: string;        // Relative path from workspace root
+}
+```
+
+## Example Output
 
 ```typescript
 {
-  cwd: 'G:/Users/The Project/nodejs-yarn/ws-yarn-workspaces2',
+  cwd: '/path/to/workspace',
   changed: [
     {
-      name: 'npm-init2',
-      version: '1.0.82',
-      private: false,
-      location: 'G:/Users/The Project/nodejs-yarn/ws-yarn-workspaces2/packages/npm-init2',
-      prefix: 'packages/npm-init2'
-    },
-    {
-      name: 'ws-pkg-list',
-      version: '1.0.15',
-      private: false,
-      location: 'G:/Users/The Project/nodejs-yarn/ws-yarn-workspaces2/packages/ws-pkg-list',
-      prefix: 'packages/ws-pkg-list'
-    },
-    {
-      name: '@yarn-tool/find-root',
-      version: '1.0.12',
-      private: false,
-      location: 'G:/Users/The Project/nodejs-yarn/ws-yarn-workspaces2/packages/@yarn-tool/find-root',
-      prefix: 'packages/@yarn-tool/find-root'
-    },
-    {
-      name: 'env-run-path',
-      version: '1.0.13',
-      private: false,
-      location: 'G:/Users/The Project/nodejs-yarn/ws-yarn-workspaces2/packages/@yarn-tool/find-run-path',
-      prefix: 'packages/@yarn-tool/find-run-path'
-    },
-    {
-      name: '@yarn-tool/find-tsconfig',
-      version: '1.0.11',
-      private: false,
-      location: 'G:/Users/The Project/nodejs-yarn/ws-yarn-workspaces2/packages/@yarn-tool/find-tsconfig',
-      prefix: 'packages/@yarn-tool/find-tsconfig'
-    },
-    {
-      name: '@yarn-tool/fix-ws-links',
-      version: '1.0.10',
-      private: false,
-      location: 'G:/Users/The Project/nodejs-yarn/ws-yarn-workspaces2/packages/@yarn-tool/fix-ws-links',
-      prefix: 'packages/@yarn-tool/fix-ws-links'
-    },
-    {
-      name: '@yarn-tool/node-modules',
-      version: '1.0.5',
-      private: false,
-      location: 'G:/Users/The Project/nodejs-yarn/ws-yarn-workspaces2/packages/@yarn-tool/node-modules',
-      prefix: 'packages/@yarn-tool/node-modules'
-    },
-    {
-      name: '@yarn-tool/pkg-git-info',
-      version: '1.0.4',
-      private: false,
-      location: 'G:/Users/The Project/nodejs-yarn/ws-yarn-workspaces2/packages/@yarn-tool/pkg-git-info',
-      prefix: 'packages/@yarn-tool/pkg-git-info'
-    },
-    {
-      name: '@yarn-tool/ws-changed',
+      name: 'package-a',
       version: '1.0.0',
       private: false,
-      location: 'G:/Users/The Project/nodejs-yarn/ws-yarn-workspaces2/packages/@yarn-tool/ws-changed',
-      prefix: 'packages/@yarn-tool/ws-changed'
+      location: '/path/to/workspace/packages/package-a',
+      prefix: 'packages/package-a'
     }
   ],
   staged: [
     {
-      name: '@yarn-tool/find-root',
-      version: '1.0.12',
+      name: 'package-b',
+      version: '2.0.0',
       private: false,
-      location: 'G:/Users/The Project/nodejs-yarn/ws-yarn-workspaces2/packages/@yarn-tool/find-root',
-      prefix: 'packages/@yarn-tool/find-root'
-    },
-    {
-      name: '@yarn-tool/pkg-git-info',
-      version: '1.0.4',
-      private: false,
-      location: 'G:/Users/The Project/nodejs-yarn/ws-yarn-workspaces2/packages/@yarn-tool/pkg-git-info',
-      prefix: 'packages/@yarn-tool/pkg-git-info'
-    },
-    {
-      name: '@yarn-tool/ws-changed',
-      version: '1.0.0',
-      private: false,
-      location: 'G:/Users/The Project/nodejs-yarn/ws-yarn-workspaces2/packages/@yarn-tool/ws-changed',
-      prefix: 'packages/@yarn-tool/ws-changed'
-    },
-    {
-      name: 'ws-pkg-list',
-      version: '1.0.15',
-      private: false,
-      location: 'G:/Users/The Project/nodejs-yarn/ws-yarn-workspaces2/packages/ws-pkg-list',
-      prefix: 'packages/ws-pkg-list'
+      location: '/path/to/workspace/packages/package-b',
+      prefix: 'packages/package-b'
     }
   ]
 }
 ```
+
+## Advanced Usage
+
+### Build Only Changed Packages
+
+```typescript
+import wsChanged from '@yarn-tool/ws-changed';
+import { findUpDepsAllDeep } from '@yarn-tool/find-deps';
+
+const result = wsChanged();
+const allChanged = result.changed.concat(result.staged);
+const packageNames = allChanged.map(row => row.name);
+
+console.log('Packages to build:', packageNames);
+```
+
+### Run Scripts on Changed Packages
+
+```typescript
+import wsChanged from '@yarn-tool/ws-changed';
+import crossSpawn from 'cross-spawn-extra';
+
+const result = wsChanged();
+const packages = result.changed.map(row => row.name);
+
+if (packages.length > 0) {
+  await crossSpawn.async('lerna', [
+    'run',
+    '--scope', packages[0],
+    'build'
+  ], { stdio: 'inherit' });
+}
+```
+
+## Options
+
+| Option | Type | Description |
+|--------|------|-------------|
+| `cwd` | `string` | Working directory (default: `process.cwd()`) |
+| `gitBin` | `string` | Path to Git binary |
+| `lernaBin` | `string` | Path to Lerna binary |
+
+## How It Works
+
+1. **Lerna Changed**: Executes `lerna changed --json` to get packages changed since last release
+2. **Git Staged**: Analyzes `git diff --staged` to find packages with staged changes
+3. **Workspace Mapping**: Matches changed paths to workspace packages using `workspaces` config
+4. **Deduplication**: Removes duplicate packages from the combined list
+
+## Related
+
+- [@yarn-tool/changelog](../changelog) - Generate changelogs for changed packages
+- [Lerna](https://lerna.js.org/) - Monorepo management tool
+
+## License
+
+ISC
