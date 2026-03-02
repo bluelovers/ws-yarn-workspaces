@@ -3,6 +3,7 @@ import Bluebird from 'bluebird';
 import { ITSResolvable } from 'ts-type';
 import { IOptionsQueryVersion } from '@yarn-tool/pkg-version-query/lib/types';
 import { Options } from 'package-json';
+import { IResult } from '@yarn-tool/npm-package-arg-util/lib/types';
 export interface IOptions extends IOptionsDepsValue {
     queryOptions?: IOptionsQueryVersion<Options>;
 }
@@ -10,12 +11,8 @@ export declare function queryDepsValueByNpaResult(depsResult: ITSResolvable<IDep
     name: string;
     value: string;
 }>;
-export declare function queryDepsValueByNpa(input: string, options?: IOptions): Bluebird<{
+export declare function queryDepsValueByNpa(input: string, options?: IOptions): Bluebird<IDepsResult<IResult> & {
     name: string;
     value: string;
-    semver?: string;
-    operator?: string;
-    fetchQuery?: boolean;
-    result: import("@yarn-tool/npm-package-arg-util").IResult;
 }>;
 export default queryDepsValueByNpa;

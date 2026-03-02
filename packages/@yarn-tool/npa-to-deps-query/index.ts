@@ -9,6 +9,7 @@ import { ITSResolvable } from 'ts-type';
 import { queryVersionWithCache } from '@yarn-tool/pkg-version-query/lib/queryVersion';
 import { IOptionsQueryVersion } from '@yarn-tool/pkg-version-query/lib/types';
 import { Options } from 'package-json';
+import { IResult } from '@yarn-tool/npm-package-arg-util/lib/types';
 
 export interface IOptions extends IOptionsDepsValue
 {
@@ -56,6 +57,9 @@ export function queryDepsValueByNpa(input: string, options?: IOptions)
 					return {
 						...result,
 						...ret,
+					} as IDepsResult<IResult> & {
+						name: string,
+						value: string,
 					}
 				})
 		})
