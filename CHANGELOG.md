@@ -14,6 +14,8 @@ Please see the individual package changelogs for what's new:
 * 🌏 [`@yarn-tool/fix-ws-links`](./packages/@yarn-tool/fix-ws-links/CHANGELOG.md "packages/@yarn-tool/fix-ws-links") *packages/@yarn-tool/fix-ws-links*
 * 🌏 [`@yarn-tool/fix-ws-pkgs-link`](./packages/@yarn-tool/fix-ws-pkgs-link/CHANGELOG.md "packages/@yarn-tool/fix-ws-pkgs-link") *packages/@yarn-tool/fix-ws-pkgs-link*
 * 🌏 [`@yarn-tool/fix-ws-versions`](./packages/@yarn-tool/fix-ws-versions/CHANGELOG.md "packages/@yarn-tool/fix-ws-versions") *packages/@yarn-tool/fix-ws-versions*
+* 🌏 [`@yarn-tool/fnm-detect`](./packages/@yarn-tool/fnm-detect/CHANGELOG.md "packages/@yarn-tool/fnm-detect") *packages/@yarn-tool/fnm-detect*
+* 🌏 [`@yarn-tool/get-global-dirs`](./packages/@yarn-tool/get-global-dirs/CHANGELOG.md "packages/@yarn-tool/get-global-dirs") *packages/@yarn-tool/get-global-dirs*
 * 🌏 [`@yarn-tool/get-paths-by-type`](./packages/@yarn-tool/get-paths-by-type/CHANGELOG.md "packages/@yarn-tool/get-paths-by-type") *packages/@yarn-tool/get-paths-by-type*
 * 🌏 [`@yarn-tool/get-pkg-bin`](./packages/@yarn-tool/get-pkg-bin/CHANGELOG.md "packages/@yarn-tool/get-pkg-bin") *packages/@yarn-tool/get-pkg-bin*
 * 🌏 [`@yarn-tool/init-path`](./packages/@yarn-tool/init-path/CHANGELOG.md "packages/@yarn-tool/init-path") *packages/@yarn-tool/init-path*
@@ -39,6 +41,7 @@ Please see the individual package changelogs for what's new:
 * 🌏 [`@yarn-tool/pkg-list-to-types`](./packages/@yarn-tool/pkg-list-to-types/CHANGELOG.md "packages/@yarn-tool/pkg-list-to-types") *packages/@yarn-tool/pkg-list-to-types*
 * 🌏 [`@yarn-tool/pkg-name-to-types`](./packages/@yarn-tool/pkg-name-to-types/CHANGELOG.md "packages/@yarn-tool/pkg-name-to-types") *packages/@yarn-tool/pkg-name-to-types*
 * 🌏 [`@yarn-tool/pkg-name-util`](./packages/@yarn-tool/pkg-name-util/CHANGELOG.md "packages/@yarn-tool/pkg-name-util") *packages/@yarn-tool/pkg-name-util*
+* 🌏 [`@yarn-tool/pkg-readme-tpl`](./packages/@yarn-tool/pkg-readme-tpl/CHANGELOG.md "packages/@yarn-tool/pkg-readme-tpl") *packages/@yarn-tool/pkg-readme-tpl*
 * 🌏 [`@yarn-tool/pkg-version-query`](./packages/@yarn-tool/pkg-version-query/CHANGELOG.md "packages/@yarn-tool/pkg-version-query") *packages/@yarn-tool/pkg-version-query*
 * 🌏 [`@yarn-tool/publish-retry`](./packages/@yarn-tool/publish-retry/CHANGELOG.md "packages/@yarn-tool/publish-retry") *packages/@yarn-tool/publish-retry*
 * 🌏 [`@yarn-tool/require-resolve`](./packages/@yarn-tool/require-resolve/CHANGELOG.md "packages/@yarn-tool/require-resolve") *packages/@yarn-tool/require-resolve*
