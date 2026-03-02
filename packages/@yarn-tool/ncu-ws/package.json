@@ -1,7 +1,7 @@
 {
   "name": "@yarn-tool/ncu-ws",
   "version": "2.0.5",
-  "description": "Workspace-aware npm-check-updates tool for Yarn workspaces. Supports monorepo dependency version checking and updating across all workspace packages. 專為 Yarn workspaces 設計的依賴版本檢查與更新工具，支援 monorepo 中所有工作區套件的版本檢查與更新。",
+  "description": "Workspace-aware npm-check-updates tool for Yarn workspaces. Supports monorepo dependency version checking and updating across all workspace packages with yarn.lock integration, resolutions support, and dedupe functionality. 專為 Yarn workspaces 設計的依賴版本檢查與更新工具，支援 monorepo 中所有工作區套件的版本檢查與更新，具備 yarn.lock 整合、resolutions 支援和重複依賴移除功能。",
   "keywords": [
     "npm-check-updates",
     "ncu",
@@ -86,7 +86,7 @@
     "debug-color2": "^1.3.2",
     "fs-extra": "^11.3.3",
     "tslib": ">=2",
-    "upath2": "^3.1.22",
+    "upath2": "^3.1.23",
     "ws-pkg-list": "^3.0.3"
   },
   "publishConfig": {
