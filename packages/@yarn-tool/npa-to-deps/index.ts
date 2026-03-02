@@ -14,7 +14,7 @@
 
 import { IResult, IResultType, npa } from '@yarn-tool/npm-package-arg-util';
 import { parseSimpleSemVerRange } from '@lazy-node/semver-simple-parse/lib/parseSimpleSemVerRange';
-import { isInputSpecIsEmpty } from '@yarn-tool/npm-package-arg-util/lib/detect';
+import { isInputSpecIsEmpty, isNameSameAsRaw } from '@yarn-tool/npm-package-arg-util/lib/detect';
 
 /**
  * Options for converting npm-package-arg results to dependency values
@@ -180,7 +180,7 @@ export function npaResultToDepsValue<T extends IResult>(result: T, options?: IOp
 
 			// Empty input spec: mark for query
 			// 空輸入規格：標記為需要查詢
-			if (isInputSpecIsEmpty(result))
+			if (isInputSpecIsEmpty(result) || isNameSameAsRaw(result))
 			{
 				semver = void 0;
 				fetchQuery = true;

@@ -105,7 +105,7 @@ function npaResultToDepsValue(result, options) {
         case 'range':
             // Empty input spec: mark for query
             // 空輸入規格：標記為需要查詢
-            if ((0, detect_1.isInputSpecIsEmpty)(result)) {
+            if ((0, detect_1.isInputSpecIsEmpty)(result) || (0, detect_1.isNameSameAsRaw)(result)) {
                 semver = void 0;
                 fetchQuery = true;
             }

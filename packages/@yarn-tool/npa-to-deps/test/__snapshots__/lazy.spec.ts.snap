@@ -327,7 +327,7 @@ exports[`should return undefined botkit 1`] = `
       "type": "range",
       "where": undefined,
     },
-    "semver": "*",
+    "semver": undefined,
   },
   "npaOriginal": {
     "escapedName": "botkit",
