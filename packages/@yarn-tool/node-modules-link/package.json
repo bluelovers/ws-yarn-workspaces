@@ -42,9 +42,9 @@
     "@yarn-tool/node-modules": "^3.0.3",
     "find-yarn-workspace-root2": "^1.2.51",
     "fs-extra": "^11.3.3",
-    "fs-symlink-extra": "^1.0.25",
+    "fs-symlink-extra": "^1.0.26",
     "tslib": ">=2",
-    "upath2": "^3.1.22",
+    "upath2": "^3.1.23",
     "yargs": "<18 >=17.7.2"
   },
   "publishConfig": {

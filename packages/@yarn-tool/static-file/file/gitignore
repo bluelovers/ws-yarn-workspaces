@@ -240,3 +240,4 @@ test/fixtures/.gitkeep
 !.copilot
 !.claude
 !.agents
+!.aiassistant

@@ -59,7 +59,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@lazy-node/is-writeable-path": "^1.0.20",
+    "@lazy-node/is-writeable-path": "^1.0.21",
     "@types/bluebird": "*",
     "@yarn-tool/find-root": "^2.0.15",
     "array-hyper-unique": "^2.1.6",
@@ -69,7 +69,7 @@
     "hash-sum": "^2.0.0",
     "tmp": "^0.2.5",
     "tslib": ">=2",
-    "upath2": "^3.1.22"
+    "upath2": "^3.1.23"
   },
   "gitHead": "46d4d576f34d2d5218822811286119ea7a44d08b"
 }

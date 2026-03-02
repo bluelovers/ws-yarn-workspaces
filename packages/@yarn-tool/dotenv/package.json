@@ -48,7 +48,7 @@
     "dotenv": "^17.3.1",
     "fs-extra": "^11.3.3",
     "tslib": ">=2",
-    "upath2": "^3.1.22"
+    "upath2": "^3.1.23"
   },
   "publishConfig": {
     "access": "public"
