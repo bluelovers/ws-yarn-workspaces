@@ -291,8 +291,9 @@ describe('parse', () =>
 		test('should return undefined for invalid versions', () =>
 		{
 			expect(parse('a.b.c')).toBeUndefined();
-			expect(parse('1')).toBeUndefined();
-			expect(parse('1.0')).toBeUndefined();
+			// 注意：'1' 和 '1.0' 現在是有效部分版本 / Note: '1' and '1.0' are now valid partial versions
+			// expect(parse('1')).toBeUndefined();
+			// expect(parse('1.0')).toBeUndefined();
 			expect(parse('1.0.0b')).toBeUndefined();
 			// expect(parse('1.0.0+build-abc.')).toBeUndefined();
 		});

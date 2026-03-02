@@ -13,8 +13,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.assertNpaResultHasName = assertNpaResultHasName;
 exports.assertNpaResultByType = assertNpaResultByType;
 exports.assertNpaResultAll = assertNpaResultAll;
-const tslib_1 = require("tslib");
-const assert_1 = tslib_1.__importDefault(require("assert"));
+const assert_1 = require("assert");
 const detect_1 = require("./detect");
 /**
  * Assert that an npm-package-arg result has a valid name property
@@ -89,7 +88,7 @@ function assertNpaResultHasName(result) {
 function assertNpaResultByType(result, type) {
     // Assert the type matches
     // 斷言類型匹配
-    assert_1.default.strictEqual(result.type, type, `Invalid type: ${result.type}`);
+    (0, assert_1.strictEqual)(result.type, type, `Invalid type: ${result.type}`);
     // Perform all standard validations
     // 執行所有標準驗證
     assertNpaResultAll(result);
@@ -136,9 +135,9 @@ function assertNpaResultAll(result, options) {
     let { shouldHasName, allowedType } = options !== null && options !== void 0 ? options : {};
     // Validate allowed types if specified
     // 如果指定了允許的類型則驗證
-    (allowedType === null || allowedType === void 0 ? void 0 : allowedType.length) && assert_1.default.ok(allowedType.includes(result.type), `Type '${result.type}' not allowed, only allow [${allowedType.join(', ')}]`);
+    (allowedType === null || allowedType === void 0 ? void 0 : allowedType.length) && (0, assert_1.ok)(allowedType.includes(result.type), `Type '${result.type}' not allowed, only allow [${allowedType.join(', ')}]`);
     if (!['range', 'version', 'alias', 'tag'].includes(result.type)) {
-        assert_1.default.ok(result.saveSpec, `saveSpec is required for ${result.type} type`);
+        (0, assert_1.ok)(result.saveSpec, `saveSpec is required for ${result.type} type`);
     }
     // Type-specific validation
     // 特定類型的驗證
@@ -147,26 +146,31 @@ function assertNpaResultAll(result, options) {
             if (!result.fetchSpec) {
                 // Git type requires hosted information
                 // Git 類型需要 hosted 資訊
-                // assert.ok(result.hosted, 'hosted is required for git type');
-                assert_1.default.ok((0, detect_1.isHostedGitResult)(result), 'hosted.domain is required for git type when fetchSpec is not present');
+                // assertOk(result.hosted, 'hosted is required for git type');
+                (0, assert_1.ok)((0, detect_1.isHostedGitResult)(result), 'hosted.domain is required for git type when fetchSpec is not present');
             }
             else {
-                assert_1.default.ok(result.fetchSpec, 'fetchSpec is required for git type when hosted is not present');
+                (0, assert_1.ok)(result.fetchSpec, 'fetchSpec is required for git type when hosted is not present');
             }
             break;
         case 'directory':
             // Directory type requires where path
             // Directory 類型需要 where 路徑
-            assert_1.default.ok(result.where, 'where is required for directory type');
+            (0, assert_1.ok)(result.where, 'where is required for directory type');
+            break;
+        case 'range':
+            if ((0, detect_1.isRawSpecIsEmpty)(result)) {
+                shouldHasName !== null && shouldHasName !== void 0 ? shouldHasName : (shouldHasName = false);
+                break;
+            }
         case 'file':
         case 'remote':
-        case 'range':
         case 'tag':
         case 'version':
-            assert_1.default.ok(result.fetchSpec, `fetchSpec is required for ${result.type} type`);
+            (0, assert_1.ok)(result.fetchSpec, `fetchSpec is required for ${result.type} type`);
             break;
         case 'alias':
-            assert_1.default.ok(result.subSpec, `subSpec is required for ${result.type} type`);
+            (0, assert_1.ok)(result.subSpec, `subSpec is required for ${result.type} type`);
             break;
         default:
             // Other types default to requiring name validation
@@ -175,7 +179,7 @@ function assertNpaResultAll(result, options) {
             break;
     }
     if (typeof result.scope === 'string') {
-        assert_1.default.ok(result.scope.charCodeAt(0) === 64, `scope must start with @`);
+        (0, assert_1.ok)(result.scope.charCodeAt(0) === 64, `scope must start with @`);
     }
     if (['range', 'version', 'alias', 'tag'].includes(result.type)) {
         shouldHasName !== null && shouldHasName !== void 0 ? shouldHasName : (shouldHasName = true);
@@ -185,6 +189,6 @@ function assertNpaResultAll(result, options) {
     if (shouldHasName) {
         assertNpaResultHasName(result);
     }
-    // assert.ok(result.saveSpec, 'saveSpec is required');
+    // assertOk(result.saveSpec, 'saveSpec is required');
 }
 //# sourceMappingURL=assert.js.map

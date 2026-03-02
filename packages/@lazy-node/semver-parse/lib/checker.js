@@ -297,6 +297,7 @@ function isValidVersion(originalInput, major, minor, patch, release, build) {
     }
     // 檢查是否有 minor 或 patch 部分
     // Check if there's minor or patch part
+    const hasMajor = major !== undefined;
     const hasMinor = minor !== undefined;
     const hasPatch = patch !== undefined;
     // 檢查是否為萬用字元版本
@@ -305,13 +306,15 @@ function isValidVersion(originalInput, major, minor, patch, release, build) {
     const patchIsWildcard = isSemverWildcard(patch);
     // 有效的版本需要滿足以下條件之一：
     // Valid version needs to satisfy one of the following:
-    // 1. 完整版本 (major.minor.patch) / Full version (major.minor.patch)
-    // 2. 包含萬用字元的版本 (如 1.x, 1.0.x) / Version with wildcards (e.g., 1.x, 1.0.x)
+    // 1. 只有 major 版本 / Only major version (e.g., "12")
+    // 2. major.minor 部分版本 / Partial version with major.minor (e.g., "12.0")
+    // 3. 完整版本 (major.minor.patch) / Full version (major.minor.patch)
+    // 4. 包含萬用字元的版本 (如 1.x, 1.0.x) / Version with wildcards (e.g., 1.x, 1.0.x)
     const isFullVersion = hasMinor && hasPatch;
     const hasWildcard = minorIsWildcard || patchIsWildcard;
-    // 如果不是完整版本且沒有萬用字元，則視為無效版本
-    // If not a full version and no wildcard, treat as invalid version
-    if (!isFullVersion && !hasWildcard) {
+    // 如果沒有 major 版本且不是萬用字元版本，則視為無效版本
+    // If no major version and not a wildcard version, treat as invalid version
+    if (!hasMajor && !hasWildcard) {
         return false;
     }
     return true;

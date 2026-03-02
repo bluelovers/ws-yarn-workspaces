@@ -1,4 +1,17 @@
 "use strict";
+/**
+ * @fileoverview Normalize dependency values to standardized semver format
+ * @description 將依賴值正規化為標準化的 semver 格式
+ *
+ * This module provides utilities to normalize various dependency value formats
+ * into a standardized semver string. It handles edge cases like empty inputs,
+ * spaces, star wildcards, and complex semver ranges.
+ *
+ * 本模組提供將各種依賴值格式正規化為標準化 semver 字串的工具。
+ * 處理邊緣情況，如空輸入、空格、星號萬用字元和複雜的 semver 範圍。
+ *
+ * @module @yarn-tool/normalize-deps-value
+ */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.normalizeResultToDepsValue = normalizeResultToDepsValue;
 exports._getNpaResult = _getNpaResult;
@@ -8,42 +21,195 @@ const buildRangeSet_1 = require("@lazy-node/semver-ampersand/lib/range/buildRang
 const stringifyRangeSet_1 = require("@lazy-node/semver-ampersand/lib/range/stringifyRangeSet");
 const toRangeString_1 = require("@lazy-node/semver-ampersand/lib/range/toRangeString");
 const Range_1 = require("@lazy-node/semver-ampersand/lib/Range");
+const detect_1 = require("@yarn-tool/npm-package-arg-util/lib/detect");
+/**
+ * Fake package name used for parsing bare semver strings
+ * 用於解析純 semver 字串的虛假套件名稱
+ *
+ * When a user provides just a version string (e.g., "^4.0.0") without a package name,
+ * we prepend this fake name to make it parseable by npm-package-arg.
+ *
+ * 當使用者只提供版本字串（例如："^4.0.0"）而沒有套件名稱時，
+ * 我們會加上這個虛假名稱使其能被 npm-package-arg 解析。
+ */
 const FAKE_NAME = '@fake/fake';
+/**
+ * Normalize an npm-package-arg result to a dependency value string
+ * 將 npm-package-arg 結果正規化為依賴值字串
+ *
+ * This function converts an npm-package-arg result into a standardized
+ * dependency value string suitable for package.json. It handles:
+ * - Empty/space inputs (returns "*")
+ * - Range normalization using semver-ampersand
+ * - Tag handling with special cases
+ * - Direct passthrough for other types
+ *
+ * 此函數將 npm-package-arg 結果轉換為適合 package.json 的標準化依賴值字串。
+ * 處理：
+ * - 空/空格輸入（返回 "*"）
+ * - 使用 semver-ampersand 進行範圍正規化
+ * - 標籤的特殊情況處理
+ * - 其他類型的直接傳遞
+ *
+ * @param {ReturnType<typeof _getNpaResult>} result - The npm-package-arg result or string to normalize / 要正規化的 npm-package-arg 結果或字串
+ *
+ * @returns {string} Normalized dependency value (e.g., "*", "^4.0.0", "1.2.3") / 正規化的依賴值（例如："*"、"^4.0.0"、"1.2.3"）
+ *
+ * @example
+ * // Empty input
+ * // 空輸入
+ * normalizeResultToDepsValue({ type: 'range', rawSpec: '', ... });
+ * // => "*"
+ *
+ * @example
+ * // Space input
+ * // 空格輸入
+ * normalizeResultToDepsValue({ type: 'range', rawSpec: ' ', ... });
+ * // => "*"
+ *
+ * @example
+ * // Star wildcard
+ * // 星號萬用字元
+ * normalizeResultToDepsValue({ type: 'range', rawSpec: '*', ... });
+ * // => "*"
+ *
+ * @example
+ * // Range normalization
+ * // 範圍正規化
+ * normalizeResultToDepsValue({ type: 'range', rawSpec: '>=1.0.0 <2.0.0', ... });
+ * // => ">=1.0.0 <2.0.0" (normalized via semver-ampersand)
+ *
+ * @example
+ * // Tag as package name only
+ * // 僅作為套件名稱的標籤
+ * normalizeResultToDepsValue({ type: 'tag', name: 'lodash', rawSpec: '*', raw: 'lodash' });
+ * // => "lodash"
+ *
+ * @example
+ * // Direct passthrough
+ * // 直接傳遞
+ * normalizeResultToDepsValue({ type: 'version', rawSpec: '4.17.21', ... });
+ * // => "4.17.21"
+ */
 function normalizeResultToDepsValue(result) {
     let value;
+    // String input: use directly
+    // 字串輸入：直接使用
     if (typeof result === 'string') {
         value = result;
     }
+    // Object result: process based on type
+    // 物件結果：根據類型處理
     else if (result) {
+        /**
+         * Range type: requires special normalization
+         * Range 類型：需要特殊正規化
+         */
         if (result.type === 'range') {
-            const rangeSet = (0, buildRangeSet_1.buildRangeSet)(result.rawSpec);
-            value = (0, toRangeString_1.toRangeString)((0, stringifyRangeSet_1.stringifyRangeSet)(rangeSet));
+            // Empty/space/star input: return ANY (which becomes STAR)
+            // 空/空格/星號輸入：返回 ANY（會變成 STAR）
+            if ((0, detect_1.isInputSpecIsEmpty)(result)) {
+                value = "" /* EnumSemverVersion.ANY */;
+            }
+            // Non-empty range: normalize through semver-ampersand
+            // 非空範圍：透過 semver-ampersand 正規化
+            else {
+                const rangeSet = (0, buildRangeSet_1.buildRangeSet)(result.rawSpec);
+                value = (0, toRangeString_1.toRangeString)((0, stringifyRangeSet_1.stringifyRangeSet)(rangeSet));
+            }
         }
+        /**
+         * Tag type with ANY spec (like "*") and not fake@ pattern:
+         * return just the package name
+         *	Tag 類型且規格為 ANY（如 "*"）且不是 fake@ 模式：
+         * 僅返回套件名稱
+         */
         else if (result.type === 'tag' && result.rawSpec === "" /* EnumSemverVersion.ANY */ && result.raw !== `${FAKE_NAME}@`) {
             value = result.name;
         }
+        /**
+         * All other types: use rawSpec directly
+         * 所有其他類型：直接使用 rawSpec
+         */
         else {
             value = result.rawSpec;
         }
     }
+    // Convert ANY to undefined (will fallback to STAR)
+    // 將 ANY 轉換為 undefined（會回退到 STAR）
     if (value === "" /* EnumSemverVersion.ANY */) {
         value = void 0;
     }
+    // Return value or default to STAR wildcard
+    // 返回值或預設為 STAR 萬用字元
     return value !== null && value !== void 0 ? value : "*" /* EnumSemverVersion.STAR */;
 }
+/**
+ * Parse a value string into an npm-package-arg result
+ * 將值字串解析為 npm-package-arg 結果
+ *
+ * This function attempts to parse a dependency value string using multiple strategies:
+ * 1. Try as semver range with fake package name (for bare version strings like "^4.0.0")
+ * 2. Try as full package spec (for "package@version" format)
+ * 3. Try with noThrowError flag (for edge cases)
+ *
+ * 此函數嘗試使用多種策略解析依賴值字串：
+ * 1. 嘗試作為帶虛假套件名稱的 semver 範圍（用於純版本字串如 "^4.0.0"）
+ * 2. 嘗試作為完整套件規格（用於 "package@version" 格式）
+ * 3. 嘗試使用 noThrowError 標誌（用於邊緣情況）
+ *
+ * @param {string} value - The dependency value string to parse
+ * @param {string} value - 要解析的依賴值字串
+ *
+ * @returns {IResult} Parsed npm-package-arg result
+ * @returns {IResult} 解析後的 npm-package-arg 結果
+ *
+ * @throws {Error} Throws if all parsing strategies fail
+ * @throws {Error} 如果所有解析策略都失敗則拋出錯誤
+ *
+ * @example
+ * // Bare semver range
+ * // 純 semver 範圍
+ * _getNpaResult('^4.0.0');
+ * // => IResult { type: 'range', name: '@fake/fake', rawSpec: '^4.0.0', ... }
+ *
+ * @example
+ * // Package with version
+ * // 帶版本的套件
+ * _getNpaResult('lodash@^4.0.0');
+ * // => IResult { type: 'range', name: 'lodash', rawSpec: '^4.0.0', ... }
+ *
+ * @example
+ * // Empty string
+ * // 空字串
+ * _getNpaResult('');
+ * // => IResult { type: 'range', name: '@fake/fake', rawSpec: '', ... }
+ */
 function _getNpaResult(value) {
     let result;
+    // Strategy 1: Parse as semver range with fake name
+    // 策略 1：作為帶虛假名稱的 semver 範圍解析
     try {
         let sr = new Range_1.SemverRange(value);
         result = (0, npm_package_arg_util_1.npa)(`${FAKE_NAME}@${value}`);
     }
+    // Strategy 2: Parse as full package spec
+    // 策略 2：作為完整套件規格解析
     catch (e) {
         try {
             result = (0, npm_package_arg_util_1.npa)(`${value}`);
         }
+        // Strategy 3: Parse with noThrowError flag
+        // 策略 3：使用 noThrowError 標誌解析
         catch (e) {
             try {
-                result = (0, npm_package_arg_util_1.npa)(`${FAKE_NAME}@${value}`);
+                result = (0, npm_package_arg_util_1.npa)(`${FAKE_NAME}@${value}`, {
+                    noThrowError: true,
+                });
+                // Type check for range (appears to be validation placeholder)
+                // 範圍類型檢查（似乎是驗證預留位置）
+                if (result.type === 'range') {
+                }
             }
             catch (e2) {
                 throw e;
@@ -52,6 +218,51 @@ function _getNpaResult(value) {
     }
     return result;
 }
+/**
+ * Normalize a dependency value string to standard format
+ * 將依賴值字串正規化為標準格式
+ *
+ * This is the main entry point that combines parsing and normalization
+ * into a single operation. It handles all the edge cases tested in
+ * space.spec.ts including empty strings, spaces, and star wildcards.
+ *
+ * 這是主要入口點，將解析和正規化合併為單一操作。
+ * 處理 space.spec.ts 中測試的所有邊緣情況，包括空字串、空格和星號萬用字元。
+ *
+ * @param {string} value - The dependency value to normalize / 要正規化的依賴值
+ *
+ * @returns {string} Normalized dependency value / 正規化的依賴值
+ *
+ * @example
+ * // Empty string becomes star
+ * // 空字串變為星號
+ * normalizeDepsValue('');
+ * // => "*"
+ *
+ * @example
+ * // Space becomes star
+ * // 空格變為星號
+ * normalizeDepsValue(' ');
+ * // => "*"
+ *
+ * @example
+ * // Star remains star
+ * // 星號保持為星號
+ * normalizeDepsValue('*');
+ * // => "*"
+ *
+ * @example
+ * // Semver range is normalized
+ * // Semver 範圍被正規化
+ * normalizeDepsValue('>=1.0.0 <2.0.0');
+ * // => ">=1.0.0 <2.0.0"
+ *
+ * @example
+ * // Package@version returns version
+ * // Package@version 返回版本
+ * normalizeDepsValue('lodash@^4.0.0');
+ * // => "^4.0.0"
+ */
 function normalizeDepsValue(value) {
     const result = _getNpaResult(value);
     return normalizeResultToDepsValue(result);

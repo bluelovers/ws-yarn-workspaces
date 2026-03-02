@@ -588,4 +588,8 @@ export interface IOptionsNpaUtil extends IOptionsNpaBase {
      * @see {@link EnumResultType} for the enum of supported types
      */
     allowedType?: IResultType[];
+    /**
+     * 忽略錯誤檢查/不拋出錯誤，可用來在除錯時取得原始 npm-package-arg 的結果
+     */
+    noThrowError?: boolean;
 }

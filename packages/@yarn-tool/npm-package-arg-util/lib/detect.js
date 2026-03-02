@@ -17,6 +17,10 @@ exports.isRegistryResult = isRegistryResult;
 exports.isHostedGitResult = isHostedGitResult;
 exports.isURLResult = isURLResult;
 exports.isNpmPackageArgResult = isNpmPackageArgResult;
+exports.isNameSameAsRaw = isNameSameAsRaw;
+exports.isRawSpecIsEmpty = isRawSpecIsEmpty;
+exports.isInputSpecIsStar = isInputSpecIsStar;
+exports.isInputSpecIsEmpty = isInputSpecIsEmpty;
 /**
  * Check if the result is an AliasResult
  * 檢查結果是否為 AliasResult
@@ -166,5 +170,157 @@ function isURLResult(npaResult) {
  */
 function isNpmPackageArgResult(npaResult) {
     return isAliasResult(npaResult) || isFileResult(npaResult) || isRegistryResult(npaResult) || isHostedGitResult(npaResult) || isURLResult(npaResult);
+}
+/**
+ * Check if the raw input is the same as the package name
+ * 檢查原始輸入是否與套件名稱相同
+ *
+ * This function compares the trimmed raw input with the package name
+ * to determine if the user provided only the package name without
+ * any version specification.
+ *
+ * 此函數比較去除空白後的原始輸入與套件名稱，
+ * 判斷使用者是否只提供了套件名稱而沒有任何版本規格。
+ *
+ * @template T - The type of result, extends IResult
+ * @template T - 結果類型，繼承自 IResult
+ *
+ * @param {IResult} result - The npm-package-arg result to check
+ * @param {IResult} result - 要檢查的 npm-package-arg 結果
+ *
+ * @returns {boolean} True if raw input equals the package name
+ * @returns {boolean} 如果原始輸入等於套件名稱則返回 true
+ *
+ * @example
+ * // Input: "lodash"
+ * // 輸入："lodash"
+ * isNameSameAsRaw(result); // true
+ *
+ * @example
+ * // Input: "lodash@"
+ * // 輸入："lodash@"
+ * isNameSameAsRaw(result); // true (name + @)
+ *
+ * @example
+ * // Input: "lodash@^4.0.0"
+ * // 輸入："lodash@^4.0.0"
+ * isNameSameAsRaw(result); // false
+ */
+function isNameSameAsRaw(result) {
+    const raw = result.raw.trim();
+    return raw === result.name || raw === (result.name + '@');
+}
+/**
+ * Check if the rawSpec property is empty
+ * 檢查 rawSpec 屬性是否為空
+ *
+ * This function checks if the rawSpec (the version part after @)
+ * is empty or contains only whitespace. This is useful for detecting
+ * cases like "package@" where no version is specified.
+ *
+ * 此函數檢查 rawSpec（@ 後面的版本部分）是否為空或只包含空白字元。
+ * 用於檢測像 "package@" 這樣沒有指定版本的情況。
+ *
+ * @param {IResult} result - The npm-package-arg result to check
+ * @param {IResult} result - 要檢查的 npm-package-arg 結果
+ *
+ * @returns {boolean} True if rawSpec is empty or whitespace only
+ * @returns {boolean} 如果 rawSpec 為空或只有空白則返回 true
+ *
+ * @example
+ * // Input: "lodash@" or "lodash@ "
+ * // 輸入："lodash@" 或 "lodash@ "
+ * isRawSpecIsEmpty(result); // true
+ *
+ * @example
+ * // Input: "lodash@4.17.21"
+ * // 輸入："lodash@4.17.21"
+ * isRawSpecIsEmpty(result); // false
+ */
+function isRawSpecIsEmpty(result) {
+    var _a;
+    return ((_a = result.rawSpec) === null || _a === void 0 ? void 0 : _a.trim()) === '';
+}
+/**
+ * Check if the input specification is a star wildcard
+ * 檢查輸入規格是否為星號萬用字元
+ *
+ * This function detects if the user input is a star (*) wildcard
+ * which represents "any version". It handles both bare "*" and
+ * "package@*" formats.
+ *
+ * 此函數檢測使用者輸入是否為星號 (*) 萬用字元，
+ * 代表「任何版本」。處理純 "*" 和 "package@*" 格式。
+ *
+ * @param {IResult} result - The npm-package-arg result to check
+ * @param {IResult} result - 要檢查的 npm-package-arg 結果
+ *
+ * @returns {boolean} True if the input is a star wildcard
+ * @returns {boolean} 如果輸入是星號萬用字元則返回 true
+ *
+ * @example
+ * // Input: "*"
+ * // 輸入："*"
+ * isInputSpecIsStar(result); // true
+ *
+ * @example
+ * // Input: "lodash@*"
+ * // 輸入："lodash@*"
+ * isInputSpecIsStar(result); // true
+ *
+ * @example
+ * // Input: "lodash@4.17.21"
+ * // 輸入："lodash@4.17.21"
+ * isInputSpecIsStar(result); // false
+ */
+function isInputSpecIsStar(result) {
+    const raw = result.raw.trim();
+    return raw === '*' || raw.replace(/@\s*\*\s*$/, '') === result.name;
+}
+/**
+ * Check if the input specification is effectively empty
+ * 檢查輸入規格是否實際上為空
+ *
+ * This function performs a comprehensive check to determine if
+ * the user provided an empty or default version specification.
+ * It returns true when:
+ * - rawSpec is empty (e.g., "package@")
+ * - The input is just the package name (no version specified)
+ * - fetchSpec defaults to '*' (any version)
+ *
+ * 此函數執行全面檢查以判斷使用者是否提供了空或預設的版本規格。
+ * 在以下情況返回 true：
+ * - rawSpec 為空（例如："package@"）
+ * - 輸入只有套件名稱（未指定版本）
+ * - fetchSpec 預設為 '*'（任何版本）
+ *
+ * @param {IResult} result - The npm-package-arg result to check
+ * @param {IResult} result - 要檢查的 npm-package-arg 結果
+ *
+ * @returns {boolean} True if the input spec is considered empty
+ * @returns {boolean} 如果輸入規格被視為空則返回 true
+ *
+ * @example
+ * // Input: "" (empty string)
+ * // 輸入：""（空字串）
+ * isInputSpecIsEmpty(result); // true
+ *
+ * @example
+ * // Input: " " (space)
+ * // 輸入：" "（空格）
+ * isInputSpecIsEmpty(result); // true
+ *
+ * @example
+ * // Input: "lodash" (no version)
+ * // 輸入："lodash"（無版本）
+ * isInputSpecIsEmpty(result); // true
+ *
+ * @example
+ * // Input: "lodash@4.17.21"
+ * // 輸入："lodash@4.17.21"
+ * isInputSpecIsEmpty(result); // false
+ */
+function isInputSpecIsEmpty(result) {
+    return isRawSpecIsEmpty(result) || !isInputSpecIsStar(result) && isNameSameAsRaw(result) && result.fetchSpec === '*';
 }
 //# sourceMappingURL=detect.js.map

@@ -158,10 +158,28 @@ exports[`alias botkit@npm:foo@next 1`] = `
 
 exports[`should return semver botkit@12 1`] = `
 {
-  "fetchQuery": true,
-  "name": "botkit",
-  "operator": undefined,
-  "result": {
+  "depsResult": {
+    "fetchQuery": true,
+    "name": "botkit",
+    "operator": undefined,
+    "result": {
+      "escapedName": "botkit",
+      "fetchSpec": "12",
+      "gitCommittish": undefined,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "botkit",
+      "raw": "botkit@12",
+      "rawSpec": "12",
+      "registry": true,
+      "saveSpec": null,
+      "scope": undefined,
+      "type": "range",
+      "where": undefined,
+    },
+    "semver": "12",
+  },
+  "npaOriginal": {
     "escapedName": "botkit",
     "fetchSpec": "12",
     "gitCommittish": undefined,
@@ -176,16 +194,99 @@ exports[`should return semver botkit@12 1`] = `
     "type": "range",
     "where": undefined,
   },
-  "semver": "12",
+  "parseSimpleSemVerRange": [
+    {
+      "major": "12",
+      "semver": "12",
+    },
+  ],
+  "re": [
+    "12",
+    "12",
+    undefined,
+    "12",
+    "",
+    undefined,
+    "12",
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+  ],
+}
+`;
+
+exports[`should return semver botkit@github:jonchurch/botkit#multi-hears 1`] = `
+{
+  "depsResult": {
+    "fetchQuery": undefined,
+    "name": "botkit",
+    "operator": undefined,
+    "result": {
+      "escapedName": "botkit",
+      "fetchSpec": null,
+      "gitCommittish": "multi-hears",
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "botkit",
+      "raw": "botkit@github:jonchurch/botkit#multi-hears",
+      "rawSpec": "github:jonchurch/botkit#multi-hears",
+      "registry": undefined,
+      "saveSpec": "github:jonchurch/botkit#multi-hears",
+      "scope": undefined,
+      "type": "git",
+      "where": undefined,
+    },
+    "semver": "github:jonchurch/botkit#multi-hears",
+  },
+  "npaOriginal": {
+    "escapedName": "botkit",
+    "fetchSpec": null,
+    "gitCommittish": "multi-hears",
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "name": "botkit",
+    "raw": "botkit@github:jonchurch/botkit#multi-hears",
+    "rawSpec": "github:jonchurch/botkit#multi-hears",
+    "registry": undefined,
+    "saveSpec": "github:jonchurch/botkit#multi-hears",
+    "scope": undefined,
+    "type": "git",
+    "where": undefined,
+  },
+  "parseSimpleSemVerRange": undefined,
+  "re": undefined,
 }
 `;
 
 exports[`should return semver botkit@jonchurch/botkit#multi-hears 1`] = `
 {
-  "fetchQuery": undefined,
-  "name": "botkit",
-  "operator": undefined,
-  "result": {
+  "depsResult": {
+    "fetchQuery": undefined,
+    "name": "botkit",
+    "operator": undefined,
+    "result": {
+      "escapedName": "botkit",
+      "fetchSpec": null,
+      "gitCommittish": "multi-hears",
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "botkit",
+      "raw": "botkit@jonchurch/botkit#multi-hears",
+      "rawSpec": "jonchurch/botkit#multi-hears",
+      "registry": undefined,
+      "saveSpec": "github:jonchurch/botkit#multi-hears",
+      "scope": undefined,
+      "type": "git",
+      "where": undefined,
+    },
+    "semver": "github:jonchurch/botkit#multi-hears",
+  },
+  "npaOriginal": {
     "escapedName": "botkit",
     "fetchSpec": null,
     "gitCommittish": "multi-hears",
@@ -200,15 +301,63 @@ exports[`should return semver botkit@jonchurch/botkit#multi-hears 1`] = `
     "type": "git",
     "where": undefined,
   },
-  "semver": "github:jonchurch/botkit#multi-hears",
+  "parseSimpleSemVerRange": undefined,
+  "re": undefined,
 }
 `;
 
 exports[`should return undefined botkit 1`] = `
 {
+  "depsResult": {
+    "fetchQuery": true,
+    "name": "botkit",
+    "operator": undefined,
+    "result": {
+      "escapedName": "botkit",
+      "fetchSpec": "*",
+      "gitCommittish": undefined,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "botkit",
+      "raw": "botkit",
+      "rawSpec": "*",
+      "registry": true,
+      "saveSpec": null,
+      "scope": undefined,
+      "type": "range",
+      "where": undefined,
+    },
+    "semver": "*",
+  },
+  "npaOriginal": {
+    "escapedName": "botkit",
+    "fetchSpec": "*",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "name": "botkit",
+    "raw": "botkit",
+    "rawSpec": "*",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "range",
+    "where": undefined,
+  },
+  "parseSimpleSemVerRange": [
+    {
+      "semver": "*",
+    },
+  ],
+  "re": null,
+}
+`;
+
+exports[`should return undefined botkit 2`] = `
+{
   "fetchQuery": true,
   "name": "botkit",
-  "operator": "^",
+  "operator": undefined,
   "result": {
     "escapedName": "botkit",
     "fetchSpec": "*",
@@ -229,6 +378,71 @@ exports[`should return undefined botkit 1`] = `
 `;
 
 exports[`should return undefined botkit@^12 1`] = `
+{
+  "depsResult": {
+    "fetchQuery": true,
+    "name": "botkit",
+    "operator": "^",
+    "result": {
+      "escapedName": "botkit",
+      "fetchSpec": "^12",
+      "gitCommittish": undefined,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "botkit",
+      "raw": "botkit@^12",
+      "rawSpec": "^12",
+      "registry": true,
+      "saveSpec": null,
+      "scope": undefined,
+      "type": "range",
+      "where": undefined,
+    },
+    "semver": undefined,
+  },
+  "npaOriginal": {
+    "escapedName": "botkit",
+    "fetchSpec": "^12",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "name": "botkit",
+    "raw": "botkit@^12",
+    "rawSpec": "^12",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "range",
+    "where": undefined,
+  },
+  "parseSimpleSemVerRange": [
+    {
+      "major": "12",
+      "operator": "^",
+      "semver": "^12",
+    },
+  ],
+  "re": [
+    "^12",
+    "^12",
+    undefined,
+    "^12",
+    "^",
+    undefined,
+    "12",
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+  ],
+}
+`;
+
+exports[`should return undefined botkit@^12 2`] = `
 {
   "fetchQuery": true,
   "name": "botkit",

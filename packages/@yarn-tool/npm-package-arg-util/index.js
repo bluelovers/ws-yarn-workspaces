@@ -45,7 +45,7 @@ function _npa2Core(arg, options) {
     const result = (0, npm_package_arg_1.default)(arg, options === null || options === void 0 ? void 0 : options.where);
     // Validate the result
     // 驗證結果
-    (0, assert_1.assertNpaResultAll)(result, options);
+    !(options === null || options === void 0 ? void 0 : options.noThrowError) && (0, assert_1.assertNpaResultAll)(result, options);
     return result;
 }
 /**
