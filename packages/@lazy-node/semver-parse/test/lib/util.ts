@@ -48,13 +48,13 @@ export function _lazyReturnResult<T extends any>(fn: (...argv) => T, input: stri
 		return {
 			input,
 			err: err as Error,
-		}
+		} as const
 	}
 
 	return {
 		input,
 		result,
-	}
+	} as const
 }
 
 /**
@@ -107,7 +107,7 @@ export function _lazyReturnResultAll(input: string)
 		parseSimpleSemVer: _lazyReturnResult(parseSimpleSemVer, input),
 		// 本套件範圍解析結果 / This package's range parse result
 		parseSimpleSemVerRange: _lazyReturnResult(parseSimpleSemVerRange, input),
-	}
+	} as const
 }
 
 /**
