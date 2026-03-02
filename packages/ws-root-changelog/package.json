@@ -1,6 +1,6 @@
 {
   "name": "ws-root-changelog",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "description": "Generate a root CHANGELOG.md with links to all workspace package changelogs",
   "keywords": [
     "workspaces",

@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/changelog",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "description": "Generate and update CHANGELOG.md using conventional commits for monorepo workspaces",
   "keywords": [
     "changelog",

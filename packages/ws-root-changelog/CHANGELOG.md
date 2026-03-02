@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.5](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-root-changelog@3.0.4...ws-root-changelog@3.0.5) (2026-03-02)
+
+
+
+### ♻️　Chores
+
+* **deps:** 移除 v8-compile-cache 依賴 ([3e018c0](https://github.com/bluelovers/ws-yarn-workspaces/commit/3e018c02725aa2d0fdca4299cadd361e8d5d87bd))
+
+
+
 ## [3.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-root-changelog@3.0.3...ws-root-changelog@3.0.4) (2026-03-02)
 
 

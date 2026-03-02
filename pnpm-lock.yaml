@@ -1375,7 +1375,7 @@ importers:
         specifier: ^1.0.17
         version: link:../types
       '@yarn-tool/workspaces-project':
-        specifier: ^3.0.4
+        specifier: ^3.0.5
         version: link:../workspaces-project
       semver:
         specifier: ^7.7.4
@@ -1399,7 +1399,7 @@ importers:
         specifier: '*'
         version: 6.1.4
       '@yarn-tool/changelog':
-        specifier: ^3.0.4
+        specifier: ^3.0.5
         version: link:../changelog
       find-yarn-workspace-root2:
         specifier: ^1.2.52
@@ -1997,7 +1997,7 @@ importers:
         specifier: ^1.0.41
         version: link:../@yarn-tool/update-notifier
       '@yarn-tool/workspaces-project':
-        specifier: ^3.0.4
+        specifier: ^3.0.5
         version: link:../@yarn-tool/workspaces-project
       '@yarn-tool/write-package-json':
         specifier: ^1.0.14
