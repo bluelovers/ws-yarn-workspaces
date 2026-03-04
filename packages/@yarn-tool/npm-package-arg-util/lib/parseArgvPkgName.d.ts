@@ -30,6 +30,33 @@ export declare function parseArgvPkgName(input: string): {
     result: IResult;
 };
 /**
+ * Core logic for parsing package name from npa result (legacy format)
+ * 從 npa 結果解析套件名稱的核心邏輯（舊版格式）
+ *
+ * This internal function processes the raw npm-package-arg result and transforms
+ * it into the legacy return format used by parseArgvPkgName.
+ *
+ * 此內部函數處理原始的 npm-package-arg 結果，並將其轉換為 parseArgvPkgName 使用的舊版返回格式。
+ *
+ * @param {IResult} result - The parsed result from npm-package-arg
+ * @param {IResult} result - 來自 npm-package-arg 的解析結果
+ *
+ * @param {string} input - The original input string
+ * @param {string} input - 原始輸入字串
+ *
+ * @returns {object|undefined} Parsed package information in legacy format, or undefined if result is invalid
+ * @returns {object|undefined} 舊版格式的解析套件資訊，如果結果無效則返回 undefined
+ *
+ * @internal
+ */
+export declare function _parseArgvPkgNameCore(result: IResult, input: string): {
+    input: string;
+    namespace: string;
+    name: string;
+    version: string;
+    result: IResult;
+};
+/**
  * Parse a package name and extract detailed information
  * 解析套件名稱並提取詳細資訊
  *
@@ -65,4 +92,23 @@ export declare function parseArgvPkgName(input: string): {
  * // Returns: { type: 'tag', name: 'lodash', scope: undefined, subname: 'lodash', semver: undefined, result: ... }
  */
 export declare function parsePackageName(packageName: string): IParsePackageName;
+/**
+ * Core logic for parsing package name from npa result (new format)
+ * 從 npa 結果解析套件名稱的核心邏輯（新版格式）
+ *
+ * This internal function processes the raw npm-package-arg result and transforms
+ * it into the standardized IParsePackageName format. It extracts and normalizes
+ * all relevant package information including type, name, scope, subname, and semver.
+ *
+ * 此內部函數處理原始的 npm-package-arg 結果，並將其轉換為標準化的 IParsePackageName 格式。
+ * 它提取並標準化所有相關的套件資訊，包括類型、名稱、範圍、子名稱和 semver。
+ *
+ * @param {IResult} result - The parsed result from npm-package-arg
+ * @param {IResult} result - 來自 npm-package-arg 的解析結果
+ *
+ * @returns {IParsePackageName} Standardized package information object
+ * @returns {IParsePackageName} 標準化的套件資訊物件
+ *
+ * @internal
+ */
 export declare function _parsePackageNameCore(result: IResult): IParsePackageName;
