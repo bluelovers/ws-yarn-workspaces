@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`getTargetDir 作用域套件 / Scoped packages 應該將作用域套件轉換為子套件名稱 / should convert scoped package to subname 1`] = `
+{
+  "cwd": "/current/dir",
+  "scopedPackagePattern": true,
+  "targetDir": StringContaining "my-package",
+  "targetName": "@org/my-package",
+}
+`;
+
+exports[`getTargetDir 作用域套件 / Scoped packages 應該正確處理作用域套件名稱 / should handle scoped package name correctly 1`] = `
+{
+  "cwd": "/current/dir",
+  "scopedPackagePattern": true,
+  "targetDir": Any<String>,
+  "targetName": "@scope/package-name",
+}
+`;
+
+exports[`getTargetDir 基本功能 / Basic functionality 應該正確處理一般套件名稱 / should handle regular package name correctly 1`] = `
+{
+  "cwd": "/current/dir",
+  "scopedPackagePattern": true,
+  "targetDir": Any<String>,
+  "targetName": "my-package",
+}
+`;
+
+exports[`getTargetDir 基本功能 / Basic functionality 當無輸入名稱時應該使用 cwd / should use cwd when no input name 1`] = `
+{
+  "cwd": "/current/dir",
+  "scopedPackagePattern": undefined,
+  "targetDir": "/current/dir",
+  "targetName": null,
+}
+`;
+
+exports[`getTargetDir 工作區環境 / Workspace environment 應該在工作區中處理作用域套件 / should handle scoped package in workspace 1`] = `
+{
+  "cwd": "/current/dir",
+  "scopedPackagePattern": true,
+  "targetDir": StringContaining "mypackage",
+  "targetName": "@scope/mypackage",
+}
+`;
+
+exports[`getTargetDir 工作區環境 / Workspace environment 應該在工作區中解析正確路徑 / should resolve correct path in workspace 1`] = `
+{
+  "cwd": "/current/dir",
+  "scopedPackagePattern": true,
+  "targetDir": StringContaining "my-package",
+  "targetName": "my-package",
+}
+`;
+
+exports[`getTargetDir 錯誤處理 / Error handling 當找不到工作區前綴時應該拋出錯誤 / should throw error when workspace prefix not found 1`] = `"can't found workspace prefix"`;
