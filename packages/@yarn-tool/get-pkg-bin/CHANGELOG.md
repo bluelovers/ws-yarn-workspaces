@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.2](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/get-pkg-bin@3.0.1...@yarn-tool/get-pkg-bin@3.0.2) (2026-03-04)
+
+
+
+### 📦　Code Refactoring
+
+* **get-pkg-bin:** 提取核心逻辑函数并完善文档测试 ([59a77bd](https://github.com/bluelovers/ws-yarn-workspaces/commit/59a77bdca4bd5bcb76085b2861e1b542289e92d1))
+
+
+
 ## [3.0.1](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/get-pkg-bin@2.0.12...@yarn-tool/get-pkg-bin@3.0.1) (2026-03-02)
 
 

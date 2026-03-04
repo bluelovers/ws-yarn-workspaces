@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.5](https://github.com/bluelovers/ws-yarn-workspaces/compare/yarn-list-link@2.0.4...yarn-list-link@2.0.5) (2026-03-04)
+
+
+
+### 📦　Code Refactoring
+
+* **yarn-list-link:** 將預設匯出改為具名匯出 ([3d4b3f9](https://github.com/bluelovers/ws-yarn-workspaces/commit/3d4b3f9043acba9b934e81a3683babc8e0e380b6))
+
+
+
 ## [2.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/yarn-list-link@2.0.3...yarn-list-link@2.0.4) (2026-03-02)
 
 

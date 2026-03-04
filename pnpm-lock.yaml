@@ -271,7 +271,7 @@ importers:
         specifier: ^2.0.16
         version: link:../find-root
       '@yarn-tool/get-pkg-bin':
-        specifier: ^3.0.1
+        specifier: ^3.0.2
         version: link:../get-pkg-bin
       '@yarn-tool/shebang':
         specifier: ^1.0.21
@@ -508,7 +508,7 @@ importers:
         specifier: ^3.0.4
         version: link:../../ws-pkg-list
       yarn-list-link:
-        specifier: ^2.0.4
+        specifier: ^2.0.5
         version: link:../../yarn-list-link
 
   packages/@yarn-tool/fix-ws-pkgs-link:

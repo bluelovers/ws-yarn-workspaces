@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/get-pkg-bin",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "從 package.json 取得 bin 腳本路徑的工具庫 / A utility for getting bin script paths from package.json",
   "keywords": [
     "yarn-tool",
