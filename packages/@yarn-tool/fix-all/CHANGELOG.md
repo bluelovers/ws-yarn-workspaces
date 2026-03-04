@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-all@3.0.6...@yarn-tool/fix-all@3.0.7) (2026-03-04)
+
+
+### BREAKING CHANGES
+
+* **fix-all:** 自動移除未指定測試的佔位符腳本
+
+
+
+### 🐛　Bug Fixes
+
+* **fix-all:** 自動移除未指定測試的佔位符腳本 ([fb7f8d9](https://github.com/bluelovers/ws-yarn-workspaces/commit/fb7f8d9cc8e725652b4d81a6087d3b71f8265ed2))
+
+
+
 ## [3.0.6](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-all@3.0.5...@yarn-tool/fix-all@3.0.6) (2026-03-04)
 
 **Note:** Version bump only for package @yarn-tool/fix-all

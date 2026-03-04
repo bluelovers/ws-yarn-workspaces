@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.6](https://github.com/bluelovers/ws-yarn-workspaces/compare/yarn-list-link@2.0.5...yarn-list-link@2.0.6) (2026-03-04)
+
+
+### BREAKING CHANGES
+
+* 在 test、lint 及 lerna 相關腳本結尾添加 `--` 以確保額外參數能正確傳遞。
+
+
+
+### 🐛　Bug Fixes
+
+* 在 test、lint 及 lerna 相關腳本結尾添加 `--` 以確保額外參數能正確傳遞。 ([88b7b15](https://github.com/bluelovers/ws-yarn-workspaces/commit/88b7b1535bbda94526591cbb4231b6040df11d4e))
+
+
+
 ## [2.0.5](https://github.com/bluelovers/ws-yarn-workspaces/compare/yarn-list-link@2.0.4...yarn-list-link@2.0.5) (2026-03-04)
 
 

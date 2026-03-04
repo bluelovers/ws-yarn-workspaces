@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/pkg-deps-add",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "",
   "keywords": [
     "yarn",
@@ -53,7 +53,7 @@
   },
   "dependencies": {
     "@ts-type/package-dts": "^2.0.8",
-    "@yarn-tool/find-root": "^2.0.16",
+    "@yarn-tool/find-root": "^2.0.17",
     "tslib": ">=2"
   },
   "publishConfig": {

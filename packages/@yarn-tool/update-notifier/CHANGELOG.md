@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.42](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/update-notifier@1.0.41...@yarn-tool/update-notifier@1.0.42) (2026-03-04)
+
+
+### BREAKING CHANGES
+
+* **is-npx:** isNpx 函式簽名已變更，參數現在需符合 IOptionsDetectNpxInput 介面（需至少提供 __dirname 或 env）
+
+
+
+### ✨　Features
+
+* **is-npx:** 重構並增強 NPX/YPX/dlx 環境檢測功能 ([533d01d](https://github.com/bluelovers/ws-yarn-workspaces/commit/533d01d5a87c32295b85553946636c809a425db5))
+
+
+
 ## [1.0.41](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/update-notifier@1.0.40...@yarn-tool/update-notifier@1.0.41) (2026-03-02)
 
 

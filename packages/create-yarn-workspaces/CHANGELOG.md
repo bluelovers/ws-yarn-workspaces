@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/create-yarn-workspaces@3.0.6...create-yarn-workspaces@3.0.7) (2026-03-04)
+
+
+
+### ♻️　Chores
+
+* **build:** 新增強制發布腳本並指定 packageManager ([9217759](https://github.com/bluelovers/ws-yarn-workspaces/commit/9217759d44ed5bd70ae3254f7b03dda9d4aba6ba))
+
+
+
 ## [3.0.6](https://github.com/bluelovers/ws-yarn-workspaces/compare/create-yarn-workspaces@3.0.5...create-yarn-workspaces@3.0.6) (2026-03-04)
 
 **Note:** Version bump only for package create-yarn-workspaces

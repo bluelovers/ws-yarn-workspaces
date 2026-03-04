@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.8](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/version-recommended@3.0.7...@yarn-tool/version-recommended@3.0.8) (2026-03-04)
+
+
+### BREAKING CHANGES
+
+* 在 test、lint 及 lerna 相關腳本結尾添加 `--` 以確保額外參數能正確傳遞。
+
+
+
+### 🐛　Bug Fixes
+
+* 在 test、lint 及 lerna 相關腳本結尾添加 `--` 以確保額外參數能正確傳遞。 ([88b7b15](https://github.com/bluelovers/ws-yarn-workspaces/commit/88b7b1535bbda94526591cbb4231b6040df11d4e))
+
+
+### ♻️　Chores
+
+* **build:** 新增強制發布腳本並指定 packageManager ([9217759](https://github.com/bluelovers/ws-yarn-workspaces/commit/9217759d44ed5bd70ae3254f7b03dda9d4aba6ba))
+
+
+
 ## [3.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/version-recommended@3.0.6...@yarn-tool/version-recommended@3.0.7) (2026-03-04)
 
 **Note:** Version bump only for package @yarn-tool/version-recommended

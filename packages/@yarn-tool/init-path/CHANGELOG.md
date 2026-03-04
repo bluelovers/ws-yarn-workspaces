@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.5](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/init-path@2.0.4...@yarn-tool/init-path@2.0.5) (2026-03-04)
+
+
+
+### 📚　Documentation
+
+* **init-path:** 補充完整文件與測試覆蓋 ([83f18d8](https://github.com/bluelovers/ws-yarn-workspaces/commit/83f18d80e2f66bd39589c30c52e5eea4d3babcce))
+
+
+
 ## [2.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/init-path@2.0.3...@yarn-tool/init-path@2.0.4) (2026-03-02)
 
 

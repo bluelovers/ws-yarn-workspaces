@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-error@1.0.18...@yarn-tool/yarnlock-error@1.0.19) (2026-03-04)
+
+
+### BREAKING CHANGES
+
+* 在 test、lint 及 lerna 相關腳本結尾添加 `--` 以確保額外參數能正確傳遞。
+
+
+
+### 🐛　Bug Fixes
+
+* 在 test、lint 及 lerna 相關腳本結尾添加 `--` 以確保額外參數能正確傳遞。 ([88b7b15](https://github.com/bluelovers/ws-yarn-workspaces/commit/88b7b1535bbda94526591cbb4231b6040df11d4e))
+
+
+
 ## [1.0.18](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-error@1.0.17...@yarn-tool/yarnlock-error@1.0.18) (2026-03-02)
 
 
