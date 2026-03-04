@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const tslib_1 = require("tslib");
-const core_1 = tslib_1.__importDefault(require("../core"));
+const core_1 = require("../core");
 let cwd = process.cwd();
-let ls = (0, core_1.default)(cwd);
+let ls = (0, core_1.yarnListLink)(cwd);
 if (ls && ls.length) {
     ls.forEach(v => console.log(v));
 }

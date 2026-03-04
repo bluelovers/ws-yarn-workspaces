@@ -4,7 +4,7 @@
 
 import { existsSync, readJSONSync } from 'fs-extra';
 import { join, normalize } from "upath2";
-import findWorkspaceRoot from 'find-yarn-workspace-root2/core';
+import { findWorkspaceRoot } from 'find-yarn-workspace-root2/core';
 
 export function getYarnIntegrityPath(cwd: string)
 {
