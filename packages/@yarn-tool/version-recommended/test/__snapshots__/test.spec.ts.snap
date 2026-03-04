@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`version 5.5.0 bump: "major" preid: "55" identifierBase: "0" handleOptions 1`] = `
 {

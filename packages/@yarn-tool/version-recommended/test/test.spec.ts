@@ -1,7 +1,6 @@
 //@noUnusedParameters:false
 /// <reference types="jest" />
 /// <reference types="node" />
-/// <reference types="expect" />
 
 import { basename, extname } from 'path';
 import { INextVersionRecommendedOptions, releaseTypes } from '../lib/types';

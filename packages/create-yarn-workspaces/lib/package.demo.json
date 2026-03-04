@@ -7,7 +7,7 @@
     "@bluelovers/tsconfig": "^1.0.35",
     "@types/jest": "^30.0.0",
     "@types/node": "^25.3.3",
-    "@yarn-tool/ws-find-up-paths": "^1.0.14"
+    "@yarn-tool/ws-find-up-paths": "^1.0.15"
   },
   "peerDependencies": {
     "@bluelovers/conventional-changelog-bluelovers": "*",

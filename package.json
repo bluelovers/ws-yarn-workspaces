@@ -55,6 +55,7 @@
     "ci:build": "echo ci:build",
     "lerna:publish": "node --run prepublishOnly:root && lerna publish --no-private && yarn run postpublishOnly",
     "lerna:publish:yes": "node --run lerna:publish:yes:patch",
+    "lerna:publish:yes:force": "node --run lerna:publish:yes:patch -- --force-publish",
     "lerna:publish:yes:major": "node --run prepublishOnly:root && lerna publish --no-private --yes --bump major && yarn run postpublishOnly",
     "lerna:publish:yes:minor": "node --run prepublishOnly:root && lerna publish --no-private --yes --bump minor && yarn run postpublishOnly",
     "lerna:publish:yes:patch": "node --run prepublishOnly:root && lerna publish --no-private --yes --bump patch && yarn run postpublishOnly",
@@ -116,6 +117,7 @@
     "@types/cross-spawn": "^6.0.6",
     "@types/debug": "^4.1.12",
     "@types/err-code": "^2.0.0",
+    "@types/expect": "^24.3.2",
     "@types/fs-extra": "^11.0.4",
     "@types/hash-sum": "^1.0.2",
     "@types/inquirer": "^9.0.9",
@@ -148,5 +150,6 @@
   "peerDependencies": {
     "lerna": "<=6",
     "yarn": "^1.22.22"
-  }
+  },
+  "packageManager": "pnpm@10.30.3+sha512.c961d1e0a2d8e354ecaa5166b822516668b7f44cb5bd95122d590dd81922f606f5473b6d23ec4a5be05e7fcd18e8488d47d978bbe981872f1145d06e9a740017"
 }

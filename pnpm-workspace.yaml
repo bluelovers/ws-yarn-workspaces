@@ -18,6 +18,7 @@ publicHoistPattern:
   - "fs-extra"
   - "micromatch"
   - "strip-ansi"
+  - "@types/expect"
 
 linkWorkspacePackages: true
 saveWorkspaceProtocol: false
