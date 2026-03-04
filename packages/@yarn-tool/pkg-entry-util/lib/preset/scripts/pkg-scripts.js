@@ -28,7 +28,7 @@ exports.defaultPkgNotOldExists = defaultPkgNotOldExists;
  */
 function defaultPkgScripts() {
     return {
-        "test": "node --run test:jest",
+        "test": "node --run test:jest --",
         "coverage": "yarn run test -- --coverage",
         "test:jest": "jest --passWithNoTests" /* EnumScriptsEntry.JEST_TEST */,
         "test:snapshot": "yarn run test -- -u",
@@ -75,7 +75,7 @@ function defaultPkgNotOldExists() {
         "build:dts:tsc": "node --run build:dts:tsc:emit && node --run build:dts:copy",
         "build:tsdx": "ynpx @bluelovers/tsdx build --target node --name index",
         "build:microbundle": "ynpx microbundle --target node",
-        "lint": "node --run lint:eslint",
+        "lint": "node --run lint:eslint --",
         "lint:eslint": "ynpx eslint --ext .ts,.tsx,.mts,.cts ./",
         "review": "node --run review:coverage",
         "review:test": "yarn run lint && yarn run test",

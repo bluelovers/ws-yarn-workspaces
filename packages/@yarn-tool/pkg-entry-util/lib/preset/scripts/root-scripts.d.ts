@@ -55,7 +55,7 @@ export declare function defaultRootScripts(): {
     "ws:fix-all:resetStaticFiles": string;
     test: string;
     coverage: string;
-    "test:jest": import("../..").EnumScriptsEntry;
+    "test:jest": import("../../field/scripts").EnumScriptsEntry;
     "test:snapshot": string;
     "test:jest:snapshot": string;
     "test:jest:coverage": string;

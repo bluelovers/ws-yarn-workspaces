@@ -112,7 +112,7 @@ function defaultWorkspaceRootScripts() {
             'major',
         ].reduce((a, bump, idx) => {
             if (idx === 0) {
-                a[`lerna:publish:yes`] = `node --run lerna:publish:yes:${bump}`;
+                a[`lerna:publish:yes`] = `node --run lerna:publish:yes:${bump} --`;
                 a[`lerna:publish:yes:force`] = `node --run lerna:publish:yes:${bump} -- --force-publish`;
             }
             a[`lerna:publish:yes:${bump}`] = bumpVersion(bump);
