@@ -5,6 +5,7 @@
  * 從 package.json 取得 bin 腳本路徑的工具庫。
  * A utility for getting bin script paths from package.json.
  */
+import { IGetPackageInfoResult } from './util';
 import { IOptions } from './lib/types';
 export * from './lib/types';
 export * from './util';
@@ -47,6 +48,25 @@ export * from './util';
  */
 export declare function normalizePackageBins(options: IOptions): Record<string, string>;
 /**
+ * 正規化套件 bin 腳本路徑的核心函數
+ * Core function for normalizing package bin script paths
+ *
+ * @description
+ * 此函數是 normalizePackageBins 的核心實作，處理 bin 路徑的解析與正規化。
+ * 根據 options.usePathResolve 選擇不同的路徑解析策略。
+ *
+ * 解析策略：
+ * - usePathResolve = true: 使用 upath2.resolve 進行相對路徑解析
+ * - usePathResolve = false（預設）: 使用 require.resolve 進行模組解析
+ *
+ * @param options - 選項配置 / Options configuration
+ * @param pkgInfo - 套件資訊（由 getPackageInfo 取得）/ Package info from getPackageInfo
+ * @returns 包含 bin 名稱與對應路徑的物件 / Object containing bin names and their paths
+ *
+ * @internal
+ */
+export declare function _normalizePackageBinsCore(options: IOptions, pkgInfo: IGetPackageInfoResult): Record<string, string>;
+/**
  * 取得套件的預設 bin 腳本路徑
  * Get the default bin script path of a package
  *
@@ -82,4 +102,55 @@ export declare function normalizePackageBins(options: IOptions): Record<string, 
  * ```
  */
 export declare function defaultPackageBin(options: IOptions, defaultKey?: string): string;
+/**
+ * 取得套件預設 bin 腳本路徑的核心函數
+ * Core function for getting the default bin script path of a package
+ *
+ * @description
+ * 此函數是 defaultPackageBin 的核心實作，流程如下：
+ * 1. 呼叫 _normalizePackageBinsCore 取得所有 bin 的正規化路徑
+ * 2. 透過 _handleDefaultKey 處理預設 bin 名稱（從套件名稱推斷或使用者指定）
+ * 3. 呼叫 _findDefaultPackageBinByBins 尋找最終的 bin 路徑
+ *
+ * @param options - 選項配置 / Options configuration
+ * @param pkgInfo - 套件資訊（由 getPackageInfo 取得）/ Package info from getPackageInfo
+ * @param defaultKey - 預設的 bin 名稱（可選）/ Default bin name (optional)
+ * @returns bin 腳本的絕對路徑 / Absolute path to the bin script
+ *
+ * @internal
+ */
+export declare function _defaultPackageBinCore(options: IOptions, pkgInfo: IGetPackageInfoResult, defaultKey?: string): string;
+/**
+ * 從 bins 物件中尋找預設的 bin 腳本路徑
+ * Find the default bin script path from bins object
+ *
+ * @description
+ * 尋找邏輯：
+ * 1. 若 defaultKey 存在且對應的 bin 存在於 bins 中，返回該 bin 路徑
+ * 2. 否則返回 bins 中的第一個 bin（透過 firstPackageBin）
+ *
+ * 此函數允許使用者指定優先使用的 bin 名稱，適用於套件有多個 bin 的情況。
+ *
+ * @param bins - bin 名稱與路徑的對應物件 / Object mapping bin names to paths
+ * @param defaultKey - 預設的 bin 名稱（可選）/ Default bin name (optional)
+ * @returns bin 腳本路徑，若無則為 undefined / Bin script path, or undefined if none
+ *
+ * @example
+ * ```typescript
+ * const bins = { 'my-cli': './cli.js', 'my-tool': './tool.js' };
+ *
+ * // 指定存在的 bin 名稱
+ * _findDefaultPackageBinByBins(bins, 'my-tool');
+ * // => './tool.js'
+ *
+ * // 指定不存在的 bin 名稱，返回第一個
+ * _findDefaultPackageBinByBins(bins, 'not-exist');
+ * // => './cli.js'
+ *
+ * // 不指定，返回第一個
+ * _findDefaultPackageBinByBins(bins);
+ * // => './cli.js'
+ * ```
+ */
+export declare function _findDefaultPackageBinByBins(bins: Record<string, string>, defaultKey?: string): string;
 export default normalizePackageBins;
