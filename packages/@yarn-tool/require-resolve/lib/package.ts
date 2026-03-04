@@ -1,4 +1,4 @@
-import { resolve } from 'upath2';
+import { resolve, normalize } from 'upath2';
 import { sync as pkgDir } from 'pkg-dir';
 import type {
 	IOptionsRequireResolve,
@@ -70,7 +70,7 @@ export function resolvePackageCore(moduleName: string, options?: IOptionsRequire
 
 	return {
 		name: moduleName,
-		pkgRoot,
+		pkgRoot: pkgRoot?.length && normalize(pkgRoot),
 		entryPointLocation,
 	};
 }

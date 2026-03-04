@@ -64,7 +64,7 @@ function resolvePackageCore(moduleName, options) {
     const pkgRoot = (0, pkg_dir_1.sync)(entryPointLocation);
     return {
         name: moduleName,
-        pkgRoot,
+        pkgRoot: (pkgRoot === null || pkgRoot === void 0 ? void 0 : pkgRoot.length) && (0, upath2_1.normalize)(pkgRoot),
         entryPointLocation,
     };
 }
