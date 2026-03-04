@@ -33,6 +33,7 @@ const getRootCopyStaticFiles_1 = require("@yarn-tool/static-file/lib/root/getRoo
 const static_file_1 = require("@yarn-tool/static-file");
 const pkg_scripts_1 = require("@yarn-tool/pkg-entry-util/lib/preset/scripts/pkg-scripts");
 const dummy_1 = require("@yarn-tool/pkg-entry-util/lib/util/scripts/dummy");
+const scripts_1 = require("@yarn-tool/pkg-entry-util/lib/field/scripts");
 const is_tsdx_1 = require("@yarn-tool/setup-module-env/lib/preset/tsdx/is-tsdx");
 const fix_1 = require("@yarn-tool/setup-module-env/lib/preset/tsdx/fix");
 const reset_1 = require("../file/reset");
@@ -75,7 +76,7 @@ function _handler(cwd, ...argv) {
  * @param {AggregateErrorExtra} err - 錯誤聚合器 / Error aggregator
  */
 function _runFixPackagesCore(row, options, cache, err) {
-    var _a, _b;
+    var _a, _b, _c;
     const { rootData, overwriteHostedGitInfo, hostedGitInfo, branch, resetStaticFiles, } = options;
     // 為套件建立假的根資料 / Create fake root data for the package
     const _rootDataFake = (0, find_root_1.newFakeRootData)(rootData, {
@@ -133,6 +134,9 @@ function _runFixPackagesCore(row, options, cache, err) {
         hostedGitInfo,
         branch,
     });
+    if ((0, scripts_1.scriptsEntryIsNoTestSpecified)((_a = pkg.data.scripts) === null || _a === void 0 ? void 0 : _a.test)) {
+        delete pkg.data.scripts.test;
+    }
     // 若適用則修復 tsdx 套件 / Fix tsdx package if applicable
     if ((0, is_tsdx_1.isTsdxPackage)(pkg.data)) {
         (0, fix_1.fixTsdxPackage)(pkg.data, {
@@ -154,7 +158,7 @@ function _runFixPackagesCore(row, options, cache, err) {
     // 設定預設腳本 / Set default scripts
     pkg.data.scripts = {
         ...(0, pkg_scripts_1.defaultPkgScripts)(),
-        ...((_a = pkg.data.scripts) !== null && _a !== void 0 ? _a : {}),
+        ...((_b = pkg.data.scripts) !== null && _b !== void 0 ? _b : {}),
     };
     // 處理根套件與非根套件 / Handle root vs non-root packages
     if (isRoot) {
@@ -168,7 +172,7 @@ function _runFixPackagesCore(row, options, cache, err) {
     else {
         // 非根套件：修復 preversion 腳本並移除 packageManager
         // Non-root package: fix preversion script and remove packageManager
-        if (!((_b = pkg.data.scripts['_preversion']) === null || _b === void 0 ? void 0 : _b.length) && (0, dummy_1.isDummyEchoMaybeOrEmpty)(pkg.data.scripts.preversion)) {
+        if (!((_c = pkg.data.scripts['_preversion']) === null || _c === void 0 ? void 0 : _c.length) && (0, dummy_1.isDummyEchoMaybeOrEmpty)(pkg.data.scripts.preversion)) {
             pkg.data.scripts.preversion = "yarn run test" /* EnumScriptsEntry.preversion */;
         }
         // 從非根套件移除 packageManager 欄位

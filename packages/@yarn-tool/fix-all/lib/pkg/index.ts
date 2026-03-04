@@ -29,7 +29,7 @@ import { copyStaticFiles } from '@yarn-tool/static-file';
 import { defaultPkgScripts } from '@yarn-tool/pkg-entry-util/lib/preset/scripts/pkg-scripts';
 import { pathIsSame } from 'path-is-same';
 import { isDummyEchoMaybeOrEmpty } from '@yarn-tool/pkg-entry-util/lib/util/scripts/dummy';
-import { EnumScriptsEntry } from '@yarn-tool/pkg-entry-util/lib/field/scripts';
+import { EnumScriptsEntry, scriptsEntryIsNoTestSpecified } from '@yarn-tool/pkg-entry-util/lib/field/scripts';
 import { isTsdxPackage } from '@yarn-tool/setup-module-env/lib/preset/tsdx/is-tsdx';
 import { fixTsdxPackage } from '@yarn-tool/setup-module-env/lib/preset/tsdx/fix';
 import { _resetStaticFiles } from '../file/reset';
@@ -177,6 +177,11 @@ export function _runFixPackagesCore(row: IEntry, options: IOptionsRunEachPackage
 		hostedGitInfo,
 		branch,
 	});
+
+	if (scriptsEntryIsNoTestSpecified(pkg.data.scripts?.test))
+	{
+		delete pkg.data.scripts!.test
+	}
 
 	// 若適用則修復 tsdx 套件 / Fix tsdx package if applicable
 	if (isTsdxPackage(pkg.data))
