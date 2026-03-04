@@ -226,7 +226,7 @@ importers:
         specifier: ^2.0.16
         version: link:../find-root
       '@yarn-tool/require-resolve':
-        specifier: ^4.0.1
+        specifier: ^4.0.2
         version: link:../require-resolve
       '@yarn-tool/semver-diff':
         specifier: ^2.0.14
@@ -271,7 +271,7 @@ importers:
         specifier: ^2.0.16
         version: link:../find-root
       '@yarn-tool/get-pkg-bin':
-        specifier: ^3.0.2
+        specifier: ^3.0.3
         version: link:../get-pkg-bin
       '@yarn-tool/shebang':
         specifier: ^1.0.21
@@ -454,7 +454,7 @@ importers:
         specifier: ^4.17.23
         version: 4.17.23
       npm-package-json-loader:
-        specifier: ^3.0.4
+        specifier: ^3.0.5
         version: link:../../node-package-json-loader
       progress-estimator:
         specifier: ^0.3.1
@@ -601,7 +601,7 @@ importers:
         specifier: ^2.0.11
         version: link:../get-paths-by-type
       '@yarn-tool/resolve-package':
-        specifier: ^3.0.1
+        specifier: ^3.0.2
         version: link:../resolve-package
       tslib:
         specifier: '>=2'
@@ -775,7 +775,7 @@ importers:
         specifier: ^2.0.3
         version: link:../npm-package-arg-util
       '@yarn-tool/resolve-package':
-        specifier: ^3.0.1
+        specifier: ^3.0.2
         version: link:../resolve-package
       pkg-dir:
         specifier: <6 >=5
@@ -1004,7 +1004,7 @@ importers:
         specifier: ^2.0.16
         version: link:../find-root
       '@yarn-tool/resolve-package':
-        specifier: ^3.0.1
+        specifier: ^3.0.2
         version: link:../resolve-package
       fs-extra:
         specifier: ^11.3.3
@@ -1157,7 +1157,7 @@ importers:
   packages/@yarn-tool/resolve-package:
     dependencies:
       '@yarn-tool/require-resolve':
-        specifier: ^4.0.1
+        specifier: ^4.0.2
         version: link:../require-resolve
       tslib:
         specifier: '>=2'
@@ -1225,7 +1225,7 @@ importers:
   packages/@yarn-tool/setup-module-env:
     dependencies:
       '@yarn-tool/pkg-entry-util':
-        specifier: ^3.0.4
+        specifier: ^3.0.5
         version: link:../pkg-entry-util
       dot-values2:
         specifier: ^2.0.7
@@ -1375,7 +1375,7 @@ importers:
         specifier: ^1.0.17
         version: link:../types
       '@yarn-tool/workspaces-project':
-        specifier: ^3.0.5
+        specifier: ^3.0.6
         version: link:../workspaces-project
       semver:
         specifier: ^7.7.4
@@ -1399,7 +1399,7 @@ importers:
         specifier: '*'
         version: 6.1.4
       '@yarn-tool/changelog':
-        specifier: ^3.0.5
+        specifier: ^3.0.6
         version: link:../changelog
       find-yarn-workspace-root2:
         specifier: ^1.2.52
@@ -1853,7 +1853,7 @@ importers:
         specifier: ^2.0.16
         version: link:../@yarn-tool/find-root
       '@yarn-tool/pkg-entry-util':
-        specifier: ^3.0.4
+        specifier: ^3.0.5
         version: link:../@yarn-tool/pkg-entry-util
       '@yarn-tool/static-file':
         specifier: ^3.0.5
@@ -1931,10 +1931,10 @@ importers:
         specifier: ^2.0.8
         version: 2.0.8(ts-toolbelt@9.6.0)
       '@yarn-tool/pkg-entry-util':
-        specifier: ^3.0.4
+        specifier: ^3.0.5
         version: link:../@yarn-tool/pkg-entry-util
       '@yarn-tool/resolve-package':
-        specifier: ^3.0.1
+        specifier: ^3.0.2
         version: link:../@yarn-tool/resolve-package
       '@yarn-tool/write-package-json':
         specifier: ^1.0.14
@@ -1973,7 +1973,7 @@ importers:
         specifier: ^3.0.4
         version: link:../@yarn-tool/node-modules-link
       '@yarn-tool/pkg-entry-util':
-        specifier: ^3.0.4
+        specifier: ^3.0.5
         version: link:../@yarn-tool/pkg-entry-util
       '@yarn-tool/pkg-git-info':
         specifier: ^2.0.4
@@ -1985,7 +1985,7 @@ importers:
         specifier: ^1.0.1
         version: link:../@yarn-tool/pkg-readme-tpl
       '@yarn-tool/setup-module-env':
-        specifier: ^3.0.4
+        specifier: ^3.0.5
         version: link:../@yarn-tool/setup-module-env
       '@yarn-tool/static-file':
         specifier: ^3.0.5
@@ -1997,7 +1997,7 @@ importers:
         specifier: ^1.0.41
         version: link:../@yarn-tool/update-notifier
       '@yarn-tool/workspaces-project':
-        specifier: ^3.0.5
+        specifier: ^3.0.6
         version: link:../@yarn-tool/workspaces-project
       '@yarn-tool/write-package-json':
         specifier: ^1.0.14
@@ -2024,7 +2024,7 @@ importers:
         specifier: ^4.0.8
         version: 4.0.8
       npm-package-json-loader:
-        specifier: ^3.0.4
+        specifier: ^3.0.5
         version: link:../node-package-json-loader
       path-is-same:
         specifier: ^1.0.29
