@@ -1,7 +1,18 @@
 {
   "name": "@yarn-tool/update-notifier",
   "version": "1.0.41",
-  "description": "",
+  "description": "CLI 工具更新通知器，在適當時機提醒使用者有新版本可用 / CLI tool update notifier that reminds users of new versions at appropriate times",
+  "keywords": [
+    "update-notifier",
+    "update",
+    "notifier",
+    "cli",
+    "npm",
+    "version",
+    "check",
+    "notification",
+    "yarn-tool"
+  ],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/update-notifier#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"
@@ -32,8 +43,8 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@npmcli/ci-detect": "^3.0.2",
     "@yarn-tool/is-npx": "^1.0.19",
+    "ci-info": "^4.4.0",
     "tslib": ">=2",
     "update-notifier": "<6 >=5.1.0"
   },

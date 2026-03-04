@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`@yarn-tool/is-npx handleOptionsDetectNpx 應該為缺失的選項提供預設值 / should provide defaults for missing options 1`] = `
+{
+  "__dirname": "/test",
+  "argv": Any<Array>,
+  "env": {
+    "TEST": "value",
+  },
+}
+`;
+
+exports[`@yarn-tool/is-npx isNpx 正常案例 / Normal Cases 應該在 env._ 以 /npx 結尾時檢測為 true / should detect true when env._ ends with /npx 1`] = `
+{
+  "_isNpx": true,
+  "isNpx": true,
+  "opts": {
+    "__dirname": "/normal/path",
+    "argv": [],
+    "env": {
+      "_": "/usr/local/bin/npx",
+    },
+  },
+}
+`;
