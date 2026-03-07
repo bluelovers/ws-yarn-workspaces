@@ -73,7 +73,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "fs-extra": "^11.3.3",
+    "fs-extra": "^11.3.4",
     "lodash": "^4.17.23",
     "tslib": ">=2"
   },

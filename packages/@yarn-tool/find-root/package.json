@@ -50,7 +50,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^2.0.8",
+    "@ts-type/package-dts": "^3.0.3",
     "err-code": "^3.0.1",
     "find-yarn-workspace-root2": "^1.2.52",
     "path-is-same": "^1.0.29",

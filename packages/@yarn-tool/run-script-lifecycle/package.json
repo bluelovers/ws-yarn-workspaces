@@ -51,7 +51,7 @@
   },
   "dependencies": {
     "@npmcli/run-script": "^10.0.4",
-    "@ts-type/package-dts": "^2.0.8",
+    "@ts-type/package-dts": "^3.0.3",
     "@yarn-tool/script-lifecycle": "^2.0.10",
     "read-package-json-fast": "^5.0.0",
     "tslib": ">=2"

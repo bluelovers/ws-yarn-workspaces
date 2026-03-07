@@ -33,13 +33,13 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^2.0.8",
+    "@ts-type/package-dts": "^3.0.3",
     "@types/semver": "*",
     "@yarn-tool/find-root": "^2.0.17",
     "@yarn-tool/types": "^1.0.18",
     "@yarn-tool/workspaces-project": "^3.0.7",
     "semver": "^7.7.4",
-    "ts-type": "^3.0.1",
+    "ts-type": "^3.0.5",
     "tslib": ">=2"
   },
   "publishConfig": {

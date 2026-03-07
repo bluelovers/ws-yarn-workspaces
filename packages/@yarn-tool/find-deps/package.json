@@ -37,7 +37,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^2.0.8",
+    "@ts-type/package-dts": "^3.0.3",
     "array-hyper-unique": "^2.1.6",
     "tslib": ">=2",
     "ws-pkg-list": "^3.0.5"

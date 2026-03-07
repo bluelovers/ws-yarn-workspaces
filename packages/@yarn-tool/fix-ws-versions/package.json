@@ -77,7 +77,7 @@
   },
   "dependencies": {
     "@lazy-node/semver-simple-parse": "^4.0.1",
-    "@ts-type/package-dts": "^2.0.8",
+    "@ts-type/package-dts": "^3.0.3",
     "tslib": ">=2",
     "ws-pkg-list": "^3.0.5"
   },

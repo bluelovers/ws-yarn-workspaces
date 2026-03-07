@@ -50,7 +50,7 @@
     "@yarn-tool/yarnlock-stringify": "^2.0.5",
     "@yarn-tool/yarnlock-util": "^3.0.5",
     "lodash": "^4.17.23",
-    "ts-type": "^3.0.1",
+    "ts-type": "^3.0.5",
     "tslib": ">=2"
   },
   "publishConfig": {

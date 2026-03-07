@@ -34,9 +34,9 @@
     "@lerna/get-packed": "^6.4.1",
     "@lerna/log-packed": "^6.4.1",
     "@npmcli/arborist": "^9.4.0",
-    "@ts-type/package-dts": "^2.0.8",
+    "@ts-type/package-dts": "^3.0.3",
     "npm-packlist": "^10.0.4",
-    "tar": "^7.5.9",
+    "tar": "^7.5.10",
     "tslib": ">=2"
   },
   "engines": {

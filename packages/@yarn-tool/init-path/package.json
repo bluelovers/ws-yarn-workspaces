@@ -35,7 +35,7 @@
   "dependencies": {
     "@yarn-tool/search-workspace-prefix-by-name": "^2.0.5",
     "@yarn-tool/validate-npm-package-name": "^3.0.22",
-    "fs-extra": "^11.3.3",
+    "fs-extra": "^11.3.4",
     "tslib": ">=2",
     "workspaces-config": "^2.0.5"
   },

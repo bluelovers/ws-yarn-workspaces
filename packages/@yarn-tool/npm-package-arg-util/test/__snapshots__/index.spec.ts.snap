@@ -1,0 +1,277 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`_parseArgvPkgNameCore 核心邏輯 / Core logic 應該處理有效的 npa 結果 / should handle valid npa result 1`] = `
+{
+  "input": "lodash@4.17.21",
+  "name": "lodash",
+  "namespace": undefined,
+  "result": {
+    "escapedName": "lodash",
+    "fetchSpec": "4.17.21",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "name": "lodash",
+    "raw": "lodash@4.17.21",
+    "rawSpec": "4.17.21",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "version",
+    "where": undefined,
+  },
+  "version": "4.17.21",
+}
+`;
+
+exports[`_parsePackageNameCore 核心邏輯 / Core logic 應該處理別名套件的 npa 結果 / should handle alias package npa result 1`] = `
+{
+  "name": "my-lodash",
+  "result": {
+    "escapedName": "my-lodash",
+    "fetchSpec": null,
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "name": "my-lodash",
+    "raw": "my-lodash@npm:lodash@4.17.21",
+    "rawSpec": "npm:lodash@4.17.21",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "subSpec": {
+      "escapedName": "lodash",
+      "fetchSpec": "4.17.21",
+      "gitCommittish": undefined,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "lodash",
+      "raw": "lodash@4.17.21",
+      "rawSpec": "4.17.21",
+      "registry": true,
+      "saveSpec": null,
+      "scope": undefined,
+      "type": "version",
+      "where": undefined,
+    },
+    "type": "alias",
+    "where": undefined,
+  },
+  "scope": undefined,
+  "semver": "4.17.21",
+  "subname": "my-lodash",
+  "type": "alias",
+}
+`;
+
+exports[`_parsePackageNameCore 核心邏輯 / Core logic 應該處理簡單套件的 npa 結果 / should handle simple package npa result 1`] = `
+{
+  "name": "lodash",
+  "result": {
+    "escapedName": "lodash",
+    "fetchSpec": "4.17.21",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "name": "lodash",
+    "raw": "lodash@4.17.21",
+    "rawSpec": "4.17.21",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "version",
+    "where": undefined,
+  },
+  "scope": undefined,
+  "semver": "4.17.21",
+  "subname": "lodash",
+  "type": "version",
+}
+`;
+
+exports[`parseArgvPkgName 基本功能 / Basic functionality 應該解析帶版本的套件 / should parse package with version 1`] = `
+{
+  "input": "lodash@4.17.21",
+  "name": "lodash",
+  "namespace": undefined,
+  "result": {
+    "escapedName": "lodash",
+    "fetchSpec": "4.17.21",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "name": "lodash",
+    "raw": "lodash@4.17.21",
+    "rawSpec": "4.17.21",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "version",
+    "where": undefined,
+  },
+  "version": "4.17.21",
+}
+`;
+
+exports[`parseArgvPkgName 基本功能 / Basic functionality 應該解析帶版本範圍的套件 / should parse package with version range 1`] = `
+{
+  "input": "lodash@^4.17.0",
+  "name": "lodash",
+  "namespace": undefined,
+  "result": {
+    "escapedName": "lodash",
+    "fetchSpec": "^4.17.0",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "name": "lodash",
+    "raw": "lodash@^4.17.0",
+    "rawSpec": "^4.17.0",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "range",
+    "where": undefined,
+  },
+  "version": "^4.17.0",
+}
+`;
+
+exports[`parseArgvPkgName 基本功能 / Basic functionality 應該解析簡單套件名稱 / should parse simple package name 1`] = `
+{
+  "input": "lodash",
+  "name": "lodash",
+  "namespace": undefined,
+  "result": {
+    "escapedName": "lodash",
+    "fetchSpec": "*",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "name": "lodash",
+    "raw": "lodash",
+    "rawSpec": "*",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "range",
+    "where": undefined,
+  },
+  "version": "*",
+}
+`;
+
+exports[`parsePackageName 基本功能 / Basic functionality 應該解析帶標籤的套件 / should parse package with tag 1`] = `
+{
+  "name": "lodash",
+  "result": {
+    "escapedName": "lodash",
+    "fetchSpec": "latest",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "name": "lodash",
+    "raw": "lodash@latest",
+    "rawSpec": "latest",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "tag",
+    "where": undefined,
+  },
+  "scope": undefined,
+  "semver": "latest",
+  "subname": "lodash",
+  "type": "tag",
+}
+`;
+
+exports[`parsePackageName 基本功能 / Basic functionality 應該解析帶版本的套件 / should parse package with version 1`] = `
+{
+  "name": "lodash",
+  "result": {
+    "escapedName": "lodash",
+    "fetchSpec": "4.17.21",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "name": "lodash",
+    "raw": "lodash@4.17.21",
+    "rawSpec": "4.17.21",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "version",
+    "where": undefined,
+  },
+  "scope": undefined,
+  "semver": "4.17.21",
+  "subname": "lodash",
+  "type": "version",
+}
+`;
+
+exports[`parsePackageName 基本功能 / Basic functionality 應該解析帶版本範圍的套件 / should parse package with version range 1`] = `
+{
+  "name": "lodash",
+  "result": {
+    "escapedName": "lodash",
+    "fetchSpec": "^4.17.0",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "name": "lodash",
+    "raw": "lodash@^4.17.0",
+    "rawSpec": "^4.17.0",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "type": "range",
+    "where": undefined,
+  },
+  "scope": undefined,
+  "semver": "^4.17.0",
+  "subname": "lodash",
+  "type": "range",
+}
+`;
+
+exports[`parsePackageName 複雜案例 / Complex cases 應該解析別名套件 / should parse alias package 1`] = `
+{
+  "name": "my-lodash",
+  "result": {
+    "escapedName": "my-lodash",
+    "fetchSpec": null,
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "name": "my-lodash",
+    "raw": "my-lodash@npm:lodash@4.17.21",
+    "rawSpec": "npm:lodash@4.17.21",
+    "registry": true,
+    "saveSpec": null,
+    "scope": undefined,
+    "subSpec": {
+      "escapedName": "lodash",
+      "fetchSpec": "4.17.21",
+      "gitCommittish": undefined,
+      "gitRange": undefined,
+      "gitSubdir": undefined,
+      "name": "lodash",
+      "raw": "lodash@4.17.21",
+      "rawSpec": "4.17.21",
+      "registry": true,
+      "saveSpec": null,
+      "scope": undefined,
+      "type": "version",
+      "where": undefined,
+    },
+    "type": "alias",
+    "where": undefined,
+  },
+  "scope": undefined,
+  "semver": "4.17.21",
+  "subname": "my-lodash",
+  "type": "alias",
+}
+`;

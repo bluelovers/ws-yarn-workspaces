@@ -44,7 +44,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^2.0.8",
+    "@ts-type/package-dts": "^3.0.3",
     "@yarn-tool/find-root": "^2.0.17",
     "@yarn-tool/npm-package-arg-util": "^2.0.3",
     "@yarn-tool/pkg-deps-add": "^3.0.4",

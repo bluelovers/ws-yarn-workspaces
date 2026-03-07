@@ -46,7 +46,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^2.0.8",
+    "@ts-type/package-dts": "^3.0.3",
     "@yarn-tool/sort-package-json-exports": "^1.0.5",
     "@yarn-tool/sort-package-json-order": "^2.0.4",
     "is-plain-obj": "<4 >=3",
