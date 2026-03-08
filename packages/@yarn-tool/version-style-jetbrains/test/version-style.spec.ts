@@ -23,9 +23,9 @@ import {
 	getQuarterFromMonth,
 	getJetbrainsYearCode,
 	_handleVersionStyleOptions,
-	isValidDateInfo,
+	isValidDateInfo, IVersionStyleOptions,
 } from '../index';
-import { _lazyParseVersion } from './lib/test';
+import { _expectHandleVersionStyleOptions, _lazyParseVersion } from './lib/test';
 
 describe('Version Style Generator', () => {
 
@@ -409,7 +409,7 @@ describe('Version Style Generator', () => {
 			const testDate = new Date(2026, 0, 1);
 			const result = _handleVersionStyleOptions(testDate);
 
-			expect(result.date).toEqual(testDate);
+			expect(result.date.toDate()).toEqual(testDate);
 			expect(result.dailyIncrement).toBe(1);
 			expect(result.disableDailyVersionSuffix).toBe(false);
 		});
@@ -422,33 +422,33 @@ describe('Version Style Generator', () => {
 				disableDailyVersionSuffix: true,
 			});
 
-			expect(result.date).toEqual(testDate);
+			expect(result.date.toDate()).toEqual(testDate);
 			expect(result.dailyIncrement).toBe(5);
 			expect(result.disableDailyVersionSuffix).toBe(true);
 		});
 
 		it('should use default values when no input', () => {
 			const before = new Date();
-			const result = _handleVersionStyleOptions();
+			const result = _expectHandleVersionStyleOptions();
 			const after = new Date();
 
 			// 日期應該在調用前後的時間範圍內
-			expect(result.date.getTime()).toBeGreaterThanOrEqual(before.getTime());
-			expect(result.date.getTime()).toBeLessThanOrEqual(after.getTime());
-			expect(result.dailyIncrement).toBe(1);
-			expect(result.disableDailyVersionSuffix).toBe(false);
+			const date = result.date.toDate();
+
+			expect(date.getTime()).toBeGreaterThanOrEqual(before.getTime());
+			expect(date.getTime()).toBeLessThanOrEqual(after.getTime());
 		});
 
 		it('should handle empty object', () => {
 			const before = new Date();
-			const result = _handleVersionStyleOptions({});
+			const result = _expectHandleVersionStyleOptions({});
 			const after = new Date();
 
 			// 日期應該在調用前後的時間範圍內
-			expect(result.date.getTime()).toBeGreaterThanOrEqual(before.getTime());
-			expect(result.date.getTime()).toBeLessThanOrEqual(after.getTime());
-			expect(result.dailyIncrement).toBe(1);
-			expect(result.disableDailyVersionSuffix).toBe(false);
+			const date = result.date.toDate();
+
+			expect(date.getTime()).toBeGreaterThanOrEqual(before.getTime());
+			expect(date.getTime()).toBeLessThanOrEqual(after.getTime());
 		});
 
 	});

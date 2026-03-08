@@ -1,3 +1,10 @@
+import { ITSOverwrite, ITSRequiredPick, ITSRequiredWith } from 'ts-type/lib/type/record';
+import dayjs, { Dayjs, isDayjs } from 'dayjs';
+import { IOptionsTzDayjsSafeParse, tzDayjsSafeParse } from 'dayjs-tz-helper';
+import isToday from 'dayjs/plugin/isToday';
+
+dayjs.extend(isToday);
+
 /**
  * 基於日期的版本編號生成器核心模組
  * Date-based version style generator core module
@@ -70,6 +77,8 @@ export enum EnumVersionStyle
 	StandardFullMD = 'standard-full-md',
 }
 
+export type IDateInput = Dayjs | Date | number | string | IDateInfo;
+
 /**
  * 版本樣式配置選項
  * Version style configuration options
@@ -77,13 +86,19 @@ export enum EnumVersionStyle
 export interface IVersionStyleOptions
 {
 	/** 指定日期 (預設為現在) / Specified date (default is now) */
-	date?: Date;
+	date?: IDateInput;
 	/** 當日版本號遞增 / Daily version increment */
 	dailyIncrement?: number;
 	/** 是否禁用結尾的 -x dailyVersion (僅對 JetbrainsShort 和 StandardFull 有效) / Whether to disable trailing -x dailyVersion (only effective for JetbrainsShort and StandardFull) */
 	disableDailyVersionSuffix?: boolean;
 	/** 版本樣式 / Version style (default is JetbrainsShortMD) */
 	style?: EnumVersionStyle;
+	/** 是否在解析失敗時拋出錯誤 / Whether to throw error when parsing fails */
+	throwOnError?: boolean;
+	/** 現有版本號 (用於遞增) / Current version (for incrementing) */
+	currentVersion?: string;
+
+	dateOptions?: IOptionsTzDayjsSafeParse;
 }
 
 export interface IVersionStyleOptionsWithDateInfo extends IVersionStyleOptions, IDateInfo
@@ -91,20 +106,28 @@ export interface IVersionStyleOptionsWithDateInfo extends IVersionStyleOptions, 
 
 }
 
+export type IOptionsRuntime<T extends Pick<IVersionStyleOptions, 'date'>> = ITSOverwrite<T, {
+	date: Dayjs
+}>;
+
+export type IRequiredOptionsRuntime<T extends IVersionStyleOptions = IVersionStyleOptions> = Required<IOptionsRuntime<T>>
+
+/**
+ * 請注意月份為 Human-readable Month Number
+ * 不是 Zero-based Month Number
+ */
 export interface IDateInfo
 {
 	/** 年份 / Year */
 	year: number;
-	/** 月份 / Month */
+	/**
+	 * 月份 / Human-readable Month Number
+	 *
+	 * Accepts numbers from 1 to 12
+	 */
 	month: number;
 	/** 日期 / Day */
 	day: number;
-}
-
-export interface IDateInfoFromDate extends IDateInfo
-{
-	/** 指定日期 (預設為現在) / Specified date (default is now) */
-	date: Date;
 }
 
 /**
@@ -121,6 +144,68 @@ export interface IParseVersionResult extends IDateInfo
 	isMDCombined: boolean;
 }
 
+export function getDayjsFromInput(date: IDateInput, opts?: IOptionsTzDayjsSafeParse)
+{
+	if (typeof date === 'object')
+	{
+		if (isDayjs(date))
+		{
+			return tzDayjsSafeParse(date, opts)
+		}
+		else if (date instanceof Date)
+		{
+			return tzDayjsSafeParse(date, opts);
+		}
+		else if (isValidDateInfo(date))
+		{
+			return tzDayjsSafeParse(`${date.year}-${date.month}-${date.day}`, opts);
+		}
+	}
+	else if (typeof date === 'string' || typeof date === 'number')
+	{
+		return tzDayjsSafeParse(date, opts);
+	}
+
+	return null
+}
+
+export function _handleVersionStyleOptionsCore<T extends IVersionStyleOptions = IVersionStyleOptions>(optionsOrDate?: T | IDateInput)
+{
+	// 取得日期
+	let date: IDateInput;
+	let options: IOptionsRuntime<T> = {} as any;
+
+	if (!optionsOrDate)
+	{
+		//
+	}
+	else if (typeof optionsOrDate === 'number' || typeof optionsOrDate === 'string')
+	{
+		date = optionsOrDate
+	}
+	else if (optionsOrDate instanceof Date)
+	{
+		// 已經是 Date 物件
+		date = optionsOrDate;
+	}
+	else if ('date' in optionsOrDate)
+	{
+		date = optionsOrDate.date as any;
+		options = optionsOrDate as any;
+	}
+	else if (typeof optionsOrDate === 'object')
+	{
+		options = optionsOrDate as any
+	}
+
+	options = {
+		...options,
+		date: getDayjsFromInput(date ?? new Date(), options.dateOptions),
+	};
+
+	return options
+}
+
 /**
  * 處理版本樣式選項
  * Handle version style options
@@ -131,43 +216,18 @@ export interface IParseVersionResult extends IDateInfo
  * @param optionsOrDate - 原始選項或 Date / Original options or Date
  * @returns 處理後的選項 / Processed options
  */
-export function _handleVersionStyleOptions(optionsOrDate?: IVersionStyleOptions | Date): Required<IVersionStyleOptions>
+export function _handleVersionStyleOptions<T extends IVersionStyleOptions = IVersionStyleOptions>(optionsOrDate?: T | IDateInput): IRequiredOptionsRuntime<T>
 {
-	// 取得日期
-	let date: Date;
-
-	if (!optionsOrDate)
-	{
-		date = new Date();
-		optionsOrDate = null as IVersionStyleOptions;
-	}
-	else if (optionsOrDate instanceof Date)
-	{
-		// 已經是 Date 物件
-		date = optionsOrDate;
-		optionsOrDate = null as IVersionStyleOptions;
-	}
-	else if ('date' in optionsOrDate && optionsOrDate.date instanceof Date)
-	{
-		// 是 IVersionStyleOptions 且有 date 屬性
-		date = optionsOrDate.date;
-	}
-	else
-	{
-		// 其他情況，使用今天
-		date = new Date();
-		optionsOrDate = null as IVersionStyleOptions;
-	}
-
-	optionsOrDate ??= {};
+	const options = _handleVersionStyleOptionsCore<T>(optionsOrDate);
 
 	return {
-		...optionsOrDate,
-		date,
-		dailyIncrement: optionsOrDate.dailyIncrement ?? 1,
-		disableDailyVersionSuffix: optionsOrDate.disableDailyVersionSuffix ?? false,
-		style: optionsOrDate.style ?? EnumVersionStyle.JetbrainsShortMD,
-	} as Required<IVersionStyleOptions>;
+		...options,
+		dailyIncrement: options.dailyIncrement ?? 1,
+		disableDailyVersionSuffix: options.disableDailyVersionSuffix ?? false,
+		style: options.style ?? EnumVersionStyle.JetbrainsShortMD,
+		// throwOnError: options.throwOnError ?? false,
+		// currentVersion: options.currentVersion,
+	} satisfies IOptionsRuntime<T> as any;
 }
 
 /**
@@ -193,16 +253,27 @@ export function isValidDateInfo(dateInfo: Partial<IDateInfo>): dateInfo is IDate
 
 export function assertValidDateInfo(dateInfo: Partial<IDateInfo>): asserts dateInfo is IDateInfo
 {
-	if (!isValidDateInfo(dateInfo)) throw new RangeError(`Invalid DateInfo: year, month(1-12), and day(1-31) must be valid numbers. Provided dateInfo: ${JSON.stringify(dateInfo)}.`);
+	if (!isValidDateInfo(dateInfo)) throw new RangeError(`Invalid DateInfo: year=${dateInfo.year}, month(1-12)=${dateInfo.month}, and day(1-31)=${dateInfo.day} must be valid numbers.`);
 }
 
-export function _getDateInfoFromDate(date: Date): IDateInfoFromDate
+/**
+ * @deprecated
+ */
+export function _getDateInfoFromDate(date: Date): IDateInfo
 {
 	return {
-		date,
 		year: date.getFullYear(),
 		month: date.getMonth() + 1,
 		day: date.getDate(),
+	};
+}
+
+export function _getDateInfoFromDayjs(date: Dayjs): IDateInfo
+{
+	return {
+		year: date.year(),
+		month: date.month() + 1,
+		day: date.date(),
 	};
 }
 
@@ -212,22 +283,61 @@ export function _getDateInfoFromDate(date: Date): IDateInfoFromDate
  *
  * @param options - 選項 / Options
  * @returns 日期資訊 / Date info
+ *
+ * @deprecated 當 options 確定經過 _handleVersionStyleOptionsCore 或 _handleVersionStyleOptions 處理過時可以直接使用 _getDateInfoFromDayjs
  */
-export function _getDateInfoFromOptions(options: IVersionStyleOptions | Date)
+export function _getDateInfoFromOptions(options: IVersionStyleOptions | IDateInput)
 {
-	let date: Date;
+	let date = _handleVersionStyleOptionsCore((options as IVersionStyleOptions)?.date ?? options).date
+	return _getDateInfoFromDayjs(date);
+}
 
-	if (options instanceof Date)
+/**
+ * 從選項取得解析後的版本資訊
+ * Get parsed version info from options
+ *
+ * 優先使用 currentVersion，否則從日期產生版本
+ *
+ * @param processed - 處理後的選項 / Processed options
+ * @returns 解析後的版本資訊 / Parsed version info
+ */
+export function _getParsedVersionFromOptions(processed: IRequiredOptionsRuntime): IParseVersionResult
+{
+	// 優先使用 currentVersion
+	if (processed.currentVersion)
 	{
-		date = options;
-	}
-	else
-	{
-		const processed = _handleVersionStyleOptions(options);
-		date = processed.date;
+		const parsed = parseVersion(processed.currentVersion);
+
+		if (parsed)
+		{
+			return parsed;
+		}
+
+		if (processed.throwOnError)
+		{
+			throw new RangeError(`Failed to parse currentVersion: ${processed.currentVersion}`);
+		}
 	}
 
-	return _getDateInfoFromDate(date);
+	// 從 processed 取得日期資訊
+	const { date, style } = processed;
+	const dateInfo = _getDateInfoFromDayjs(date);
+
+	// 產生版本字串後立即解析
+	const versionString = dateToVersionByStyle(style, {
+		...dateInfo,
+		dailyIncrement: processed.dailyIncrement,
+		disableDailyVersionSuffix: processed.disableDailyVersionSuffix,
+	});
+
+	const parsed = parseVersion(versionString);
+
+	if (!parsed)
+	{
+		throw new Error(`Failed to parse version: ${versionString}`);
+	}
+
+	return parsed;
 }
 
 /**
@@ -392,7 +502,7 @@ export function parseVersion(version: string): IParseVersionResult | null
 export function dateToVersion(options?: IVersionStyleOptions): string
 {
 	const processed = _handleVersionStyleOptions(options);
-	const { year, month, day } = _getDateInfoFromOptions(processed);
+	const { year, month, day } = _getDateInfoFromDayjs(processed.date);
 	const { dailyIncrement, disableDailyVersionSuffix, style } = processed;
 
 	// 使用選項中的 style 或預設的 JetbrainsShortMD
@@ -418,16 +528,24 @@ export function dateToVersionByStyle(
 	options: IVersionStyleOptionsWithDateInfo,
 ): string
 {
-	const { year, month, day } = options;
-	const dailyIncrement = options.dailyIncrement ?? 1;
-	const disableSuffix = options.disableDailyVersionSuffix ?? false;
+	const processed = _handleVersionStyleOptions(options);
+
+	return _dateToVersionByStyleCore(style, processed)
+}
+
+export function _dateToVersionByStyleCore(
+	style: EnumVersionStyle,
+	options: ITSRequiredPick<IVersionStyleOptionsWithDateInfo, 'year' | 'month' | 'day' | 'dailyIncrement' | 'disableDailyVersionSuffix'>,
+): string
+{
+	const { year, month, day, dailyIncrement, disableDailyVersionSuffix } = options;
 	const quarter = getQuarterFromMonth(month);
 
 	switch (style)
 	{
 		case EnumVersionStyle.JetbrainsShort:
 			// 261.1.1-1 => (year%100)*10+quarter . month . day - increment
-			if (disableSuffix)
+			if (disableDailyVersionSuffix)
 			{
 				return `${getJetbrainsYearCode(year, quarter)}.${month}.${day}`;
 			}
@@ -440,7 +558,7 @@ export function dateToVersionByStyle(
 
 		case EnumVersionStyle.StandardFull:
 			// 2026.1.1-1 => year.month.day-increment
-			if (disableSuffix)
+			if (disableDailyVersionSuffix)
 			{
 				return `${year}.${month}.${day}`;
 			}
@@ -546,7 +664,7 @@ export function incrementVersion(currentVersion: string): string
  * @param optionsOrDate - 選項或日期 / Options or Date
  * @returns 是否為今天的版本 / Whether it's today's version
  */
-export function isTodayVersion(version: string, optionsOrDate?: IVersionStyleOptions | Date): boolean
+export function isTodayVersion(version: string, optionsOrDate?: IVersionStyleOptions | IDateInput): boolean
 {
 	const parsed = parseVersion(version);
 
@@ -555,15 +673,12 @@ export function isTodayVersion(version: string, optionsOrDate?: IVersionStyleOpt
 		return false;
 	}
 
-	const { year, month, day } = parsed;
-
 	// 取得要比對的日期 - 使用 _handleVersionStyleOptions 處理
-	const processed = _handleVersionStyleOptions(optionsOrDate);
-	const compareDate = processed.date;
+	const compareDate = _handleVersionStyleOptions(optionsOrDate).date;
 
-	return year === compareDate.getFullYear()
-		&& month === compareDate.getMonth() + 1
-		&& day === compareDate.getDate();
+	return parsed.year === compareDate.year()
+		&& parsed.month === compareDate.month() + 1
+		&& parsed.day === compareDate.date();
 }
 
 /**
@@ -578,28 +693,36 @@ export function isTodayVersion(version: string, optionsOrDate?: IVersionStyleOpt
 export function getNextVersion(options?: IVersionStyleOptions): string
 {
 	const processed = _handleVersionStyleOptions(options);
-	const { date, disableDailyVersionSuffix } = processed;
+	const { disableDailyVersionSuffix, style, throwOnError } = processed;
 
-	// 產生今天的版本號 (使用 JetBrains Short MD 格式)
-	const todayVersion = dateToVersion(processed);
+	let parsed: IParseVersionResult;
 
-	// 取得目前的當日版本號
-	const parsed = parseVersion(todayVersion);
-
-	if (parsed)
+	try
 	{
-		// 遞增當日版本號
-		return dateToVersionByStyle(EnumVersionStyle.JetbrainsShortMD, {
-			year: parsed.year,
-			month: parsed.month,
-			day: parsed.day,
-			dailyIncrement: parsed.dailyVersion + 1,
-			disableDailyVersionSuffix,
-		});
+		processed.throwOnError ??= true;
+
+		// 直接從 processed 取得解析後的版本資訊
+		parsed = _getParsedVersionFromOptions(processed);
+	}
+	catch (e)
+	{
+		if (throwOnError)
+		{
+			throw e;
+		}
+
+		// 解析失敗，返回基本版本
+		return dateToVersion(processed);
 	}
 
-	// 如果解析失敗，返回基本版本
-	return todayVersion;
+	// 遞增當日版本號
+	return dateToVersionByStyle(style, {
+		year: parsed.year,
+		month: parsed.month,
+		day: parsed.day,
+		dailyIncrement: parsed.dailyVersion + 1,
+		disableDailyVersionSuffix,
+	});
 }
 
 /**
@@ -612,7 +735,7 @@ export function getNextVersion(options?: IVersionStyleOptions): string
 export function generateAllStyleVersions(options?: IVersionStyleOptions): Record<EnumVersionStyle, string>
 {
 	const processed = _handleVersionStyleOptions(options);
-	const { year, month, day } = _getDateInfoFromOptions(processed);
+	const { year, month, day } = _getDateInfoFromDayjs(processed.date);
 	const { dailyIncrement, disableDailyVersionSuffix } = processed;
 
 	return {
