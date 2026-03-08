@@ -12,7 +12,6 @@
   "peerDependencies": {
     "@bluelovers/conventional-changelog-bluelovers": "*",
     "@yarn-tool/require-resolve": "*",
-    "lerna": "<=6",
     "ts-node": "*",
     "typescript": "*",
     "yarn": "*",

@@ -63,7 +63,7 @@
   },
   "dependencies": {
     "@bluelovers/fs-json": "^1.0.17",
-    "@ts-type/package-dts": "^3.0.3",
+    "@ts-type/package-dts": "^3.0.6",
     "@yarn-tool/write-package-json": "^1.0.14",
     "fs-extra": "^11.3.4",
     "sort-object-keys2": "^3.0.7",

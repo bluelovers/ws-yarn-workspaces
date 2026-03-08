@@ -305,9 +305,6 @@ export function _createYarnWorkspaces(targetPath: string, options: IOptions = {}
 			"workspaces": workspaces,
 		});
 
-		// 初始化 resolutions 欄位 / Initialize resolutions field
-		pkg.resolutions = pkg.resolutions || {};
-
 		/**
 		 * 合併預設腳本與欄位
 		 * Merge default scripts and fields

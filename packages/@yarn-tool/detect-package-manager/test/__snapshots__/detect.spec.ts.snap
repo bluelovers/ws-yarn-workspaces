@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`_whichPackageManagerAsyncGenerator should match snapshot for async generator result 1`] = `{}`;
+
+exports[`_whichPackageManagerSyncGenerator should match snapshot for generator result 1`] = `{}`;
+
+exports[`whichPackageManagerAsync should match snapshot for async detection result 1`] = `undefined`;
+
+exports[`whichPackageManagerAsyncAll should match snapshot for async all results 1`] = `[]`;
+
+exports[`whichPackageManagerSync should match snapshot for detection result 1`] = `undefined`;
+
+exports[`whichPackageManagerSyncAll should match snapshot for all detection results 1`] = `[]`;

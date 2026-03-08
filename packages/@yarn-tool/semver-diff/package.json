@@ -45,7 +45,7 @@
   "dependencies": {
     "@lazy-node/semver-part": "^1.0.24",
     "debug-color2": "^1.3.2",
-    "ts-type": "^3.0.5",
+    "ts-type": "^3.0.8",
     "tslib": ">=2"
   },
   "devDependencies": {
