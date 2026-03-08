@@ -55,6 +55,7 @@ function _fixWsRoot(options) {
         '@yarn-tool/ws-find-up-paths',
         '@types/node',
         '@bluelovers/tsconfig',
+        '@yarn-tool/require-resolve',
     ].forEach(name => {
         var _a;
         var _b;

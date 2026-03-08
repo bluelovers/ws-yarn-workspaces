@@ -66,6 +66,7 @@ export function _fixWsRoot(options: ITSRequiredPick<IFillPkgHostedInfoOptions, '
 		'@yarn-tool/ws-find-up-paths',
 		'@types/node',
 		'@bluelovers/tsconfig',
+		'@yarn-tool/require-resolve',
 	].forEach(name => {
 		const _check = _checkDependenciesExistsAll(runtime.root_pkg_json.data, [
 			'devDependencies',

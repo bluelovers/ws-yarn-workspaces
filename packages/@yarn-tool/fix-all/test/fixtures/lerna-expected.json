@@ -1,0 +1,36 @@
+{
+  "packages": [
+    "packages/*"
+  ],
+  "command": {
+    "publish": {
+      "concurrency": 1,
+      "loglevel": "verbose",
+      "ignoreChanges": [
+        "*.log",
+        "*.tmp",
+        "**/node_modules/**",
+        "**/__snapshots__/**",
+        "**/__fixtures__/**",
+        "**/test/**",
+        "**/tests/**",
+        "**/__tests__/**",
+        "*.map",
+        "*.spec.*",
+        "*.test.*",
+        "**/test/temp/**",
+        "lerna.json",
+        "CHANGELOG.md",
+        ".gitignore",
+        ".gitrepo"
+      ]
+    },
+    "version": {
+      "concurrency": 1,
+      "conventionalCommits": false
+    }
+  },
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "version": "independent"
+}

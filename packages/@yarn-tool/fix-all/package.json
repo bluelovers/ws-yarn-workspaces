@@ -63,13 +63,14 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^3.0.3",
+    "@ts-type/package-dts": "^3.0.6",
     "@yarn-tool/find-root": "^2.0.17",
     "@yarn-tool/fix-ws-versions": "^3.0.5",
     "@yarn-tool/normalize-deps-value": "^2.0.4",
     "@yarn-tool/pkg-git-info": "^2.0.5",
     "@yarn-tool/pkg-hosted-info": "^3.0.5",
     "@yarn-tool/pkg-readme-tpl": "^1.0.1",
+    "@yarn-tool/require-resolve": "^4.0.2",
     "@yarn-tool/static-file": "^3.0.6",
     "@yarn-tool/write-package-json": "^1.0.14",
     "@yarn-tool/ws-scope": "^3.0.5",
@@ -83,8 +84,9 @@
     "lodash": "^4.17.23",
     "npm-package-json-loader": "^3.0.6",
     "progress-estimator": "^0.3.1",
+    "semver": "^7.7.4",
     "sort-package-json3": "^3.0.4",
-    "ts-type": "^3.0.5",
+    "ts-type": "^3.0.8",
     "tslib": ">=2",
     "upath2": "^3.1.23",
     "ws-pkg-list": "^3.0.5"
