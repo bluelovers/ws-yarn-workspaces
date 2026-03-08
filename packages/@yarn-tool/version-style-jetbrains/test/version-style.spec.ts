@@ -24,23 +24,19 @@ import {
 	getJetbrainsYearCode,
 	_handleVersionStyleOptions,
 	isValidDateInfo,
-	IVersionStyleOptions, _getDateInfoFromDate,
+	IVersionStyleOptions,
+	_getDateInfoFromDate,
 } from '../index';
 import {
 	_expectHandleVersionStyleOptions,
 	_lazyParseVersion,
-	TEST_DATE_Q1,
-	TEST_DATE_Q2,
-	TEST_BASE_OPTIONS,
-	TEST_Q2_OPTIONS,
-	QUARTER_TEST_CASES,
-	JETBRAINS_YEAR_CODE_TEST_CASES,
-	DATE_TO_VERSION_STYLE_TEST_CASES,
-	DATE_TO_VERSION_DISABLE_SUFFIX_TEST_CASES,
-	PARSE_VERSION_TEST_CASES,
-	INCREMENT_VERSION_TEST_CASES,
-	VALID_DATE_INFO_TEST_CASES,
 } from './lib/test';
+import {
+	DATE_TO_VERSION_DISABLE_SUFFIX_TEST_CASES, DATE_TO_VERSION_STYLE_TEST_CASES,
+	INCREMENT_VERSION_TEST_CASES, JETBRAINS_YEAR_CODE_TEST_CASES,
+	PARSE_VERSION_TEST_CASES, QUARTER_TEST_CASES, TEST_BASE_OPTIONS, TEST_DATE_Q1,
+	TEST_DATE_Q2, TEST_Q2_OPTIONS, VALID_DATE_INFO_TEST_CASES,
+} from './fixtures/data';
 
 describe('Version Style Generator', () => {
 

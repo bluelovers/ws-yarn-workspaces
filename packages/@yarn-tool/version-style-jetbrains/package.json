@@ -1,8 +1,13 @@
 {
   "name": "@yarn-tool/version-style-jetbrains",
   "version": "1.0.0",
-  "description": "",
+  "description": "基於日期的 JetBrains 風格版本號生成套件，支援多種版本格式 / Date-based version style generator core module",
   "keywords": [
+    "jetbrains",
+    "date-based version",
+    "date-based",
+    "version",
+    "generator",
     "yarn",
     "yarn-tool",
     "pnpm",
@@ -74,11 +79,11 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
+    "dayjs": "^1.11.19",
+    "dayjs-tz-helper": "^1.0.8",
+    "ts-type": "^3.0.8",
     "tslib": ">=2"
   },
-  "devDependencies": {},
-  "peerDependencies": {},
-  "packageManager": "yarn@1.22.19",
   "publishConfig": {
     "access": "public"
   }

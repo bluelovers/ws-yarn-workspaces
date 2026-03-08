@@ -1,0 +1,219 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Version Style Generator _handleVersionStyleOptions should handle Date input 1`] = `
+{
+  "dailyIncrement": 1,
+  "date": Anything,
+  "disableDailyVersionSuffix": false,
+  "style": "jetbrains-short-md",
+}
+`;
+
+exports[`Version Style Generator _handleVersionStyleOptions should handle IVersionStyleOptions with date 1`] = `
+{
+  "dailyIncrement": 5,
+  "date": Anything,
+  "disableDailyVersionSuffix": true,
+  "style": "jetbrains-short-md",
+}
+`;
+
+exports[`Version Style Generator _handleVersionStyleOptions should handle empty object 1`] = `
+{
+  "dailyIncrement": 1,
+  "date": Anything,
+  "disableDailyVersionSuffix": false,
+  "style": "jetbrains-short-md",
+}
+`;
+
+exports[`Version Style Generator _handleVersionStyleOptions should use default values when no input 1`] = `
+{
+  "dailyIncrement": 1,
+  "date": Anything,
+  "disableDailyVersionSuffix": false,
+  "style": "jetbrains-short-md",
+}
+`;
+
+exports[`Version Style Generator parseVersion should parse 261.1.1-1 1`] = `
+{
+  "inputVersion": "261.1.1-1",
+  "parseVersion": {
+    "dailyVersion": 1,
+    "day": 1,
+    "isJetbrainsShort": true,
+    "isMDCombined": false,
+    "month": 1,
+    "year": 2026,
+  },
+  "parseVersionJetbrains": {
+    "dailyVersion": 1,
+    "day": 1,
+    "isJetbrainsShort": true,
+    "isMDCombined": false,
+    "month": 1,
+    "year": 2026,
+  },
+  "parseVersionStandardFull": null,
+}
+`;
+
+exports[`Version Style Generator parseVersion should parse 261.101.1 1`] = `
+{
+  "inputVersion": "261.101.1",
+  "parseVersion": {
+    "dailyVersion": 1,
+    "day": 1,
+    "isJetbrainsShort": true,
+    "isMDCombined": true,
+    "month": 1,
+    "year": 2026,
+  },
+  "parseVersionJetbrains": {
+    "dailyVersion": 1,
+    "day": 1,
+    "isJetbrainsShort": true,
+    "isMDCombined": true,
+    "month": 1,
+    "year": 2026,
+  },
+  "parseVersionStandardFull": null,
+}
+`;
+
+exports[`Version Style Generator parseVersion should parse 262.615.1 1`] = `
+{
+  "inputVersion": "262.615.1",
+  "parseVersion": {
+    "dailyVersion": 1,
+    "day": 15,
+    "isJetbrainsShort": true,
+    "isMDCombined": true,
+    "month": 6,
+    "year": 2026,
+  },
+  "parseVersionJetbrains": {
+    "dailyVersion": 1,
+    "day": 15,
+    "isJetbrainsShort": true,
+    "isMDCombined": true,
+    "month": 6,
+    "year": 2026,
+  },
+  "parseVersionStandardFull": null,
+}
+`;
+
+exports[`Version Style Generator parseVersion should parse 2026.1.1 1`] = `
+{
+  "inputVersion": "2026.1.1",
+  "parseVersion": {
+    "dailyVersion": 1,
+    "day": 1,
+    "isJetbrainsShort": false,
+    "isMDCombined": false,
+    "month": 1,
+    "year": 2026,
+  },
+  "parseVersionJetbrains": {
+    "dailyVersion": 1,
+    "day": 1,
+    "isJetbrainsShort": true,
+    "isMDCombined": false,
+    "month": 1,
+    "year": 2202,
+  },
+  "parseVersionStandardFull": {
+    "dailyVersion": 1,
+    "day": 1,
+    "isJetbrainsShort": false,
+    "isMDCombined": false,
+    "month": 1,
+    "year": 2026,
+  },
+}
+`;
+
+exports[`Version Style Generator parseVersion should parse 2026.1.1-1 1`] = `
+{
+  "inputVersion": "2026.1.1-1",
+  "parseVersion": {
+    "dailyVersion": 1,
+    "day": 1,
+    "isJetbrainsShort": false,
+    "isMDCombined": false,
+    "month": 1,
+    "year": 2026,
+  },
+  "parseVersionJetbrains": {
+    "dailyVersion": 1,
+    "day": 1,
+    "isJetbrainsShort": true,
+    "isMDCombined": false,
+    "month": 1,
+    "year": 2202,
+  },
+  "parseVersionStandardFull": {
+    "dailyVersion": 1,
+    "day": 1,
+    "isJetbrainsShort": false,
+    "isMDCombined": false,
+    "month": 1,
+    "year": 2026,
+  },
+}
+`;
+
+exports[`Version Style Generator parseVersion should parse 2026.101.1 1`] = `
+{
+  "inputVersion": "2026.101.1",
+  "parseVersion": {
+    "dailyVersion": 1,
+    "day": 1,
+    "isJetbrainsShort": false,
+    "isMDCombined": true,
+    "month": 1,
+    "year": 2026,
+  },
+  "parseVersionJetbrains": {
+    "dailyVersion": 1,
+    "day": 1,
+    "isJetbrainsShort": true,
+    "isMDCombined": true,
+    "month": 1,
+    "year": 2202,
+  },
+  "parseVersionStandardFull": {
+    "dailyVersion": 1,
+    "day": 1,
+    "isJetbrainsShort": false,
+    "isMDCombined": true,
+    "month": 1,
+    "year": 2026,
+  },
+}
+`;
+
+exports[`Version Style Generator parseVersion should parse JetbrainsShort style with full details 1`] = `
+{
+  "inputVersion": "261.1.1-1",
+  "parseVersion": {
+    "dailyVersion": 1,
+    "day": 1,
+    "isJetbrainsShort": true,
+    "isMDCombined": false,
+    "month": 1,
+    "year": 2026,
+  },
+  "parseVersionJetbrains": {
+    "dailyVersion": 1,
+    "day": 1,
+    "isJetbrainsShort": true,
+    "isMDCombined": false,
+    "month": 1,
+    "year": 2026,
+  },
+  "parseVersionStandardFull": null,
+}
+`;

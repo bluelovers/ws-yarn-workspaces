@@ -1,9 +1,9 @@
 import { ITSOverwrite, ITSPickExtra, ITSRequiredPick, ITSRequiredWith } from 'ts-type/lib/type/record';
 import dayjs, { Dayjs, isDayjs } from 'dayjs';
 import { IOptionsTzDayjsSafeParse, tzDayjsSafeParse } from 'dayjs-tz-helper';
-import isToday from 'dayjs/plugin/isToday';
-
-dayjs.extend(isToday);
+import { ITSTypeAndStringLiteral } from 'ts-type';
+// import isToday from 'dayjs/plugin/isToday';
+// dayjs.extend(isToday);
 
 /**
  * 基於日期的版本編號生成器核心模組
@@ -39,6 +39,174 @@ export function getQuarterFromMonth(month: number): number
 export function getJetbrainsYearCode(year: number, quarter: number): number
 {
 	return (year % 100) * 10 + quarter;
+}
+
+/**
+ * 從版本樣式判斷是否為 JetBrains 短年份樣式
+ * Determine if style is JetBrains short year style
+ *
+ * @param style - 版本樣式 / Version style
+ * @returns 是否為 JetBrains 樣式 / Whether it is JetBrains style
+ */
+export function _isJetbrainsStyleFromStyle(style: EnumVersionStyle): style is EnumVersionStyle.JetbrainsShort | EnumVersionStyle.JetbrainsShortMD
+{
+	return style === EnumVersionStyle.JetbrainsShort || style === EnumVersionStyle.JetbrainsShortMD;
+}
+
+/**
+ * 從版本樣式判斷是否使用月日合併格式
+ * Determine if style uses month-day combined format
+ *
+ * @param style - 版本樣式 / Version style
+ * @returns 是否使用 MD 格式 / Whether using MD format
+ */
+export function _isMDCombinedFromStyle(style: EnumVersionStyle): style is EnumVersionStyle.JetbrainsShortMD | EnumVersionStyle.StandardFullMD
+{
+	return style === EnumVersionStyle.JetbrainsShortMD || style === EnumVersionStyle.StandardFullMD;
+}
+
+/**
+ * 從 isJetbrainsShort 和 isMDCombined 取得對應的版本樣式
+ * Get version style from isJetbrainsShort and isMDCombined
+ *
+ * @param isJetbrainsShort - 是否為 JetBrains 樣式 / Whether it is JetBrains style
+ * @param isMDCombined - 是否使用月日合併格式 / Whether using MD format
+ * @returns 版本樣式 / Version style
+ */
+export function _getStyleFromFlags(isJetbrainsShort: boolean, isMDCombined: boolean): EnumVersionStyle
+{
+	if (isJetbrainsShort)
+	{
+		return isMDCombined ? EnumVersionStyle.JetbrainsShortMD : EnumVersionStyle.JetbrainsShort;
+	}
+	return isMDCombined ? EnumVersionStyle.StandardFullMD : EnumVersionStyle.StandardFull;
+}
+
+export interface IDateInfoMonthDay extends ITSRequiredPick<IDateInfo, 'month' | 'day'>
+{
+
+}
+
+/**
+ * 從月日合併數字解析月日資訊
+ * Parse month-day info from combined number
+ *
+ * 將三位或四位數的月日合併數字解析為月份和日期
+ * 例如: 101 -> month=1, day=1; 615 -> month=6, day=15
+ *
+ * @param monthDay - 月日合併數字 (如 101, 615, 1231) / Combined month-day number
+ * @returns 月日資訊 / Month-day info
+ */
+export function _parseMonthDayFromMD(monthDay: ITSTypeAndStringLiteral<number>): IDateInfoMonthDay
+{
+	if (typeof monthDay === 'string')
+	{
+		monthDay = parseInt(monthDay, 10);
+	}
+
+	const month = Math.floor(monthDay / 100);
+	const day = monthDay % 100;
+
+	return {
+		month,
+		day,
+	}
+}
+
+/**
+ * 解析月日資訊的結果
+ * Parsed month-day info result
+ */
+export interface IParseMonthDayResult<MD extends boolean = boolean> extends ITSRequiredPick<IParseVersionResult<boolean, MD>, 'month' | 'day' | 'dailyVersion' | 'isMDCombined'>
+{
+
+}
+
+/**
+ * 判斷是否為月日合併格式 (MD > 12)
+ * Detect if format is month-day combined (MD > 12)
+ *
+ * 由於月日合併格式中，月日數值必須大於 12 才能與標準格式區分
+ * 例如: 101 表示 1月1日，而 115 表示 1月15日
+ * Because in MD combined format, monthDay must be > 12 to distinguish from standard format
+ *
+ * @param monthOrMD - 月份或月日合併字串 / Month or month-day combined string
+ * @returns 檢測結果 { monthDay, isMDCombined } / Detection result
+ */
+export function _detectIsMDCombined(monthOrMD: string)
+{
+	// 判斷是否為月日合併格式 (MD > 12)
+	const monthDay = parseInt(monthOrMD, 10);
+	const isMDCombined = monthDay > 12;
+
+	return {
+		monthDay,
+		isMDCombined,
+	}
+}
+
+/**
+ * 從版本字串的月份/日部分解析月日資訊
+ * Parse month-day info from version string's month/day part
+ *
+ * @param monthOrMD - 月份或月日合併字串 / Month or month-day combined string
+ * @param dayOrIncrement - 日或遞增部分 / Day or increment part
+ * @param increment - 遞增部分（可選）/ Increment part (optional)
+ * @returns 解析後的月日資訊 / Parsed month-day info
+ */
+export function _parseMonthDayInfo(monthOrMD: string, dayOrIncrement: string, increment?: string): IParseMonthDayResult
+{
+	const { monthDay, isMDCombined } = _detectIsMDCombined(monthOrMD);
+
+	let month: number;
+	let day: number;
+	let dailyVersion: number;
+
+	if (isMDCombined)
+	{
+		// 格式: YYYY.MD.increment 或 YYQ.MD.increment
+		({ month, day } = _parseMonthDayFromMD(monthDay));
+
+		dailyVersion = increment ? parseInt(increment, 10) : parseInt(dayOrIncrement, 10);
+	}
+	else
+	{
+		// 格式: YYYY.M.D-increment 或 YYQ.M.D-increment
+		month = monthOrMD ? parseInt(monthOrMD, 10) : 1;
+		day = dayOrIncrement ? parseInt(dayOrIncrement, 10) : 1;
+		dailyVersion = increment ? parseInt(increment, 10) : 1;
+	}
+
+	return { month, day, dailyVersion, isMDCombined };
+}
+
+/**
+ * JetBrains 年份解析結果
+ * JetBrains year parsing result
+ */
+export interface IParseJetbrainsYearResult
+{
+	year: number;
+	quarter: number;
+}
+
+/**
+ * 從版本字串解析 JetBrains 年份和季度
+ * Parse JetBrains year and quarter from version string
+ *
+ * yearQuarter = (year % 100) * 10 + quarter
+ * 所以: quarter = yearQuarter % 10, year = 2000 + floor(yearQuarter / 10)
+ *
+ * @param yearQuarterStr - 年份季度字串 / Year-quarter string (e.g., "261")
+ * @returns 解析後的年份和季度 / Parsed year and quarter
+ */
+export function _parseJetbrainsYearQuarter(yearQuarterStr: string): IParseJetbrainsYearResult
+{
+	const yearQuarter = parseInt(yearQuarterStr, 10);
+	const quarter = yearQuarter % 10;
+	const year = 2000 + Math.floor(yearQuarter / 10);
+
+	return { year, quarter };
 }
 
 /**
@@ -130,20 +298,35 @@ export interface IDateInfo
 	day: number;
 }
 
+export interface IParseVersionResultCore<JS extends boolean = boolean, MD extends boolean = boolean>
+{
+	/** 是否為 JetBrains 短年份樣式 / Whether it uses JetBrains short year style */
+	isJetbrainsShort: JS;
+	/** 是否使用月日合併格式 / Whether using month-day combined format */
+	isMDCombined: MD;
+}
+
 /**
  * 解析現有版本號的回傳結果
  * Result of parsing existing version
  */
-export interface IParseVersionResult<T extends boolean = boolean> extends IDateInfo
+export interface IParseVersionResult<JS extends boolean = boolean, MD extends boolean = boolean> extends IDateInfo, IParseVersionResultCore<JS, MD>
 {
 	/** 當日版本號 / Daily version */
 	dailyVersion: number;
-	/** 是否為 JetBrains 短年份樣式 / Whether it uses JetBrains short year style */
-	isJetbrainsShort: T;
-	/** 是否使用月日合併格式 / Whether using month-day combined format */
-	isMDCombined: boolean;
 }
 
+/**
+ * 從輸入取得 dayjs 物件
+ * Get dayjs object from input
+ *
+ * 支援從多种输入类型转换为 dayjs 对象
+ * Supports converting from multiple input types to dayjs object
+ *
+ * @param date - 日期輸入 / Date input (Dayjs | Date | number | string | IDateInfo)
+ * @param opts - dayjs 選項 / dayjs options
+ * @returns dayjs 物件 / dayjs object
+ */
 export function getDayjsFromInput(date: IDateInput, opts?: IOptionsTzDayjsSafeParse)
 {
 	if (typeof date === 'object')
@@ -169,6 +352,16 @@ export function getDayjsFromInput(date: IDateInput, opts?: IOptionsTzDayjsSafePa
 	return null
 }
 
+/**
+ * 處理版本樣式選項（核心函數）
+ * Handle version style options (core function)
+ *
+ * 內部核心函數，處理各種輸入類型並轉換為 dayjs 日期物件
+ * Internal core function that handles various input types and converts to dayjs date object
+ *
+ * @param optionsOrDate - 選項或日期 / Options or date
+ * @returns 處理後的選項 / Processed options
+ */
 export function _handleVersionStyleOptionsCore<T extends IVersionStyleOptions = IVersionStyleOptions>(optionsOrDate?: T | IDateInput)
 {
 	// 取得日期
@@ -251,13 +444,56 @@ export function isValidDateInfo(dateInfo: Partial<IDateInfo>): dateInfo is IDate
 	);
 }
 
+/**
+ * 斷言日期資訊有效，若無效則拋出錯誤
+ * Assert date info is valid, throw error if invalid
+ *
+ * @param dateInfo - 日期資訊 / Date info
+ * @throws RangeError 當日期資訊無效時 / Throws RangeError when date info is invalid
+ */
 export function assertValidDateInfo(dateInfo: Partial<IDateInfo>): asserts dateInfo is IDateInfo
 {
 	if (!isValidDateInfo(dateInfo)) throw new RangeError(`Invalid DateInfo: year=${dateInfo.year}, month(1-12)=${dateInfo.month}, and day(1-31)=${dateInfo.day} must be valid numbers.`);
 }
 
 /**
- * @deprecated
+ * 驗證季度是否有效
+ * Validate quarter is valid
+ *
+ * @param quarter - 季度 / Quarter
+ * @returns 是否有效 / Whether valid
+ */
+export function isValidQuarter(quarter: unknown): quarter is number
+{
+	return typeof quarter === 'number' && quarter >= 1 && quarter <= 4;
+}
+
+/**
+ * 驗證季度是否有效，若無效則拋出錯誤
+ * Assert quarter is valid, throw error if invalid
+ *
+ * @param quarter - 季度 / Quarter
+ */
+export function assertValidQuarter(quarter: unknown): asserts quarter is number
+{
+	if (!isValidQuarter(quarter))
+	{
+		throw new RangeError(`Invalid Quarter: quarter(1-4)=${quarter} must be a valid number.`);
+	}
+}
+
+/**
+ * 從 Date 物件取得日期資訊
+ * Get date info from Date object
+ *
+ * 將 JavaScript Date 物件轉換為 IDateInfo 格式
+ * Convert JavaScript Date object to IDateInfo format
+ *
+ * @param date - Date 物件 / Date object
+ * @returns 日期資訊 / Date info
+ *
+ * @deprecated 建議使用 _getDateInfoFromDayjs
+ * @deprecated Recommend using _getDateInfoFromDayjs
  */
 export function _getDateInfoFromDate(date: Date): IDateInfo
 {
@@ -268,11 +504,21 @@ export function _getDateInfoFromDate(date: Date): IDateInfo
 	};
 }
 
+/**
+ * 從 dayjs 物件取得日期資訊
+ * Get date info from dayjs object
+ *
+ * 將 dayjs 物件轉換為 IDateInfo 格式
+ * 注意: dayjs 的月份是 0-based，需要轉換為 1-based
+ *
+ * @param date - dayjs 物件 / dayjs object
+ * @returns 日期資訊 / Date info
+ */
 export function _getDateInfoFromDayjs(date: Dayjs): IDateInfo
 {
 	return {
 		year: date.year(),
-		month: date.month() + 1,
+		month: date.month() + 1, // dayjs 使用 0-based 月份 / dayjs uses 0-based month
 		day: date.date(),
 	};
 }
@@ -323,21 +569,15 @@ export function _getParsedVersionFromOptions(processed: IRequiredOptionsRuntime)
 	const { date, style } = processed;
 	const dateInfo = _getDateInfoFromDayjs(date);
 
-	// 產生版本字串後立即解析 - 直接調用核心函數
-	const versionString = _dateToVersionByStyleCore(style, {
+	// 沒有 currentVersion 時，直接從 dateInfo 和 style 建構結果
+	// dailyVersion 預設為 1（新版本的初始值）
+	// isJetbrainsShort 和 isMDCombined 可從 style 推斷
+	return {
 		...dateInfo,
-		dailyIncrement: processed.dailyIncrement,
-		disableDailyVersionSuffix: processed.disableDailyVersionSuffix,
-	});
-
-	const parsed = parseVersion(versionString);
-
-	if (!parsed)
-	{
-		throw new Error(`Failed to parse version: ${versionString}`);
-	}
-
-	return parsed;
+		dailyVersion: processed.dailyIncrement,
+		isJetbrainsShort: _isJetbrainsStyleFromStyle(style),
+		isMDCombined: _isMDCombinedFromStyle(style),
+	};
 }
 
 /**
@@ -361,42 +601,17 @@ export function _parseStandardFullVersion(version: string): IParseVersionResult<
 	const [, yearStr, monthOrMD, dayOrIncrement, increment] = standardFullMatch;
 	const year = parseInt(yearStr, 10);
 
-	// 判斷是否為月日合併格式 (MD > 12)
-	const monthDay = parseInt(monthOrMD, 10);
-	const isMDCombined = monthDay > 12;
+	// 使用輔助函數解析月日資訊
+	const { month, day, dailyVersion, isMDCombined } = _parseMonthDayInfo(monthOrMD, dayOrIncrement, increment);
 
-	if (isMDCombined)
-	{
-		// 格式: YYYY.MD.increment
-		const month = Math.floor(monthDay / 100);
-		const day = monthDay % 100;
-		const dailyVersion = increment ? parseInt(increment, 10) : parseInt(dayOrIncrement, 10);
-
-		return {
-			year,
-			month,
-			day,
-			dailyVersion,
-			isJetbrainsShort: false,
-			isMDCombined: true,
-		};
-	}
-	else
-	{
-		// 格式: YYYY.M.D-increment
-		const month = monthOrMD ? parseInt(monthOrMD, 10) : 1;
-		const day = dayOrIncrement ? parseInt(dayOrIncrement, 10) : 1;
-		const dailyVersion = increment ? parseInt(increment, 10) : 1;
-
-		return {
-			year,
-			month,
-			day,
-			dailyVersion,
-			isJetbrainsShort: false,
-			isMDCombined: false,
-		};
-	}
+	return {
+		year,
+		month,
+		day,
+		dailyVersion,
+		isJetbrainsShort: false,
+		isMDCombined,
+	};
 }
 
 /**
@@ -419,50 +634,21 @@ export function _parseJetbrainsVersion(version: string): IParseVersionResult<tru
 	}
 
 	const [, yearQuarterStr, monthOrMD, dayOrIncrement, increment] = jetbrainsMatch;
-	const yearQuarter = parseInt(yearQuarterStr, 10);
 
-	// 還原完整年份和季度
-	// yearQuarter = (year % 100) * 10 + quarter
-	// 所以: quarter = yearQuarter % 10, year = 2000 + floor(yearQuarter / 10)
-	const quarter = yearQuarter % 10;
-	const year = 2000 + Math.floor(yearQuarter / 10);
+	// 使用輔助函數解析 JetBrains 年份和季度
+	const { year } = _parseJetbrainsYearQuarter(yearQuarterStr);
 
-	// 判斷是否為月日合併格式
-	const monthDay = parseInt(monthOrMD, 10);
-	const isMDCombined = monthDay > 12;
+	// 使用輔助函數解析月日資訊
+	const { month, day, dailyVersion, isMDCombined } = _parseMonthDayInfo(monthOrMD, dayOrIncrement, increment);
 
-	if (isMDCombined)
-	{
-		// 格式: YYQ.MD.increment
-		const month = Math.floor(monthDay / 100);
-		const day = monthDay % 100;
-		const dailyVersion = increment ? parseInt(increment, 10) : parseInt(dayOrIncrement, 10);
-
-		return {
-			year,
-			month,
-			day,
-			dailyVersion,
-			isJetbrainsShort: true,
-			isMDCombined: true,
-		};
-	}
-	else
-	{
-		// 格式: YYQ.M.D-increment
-		const month = monthOrMD ? parseInt(monthOrMD, 10) : 1;
-		const day = dayOrIncrement ? parseInt(dayOrIncrement, 10) : 1;
-		const dailyVersion = increment ? parseInt(increment, 10) : 1;
-
-		return {
-			year,
-			month,
-			day,
-			dailyVersion,
-			isJetbrainsShort: true,
-			isMDCombined: false,
-		};
-	}
+	return {
+		year,
+		month,
+		day,
+		dailyVersion,
+		isJetbrainsShort: true,
+		isMDCombined,
+	};
 }
 
 /**
@@ -533,6 +719,17 @@ export function dateToVersionByStyle(
 	return _dateToVersionByStyleCore(style, processed)
 }
 
+/**
+ * 根據樣式將日期轉換為版本字串（核心函數）
+ * Convert date to version string by style (core function)
+ *
+ * 內部核心函數，根據版本樣式將日期資訊轉換為版本字串
+ * Internal core function that converts date info to version string based on style
+ *
+ * @param style - 版本樣式 / Version style
+ * @param options - 選項 / Options (year, month, day, dailyIncrement, disableDailyVersionSuffix)
+ * @returns 版本字串 / Version string
+ */
 export function _dateToVersionByStyleCore(
 	style: EnumVersionStyle,
 	options: ITSPickExtra<IVersionStyleOptionsWithDateInfo, 'year' | 'month' | 'day' | 'dailyIncrement', 'disableDailyVersionSuffix'>,
@@ -613,9 +810,8 @@ export function getNextDayVersion(currentVersion: string): string
 		}
 	}
 
-	const style = isJetbrainsShort
-		? (isMDCombined ? EnumVersionStyle.JetbrainsShortMD : EnumVersionStyle.JetbrainsShort)
-		: (isMDCombined ? EnumVersionStyle.StandardFullMD : EnumVersionStyle.StandardFull);
+	// 使用輔助函數取得 style
+	const style = _getStyleFromFlags(isJetbrainsShort, isMDCombined);
 
 	// 直接調用核心函數，避免重複調用 _handleVersionStyleOptions
 	return _dateToVersionByStyleCore(style, {
@@ -645,9 +841,8 @@ export function incrementVersion(currentVersion: string): string
 
 	const { year, month, day, dailyVersion, isJetbrainsShort, isMDCombined } = parsed;
 
-	const style = isJetbrainsShort
-		? (isMDCombined ? EnumVersionStyle.JetbrainsShortMD : EnumVersionStyle.JetbrainsShort)
-		: (isMDCombined ? EnumVersionStyle.StandardFullMD : EnumVersionStyle.StandardFull);
+	// 使用輔助函數取得 style
+	const style = _getStyleFromFlags(isJetbrainsShort, isMDCombined);
 
 	// 直接調用核心函數，避免重複調用 _handleVersionStyleOptions
 	return _dateToVersionByStyleCore(style, {
