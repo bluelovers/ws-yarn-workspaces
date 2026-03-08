@@ -2,7 +2,7 @@
  * Created by user on 2026/3/9.
  */
 
-import { EnumVersionStyle, IVersionStyleOptionsWithDateInfo } from '../../lib/index';
+import { EnumVersionStyle, IVersionStyleOptionsWithDateInfo } from '../../lib/types';
 
 /**
  * 測試用日期：2026年1月1日 (Q1)

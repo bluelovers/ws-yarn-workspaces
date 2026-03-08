@@ -10,14 +10,12 @@
 /// <reference types="jest" />
 /// <reference types="node" />
 
-import {
-	EnumVersionStyle,
-	_isJetbrainsStyleFromStyle,
-	_isMDCombinedFromStyle,
-	_getStyleFromFlags,
-	_parseMonthDayInfo,
-	_parseJetbrainsYearQuarter,
-} from '../index';
+
+
+import { EnumVersionStyle } from '../lib/types';
+import { _isJetbrainsStyleFromStyle, _isMDCombinedFromStyle } from '../lib/assert';
+import { _getStyleFromFlags } from '../lib/options';
+import { _parseJetbrainsYearQuarter, _parseMonthDayInfo } from '../lib/date';
 
 describe('Helper Functions', () => {
 

@@ -5,12 +5,11 @@
  * @packageDocumentation
  */
 import {
-	_handleVersionStyleOptions,
-	_parseJetbrainsVersion,
-	_parseStandardFullVersion,
-	IVersionStyleOptions,
 	parseVersion,
 } from '../../lib/index';
+import { IVersionStyleOptions } from '../../lib/types';
+import { _handleVersionStyleOptions } from '../../lib/options';
+import { _parseJetbrainsVersion, _parseStandardFullVersion } from '../../lib/helpers';
 
 // ==================== 測試常數 / Test Constants ====================
 
@@ -85,3 +84,8 @@ export function createDateInfoTestCase(isValid: boolean, overrides?: Partial<{ y
 	return { ...base, ...overrides };
 }
 
+// 調試用 / For debugging
+export function _debug(...args: any[])
+{
+	console.log(`[${'version-style'.padEnd(20)}]`, args);
+}

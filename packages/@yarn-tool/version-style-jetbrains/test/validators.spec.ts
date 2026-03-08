@@ -11,11 +11,9 @@
 /// <reference types="node" />
 
 import {
-	isValidDateInfo,
-	isValidQuarter,
-	assertValidDateInfo,
 	assertValidQuarter,
 } from '../index';
+import { assertValidDateInfo, isValidDateInfo, isValidQuarter } from '../lib/assert';
 
 describe('Validators', () => {
 

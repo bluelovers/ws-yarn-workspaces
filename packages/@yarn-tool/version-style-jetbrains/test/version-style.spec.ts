@@ -11,7 +11,6 @@
 /// <reference types="node" />
 
 import {
-	EnumVersionStyle,
 	parseVersion,
 	dateToVersion,
 	dateToVersionByStyle,
@@ -20,12 +19,7 @@ import {
 	isTodayVersion,
 	getNextVersion,
 	generateAllStyleVersions,
-	getQuarterFromMonth,
-	getJetbrainsYearCode,
 	_handleVersionStyleOptions,
-	isValidDateInfo,
-	IVersionStyleOptions,
-	_getDateInfoFromDate,
 } from '../index';
 import {
 	_expectHandleVersionStyleOptions,
@@ -37,6 +31,9 @@ import {
 	PARSE_VERSION_TEST_CASES, QUARTER_TEST_CASES, TEST_BASE_OPTIONS, TEST_DATE_Q1,
 	TEST_DATE_Q2, TEST_Q2_OPTIONS, VALID_DATE_INFO_TEST_CASES,
 } from './fixtures/data';
+import { _getDateInfoFromDate, getJetbrainsYearCode, getQuarterFromMonth } from '../lib/date';
+import { isValidDateInfo } from '../lib/assert';
+import { EnumVersionStyle } from '../lib/types';
 
 describe('Version Style Generator', () => {
 

@@ -11,12 +11,9 @@
 /// <reference types="node" />
 
 import dayjs from 'dayjs';
-import {
-	EnumVersionStyle,
-	_getDateInfoFromDate,
-	_getDateInfoFromDayjs,
-	_handleVersionStyleOptions,
-} from '../index';
+import { _getDateInfoFromDate, _getDateInfoFromDayjs } from '../lib/date';
+import { _handleVersionStyleOptions } from '../lib/options';
+import { EnumVersionStyle } from '../lib/types';
 
 describe('Date Info Functions', () => {
 
