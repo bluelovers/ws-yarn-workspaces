@@ -9,7 +9,28 @@
  * This module is shared by root-scripts and ws-root-scripts
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports._defaultCiInstallDeps = void 0;
 exports.defaultSharedRootScripts = defaultSharedRootScripts;
+/**
+ * CI 環境安裝腳本 / CI environment install script
+ *
+ * 安裝核心開發工具：yarn-tool、lerna、ynpx、ts-node、ts-jest、jest、typescript、jest-config、tsx、pnpm
+ * Installs core development tools
+ */
+exports._defaultCiInstallDeps = [
+    'yarn-tool',
+    'lerna',
+    'ynpx',
+    'pnpm',
+    'typescript',
+    'ts-node',
+    'tsx',
+    'ts-jest',
+    'jest',
+    '@bluelovers/jest-config',
+    '@bluelovers/tsconfig',
+    '@yarn-tool/require-resolve',
+];
 /**
  * 共享根目錄預設腳本 / Shared root default scripts
  *
@@ -34,18 +55,9 @@ function defaultSharedRootScripts() {
          * 安裝核心開發工具：yarn-tool、lerna、ynpx、ts-node、ts-jest、jest、typescript、jest-config、tsx、pnpm
          * Installs core development tools
          */
-        "ci:install": `yarn install --frozen-lockfile && yarn add -W ${[
-            "yarn-tool",
-            "lerna@6",
-            "ynpx",
-            "ts-node",
-            "ts-jest",
-            "jest",
-            "typescript@next",
-            '@bluelovers/jest-config',
-            'tsx',
-            'pnpm',
-        ].join(" ")}`,
+        "ci:install": `node --run ci:install:pnpm`,
+        "ci:install:yarn": `yarn install --frozen-lockfile && yarn add -W ${exports._defaultCiInstallDeps.join(" ")}`,
+        "ci:install:pnpm": `pnpm install --frozen-lockfile && pnpm add --workspace ${exports._defaultCiInstallDeps.join(" ")}`,
         /** 清除 Jest 快取 / Clear Jest cache */
         "test:jest:clearCache": "jest --clearCache",
         /** 重置鎖定檔安裝 / Install with reset lockfile */
@@ -53,7 +65,7 @@ function defaultSharedRootScripts() {
         /** 凍結鎖定檔安裝 / Install with frozen lockfile */
         "install:frozenLockfile": "yarn-tool install --frozen-lockfile",
         /** 修復所有工作區問題 / Fix all workspace issues */
-        "ws:fix-all": "yarn-tool fix-all  --overwriteHostedGitInfo",
+        "ws:fix-all": "yarn-tool fix-all --overwriteHostedGitInfo",
         /** 修復並重置靜態檔 / Fix and reset static files */
         "ws:fix-all:resetStaticFiles": "node --run ws:fix-all -- --resetStaticFiles",
     };

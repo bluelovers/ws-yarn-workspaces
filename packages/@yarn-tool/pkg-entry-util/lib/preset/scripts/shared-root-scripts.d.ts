@@ -8,6 +8,13 @@
  * This module is shared by root-scripts and ws-root-scripts
  */
 /**
+ * CI 環境安裝腳本 / CI environment install script
+ *
+ * 安裝核心開發工具：yarn-tool、lerna、ynpx、ts-node、ts-jest、jest、typescript、jest-config、tsx、pnpm
+ * Installs core development tools
+ */
+export declare const _defaultCiInstallDeps: readonly ["yarn-tool", "lerna", "ynpx", "pnpm", "typescript", "ts-node", "tsx", "ts-jest", "jest", "@bluelovers/jest-config", "@bluelovers/tsconfig", "@yarn-tool/require-resolve"];
+/**
  * 共享根目錄預設腳本 / Shared root default scripts
  *
  * 適用於所有根目錄類型的通用管理腳本
@@ -31,6 +38,8 @@ export declare function defaultSharedRootScripts(): {
      * Installs core development tools
      */
     "ci:install": string;
+    "ci:install:yarn": string;
+    "ci:install:pnpm": string;
     /** 清除 Jest 快取 / Clear Jest cache */
     "test:jest:clearCache": string;
     /** 重置鎖定檔安裝 / Install with reset lockfile */

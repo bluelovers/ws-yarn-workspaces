@@ -48,6 +48,8 @@ export declare function defaultRootScripts(): {
     "npm:publish": string;
     "npm:publish:bump": string;
     "ci:install": string;
+    "ci:install:yarn": string;
+    "ci:install:pnpm": string;
     "test:jest:clearCache": string;
     "install:resetLockfile": string;
     "install:frozenLockfile": string;

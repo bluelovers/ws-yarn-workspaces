@@ -110,6 +110,8 @@ export declare function defaultWorkspaceRootScripts(): {
     "test:since": string;
     test: string;
     "ci:install": string;
+    "ci:install:yarn": string;
+    "ci:install:pnpm": string;
     "test:jest:clearCache": string;
     "install:resetLockfile": string;
     "install:frozenLockfile": string;
