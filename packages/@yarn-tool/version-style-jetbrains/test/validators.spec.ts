@@ -10,10 +10,7 @@
 /// <reference types="jest" />
 /// <reference types="node" />
 
-import {
-	assertValidQuarter,
-} from '../index';
-import { assertValidDateInfo, isValidDateInfo, isValidQuarter } from '../lib/assert';
+import { assertValidDateInfo, assertValidQuarter, isValidDateInfo, isValidQuarter } from '../lib/assert';
 
 describe('Validators', () => {
 

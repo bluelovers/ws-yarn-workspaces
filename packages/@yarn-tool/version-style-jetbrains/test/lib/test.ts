@@ -4,12 +4,10 @@
  *
  * @packageDocumentation
  */
-import {
-	parseVersion,
-} from '../../lib/index';
 import { IVersionStyleOptions } from '../../lib/types';
 import { _handleVersionStyleOptions } from '../../lib/options';
 import { _parseJetbrainsVersion, _parseStandardFullVersion } from '../../lib/helpers';
+import { parseVersion } from '../../index';
 
 // ==================== 測試常數 / Test Constants ====================
 
