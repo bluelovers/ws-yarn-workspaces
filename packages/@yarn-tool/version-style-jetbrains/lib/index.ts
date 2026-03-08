@@ -1,4 +1,4 @@
-import { ITSOverwrite, ITSRequiredPick, ITSRequiredWith } from 'ts-type/lib/type/record';
+import { ITSOverwrite, ITSPickExtra, ITSRequiredPick, ITSRequiredWith } from 'ts-type/lib/type/record';
 import dayjs, { Dayjs, isDayjs } from 'dayjs';
 import { IOptionsTzDayjsSafeParse, tzDayjsSafeParse } from 'dayjs-tz-helper';
 import isToday from 'dayjs/plugin/isToday';
@@ -134,12 +134,12 @@ export interface IDateInfo
  * 解析現有版本號的回傳結果
  * Result of parsing existing version
  */
-export interface IParseVersionResult extends IDateInfo
+export interface IParseVersionResult<T extends boolean = boolean> extends IDateInfo
 {
 	/** 當日版本號 / Daily version */
 	dailyVersion: number;
 	/** 是否為 JetBrains 短年份樣式 / Whether it uses JetBrains short year style */
-	isJetbrainsShort: boolean;
+	isJetbrainsShort: T;
 	/** 是否使用月日合併格式 / Whether using month-day combined format */
 	isMDCombined: boolean;
 }
@@ -323,8 +323,8 @@ export function _getParsedVersionFromOptions(processed: IRequiredOptionsRuntime)
 	const { date, style } = processed;
 	const dateInfo = _getDateInfoFromDayjs(date);
 
-	// 產生版本字串後立即解析
-	const versionString = dateToVersionByStyle(style, {
+	// 產生版本字串後立即解析 - 直接調用核心函數
+	const versionString = _dateToVersionByStyleCore(style, {
 		...dateInfo,
 		dailyIncrement: processed.dailyIncrement,
 		disableDailyVersionSuffix: processed.disableDailyVersionSuffix,
@@ -349,7 +349,7 @@ export function _getParsedVersionFromOptions(processed: IRequiredOptionsRuntime)
  * @param version - 版本號字串 / Version string
  * @returns 解析結果 / Parse result
  */
-export function _parseStandardFullVersion(version: string): IParseVersionResult | null
+export function _parseStandardFullVersion(version: string): IParseVersionResult<false> | null
 {
 	const standardFullMatch = version.match(/^(\d{4})\.(\d+)\.(\d+)(?:-(\d+))?$/);
 
@@ -409,7 +409,7 @@ export function _parseStandardFullVersion(version: string): IParseVersionResult 
  * @param version - 版本號字串 / Version string
  * @returns 解析結果 / Parse result
  */
-export function _parseJetbrainsVersion(version: string): IParseVersionResult | null
+export function _parseJetbrainsVersion(version: string): IParseVersionResult<true> | null
 {
 	const jetbrainsMatch = version.match(/^(\d+)\.(\d+)\.(\d+)(?:-(\d+))?$/);
 
@@ -475,7 +475,7 @@ export function _parseJetbrainsVersion(version: string): IParseVersionResult | n
 export function parseVersion(version: string): IParseVersionResult | null
 {
 	// 嘗試解析標準格式: YYYY.M.D-increment 或 YYYY.MD.increment
-	let result = _parseStandardFullVersion(version);
+	let result: IParseVersionResult = _parseStandardFullVersion(version);
 
 	if (!result)
 	{
@@ -505,8 +505,8 @@ export function dateToVersion(options?: IVersionStyleOptions): string
 	const { year, month, day } = _getDateInfoFromDayjs(processed.date);
 	const { dailyIncrement, disableDailyVersionSuffix, style } = processed;
 
-	// 使用選項中的 style 或預設的 JetbrainsShortMD
-	return dateToVersionByStyle(style, {
+	// 直接調用核心函數
+	return _dateToVersionByStyleCore(style, {
 		year,
 		month,
 		day,
@@ -535,7 +535,7 @@ export function dateToVersionByStyle(
 
 export function _dateToVersionByStyleCore(
 	style: EnumVersionStyle,
-	options: ITSRequiredPick<IVersionStyleOptionsWithDateInfo, 'year' | 'month' | 'day' | 'dailyIncrement' | 'disableDailyVersionSuffix'>,
+	options: ITSPickExtra<IVersionStyleOptionsWithDateInfo, 'year' | 'month' | 'day' | 'dailyIncrement', 'disableDailyVersionSuffix'>,
 ): string
 {
 	const { year, month, day, dailyIncrement, disableDailyVersionSuffix } = options;
@@ -617,7 +617,8 @@ export function getNextDayVersion(currentVersion: string): string
 		? (isMDCombined ? EnumVersionStyle.JetbrainsShortMD : EnumVersionStyle.JetbrainsShort)
 		: (isMDCombined ? EnumVersionStyle.StandardFullMD : EnumVersionStyle.StandardFull);
 
-	return dateToVersionByStyle(style, {
+	// 直接調用核心函數，避免重複調用 _handleVersionStyleOptions
+	return _dateToVersionByStyleCore(style, {
 		year: nextYear,
 		month: nextMonth,
 		day: nextDay,
@@ -648,7 +649,8 @@ export function incrementVersion(currentVersion: string): string
 		? (isMDCombined ? EnumVersionStyle.JetbrainsShortMD : EnumVersionStyle.JetbrainsShort)
 		: (isMDCombined ? EnumVersionStyle.StandardFullMD : EnumVersionStyle.StandardFull);
 
-	return dateToVersionByStyle(style, {
+	// 直接調用核心函數，避免重複調用 _handleVersionStyleOptions
+	return _dateToVersionByStyleCore(style, {
 		year,
 		month,
 		day,
@@ -715,8 +717,8 @@ export function getNextVersion(options?: IVersionStyleOptions): string
 		return dateToVersion(processed);
 	}
 
-	// 遞增當日版本號
-	return dateToVersionByStyle(style, {
+	// 遞增當日版本號 - 直接調用核心函數
+	return _dateToVersionByStyleCore(style, {
 		year: parsed.year,
 		month: parsed.month,
 		day: parsed.day,
@@ -738,29 +740,30 @@ export function generateAllStyleVersions(options?: IVersionStyleOptions): Record
 	const { year, month, day } = _getDateInfoFromDayjs(processed.date);
 	const { dailyIncrement, disableDailyVersionSuffix } = processed;
 
+	// 直接調用核心函數，避免重複調用 _handleVersionStyleOptions
 	return {
-		[EnumVersionStyle.JetbrainsShort]: dateToVersionByStyle(EnumVersionStyle.JetbrainsShort, {
+		[EnumVersionStyle.JetbrainsShort]: _dateToVersionByStyleCore(EnumVersionStyle.JetbrainsShort, {
 			year,
 			month,
 			day,
 			dailyIncrement,
 			disableDailyVersionSuffix,
 		}),
-		[EnumVersionStyle.JetbrainsShortMD]: dateToVersionByStyle(EnumVersionStyle.JetbrainsShortMD, {
+		[EnumVersionStyle.JetbrainsShortMD]: _dateToVersionByStyleCore(EnumVersionStyle.JetbrainsShortMD, {
 			year,
 			month,
 			day,
 			dailyIncrement,
 			disableDailyVersionSuffix,
 		}),
-		[EnumVersionStyle.StandardFull]: dateToVersionByStyle(EnumVersionStyle.StandardFull, {
+		[EnumVersionStyle.StandardFull]: _dateToVersionByStyleCore(EnumVersionStyle.StandardFull, {
 			year,
 			month,
 			day,
 			dailyIncrement,
 			disableDailyVersionSuffix,
 		}),
-		[EnumVersionStyle.StandardFullMD]: dateToVersionByStyle(EnumVersionStyle.StandardFullMD, {
+		[EnumVersionStyle.StandardFullMD]: _dateToVersionByStyleCore(EnumVersionStyle.StandardFullMD, {
 			year,
 			month,
 			day,
