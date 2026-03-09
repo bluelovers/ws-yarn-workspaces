@@ -7,11 +7,11 @@
     "@bluelovers/tsconfig": "^1.0.35",
     "@types/jest": "^30.0.0",
     "@types/node": "^25.3.5",
+    "@yarn-tool/require-resolve": "*",
     "@yarn-tool/ws-find-up-paths": "^1.0.16"
   },
   "peerDependencies": {
     "@bluelovers/conventional-changelog-bluelovers": "*",
-    "@yarn-tool/require-resolve": "*",
     "ts-node": "*",
     "typescript": "*",
     "yarn": "*",

@@ -20,7 +20,7 @@ export function getDefaultPackageJson(name?: string): IPackageJson
 		dependencies,
 		devDependencies,
 		peerDependencies,
-		"resolutions": {},
+		// "resolutions": {},
 	} as any;
 
 	fillDummyScripts(json.scripts, 'workspaces');

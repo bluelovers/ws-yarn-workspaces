@@ -21,7 +21,7 @@ function getDefaultPackageJson(name) {
         dependencies: package_demo_json_1.dependencies,
         devDependencies: package_demo_json_1.devDependencies,
         peerDependencies: package_demo_json_1.peerDependencies,
-        "resolutions": {},
+        // "resolutions": {},
     };
     (0, dummy_1.fillDummyScripts)(json.scripts, 'workspaces');
     return json;
