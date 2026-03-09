@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/semver-diff",
-  "version": "2.0.15",
+  "version": "2.0.16",
   "description": "colorize semver diff",
   "keywords": [
     "semver",
