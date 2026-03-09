@@ -4,6 +4,7 @@ Please see the individual package changelogs for what's new:
 
 * 🌏 [`@yarn-tool/changelog`](./packages/@yarn-tool/changelog/CHANGELOG.md "packages/@yarn-tool/changelog") *packages/@yarn-tool/changelog*
 * 🌏 [`@yarn-tool/check-pkg-bin`](./packages/@yarn-tool/check-pkg-bin/CHANGELOG.md "packages/@yarn-tool/check-pkg-bin") *packages/@yarn-tool/check-pkg-bin*
+* 🌏 [`@yarn-tool/detect-package-manager`](./packages/@yarn-tool/detect-package-manager/CHANGELOG.md "packages/@yarn-tool/detect-package-manager") *packages/@yarn-tool/detect-package-manager*
 * 🌏 [`@yarn-tool/detect-yarnlock-version`](./packages/@yarn-tool/detect-yarnlock-version/CHANGELOG.md "packages/@yarn-tool/detect-yarnlock-version") *packages/@yarn-tool/detect-yarnlock-version*
 * 🌏 [`@yarn-tool/dotenv`](./packages/@yarn-tool/dotenv/CHANGELOG.md "packages/@yarn-tool/dotenv") *packages/@yarn-tool/dotenv*
 * 🌏 [`@yarn-tool/env-path`](./packages/@yarn-tool/env-path/CHANGELOG.md "packages/@yarn-tool/env-path") *packages/@yarn-tool/env-path*
@@ -62,6 +63,7 @@ Please see the individual package changelogs for what's new:
 * 🌏 [`@yarn-tool/update-notifier`](./packages/@yarn-tool/update-notifier/CHANGELOG.md "packages/@yarn-tool/update-notifier") *packages/@yarn-tool/update-notifier*
 * 🌏 [`@yarn-tool/validate-npm-package-name`](./packages/@yarn-tool/validate-npm-package-name/CHANGELOG.md "packages/@yarn-tool/validate-npm-package-name") *packages/@yarn-tool/validate-npm-package-name*
 * 🌏 [`@yarn-tool/version-recommended`](./packages/@yarn-tool/version-recommended/CHANGELOG.md "packages/@yarn-tool/version-recommended") *packages/@yarn-tool/version-recommended*
+* 🌏 [`@yarn-tool/version-style-jetbrains`](./packages/@yarn-tool/version-style-jetbrains/CHANGELOG.md "packages/@yarn-tool/version-style-jetbrains") *packages/@yarn-tool/version-style-jetbrains*
 * 🌏 [`@yarn-tool/workspaces-project`](./packages/@yarn-tool/workspaces-project/CHANGELOG.md "packages/@yarn-tool/workspaces-project") *packages/@yarn-tool/workspaces-project*
 * 🌏 [`@yarn-tool/write-package-json`](./packages/@yarn-tool/write-package-json/CHANGELOG.md "packages/@yarn-tool/write-package-json") *packages/@yarn-tool/write-package-json*
 * 🌏 [`@yarn-tool/ws-changed`](./packages/@yarn-tool/ws-changed/CHANGELOG.md "packages/@yarn-tool/ws-changed") *packages/@yarn-tool/ws-changed*
