@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.5](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/detect-package-manager@1.0.4...@yarn-tool/detect-package-manager@1.0.5) (2026-03-09)
+
+
+### BREAKING CHANGES
+
+* **detect-package-manager:** The second parameter now accepts boolean or IOptionsWhichPackageManager object instead of just boolean
+
+
+
+### 📦　Code Refactoring
+
+* **detect-package-manager:** add IOptionsWhichPackageManager interface and noUseDefaultClients option ([98a8ae4](https://github.com/bluelovers/ws-yarn-workspaces/commit/98a8ae4a4b9a6814064fc2cae8cf475f68b11469))
+
+
+### ♻️　Chores
+
+* **detect-package-manager:** 新增 `.nx` 到 .gitignore ([eddc452](https://github.com/bluelovers/ws-yarn-workspaces/commit/eddc452f1e047a79fa05baefeaede97c5df36741))
+
+
+
 ## [1.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/detect-package-manager@1.0.3...@yarn-tool/detect-package-manager@1.0.4) (2026-03-09)
 
 **Note:** Version bump only for package @yarn-tool/detect-package-manager

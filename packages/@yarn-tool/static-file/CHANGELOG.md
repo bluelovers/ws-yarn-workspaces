@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.11](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.10...@yarn-tool/static-file@3.0.11) (2026-03-09)
+
+
+
+### ♻️　Chores
+
+* **detect-package-manager:** 新增 `.nx` 到 .gitignore ([eddc452](https://github.com/bluelovers/ws-yarn-workspaces/commit/eddc452f1e047a79fa05baefeaede97c5df36741))
+
+
+
 ## [3.0.10](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.9...@yarn-tool/static-file@3.0.10) (2026-03-09)
 
 **Note:** Version bump only for package @yarn-tool/static-file
