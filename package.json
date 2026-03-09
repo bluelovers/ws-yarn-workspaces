@@ -52,6 +52,8 @@
     "build:all": "lerna run build --concurrency 1",
     "build:since": "node --run build:all -- --since",
     "ci:install": "yarn install --frozen-lockfile && yarn add -W typescript@next jest ts-jest ts-node ynpx lerna yarn-tool pnpm",
+    "ci:install:pnpm": "pnpm install --frozen-lockfile && pnpm add --workspace yarn-tool lerna ynpx pnpm typescript ts-node tsx ts-jest jest @bluelovers/jest-config @bluelovers/tsconfig @yarn-tool/require-resolve",
+    "ci:install:yarn": "yarn install --frozen-lockfile && yarn add -W yarn-tool lerna ynpx pnpm typescript ts-node tsx ts-jest jest @bluelovers/jest-config @bluelovers/tsconfig @yarn-tool/require-resolve",
     "ci:build": "echo ci:build",
     "lerna:publish": "node --run prepublishOnly:root && lerna publish --no-private && yarn run postpublishOnly",
     "lerna:publish:yes": "node --run lerna:publish:yes:patch",
@@ -140,6 +142,7 @@
     "@types/yargs": "^17.0.35",
     "@types/yarnpkg__lockfile": "^1.1.9",
     "@types/yawn-yaml": "^1.4.2",
+    "@yarn-tool/require-resolve": "*",
     "@yarn-tool/ws-find-up-paths": "^1.0.16",
     "chai": "<5 >=4.4.1",
     "jest": "^30.2.0",
@@ -151,5 +154,5 @@
     "lerna": "^9.0.5",
     "yarn": "^1.22.22"
   },
-  "packageManager": "pnpm@10.31.0+sha512.e3927388bfaa8078ceb79b748ffc1e8274e84d75163e67bc22e06c0d3aed43dd153151cbf11d7f8301ff4acb98c68bdc5cadf6989532801ffafe3b3e4a63c268"
+  "packageManager": "pnpm@11.0.0-dev.1005+sha512.91f84a392eea348ea4852a182912d2520273a4336f933b78cc44bc931eb999923c097e9433a9b355adc1f725725ea99082fc9f032a559df832632e764c92c798"
 }
