@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.5](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarn-struct-utils@2.0.4...@yarn-tool/yarn-struct-utils@2.0.5) (2026-03-08)
+
+**Note:** Version bump only for package @yarn-tool/yarn-struct-utils
+
+
+
+
+
 ## [2.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarn-struct-utils@2.0.3...@yarn-tool/yarn-struct-utils@2.0.4) (2026-03-02)
 
 

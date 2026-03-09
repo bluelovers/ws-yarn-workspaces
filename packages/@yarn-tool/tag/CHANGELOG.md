@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/tag@3.0.6...@yarn-tool/tag@3.0.7) (2026-03-08)
+
+**Note:** Version bump only for package @yarn-tool/tag
+
+
+
+
+
 ## [3.0.6](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/tag@3.0.5...@yarn-tool/tag@3.0.6) (2026-03-04)
 
 

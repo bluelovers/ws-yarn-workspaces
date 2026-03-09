@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-readme-tpl@1.0.1...@yarn-tool/pkg-readme-tpl@1.0.2) (2026-03-08)
+
+
+
+### ♻️　Chores
+
+* **deps:** 更新 monorepo 依賴版本 ([e44dff2](https://github.com/bluelovers/ws-yarn-workspaces/commit/e44dff29d5d6b7eb7c77acb8414e73f70feff649))
+
+
+
 ## 1.0.1 (2026-03-02)
 
 

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-entry-util@3.0.6...@yarn-tool/pkg-entry-util@3.0.7) (2026-03-08)
+
+
+
+### ✨　Features
+
+* **scripts:** 重構 `ci:install` 腳本並新增 pnpm 支援 ([547029b](https://github.com/bluelovers/ws-yarn-workspaces/commit/547029b2d83d86b2ef8227d06d95a824e10d0eaf))
+
+
+### ♻️　Chores
+
+* **deps:** 更新 ts-type 和 @ts-type/package-dts 依賴版本 ([eb3e3db](https://github.com/bluelovers/ws-yarn-workspaces/commit/eb3e3dbe330398235ea99e64f3561db73d95b7fc))
+* **deps:** 更新 monorepo 依賴版本 ([e44dff2](https://github.com/bluelovers/ws-yarn-workspaces/commit/e44dff29d5d6b7eb7c77acb8414e73f70feff649))
+
+
+
 ## [3.0.6](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-entry-util@3.0.5...@yarn-tool/pkg-entry-util@3.0.6) (2026-03-04)
 
 

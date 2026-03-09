@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/sort-lerna-json",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "Sort lerna.json configuration file with consistent key ordering / 排序 lerna.json 配置檔案，確保鍵值順序一致",
   "keywords": [
     "yarn",

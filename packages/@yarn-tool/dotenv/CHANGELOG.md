@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.6](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/dotenv@3.0.5...@yarn-tool/dotenv@3.0.6) (2026-03-08)
+
+
+
+### ♻️　Chores
+
+* **deps:** 更新 monorepo 依賴版本 ([e44dff2](https://github.com/bluelovers/ws-yarn-workspaces/commit/e44dff29d5d6b7eb7c77acb8414e73f70feff649))
+
+
+
 ## [3.0.5](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/dotenv@3.0.4...@yarn-tool/dotenv@3.0.5) (2026-03-04)
 
 **Note:** Version bump only for package @yarn-tool/dotenv

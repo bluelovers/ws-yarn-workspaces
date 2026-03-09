@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/yarn-list-link@2.0.6...yarn-list-link@2.0.7) (2026-03-08)
+
+
+
+### ♻️　Chores
+
+* **deps:** 更新 monorepo 依賴版本 ([e44dff2](https://github.com/bluelovers/ws-yarn-workspaces/commit/e44dff29d5d6b7eb7c77acb8414e73f70feff649))
+
+
+
 ## [2.0.6](https://github.com/bluelovers/ws-yarn-workspaces/compare/yarn-list-link@2.0.5...yarn-list-link@2.0.6) (2026-03-04)
 
 
