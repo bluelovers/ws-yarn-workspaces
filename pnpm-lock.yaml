@@ -475,7 +475,7 @@ importers:
         specifier: ^4.17.23
         version: 4.17.23
       npm-package-json-loader:
-        specifier: ^3.0.8
+        specifier: ^3.0.9
         version: link:../../node-package-json-loader
       progress-estimator:
         specifier: ^0.3.1
@@ -1253,7 +1253,7 @@ importers:
   packages/@yarn-tool/setup-module-env:
     dependencies:
       '@yarn-tool/pkg-entry-util':
-        specifier: ^3.0.8
+        specifier: ^3.0.9
         version: link:../pkg-entry-util
       dot-values2:
         specifier: ^2.0.7
@@ -1896,7 +1896,7 @@ importers:
         specifier: ^2.0.20
         version: link:../@yarn-tool/find-root
       '@yarn-tool/pkg-entry-util':
-        specifier: ^3.0.8
+        specifier: ^3.0.9
         version: link:../@yarn-tool/pkg-entry-util
       '@yarn-tool/static-file':
         specifier: ^3.0.9
@@ -1974,7 +1974,7 @@ importers:
         specifier: ^3.0.6
         version: 3.0.6(ts-toolbelt@9.6.0)
       '@yarn-tool/pkg-entry-util':
-        specifier: ^3.0.8
+        specifier: ^3.0.9
         version: link:../@yarn-tool/pkg-entry-util
       '@yarn-tool/resolve-package':
         specifier: ^3.0.5
@@ -2016,7 +2016,7 @@ importers:
         specifier: ^3.0.7
         version: link:../@yarn-tool/node-modules-link
       '@yarn-tool/pkg-entry-util':
-        specifier: ^3.0.8
+        specifier: ^3.0.9
         version: link:../@yarn-tool/pkg-entry-util
       '@yarn-tool/pkg-git-info':
         specifier: ^2.0.5
@@ -2028,7 +2028,7 @@ importers:
         specifier: ^1.0.4
         version: link:../@yarn-tool/pkg-readme-tpl
       '@yarn-tool/setup-module-env':
-        specifier: ^3.0.8
+        specifier: ^3.0.9
         version: link:../@yarn-tool/setup-module-env
       '@yarn-tool/static-file':
         specifier: ^3.0.9
@@ -2067,7 +2067,7 @@ importers:
         specifier: ^4.0.8
         version: 4.0.8
       npm-package-json-loader:
-        specifier: ^3.0.8
+        specifier: ^3.0.9
         version: link:../node-package-json-loader
       path-is-same:
         specifier: ^1.0.29

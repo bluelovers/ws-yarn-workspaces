@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/pkg-entry-util",
-  "version": "3.0.8",
+  "version": "3.0.9",
   "description": "用於處理 package.json entry 相關欄位的工具庫，包含 bin、exports、publishConfig 欄位的修復與驗證功能，並提供各類套件的預設 npm scripts（工作區根目錄、一般套件、根目錄套件）/ Utility for handling package.json entry fields including bin, exports, publishConfig fix/verification, plus preset npm scripts for workspace root, regular packages, and root packages",
   "keywords": [
     "yarn",

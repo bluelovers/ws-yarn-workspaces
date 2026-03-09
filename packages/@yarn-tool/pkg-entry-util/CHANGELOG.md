@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.9](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-entry-util@3.0.8...@yarn-tool/pkg-entry-util@3.0.9) (2026-03-09)
+
+
+
+### 🐛　Bug Fixes
+
+* 更新 `lerna:publish:yes:force` 指令，优化参数传递逻辑并移除冗余代码 ([45148d8](https://github.com/bluelovers/ws-yarn-workspaces/commit/45148d8a93795aed9f01ad9bcbb192832bf6ef33))
+
+
+
 ## [3.0.8](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-entry-util@3.0.6...@yarn-tool/pkg-entry-util@3.0.8) (2026-03-09)
 
 
