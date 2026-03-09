@@ -1,4 +1,5 @@
-import { ITSAsyncGenerator, ITSGenerator, ITSTypeAndStringLiteral } from 'ts-type';
+import _ from 'lodash';
+import { ITSAsyncGenerator, ITSGenerator, ITSTypeAndStringLiteral, ITSArrayListMaybeReadonly } from 'ts-type';
 import which, { sync as whichSync } from 'which';
 
 /**
@@ -41,14 +42,98 @@ export type IResultDetectPackageManagerRaw<T extends IPackageManager = IPackageM
 export type IResultDetectRawCore<T extends string = IPackageManager> = readonly [T, string?];
 
 /**
+ * which 命令選項配置
+ * which command options configuration
+ */
+const _whichOptions: which.Options = {
+	nothrow: true,
+}
+
+/**
+ * 選項配置介面
+ * Options configuration interface
+ */
+export interface IOptionsWhichPackageManager
+{
+	/**
+	 * 當找不到時是否返回預設值
+	 * Whether to return default when not found
+	 */
+	returnDefault?: boolean;
+	/**
+	 * 只使用使用者指定的套件管理器
+	 * 不合併使用者指定的優先順序與預設順序
+	 * Only use user-specified package managers
+	 * Do not merge user-specified priority with default order
+	 */
+	noUseDefaultClients?: boolean;
+}
+
+/**
+ * 選項輸入類型 - 可接受布林值或選項物件
+ * Options input type - accepts boolean or options object
+ */
+export type IRuntimeOptionInput = boolean | IOptionsWhichPackageManager;
+
+/**
+ * 核心選項處理函數 - 將輸入轉換為標準選項物件
+ * Core options handler function - converts input to standard options object
+ *
+ * @param returnDefaultOrOptions - 布林值或選項物件 / Boolean or options object
+ * @returns 標準選項物件 / Standard options object
+ */
+export function _handleOptionsWhichPackageManagerCore(returnDefaultOrOptions?: IRuntimeOptionInput): IOptionsWhichPackageManager
+{
+	if (typeof returnDefaultOrOptions === 'boolean')
+	{
+		returnDefaultOrOptions = {
+			returnDefault: returnDefaultOrOptions,
+		}
+	}
+
+	return returnDefaultOrOptions ?? {};
+}
+
+/**
+ * 處理套件管理器選項與客戶端列表
+ * Handle package manager options and client list
+ *
+ * @param npmClients - 套件管理器列表 / Package manager list
+ * @param returnDefaultOrOptions - 選項輸入 / Options input
+ * @returns 包含選項與檢查列表的物件 / Object containing options and check list
+ */
+export function handleOptionsWhichPackageManager(npmClients?: ITSArrayListMaybeReadonly<IPackageManager> | undefined, returnDefaultOrOptions?: IRuntimeOptionInput)
+{
+	returnDefaultOrOptions = _handleOptionsWhichPackageManagerCore(returnDefaultOrOptions);
+
+	return {
+		options: returnDefaultOrOptions,
+		/**
+		 * 合併使用者指定的優先順序與預設順序
+		 * Merge user-specified priority with default order
+		 */
+		clientsToCheck: _handleClientsToCheck(npmClients, returnDefaultOrOptions),
+	};
+}
+
+/**
  * 合併使用者指定的優先順序與預設順序
  * Merge user-specified priority with default order
  */
-export function _handleClientsToCheck(npmClients?: IPackageManager[] | undefined): IPackageManager[]
+export function _handleClientsToCheck(npmClients?: ITSArrayListMaybeReadonly<IPackageManager> | undefined, options?: IOptionsWhichPackageManager): readonly IPackageManager[]
 {
-	return npmClients?.length
-		? [...new Set([...npmClients, ...defaultClients])]
-		: defaultClients as IPackageManager[];
+	/**
+	 * 合併使用者指定的優先順序與預設順序
+	 * Merge user-specified priority with default order
+	 */
+	if (npmClients?.length)
+	{
+		return options?.noUseDefaultClients
+			? [...new Set([...npmClients])]
+			: [...new Set([...npmClients, ...defaultClients])];
+	}
+
+	return [...defaultClients];
 }
 
 /**
@@ -63,18 +148,16 @@ export function _handleClientsToCheck(npmClients?: IPackageManager[] | undefined
  * Async generator - sequentially check package managers using which
  *
  * @param npmClients - 套件管理器列表 / Package manager list
- * @param returnDefault - 當找不到時是否返回預設值 / Whether to return default when not found
+ * @param returnDefaultOrOptions - 選項輸入 (布林值或 IOptionsWhichPackageManager) / Options input (boolean or IOptionsWhichPackageManager)
  * @yield - 可用的套件管理器元組 [名稱, 路徑] / Available package manager tuple [name, path]
  */
-export async function* _whichPackageManagerAsyncGenerator(npmClients?: IPackageManager[] | undefined, returnDefault?: boolean): ITSAsyncGenerator<IResultDetectPackageManagerRaw>
+// @ts-ignore
+export async function* _whichPackageManagerAsyncGenerator(npmClients?: ITSArrayListMaybeReadonly<IPackageManager> | undefined, returnDefaultOrOptions?: IRuntimeOptionInput): ITSAsyncGenerator<IResultDetectPackageManagerRaw>
 {
-	/**
-	 * 合併使用者指定的優先順序與預設順序
-	 * Merge user-specified priority with default order
-	 */
-	const clientsToCheck: IPackageManager[] = _handleClientsToCheck(npmClients);
 
-	return _whichAsyncGeneratorCore(clientsToCheck, returnDefault) as any;
+	const { clientsToCheck, options } = handleOptionsWhichPackageManager(npmClients, returnDefaultOrOptions);
+
+	yield* _whichAsyncGeneratorCore(clientsToCheck, options) as any;
 }
 
 /**
@@ -83,10 +166,10 @@ export async function* _whichPackageManagerAsyncGenerator(npmClients?: IPackageM
  *
  * @typeParam T - 套件管理器類型 / Package manager type
  * @param clientsToCheck - 要檢查的套件管理器列表 / List of package managers to check
- * @param returnDefault - 當找不到時是否返回預設值 / Whether to return default when not found
+ * @param options - 選項 / Options
  * @yield - 可用的套件管理器元組 [名稱, 路徑] / Available package manager tuple [name, path]
  */
-export async function* _whichAsyncGeneratorCore<T extends string = IPackageManager>(clientsToCheck: T[], returnDefault?: boolean): ITSAsyncGenerator<IResultDetectRawCore<T>>
+export async function* _whichAsyncGeneratorCore<T extends string = IPackageManager>(clientsToCheck: ITSArrayListMaybeReadonly<T>, options: IOptionsWhichPackageManager): ITSAsyncGenerator<IResultDetectRawCore<T>>
 {
 	let notFound = true;
 
@@ -96,7 +179,7 @@ export async function* _whichAsyncGeneratorCore<T extends string = IPackageManag
 	 */
 	for (const client of clientsToCheck)
 	{
-		const commandPath = await which(client).catch(() => null);
+		const commandPath = await which(client, _whichOptions).catch(() => null);
 		if (commandPath)
 		{
 			yield [client, commandPath as string] as IResultDetectRawCore<T>;
@@ -104,7 +187,7 @@ export async function* _whichAsyncGeneratorCore<T extends string = IPackageManag
 		}
 	}
 
-	if (returnDefault && notFound) return [clientsToCheck[0]] as IResultDetectRawCore<T>;
+	if (options.returnDefault && notFound) return [clientsToCheck[0]] as IResultDetectRawCore<T>;
 }
 
 /**
@@ -114,9 +197,9 @@ export async function* _whichAsyncGeneratorCore<T extends string = IPackageManag
  * @param npmClients - 套件管理器列表 / Package manager list
  * @returns 可用的套件管理器名稱 / Available package manager name
  */
-export function whichPackageManagerAsync(npmClients?: IPackageManager[] | undefined, returnDefault?: boolean): Promise<IPackageManager>
+export async function whichPackageManagerAsync(npmClients?: ITSArrayListMaybeReadonly<IPackageManager> | undefined, returnDefaultOrOptions?: IRuntimeOptionInput): Promise<IPackageManager>
 {
-	return _whichPackageManagerAsyncGenerator(npmClients, returnDefault).next().then(next => next.value?.[0]);
+	return _whichPackageManagerAsyncGenerator(npmClients, returnDefaultOrOptions).next().then(next => next.value?.[0]);
 }
 
 /**
@@ -126,11 +209,11 @@ export function whichPackageManagerAsync(npmClients?: IPackageManager[] | undefi
  * @param npmClients - 套件管理器列表 / Package manager list
  * @returns 所有可用的套件管理器陣列 / Array of all available package managers
  */
-export async function whichPackageManagerAsyncAll(npmClients?: IPackageManager[] | undefined, returnDefault?: boolean): Promise<IPackageManager[]>
+export async function whichPackageManagerAsyncAll(npmClients?: ITSArrayListMaybeReadonly<IPackageManager> | undefined, returnDefaultOrOptions?: IRuntimeOptionInput): Promise<IPackageManager[]>
 {
 	const result: IPackageManager[] = [];
 
-	for await (const client of _whichPackageManagerAsyncGenerator(npmClients, returnDefault))
+	for await (const client of _whichPackageManagerAsyncGenerator(npmClients, returnDefaultOrOptions))
 	{
 		result.push(client[0]);
 	}
@@ -150,18 +233,15 @@ export async function whichPackageManagerAsyncAll(npmClients?: IPackageManager[]
  * Sync generator - sequentially check package managers using which
  *
  * @param npmClients - 套件管理器列表 / Package manager list
- * @param returnDefault - 當找不到時是否返回預設值 / Whether to return default when not found
+ * @param returnDefaultOrOptions - 選項輸入 (布林值或 IOptionsWhichPackageManager) / Options input (boolean or IOptionsWhichPackageManager)
  * @yield - 可用的套件管理器元組 [名稱, 路徑] / Available package manager tuple [name, path]
  */
-export function* _whichPackageManagerSyncGenerator(npmClients?: IPackageManager[] | undefined, returnDefault?: boolean): ITSGenerator<IResultDetectPackageManagerRaw>
+// @ts-ignore
+export function* _whichPackageManagerSyncGenerator(npmClients?: ITSArrayListMaybeReadonly<IPackageManager> | undefined, returnDefaultOrOptions?: IRuntimeOptionInput): ITSGenerator<IResultDetectPackageManagerRaw>
 {
-	/**
-	 * 合併使用者指定的優先順序與預設順序
-	 * Merge user-specified priority with default order
-	 */
-	const clientsToCheck: IPackageManager[] = _handleClientsToCheck(npmClients);
+	const { clientsToCheck, options } = handleOptionsWhichPackageManager(npmClients, returnDefaultOrOptions);
 
-	return _whichSyncGeneratorCore(clientsToCheck, returnDefault) as any;
+	yield* _whichSyncGeneratorCore(clientsToCheck, options) as any;
 }
 
 /**
@@ -170,10 +250,10 @@ export function* _whichPackageManagerSyncGenerator(npmClients?: IPackageManager[
  *
  * @typeParam T - 套件管理器類型 / Package manager type
  * @param clientsToCheck - 要檢查的套件管理器列表 / List of package managers to check
- * @param returnDefault - 當找不到時是否返回預設值 / Whether to return default when not found
+ * @param options - 選項 / Options
  * @yield - 可用的套件管理器元組 [名稱, 路徑] / Available package manager tuple [name, path]
  */
-export function* _whichSyncGeneratorCore<T extends string = IPackageManager>(clientsToCheck: T[], returnDefault?: boolean): ITSGenerator<IResultDetectRawCore<T>>
+export function* _whichSyncGeneratorCore<T extends string = IPackageManager>(clientsToCheck: ITSArrayListMaybeReadonly<T>, options: IOptionsWhichPackageManager): ITSGenerator<IResultDetectRawCore<T>>
 {
 	let notFound = true;
 
@@ -183,7 +263,7 @@ export function* _whichSyncGeneratorCore<T extends string = IPackageManager>(cli
 	 */
 	for (const client of clientsToCheck)
 	{
-		const commandPath = whichSync(client);
+		const commandPath = whichSync(client, _whichOptions);
 		if (commandPath)
 		{
 			yield [client, commandPath as string] as IResultDetectRawCore<T>;
@@ -191,7 +271,7 @@ export function* _whichSyncGeneratorCore<T extends string = IPackageManager>(cli
 		}
 	}
 
-	if (returnDefault && notFound) return [clientsToCheck[0]] as IResultDetectRawCore<T>;
+	if (options.returnDefault && notFound) return [clientsToCheck[0]] as IResultDetectRawCore<T>;
 }
 
 /**
@@ -201,11 +281,11 @@ export function* _whichSyncGeneratorCore<T extends string = IPackageManager>(cli
  * @param npmClients - 套件管理器列表 / Package manager list
  * @returns 所有可用的套件管理器陣列 / Array of all available package managers
  */
-export function whichPackageManagerSyncAll(npmClients?: IPackageManager[] | undefined, returnDefault?: boolean): IPackageManager[]
+export function whichPackageManagerSyncAll(npmClients?: ITSArrayListMaybeReadonly<IPackageManager> | undefined, returnDefaultOrOptions?: IRuntimeOptionInput): IPackageManager[]
 {
 	const result: IPackageManager[] = [];
 
-	for (const client of _whichPackageManagerSyncGenerator(npmClients, returnDefault))
+	for (const client of _whichPackageManagerSyncGenerator(npmClients, returnDefaultOrOptions))
 	{
 		result.push(client[0]);
 	}
@@ -220,9 +300,9 @@ export function whichPackageManagerSyncAll(npmClients?: IPackageManager[] | unde
  * @param npmClients - 套件管理器列表 / Package manager list
  * @returns 可用的套件管理器名稱 / Available package manager name
  */
-export function whichPackageManagerSync(npmClients?: IPackageManager[] | undefined, returnDefault?: boolean)
+export function whichPackageManagerSync(npmClients?: ITSArrayListMaybeReadonly<IPackageManager> | undefined, returnDefaultOrOptions?: IRuntimeOptionInput)
 {
-	return _whichPackageManagerSyncGenerator(npmClients, returnDefault).next().value?.[0]
+	return _whichPackageManagerSyncGenerator(npmClients, returnDefaultOrOptions).next().value?.[0]
 }
 
 export default whichPackageManagerSync

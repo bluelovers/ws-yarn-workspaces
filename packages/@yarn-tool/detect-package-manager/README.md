@@ -30,65 +30,89 @@ type IPackageManager = 'yarn' | 'npm' | 'pnpm';
 type IResultDetectPackageManagerRaw = readonly [IPackageManager, string?];
 ```
 
+### IOptionsWhichPackageManager
+
+選項配置類型 (Options configuration type)
+
+```typescript
+interface IOptionsWhichPackageManager {
+  /** 當找不到時是否返回預設值 / Whether to return default when not found */
+  returnDefault?: boolean;
+  /**
+   * 只使用使用者指定的套件管理器
+   * 不合併使用者指定的優先順序與預設順序
+   */
+  noUseDefaultClients?: boolean;
+}
+```
+
+### IRuntimeOptionInput
+
+_runtime 選項輸入類型 - 可接受布林值或 IOptionsWhichPackageManager 物件
+
+```typescript
+type IRuntimeOptionInput = boolean | IOptionsWhichPackageManager;
+```
+
 ## API (API)
 
-### whichPackageManagerSync(npmClients?: IPackageManager[], returnDefault?: boolean): IPackageManager | undefined
+### whichPackageManagerSync(npmClients?: IPackageManager[], returnDefaultOrOptions?: IRuntimeOptionInput): IPackageManager | undefined
 
 同步偵測第一個可用的套件管理器
 
 **參數 (Parameters):**
 - `npmClients?`: 自訂套件管理器列表（可選）/ Custom package manager list (optional)
-- `returnDefault?`: 當找不到時是否返回預設值（可選）/ Whether to return default when not found (optional)
+- `returnDefaultOrOptions?`: 選項輸入 (布林值或 IOptionsWhichPackageManager 物件)（可選）/ Options input (boolean or IOptionsWhichPackageManager object) (optional)
 
 **回傳 (Returns):** 第一個可用的套件管理器名稱或 `undefined`
 
-### whichPackageManagerSyncAll(npmClients?: IPackageManager[], returnDefault?: boolean): IPackageManager[]
+### whichPackageManagerSyncAll(npmClients?: IPackageManager[], returnDefaultOrOptions?: IRuntimeOptionInput): IPackageManager[]
 
 同步偵測所有可用的套件管理器
 
 **參數 (Parameters):**
 - `npmClients?`: 自訂套件管理器列表（可選）/ Custom package manager list (optional)
-- `returnDefault?`: 當找不到時是否返回預設值（可選）/ Whether to return default when not found (optional)
+- `returnDefaultOrOptions?`: 選項輸入 (布林值或 IOptionsWhichPackageManager 物件)（可選）/ Options input (boolean or IOptionsWhichPackageManager object) (optional)
 
 **回傳 (Returns):** 所有可用的套件管理器陣列
 
-### whichPackageManagerAsync(npmClients?: IPackageManager[], returnDefault?: boolean): Promise<IPackageManager>
+### whichPackageManagerAsync(npmClients?: IPackageManager[], returnDefaultOrOptions?: IRuntimeOptionInput): Promise<IPackageManager>
 
 非同步偵測第一個可用的套件管理器
 
 **參數 (Parameters):**
 - `npmClients?`: 自訂套件管理器列表（可選）/ Custom package manager list (optional)
-- `returnDefault?`: 當找不到時是否返回預設值（可選）/ Whether to return default when not found (optional)
+- `returnDefaultOrOptions?`: 選項輸入 (布林值或 IOptionsWhichPackageManager 物件)（可選）/ Options input (boolean or IOptionsWhichPackageManager object) (optional)
 
 **回傳 (Returns):** Promise resolves to 第一個可用的套件管理器名稱或 `undefined`
 
-### whichPackageManagerAsyncAll(npmClients?: IPackageManager[], returnDefault?: boolean): Promise<IPackageManager[]>
+### whichPackageManagerAsyncAll(npmClients?: IPackageManager[], returnDefaultOrOptions?: IRuntimeOptionInput): Promise<IPackageManager[]>
 
 非同步偵測所有可用的套件管理器
 
 **參數 (Parameters):**
 - `npmClients?`: 自訂套件管理器列表（可選）/ Custom package manager list (optional)
-- `returnDefault?`: 當找不到時是否返回預設值（可選）/ Whether to return default when not found (optional)
+- `returnDefaultOrOptions?`: 選項輸入 (布林值或 IOptionsWhichPackageManager 物件)（可選）/ Options input (boolean or IOptionsWhichPackageManager object) (optional)
 
 **回傳 (Returns):** Promise resolves to 所有可用的套件管理器陣列
 
-### _whichPackageManagerSyncGenerator(npmClients?: IPackageManager[], returnDefault?: boolean): Generator<IResultDetectPackageManagerRaw>
+### _whichPackageManagerSyncGenerator(npmClients?: IPackageManager[], returnDefaultOrOptions?: IRuntimeOptionInput): Generator<IResultDetectPackageManagerRaw>
 
 同步生成器版本，回傳包含路徑的結果
 
 **參數 (Parameters):**
 - `npmClients?`: 自訂套件管理器列表（可選）/ Custom package manager list (optional)
-- `returnDefault?`: 當找不到時是否返回預設值（可選）/ Whether to return default when not found (optional)
+- `returnDefaultOrOptions?`: 選項輸入 (布林值或 IOptionsWhichPackageManager 物件)（可選）/ Options input (boolean or IOptionsWhichPackageManager object) (optional)
 
 **回傳 (Returns):** Generator yields `[packageManager, commandPath]` tuples
 
-### _whichPackageManagerAsyncGenerator(npmClients?: IPackageManager[], returnDefault?: boolean): AsyncGenerator<IResultDetectPackageManagerRaw>
+### _whichPackageManagerAsyncGenerator(npmClients?: IPackageManager[], returnDefaultOrOptions?: IRuntimeOptionInput): AsyncGenerator<IResultDetectPackageManagerRaw>
 
 非同步生成器版本，回傳包含路徑的結果
 
 **參數 (Parameters):**
 - `npmClients?`: 自訂套件管理器列表（可選）/ Custom package manager list (optional)
-- `returnDefault?`: 當找不到時是否返回預設值（可選）/ Whether to return default when not found (optional)
+- `returnDefaultOrOptions?`: 選項輸入 (布林值或 IOptionsWhichPackageManager 物件)（可選）/ Options input (boolean or IOptionsWhichPackageManager object) (optional)
 
 **回傳 (Returns):** AsyncGenerator yields `[packageManager, commandPath]` tuples
 
@@ -147,4 +171,15 @@ for (const [pm, path] of _whichPackageManagerSyncGenerator()) {
 for await (const [pm, path] of _whichPackageManagerAsyncGenerator()) {
   console.log(`Found ${pm} at ${path}`);
 }
+
+// 使用布林值參數 - 當找不到時返回預設值
+const pmWithDefault = whichPackageManagerSync(['yarn'], true);
+console.log(pmWithDefault); // 如果 yarn 找不到，會返回 'pnpm' (預設順序的第一個)
+
+// 使用選項物件參數
+const pmWithOptions = whichPackageManagerSync(['yarn'], {
+  returnDefault: true,
+  noUseDefaultClients: false,
+});
+console.log(pmWithOptions);
 ```

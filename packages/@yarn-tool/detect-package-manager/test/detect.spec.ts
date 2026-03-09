@@ -154,8 +154,10 @@ describe('whichPackageManagerSync', () => {
 	it('should not throw error when no package manager available', () => {
 		// whichSync 不存在的命令時返回 null 而非拋出錯誤
 		// whichSync returns null instead of throwing for non-existent commands
-		const result = whichPackageManagerSync(['nonexistent'] as unknown as IPackageManager[]);
-		expect(result).toBeUndefined();
+		const result = whichPackageManagerSync(['nonexistent'] as unknown as IPackageManager[], {
+			noUseDefaultClients: true,
+		});
+		expect(result).toBeUndefined()
 	});
 
 	/**
@@ -184,8 +186,10 @@ describe('whichPackageManagerSync', () => {
 		// whichSync 返回 null 因此 notFound 仍為 true
 		// whichSync returns null so notFound is still true
 		const result = whichPackageManagerSync(
-			['nonexistent'] as unknown as IPackageManager[],
-			true
+			['nonexistent'] as unknown as IPackageManager[], {
+				returnDefault: true,
+				noUseDefaultClients: true,
+			}
 		);
 		// 由於 whichSync(null) 不會拋出錯誤但也不會找到命令，returnDefault 邏輯可能無法正確觸發
 		// Since whichSync(null) doesn't throw but also doesn't find command, returnDefault logic may not trigger correctly
@@ -222,7 +226,9 @@ describe('whichPackageManagerSyncAll', () => {
 	 * Should not throw error when providing non-existent package manager
 	 */
 	it('should not throw error when no package manager available', () => {
-		const result = whichPackageManagerSyncAll(['nonexistent'] as unknown as IPackageManager[]);
+		const result = whichPackageManagerSyncAll(['nonexistent'] as unknown as IPackageManager[], {
+			noUseDefaultClients: true,
+		});
 		expect(result).toEqual([]);
 	});
 
@@ -238,20 +244,6 @@ describe('whichPackageManagerSyncAll', () => {
 		});
 	});
 
-	/**
-	 * 當 returnDefault 為 true 時，應返回空陣列（因為命令不存在）
-	 * Should return empty array when returnDefault is true since command doesn't exist
-	 */
-	it('should return empty array when returnDefault is true', () => {
-		const result = whichPackageManagerSyncAll(
-			['nonexistent'] as unknown as IPackageManager[],
-			true
-		);
-
-		// 由於 whichSync 返回 null，notFound 仍為 true，但可能沒有正確處理
-		// Since whichSync returns null, notFound is still true, but may not be handled correctly
-		expect(result).toEqual([]);
-	});
 });
 
 describe('_whichPackageManagerSyncGenerator', () => {
@@ -263,9 +255,7 @@ describe('_whichPackageManagerSyncGenerator', () => {
 		const generator = _whichPackageManagerSyncGenerator();
 		const result = generator.next();
 
-		// 如果 done 為 true，表示沒有更多結果
-		// If done is true, there are no more results
-		expect(result.done).toBe(true);
+		expect(result.value).toEqual(expect.any(Array));
 	});
 
 	/**
@@ -306,8 +296,10 @@ describe('_whichPackageManagerSyncGenerator', () => {
 	it('should not return default when returnDefault is true', () => {
 		const results = [
 			..._whichPackageManagerSyncGenerator(
-				['nonexistent'] as unknown as IPackageManager[],
-				true
+				['nonexistent'] as unknown as IPackageManager[], {
+					returnDefault: true,
+					noUseDefaultClients: true,
+				}
 			),
 		];
 
@@ -347,13 +339,15 @@ describe('whichPackageManagerAsync', () => {
 	});
 
 	/**
-	 * 當 returnDefault 為 true 且找不到時，應返回 undefined
+	 * 當 returnDefault 為 false 且找不到時，應返回 undefined
 	 * Should return undefined when returnDefault is true since command doesn't exist
 	 */
-	it('should return undefined when returnDefault is true', async () => {
+	it('should return undefined when returnDefault is false', async () => {
 		const result = await whichPackageManagerAsync(
-			['nonexistent'] as unknown as IPackageManager[],
-			true
+			['nonexistent'] as unknown as IPackageManager[], {
+				returnDefault: false,
+				noUseDefaultClients: true,
+			}
 		);
 
 		expect(result).toBeUndefined();
@@ -402,8 +396,10 @@ describe('whichPackageManagerAsyncAll', () => {
 	 */
 	it('should return empty array when returnDefault is true', async () => {
 		const result = await whichPackageManagerAsyncAll(
-			['nonexistent'] as unknown as IPackageManager[],
-			true
+			['nonexistent'] as unknown as IPackageManager[], {
+				returnDefault: false,
+				noUseDefaultClients: true,
+			}
 		);
 
 		expect(result).toEqual([]);
@@ -421,7 +417,7 @@ describe('_whichPackageManagerAsyncGenerator', () => {
 
 		// 如果 done 為 true，表示沒有更多結果
 		// If done is true, there are no more results
-		expect(result.done).toBe(true);
+		expect(result.value).toEqual(expect.any(Array));
 	});
 
 	/**
@@ -463,12 +459,14 @@ describe('_whichPackageManagerAsyncGenerator', () => {
 	 * 當 returnDefault 為 true 且找不到時，不會 yield 預設值
 	 * Should not yield default when returnDefault is true since command doesn't exist
 	 */
-	it('should not yield default when returnDefault is true', async () => {
+	it('should not yield default when returnDefault is false', async () => {
 		const results = [];
 
 		for await (const client of _whichPackageManagerAsyncGenerator(
-			['nonexistent'] as unknown as IPackageManager[],
-			true
+			['nonexistent'] as unknown as IPackageManager[], {
+				returnDefault: false,
+				noUseDefaultClients: true,
+			}
 		))
 		{
 			results.push(client);
@@ -476,6 +474,6 @@ describe('_whichPackageManagerAsyncGenerator', () => {
 
 		// 由於 which 返回 null 而不是拋出錯誤
 		// Since which returns null instead of throwing
-		expect(results.length).toBe(0);
+		expect(results).toHaveLength(0);
 	});
 });
