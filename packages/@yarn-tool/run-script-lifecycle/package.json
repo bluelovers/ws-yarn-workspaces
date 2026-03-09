@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/run-script-lifecycle",
-  "version": "3.0.6",
+  "version": "3.0.7",
   "description": "Execute npm/yarn lifecycle scripts with pre/post script support - 執行 npm/yarn 生命週期腳本，支援前置/後置腳本",
   "keywords": [
     "yarn",
@@ -52,7 +52,7 @@
   "dependencies": {
     "@npmcli/run-script": "^10.0.4",
     "@ts-type/package-dts": "^3.0.6",
-    "@yarn-tool/script-lifecycle": "^2.0.11",
+    "@yarn-tool/script-lifecycle": "^2.0.13",
     "read-package-json-fast": "^5.0.0",
     "tslib": ">=2"
   },

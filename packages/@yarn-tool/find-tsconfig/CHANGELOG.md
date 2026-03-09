@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.20](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-tsconfig@2.0.17...@yarn-tool/find-tsconfig@2.0.20) (2026-03-09)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([385c013](https://github.com/bluelovers/ws-yarn-workspaces/commit/385c0135c0ed714ef3d1daf053a0072fc1433f47))
+* . ([cae7515](https://github.com/bluelovers/ws-yarn-workspaces/commit/cae7515d4a8befe93ca0baee8f6aeb9ae7cbad79))
+
+
+
 ## [2.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-tsconfig@2.0.17...@yarn-tool/find-tsconfig@2.0.19) (2026-03-09)
 
 

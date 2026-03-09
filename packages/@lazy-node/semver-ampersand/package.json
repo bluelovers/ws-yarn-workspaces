@@ -1,6 +1,6 @@
 {
   "name": "@lazy-node/semver-ampersand",
-  "version": "3.0.6",
+  "version": "3.0.7",
   "description": "支援 ampersand (&) 語法的 semver 範圍處理工具庫 - Semver range handling utilities with ampersand (&) syntax support for yarn/npm workspaces",
   "keywords": [
     "semver",

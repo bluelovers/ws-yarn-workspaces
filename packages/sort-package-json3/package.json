@@ -1,6 +1,6 @@
 {
   "name": "sort-package-json3",
-  "version": "3.0.6",
+  "version": "3.0.7",
   "description": "Enhanced sort-package-json with scripts and exports sorting / 增強版 sort-package-json，支援 scripts 和 exports 排序",
   "keywords": [
     "npm",

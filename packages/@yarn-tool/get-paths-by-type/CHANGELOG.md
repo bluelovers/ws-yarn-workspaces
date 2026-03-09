@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.13](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/get-paths-by-type@2.0.11...@yarn-tool/get-paths-by-type@2.0.13) (2026-03-09)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([cae7515](https://github.com/bluelovers/ws-yarn-workspaces/commit/cae7515d4a8befe93ca0baee8f6aeb9ae7cbad79))
+
+
+
 ## [2.0.12](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/get-paths-by-type@2.0.11...@yarn-tool/get-paths-by-type@2.0.12) (2026-03-08)
 
 **Note:** Version bump only for package @yarn-tool/get-paths-by-type

@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.17](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/semver-diff@2.0.14...@yarn-tool/semver-diff@2.0.17) (2026-03-09)
+
+
+
+### ♻️　Chores
+
+* **deps:** 更新 ts-type 和 @ts-type/package-dts 依賴版本 ([eb3e3db](https://github.com/bluelovers/ws-yarn-workspaces/commit/eb3e3dbe330398235ea99e64f3561db73d95b7fc))
+* **deps:** 更新 monorepo 依賴版本 ([e44dff2](https://github.com/bluelovers/ws-yarn-workspaces/commit/e44dff29d5d6b7eb7c77acb8414e73f70feff649))
+
+
+### 🔖　Miscellaneous
+
+* . ([385c013](https://github.com/bluelovers/ws-yarn-workspaces/commit/385c0135c0ed714ef3d1daf053a0072fc1433f47))
+* . ([cae7515](https://github.com/bluelovers/ws-yarn-workspaces/commit/cae7515d4a8befe93ca0baee8f6aeb9ae7cbad79))
+
+
+
 ## [2.0.16](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/semver-diff@2.0.14...@yarn-tool/semver-diff@2.0.16) (2026-03-09)
 
 

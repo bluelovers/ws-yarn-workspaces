@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/npm-package-arg-util@2.0.3...@yarn-tool/npm-package-arg-util@2.0.4) (2026-03-09)
+
+
+
+### 📦　Code Refactoring
+
+* **npm-package-arg-util:** 提取核心解析邏輯為獨立內部函數並完善文件 ([7456e90](https://github.com/bluelovers/ws-yarn-workspaces/commit/7456e9063920825a51c158650fdf415e4fe73357))
+* **test:** add _lazyParsePackageName helper for combined parsing results ([ad22041](https://github.com/bluelovers/ws-yarn-workspaces/commit/ad2204197737d2c6f9d238028dd169f5abcbe317))
+
+
+### ♻️　Chores
+
+* **deps:** 更新 ts-type 和 @ts-type/package-dts 依賴版本 ([eb3e3db](https://github.com/bluelovers/ws-yarn-workspaces/commit/eb3e3dbe330398235ea99e64f3561db73d95b7fc))
+* **deps:** 更新 monorepo 依賴版本 ([e44dff2](https://github.com/bluelovers/ws-yarn-workspaces/commit/e44dff29d5d6b7eb7c77acb8414e73f70feff649))
+
+
+
 ## [2.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/npm-package-arg-util@2.0.2...@yarn-tool/npm-package-arg-util@2.0.3) (2026-03-02)
 
 

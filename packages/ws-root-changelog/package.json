@@ -1,6 +1,6 @@
 {
   "name": "ws-root-changelog",
-  "version": "3.0.7",
+  "version": "3.0.8",
   "description": "Generate a root CHANGELOG.md with links to all workspace package changelogs",
   "keywords": [
     "workspaces",
@@ -57,10 +57,10 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/find-root": "^2.0.18",
+    "@yarn-tool/find-root": "^2.0.20",
     "tslib": ">=2",
     "upath2": "^3.1.23",
-    "ws-pkg-list": "^3.0.6"
+    "ws-pkg-list": "^3.0.7"
   },
   "gitHead": "46d4d576f34d2d5218822811286119ea7a44d08b"
 }

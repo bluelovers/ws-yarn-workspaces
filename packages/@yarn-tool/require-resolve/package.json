@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/require-resolve",
-  "version": "4.0.3",
+  "version": "4.0.4",
   "description": "擴充版 require.resolve，支援在額外路徑中搜尋模組 / An extended require.resolve with support for searching modules in extra paths",
   "keywords": [
     "yarn-tool",
@@ -50,7 +50,7 @@
   },
   "dependencies": {
     "@ts-type/package-dts": "^3.0.6",
-    "@yarn-tool/get-paths-by-type": "^2.0.12",
+    "@yarn-tool/get-paths-by-type": "^2.0.13",
     "global-dirs": "^3.0.1",
     "pkg-dir": "<6 >=5",
     "tslib": ">=2",

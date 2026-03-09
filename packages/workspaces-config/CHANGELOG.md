@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.8](https://github.com/bluelovers/ws-yarn-workspaces/compare/workspaces-config@2.0.5...workspaces-config@2.0.8) (2026-03-09)
+
+
+
+### ♻️　Chores
+
+* **deps:** 更新 monorepo 依賴版本 ([e44dff2](https://github.com/bluelovers/ws-yarn-workspaces/commit/e44dff29d5d6b7eb7c77acb8414e73f70feff649))
+
+
+### 🔖　Miscellaneous
+
+* . ([385c013](https://github.com/bluelovers/ws-yarn-workspaces/commit/385c0135c0ed714ef3d1daf053a0072fc1433f47))
+* . ([cae7515](https://github.com/bluelovers/ws-yarn-workspaces/commit/cae7515d4a8befe93ca0baee8f6aeb9ae7cbad79))
+
+
+
 ## [2.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/workspaces-config@2.0.5...workspaces-config@2.0.7) (2026-03-09)
 
 

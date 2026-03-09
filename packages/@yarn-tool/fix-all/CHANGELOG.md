@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.8](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-all@3.0.7...@yarn-tool/fix-all@3.0.8) (2026-03-09)
+
+
+
+### ✨　Features
+
+* **fix-all:** add Lerna testing utilities and improve `lerna.json` handling ([72ea5ed](https://github.com/bluelovers/ws-yarn-workspaces/commit/72ea5edb51ce911951f76ca312d9d177678fe5e0))
+
+
+### ♻️　Chores
+
+* **deps:** 更新 workspace 依賴版本並新增 CI 安裝腳本 ([fbb5b0b](https://github.com/bluelovers/ws-yarn-workspaces/commit/fbb5b0b32cab8cdd34c1f5b5f9a6f8c54213e738))
+* **deps:** 更新 monorepo 依賴版本 ([e44dff2](https://github.com/bluelovers/ws-yarn-workspaces/commit/e44dff29d5d6b7eb7c77acb8414e73f70feff649))
+
+
+
 ## [3.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-all@3.0.6...@yarn-tool/fix-all@3.0.7) (2026-03-04)
 
 

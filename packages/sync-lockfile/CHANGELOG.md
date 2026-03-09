@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/sync-lockfile@3.0.5...sync-lockfile@3.0.7) (2026-03-09)
+
+
+
+### ♻️　Chores
+
+* **deps:** 更新 monorepo 依賴版本 ([e44dff2](https://github.com/bluelovers/ws-yarn-workspaces/commit/e44dff29d5d6b7eb7c77acb8414e73f70feff649))
+
+
+### 🔖　Miscellaneous
+
+* . ([cae7515](https://github.com/bluelovers/ws-yarn-workspaces/commit/cae7515d4a8befe93ca0baee8f6aeb9ae7cbad79))
+
+
+
 ## [3.0.6](https://github.com/bluelovers/ws-yarn-workspaces/compare/sync-lockfile@3.0.5...sync-lockfile@3.0.6) (2026-03-08)
 
 

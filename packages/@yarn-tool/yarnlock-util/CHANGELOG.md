@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.6](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-util@3.0.5...@yarn-tool/yarnlock-util@3.0.6) (2026-03-09)
+
+
+
+### ♻️　Chores
+
+* **deps:** 更新 workspace 依賴版本並新增 CI 安裝腳本 ([fbb5b0b](https://github.com/bluelovers/ws-yarn-workspaces/commit/fbb5b0b32cab8cdd34c1f5b5f9a6f8c54213e738))
+
+
+
 ## [3.0.5](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-util@3.0.4...@yarn-tool/yarnlock-util@3.0.5) (2026-03-04)
 
 
