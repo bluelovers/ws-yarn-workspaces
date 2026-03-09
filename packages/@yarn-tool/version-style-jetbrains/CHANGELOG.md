@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/version-style-jetbrains@1.0.3...@yarn-tool/version-style-jetbrains@1.0.4) (2026-03-09)
+
+**Note:** Version bump only for package @yarn-tool/version-style-jetbrains
+
+
+
+
+
 ## 1.0.3 (2026-03-09)
 
 

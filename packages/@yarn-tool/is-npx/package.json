@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/is-npx",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "description": "檢測當前是否在 NPX/YPX 環境中執行 / Detect if running in NPX/YPX environment",
   "keywords": [
     "npx",

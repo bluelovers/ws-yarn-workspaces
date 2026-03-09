@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.20](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/path-parents@2.0.19...@yarn-tool/path-parents@2.0.20) (2026-03-09)
+
+**Note:** Version bump only for package @yarn-tool/path-parents
+
+
+
+
+
 ## [2.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/path-parents@2.0.17...@yarn-tool/path-parents@2.0.19) (2026-03-09)
 
 

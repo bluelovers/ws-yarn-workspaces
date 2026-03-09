@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.10](https://github.com/bluelovers/ws-yarn-workspaces/compare/yarn-list-link@2.0.9...yarn-list-link@2.0.10) (2026-03-09)
+
+**Note:** Version bump only for package yarn-list-link
+
+
+
+
+
 ## [2.0.9](https://github.com/bluelovers/ws-yarn-workspaces/compare/yarn-list-link@2.0.6...yarn-list-link@2.0.9) (2026-03-09)
 
 

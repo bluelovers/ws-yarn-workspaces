@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/npm-package-arg-util",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "A utility library for parsing and handling npm package arguments, providing enhanced functionality for yarn tools / 用於解析和處理 npm 套件參數的工具函式庫，為 yarn 工具提供增強功能",
   "keywords": [
     "yarn",
@@ -54,7 +54,7 @@
   },
   "dependencies": {
     "@types/npm-package-arg": "*",
-    "@yarn-tool/pkg-name-util": "^1.0.9",
+    "@yarn-tool/pkg-name-util": "^1.0.10",
     "npm-package-arg": "^13.0.2",
     "ts-type": "^3.0.8",
     "tslib": ">=2"

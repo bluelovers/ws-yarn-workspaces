@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/node-modules",
-  "version": "3.0.7",
+  "version": "3.0.8",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/node-modules#readme",
   "bugs": {
@@ -38,11 +38,11 @@
   },
   "dependencies": {
     "@bluelovers/fast-glob": "^3.0.4",
-    "find-yarn-workspace-root2": "^1.2.52",
+    "find-yarn-workspace-root2": "^1.2.53",
     "pkg-dir": "<6 >=5",
     "tslib": ">=2",
     "upath2": "^3.1.23",
-    "ws-pkg-list": "^3.0.7"
+    "ws-pkg-list": "^3.0.8"
   },
   "publishConfig": {
     "access": "public"

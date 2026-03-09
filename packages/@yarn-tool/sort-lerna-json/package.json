@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/sort-lerna-json",
-  "version": "3.0.6",
+  "version": "3.0.7",
   "description": "Sort lerna.json configuration file with consistent key ordering / 排序 lerna.json 配置檔案，確保鍵值順序一致",
   "keywords": [
     "yarn",
@@ -64,7 +64,7 @@
   "dependencies": {
     "@bluelovers/fs-json": "^1.0.17",
     "@ts-type/package-dts": "^3.0.6",
-    "@yarn-tool/write-package-json": "^1.0.14",
+    "@yarn-tool/write-package-json": "^1.0.15",
     "fs-extra": "^11.3.4",
     "sort-object-keys2": "^3.0.7",
     "tslib": ">=2"

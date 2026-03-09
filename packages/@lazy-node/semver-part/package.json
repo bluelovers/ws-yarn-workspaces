@@ -1,6 +1,6 @@
 {
   "name": "@lazy-node/semver-part",
-  "version": "1.0.24",
+  "version": "1.0.25",
   "description": "比較 semver 版本部分字串的工具庫 - Utility library for comparing semver version part strings without requiring complete semver versions",
   "keywords": [
     "semver",

@@ -1,6 +1,6 @@
 {
   "name": "workspaces-config",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "description": "```ts console.log(parseStaticPackagesPaths(getConfig())); // => { static: [], prefix: [ 'packages' ], all: [ 'packages/*' ] } ```",
   "keywords": [
     "init",
@@ -42,7 +42,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "find-pkg-ws": "^1.0.51",
+    "find-pkg-ws": "^1.0.52",
     "fs-extra": "^11.3.4",
     "tslib": ">=2"
   },

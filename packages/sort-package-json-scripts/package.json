@@ -1,6 +1,6 @@
 {
   "name": "sort-package-json-scripts",
-  "version": "1.1.29",
+  "version": "1.1.30",
   "description": "Sort package.json scripts field following npm lifecycle scripts order / 排序 package.json scripts 欄位，遵循 npm 生命週期腳本順序",
   "keywords": [
     "npm",
