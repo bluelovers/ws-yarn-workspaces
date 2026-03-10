@@ -81,6 +81,8 @@ function _handleClientsToCheck(npmClients, options) {
      * Merge user-specified priority with default order
      */
     if (npmClients === null || npmClients === void 0 ? void 0 : npmClients.length) {
+        // 過濾不合法的名稱
+        npmClients = npmClients.filter(v => v === null || v === void 0 ? void 0 : v.length);
         return (options === null || options === void 0 ? void 0 : options.noUseDefaultClients)
             ? [...new Set([...npmClients])]
             : [...new Set([...npmClients, ...defaultClients])];

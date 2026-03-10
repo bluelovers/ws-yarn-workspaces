@@ -102,7 +102,7 @@ export function _handleOptionsWhichPackageManagerCore(returnDefaultOrOptions?: I
  * @param returnDefaultOrOptions - 選項輸入 / Options input
  * @returns 包含選項與檢查列表的物件 / Object containing options and check list
  */
-export function handleOptionsWhichPackageManager(npmClients?: ITSArrayListMaybeReadonly<IPackageManager> | undefined, returnDefaultOrOptions?: IRuntimeOptionInput)
+export function handleOptionsWhichPackageManager<T extends string = IPackageManager>(npmClients?: ITSArrayListMaybeReadonly<IPackageManager | T> | undefined, returnDefaultOrOptions?: IRuntimeOptionInput)
 {
 	returnDefaultOrOptions = _handleOptionsWhichPackageManagerCore(returnDefaultOrOptions);
 
@@ -120,7 +120,7 @@ export function handleOptionsWhichPackageManager(npmClients?: ITSArrayListMaybeR
  * 合併使用者指定的優先順序與預設順序
  * Merge user-specified priority with default order
  */
-export function _handleClientsToCheck(npmClients?: ITSArrayListMaybeReadonly<IPackageManager> | undefined, options?: IOptionsWhichPackageManager): readonly IPackageManager[]
+export function _handleClientsToCheck<T extends string = IPackageManager>(npmClients?: ITSArrayListMaybeReadonly<T> | undefined, options?: IOptionsWhichPackageManager): readonly (IPackageManager | T)[]
 {
 	/**
 	 * 合併使用者指定的優先順序與預設順序
@@ -128,6 +128,9 @@ export function _handleClientsToCheck(npmClients?: ITSArrayListMaybeReadonly<IPa
 	 */
 	if (npmClients?.length)
 	{
+		// 過濾不合法的名稱
+		npmClients = npmClients.filter(v => v?.length);
+
 		return options?.noUseDefaultClients
 			? [...new Set([...npmClients])]
 			: [...new Set([...npmClients, ...defaultClients])];
@@ -152,7 +155,7 @@ export function _handleClientsToCheck(npmClients?: ITSArrayListMaybeReadonly<IPa
  * @yield - 可用的套件管理器元組 [名稱, 路徑] / Available package manager tuple [name, path]
  */
 // @ts-ignore
-export async function* _whichPackageManagerAsyncGenerator(npmClients?: ITSArrayListMaybeReadonly<IPackageManager> | undefined, returnDefaultOrOptions?: IRuntimeOptionInput): ITSAsyncGenerator<IResultDetectPackageManagerRaw>
+export async function* _whichPackageManagerAsyncGenerator<T extends string = IPackageManager>(npmClients?: ITSArrayListMaybeReadonly<IPackageManager | T> | undefined, returnDefaultOrOptions?: IRuntimeOptionInput): ITSAsyncGenerator<IResultDetectPackageManagerRaw<IPackageManager | T>>
 {
 
 	const { clientsToCheck, options } = handleOptionsWhichPackageManager(npmClients, returnDefaultOrOptions);
@@ -237,7 +240,7 @@ export async function whichPackageManagerAsyncAll(npmClients?: ITSArrayListMaybe
  * @yield - 可用的套件管理器元組 [名稱, 路徑] / Available package manager tuple [name, path]
  */
 // @ts-ignore
-export function* _whichPackageManagerSyncGenerator(npmClients?: ITSArrayListMaybeReadonly<IPackageManager> | undefined, returnDefaultOrOptions?: IRuntimeOptionInput): ITSGenerator<IResultDetectPackageManagerRaw>
+export function* _whichPackageManagerSyncGenerator<T extends string = IPackageManager>(npmClients?: ITSArrayListMaybeReadonly<IPackageManager | T> | undefined, returnDefaultOrOptions?: IRuntimeOptionInput): ITSGenerator<IResultDetectPackageManagerRaw<IPackageManager | T>>
 {
 	const { clientsToCheck, options } = handleOptionsWhichPackageManager(npmClients, returnDefaultOrOptions);
 

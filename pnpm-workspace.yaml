@@ -22,3 +22,4 @@ publicHoistPattern:
 
 linkWorkspacePackages: true
 saveWorkspaceProtocol: false
+preferWorkspacePackages: true

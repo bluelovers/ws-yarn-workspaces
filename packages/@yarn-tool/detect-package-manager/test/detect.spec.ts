@@ -20,26 +20,7 @@ import {
 	_whichPackageManagerAsyncGenerator,
 	_handleClientsToCheck,
 } from '../index';
-
-/**
- * 測試資料：預期的套件管理器列表
- * Test data: expected package manager list
- */
-const EXPECTED_PACKAGE_MANAGERS = [
-	EnumPackageManager.yarn,
-	EnumPackageManager.npm,
-	EnumPackageManager.pnpm,
-] as const;
-
-/**
- * 測試資料：預設的套件管理器順序（pnpm, yarn, npm）
- * Test data: default package manager order (pnpm, yarn, npm)
- */
-const DEFAULT_CLIENTS_EXPECTED = [
-	EnumPackageManager.pnpm,
-	EnumPackageManager.yarn,
-	EnumPackageManager.npm,
-] as const;
+import { DEFAULT_CLIENTS_EXPECTED, EXPECTED_PACKAGE_MANAGERS } from './fixtures/data';
 
 describe('EnumPackageManager', () => {
 	/**
@@ -463,7 +444,7 @@ describe('_whichPackageManagerAsyncGenerator', () => {
 		const results = [];
 
 		for await (const client of _whichPackageManagerAsyncGenerator(
-			['nonexistent'] as unknown as IPackageManager[], {
+			['nonexistent'], {
 				returnDefault: false,
 				noUseDefaultClients: true,
 			}
