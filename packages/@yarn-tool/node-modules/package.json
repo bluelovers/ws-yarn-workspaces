@@ -1,7 +1,7 @@
 {
   "name": "@yarn-tool/node-modules",
   "version": "3.0.8",
-  "description": "",
+  "description": "Node.js 模組路徑尋找工具，特別適用於 Yarn Workspaces 環境。提供快速尋找專案中 node_modules 路徑的功能，支援 scoped packages 和一般 packages 的識別。",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/node-modules#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"

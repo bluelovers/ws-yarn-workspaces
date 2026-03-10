@@ -98,19 +98,19 @@ export function sortPackageJson<T extends Record<string, any> = IPackageJson>(pk
 		sortOrder,
 	});
 
-	if (isPlainObject(pkg.scripts))
+	if (isPlainObject(pkg['scripts']))
 	{
 		// @ts-ignore
 		pkg.scripts = sortPackageJsonScripts(pkg.scripts)
 	}
 
-	if (isPlainObject(pkg.betterScripts))
+	if (isPlainObject(pkg['betterScripts']))
 	{
 		// @ts-ignore
 		pkg.betterScripts = sortPackageJsonScripts(pkg.betterScripts)
 	}
 
-	if (isPlainObject(pkg.exports))
+	if (isPlainObject(pkg['exports']))
 	{
 		// @ts-ignore
 		pkg.exports = sortPackageJsonExports(pkg.exports);

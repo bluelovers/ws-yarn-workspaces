@@ -18,6 +18,9 @@ publicHoistPattern:
 
 linkWorkspacePackages: true
 saveWorkspaceProtocol: false
+#  設定決定了 當依賴版本重疊時，pnpm 該優先用「本地程式碼」還是「線上版本」。
+preferWorkspacePackages: true
+
 # ignoreWorkspaceRootCheck: true
 
 # onlyBuiltDependencies: []
