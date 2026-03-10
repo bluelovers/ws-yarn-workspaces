@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.8](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/node-modules-is-alias@3.0.7...@yarn-tool/node-modules-is-alias@3.0.8) (2026-03-10)
+
+
+### BREAKING CHANGES
+
+* **detect-package-manager:** 過濾 npmClients 陣列中的 null、undefined 和空值
+
+
+
+### 🐛　Bug Fixes
+
+* **detect-package-manager:** 過濾 npmClients 陣列中的 null、undefined 和空值 ([c19b988](https://github.com/bluelovers/ws-yarn-workspaces/commit/c19b988b4a1c06fd5e319d4655d9f64b77fd73df))
+
+
+
 ## [3.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/node-modules-is-alias@3.0.6...@yarn-tool/node-modules-is-alias@3.0.7) (2026-03-09)
 
 **Note:** Version bump only for package @yarn-tool/node-modules-is-alias

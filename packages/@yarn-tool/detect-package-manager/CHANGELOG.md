@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.6](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/detect-package-manager@1.0.5...@yarn-tool/detect-package-manager@1.0.6) (2026-03-10)
+
+
+### BREAKING CHANGES
+
+* **detect-package-manager:** 過濾 npmClients 陣列中的 null、undefined 和空值
+
+
+
+### 🐛　Bug Fixes
+
+* **detect-package-manager:** 過濾 npmClients 陣列中的 null、undefined 和空值 ([c19b988](https://github.com/bluelovers/ws-yarn-workspaces/commit/c19b988b4a1c06fd5e319d4655d9f64b77fd73df))
+
+
+
 ## [1.0.5](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/detect-package-manager@1.0.4...@yarn-tool/detect-package-manager@1.0.5) (2026-03-09)
 
 

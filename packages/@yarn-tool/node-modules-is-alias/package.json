@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/node-modules-is-alias",
-  "version": "3.0.7",
+  "version": "3.0.8",
   "description": "check given node modules path is alias or not",
   "keywords": [
     "yarn",
