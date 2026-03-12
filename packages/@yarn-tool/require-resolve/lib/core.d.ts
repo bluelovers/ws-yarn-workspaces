@@ -1,8 +1,5 @@
-import type { IOptionsRequireResolve, IOptionsRequireResolveCore, IResolveResult } from './types';
-import { SymbolCurrentDirectory, SymbolGlobal, SymbolGlobalNpm, SymbolGlobalYarn, SymbolModuleMain, handleOptionsPaths, type IPathItem } from './util';
-export { handleOptionsPaths };
-import { type IErrorModuleNotFound } from './error';
-export { SymbolCurrentDirectory, SymbolGlobal, SymbolGlobalNpm, SymbolGlobalYarn, SymbolModuleMain, };
+import type { IOptionsRequireResolve, IResolveResult } from './types';
+import { IPathItemInput } from '@yarn-tool/get-paths-by-type';
 /**
  * 建構解析路徑陣列
  * Build resolution paths array
@@ -13,7 +10,7 @@ export { SymbolCurrentDirectory, SymbolGlobal, SymbolGlobalNpm, SymbolGlobalYarn
  * @param options - 解析選項 / Resolution options
  * @returns 路徑陣列 / Paths array
  */
-export declare function buildResolvePaths(options: IOptionsRequireResolve): (string | IPathItem)[];
+export declare function buildResolvePaths(options: IOptionsRequireResolve): IPathItemInput[];
 /**
  * require.resolve 的核心實作，支援額外搜尋路徑
  * Core implementation of require.resolve with extra search paths support
@@ -65,4 +62,3 @@ export declare function requireResolveCore(name: string, options?: IOptionsRequi
  * ```
  */
 export declare function requireResolveExtra(name: string, options?: IOptionsRequireResolve): IResolveResult;
-export type { IOptionsRequireResolve, IOptionsRequireResolveCore, IResolveResult, IPathItem, IErrorModuleNotFound, };

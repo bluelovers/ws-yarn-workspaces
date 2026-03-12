@@ -4,29 +4,13 @@ import type {
 	IResolveResult,
 } from './types';
 import {
-	SymbolCurrentDirectory,
-	SymbolGlobal,
-	SymbolGlobalNpm,
-	SymbolGlobalYarn,
-	SymbolModuleMain,
 	handleOptionsPaths,
 	getTargetName,
 	unshiftArray,
-	isValidPathSymbol,
-	type IPathItem,
 } from './util';
 
-// 重新匯出 handleOptionsPaths 供其他模組使用 / Re-export handleOptionsPaths for other modules
-export { handleOptionsPaths };
 import { isErrorModuleNotFound, type IErrorModuleNotFound } from './error';
-
-export {
-	SymbolCurrentDirectory,
-	SymbolGlobal,
-	SymbolGlobalNpm,
-	SymbolGlobalYarn,
-	SymbolModuleMain,
-}
+import { IPathItemInput, SymbolGlobal, SymbolCurrentDirectory } from '@yarn-tool/get-paths-by-type';
 
 /**
  * 建構解析路徑陣列
@@ -38,9 +22,9 @@ export {
  * @param options - 解析選項 / Resolution options
  * @returns 路徑陣列 / Paths array
  */
-export function buildResolvePaths(options: IOptionsRequireResolve): (string | IPathItem)[]
+export function buildResolvePaths(options: IOptionsRequireResolve): IPathItemInput[]
 {
-	const paths: (string | IPathItem)[] = options.paths ?? [];
+	const paths: IPathItemInput[] = options.paths ?? [];
 
 	// 處理全域路徑包含選項 / Handle global paths inclusion option
 	if (options.includeGlobal)
@@ -49,10 +33,7 @@ export function buildResolvePaths(options: IOptionsRequireResolve): (string | IP
 		{
 			for (const value of options.includeGlobal)
 			{
-				if (isValidPathSymbol(value))
-				{
-					unshiftArray(paths, value);
-				}
+				unshiftArray(paths, value);
 			}
 		}
 		else
@@ -153,13 +134,4 @@ export function requireResolveExtra(name: string, options?: IOptionsRequireResol
 
 		throw error;
 	}
-}
-
-// 重新匯出類型 / Re-export types
-export type {
-	IOptionsRequireResolve,
-	IOptionsRequireResolveCore,
-	IResolveResult,
-	IPathItem,
-	IErrorModuleNotFound,
 }

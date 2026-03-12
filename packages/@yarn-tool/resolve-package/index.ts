@@ -21,11 +21,12 @@ export {
 
 	resolvePackage as default,
 
-		IOptionsRequireResolve,
+	IOptionsRequireResolve,
 	IOptionsRequireResolveCore,
 	IPackageCoreInfo,
 	IPackageInfo,
 	IPathItem,
+
 	/**
 	 * @deprecated 使用 IOptionsRequireResolve 代替 / Use IOptionsRequireResolve instead
 	 */

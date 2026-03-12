@@ -8,7 +8,7 @@ const upath2_1 = require("upath2");
 const fs_extra_1 = require("fs-extra");
 function dotEnvFiles(options) {
     let { isTest, dev, } = options !== null && options !== void 0 ? options : {};
-    isTest = isTest !== null && isTest !== void 0 ? isTest : process.env.NODE_ENV === 'test';
+    isTest = isTest !== null && isTest !== void 0 ? isTest : process.env['NODE_ENV'] === 'test';
     const mode = isTest ? 'test' : dev ? 'development' : 'production';
     const dotenvFiles = [
         `.env.${mode}.local`,

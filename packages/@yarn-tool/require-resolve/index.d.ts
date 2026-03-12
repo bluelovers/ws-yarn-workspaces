@@ -9,7 +9,7 @@
  * @license ISC
  */
 export type { IOptionsRequireResolveCore, IOptionsRequireResolve, IErrorModuleNotFound, IOptionsRequireResolveNode, IPackageCoreInfo, IPackageInfo, IResolveResult, IPathItem, IPackageJson, } from './lib/types';
-export { SymbolCurrentDirectory, SymbolGlobal, SymbolGlobalNpm, SymbolGlobalYarn, SymbolModuleMain, defaultMap, handleOptionsPaths, getTargetName, unshiftArray, isValidPathSymbol, validSymbols, } from './lib/util';
+export { defaultMap, handleOptionsPaths, getTargetName, unshiftArray, } from './lib/util';
 import { unshiftArray } from './lib/util';
 export { isErrorModuleNotFound, createModuleNotFoundError, } from './lib/error';
 export { requireResolveCore, requireResolveExtra, buildResolvePaths, } from './lib/core';

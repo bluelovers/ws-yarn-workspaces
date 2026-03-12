@@ -6,7 +6,8 @@ import type {
 	IPackageInfo,
 } from './types';
 import type { IPackageJson } from '@ts-type/package-dts';
-import { buildResolvePaths, handleOptionsPaths } from './core';
+import { buildResolvePaths } from './core';
+import { handleOptionsPaths } from './util';
 
 /**
  * 解析套件的核心函數

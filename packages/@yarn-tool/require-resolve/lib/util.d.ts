@@ -1,6 +1,4 @@
-import { IPathItem, SymbolCurrentDirectory, SymbolGlobal, SymbolGlobalNpm, SymbolGlobalYarn, SymbolModuleMain } from '@yarn-tool/get-paths-by-type';
 import type { IOptionsRequireResolveCore } from './types';
-export { IPathItem, SymbolCurrentDirectory, SymbolGlobal, SymbolGlobalNpm, SymbolGlobalYarn, SymbolModuleMain, };
 /**
  * 預設的模組名稱對應表
  * Default module name mapping
@@ -40,16 +38,3 @@ export declare function handleOptionsPaths(paths: IOptionsRequireResolveCore["pa
  * @returns 目標模組名稱 / Target module name
  */
 export declare function getTargetName(name: string, map?: Record<string, string>): string;
-/**
- * Symbol 類型陣列，用於驗證 includeGlobal 陣列中的元素
- * Array of Symbol types for validation in includeGlobal array
- */
-export declare const validSymbols: readonly IPathItem[];
-/**
- * 檢查值是否為有效的 Symbol 路徑類型
- * Check if value is a valid Symbol path type
- *
- * @param value - 要檢查的值 / Value to check
- * @returns 是否為有效的 Symbol / Whether it's a valid Symbol
- */
-export declare function isValidPathSymbol(value: unknown): value is IPathItem;

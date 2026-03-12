@@ -1,22 +1,7 @@
 import {
-	getPathsByType,
-	IPathItem,
-	SymbolCurrentDirectory,
-	SymbolGlobal,
-	SymbolGlobalNpm,
-	SymbolGlobalYarn,
-	SymbolModuleMain,
+	getPathsByTypeLazy,
 } from '@yarn-tool/get-paths-by-type';
 import type { IOptionsRequireResolveCore } from './types';
-
-export {
-	IPathItem,
-	SymbolCurrentDirectory,
-	SymbolGlobal,
-	SymbolGlobalNpm,
-	SymbolGlobalYarn,
-	SymbolModuleMain,
-}
 
 /**
  * 預設的模組名稱對應表
@@ -58,35 +43,8 @@ export function unshiftArray<T>(array: T[], item: T): T[]
  */
 export function handleOptionsPaths(paths: IOptionsRequireResolveCore["paths"], cwd?: string): string[] | undefined
 {
-	if (paths?.length)
-	{
-		const result = paths.reduce((acc, value) =>
-		{
-			switch (value)
-			{
-				case SymbolGlobal:
-				case SymbolCurrentDirectory:
-				case SymbolGlobalNpm:
-				case SymbolGlobalYarn:
-				case SymbolModuleMain:
-					// 將符號轉換為實際路徑 / Convert symbol to actual paths
-					acc.push(...getPathsByType(value, cwd));
-					break;
-				default:
-					// 處理字串路徑 / Handle string path
-					if (value ?? false)
-					{
-						acc.push(value as string);
-					}
-			}
-
-			return acc;
-		}, [] as string[]);
-
-		return result.length ? result : undefined;
-	}
-
-	return undefined;
+	const result = getPathsByTypeLazy(paths, cwd);
+	return result.length ? result : undefined;
 }
 
 /**
@@ -103,28 +61,4 @@ export function handleOptionsPaths(paths: IOptionsRequireResolveCore["paths"], c
 export function getTargetName(name: string, map?: Record<string, string>): string
 {
 	return map?.[name] ?? defaultMap[name] ?? name;
-}
-
-/**
- * Symbol 類型陣列，用於驗證 includeGlobal 陣列中的元素
- * Array of Symbol types for validation in includeGlobal array
- */
-export const validSymbols: readonly IPathItem[] = [
-	SymbolGlobalYarn,
-	SymbolGlobalNpm,
-	SymbolCurrentDirectory,
-	SymbolGlobal,
-	SymbolModuleMain,
-] as const;
-
-/**
- * 檢查值是否為有效的 Symbol 路徑類型
- * Check if value is a valid Symbol path type
- *
- * @param value - 要檢查的值 / Value to check
- * @returns 是否為有效的 Symbol / Whether it's a valid Symbol
- */
-export function isValidPathSymbol(value: unknown): value is IPathItem
-{
-	return validSymbols.includes(value as IPathItem);
 }

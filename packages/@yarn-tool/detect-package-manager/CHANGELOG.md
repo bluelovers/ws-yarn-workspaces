@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/detect-package-manager@1.0.6...@yarn-tool/detect-package-manager@1.0.7) (2026-03-12)
+
+
+
+### 🐛　Bug Fixes
+
+* **types:** typescript display different ordering ([8e132a4](https://github.com/bluelovers/ws-yarn-workspaces/commit/8e132a4f4807bb36bb7d0c2c405bd26ddefbe9cc))
+
+
+
 ## [1.0.6](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/detect-package-manager@1.0.5...@yarn-tool/detect-package-manager@1.0.6) (2026-03-10)
 
 

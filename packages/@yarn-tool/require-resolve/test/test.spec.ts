@@ -1,22 +1,6 @@
-import requireResolveExtra, {
+import {
+	requireResolveExtra,
 	isErrorModuleNotFound,
-	requireResolveCore,
-	handleOptionsPaths,
-	requireExtra,
-	importExtra,
-	_unshiftArray,
-	resolvePackageCore,
-	resolvePackageRoot,
-	resolvePackageJsonLocation,
-	createResolveLocationFn,
-	readModulePackageJson,
-	resolvePackage,
-	SymbolCurrentDirectory,
-	SymbolGlobal,
-	SymbolGlobalNpm,
-	SymbolGlobalYarn,
-	SymbolModuleMain,
-	IErrorModuleNotFound,
 } from '../index';
 
 describe('整合測試', () =>

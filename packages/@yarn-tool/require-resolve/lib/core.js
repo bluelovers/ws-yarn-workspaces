@@ -1,17 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SymbolModuleMain = exports.SymbolGlobalYarn = exports.SymbolGlobalNpm = exports.SymbolGlobal = exports.SymbolCurrentDirectory = exports.handleOptionsPaths = void 0;
 exports.buildResolvePaths = buildResolvePaths;
 exports.requireResolveCore = requireResolveCore;
 exports.requireResolveExtra = requireResolveExtra;
 const util_1 = require("./util");
-Object.defineProperty(exports, "SymbolCurrentDirectory", { enumerable: true, get: function () { return util_1.SymbolCurrentDirectory; } });
-Object.defineProperty(exports, "SymbolGlobal", { enumerable: true, get: function () { return util_1.SymbolGlobal; } });
-Object.defineProperty(exports, "SymbolGlobalNpm", { enumerable: true, get: function () { return util_1.SymbolGlobalNpm; } });
-Object.defineProperty(exports, "SymbolGlobalYarn", { enumerable: true, get: function () { return util_1.SymbolGlobalYarn; } });
-Object.defineProperty(exports, "SymbolModuleMain", { enumerable: true, get: function () { return util_1.SymbolModuleMain; } });
-Object.defineProperty(exports, "handleOptionsPaths", { enumerable: true, get: function () { return util_1.handleOptionsPaths; } });
 const error_1 = require("./error");
+const get_paths_by_type_1 = require("@yarn-tool/get-paths-by-type");
 /**
  * 建構解析路徑陣列
  * Build resolution paths array
@@ -29,18 +23,16 @@ function buildResolvePaths(options) {
     if (options.includeGlobal) {
         if (Array.isArray(options.includeGlobal)) {
             for (const value of options.includeGlobal) {
-                if ((0, util_1.isValidPathSymbol)(value)) {
-                    (0, util_1.unshiftArray)(paths, value);
-                }
+                (0, util_1.unshiftArray)(paths, value);
             }
         }
         else {
-            (0, util_1.unshiftArray)(paths, util_1.SymbolGlobal);
+            (0, util_1.unshiftArray)(paths, get_paths_by_type_1.SymbolGlobal);
         }
     }
     // 處理當前目錄包含選項 / Handle current directory inclusion option
     if (options.includeCurrentDirectory) {
-        (0, util_1.unshiftArray)(paths, util_1.SymbolCurrentDirectory);
+        (0, util_1.unshiftArray)(paths, get_paths_by_type_1.SymbolCurrentDirectory);
     }
     return paths;
 }

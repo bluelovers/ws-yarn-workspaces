@@ -16,7 +16,7 @@ export function dotEnvFiles(options?: IDotenvFilesParams)
 		dev,
 	} = options ?? {};
 
-	isTest = isTest ?? process.env.NODE_ENV === 'test'
+	isTest = isTest ?? process.env['NODE_ENV'] === 'test'
 	const mode = isTest ? 'test' : dev ? 'development' : 'production';
 
 	const dotenvFiles = [

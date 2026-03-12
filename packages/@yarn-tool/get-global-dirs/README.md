@@ -1,6 +1,13 @@
 # @yarn-tool/get-global-dirs
 
-> 此模組複製來自 https://github.com/sindresorhus/global-directory/blob/main/index.js ，但作為 CJS 模組使用。
+> ⚠️ **注意事項**
+
+> 此模組基於 [sindresorhus/global-directory](https://github.com/sindresorhus/global-directory/blob/main/index.js) 並作為 CommonJS (CJS) 模組使用。
+
+> 目前版本存在以下限制與已知問題（源自原版或環境差異）：
+> - **pnpm YAML 支援缺失**：原版模組尚未支援讀取 pnpm 的 YAML 格式配置（如 `config.yaml`），僅支援 `rc` 格式。
+> - **pnpm 套件路徑差異**：在某些環境下，pnpm 的全局套件路徑可能位於 `.../pnpm/store/5/node_modules` 而非預設的 `.../pnpm/global/5/node_modules`。
+> - **暫無修復計畫**：目前暫時不打算針對上述原版即存在的 bug 進行修正。
 
 獲取全局安裝目錄的工具，支援 npm、yarn 和 pnpm。
 

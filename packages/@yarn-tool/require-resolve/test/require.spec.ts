@@ -12,21 +12,18 @@ import requireResolveExtra, {
 	createResolveLocationFn,
 	readModulePackageJson,
 	resolvePackage,
-	SymbolCurrentDirectory,
-	SymbolGlobal,
-	SymbolGlobalNpm,
-	SymbolGlobalYarn,
-	SymbolModuleMain,
 	IErrorModuleNotFound,
 	buildResolvePaths,
 	getTargetName,
-	isValidPathSymbol,
 	tryRequireExtra,
 	tryImportExtra,
 	createModuleNotFoundError,
 	defaultMap,
-	validSymbols,
 } from '../index';
+import { SymbolGlobalPnpm, SymbolGlobalNpm, SymbolGlobalYarn, SymbolCurrentDirectory, SymbolGlobal, SymbolModuleMain, isValidPathSymbol, getValidPathSymbols } from '@yarn-tool/get-paths-by-type';
+import {
+	validSymbols,
+} from './lib/const';
 
 // ============================================================================
 // 核心解析功能測試 / Core Resolution Tests
@@ -82,7 +79,7 @@ describe('requireResolveCore', () =>
 		test('應該能夠使用 includeGlobal 陣列選項', () =>
 		{
 			const result = requireResolveCore('jest', {
-				includeGlobal: [SymbolGlobalNpm],
+				includeGlobal: [SymbolGlobalNpm, SymbolGlobalPnpm],
 			});
 			expect(result).toContain('jest');
 		});
@@ -523,7 +520,7 @@ describe('resolvePackageCore', () =>
 		test('應該支援 includeGlobal 陣列選項', () =>
 		{
 			const result = resolvePackageCore('jest', {
-				includeGlobal: [SymbolGlobalNpm],
+				includeGlobal: [SymbolGlobalNpm, SymbolGlobalPnpm],
 			});
 
 			expect(result.name).toBe('jest');

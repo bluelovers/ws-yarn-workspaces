@@ -1,3 +1,4 @@
+import { ITSValueOrArrayMaybeReadonly } from 'ts-type';
 /**
  * 當前目錄的 Symbol
  * Symbol for current directory
@@ -34,6 +35,23 @@ export { SymbolCurrentDirectory, SymbolGlobal, SymbolGlobalNpm, SymbolGlobalYarn
  * Path type definition
  */
 export type IPathItem = typeof SymbolCurrentDirectory | typeof SymbolGlobal | typeof SymbolGlobalNpm | typeof SymbolGlobalYarn | typeof SymbolGlobalPnpm | typeof SymbolModuleMain;
+export type IPathItemInput = IPathItem | string;
+export type IPathItemInputArray = ITSValueOrArrayMaybeReadonly<IPathItemInput>;
+/**
+ * Symbol 類型陣列
+ * Array of Symbol types
+ *
+ * @example const validSymbols = getValidPathSymbols();
+ */
+export declare function getValidPathSymbols(): IPathItem[];
+/**
+ * 檢查值是否為有效的 Symbol 路徑類型
+ * Check if value is a valid Symbol path type
+ *
+ * @param value - 要檢查的值 / Value to check
+ * @returns 是否為有效的 Symbol / Whether it's a valid Symbol
+ */
+export declare function isValidPathSymbol(value: unknown): value is IPathItem;
 /**
  * 根據類型 Symbol 取得對應的路徑陣列
  * Get corresponding path array based on type Symbol
@@ -52,5 +70,6 @@ export type IPathItem = typeof SymbolCurrentDirectory | typeof SymbolGlobal | ty
  * @returns 對應的路徑陣列 / Corresponding path array
  * @throws TypeError 當傳入不支援的類型時 / When an unsupported type is passed
  */
-export declare function getPathsByType(valueType: string | IPathItem, cwd?: string): string[];
+export declare function getPathsByType(valueType: IPathItem, cwd?: string): string[];
+export declare function getPathsByTypeLazy(valueType: IPathItemInputArray, cwd?: string): string[];
 export default getPathsByType;

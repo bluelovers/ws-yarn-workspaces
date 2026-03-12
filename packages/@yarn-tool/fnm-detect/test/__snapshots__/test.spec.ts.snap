@@ -7,11 +7,11 @@ exports[`fnm "C:/Users/xxxxxxx/AppData/Local/fnm_multishells" detectFnmByAll 1`]
     "env",
   ],
   "fnmDir": "C:/Users/zzzzzzz/AppData/Roaming/fnm",
-  "fnmPath": "C:/Users/zzzzzzz/AppData/Roaming/fnm/node-versions/v24.13.1/installation",
+  "fnmPath": "C:/Users/zzzzzzz/AppData/Roaming/fnm/node-versions/v24.14.0/installation",
   "fnmPathType": "node-versions",
-  "installationPath": "C:/Users/zzzzzzz/AppData/Roaming/fnm/node-versions/v24.13.1/installation",
+  "installationPath": "C:/Users/zzzzzzz/AppData/Roaming/fnm/node-versions/v24.14.0/installation",
   "isFnm": true,
-  "version": "v24.13.1",
+  "version": "v24.14.0",
 }
 `;
 
@@ -92,11 +92,11 @@ exports[`fnm "C:/Users/xxxxxxx/AppData/Roaming/fnm" detectFnmByAll 1`] = `
     "env",
   ],
   "fnmDir": "C:/Users/zzzzzzz/AppData/Roaming/fnm",
-  "fnmPath": "C:/Users/zzzzzzz/AppData/Roaming/fnm/node-versions/v24.13.1/installation",
+  "fnmPath": "C:/Users/zzzzzzz/AppData/Roaming/fnm/node-versions/v24.14.0/installation",
   "fnmPathType": "node-versions",
-  "installationPath": "C:/Users/zzzzzzz/AppData/Roaming/fnm/node-versions/v24.13.1/installation",
+  "installationPath": "C:/Users/zzzzzzz/AppData/Roaming/fnm/node-versions/v24.14.0/installation",
   "isFnm": true,
-  "version": "v24.13.1",
+  "version": "v24.14.0",
 }
 `;
 
@@ -137,9 +137,9 @@ exports[`fnm "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/default" detectFnmByA
   "fnmDir": "C:/Users/xxxxxxx/AppData/Roaming/fnm",
   "fnmPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/default",
   "fnmPathType": "aliases",
-  "installationPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/node-versions/v24.13.1/installation",
+  "installationPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/node-versions/v24.14.0/installation",
   "isFnm": true,
-  "version": "v24.13.1",
+  "version": "v24.14.0",
 }
 `;
 
@@ -189,9 +189,9 @@ exports[`fnm "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/latest" detectFnmByAl
   "fnmDir": "C:/Users/xxxxxxx/AppData/Roaming/fnm",
   "fnmPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/latest",
   "fnmPathType": "aliases",
-  "installationPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/node-versions/v24.13.1/installation",
+  "installationPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/node-versions/v24.14.0/installation",
   "isFnm": true,
-  "version": "v24.13.1",
+  "version": "v24.14.0",
 }
 `;
 
@@ -241,9 +241,9 @@ exports[`fnm "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/lts-latest" detectFnm
   "fnmDir": "C:/Users/xxxxxxx/AppData/Roaming/fnm",
   "fnmPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/aliases/lts-latest",
   "fnmPathType": "aliases",
-  "installationPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/node-versions/v24.13.1/installation",
+  "installationPath": "C:/Users/xxxxxxx/AppData/Roaming/fnm/node-versions/v24.14.0/installation",
   "isFnm": true,
-  "version": "v24.13.1",
+  "version": "v24.14.0",
 }
 `;
 

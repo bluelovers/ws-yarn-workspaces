@@ -1,7 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SymbolModuleMain = exports.SymbolGlobalPnpm = exports.SymbolGlobalYarn = exports.SymbolGlobalNpm = exports.SymbolGlobal = exports.SymbolCurrentDirectory = void 0;
+exports.getValidPathSymbols = getValidPathSymbols;
+exports.isValidPathSymbol = isValidPathSymbol;
 exports.getPathsByType = getPathsByType;
+exports.getPathsByTypeLazy = getPathsByTypeLazy;
 const get_global_dirs_1 = require("@yarn-tool/get-global-dirs");
 const fnm_detect_1 = require("@yarn-tool/fnm-detect");
 const path_1 = require("path");
@@ -42,6 +45,37 @@ exports.SymbolGlobalPnpm = SymbolGlobalPnpm;
 const SymbolModuleMain = Symbol.for('module.main');
 exports.SymbolModuleMain = SymbolModuleMain;
 /**
+ * Symbol 類型陣列
+ * Array of Symbol types
+ *
+ * @example const validSymbols = getValidPathSymbols();
+ */
+function getValidPathSymbols() {
+    return [
+        SymbolGlobalPnpm,
+        SymbolGlobalYarn,
+        SymbolGlobalNpm,
+        SymbolCurrentDirectory,
+        SymbolModuleMain,
+        SymbolGlobal,
+    ];
+}
+/**
+ * Symbol 類型陣列，用於驗證 includeGlobal 陣列中的元素
+ * Array of Symbol types for validation in includeGlobal array
+ */
+const validSymbols = getValidPathSymbols();
+/**
+ * 檢查值是否為有效的 Symbol 路徑類型
+ * Check if value is a valid Symbol path type
+ *
+ * @param value - 要檢查的值 / Value to check
+ * @returns 是否為有效的 Symbol / Whether it's a valid Symbol
+ */
+function isValidPathSymbol(value) {
+    return validSymbols.includes(value);
+}
+/**
  * 根據類型 Symbol 取得對應的路徑陣列
  * Get corresponding path array based on type Symbol
  *
@@ -65,8 +99,8 @@ function getPathsByType(valueType, cwd) {
         case SymbolGlobal:
             // 全域路徑：同時包含 Yarn 和 Npm 的套件目錄
             // Global paths: includes both Yarn and Npm package directories
+            paths.push(...getPathsByType(SymbolGlobalPnpm, cwd));
             paths.push(get_global_dirs_1.yarn.packages);
-            paths.push(get_global_dirs_1.pnpm.packages);
         // paths.push(npm.packages)
         // break;
         case SymbolGlobalNpm:
@@ -89,6 +123,10 @@ function getPathsByType(valueType, cwd) {
         case SymbolGlobalPnpm:
             // 全域 Pnpm 套件目錄 / Global Pnpm package directory
             paths.push(get_global_dirs_1.pnpm.packages);
+            /**
+             * 修正 sindresorhus/global-directory 的 BUG
+             */
+            get_global_dirs_1.pnpm.prefix && paths.push((0, path_1.join)(get_global_dirs_1.pnpm.prefix, 'store', '5\\node_modules'));
             break;
         case SymbolModuleMain:
             // 主模組路徑：若存在且非當前模組 / Main module path: if exists and not current module
@@ -100,6 +138,24 @@ function getPathsByType(valueType, cwd) {
             throw new TypeError(`Not supported type: ${valueType}`);
     }
     return paths;
+}
+function getPathsByTypeLazy(valueType, cwd) {
+    const result = (Array.isArray(valueType) ? valueType : [valueType]).reduce((result, valueType) => {
+        if (typeof valueType === 'string') {
+            if (!valueType.length) {
+                throw new TypeError(`Invalid value: ${JSON.stringify(valueType)}`);
+            }
+            result.push(valueType);
+        }
+        else if (valueType !== null && valueType !== void 0 ? valueType : false) {
+            const list = getPathsByType(valueType, cwd);
+            if (list.length) {
+                result.push(...list);
+            }
+        }
+        return result;
+    }, []);
+    return result;
 }
 exports.default = getPathsByType;
 //# sourceMappingURL=index.js.map

@@ -9,6 +9,7 @@ exports.resolvePackage = resolvePackage;
 const upath2_1 = require("upath2");
 const pkg_dir_1 = require("pkg-dir");
 const core_1 = require("./core");
+const util_1 = require("./util");
 /**
  * 解析套件的核心函數
  * Core function for package resolution
@@ -46,7 +47,7 @@ const core_1 = require("./core");
 function resolvePackageCore(moduleName, options) {
     // 建構解析路徑 / Build resolution paths
     const paths = (0, core_1.buildResolvePaths)(options !== null && options !== void 0 ? options : {});
-    const processedPaths = (0, core_1.handleOptionsPaths)(paths, options === null || options === void 0 ? void 0 : options.cwd);
+    const processedPaths = (0, util_1.handleOptionsPaths)(paths, options === null || options === void 0 ? void 0 : options.cwd);
     let entryPointLocation;
     // 嘗試解析模組入口點 / Try to resolve module entry point
     try {

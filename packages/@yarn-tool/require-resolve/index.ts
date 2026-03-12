@@ -26,17 +26,10 @@ export type {
 } from './lib/types';
 
 export {
-	SymbolCurrentDirectory,
-	SymbolGlobal,
-	SymbolGlobalNpm,
-	SymbolGlobalYarn,
-	SymbolModuleMain,
 	defaultMap,
 	handleOptionsPaths,
 	getTargetName,
 	unshiftArray,
-	isValidPathSymbol,
-	validSymbols,
 } from './lib/util';
 
 // 匯入 unshiftArray 以建立向後相容的別名 / Import unshiftArray for backward compatible alias
