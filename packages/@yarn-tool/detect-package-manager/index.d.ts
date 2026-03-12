@@ -13,6 +13,7 @@ export declare const enum EnumPackageManager {
  * Supported package manager types
  */
 export type IPackageManager = ITSTypeAndStringLiteral<EnumPackageManager>;
+export type IPackageManager2<T extends string> = IPackageManager | T;
 /**
  * 偵測結果類型 - 包含套件管理器名稱和命令路徑
  * Detection result type - contains package manager name and command path
@@ -66,19 +67,19 @@ export declare function _handleOptionsWhichPackageManagerCore(returnDefaultOrOpt
  * @param returnDefaultOrOptions - 選項輸入 / Options input
  * @returns 包含選項與檢查列表的物件 / Object containing options and check list
  */
-export declare function handleOptionsWhichPackageManager<T extends string = IPackageManager>(npmClients?: ITSArrayListMaybeReadonly<IPackageManager | T> | undefined, returnDefaultOrOptions?: IRuntimeOptionInput): {
+export declare function handleOptionsWhichPackageManager<T extends string = IPackageManager>(npmClients?: ITSArrayListMaybeReadonly<IPackageManager2<T>> | undefined, returnDefaultOrOptions?: IRuntimeOptionInput): {
     options: IOptionsWhichPackageManager;
     /**
      * 合併使用者指定的優先順序與預設順序
      * Merge user-specified priority with default order
      */
-    clientsToCheck: readonly (T | IPackageManager)[];
+    clientsToCheck: readonly IPackageManager2<T>[];
 };
 /**
  * 合併使用者指定的優先順序與預設順序
  * Merge user-specified priority with default order
  */
-export declare function _handleClientsToCheck<T extends string = IPackageManager>(npmClients?: ITSArrayListMaybeReadonly<T> | undefined, options?: IOptionsWhichPackageManager): readonly (IPackageManager | T)[];
+export declare function _handleClientsToCheck<T extends string = IPackageManager>(npmClients?: ITSArrayListMaybeReadonly<T> | undefined, options?: IOptionsWhichPackageManager): readonly IPackageManager2<T>[];
 /**
  * 使用 which 依序檢查套件管理器列表，返回第一個可用的
  * Sequentially check package managers using which, return the first available one
@@ -94,7 +95,7 @@ export declare function _handleClientsToCheck<T extends string = IPackageManager
  * @param returnDefaultOrOptions - 選項輸入 (布林值或 IOptionsWhichPackageManager) / Options input (boolean or IOptionsWhichPackageManager)
  * @yield - 可用的套件管理器元組 [名稱, 路徑] / Available package manager tuple [name, path]
  */
-export declare function _whichPackageManagerAsyncGenerator<T extends string = IPackageManager>(npmClients?: ITSArrayListMaybeReadonly<IPackageManager | T> | undefined, returnDefaultOrOptions?: IRuntimeOptionInput): ITSAsyncGenerator<IResultDetectPackageManagerRaw<IPackageManager | T>>;
+export declare function _whichPackageManagerAsyncGenerator<T extends string = IPackageManager>(npmClients?: ITSArrayListMaybeReadonly<IPackageManager2<T>> | undefined, returnDefaultOrOptions?: IRuntimeOptionInput): ITSAsyncGenerator<IResultDetectPackageManagerRaw<IPackageManager2<T>>>;
 /**
  * 非同步生成器核心實作 - 依序檢查每個套件管理器是否可用
  * Async generator core implementation - sequentially check each package manager for availability
@@ -136,7 +137,7 @@ export declare function whichPackageManagerAsyncAll(npmClients?: ITSArrayListMay
  * @param returnDefaultOrOptions - 選項輸入 (布林值或 IOptionsWhichPackageManager) / Options input (boolean or IOptionsWhichPackageManager)
  * @yield - 可用的套件管理器元組 [名稱, 路徑] / Available package manager tuple [name, path]
  */
-export declare function _whichPackageManagerSyncGenerator<T extends string = IPackageManager>(npmClients?: ITSArrayListMaybeReadonly<IPackageManager | T> | undefined, returnDefaultOrOptions?: IRuntimeOptionInput): ITSGenerator<IResultDetectPackageManagerRaw<IPackageManager | T>>;
+export declare function _whichPackageManagerSyncGenerator<T extends string = IPackageManager>(npmClients?: ITSArrayListMaybeReadonly<IPackageManager2<T>> | undefined, returnDefaultOrOptions?: IRuntimeOptionInput): ITSGenerator<IResultDetectPackageManagerRaw<IPackageManager2<T>>>;
 /**
  * 同步生成器核心實作 - 依序檢查每個套件管理器是否可用
  * Sync generator core implementation - sequentially check each package manager for availability

@@ -18,6 +18,7 @@ export const enum EnumPackageManager
  * Supported package manager types
  */
 export type IPackageManager = ITSTypeAndStringLiteral<EnumPackageManager>;
+export type IPackageManager2<T extends string> = IPackageManager | T;
 
 /**
  * 預設的套件管理器優先順序
@@ -102,7 +103,7 @@ export function _handleOptionsWhichPackageManagerCore(returnDefaultOrOptions?: I
  * @param returnDefaultOrOptions - 選項輸入 / Options input
  * @returns 包含選項與檢查列表的物件 / Object containing options and check list
  */
-export function handleOptionsWhichPackageManager<T extends string = IPackageManager>(npmClients?: ITSArrayListMaybeReadonly<IPackageManager | T> | undefined, returnDefaultOrOptions?: IRuntimeOptionInput)
+export function handleOptionsWhichPackageManager<T extends string = IPackageManager>(npmClients?: ITSArrayListMaybeReadonly<IPackageManager2<T>> | undefined, returnDefaultOrOptions?: IRuntimeOptionInput)
 {
 	returnDefaultOrOptions = _handleOptionsWhichPackageManagerCore(returnDefaultOrOptions);
 
@@ -112,7 +113,7 @@ export function handleOptionsWhichPackageManager<T extends string = IPackageMana
 		 * 合併使用者指定的優先順序與預設順序
 		 * Merge user-specified priority with default order
 		 */
-		clientsToCheck: _handleClientsToCheck(npmClients, returnDefaultOrOptions),
+		clientsToCheck: _handleClientsToCheck<T>(npmClients as T[], returnDefaultOrOptions),
 	};
 }
 
@@ -120,7 +121,7 @@ export function handleOptionsWhichPackageManager<T extends string = IPackageMana
  * 合併使用者指定的優先順序與預設順序
  * Merge user-specified priority with default order
  */
-export function _handleClientsToCheck<T extends string = IPackageManager>(npmClients?: ITSArrayListMaybeReadonly<T> | undefined, options?: IOptionsWhichPackageManager): readonly (IPackageManager | T)[]
+export function _handleClientsToCheck<T extends string = IPackageManager>(npmClients?: ITSArrayListMaybeReadonly<T> | undefined, options?: IOptionsWhichPackageManager): readonly IPackageManager2<T>[]
 {
 	/**
 	 * 合併使用者指定的優先順序與預設順序
@@ -155,7 +156,7 @@ export function _handleClientsToCheck<T extends string = IPackageManager>(npmCli
  * @yield - 可用的套件管理器元組 [名稱, 路徑] / Available package manager tuple [name, path]
  */
 // @ts-ignore
-export async function* _whichPackageManagerAsyncGenerator<T extends string = IPackageManager>(npmClients?: ITSArrayListMaybeReadonly<IPackageManager | T> | undefined, returnDefaultOrOptions?: IRuntimeOptionInput): ITSAsyncGenerator<IResultDetectPackageManagerRaw<IPackageManager | T>>
+export async function* _whichPackageManagerAsyncGenerator<T extends string = IPackageManager>(npmClients?: ITSArrayListMaybeReadonly<IPackageManager2<T>> | undefined, returnDefaultOrOptions?: IRuntimeOptionInput): ITSAsyncGenerator<IResultDetectPackageManagerRaw<IPackageManager2<T>>>
 {
 
 	const { clientsToCheck, options } = handleOptionsWhichPackageManager(npmClients, returnDefaultOrOptions);
@@ -240,7 +241,7 @@ export async function whichPackageManagerAsyncAll(npmClients?: ITSArrayListMaybe
  * @yield - 可用的套件管理器元組 [名稱, 路徑] / Available package manager tuple [name, path]
  */
 // @ts-ignore
-export function* _whichPackageManagerSyncGenerator<T extends string = IPackageManager>(npmClients?: ITSArrayListMaybeReadonly<IPackageManager | T> | undefined, returnDefaultOrOptions?: IRuntimeOptionInput): ITSGenerator<IResultDetectPackageManagerRaw<IPackageManager | T>>
+export function* _whichPackageManagerSyncGenerator<T extends string = IPackageManager>(npmClients?: ITSArrayListMaybeReadonly<IPackageManager2<T>> | undefined, returnDefaultOrOptions?: IRuntimeOptionInput): ITSGenerator<IResultDetectPackageManagerRaw<IPackageManager2<T>>>
 {
 	const { clientsToCheck, options } = handleOptionsWhichPackageManager(npmClients, returnDefaultOrOptions);
 
@@ -303,7 +304,7 @@ export function whichPackageManagerSyncAll(npmClients?: ITSArrayListMaybeReadonl
  * @param npmClients - 套件管理器列表 / Package manager list
  * @returns 可用的套件管理器名稱 / Available package manager name
  */
-export function whichPackageManagerSync(npmClients?: ITSArrayListMaybeReadonly<IPackageManager> | undefined, returnDefaultOrOptions?: IRuntimeOptionInput)
+export function whichPackageManagerSync(npmClients?: ITSArrayListMaybeReadonly<IPackageManager> | undefined, returnDefaultOrOptions?: IRuntimeOptionInput): IPackageManager
 {
 	return _whichPackageManagerSyncGenerator(npmClients, returnDefaultOrOptions).next().value?.[0]
 }
