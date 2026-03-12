@@ -1,7 +1,7 @@
 {
   "name": "@yarn-tool/path-parents",
   "version": "2.0.20",
-  "description": "",
+  "description": "列出從當前目錄向上搜尋至工作區根目錄的路徑列表。List paths from the current directory up to the workspace root.",
   "keywords": [
     "yarn",
     "yarn-tool",
