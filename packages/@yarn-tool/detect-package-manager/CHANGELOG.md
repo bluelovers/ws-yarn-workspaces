@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.8](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/detect-package-manager@1.0.6...@yarn-tool/detect-package-manager@1.0.8) (2026-03-12)
+
+
+### BREAKING CHANGES
+
+* **require-resolve:** 移入 Symbol 驗證邏輯至 get-paths-by-type 模組並簡化路徑處理
+
+
+
+### 🐛　Bug Fixes
+
+* **types:** typescript display different ordering ([8e132a4](https://github.com/bluelovers/ws-yarn-workspaces/commit/8e132a4f4807bb36bb7d0c2c405bd26ddefbe9cc))
+
+
+### 📦　Code Refactoring
+
+* **require-resolve:** 移入 Symbol 驗證邏輯至 get-paths-by-type 模組並簡化路徑處理 ([d966b27](https://github.com/bluelovers/ws-yarn-workspaces/commit/d966b27311b6470c84fecf1b1117296900b0583e))
+
+
+
 ## [1.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/detect-package-manager@1.0.6...@yarn-tool/detect-package-manager@1.0.7) (2026-03-12)
 
 

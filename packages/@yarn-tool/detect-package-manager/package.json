@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/detect-package-manager",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Detect available package manager (yarn, npm, pnpm) using which command",
   "keywords": [
     "detect",

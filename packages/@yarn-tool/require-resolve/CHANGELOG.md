@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.6](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/require-resolve@4.0.5...@yarn-tool/require-resolve@4.0.6) (2026-03-12)
+
+
+### BREAKING CHANGES
+
+* **require-resolve:** 移入 Symbol 驗證邏輯至 get-paths-by-type 模組並簡化路徑處理
+
+
+
+### 📦　Code Refactoring
+
+* **require-resolve:** 移入 Symbol 驗證邏輯至 get-paths-by-type 模組並簡化路徑處理 ([d966b27](https://github.com/bluelovers/ws-yarn-workspaces/commit/d966b27311b6470c84fecf1b1117296900b0583e))
+
+
+### 📚　Documentation
+
+* **path-parents:** 新增繁體中文/英文雙語文件說明 ([0561fbe](https://github.com/bluelovers/ws-yarn-workspaces/commit/0561fbe2955bfc2ba10ec00522f71b99bc1dff30))
+
+
+
 ## [4.0.5](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/require-resolve@4.0.4...@yarn-tool/require-resolve@4.0.5) (2026-03-09)
 
 **Note:** Version bump only for package @yarn-tool/require-resolve

@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/resolve-package@3.0.6...@yarn-tool/resolve-package@3.0.7) (2026-03-12)
+
+
+### BREAKING CHANGES
+
+* **require-resolve:** 移入 Symbol 驗證邏輯至 get-paths-by-type 模組並簡化路徑處理
+
+
+
+### 📦　Code Refactoring
+
+* **require-resolve:** 移入 Symbol 驗證邏輯至 get-paths-by-type 模組並簡化路徑處理 ([d966b27](https://github.com/bluelovers/ws-yarn-workspaces/commit/d966b27311b6470c84fecf1b1117296900b0583e))
+
+
+
 ## [3.0.6](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/resolve-package@3.0.5...@yarn-tool/resolve-package@3.0.6) (2026-03-09)
 
 **Note:** Version bump only for package @yarn-tool/resolve-package

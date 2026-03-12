@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.21](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/path-parents@2.0.20...@yarn-tool/path-parents@2.0.21) (2026-03-12)
+
+
+
+### 📚　Documentation
+
+* **path-parents:** 新增繁體中文/英文雙語文件說明 ([0561fbe](https://github.com/bluelovers/ws-yarn-workspaces/commit/0561fbe2955bfc2ba10ec00522f71b99bc1dff30))
+
+
+
 ## [2.0.20](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/path-parents@2.0.19...@yarn-tool/path-parents@2.0.20) (2026-03-09)
 
 **Note:** Version bump only for package @yarn-tool/path-parents

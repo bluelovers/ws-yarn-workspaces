@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.15](https://github.com/bluelovers/ws-yarn-workspaces/compare/create-yarn-workspaces@3.0.14...create-yarn-workspaces@3.0.15) (2026-03-12)
+
+
+
+### ♻️　Chores
+
+* **deps:** 更新 `@types/node` 版本至 25.4.0，新增 `global-directory` 套件依賴 ([22b8e3b](https://github.com/bluelovers/ws-yarn-workspaces/commit/22b8e3be8aab8ae067494ce0a5c46dd0d1421685))
+
+
+
 ## [3.0.14](https://github.com/bluelovers/ws-yarn-workspaces/compare/create-yarn-workspaces@3.0.13...create-yarn-workspaces@3.0.14) (2026-03-10)
 
 **Note:** Version bump only for package create-yarn-workspaces

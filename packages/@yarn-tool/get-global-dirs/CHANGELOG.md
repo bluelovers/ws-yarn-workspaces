@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/get-global-dirs@1.0.2...@yarn-tool/get-global-dirs@1.0.4) (2026-03-12)
+
+
+### BREAKING CHANGES
+
+* **require-resolve:** 移入 Symbol 驗證邏輯至 get-paths-by-type 模組並簡化路徑處理
+
+
+
+### ✨　Features
+
+* **get-global-dirs, get-paths-by-type:** 支援全域 Pnpm 路徑檢測與符號導出 ([161783a](https://github.com/bluelovers/ws-yarn-workspaces/commit/161783aee216ba26f69d0a9373d887d5bfcce638))
+
+
+### 📦　Code Refactoring
+
+* **require-resolve:** 移入 Symbol 驗證邏輯至 get-paths-by-type 模組並簡化路徑處理 ([d966b27](https://github.com/bluelovers/ws-yarn-workspaces/commit/d966b27311b6470c84fecf1b1117296900b0583e))
+
+
+### 🔖　Miscellaneous
+
+* . ([f5f9cff](https://github.com/bluelovers/ws-yarn-workspaces/commit/f5f9cff68f126b4f34b4c7c07327c2da24db6b89))
+
+
+
 ## [1.0.3](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/get-global-dirs@1.0.2...@yarn-tool/get-global-dirs@1.0.3) (2026-03-12)
 
 
