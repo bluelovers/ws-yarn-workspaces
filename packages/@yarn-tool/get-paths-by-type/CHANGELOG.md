@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.15](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/get-paths-by-type@2.0.14...@yarn-tool/get-paths-by-type@2.0.15) (2026-03-12)
+
+
+
+### ✨　Features
+
+* **get-global-dirs, get-paths-by-type:** 支援全域 Pnpm 路徑檢測與符號導出 ([161783a](https://github.com/bluelovers/ws-yarn-workspaces/commit/161783aee216ba26f69d0a9373d887d5bfcce638))
+
+
+
 ## [2.0.14](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/get-paths-by-type@2.0.13...@yarn-tool/get-paths-by-type@2.0.14) (2026-03-09)
 
 **Note:** Version bump only for package @yarn-tool/get-paths-by-type

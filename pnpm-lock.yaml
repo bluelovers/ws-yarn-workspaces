@@ -617,7 +617,7 @@ importers:
         specifier: ^1.0.5
         version: link:../fnm-detect
       '@yarn-tool/get-global-dirs':
-        specifier: ^1.0.2
+        specifier: ^1.0.3
         version: link:../get-global-dirs
       tslib:
         specifier: '>=2'
@@ -1182,9 +1182,6 @@ importers:
       '@yarn-tool/get-paths-by-type':
         specifier: ^2.0.14
         version: link:../get-paths-by-type
-      global-dirs:
-        specifier: ^3.0.1
-        version: 3.0.1
       pkg-dir:
         specifier: <6 >=5
         version: 5.0.0
