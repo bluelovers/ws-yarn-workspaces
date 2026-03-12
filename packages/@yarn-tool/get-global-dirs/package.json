@@ -43,7 +43,7 @@
     "lint": "yarn run lint:eslint",
     "lint:eslint": "ynpx eslint --ext .ts,.tsx,.mts,.cts ./",
     "pretest": "echo pretest",
-    "test": "jest --passWithNoTests",
+    "test": "tsx ./test/lib/fake-pkg/test.ts",
     "test:jest": "jest --passWithNoTests",
     "test:jest:coverage": "yarn run test:jest -- --coverage",
     "test:jest:snapshot": "yarn run test:jest -- -u",
@@ -79,6 +79,10 @@
   "dependencies": {
     "ini": "^6.0.0",
     "tslib": ">=2"
+  },
+  "devDependencies": {
+    "global-directory": "^5.0.0",
+    "global-dirs": "<4 >=3.0.1"
   },
   "publishConfig": {
     "access": "public"

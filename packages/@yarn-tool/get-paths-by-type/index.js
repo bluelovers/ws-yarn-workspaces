@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SymbolModuleMain = exports.SymbolGlobalYarn = exports.SymbolGlobalNpm = exports.SymbolGlobal = exports.SymbolCurrentDirectory = void 0;
+exports.SymbolModuleMain = exports.SymbolGlobalPnpm = exports.SymbolGlobalYarn = exports.SymbolGlobalNpm = exports.SymbolGlobal = exports.SymbolCurrentDirectory = void 0;
 exports.getPathsByType = getPathsByType;
-const global_dirs_1 = require("global-dirs");
+const get_global_dirs_1 = require("@yarn-tool/get-global-dirs");
 const fnm_detect_1 = require("@yarn-tool/fnm-detect");
 const path_1 = require("path");
 /**
@@ -29,6 +29,12 @@ exports.SymbolGlobalNpm = SymbolGlobalNpm;
  */
 const SymbolGlobalYarn = Symbol.for('yarn');
 exports.SymbolGlobalYarn = SymbolGlobalYarn;
+/**
+ * 全域 Pnpm 路徑的 Symbol
+ * Symbol for global Pnpm path
+ */
+const SymbolGlobalPnpm = Symbol.for('pnpm');
+exports.SymbolGlobalPnpm = SymbolGlobalPnpm;
 /**
  * 主模組路徑的 Symbol
  * Symbol for main module path
@@ -59,12 +65,13 @@ function getPathsByType(valueType, cwd) {
         case SymbolGlobal:
             // 全域路徑：同時包含 Yarn 和 Npm 的套件目錄
             // Global paths: includes both Yarn and Npm package directories
-            paths.push(global_dirs_1.yarn.packages);
+            paths.push(get_global_dirs_1.yarn.packages);
+            paths.push(get_global_dirs_1.pnpm.packages);
         // paths.push(npm.packages)
         // break;
         case SymbolGlobalNpm:
             // 全域 Npm 套件目錄 / Global Npm package directory
-            paths.push(global_dirs_1.npm.packages);
+            paths.push(get_global_dirs_1.npm.packages);
             let detectFnmByAllResult = (0, fnm_detect_1.detectFnmByAll)();
             if (detectFnmByAllResult.isFnm) {
                 paths.push((0, path_1.join)(detectFnmByAllResult.fnmPath, 'node_modules'));
@@ -77,7 +84,11 @@ function getPathsByType(valueType, cwd) {
             break;
         case SymbolGlobalYarn:
             // 全域 Yarn 套件目錄 / Global Yarn package directory
-            paths.push(global_dirs_1.yarn.packages);
+            paths.push(get_global_dirs_1.yarn.packages);
+            break;
+        case SymbolGlobalPnpm:
+            // 全域 Pnpm 套件目錄 / Global Pnpm package directory
+            paths.push(get_global_dirs_1.pnpm.packages);
             break;
         case SymbolModuleMain:
             // 主模組路徑：若存在且非當前模組 / Main module path: if exists and not current module

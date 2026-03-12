@@ -1,0 +1,5 @@
+{
+  "main": "test.ts",
+  "type": "module",
+  "private": true
+}

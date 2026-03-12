@@ -1,6 +1,6 @@
 # @yarn-tool/get-global-dirs
 
-> 此模組複製來自 https://github.com/sindresorhus/global-directory/blob/main/index.js，但作為 CJS 模組使用。
+> 此模組複製來自 https://github.com/sindresorhus/global-directory/blob/main/index.js ，但作為 CJS 模組使用。
 
 獲取全局安裝目錄的工具，支援 npm、yarn 和 pnpm。
 

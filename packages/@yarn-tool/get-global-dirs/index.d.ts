@@ -72,4 +72,8 @@ export interface IGlobalDirectory {
  * @see https://github.com/sindresorhus/global-directory/blob/main/index.js
  */
 declare const globalDirectory: IGlobalDirectory;
+export { globalDirectory };
+export declare const npm: IGlobalDirectoryEntry;
+export declare const yarn: IGlobalDirectoryEntry;
+export declare const pnpm: IGlobalDirectoryEntry;
 export default globalDirectory;

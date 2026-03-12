@@ -19,16 +19,21 @@ declare const SymbolGlobalNpm: unique symbol;
  */
 declare const SymbolGlobalYarn: unique symbol;
 /**
+ * 全域 Pnpm 路徑的 Symbol
+ * Symbol for global Pnpm path
+ */
+declare const SymbolGlobalPnpm: unique symbol;
+/**
  * 主模組路徑的 Symbol
  * Symbol for main module path
  */
 declare const SymbolModuleMain: unique symbol;
-export { SymbolCurrentDirectory, SymbolGlobal, SymbolGlobalNpm, SymbolGlobalYarn, SymbolModuleMain, };
+export { SymbolCurrentDirectory, SymbolGlobal, SymbolGlobalNpm, SymbolGlobalYarn, SymbolGlobalPnpm, SymbolModuleMain, };
 /**
  * 路徑類型定義
  * Path type definition
  */
-export type IPathItem = typeof SymbolCurrentDirectory | typeof SymbolGlobal | typeof SymbolGlobalNpm | typeof SymbolGlobalYarn | typeof SymbolModuleMain;
+export type IPathItem = typeof SymbolCurrentDirectory | typeof SymbolGlobal | typeof SymbolGlobalNpm | typeof SymbolGlobalYarn | typeof SymbolGlobalPnpm | typeof SymbolModuleMain;
 /**
  * 根據類型 Symbol 取得對應的路徑陣列
  * Get corresponding path array based on type Symbol

@@ -1,4 +1,4 @@
-import { npm, yarn } from 'global-dirs';
+import { npm, yarn, pnpm } from '@yarn-tool/get-global-dirs';
 import { detectFnmByAll } from '@yarn-tool/fnm-detect';
 import { join } from 'path';
 
@@ -27,6 +27,12 @@ const SymbolGlobalNpm = Symbol.for('npm');
 const SymbolGlobalYarn = Symbol.for('yarn');
 
 /**
+ * 全域 Pnpm 路徑的 Symbol
+ * Symbol for global Pnpm path
+ */
+const SymbolGlobalPnpm = Symbol.for('pnpm');
+
+/**
  * 主模組路徑的 Symbol
  * Symbol for main module path
  */
@@ -37,6 +43,7 @@ export {
 	SymbolGlobal,
 	SymbolGlobalNpm,
 	SymbolGlobalYarn,
+	SymbolGlobalPnpm,
 	SymbolModuleMain,
 }
 
@@ -49,7 +56,9 @@ export type IPathItem =
 	| typeof SymbolGlobal
 	| typeof SymbolGlobalNpm
 	| typeof SymbolGlobalYarn
-	| typeof SymbolModuleMain;
+	| typeof SymbolGlobalPnpm
+	| typeof SymbolModuleMain
+;
 
 /**
  * 根據類型 Symbol 取得對應的路徑陣列
@@ -79,6 +88,7 @@ export function getPathsByType(valueType: string | IPathItem, cwd?: string)
 			// 全域路徑：同時包含 Yarn 和 Npm 的套件目錄
 			// Global paths: includes both Yarn and Npm package directories
 			paths.push(yarn.packages)
+			paths.push(pnpm.packages)
 			// paths.push(npm.packages)
 			// break;
 		case SymbolGlobalNpm:
@@ -101,6 +111,10 @@ export function getPathsByType(valueType: string | IPathItem, cwd?: string)
 		case SymbolGlobalYarn:
 			// 全域 Yarn 套件目錄 / Global Yarn package directory
 			paths.push(yarn.packages)
+			break;
+		case SymbolGlobalPnpm:
+			// 全域 Pnpm 套件目錄 / Global Pnpm package directory
+			paths.push(pnpm.packages)
 			break;
 		case SymbolModuleMain:
 			// 主模組路徑：若存在且非當前模組 / Main module path: if exists and not current module

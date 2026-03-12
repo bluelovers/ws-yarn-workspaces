@@ -2,10 +2,10 @@
  * copy from https://github.com/sindresorhus/global-directory/blob/main/index.js
  * but for cjs
  */
-import process from 'node:process';
-import { dirname, join, resolve } from 'node:path';
-import { homedir } from 'node:os';
-import { readFileSync } from 'node:fs';
+import process from 'process';
+import { dirname, join, resolve } from 'path';
+import { homedir } from 'os';
+import { readFileSync } from 'fs';
 import { parse as iniParse } from 'ini';
 
 export interface IGlobalDirectoryEntry
@@ -104,9 +104,9 @@ const getEnvironmentNpmConfigValue = key => {
 };
 
 const getGlobalNpmrc = () => {
-	if (isWindows && process.env.APPDATA) {
+	if (isWindows && process.env['APPDATA']) {
 		// Hardcoded contents of `c:\Program Files\nodejs\node_modules\npm\npmrc`
-		return join(process.env.APPDATA, '/npm/etc/npmrc');
+		return join(process.env['APPDATA'], '/npm/etc/npmrc');
 	}
 
 	// Homebrew special case: `$(brew --prefix)/lib/node_modules/npm/npmrc`
@@ -148,8 +148,8 @@ const getNpmPrefix = () => {
 		return homePrefix;
 	}
 
-	if (process.env.PREFIX) {
-		return process.env.PREFIX;
+	if (process.env['PREFIX']) {
+		return process.env['PREFIX'];
 	}
 
 	const globalPrefix = readConfigValue(getGlobalNpmrc(), 'prefix');
@@ -163,7 +163,7 @@ const getNpmPrefix = () => {
 const npmPrefix = resolve(untildify(getNpmPrefix()));
 
 const getYarnHomeDirectory = () => {
-	if (process.getuid?.() === 0 && !process.env.FAKEROOTKEY) {
+	if (process.getuid?.() === 0 && !process.env['FAKEROOTKEY']) {
 		return '/usr/local/share';
 	}
 
@@ -172,30 +172,30 @@ const getYarnHomeDirectory = () => {
 
 const getYarnDataDirectory = () => {
 	if (isWindows) {
-		return process.env.LOCALAPPDATA
-			? join(process.env.LOCALAPPDATA, 'Yarn/Data')
+		return process.env['LOCALAPPDATA']
+			? join(process.env['LOCALAPPDATA'], 'Yarn/Data')
 			: join(homedir(), '.config/yarn');
 	}
 
-	if (process.env.XDG_DATA_HOME) {
-		return join(process.env.XDG_DATA_HOME, 'yarn');
+	if (process.env['XDG_DATA_HOME']) {
+		return join(process.env['XDG_DATA_HOME'], 'yarn');
 	}
 
 	return join(getYarnHomeDirectory(), '.config/yarn');
 };
 
 const getYarnBinPrefix = () => {
-	if (process.env.PREFIX) {
-		return process.env.PREFIX;
+	if (process.env['PREFIX']) {
+		return process.env['PREFIX'];
 	}
 
 	if (isWindows) {
-		return process.env.LOCALAPPDATA
-			? join(process.env.LOCALAPPDATA, 'Yarn')
+		return process.env['LOCALAPPDATA']
+			? join(process.env['LOCALAPPDATA'], 'Yarn')
 			: join(homedir(), '.yarn');
 	}
 
-	return `${process.env.DESTDIR ?? ''}/usr/local`;
+	return `${process.env['DESTDIR'] ?? ''}/usr/local`;
 };
 
 /**
@@ -218,12 +218,12 @@ globalDirectory.yarn.packages = join(yarnDataDir, 'global/node_modules');
 globalDirectory.yarn.binaries = join(resolve(getYarnBinPrefix()), 'bin');
 
 const getPnpmDataDirectory = () => {
-	if (process.env.PNPM_HOME) {
-		return process.env.PNPM_HOME;
+	if (process.env['PNPM_HOME']) {
+		return process.env['PNPM_HOME'];
 	}
 
-	if (process.env.XDG_DATA_HOME) {
-		return join(process.env.XDG_DATA_HOME, 'pnpm');
+	if (process.env['XDG_DATA_HOME']) {
+		return join(process.env['XDG_DATA_HOME'], 'pnpm');
 	}
 
 	if (process.platform === 'darwin') {
@@ -234,20 +234,20 @@ const getPnpmDataDirectory = () => {
 		return join(homedir(), '.local/share/pnpm');
 	}
 
-	if (process.env.LOCALAPPDATA) {
-		return join(process.env.LOCALAPPDATA, 'pnpm');
+	if (process.env['LOCALAPPDATA']) {
+		return join(process.env['LOCALAPPDATA'], 'pnpm');
 	}
 
 	return join(homedir(), '.pnpm');
 };
 
 const getPnpmConfigFilePath = () => {
-	if (process.env.XDG_CONFIG_HOME) {
-		return join(process.env.XDG_CONFIG_HOME, 'pnpm', 'rc');
+	if (process.env['XDG_CONFIG_HOME']) {
+		return join(process.env['XDG_CONFIG_HOME'], 'pnpm', 'rc');
 	}
 
 	if (isWindows) {
-		const localConfigHome = process.env.LOCALAPPDATA ?? join(homedir(), 'AppData', 'Local');
+		const localConfigHome = process.env['LOCALAPPDATA'] ?? join(homedir(), 'AppData', 'Local');
 		return join(localConfigHome, 'pnpm', 'config', 'rc');
 	}
 
@@ -258,7 +258,7 @@ const getPnpmConfigFilePath = () => {
 	return join(homedir(), '.config', 'pnpm', 'rc');
 };
 
-const getPnpmConfigValue = key => {
+const getPnpmConfigValue = (key: string) => {
 	const environmentValue = getEnvironmentNpmConfigValue(key);
 	if (environmentValue !== undefined) {
 		return environmentValue;
@@ -289,5 +289,11 @@ globalDirectory.pnpm = {} as any;
 globalDirectory.pnpm.prefix = pnpmDataDir;
 globalDirectory.pnpm.packages = join(resolvedPnpmGlobalDir, '5/node_modules');
 globalDirectory.pnpm.binaries = resolvedPnpmGlobalBinDir;
+
+export { globalDirectory }
+
+export const npm = globalDirectory.npm;
+export const yarn = globalDirectory.yarn;
+export const pnpm = globalDirectory.pnpm;
 
 export default globalDirectory;
