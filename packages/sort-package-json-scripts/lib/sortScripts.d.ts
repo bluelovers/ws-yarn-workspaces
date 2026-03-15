@@ -25,13 +25,16 @@
  */
 import { ISortPackageJsonScriptsOptions } from './types';
 /**
- * Core sorting function that sorts scripts by key order.
- * 核心排序函式，按鍵值順序排序腳本。
+ * 核心排序函式 - 使用鍵值順序進行簡單排序
+ * Core sorting function - simple sort using key order
  *
- * @template T - The scripts object type / scripts 物件類型
- * @param scripts - The scripts object to sort / 要排序的 scripts 物件
- * @param opts - Sorting options / 排序選項
- * @returns The sorted scripts object / 排序後的 scripts 物件
+ * 此函式是基本的排序實現，直接使用 handleKeyOrdersCore 產生的順序來排序腳本。
+ * 不會進行額外的分組處理，適合需要保持原有腳本結構的場景。
+ *
+ * @template T - scripts 物件類型
+ * @param scripts - 要排序的 scripts 物件
+ * @param opts - 排序選項
+ * @returns 排序後的 scripts 物件
  *
  * @internal
  */
@@ -57,6 +60,16 @@ export declare function sortPackageJsonScriptsOld<T extends Record<string, any>>
  *
  * 此函式排序腳本並將相關腳本分組在一起。
  * 例如，pretest、test 和 posttest 將按順序分組。
+ *
+ * 排序邏輯說明：
+ * 1. 首先使用 _core 函式進行基礎排序
+ * 2. 建立 topMap 資料結構來追蹤腳本之間的關係：
+ *    - 第一層：基礎鍵（如 'test'）
+ *    - 第二層：子鍵（如 ':watch'、':coverage'）
+ *    - 第三層：前綴（如 'pre'、'post'、''）
+ *    - 第四層：完整尾碼（如 ':watch'、'Only'）
+ * 3. 遞迴處理每個層級，確保相關腳本保持在一起
+ * 4. 最後使用排序後的鍵重新排列物件
  *
  * @template T - The scripts object type / scripts 物件類型
  * @param scripts - The scripts object to sort / 要排序的 scripts 物件

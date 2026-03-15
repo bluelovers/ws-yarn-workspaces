@@ -8,6 +8,12 @@
  * 此模組提供排序 package.json 中 scripts 欄位的工具函式。
  * 預設遵循 npm 生命週期腳本順序，提高可讀性。
  *
+ * ## 核心功能 / Core Features
+ *
+ * - **NPM 生命週期順序**: 預設遵循 npm 定義的腳本執行順序
+ * - **腳本分組**: 自動將相關腳本（preXXX、XXX、postXXX）分組在一起
+ * - **自定義排序**: 支援自訂排序邏輯和鍵值提取函式
+ *
  * @module sort-package-json-scripts
  *
  * @example
@@ -25,8 +31,34 @@
  * const sorted = sortPackageJsonScripts(scripts);
  * // Returns scripts sorted by npm lifecycle order
  * ```
+ *
+ * @example
+ * ```typescript
+ * // 使用自定義選項
+ * import sortPackageJsonScripts, { ISortPackageJsonScriptsOptions } from 'sort-package-json-scripts';
+ *
+ * const options: ISortPackageJsonScriptsOptions = {
+ *   otherScriptNames: ['prettier', 'eslint'],
+ *   defaultNpmScriptsOrder: ['build', 'test', 'lint'],
+ *   sortKeyFn: (a, b) => a.localeCompare(b),
+ * };
+ *
+ * const sorted = sortPackageJsonScripts(scripts, options);
+ * ```
  */
-import sortPackageJsonScripts from './lib/sortScripts';
+import { sortPackageJsonScripts } from './lib/sortScripts';
+/**
+ * 導出類型定義
+ * Export type definitions
+ */
 export type { ISortPackageJsonScriptsOptions } from './lib/types';
+/**
+ * 導出主要函式
+ * Export main function
+ */
 export { sortPackageJsonScripts };
+/**
+ * 預設匯出
+ * Default export
+ */
 export default sortPackageJsonScripts;
