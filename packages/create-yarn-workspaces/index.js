@@ -127,6 +127,7 @@ function createYarnWorkspaces(cwd, options = {}) {
  * @returns 是否成功 / Whether successful
  */
 function _createYarnWorkspaces(targetPath, options = {}) {
+    var _a;
     logger_1.consoleLogger.info(`create in target path "${targetPath}"`);
     let pkg;
     let lerna;
@@ -260,8 +261,8 @@ function _createYarnWorkspaces(targetPath, options = {}) {
         // 更新為 Yarn Workspaces 模式
         // Update to Yarn Workspaces mode
         lerna.packages = packages;
-        lerna.npmClient = 'yarn';
-        lerna['useWorkspaces'] = true;
+        (_a = lerna.npmClient) !== null && _a !== void 0 ? _a : (lerna.npmClient = 'pnpm');
+        // lerna['useWorkspaces'] = true;
         let s = JSON.stringify((0, sort_package_json3_1.sortPackageJson)(lerna), null, 2);
         (0, fs_extra_1.writeFileSync)(file, s);
         logger_1.consoleLogger.info(`update lerna.json`);

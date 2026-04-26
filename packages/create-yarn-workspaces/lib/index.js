@@ -2,9 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getDefaultPackageJson = getDefaultPackageJson;
 exports.getDefaultTsconfig = getDefaultTsconfig;
+const tslib_1 = require("tslib");
 const ws_root_scripts_1 = require("@yarn-tool/pkg-entry-util/lib/preset/scripts/ws-root-scripts");
 const dummy_1 = require("@yarn-tool/pkg-entry-util/lib/preset/scripts/dummy");
 const package_demo_json_1 = require("./package.demo.json");
+const package_json_1 = tslib_1.__importDefault(require("../package.json"));
 function getDefaultPackageJson(name) {
     let json = {
         "name": name,
@@ -23,6 +25,21 @@ function getDefaultPackageJson(name) {
         peerDependencies: package_demo_json_1.peerDependencies,
         // "resolutions": {},
     };
+    for (const deps of ['dependencies', 'devDependencies', 'peerDependencies']) {
+        let keys = Object.keys(json[deps]);
+        if (!keys.length || !package_json_1.default[deps]) {
+            continue;
+        }
+        json[deps] = {
+            ...json[deps],
+        };
+        keys
+            .forEach(function (key) {
+            if (package_json_1.default[deps][key]) {
+                json[deps][key] = package_json_1.default[deps][key];
+            }
+        });
+    }
     (0, dummy_1.fillDummyScripts)(json.scripts, 'workspaces');
     return json;
 }

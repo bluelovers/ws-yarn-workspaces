@@ -1,21 +1,16 @@
 {
   "dependencies": {
-    "ts-type": ">=3.0.1",
-    "tslib": ">=2.6.2"
+    "ts-type": ">=3.0.13",
+    "tslib": ">=2.8.1"
   },
   "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.35",
+    "@bluelovers/tsconfig": "^2.0.2",
     "@types/jest": "^30.0.0",
-    "@types/node": "^25.4.0",
-    "@yarn-tool/require-resolve": "*",
+    "@types/node": "^25.6.0",
+    "@yarn-tool/require-resolve": "^4.0.6",
     "@yarn-tool/ws-find-up-paths": "^1.0.19"
   },
   "peerDependencies": {
-    "@bluelovers/conventional-changelog-bluelovers": "*",
-    "ts-node": "*",
-    "typescript": "*",
-    "yarn": "*",
-    "yarn-tool": "*",
-    "ynpx": "*"
+    "@bluelovers/conventional-changelog-bluelovers": "*"
   }
 }

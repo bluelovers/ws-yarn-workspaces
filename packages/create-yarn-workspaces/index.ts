@@ -357,8 +357,8 @@ export function _createYarnWorkspaces(targetPath: string, options: IOptions = {}
 		// 更新為 Yarn Workspaces 模式
 		// Update to Yarn Workspaces mode
 		lerna.packages = packages;
-		lerna.npmClient = 'yarn';
-		lerna['useWorkspaces'] = true;
+		lerna.npmClient ??= 'pnpm';
+		// lerna['useWorkspaces'] = true;
 
 		let s = JSON.stringify(sortPackageJson(lerna), null, 2);
 		writeFileSync(file, s);
