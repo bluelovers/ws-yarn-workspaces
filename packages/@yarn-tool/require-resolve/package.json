@@ -49,7 +49,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^3.0.6",
+    "@ts-type/package-dts": "^3.0.9",
     "@yarn-tool/get-paths-by-type": "^2.0.16",
     "pkg-dir": "<6 >=5",
     "tslib": ">=2",

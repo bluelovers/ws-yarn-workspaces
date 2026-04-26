@@ -60,7 +60,7 @@ function updatePackageJson(pkg, config) {
     // 如果 build 腳本不包含 tsdx build，則設定新的 build 腳本
     // If build script doesn't include tsdx build, set new build script
     if (!((_d = pkg.scripts["build"]) === null || _d === void 0 ? void 0 : _d.includes('run build:tsdx'))) {
-        pkg.scripts["build"] = "yarn run build:tsdx && yarn run build:dts:bundle";
+        pkg.scripts["build"] = "node --run build:tsdx && node --run build:dts:bundle";
     }
     // 設定 TypeScript 宣告檔案打包腳本
     // Set TypeScript declaration file bundling script
@@ -77,9 +77,9 @@ function updatePackageJson(pkg, config) {
     // 組合完整的 dts 建置腳本
     // Compose complete dts build script
     (_j = (_w = pkg.scripts)["build:dts:tsc"]) !== null && _j !== void 0 ? _j : (_w["build:dts:tsc"] = [
-        'yarn run build:dts:copy',
-        'yarn run build:dts:tsc:emit',
-        'yarn run build:dts:copy',
+        'node --run build:dts:copy',
+        'node --run build:dts:tsc:emit',
+        'node --run build:dts:copy',
     ].join(' && '));
     // 設定模組入口點
     // Set module entry points

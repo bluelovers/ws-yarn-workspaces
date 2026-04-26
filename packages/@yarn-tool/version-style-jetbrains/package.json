@@ -79,9 +79,9 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "dayjs": "^1.11.19",
+    "dayjs": "^1.11.20",
     "dayjs-tz-helper": "^1.0.8",
-    "ts-type": "^3.0.8",
+    "ts-type": "^3.0.13",
     "tslib": ">=2"
   },
   "publishConfig": {

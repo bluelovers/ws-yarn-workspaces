@@ -125,6 +125,7 @@ function _runFixPackagesCore(row, options, cache, err) {
         });
     }
     catch (e) {
+        // @ts-ignore
         err.push(e);
     }
     // 填充託管 git 資訊（homepage, repository, bugs）/ Fill hosted git info
@@ -222,15 +223,18 @@ function _runEachPackagesAsync(list, options) {
             _runFixPackagesCore(row, options, cache, err);
         })().catch(e => {
             e.row = row;
+            // @ts-ignore
             err.push(e);
         }), row.name);
         return promiseLogger
             .catch(e => {
             e.row = row;
+            // @ts-ignore
             err.push(e);
         })
             .then(() => {
             // 若有錯誤則記錄 / Log errors if any
+            // @ts-ignore
             if (err.length) {
                 debug_color2_1.console.error(err);
             }

@@ -8,6 +8,7 @@
  * providing the ability to search upward for files or directories in a workspace environment.
  */
 import {
+	findUpPaths,
 	findUpPathsRuntime,
 	findUpPathsRuntimeAsync,
 	handleOptions as _handleOptions,
@@ -147,9 +148,11 @@ export function findUpPathsWorkspaces(pattern: string | string[], opts?: IOption
 {
 	const runtime = handleOptions(opts);
 
+	console.dir(runtime)
+
 	// 使用 findUpPathsRuntime 執行實際搜尋
 	// Execute actual search using findUpPathsRuntime
-	return findUpPathsRuntime(pattern, runtime)
+	return findUpPaths(pattern, runtime)
 }
 
 /**

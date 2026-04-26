@@ -57,7 +57,7 @@
     "@yarn-tool/pkg-version-query": "^3.0.7",
     "bluebird": "^3.7.2",
     "package-json": "<7 >=6.5",
-    "ts-type": "^3.0.8",
+    "ts-type": "^3.0.13",
     "tslib": ">=2"
   },
   "publishConfig": {

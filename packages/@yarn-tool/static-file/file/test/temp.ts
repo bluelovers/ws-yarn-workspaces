@@ -1,4 +1,2 @@
-/**
- * Created by user on 2024/5/31.
- */
+/// <reference types="node" />
 

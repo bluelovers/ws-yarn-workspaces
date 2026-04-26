@@ -127,7 +127,7 @@ function defaultWorkspaceRootScripts() {
         /** 工作區連結修復 / Workspace links fix */
         "prepare:fix-ws-links": "ynpx --quiet @yarn-tool/fix-ws-links",
         /** 發布前更新 / Pre-publish update */
-        "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
+        "prepublishOnly:update": "yarn run ncu && node --run sort-package-json",
         /** 依賴更新 / Dependency updates */
         "ncu": "node --run ncu:ws",
         "ncu:root": "yarn-tool ncu -u",

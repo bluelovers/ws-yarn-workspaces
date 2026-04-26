@@ -1,4 +1,5 @@
 import { IOptionsGetRunPathCore, IOptionsFindBinPath, ProcessEnv } from './index';
+import { IPathDelimiter } from '@yarn-tool/env-path';
 export declare function findBinPath(options?: IOptionsFindBinPath): {
     result: string[];
     history: string[];
@@ -9,6 +10,6 @@ export declare function processRunPathCore<P = ProcessEnv>(options?: IOptionsGet
     envPath: any;
     binPaths: string[];
     execPath: string;
-    delimiter: ":" | ";";
+    delimiter: IPathDelimiter;
     processEnv: P;
 };

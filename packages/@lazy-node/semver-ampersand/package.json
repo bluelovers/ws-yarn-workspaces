@@ -48,11 +48,11 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "array-hyper-unique": "^2.1.6",
+    "array-hyper-unique": "^2.1.8",
     "class-without-call-parent-constructor": "^2.0.5",
     "lru-cache2": "^6.0.7",
     "split-smartly2": "^2.0.1",
-    "ts-type": "^3.0.8",
+    "ts-type": "^3.0.13",
     "tslib": ">=2"
   },
   "peerDependencies": {

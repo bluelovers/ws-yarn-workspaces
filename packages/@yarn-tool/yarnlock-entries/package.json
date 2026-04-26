@@ -49,8 +49,8 @@
     "@yarn-tool/yarnlock-parse": "^3.0.8",
     "@yarn-tool/yarnlock-stringify": "^2.0.8",
     "@yarn-tool/yarnlock-util": "^3.0.7",
-    "lodash": "^4.17.23",
-    "ts-type": "^3.0.8",
+    "lodash": "^4.18.1",
+    "ts-type": "^3.0.13",
     "tslib": ">=2"
   },
   "publishConfig": {

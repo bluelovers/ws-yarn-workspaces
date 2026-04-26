@@ -32,6 +32,14 @@ var __importStar = (this && this.__importStar) || (function () {
         return result;
     };
 })();
+var __rewriteRelativeImportExtension = (this && this.__rewriteRelativeImportExtension) || function (path, preserveJsx) {
+    if (typeof path === "string" && /^\.\.?\//.test(path)) {
+        return path.replace(/\.(tsx)$|((?:\.d)?)((?:\.[^./]+?)?)\.([cm]?)ts$/i, function (m, tsx, d, ext, cm) {
+            return tsx ? preserveJsx ? ".jsx" : ".js" : d && (!ext || !cm) ? m : (d + ext + "." + cm.toLowerCase() + "js");
+        });
+    }
+    return path;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.requireExtra = requireExtra;
 exports.importExtra = importExtra;
@@ -86,7 +94,7 @@ function requireExtra(name, options) {
  * ```
  */
 function importExtra(name, options) {
-    return Promise.resolve(`${(0, core_1.requireResolveCore)(name, options)}`).then(s => __importStar(require(s)));
+    return Promise.resolve(`${__rewriteRelativeImportExtension((0, core_1.requireResolveCore)(name, options), true)}`).then(s => __importStar(require(s)));
 }
 /**
  * 嘗試載入模組，失敗時返回 null

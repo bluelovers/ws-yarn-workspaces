@@ -167,6 +167,7 @@ export function _runFixPackagesCore(row: IEntry, options: IOptionsRunEachPackage
 	}
 	catch (e)
 	{
+		// @ts-ignore
 		err.push(e);
 	}
 
@@ -299,17 +300,20 @@ export function _runEachPackagesAsync(list: IEntry[],
 
 			})().catch(e => {
 				e.row = row;
+				// @ts-ignore
 				err.push(e);
 			}), row.name)
 
 			return promiseLogger
 				.catch(e => {
 					e.row = row;
+					// @ts-ignore
 					err.push(e);
 				})
 				.then(() =>
 				{
 					// 若有錯誤則記錄 / Log errors if any
+					// @ts-ignore
 					if (err.length)
 					{
 						console.error(err);

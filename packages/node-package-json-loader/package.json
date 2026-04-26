@@ -52,14 +52,14 @@
   "config": {},
   "dependencies": {
     "@bluelovers/fs-json": "^1.0.17",
-    "@ts-type/package-dts": "^3.0.6",
+    "@ts-type/package-dts": "^3.0.9",
     "@yarn-tool/pkg-entry-util": "^3.0.11",
     "@yarn-tool/resolve-package": "^3.0.7",
     "@yarn-tool/write-package-json": "^1.0.15",
     "bind-decorator": "^1.0.11",
     "fs-extra": "^11.3.4",
     "sort-package-json3": "^3.0.9",
-    "ts-type": "^3.0.8",
+    "ts-type": "^3.0.13",
     "tslib": ">=2"
   },
   "bundleDependencies": [],

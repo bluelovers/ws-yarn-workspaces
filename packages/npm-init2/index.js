@@ -16,8 +16,8 @@
  * - Integration with TypeScript, Jest, TSDX and other dev tools
  * - Auto-generation of README.md and configuration files
  */
-var _a, _b, _c, _d, _e, _f, _g, _h;
-var _j, _k, _l, _m;
+var _a, _b, _c, _d, _e, _f, _g;
+var _h, _j, _k;
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const yargs_1 = tslib_1.__importDefault(require("yargs"));
@@ -304,7 +304,7 @@ if (!cp.error) {
          * 設定 Package Manager（預設 Yarn）
          * Set Package Manager (default to Yarn)
          */
-        (_b = (_j = pkg.data).packageManager) !== null && _b !== void 0 ? _b : (_j.packageManager = "yarn@1.22.19");
+        // pkg.data.packageManager ??= "yarn@1.22.19";
         /**
          * 共享腳本範本
          * Shared script templates
@@ -353,7 +353,7 @@ if (!cp.error) {
          * 初始化 scripts 欄位（如果不存在）
          * Initialize scripts field if not exists
          */
-        (_c = (_k = pkg.data).scripts) !== null && _c !== void 0 ? _c : (_k.scripts = {});
+        (_b = (_h = pkg.data).scripts) !== null && _b !== void 0 ? _b : (_h.scripts = {});
         /**
          * 處理新建立的 Package 腳本
          * Handle scripts for newly created packages
@@ -363,7 +363,7 @@ if (!cp.error) {
              * 如果現有腳本是預設的無測試提示，且我們有測試腳本，則刪除舊的
              * If existing script is default no-test message and we have a test script, remove old one
              */
-            if ((0, scripts_1.scriptsEntryIsNoTestSpecified)((_d = pkg.data.scripts) === null || _d === void 0 ? void 0 : _d.test) && ((_e = sharedScript.test) === null || _e === void 0 ? void 0 : _e.length) > 0) {
+            if ((0, scripts_1.scriptsEntryIsNoTestSpecified)((_c = pkg.data.scripts) === null || _c === void 0 ? void 0 : _c.test) && ((_d = sharedScript.test) === null || _d === void 0 ? void 0 : _d.length) > 0) {
                 delete pkg.data.scripts.test;
             }
             /**
@@ -474,7 +474,7 @@ if (!cp.error) {
          */
         if (wsProject && !rootData.isWorkspace) {
             const rootKeywords = wsProject.manifest.toJSON().keywords;
-            if (!((_f = pkg.data.keywords) === null || _f === void 0 ? void 0 : _f.length) && (rootKeywords === null || rootKeywords === void 0 ? void 0 : rootKeywords.length)) {
+            if (!((_e = pkg.data.keywords) === null || _e === void 0 ? void 0 : _e.length) && (rootKeywords === null || rootKeywords === void 0 ? void 0 : rootKeywords.length)) {
                 pkg.data.keywords = rootKeywords.slice();
             }
         }
@@ -482,7 +482,7 @@ if (!cp.error) {
          * 添加工具標記關鍵字
          * Add tool marker keyword
          */
-        (_g = (_l = pkg.data).keywords) !== null && _g !== void 0 ? _g : (_l.keywords = []);
+        (_f = (_j = pkg.data).keywords) !== null && _f !== void 0 ? _f : (_j.keywords = []);
         pkg.data.keywords.push('create-by-yarn-tool');
         /**
          * 取得要複製的靜態檔案映射
@@ -530,7 +530,7 @@ if (!cp.error) {
          * Set sideEffects to false (optimize Tree Shaking)
          * @see https://juejin.cn/post/6844903640533041159
          */
-        (_h = (_m = pkg.data).sideEffects) !== null && _h !== void 0 ? _h : (_m.sideEffects = false);
+        (_g = (_k = pkg.data).sideEffects) !== null && _g !== void 0 ? _g : (_k.sideEffects = false);
         /**
          * 自動修復 package.json 常見問題
          * Auto-fix common package.json issues

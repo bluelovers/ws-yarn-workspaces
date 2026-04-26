@@ -87,10 +87,7 @@ export declare function pathParentsWorkspaces(cwd?: string | IOptionsFindUpPaths
  * @param opts - 搜尋選項 / Search options
  * @returns 包含 stat 和 result 的物件 / Object containing stat and result
  */
-export declare function findUpPathsWorkspaces(pattern: string | string[], opts?: IOptionsFindUpPathsWorkspaces): {
-    stat: import("node:fs").Stats;
-    result: string;
-};
+export declare function findUpPathsWorkspaces(pattern: string | string[], opts?: IOptionsFindUpPathsWorkspaces): import("find-up-paths").IFindUpPathsResult;
 /**
  * 在工作區中向上搜尋符合條件的路徑（非同步版本）
  * Find up paths matching pattern in workspace (asynchronous version)
@@ -102,8 +99,5 @@ export declare function findUpPathsWorkspaces(pattern: string | string[], opts?:
  * @param opts - 搜尋選項 / Search options
  * @returns 包含 stat 和 result 的 Promise / Promise containing stat and result
  */
-export declare function findUpPathsWorkspacesAsync(pattern: string | string[], opts?: IOptionsFindUpPathsWorkspaces): Promise<{
-    stat: import("node:fs").Stats;
-    result: string;
-}>;
+export declare function findUpPathsWorkspacesAsync(pattern: string | string[], opts?: IOptionsFindUpPathsWorkspaces): Promise<import("find-up-paths").IFindUpPathsResult>;
 export default findUpPathsWorkspaces;

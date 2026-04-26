@@ -84,9 +84,10 @@ function pathParentsWorkspaces(cwd, opts) {
  */
 function findUpPathsWorkspaces(pattern, opts) {
     const runtime = handleOptions(opts);
+    console.dir(runtime);
     // 使用 findUpPathsRuntime 執行實際搜尋
     // Execute actual search using findUpPathsRuntime
-    return (0, find_up_paths_1.findUpPathsRuntime)(pattern, runtime);
+    return (0, find_up_paths_1.findUpPaths)(pattern, runtime);
 }
 /**
  * 在工作區中向上搜尋符合條件的路徑（非同步版本）

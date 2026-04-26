@@ -67,7 +67,7 @@
     "tslib": ">=2"
   },
   "devDependencies": {
-    "@ts-type/package-dts": "^3.0.6"
+    "@ts-type/package-dts": "^3.0.9"
   },
   "publishConfig": {
     "access": "public"

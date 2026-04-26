@@ -72,8 +72,8 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^3.0.6",
-    "ts-type": "^3.0.8"
+    "@ts-type/package-dts": "^3.0.9",
+    "ts-type": "^3.0.13"
   },
   "publishConfig": {
     "access": "public"

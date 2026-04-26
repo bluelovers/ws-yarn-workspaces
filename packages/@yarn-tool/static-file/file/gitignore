@@ -243,3 +243,14 @@ test/fixtures/.gitkeep
 !.aiassistant
 
 .nx
+
+!/api-extractor*.json
+
+!__mocks__
+!__mocks__/
+!__mocks__/*
+
+out/
+
+.codenomad
+.logs

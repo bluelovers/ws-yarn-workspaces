@@ -91,7 +91,7 @@
   },
   "dependencies": {
     "is-plain-obj": "<4 >=3",
-    "sort-object-keys2": "^3.0.7"
+    "sort-object-keys2": "^3.0.8"
   },
   "publishConfig": {
     "access": "public"
