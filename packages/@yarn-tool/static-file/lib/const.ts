@@ -64,6 +64,15 @@ const _defaultCopyStaticFiles = [
 	// Temporary test files / 臨時測試檔案
 	...(([
 		'temp.ts',
+
+		'__root-core.cjs',
+		'__root-core.mjs',
+
+		'__root-core.d.cts',
+		'__root-core.d.mts',
+
+		'__root-core.d.ts',
+
 	] as const).map(file => [
 		`test/${file}`,
 		`file/test/${file}`

@@ -172,3 +172,9 @@ __mocks__
 .logs
 
 openspec/
+.next
+
+/*.md
+!/README.md
+!/CHANGELOG.md
+

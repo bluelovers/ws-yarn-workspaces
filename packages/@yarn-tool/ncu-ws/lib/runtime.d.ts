@@ -31,7 +31,7 @@ export declare function _handleRuntime(argv: IArgvRuntime, runtimeInput: IRuntim
     rootData: import("@yarn-tool/find-root").IFindRootReturnType;
     pkg_file: string;
     pkg_data: IPackageJson<unknown>;
-    resolutions: import("@ts-type/package-dts/package-json").IDependency;
+    resolutions: import("@yarn-tool/ncu").IDependency;
     pkg_file_ws: string;
     pkg_data_ws: IPackageJson<unknown>;
     doWorkspace: boolean;

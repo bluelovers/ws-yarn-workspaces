@@ -163,3 +163,16 @@ __fixtures__
 /file/test/*.d.ts
 /file/test/*.js
 /file/test/*.js.map
+
+!file/test/__root-core.cjs
+!file/test/__root-core.d.ts
+!file/test/__root-core.mts
+
+!file/test/__root-core.d.cts
+!file/test/__root-core.d.mts
+
+!file/test/__root-core.cts
+!file/test/__root-core.mts
+
+!file/test/__root-core.cjs
+!file/test/__root-core.mjs

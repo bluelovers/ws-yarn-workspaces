@@ -254,3 +254,17 @@ out/
 
 .codenomad
 .logs
+
+!test/__root-core.cjs
+!test/__root-core.d.ts
+!test/__root-core.mts
+
+!test/__root-core.d.cts
+!test/__root-core.d.mts
+!test/__root-core.mjs
+
+/certificates
+
+.next
+
+test/temp*/

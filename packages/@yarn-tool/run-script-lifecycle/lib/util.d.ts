@@ -59,7 +59,7 @@ export declare function _hook(options: IRunLifecycleScriptOptions, fn?: any): Pr
  *   path: '/path/to/package'
  * });
  */
-export declare function runLifecycleScriptCore(options: IRunLifecycleScriptOptions, fn?: any): Promise<IResult | IResultNotExists>;
+export declare function runLifecycleScriptCore(options: IRunLifecycleScriptOptions, fn?: any): Promise<IResultNotExists | IResult>;
 /**
  * 執行多個生命週期腳本
  * Run multiple lifecycle scripts
@@ -84,4 +84,4 @@ export declare function runLifecycleScriptList(options: {
     tmpOptions: IRunLifecycleScriptOptions;
     eventList: string[];
     pkg: IPackageJson2;
-}): Promise<(IResult | IResultNotExists)[]>;
+}): Promise<(IResultNotExists | IResult)[]>;

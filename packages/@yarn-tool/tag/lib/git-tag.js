@@ -32,6 +32,14 @@ var __importStar = (this && this.__importStar) || (function () {
         return result;
     };
 })();
+var __rewriteRelativeImportExtension = (this && this.__rewriteRelativeImportExtension) || function (path, preserveJsx) {
+    if (typeof path === "string" && /^\.\.?\//.test(path)) {
+        return path.replace(/\.(tsx)$|((?:\.d)?)((?:\.[^./]+?)?)\.([cm]?)ts$/i, function (m, tsx, d, ext, cm) {
+            return tsx ? preserveJsx ? ".jsx" : ".js" : d && (!ext || !cm) ? m : (d + ext + "." + cm.toLowerCase() + "js");
+        });
+    }
+    return path;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.gitPackageTag = gitPackageTag;
 const core_1 = require("./core");
@@ -52,7 +60,7 @@ async function gitPackageTag(options, spawnOptions) {
         throw new Error(`cwd must be same as package dir\n${rootData.pkg}\n${cwd}`);
     }
     if (!options.pkg) {
-        options.pkg = await Promise.resolve(`${(0, path_1.join)(rootData.pkg, 'package.json')}`).then(s => __importStar(require(s))).then(m => m.default || m);
+        options.pkg = await Promise.resolve(`${__rewriteRelativeImportExtension((0, path_1.join)(rootData.pkg, 'package.json'), true)}`).then(s => __importStar(require(s))).then(m => m.default || m);
     }
     cwd = options.cwd = rootData.pkg;
     options = (0, core_1.handleOptions)(options);
