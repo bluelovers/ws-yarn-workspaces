@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.15](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.14...@yarn-tool/static-file@3.0.15) (2026-04-26)
+
+
+
+### 📚　Documentation
+
+* **refactor:** 更新 global.tsdx.d.ts 檔案註解，增加雙語文件說明和類型描述 ([d3da4a7](https://github.com/bluelovers/ws-yarn-workspaces/commit/d3da4a7f3c2052668c5dc3076ed8c1c2ca8b4808))
+
+
+
 ## [3.0.14](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.12...@yarn-tool/static-file@3.0.14) (2026-04-26)
 
 
