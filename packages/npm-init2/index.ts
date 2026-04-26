@@ -3,13 +3,13 @@
 /**
  * NPM/Yarn 專案初始化 CLI 工具
  * NPM/Yarn Project Initialization CLI Tool
- * 
+ *
  * 提供互動式命令列介面來初始化新的 Node.js 專案，支援：
  * - 一般專案與 Monorepo Workspaces 專案
  * - 自動設定 package.json 欄位與腳本
  * - 整合 TypeScript、Jest、TSDX 等開發工具
  * - 自動生成 README.md 與配置檔案
- * 
+ *
  * Provides interactive CLI for initializing new Node.js projects, supporting:
  * - Regular projects and Monorepo Workspaces projects
  * - Automatic package.json field and script configuration
@@ -364,7 +364,7 @@ if (!cp.error)
 		 * 設定 Package Manager（預設 Yarn）
 		 * Set Package Manager (default to Yarn)
 		 */
-		pkg.data.packageManager ??= "yarn@1.22.19";
+		// pkg.data.packageManager ??= "yarn@1.22.19";
 
 		/**
 		 * 共享腳本範本
@@ -712,7 +712,7 @@ else
 /**
  * 在 Package 中尋找指定依賴項
  * Find specified dependency in package
- * 
+ *
  * @param pkg - Package.json 物件 / Package.json object
  * @param name - 依賴項名稱 / Dependency name
  * @returns 是否找到 / Whether found
