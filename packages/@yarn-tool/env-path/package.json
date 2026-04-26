@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "path-env2": "^1.0.0",
-    "tslib": ">=2",
+    "tslib": ">=2.8.1",
     "value-from-record": "^3.0.4"
   },
   "publishConfig": {

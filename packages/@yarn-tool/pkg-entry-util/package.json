@@ -71,7 +71,7 @@
     "@yarn-tool/find-root": "^2.0.23",
     "@yarn-tool/resolve-package": "^3.0.8",
     "fs-extra": "^11.3.4",
-    "tslib": ">=2",
+    "tslib": ">=2.8.1",
     "upath2": "^3.1.23"
   },
   "publishConfig": {

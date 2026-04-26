@@ -51,7 +51,7 @@
     "@ts-type/package-dts": "^3.0.9",
     "@yarn-tool/get-paths-by-type": "^2.0.17",
     "@yarn-tool/resolve-package": "^3.0.8",
-    "tslib": ">=2",
+    "tslib": ">=2.8.1",
     "upath2": "^3.1.23"
   },
   "publishConfig": {

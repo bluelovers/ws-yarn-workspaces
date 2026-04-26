@@ -52,7 +52,7 @@
     "is-plain-obj": "<4 >=3",
     "sort-package-json": "<2 >=1.57.0",
     "sort-package-json-scripts": "^1.1.32",
-    "tslib": ">=2"
+    "tslib": ">=2.8.1"
   },
   "peerDependencies": {
     "sort-package-json": "<2 >=1.57.0"

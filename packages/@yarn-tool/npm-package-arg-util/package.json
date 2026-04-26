@@ -57,7 +57,7 @@
     "@yarn-tool/pkg-name-util": "^1.0.10",
     "npm-package-arg": "^13.0.2",
     "ts-type": "^3.0.13",
-    "tslib": ">=2"
+    "tslib": ">=2.8.1"
   },
   "engines": {
     "node": ">=16.14.0"

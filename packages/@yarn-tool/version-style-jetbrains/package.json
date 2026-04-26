@@ -82,7 +82,7 @@
     "dayjs": "^1.11.20",
     "dayjs-tz-helper": "^1.0.8",
     "ts-type": "^3.0.13",
-    "tslib": ">=2"
+    "tslib": ">=2.8.1"
   },
   "publishConfig": {
     "access": "public"

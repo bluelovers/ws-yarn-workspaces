@@ -50,7 +50,7 @@
   "dependencies": {
     "@yarn-tool/fnm-detect": "^1.0.6",
     "@yarn-tool/get-global-dirs": "^1.0.4",
-    "tslib": ">=2"
+    "tslib": ">=2.8.1"
   },
   "publishConfig": {
     "access": "public"

@@ -105,7 +105,7 @@
     "semver": "^7.7.4",
     "strip-ansi": "<7 >=6.0.1",
     "ts-node": "^10.9.2",
-    "tslib": ">=2.6.2"
+    "tslib": ">=2.8.1"
   },
   "devDependencies": {
     "@bluelovers/fast-glob": "^3.0.4",

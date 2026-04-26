@@ -64,7 +64,7 @@
   },
   "dependencies": {
     "@yarn-tool/require-resolve": "^4.0.7",
-    "tslib": ">=2"
+    "tslib": ">=2.8.1"
   },
   "devDependencies": {
     "@ts-type/package-dts": "^3.0.9"

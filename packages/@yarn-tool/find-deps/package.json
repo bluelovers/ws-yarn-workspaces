@@ -39,7 +39,7 @@
   "dependencies": {
     "@ts-type/package-dts": "^3.0.9",
     "array-hyper-unique": "^2.1.8",
-    "tslib": ">=2",
+    "tslib": ">=2.8.1",
     "ws-pkg-list": "^3.0.9"
   },
   "publishConfig": {

@@ -58,7 +58,7 @@
     "bluebird": "^3.7.2",
     "package-json": "<7 >=6.5",
     "ts-type": "^3.0.13",
-    "tslib": ">=2"
+    "tslib": ">=2.8.1"
   },
   "publishConfig": {
     "access": "public"

@@ -54,7 +54,7 @@
     "@ts-type/package-dts": "^3.0.9",
     "@yarn-tool/script-lifecycle": "^2.0.15",
     "read-package-json-fast": "^5.0.0",
-    "tslib": ">=2"
+    "tslib": ">=2.8.1"
   },
   "engines": {
     "node": ">=16.14.0"

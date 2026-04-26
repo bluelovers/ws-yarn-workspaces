@@ -60,7 +60,7 @@
     "fs-extra": "^11.3.4",
     "sort-package-json3": "^3.0.10",
     "ts-type": "^3.0.13",
-    "tslib": ">=2"
+    "tslib": ">=2.8.1"
   },
   "bundleDependencies": [],
   "preferGlobal": true,

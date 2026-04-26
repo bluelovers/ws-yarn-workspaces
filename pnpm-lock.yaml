@@ -429,6 +429,12 @@ importers:
       '@yarn-tool/normalize-deps-value':
         specifier: ^2.0.7
         version: link:../normalize-deps-value
+      '@yarn-tool/pkg-deps-add':
+        specifier: ^3.0.8
+        version: link:../pkg-deps-add
+      '@yarn-tool/pkg-entry-util':
+        specifier: ^3.0.12
+        version: link:../pkg-entry-util
       '@yarn-tool/pkg-git-info':
         specifier: ^2.0.6
         version: link:../pkg-git-info
@@ -441,6 +447,9 @@ importers:
       '@yarn-tool/require-resolve':
         specifier: ^4.0.7
         version: link:../require-resolve
+      '@yarn-tool/setup-module-env':
+        specifier: ^3.0.12
+        version: link:../setup-module-env
       '@yarn-tool/static-file':
         specifier: ^3.0.15
         version: link:../static-file
