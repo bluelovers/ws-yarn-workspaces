@@ -88,7 +88,7 @@
     "yargs": "<18 >=17.7.2"
   },
   "devDependencies": {
-    "@bluelovers/tsconfig": "^2.0.2",
+    "@bluelovers/tsconfig": "^2.0.3",
     "@types/node": "^25.6.0",
     "@yarn-tool/require-resolve": "^4.0.6",
     "@yarn-tool/ws-find-up-paths": "^1.0.19"

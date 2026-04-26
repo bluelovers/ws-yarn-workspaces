@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.22](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-tsconfig@2.0.21...@yarn-tool/find-tsconfig@2.0.22) (2026-04-26)
+
+**Note:** Version bump only for package @yarn-tool/find-tsconfig
+
+
+
+
+
 ## [2.0.21](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-tsconfig@2.0.20...@yarn-tool/find-tsconfig@2.0.21) (2026-03-09)
 
 **Note:** Version bump only for package @yarn-tool/find-tsconfig

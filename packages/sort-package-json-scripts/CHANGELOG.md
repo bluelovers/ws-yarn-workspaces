@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.31](https://github.com/bluelovers/ws-yarn-workspaces/compare/sort-package-json-scripts@1.1.30...sort-package-json-scripts@1.1.31) (2026-04-26)
+
+
+
+### 📚　Documentation
+
+* **sort-package-json-scripts:** 新增代碼雙語註解、優化描述及 README 文件 ([e88a795](https://github.com/bluelovers/ws-yarn-workspaces/commit/e88a795a2c85426246f579fee9e99c9aa4eeef7c))
+
+
+### ♻️　Chores
+
+* 大範圍更新依賴版本並優化腳本執行與路徑解析 ([221eb35](https://github.com/bluelovers/ws-yarn-workspaces/commit/221eb352b31a00d5ffea5e2c8323b50863508f2c))
+
+
+
 ## [1.1.30](https://github.com/bluelovers/ws-yarn-workspaces/compare/sort-package-json-scripts@1.1.29...sort-package-json-scripts@1.1.30) (2026-03-09)
 
 **Note:** Version bump only for package sort-package-json-scripts

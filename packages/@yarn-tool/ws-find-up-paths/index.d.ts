@@ -100,4 +100,8 @@ export declare function findUpPathsWorkspaces(pattern: string | string[], opts?:
  * @returns 包含 stat 和 result 的 Promise / Promise containing stat and result
  */
 export declare function findUpPathsWorkspacesAsync(pattern: string | string[], opts?: IOptionsFindUpPathsWorkspaces): Promise<import("find-up-paths").IFindUpPathsResult>;
+/**
+ * 預設匯出 findUpPathsWorkspaces 函數
+ * Default export of findUpPathsWorkspaces function
+ */
 export default findUpPathsWorkspaces;

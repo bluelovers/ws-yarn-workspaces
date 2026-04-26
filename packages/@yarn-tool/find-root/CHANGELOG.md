@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.22](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-root@2.0.21...@yarn-tool/find-root@2.0.22) (2026-04-26)
+
+
+
+### ♻️　Chores
+
+* 大範圍更新依賴版本並優化腳本執行與路徑解析 ([221eb35](https://github.com/bluelovers/ws-yarn-workspaces/commit/221eb352b31a00d5ffea5e2c8323b50863508f2c))
+
+
+
 ## [2.0.21](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-root@2.0.20...@yarn-tool/find-root@2.0.21) (2026-03-09)
 
 **Note:** Version bump only for package @yarn-tool/find-root

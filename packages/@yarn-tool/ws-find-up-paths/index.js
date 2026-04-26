@@ -29,26 +29,36 @@ const path_parents_1 = require("path-parents");
  * @returns 處理後的執行時期物件 / Processed runtime object
  */
 function handleOptions(cwd, opts) {
-    // 使用 find-up-paths 的 handleOptions 初始化 runtime
-    // Initialize runtime using find-up-paths handleOptions
+    /**
+     * 使用 find-up-paths 的 handleOptions 初始化 runtime
+     * Initialize runtime using find-up-paths handleOptions
+     */
     const runtime = (0, find_up_paths_1.handleOptions)(cwd, opts);
-    // 使用 find-root 取得工作區根目錄資訊
-    // Get workspace root information using find-root
+    /**
+     * 使用 find-root 取得工作區根目錄資訊
+     * Get workspace root information using find-root
+     */
     runtime.rootData = (0, find_root_1.findRoot)({
         cwd: runtime.cwd,
         throwError: true,
     });
-    // 將根目錄加入停止路徑，避免搜尋超過工作區範圍
-    // Add root to stop paths to prevent searching beyond workspace scope
+    /**
+     * 將根目錄加入停止路徑，避免搜尋超過工作區範圍
+     * Add root to stop paths to prevent searching beyond workspace scope
+     */
     runtime.stopPath.push(runtime.rootData.root);
-    // 處理 ignoreCurrentPackage 選項：若不在 workspace 中則從套件目錄開始
-    // Handle ignoreCurrentPackage: if not in workspace, start from package directory
+    /**
+     * 處理 ignoreCurrentPackage 選項：若不在 workspace 中則從套件目錄開始
+     * Handle ignoreCurrentPackage: if not in workspace, start from package directory
+     */
     if (runtime.opts.ignoreCurrentPackage && !runtime.rootData.isWorkspace) {
         runtime.cwd = runtime.rootData.pkg;
         runtime.opts.includeCurrentDirectory = false;
     }
-    // 處理 startFromCurrentPackage 選項：從套件目錄開始搜尋
-    // Handle startFromCurrentPackage: start searching from package directory
+    /**
+     * 處理 startFromCurrentPackage 選項：從套件目錄開始搜尋
+     * Handle startFromCurrentPackage: start searching from package directory
+     */
     else if (runtime.opts.startFromCurrentPackage) {
         runtime.cwd = runtime.rootData.pkg;
     }
@@ -67,8 +77,10 @@ function handleOptions(cwd, opts) {
  */
 function pathParentsWorkspaces(cwd, opts) {
     const runtime = handleOptions(cwd, opts);
-    // 使用 pathParentsGeneratorRuntime 產生所有父層路徑
-    // Generate all parent paths using pathParentsGeneratorRuntime
+    /**
+     * 使用 pathParentsGeneratorRuntime 產生所有父層路徑
+     * Generate all parent paths using pathParentsGeneratorRuntime
+     */
     return [...(0, path_parents_1.pathParentsGeneratorRuntime)(runtime)];
 }
 /**
@@ -84,10 +96,11 @@ function pathParentsWorkspaces(cwd, opts) {
  */
 function findUpPathsWorkspaces(pattern, opts) {
     const runtime = handleOptions(opts);
-    console.dir(runtime);
-    // 使用 findUpPathsRuntime 執行實際搜尋
-    // Execute actual search using findUpPathsRuntime
-    return (0, find_up_paths_1.findUpPaths)(pattern, runtime);
+    /**
+     * 使用 findUpPathsRuntime 執行實際搜尋
+     * Execute actual search using findUpPathsRuntime
+     */
+    return (0, find_up_paths_1.findUpPathsRuntime)(pattern, runtime);
 }
 /**
  * 在工作區中向上搜尋符合條件的路徑（非同步版本）
@@ -102,11 +115,15 @@ function findUpPathsWorkspaces(pattern, opts) {
  */
 function findUpPathsWorkspacesAsync(pattern, opts) {
     const runtime = handleOptions(opts);
-    // 使用 findUpPathsRuntimeAsync 執行非同步搜尋
-    // Execute asynchronous search using findUpPathsRuntimeAsync
+    /**
+     * 使用 findUpPathsRuntimeAsync 執行非同步搜尋
+     * Execute asynchronous search using findUpPathsRuntimeAsync
+     */
     return (0, find_up_paths_1.findUpPathsRuntimeAsync)(pattern, runtime);
 }
-// 預設匯出 findUpPathsWorkspaces 函數
-// Default export of findUpPathsWorkspaces function
+/**
+ * 預設匯出 findUpPathsWorkspaces 函數
+ * Default export of findUpPathsWorkspaces function
+ */
 exports.default = findUpPathsWorkspaces;
 //# sourceMappingURL=index.js.map
