@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/version-style-jetbrains",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "基於日期的 JetBrains 風格版本號生成套件，支援多種版本格式 / Date-based version style generator core module",
   "keywords": [
     "jetbrains",

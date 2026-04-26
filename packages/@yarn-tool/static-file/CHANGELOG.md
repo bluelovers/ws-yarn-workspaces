@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.14](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.12...@yarn-tool/static-file@3.0.14) (2026-04-26)
+
+
+### BREAKING CHANGES
+
+* **static-file:** Introduce `__root-core` for standardized root path resolution and `__TEST_TEMP`
+
+
+
+### 📦　Code Refactoring
+
+* **static-file:** Introduce `__root-core` for standardized root path resolution and `__TEST_TEMP` ([a7a598b](https://github.com/bluelovers/ws-yarn-workspaces/commit/a7a598bd481003a7e92170433cfd1b1e03604ef9))
+
+
+### 💎　Styles
+
+* **static-file:** 統一 `jest.config.auto.js` 的註釋風格與代碼格式 ([105edab](https://github.com/bluelovers/ws-yarn-workspaces/commit/105edab341a812bcd15e08b19f9156ca6a0ff4c2))
+
+
+### ♻️　Chores
+
+* 大範圍更新依賴版本並優化腳本執行與路徑解析 ([221eb35](https://github.com/bluelovers/ws-yarn-workspaces/commit/221eb352b31a00d5ffea5e2c8323b50863508f2c))
+
+
+### 🔖　Miscellaneous
+
+* . ([3989f53](https://github.com/bluelovers/ws-yarn-workspaces/commit/3989f53f30b4ecd42af4fa20e1b6ef3d61d72496))
+
+
+
 ## [3.0.13](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.12...@yarn-tool/static-file@3.0.13) (2026-04-26)
 
 

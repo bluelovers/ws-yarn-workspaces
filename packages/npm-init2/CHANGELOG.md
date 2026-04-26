@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.16](https://github.com/bluelovers/ws-yarn-workspaces/compare/npm-init2@3.0.15...npm-init2@3.0.16) (2026-04-26)
+
+
+
+### 🐛　Bug Fixes
+
+* **npm-init2, create-yarn-workspaces:** 註解掉硬編碼的 packageManager 欄位設定 ([3df85cb](https://github.com/bluelovers/ws-yarn-workspaces/commit/3df85cb2288917b1256642d840562e352cadd52e))
+
+
+### ♻️　Chores
+
+* 大範圍更新依賴版本並優化腳本執行與路徑解析 ([221eb35](https://github.com/bluelovers/ws-yarn-workspaces/commit/221eb352b31a00d5ffea5e2c8323b50863508f2c))
+* **npm-init2:** 更新套件依賴並新增開發工具 ([e4bc7b0](https://github.com/bluelovers/ws-yarn-workspaces/commit/e4bc7b0d76af9dd8d4882af18be9856a73ad8153))
+
+
+### 🔖　Miscellaneous
+
+* . ([3989f53](https://github.com/bluelovers/ws-yarn-workspaces/commit/3989f53f30b4ecd42af4fa20e1b6ef3d61d72496))
+
+
+
 ## [3.0.15](https://github.com/bluelovers/ws-yarn-workspaces/compare/npm-init2@3.0.14...npm-init2@3.0.15) (2026-03-12)
 
 **Note:** Version bump only for package npm-init2

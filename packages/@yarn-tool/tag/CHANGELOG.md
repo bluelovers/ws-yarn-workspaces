@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.11](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/tag@3.0.9...@yarn-tool/tag@3.0.11) (2026-04-26)
+
+
+### BREAKING CHANGES
+
+* **static-file:** Introduce `__root-core` for standardized root path resolution and `__TEST_TEMP`
+
+
+
+### 📦　Code Refactoring
+
+* **static-file:** Introduce `__root-core` for standardized root path resolution and `__TEST_TEMP` ([a7a598b](https://github.com/bluelovers/ws-yarn-workspaces/commit/a7a598bd481003a7e92170433cfd1b1e03604ef9))
+
+
+### 🔖　Miscellaneous
+
+* . ([3989f53](https://github.com/bluelovers/ws-yarn-workspaces/commit/3989f53f30b4ecd42af4fa20e1b6ef3d61d72496))
+
+
+
 ## [3.0.10](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/tag@3.0.9...@yarn-tool/tag@3.0.10) (2026-04-26)
 
 

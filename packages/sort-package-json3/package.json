@@ -1,6 +1,6 @@
 {
   "name": "sort-package-json3",
-  "version": "3.0.9",
+  "version": "3.0.10",
   "description": "Enhanced sort-package-json with scripts and exports sorting / 增強版 sort-package-json，支援 scripts 和 exports 排序",
   "keywords": [
     "npm",
@@ -47,11 +47,11 @@
   },
   "dependencies": {
     "@ts-type/package-dts": "^3.0.9",
-    "@yarn-tool/sort-package-json-exports": "^1.0.6",
+    "@yarn-tool/sort-package-json-exports": "^1.0.7",
     "@yarn-tool/sort-package-json-order": "^2.0.5",
     "is-plain-obj": "<4 >=3",
     "sort-package-json": "<2 >=1.57.0",
-    "sort-package-json-scripts": "^1.1.30",
+    "sort-package-json-scripts": "^1.1.32",
     "tslib": ">=2"
   },
   "peerDependencies": {

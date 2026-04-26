@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.16](https://github.com/bluelovers/ws-yarn-workspaces/compare/create-yarn-workspaces@3.0.15...create-yarn-workspaces@3.0.16) (2026-04-26)
+
+
+
+### 🐛　Bug Fixes
+
+* **npm-init2, create-yarn-workspaces:** 註解掉硬編碼的 packageManager 欄位設定 ([3df85cb](https://github.com/bluelovers/ws-yarn-workspaces/commit/3df85cb2288917b1256642d840562e352cadd52e))
+
+
+### ✨　Features
+
+* **create-yarn-workspaces:** 更新依賴版本與自動同步模板邏輯 ([2f0f126](https://github.com/bluelovers/ws-yarn-workspaces/commit/2f0f1269c7ab61c2726f4660d8b2f4f32df92b1e))
+
+
+### ♻️　Chores
+
+* 大範圍更新依賴版本並優化腳本執行與路徑解析 ([221eb35](https://github.com/bluelovers/ws-yarn-workspaces/commit/221eb352b31a00d5ffea5e2c8323b50863508f2c))
+
+
+### 🔖　Miscellaneous
+
+* . ([3989f53](https://github.com/bluelovers/ws-yarn-workspaces/commit/3989f53f30b4ecd42af4fa20e1b6ef3d61d72496))
+
+
+
 ## [3.0.15](https://github.com/bluelovers/ws-yarn-workspaces/compare/create-yarn-workspaces@3.0.14...create-yarn-workspaces@3.0.15) (2026-03-12)
 
 

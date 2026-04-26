@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.10](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ncu-ws@2.0.9...@yarn-tool/ncu-ws@2.0.10) (2026-04-26)
+
+
+### BREAKING CHANGES
+
+* **static-file:** Introduce `__root-core` for standardized root path resolution and `__TEST_TEMP`
+
+
+
+### 📦　Code Refactoring
+
+* **static-file:** Introduce `__root-core` for standardized root path resolution and `__TEST_TEMP` ([a7a598b](https://github.com/bluelovers/ws-yarn-workspaces/commit/a7a598bd481003a7e92170433cfd1b1e03604ef9))
+
+
+### ♻️　Chores
+
+* 大範圍更新依賴版本並優化腳本執行與路徑解析 ([221eb35](https://github.com/bluelovers/ws-yarn-workspaces/commit/221eb352b31a00d5ffea5e2c8323b50863508f2c))
+
+
+
 ## [2.0.9](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ncu-ws@2.0.8...@yarn-tool/ncu-ws@2.0.9) (2026-03-09)
 
 **Note:** Version bump only for package @yarn-tool/ncu-ws

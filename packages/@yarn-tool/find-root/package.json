@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/find-root",
-  "version": "2.0.22",
+  "version": "2.0.23",
   "description": "尋找 Yarn workspace 根目錄的工具，提供路徑驗證、錯誤處理和斷言函數 (Find Yarn workspace root directory with path validation, error handling, and assertion functions)",
   "keywords": [
     "monorepo",

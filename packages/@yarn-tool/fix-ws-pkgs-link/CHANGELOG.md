@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.11](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-ws-pkgs-link@3.0.10...@yarn-tool/fix-ws-pkgs-link@3.0.11) (2026-04-26)
+
+
+### BREAKING CHANGES
+
+* **static-file:** Introduce `__root-core` for standardized root path resolution and `__TEST_TEMP`
+
+
+
+### 📦　Code Refactoring
+
+* **static-file:** Introduce `__root-core` for standardized root path resolution and `__TEST_TEMP` ([a7a598b](https://github.com/bluelovers/ws-yarn-workspaces/commit/a7a598bd481003a7e92170433cfd1b1e03604ef9))
+
+
+
 ## [3.0.10](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-ws-pkgs-link@3.0.9...@yarn-tool/fix-ws-pkgs-link@3.0.10) (2026-03-10)
 
 **Note:** Version bump only for package @yarn-tool/fix-ws-pkgs-link

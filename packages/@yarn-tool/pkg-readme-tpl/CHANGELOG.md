@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-readme-tpl@1.0.5...@yarn-tool/pkg-readme-tpl@1.0.7) (2026-04-26)
+
+
+
+### ♻️　Chores
+
+* 大範圍更新依賴版本並優化腳本執行與路徑解析 ([221eb35](https://github.com/bluelovers/ws-yarn-workspaces/commit/221eb352b31a00d5ffea5e2c8323b50863508f2c))
+
+
+### 🔖　Miscellaneous
+
+* . ([3989f53](https://github.com/bluelovers/ws-yarn-workspaces/commit/3989f53f30b4ecd42af4fa20e1b6ef3d61d72496))
+
+
+
 ## [1.0.6](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-readme-tpl@1.0.5...@yarn-tool/pkg-readme-tpl@1.0.6) (2026-04-26)
 
 

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.8](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/is-published@2.0.7...@yarn-tool/is-published@2.0.8) (2026-04-26)
+
+**Note:** Version bump only for package @yarn-tool/is-published
+
+
+
+
+
 ## [2.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/is-published@2.0.6...@yarn-tool/is-published@2.0.7) (2026-03-09)
 
 **Note:** Version bump only for package @yarn-tool/is-published
