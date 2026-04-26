@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/script-lifecycle",
-  "version": "2.0.15",
+  "version": "2.0.16",
   "description": "npm/yarn script lifecycle utility for handling pre/post script execution order / 處理 npm/yarn 腳本生命週期 pre/post 執行順序的工具",
   "keywords": [
     "lifecycle",

@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/pkg-name-to-types",
-  "version": "3.0.7",
+  "version": "3.0.8",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/pkg-name-to-types#readme",
   "bugs": {
@@ -37,7 +37,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/npm-package-arg-util": "^2.0.6",
+    "@yarn-tool/npm-package-arg-util": "^2.0.7",
     "tslib": ">=2.8.1"
   },
   "publishConfig": {

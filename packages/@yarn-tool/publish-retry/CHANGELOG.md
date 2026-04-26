@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.9](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/publish-retry@2.0.8...@yarn-tool/publish-retry@2.0.9) (2026-04-26)
+
+
+
+### 📚　Documentation
+
+* update deps ([fd5a55c](https://github.com/bluelovers/ws-yarn-workspaces/commit/fd5a55cfd5668cbc6275d44f360b0aeb9bfbf42d))
+
+
+
 ## [2.0.8](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/publish-retry@2.0.7...@yarn-tool/publish-retry@2.0.8) (2026-04-26)
 
 **Note:** Version bump only for package @yarn-tool/publish-retry

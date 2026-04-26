@@ -1,6 +1,6 @@
 {
   "name": "ws-root-spawn",
-  "version": "1.0.52",
+  "version": "1.0.53",
   "description": "run/exec in workspaces root",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/ws-root-run#readme",
   "bugs": {
@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "cross-spawn-extra": "^3.0.3",
-    "find-yarn-workspace-root2": "^1.2.53",
+    "find-yarn-workspace-root2": "^1.2.54",
     "tslib": ">=2.8.1"
   },
   "peerDependencies": {

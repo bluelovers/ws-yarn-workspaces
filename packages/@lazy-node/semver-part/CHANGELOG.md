@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.26](https://github.com/bluelovers/ws-yarn-workspaces/compare/@lazy-node/semver-part@1.0.25...@lazy-node/semver-part@1.0.26) (2026-04-26)
+
+
+
+### 📚　Documentation
+
+* update deps ([fd5a55c](https://github.com/bluelovers/ws-yarn-workspaces/commit/fd5a55cfd5668cbc6275d44f360b0aeb9bfbf42d))
+
+
+
 ## [1.0.25](https://github.com/bluelovers/ws-yarn-workspaces/compare/@lazy-node/semver-part@1.0.24...@lazy-node/semver-part@1.0.25) (2026-03-09)
 
 **Note:** Version bump only for package @lazy-node/semver-part

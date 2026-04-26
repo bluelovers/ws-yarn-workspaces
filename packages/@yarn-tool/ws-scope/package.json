@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/ws-scope",
-  "version": "3.0.9",
+  "version": "3.0.10",
   "description": "A utility for managing workspace scope settings across package.json, lerna.json, and pnpm-workspace.yaml - 管理工作區範圍設定的工具，支援跨多種設定檔案格式",
   "keywords": [
     "scope",
@@ -63,9 +63,9 @@
   },
   "dependencies": {
     "@bluelovers/fs-json": "^1.0.17",
-    "@yarn-tool/find-root": "^2.0.23",
-    "@yarn-tool/sort-lerna-json": "^3.0.9",
-    "@yarn-tool/write-package-json": "^1.0.15",
+    "@yarn-tool/find-root": "^2.0.24",
+    "@yarn-tool/sort-lerna-json": "^3.0.10",
+    "@yarn-tool/write-package-json": "^1.0.16",
     "array-hyper-unique": "^2.1.8",
     "fs-extra": "^11.3.4",
     "path-in-dir": "^1.0.13",

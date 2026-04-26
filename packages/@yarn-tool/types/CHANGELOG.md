@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.20](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/types@1.0.19...@yarn-tool/types@1.0.20) (2026-04-26)
+
+
+
+### 📚　Documentation
+
+* update deps ([fd5a55c](https://github.com/bluelovers/ws-yarn-workspaces/commit/fd5a55cfd5668cbc6275d44f360b0aeb9bfbf42d))
+
+
+
 ## [1.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/types@1.0.18...@yarn-tool/types@1.0.19) (2026-03-09)
 
 **Note:** Version bump only for package @yarn-tool/types

@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/init-path",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "description": "計算 Yarn Workspaces 環境中套件初始化的目標路徑 / Calculate target path for package initialization in Yarn Workspaces environment",
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/init-path#readme",
   "bugs": {
@@ -33,11 +33,11 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/search-workspace-prefix-by-name": "^2.0.8",
-    "@yarn-tool/validate-npm-package-name": "^3.0.23",
+    "@yarn-tool/search-workspace-prefix-by-name": "^2.0.9",
+    "@yarn-tool/validate-npm-package-name": "^3.0.24",
     "fs-extra": "^11.3.4",
     "tslib": ">=2.8.1",
-    "workspaces-config": "^2.0.9"
+    "workspaces-config": "^2.0.10"
   },
   "publishConfig": {
     "access": "public"
