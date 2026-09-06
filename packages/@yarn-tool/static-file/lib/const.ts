@@ -47,7 +47,7 @@ const _defaultCopyStaticFiles = [
 
 	// Test configuration / 測試配置
 	['.mocharc.yml.tpl', 'file/mocharc.yml'],
-	//['jest.config.js', 'file/jest.config.js'],
+
 	['jest.config.js', 'file/jest.config.auto.js'],
 
 	// Now/Zeit deployment / Now/Zeit 部署配置
@@ -98,17 +98,25 @@ const _defaultCopyStaticFilesRootOnly = [
 	['pnpm-workspace.yaml.tpl', 'file/pnpm-workspace.yaml', 'pnpm-workspace.yaml'],
 
 	// GitHub Actions workflows / GitHub Actions 工作流程
-	['.github/workflows/coverage.yml', 'file/github/workflows/coverage.yml'],
-	['.github/workflows/action-yarnlock-dedupe.yml', 'file/github/workflows/action-yarnlock-dedupe.yml'],
-	['.github/workflows/build.yml', 'file/github/workflows/build.yml'],
-	['.github/workflows/yarn-lock-changes.yml', 'file/github/workflows/yarn-lock-changes.yml'],
-	['.github/commit-convention.md', 'file/github/commit-convention.md'],
+	['.github/workflows/build-pnpm.yml', 'file/github/workflows/build-pnpm.yml'],
+	['.github/workflows/build-yarn.yml', 'file/github/workflows/build-yarn.yml'],
 
 	// Additional GitHub configuration / 額外的 GitHub 配置
 	...(([
 		'dependabot.yml',
-		'workflows/codeql-analysis.yml',
-		'workflows/cmd-rebase.yml',
+		'commit-convention.md',
+
+		// ---
+
+		// 'workflows/codeql-analysis.yml',
+		// 'workflows/cmd-rebase.yml',
+
+		// 'workflows/coverage.yml',
+		// 'workflows/action-yarnlock-dedupe.yml',
+		// 'workflows/yarn-lock-changes.yml',
+
+		// ---
+
 	] as const).map(file => [`.github/${file}`, `file/github/${file}`] as const satisfies IStaticFilesMapArrayEntry<string>)),
 
 	// Node version files / Node 版本檔案
