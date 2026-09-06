@@ -109,6 +109,21 @@ now.json
 *.spec.d.tsx
 *.spec.tsx
 
+*.test.d.ts
+*.test.js
+*.test.ts
+
+*.test.d.cts
+*.test.cjs
+*.test.cts
+
+*.test.d.mts
+*.test.mjs
+*.test.mts
+
+*.test.d.tsx
+*.test.tsx
+
 __mocks__
 __tests__
 __snapshots__
@@ -141,38 +156,25 @@ __file_snapshots__
 __fixtures__
 /fixture/
 
-!/file/jest.config.js
-!/file/test
-!/file/test/*
-!/file/github
-!/file/github/*
-!/file/**/*.ts
-!/file/test/
-!/file/tpl.editorconfig
-!/file/changelog-option.js
-!/file/root/yarnrc.yml
-!/file/**/*
-!/file/jest.config.auto.js
-!/file/ws-root/jest.config.js
+/global.tsdx.d.ts
+/next-env.d.ts
 
-!/file/ws-root/jest-preset.js
-!/file/ws-root/.run/**/*
+*.stories.*
+./stories/
+./global.tsdx.d.ts
+./global.d.ts
 
-!/file/node-version
+/api-extractor*.json
 
-/file/test/*.d.ts
-/file/test/*.js
-/file/test/*.js.map
+__mocks__
 
-!file/test/__root-core.cjs
-!file/test/__root-core.d.ts
-!file/test/__root-core.mts
+.codenomad
+.logs
 
-!file/test/__root-core.d.cts
-!file/test/__root-core.d.mts
+openspec/
+.next
 
-!file/test/__root-core.cts
-!file/test/__root-core.mts
+/*.md
+!/README.md
+!/CHANGELOG.md
 
-!file/test/__root-core.cjs
-!file/test/__root-core.mjs

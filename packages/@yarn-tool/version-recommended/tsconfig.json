@@ -1,6 +1,10 @@
 {
   "extends": "@bluelovers/tsconfig/esm/mapfile.json",
   "compilerOptions": {
-    "importHelpers": true
+    "importHelpers": true,
+    "types": [
+      "jest",
+      "node"
+    ]
   }
 }

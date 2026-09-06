@@ -2,6 +2,7 @@
   "extends": "@bluelovers/tsconfig/tsdx/index.json",
   "compilerOptions": {
     "importHelpers": false,
-    "types": []
+    "moduleResolution": "bundler",
+    "rootDir": "src"
   }
 }
