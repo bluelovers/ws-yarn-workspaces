@@ -10,7 +10,7 @@ export function parseYarnLockRowV1(packageName: string, packageData: IYarnLockDa
 	let parsed: IResult = npaTry(packageName);
 
 	const name =
-		parsed?.name ?? PACKAGE_REGEX.exec(packageName)?.groups?.packageName;
+		parsed?.name ?? PACKAGE_REGEX.exec(packageName)?.groups?.['packageName'];
 
 	if (name?.length)
 	{

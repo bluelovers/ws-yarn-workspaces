@@ -23,13 +23,13 @@ function sortPackageJsonExports(e, o) {
     r(e, {
       keys: t,
       useSource: !0
-    }), Object.keys(e).forEach((o => {
+    }), Object.keys(e).forEach(o => {
       const t = e[o];
       isPackageJsonExportsEntryObject(t) && (e[o] = r(t, {
         keys: n,
         useSource: !0
       }));
-    }));
+    });
   }
   return e;
 }

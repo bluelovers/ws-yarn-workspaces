@@ -27,13 +27,13 @@ function sortPackageJsonExports(r, t) {
     e.sortObjectKeys(r, {
       keys: o,
       useSource: !0
-    }), Object.keys(r).forEach((t => {
+    }), Object.keys(r).forEach(t => {
       const o = r[t];
       isPackageJsonExportsEntryObject(o) && (r[t] = e.sortObjectKeys(o, {
         keys: s,
         useSource: !0
       }));
-    }));
+    });
   }
   return r;
 }
