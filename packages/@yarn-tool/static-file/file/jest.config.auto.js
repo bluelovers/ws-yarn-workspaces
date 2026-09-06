@@ -142,7 +142,8 @@ try
 				 */
 				case 'jest-preset':
 					// @ts-ignore
-					jestConfig.preset = dirname(result);
+					// jestConfig.preset = dirname(result);
+					jestConfig.preset = result;
 					break;
 				/**
 				 * 其他情況，載入配置檔案內容
