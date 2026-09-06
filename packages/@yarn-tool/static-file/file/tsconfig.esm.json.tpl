@@ -5,6 +5,10 @@
     "outDir": "./esm",
     "rootDir": "./lib",
     "module": "esnext",
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "types": [
+      "jest",
+      "node"
+    ]
   }
 }
