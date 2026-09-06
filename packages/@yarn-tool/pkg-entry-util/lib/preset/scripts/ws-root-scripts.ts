@@ -92,7 +92,7 @@ export function defaultWorkspaceRootScripts()
 		return [
 			`node --run prepublishOnly:root`,
 			`lerna publish --no-private` + (bump ? ` --yes --bump ${bump}` : ''),
-			`yarn run postpublishOnly`,
+			`pnpm run postpublishOnly`,
 		].join(' && ')
 	}
 
@@ -144,10 +144,10 @@ export function defaultWorkspaceRootScripts()
 		"prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
 
 		/** 工作區連結修復 / Workspace links fix */
-		"prepare:fix-ws-links": "ynpx --quiet @yarn-tool/fix-ws-links",
+		"prepare:fix-ws-links": "echo ynpx --quiet @yarn-tool/fix-ws-links",
 
 		/** 發布前更新 / Pre-publish update */
-		"prepublishOnly:update": "yarn run ncu && node --run sort-package-json",
+		"prepublishOnly:update": "pnpm run ncu && node --run sort-package-json",
 
 		/** 依賴更新 / Dependency updates */
 		"ncu": "node --run ncu:ws",

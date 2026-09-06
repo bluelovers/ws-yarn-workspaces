@@ -29,9 +29,9 @@ export function defaultPkgScripts()
 {
 	return {
 		"test": "node --run test:jest --",
-		"coverage": "yarn run test -- --coverage",
+		"coverage": "pnpm run test --coverage",
 		"test:jest": EnumScriptsEntry.JEST_TEST,
-		"test:snapshot": "yarn run test -- -u",
+		"test:snapshot": "pnpm run test -u",
 		"test:jest:snapshot": "node --run test:jest -- -u",
 		"test:jest:coverage": "node --run test:jest -- --coverage",
 		"test:tsd": "ynpx tsd",
