@@ -15,9 +15,9 @@ describe(`yarnlock-dedupe`, () =>
 	_forEachVersionTags().forEach(ver =>
 	{
 
-		describe(ver, () =>
+		describe(ver as any, () =>
 		{
-			const dir = join(__res, ver);
+			const dir = join(__res, ver as any);
 
 			const files = FastGlob.sync([
 					'*.lock',

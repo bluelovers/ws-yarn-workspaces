@@ -28,9 +28,9 @@ describe(`version`, () =>
 
 	_forEachVersionTags().forEach(ver =>
 	{
-		describe(ver, () =>
+		describe(ver as any, () =>
 		{
-			const dir = join(__TEST_YARNLOCK, ver);
+			const dir = join(__TEST_YARNLOCK, ver as any);
 
 			FastGlob([
 				'**/*.lock',

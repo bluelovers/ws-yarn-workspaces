@@ -5,7 +5,6 @@ import { __TEST_YARNLOCK } from '../../../../__root_ws';
 import { EnumDetectYarnLock } from '@yarn-tool/yarnlock-types';
 import { pathExistsSync } from 'fs-extra';
 import { readFileSync } from 'fs';
-import { checkResolutionsUpdate } from '@yarn-tool/ncu';
 import { parseYarnLockRawV1Root, stringifyYarnLockRawV1 } from '../lib/v1';
 import { parseYarnLockRawV2Root, stringifyYarnLockRawV2 } from '../lib/v2';
 import { detectYarnLockVersionByObject } from '@yarn-tool/detect-yarnlock-version/lib/detectYarnLockVersionByObject';
@@ -22,7 +21,7 @@ describe(`parseYarnLockRaw`, () =>
 
 	_forEachVersionTags().forEach(ver =>
 	{
-		const file = join(dir, ver, 'yarn.lock');
+		const file = join(dir, ver as any, 'yarn.lock');
 		let fn: typeof parseYarnLockRawV1Root | typeof parseYarnLockRawV2Root
 		let fn2: typeof stringifyYarnLockRawV1 | typeof stringifyYarnLockRawV2
 
@@ -39,7 +38,7 @@ describe(`parseYarnLockRaw`, () =>
 				break;
 		}
 
-		pathExistsSync(file) && test(ver, async () =>
+		pathExistsSync(file) && test(ver as any, async () =>
 		{
 			const content = readFileSync(file).toString();
 

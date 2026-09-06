@@ -21,10 +21,10 @@ describe(basename(__filename, extname(__filename)), () =>
 
 	_forEachVersionTags().forEach(ver => {
 
-		const file = join(__TEST_YARNLOCK, ver, 'yarn.lock');
+		const file = join(__TEST_YARNLOCK, ver as any, 'yarn.lock');
 		const buf = readFileSync(file);
 
-		test(ver, () =>
+		test(ver as any, () =>
 		{
 
 			let actual = yarnLockParse(buf);

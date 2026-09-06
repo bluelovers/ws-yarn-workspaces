@@ -5,7 +5,6 @@ import { __TEST_YARNLOCK } from '../../../../__root_ws';
 import { printReport } from '../lib/printReport';
 import stripAnsi from 'strip-ansi';
 import { pathExistsSync } from 'fs-extra';
-import { EnumDetectYarnLock } from '@yarn-tool/yarnlock-types';
 import { _forEachVersionTags } from '../../../../test/lib/forEachVersionTags';
 
 const TIMEOUT = 5 * 60 * 1000;
@@ -14,9 +13,9 @@ describe(`fixYarnLockTagUpdate`, () =>
 {
 	_forEachVersionTags().forEach(ver =>
 	{
-		describe(ver, () =>
+		describe(ver as any, () =>
 		{
-			const dir = join(__TEST_YARNLOCK, 'ncu', ver);
+			const dir = join(__TEST_YARNLOCK, 'ncu', ver as any);
 
 			if (!pathExistsSync(dir))
 			{

@@ -1,3 +1,4 @@
+// @ts-ignore
 import { EnumDetectYarnLock } from '@yarn-tool/yarnlock-types';
 
 type IValues = (keyof typeof EnumDetectYarnLock | EnumDetectYarnLock);
