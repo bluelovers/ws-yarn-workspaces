@@ -48,6 +48,7 @@ export declare const sortOrder: readonly [
 	"binary",
 	"scripts",
 	"betterScripts",
+	"wireit",
 	"l10n",
 	"contributes",
 	"activationEvents",

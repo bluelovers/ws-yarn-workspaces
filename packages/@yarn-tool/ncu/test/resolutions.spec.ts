@@ -6,7 +6,6 @@ import { readFileSync } from 'fs';
 import { checkResolutionsUpdate } from '../lib/update/checkResolutionsUpdate';
 import { pathExistsSync } from 'fs-extra';
 import { _forEachVersionTags } from '../../../../test/lib/forEachVersionTags';
-import { EnumDetectYarnLock } from '@yarn-tool/yarnlock-types';
 
 beforeAll(async () =>
 {
@@ -19,9 +18,9 @@ describe(`checkResolutionsUpdate`, () =>
 
 	_forEachVersionTags().forEach(ver =>
 	{
-		const file = join(dir, ver, 'yarn.lock');
+		const file = join(dir, ver as any, 'yarn.lock');
 
-		pathExistsSync(file) && test(ver, async () =>
+		pathExistsSync(file) && test(ver as any, async () =>
 		{
 			const name = "@types/node" as const;
 
