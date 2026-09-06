@@ -4,17 +4,17 @@ packages:
   # exclude packages that are inside test/ directories
   - '!**/test/**'
 
-publicHoistPattern:
-  - "ts-type"
-  - "@bluelovers/tsconfig"
-  - "@bluelovers/jest-config"
-  - "@types/node"
-  - "@types/jest"
-  - "jest"
-  - "ts-jest"
-  - "ts-node"
-  - "tsx"
-  - "tslib"
+# publicHoistPattern:
+#   - "ts-type"
+#   - "@bluelovers/tsconfig"
+#   - "@bluelovers/jest-config"
+#   - "@types/node"
+#   - "@types/jest"
+#   - "jest"
+#   - "ts-jest"
+#   - "ts-node"
+#   - "tsx"
+#   - "tslib"
 
 linkWorkspacePackages: true
 saveWorkspaceProtocol: false
