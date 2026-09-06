@@ -32,7 +32,6 @@ const _defaultCopyStaticFiles = [
 	['tsconfig.json.tpl', 'file/tsconfig.json.tpl', 'tsconfig.json'],
 
 	['test/tsconfig.json.tpl', 'file/test/tsconfig.json.tpl', 'test/tsconfig.json'],
-	['test/tsconfig.json', 'file/test/tsconfig.json.tpl'],
 
 	['tsconfig.esm.json.tpl', 'file/tsconfig.esm.json.tpl', 'tsconfig.esm.json'],
 	['tsconfig.tsdx.json.tpl', 'file/tsconfig.tsdx.json.tpl', 'tsconfig.tsdx.json'],
@@ -57,13 +56,11 @@ const _defaultCopyStaticFiles = [
 	// TSDX configuration / TSDX 配置
 	['tsdx.config.js.tpl', 'file/tsdx.config.js', 'tsdx.config.js'],
 
-	// Test fixtures / 測試固定檔案
-	['test/__root.ts', 'file/test/__root.ts'],
-	['test/fixtures/.gitkeep', 'file/test/fixtures/.gitkeep'],
-
-	// Temporary test files / 臨時測試檔案
+	// test / 測試
 	...(([
 		'temp.ts',
+
+		'__root.ts',
 
 		'__root-core.cjs',
 		'__root-core.mjs',
@@ -72,6 +69,9 @@ const _defaultCopyStaticFiles = [
 		'__root-core.d.mts',
 
 		'__root-core.d.ts',
+
+		// Test fixtures / 測試固定檔案
+		'fixtures/.gitkeep',
 
 	] as const).map(file => [
 		`test/${file}`,
@@ -95,7 +95,7 @@ const _defaultCopyStaticFilesRootOnly = [
 
 	// Monorepo configuration / Monorepo 配置
 	['lerna.json.tpl', 'file/lerna.json.tpl', 'lerna.json'],
-	['pnpm-workspace.yaml.tpl', 'file/pnpm-workspace.yaml', 'pnpm-workspace.yaml'],
+	['pnpm-workspace.yaml.tpl', 'file/pnpm-workspace.yaml'],
 
 	// GitHub Actions workflows / GitHub Actions 工作流程
 	['.github/workflows/build-pnpm.yml', 'file/github/workflows/build-pnpm.yml'],
@@ -120,8 +120,8 @@ const _defaultCopyStaticFilesRootOnly = [
 	] as const).map(file => [`.github/${file}`, `file/github/${file}`] as const satisfies IStaticFilesMapArrayEntry<string>)),
 
 	// Node version files / Node 版本檔案
-	['.node-version', 'file/nvmrc'],
-	['.nvmrc', 'file/nvmrc'],
+	['.node-version.tpl', 'file/nvmrc'],
+	['.nvmrc.tpl', 'file/nvmrc'],
 
 	// Root TypeScript configuration / 根目錄 TypeScript 配置
 	['.eslintrc.json', 'file/eslintrc.json.tpl', '.eslintrc.json'],
@@ -132,9 +132,11 @@ const _defaultCopyStaticFilesRootOnly = [
 	['.yarnrc.yml.tpl', 'file/root/yarnrc.yml', '.yarnrc.yml'],
 	['.npmrc.tpl', 'file/npmrc', '.npmrc'],
 
+	['.env.tpl', 'file/env'],
+
 	// Jest configuration / Jest 配置
-	['jest.config.js', 'file/jest.config.js'],
-	['jest.config.js.tpl', 'file/jest.config.js'],
+	// ['jest.config.js', 'file/jest.config.js'],
+	// ['jest.config.js.tpl', 'file/jest.config.js'],
 	['jest.config.auto.js.tpl', 'file/jest.config.auto.js'],
 
 	// Editor configuration / 編輯器配置
@@ -148,10 +150,10 @@ const _defaultCopyStaticFilesRootOnly = [
 	['.browserslistrc', 'file/ws-root/browserslistrc'],
 
 	// TSC multi configuration / TSC 多配置
-	['tsc-multi.json.tpl', 'file/tsc-multi.json.tpl', 'tsc-multi.json'],
+	// ['tsc-multi.json.tpl', 'file/tsc-multi.json.tpl', 'tsc-multi.json'],
 
 	// NYC coverage configuration / NYC 覆蓋率配置
-	['.nycrc.tpl', 'file/nycrc'],
+	// ['.nycrc.tpl', 'file/nycrc', '.nycrc'],
 
 ] as const satisfies IStaticFilesMapArray<string>;
 
@@ -170,7 +172,7 @@ const _defaultCopyStaticFilesWsRootOnly = [
 	['pnpm-workspace.yaml', 'file/pnpm-workspace.yaml'],
 
 	// TSC multi configuration / TSC 多配置
-	['tsc-multi.json.tpl', 'file/tsc-multi.json.tpl', 'tsc-multi.json'],
+	// ['tsc-multi.json.tpl', 'file/tsc-multi.json.tpl', 'tsc-multi.json'],
 
 	// Workspace root file / 工作區根目錄檔案
 	['__root_ws.ts', 'file/ws-root/__root_ws.ts'],
@@ -178,6 +180,8 @@ const _defaultCopyStaticFilesWsRootOnly = [
 	// Jest configuration / Jest 配置
 	['jest.config.js', 'file/ws-root/jest.config.js'],
 	['jest-preset.js', 'file/ws-root/jest-preset.js'],
+
+	['jest.config.js.tpl', 'file/ws-root/jest.config.js'],
 
 	// Run configurations / 執行配置
 	['.run/lerna_publish_yes.run.xml', 'file/ws-root/.run/lerna_publish_yes.run.xml'],

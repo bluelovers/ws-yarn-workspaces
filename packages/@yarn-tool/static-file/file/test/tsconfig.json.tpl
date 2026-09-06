@@ -8,6 +8,13 @@
     "noUnusedParameters": false,
     "allowUnusedLabels": true,
     "noUnusedLocals": false,
-    "noPropertyAccessFromIndexSignature": false
-  }
+    "noPropertyAccessFromIndexSignature": false,
+    "types": [
+      "jest",
+      "node"
+    ]
+  },
+  "include": [
+    "test"
+  ]
 }

@@ -47,7 +47,6 @@
       "stream": true
     }
   },
-  "npmClient": "yarn",
-  "useWorkspaces": true,
+  "npmClient": "pnpm",
   "version": "independent"
 }

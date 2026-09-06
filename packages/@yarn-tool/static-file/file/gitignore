@@ -268,3 +268,10 @@ out/
 .next
 
 test/temp*/
+
+!__root-core.cjs
+!__root-core.mjs
+!__root-core.d.cts
+!__root-core.d.mts
+!__root-core.d.ts
+!__root-core.ts
