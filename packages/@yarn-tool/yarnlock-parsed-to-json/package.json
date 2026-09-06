@@ -72,7 +72,9 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/yarnlock-parse-assert": "^2.0.10"
+    "@yarn-tool/yarnlock-error": "^1.0.21",
+    "@yarn-tool/yarnlock-parse-assert": "^2.0.10",
+    "@yarn-tool/yarnlock-types": "^2.0.7"
   },
   "publishConfig": {
     "access": "public"
