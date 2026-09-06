@@ -69,7 +69,7 @@
     "prepublish": "echo prepublish",
     "prepublish:lockfile": "ynpx sync-lockfile",
     "prepare": "echo prepare",
-    "prepare:fix-ws-links": "ynpx @yarn-tool/fix-ws-links",
+    "prepare:fix-ws-links": "echo ynpx @yarn-tool/fix-ws-links",
     "prepublishOnly": "echo prepublishOnly",
     "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
     "prepublishOnly:lockfile": "ynpx --quiet sync-lockfile",
