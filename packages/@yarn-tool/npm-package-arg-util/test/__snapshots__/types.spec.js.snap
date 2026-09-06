@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`packageNameToTypes @next/typescript@^1.3.1 1`] = `
+{
+  "name": "@types/next__typescript",
+  "result": {
+    "escapedName": "@next%2ftypescript",
+    "fetchSpec": "^1.3.1",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "name": "@next/typescript",
+    "raw": "@next/typescript@^1.3.1",
+    "rawSpec": "^1.3.1",
+    "registry": true,
+    "saveSpec": null,
+    "scope": "@next",
+    "type": "range",
+    "where": undefined,
+  },
+  "scope": "@types",
+  "semver": "^1.3.1",
+  "subname": "next__typescript",
+  "type": "range",
+}
+`;
+
+exports[`packageNameToTypes @types/typescript@^1.3.1 1`] = `
+{
+  "name": "@types/typescript",
+  "result": {
+    "escapedName": "@types%2ftypescript",
+    "fetchSpec": "^1.3.1",
+    "gitCommittish": undefined,
+    "gitRange": undefined,
+    "gitSubdir": undefined,
+    "name": "@types/typescript",
+    "raw": "@types/typescript@^1.3.1",
+    "rawSpec": "^1.3.1",
+    "registry": true,
+    "saveSpec": null,
+    "scope": "@types",
+    "type": "range",
+    "where": undefined,
+  },
+  "scope": "@types",
+  "semver": "^1.3.1",
+  "subname": "typescript",
+  "type": "range",
+}
+`;

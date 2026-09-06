@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`check cache is work 1`] = `
+SemverRange {
+  "formatted": ">1.2.3",
+  "includePrerelease": false,
+  "loose": true,
+  "options": {
+    "includePrerelease": false,
+    "loose": true,
+  },
+  "raw": ">01.02.03",
+  "set": [
+    [
+      Comparator {
+        "loose": true,
+        "operator": ">",
+        "options": {
+          "includePrerelease": false,
+          "loose": true,
+        },
+        "semver": SemVer {
+          "build": [],
+          "includePrerelease": false,
+          "loose": true,
+          "major": 1,
+          "minor": 2,
+          "options": {
+            "loose": true,
+          },
+          "patch": 3,
+          "prerelease": [],
+          "raw": "01.02.03",
+          "version": "1.2.3",
+        },
+        "value": ">1.2.3",
+      },
+    ],
+  ],
+}
+`;
+
+exports[`check cache is work 2`] = `"Invalid comparator: >01.02.03"`;

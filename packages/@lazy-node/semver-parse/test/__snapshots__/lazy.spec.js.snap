@@ -1,0 +1,284 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`parseSimpleSemVer ^4.0.0-dev.20200615 1`] = `
+{
+  "major": "4",
+  "minor": "0",
+  "operator": "^",
+  "patch": "0",
+  "release": "dev.20200615",
+  "semver": "^4.0.0-dev.20200615",
+  "version": "4.0.0",
+}
+`;
+
+exports[`parseSimpleSemVer ^4.0.0-dev.20200615 2`] = `
+{
+  "input": "^4.0.0-dev.20200615",
+  "originalSemver": {
+    "err": [TypeError: Invalid Version: ^4.0.0-dev.20200615],
+    "input": "^4.0.0-dev.20200615",
+  },
+  "parseSimpleSemVer": {
+    "input": "^4.0.0-dev.20200615",
+    "result": {
+      "major": "4",
+      "minor": "0",
+      "operator": "^",
+      "patch": "0",
+      "release": "dev.20200615",
+      "semver": "^4.0.0-dev.20200615",
+      "version": "4.0.0",
+    },
+  },
+  "parseSimpleSemVerRange": {
+    "input": "^4.0.0-dev.20200615",
+    "result": [
+      {
+        "major": "4",
+        "minor": "0",
+        "operator": "^",
+        "patch": "0",
+        "release": "dev.20200615",
+        "semver": "^4.0.0-dev.20200615",
+      },
+    ],
+  },
+}
+`;
+
+exports[`parseSimpleSemVer 4.0.0-dev.20200615 1`] = `
+{
+  "input": "4.0.0-dev.20200615",
+  "originalSemver": {
+    "input": "4.0.0-dev.20200615",
+    "result": SemVer {
+      "build": [],
+      "includePrerelease": false,
+      "loose": false,
+      "major": 4,
+      "minor": 0,
+      "options": {},
+      "patch": 0,
+      "prerelease": [
+        "dev",
+        20200615,
+      ],
+      "raw": "4.0.0-dev.20200615",
+      "version": "4.0.0-dev.20200615",
+    },
+  },
+  "parseSimpleSemVer": {
+    "input": "4.0.0-dev.20200615",
+    "result": {
+      "major": "4",
+      "minor": "0",
+      "patch": "0",
+      "release": "dev.20200615",
+      "semver": "4.0.0-dev.20200615",
+      "version": "4.0.0",
+    },
+  },
+  "parseSimpleSemVerRange": {
+    "input": "4.0.0-dev.20200615",
+    "result": [
+      {
+        "major": "4",
+        "minor": "0",
+        "patch": "0",
+        "release": "dev.20200615",
+        "semver": "4.0.0-dev.20200615",
+      },
+    ],
+  },
+}
+`;
+
+exports[`parseSimpleSemVer 12 1`] = `
+{
+  "input": "12",
+  "originalSemver": {
+    "err": [TypeError: Invalid Version: 12],
+    "input": "12",
+  },
+  "parseSimpleSemVer": {
+    "input": "12",
+    "result": {
+      "major": "12",
+      "semver": "12",
+      "version": "12",
+    },
+  },
+  "parseSimpleSemVerRange": {
+    "input": "12",
+    "result": [
+      {
+        "major": "12",
+        "semver": "12",
+      },
+    ],
+  },
+}
+`;
+
+exports[`parseSimpleSemVer 12.0 1`] = `
+{
+  "input": "12.0",
+  "originalSemver": {
+    "err": [TypeError: Invalid Version: 12.0],
+    "input": "12.0",
+  },
+  "parseSimpleSemVer": {
+    "input": "12.0",
+    "result": {
+      "major": "12",
+      "minor": "0",
+      "semver": "12.0",
+      "version": "12.0",
+    },
+  },
+  "parseSimpleSemVerRange": {
+    "input": "12.0",
+    "result": [
+      {
+        "major": "12",
+        "minor": "0",
+        "semver": "12.0",
+      },
+    ],
+  },
+}
+`;
+
+exports[`parseSimpleSemVer 12.0.0 1`] = `
+{
+  "input": "12.0.0",
+  "originalSemver": {
+    "input": "12.0.0",
+    "result": SemVer {
+      "build": [],
+      "includePrerelease": false,
+      "loose": false,
+      "major": 12,
+      "minor": 0,
+      "options": {},
+      "patch": 0,
+      "prerelease": [],
+      "raw": "12.0.0",
+      "version": "12.0.0",
+    },
+  },
+  "parseSimpleSemVer": {
+    "input": "12.0.0",
+    "result": {
+      "major": "12",
+      "minor": "0",
+      "patch": "0",
+      "semver": "12.0.0",
+      "version": "12.0.0",
+    },
+  },
+  "parseSimpleSemVerRange": {
+    "input": "12.0.0",
+    "result": [
+      {
+        "major": "12",
+        "minor": "0",
+        "patch": "0",
+        "semver": "12.0.0",
+      },
+    ],
+  },
+}
+`;
+
+exports[`parseSimpleSemVer 12.0.x 1`] = `
+{
+  "input": "12.0.x",
+  "originalSemver": {
+    "err": [TypeError: Invalid Version: 12.0.x],
+    "input": "12.0.x",
+  },
+  "parseSimpleSemVer": {
+    "input": "12.0.x",
+    "result": {
+      "major": "12",
+      "minor": "0",
+      "patch": "x",
+      "semver": "12.0.x",
+      "version": "12.0.x",
+    },
+  },
+  "parseSimpleSemVerRange": {
+    "input": "12.0.x",
+    "result": [
+      {
+        "major": "12",
+        "minor": "0",
+        "patch": "x",
+        "semver": "12.0.x",
+      },
+    ],
+  },
+}
+`;
+
+exports[`parseSimpleSemVer 12.x 1`] = `
+{
+  "input": "12.x",
+  "originalSemver": {
+    "err": [TypeError: Invalid Version: 12.x],
+    "input": "12.x",
+  },
+  "parseSimpleSemVer": {
+    "input": "12.x",
+    "result": {
+      "major": "12",
+      "minor": "x",
+      "semver": "12.x",
+      "version": "12.x",
+    },
+  },
+  "parseSimpleSemVerRange": {
+    "input": "12.x",
+    "result": [
+      {
+        "major": "12",
+        "minor": "x",
+        "semver": "12.x",
+      },
+    ],
+  },
+}
+`;
+
+exports[`parseSimpleSemVer 12.x.0 1`] = `
+{
+  "input": "12.x.0",
+  "originalSemver": {
+    "err": [TypeError: Invalid Version: 12.x.0],
+    "input": "12.x.0",
+  },
+  "parseSimpleSemVer": {
+    "input": "12.x.0",
+    "result": {
+      "major": "12",
+      "minor": "x",
+      "patch": "0",
+      "semver": "12.x.0",
+      "version": "12.x.0",
+    },
+  },
+  "parseSimpleSemVerRange": {
+    "input": "12.x.0",
+    "result": [
+      {
+        "major": "12",
+        "minor": "x",
+        "patch": "0",
+        "semver": "12.x.0",
+      },
+    ],
+  },
+}
+`;

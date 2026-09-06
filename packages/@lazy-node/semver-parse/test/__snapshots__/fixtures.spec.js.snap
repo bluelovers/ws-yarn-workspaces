@@ -1,0 +1,1167 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`singleVersionRange multiple < v2.0.0 - 小於運算子 / Less than operator [0]parse(< v2.0.0) 1`] = `
+{
+  "major": "2",
+  "minor": "0",
+  "operator": "<",
+  "patch": "0",
+  "semver": "< v2.0.0",
+  "version": "2.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple < v2.0.0 - 小於運算子 / Less than operator [0]parseRange(2.0.0) 1`] = `
+{
+  "major": "2",
+  "minor": "0",
+  "operator": "<",
+  "patch": "0",
+  "semver": "< v2.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple >= 1.1.7 < 2.0.0 || 1.1.3 - 完整範例（來自測試）/ Full example (from tests) [0]parse(>= 1.1.7) 1`] = `
+{
+  "major": "1",
+  "minor": "1",
+  "operator": ">=",
+  "patch": "7",
+  "semver": ">= 1.1.7",
+  "version": "1.1.7",
+}
+`;
+
+exports[`singleVersionRange multiple >= 1.1.7 < 2.0.0 || 1.1.3 - 完整範例（來自測試）/ Full example (from tests) [0]parseRange(1.1.7) 1`] = `
+{
+  "major": "1",
+  "minor": "1",
+  "operator": ">=",
+  "patch": "7",
+  "semver": ">= 1.1.7",
+}
+`;
+
+exports[`singleVersionRange multiple >= 1.1.7 < 2.0.0 || 1.1.3 - 完整範例（來自測試）/ Full example (from tests) [1]parse(< 2.0.0) 1`] = `
+{
+  "major": "2",
+  "minor": "0",
+  "operator": "<",
+  "patch": "0",
+  "semver": "< 2.0.0",
+  "version": "2.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple >= 1.1.7 < 2.0.0 || 1.1.3 - 完整範例（來自測試）/ Full example (from tests) [1]parseRange(2.0.0) 1`] = `
+{
+  "major": "2",
+  "minor": "0",
+  "operator": "<",
+  "patch": "0",
+  "semver": "< 2.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple >= 1.1.7 < 2.0.0 || 1.1.3 - 完整範例（來自測試）/ Full example (from tests) [3]parse(1.1.3) 1`] = `
+{
+  "major": "1",
+  "minor": "1",
+  "patch": "3",
+  "semver": "1.1.3",
+  "version": "1.1.3",
+}
+`;
+
+exports[`singleVersionRange multiple >= 1.1.7 < 2.0.0 || 1.1.3 - 完整範例（來自測試）/ Full example (from tests) [3]parseRange(1.1.3) 1`] = `
+{
+  "major": "1",
+  "minor": "1",
+  "patch": "3",
+  "semver": "1.1.3",
+}
+`;
+
+exports[`singleVersionRange multiple >= 1.1.7 < 2.0.0 || 1.1.3 - 複雜組合（AND + OR）/ Complex combination (AND + OR) [0]parse(>= 1.1.7) 1`] = `
+{
+  "major": "1",
+  "minor": "1",
+  "operator": ">=",
+  "patch": "7",
+  "semver": ">= 1.1.7",
+  "version": "1.1.7",
+}
+`;
+
+exports[`singleVersionRange multiple >= 1.1.7 < 2.0.0 || 1.1.3 - 複雜組合（AND + OR）/ Complex combination (AND + OR) [0]parseRange(1.1.7) 1`] = `
+{
+  "major": "1",
+  "minor": "1",
+  "operator": ">=",
+  "patch": "7",
+  "semver": ">= 1.1.7",
+}
+`;
+
+exports[`singleVersionRange multiple >= 1.1.7 < 2.0.0 || 1.1.3 - 複雜組合（AND + OR）/ Complex combination (AND + OR) [1]parse(< 2.0.0) 1`] = `
+{
+  "major": "2",
+  "minor": "0",
+  "operator": "<",
+  "patch": "0",
+  "semver": "< 2.0.0",
+  "version": "2.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple >= 1.1.7 < 2.0.0 || 1.1.3 - 複雜組合（AND + OR）/ Complex combination (AND + OR) [1]parseRange(2.0.0) 1`] = `
+{
+  "major": "2",
+  "minor": "0",
+  "operator": "<",
+  "patch": "0",
+  "semver": "< 2.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple >= 1.1.7 < 2.0.0 || 1.1.3 - 複雜組合（AND + OR）/ Complex combination (AND + OR) [3]parse(1.1.3) 1`] = `
+{
+  "major": "1",
+  "minor": "1",
+  "patch": "3",
+  "semver": "1.1.3",
+  "version": "1.1.3",
+}
+`;
+
+exports[`singleVersionRange multiple >= 1.1.7 < 2.0.0 || 1.1.3 - 複雜組合（AND + OR）/ Complex combination (AND + OR) [3]parseRange(1.1.3) 1`] = `
+{
+  "major": "1",
+  "minor": "1",
+  "patch": "3",
+  "semver": "1.1.3",
+}
+`;
+
+exports[`singleVersionRange multiple >= 1.1.7 < 2.0.0 - 大於等於且小於 / GTE and LT combination [0]parse(>= 1.1.7) 1`] = `
+{
+  "major": "1",
+  "minor": "1",
+  "operator": ">=",
+  "patch": "7",
+  "semver": ">= 1.1.7",
+  "version": "1.1.7",
+}
+`;
+
+exports[`singleVersionRange multiple >= 1.1.7 < 2.0.0 - 大於等於且小於 / GTE and LT combination [0]parseRange(1.1.7) 1`] = `
+{
+  "major": "1",
+  "minor": "1",
+  "operator": ">=",
+  "patch": "7",
+  "semver": ">= 1.1.7",
+}
+`;
+
+exports[`singleVersionRange multiple >= 1.1.7 < 2.0.0 - 大於等於且小於 / GTE and LT combination [1]parse(< 2.0.0) 1`] = `
+{
+  "major": "2",
+  "minor": "0",
+  "operator": "<",
+  "patch": "0",
+  "semver": "< 2.0.0",
+  "version": "2.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple >= 1.1.7 < 2.0.0 - 大於等於且小於 / GTE and LT combination [1]parseRange(2.0.0) 1`] = `
+{
+  "major": "2",
+  "minor": "0",
+  "operator": "<",
+  "patch": "0",
+  "semver": "< 2.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple >=1.0.0 <2.0.0 - 緊湊的多條件 / Compact multiple conditions [0]parse(>=1.0.0) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "operator": ">=",
+  "patch": "0",
+  "semver": ">=1.0.0",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple >=1.0.0 <2.0.0 - 緊湊的多條件 / Compact multiple conditions [0]parseRange(1.0.0) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "operator": ">=",
+  "patch": "0",
+  "semver": ">=1.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple >=1.0.0 <2.0.0 - 緊湊的多條件 / Compact multiple conditions [1]parse(<2.0.0) 1`] = `
+{
+  "major": "2",
+  "minor": "0",
+  "operator": "<",
+  "patch": "0",
+  "semver": "<2.0.0",
+  "version": "2.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple >=1.0.0 <2.0.0 - 緊湊的多條件 / Compact multiple conditions [1]parseRange(2.0.0) 1`] = `
+{
+  "major": "2",
+  "minor": "0",
+  "operator": "<",
+  "patch": "0",
+  "semver": "<2.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple >=1.0.0-alpha <1.0.0-beta - 預發布版本範圍 / Pre-release version range [0]parse(>=1.0.0-alpha) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "operator": ">=",
+  "patch": "0",
+  "release": "alpha",
+  "semver": ">=1.0.0-alpha",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple >=1.0.0-alpha <1.0.0-beta - 預發布版本範圍 / Pre-release version range [0]parseRange(1.0.0-alpha) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "operator": ">=",
+  "patch": "0",
+  "release": "alpha",
+  "semver": ">=1.0.0-alpha",
+}
+`;
+
+exports[`singleVersionRange multiple >=1.0.0-alpha <1.0.0-beta - 預發布版本範圍 / Pre-release version range [1]parse(<1.0.0-beta) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "operator": "<",
+  "patch": "0",
+  "release": "beta",
+  "semver": "<1.0.0-beta",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple >=1.0.0-alpha <1.0.0-beta - 預發布版本範圍 / Pre-release version range [1]parseRange(1.0.0-beta) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "operator": "<",
+  "patch": "0",
+  "release": "beta",
+  "semver": "<1.0.0-beta",
+}
+`;
+
+exports[`singleVersionRange multiple >=1.2.3 || 0.5.0 - 大於等於 OR 組合 / GTE OR combination [0]parse(>=1.2.3) 1`] = `
+{
+  "major": "1",
+  "minor": "2",
+  "operator": ">=",
+  "patch": "3",
+  "semver": ">=1.2.3",
+  "version": "1.2.3",
+}
+`;
+
+exports[`singleVersionRange multiple >=1.2.3 || 0.5.0 - 大於等於 OR 組合 / GTE OR combination [0]parseRange(1.2.3) 1`] = `
+{
+  "major": "1",
+  "minor": "2",
+  "operator": ">=",
+  "patch": "3",
+  "semver": ">=1.2.3",
+}
+`;
+
+exports[`singleVersionRange multiple >=1.2.3 || 0.5.0 - 大於等於 OR 組合 / GTE OR combination [2]parse(0.5.0) 1`] = `
+{
+  "major": "0",
+  "minor": "5",
+  "patch": "0",
+  "semver": "0.5.0",
+  "version": "0.5.0",
+}
+`;
+
+exports[`singleVersionRange multiple >=1.2.3 || 0.5.0 - 大於等於 OR 組合 / GTE OR combination [2]parseRange(0.5.0) 1`] = `
+{
+  "major": "0",
+  "minor": "5",
+  "patch": "0",
+  "semver": "0.5.0",
+}
+`;
+
+exports[`singleVersionRange multiple ^1.0.0 || ^2.0.0 - 插入運算子 OR 組合 / Caret OR combination [0]parse(^1.0.0) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "operator": "^",
+  "patch": "0",
+  "semver": "^1.0.0",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple ^1.0.0 || ^2.0.0 - 插入運算子 OR 組合 / Caret OR combination [0]parseRange(1.0.0) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "operator": "^",
+  "patch": "0",
+  "semver": "^1.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple ^1.0.0 || ^2.0.0 - 插入運算子 OR 組合 / Caret OR combination [2]parse(^2.0.0) 1`] = `
+{
+  "major": "2",
+  "minor": "0",
+  "operator": "^",
+  "patch": "0",
+  "semver": "^2.0.0",
+  "version": "2.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple ^1.0.0 || ^2.0.0 - 插入運算子 OR 組合 / Caret OR combination [2]parseRange(2.0.0) 1`] = `
+{
+  "major": "2",
+  "minor": "0",
+  "operator": "^",
+  "patch": "0",
+  "semver": "^2.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple ^1.0.0 - 插入運算子 / Caret operator [0]parse(^1.0.0) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "operator": "^",
+  "patch": "0",
+  "semver": "^1.0.0",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple ^1.0.0 - 插入運算子 / Caret operator [0]parseRange(1.0.0) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "operator": "^",
+  "patch": "0",
+  "semver": "^1.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple ^1.2.0 || >=2.0.0 <3.0.0 - 插入運算子 OR 範圍組合 / Caret OR range combination [0]parse(^1.2.0) 1`] = `
+{
+  "major": "1",
+  "minor": "2",
+  "operator": "^",
+  "patch": "0",
+  "semver": "^1.2.0",
+  "version": "1.2.0",
+}
+`;
+
+exports[`singleVersionRange multiple ^1.2.0 || >=2.0.0 <3.0.0 - 插入運算子 OR 範圍組合 / Caret OR range combination [0]parseRange(1.2.0) 1`] = `
+{
+  "major": "1",
+  "minor": "2",
+  "operator": "^",
+  "patch": "0",
+  "semver": "^1.2.0",
+}
+`;
+
+exports[`singleVersionRange multiple ^1.2.0 || >=2.0.0 <3.0.0 - 插入運算子 OR 範圍組合 / Caret OR range combination [2]parse(>=2.0.0) 1`] = `
+{
+  "major": "2",
+  "minor": "0",
+  "operator": ">=",
+  "patch": "0",
+  "semver": ">=2.0.0",
+  "version": "2.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple ^1.2.0 || >=2.0.0 <3.0.0 - 插入運算子 OR 範圍組合 / Caret OR range combination [2]parseRange(2.0.0) 1`] = `
+{
+  "major": "2",
+  "minor": "0",
+  "operator": ">=",
+  "patch": "0",
+  "semver": ">=2.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple ^1.2.0 || >=2.0.0 <3.0.0 - 插入運算子 OR 範圍組合 / Caret OR range combination [3]parse(<3.0.0) 1`] = `
+{
+  "major": "3",
+  "minor": "0",
+  "operator": "<",
+  "patch": "0",
+  "semver": "<3.0.0",
+  "version": "3.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple ^1.2.0 || >=2.0.0 <3.0.0 - 插入運算子 OR 範圍組合 / Caret OR range combination [3]parseRange(3.0.0) 1`] = `
+{
+  "major": "3",
+  "minor": "0",
+  "operator": "<",
+  "patch": "0",
+  "semver": "<3.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple ~> 2.0.0 - ~> 運算子（RubyGems 風格）/ ~> operator (RubyGems style) [0]parse(~> 2.0.0) 1`] = `
+{
+  "major": "2",
+  "minor": "0",
+  "operator": "~>",
+  "patch": "0",
+  "semver": "~> 2.0.0",
+  "version": "2.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple ~> 2.0.0 - ~> 運算子（RubyGems 風格）/ ~> operator (RubyGems style) [0]parseRange(2.0.0) 1`] = `
+{
+  "major": "2",
+  "minor": "0",
+  "operator": "~>",
+  "patch": "0",
+  "semver": "~> 2.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple ~1.0.0 || ~2.0.0 - OR 邏輯運算子 / OR logical operator [0]parse(~1.0.0) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "operator": "~",
+  "patch": "0",
+  "semver": "~1.0.0",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple ~1.0.0 || ~2.0.0 - OR 邏輯運算子 / OR logical operator [0]parseRange(1.0.0) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "operator": "~",
+  "patch": "0",
+  "semver": "~1.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple ~1.0.0 || ~2.0.0 - OR 邏輯運算子 / OR logical operator [2]parse(~2.0.0) 1`] = `
+{
+  "major": "2",
+  "minor": "0",
+  "operator": "~",
+  "patch": "0",
+  "semver": "~2.0.0",
+  "version": "2.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple ~1.0.0 || ~2.0.0 - OR 邏輯運算子 / OR logical operator [2]parseRange(2.0.0) 1`] = `
+{
+  "major": "2",
+  "minor": "0",
+  "operator": "~",
+  "patch": "0",
+  "semver": "~2.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple ~1.0.0 - 波浪運算子 / Tilde operator [0]parse(~1.0.0) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "operator": "~",
+  "patch": "0",
+  "semver": "~1.0.0",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple ~1.0.0 - 波浪運算子 / Tilde operator [0]parseRange(1.0.0) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "operator": "~",
+  "patch": "0",
+  "semver": "~1.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple ~v1.0.0 - 波浪運算子含 v 前綴 / Tilde with v prefix [0]parse(~v1.0.0) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "operator": "~",
+  "patch": "0",
+  "semver": "~v1.0.0",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple ~v1.0.0 - 波浪運算子含 v 前綴 / Tilde with v prefix [0]parseRange(1.0.0) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "operator": "~",
+  "patch": "0",
+  "semver": "~v1.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple 1.0.0 - 2.0.0 - 連字號範圍（完整版本）/ Hyphen range (full versions) [0]parse(1.0.0) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "semver": "1.0.0",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple 1.0.0 - 2.0.0 - 連字號範圍（完整版本）/ Hyphen range (full versions) [0]parseRange(1.0.0) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "semver": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple 1.0.0 - 2.0.0 - 連字號範圍（完整版本）/ Hyphen range (full versions) [2]parse(2.0.0) 1`] = `
+{
+  "major": "2",
+  "minor": "0",
+  "patch": "0",
+  "semver": "2.0.0",
+  "version": "2.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple 1.0.0 - 2.0.0 - 連字號範圍（完整版本）/ Hyphen range (full versions) [2]parseRange(2.0.0) 1`] = `
+{
+  "major": "2",
+  "minor": "0",
+  "patch": "0",
+  "semver": "2.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple 1.0.0 - 單一版本 / Single version [0]parse(1.0.0) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "semver": "1.0.0",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple 1.0.0 - 單一版本 / Single version [0]parseRange(1.0.0) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "semver": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple 1.0.0-alpha+build.123 - 預發布和建置元資料 / Pre-release and build metadata [0]parse(1.0.0-alpha+build.123) 1`] = `
+{
+  "build": "build.123",
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "release": "alpha",
+  "semver": "1.0.0-alpha+build.123",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple 1.0.0-alpha+build.123 - 預發布和建置元資料 / Pre-release and build metadata [0]parseRange(1.0.0-alpha+build.123) 1`] = `
+{
+  "build": "build.123",
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "release": "alpha",
+  "semver": "1.0.0-alpha+build.123",
+}
+`;
+
+exports[`singleVersionRange multiple 1.0.0-rc-2 - 預發布版本含連字號 / Pre-release version with hyphen [0]parse(1.0.0-rc-2) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "release": "rc-2",
+  "semver": "1.0.0-rc-2",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple 1.0.0-rc-2 - 預發布版本含連字號 / Pre-release version with hyphen [0]parseRange(1.0.0-rc-2) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "release": "rc-2",
+  "semver": "1.0.0-rc-2",
+}
+`;
+
+exports[`singleVersionRange multiple 1.0.0-rc1 - 預發布版本 / Pre-release version [0]parse(1.0.0-rc1) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "release": "rc1",
+  "semver": "1.0.0-rc1",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple 1.0.0-rc1 - 預發布版本 / Pre-release version [0]parseRange(1.0.0-rc1) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "release": "rc1",
+  "semver": "1.0.0-rc1",
+}
+`;
+
+exports[`singleVersionRange multiple 2.0.0+build.1848 - 建置元資料 / Build metadata [0]parse(2.0.0+build.1848) 1`] = `
+{
+  "build": "build.1848",
+  "major": "2",
+  "minor": "0",
+  "patch": "0",
+  "semver": "2.0.0+build.1848",
+  "version": "2.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple 2.0.0+build.1848 - 建置元資料 / Build metadata [0]parseRange(2.0.0+build.1848) 1`] = `
+{
+  "build": "build.1848",
+  "major": "2",
+  "minor": "0",
+  "patch": "0",
+  "semver": "2.0.0+build.1848",
+}
+`;
+
+exports[`singleVersionRange multiple v1.0.0 - 帶 v 前綴的單一版本 / Single version with v prefix [0]parse(v1.0.0) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "semver": "v1.0.0",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple v1.0.0 - 帶 v 前綴的單一版本 / Single version with v prefix [0]parseRange(1.0.0) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "semver": "v1.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple.wildcards 1.* - 星號萬用字元 / Asterisk wildcard [0]parse(1.*) 1`] = `
+{
+  "major": "1",
+  "minor": "*",
+  "semver": "1.*",
+  "version": "1.*",
+}
+`;
+
+exports[`singleVersionRange multiple.wildcards 1.* - 星號萬用字元 / Asterisk wildcard [0]parseRange(1.*.0) 1`] = `
+{
+  "major": "1",
+  "minor": "*",
+  "semver": "1.*",
+}
+`;
+
+exports[`singleVersionRange multiple.wildcards 1.0.* - patch 星號萬用字元 / patch asterisk wildcard [0]parse(1.0.*) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "patch": "*",
+  "semver": "1.0.*",
+  "version": "1.0.*",
+}
+`;
+
+exports[`singleVersionRange multiple.wildcards 1.0.* - patch 星號萬用字元 / patch asterisk wildcard [0]parseRange(1.0.*) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "patch": "*",
+  "semver": "1.0.*",
+}
+`;
+
+exports[`singleVersionRange multiple.wildcards 1.0.0 - 1.0.x - 連字號範圍 / Hyphen range [0]parse(1.0.0) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "semver": "1.0.0",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple.wildcards 1.0.0 - 1.0.x - 連字號範圍 / Hyphen range [0]parseRange(1.0.0) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "semver": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange multiple.wildcards 1.0.0 - 1.0.x - 連字號範圍 / Hyphen range [2]parse(1.0.x) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "patch": "x",
+  "semver": "1.0.x",
+  "version": "1.0.x",
+}
+`;
+
+exports[`singleVersionRange multiple.wildcards 1.0.0 - 1.0.x - 連字號範圍 / Hyphen range [2]parseRange(1.0.x) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "patch": "x",
+  "semver": "1.0.x",
+}
+`;
+
+exports[`singleVersionRange multiple.wildcards 1.0.x - patch 萬用字元 / patch wildcard [0]parse(1.0.x) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "patch": "x",
+  "semver": "1.0.x",
+  "version": "1.0.x",
+}
+`;
+
+exports[`singleVersionRange multiple.wildcards 1.0.x - patch 萬用字元 / patch wildcard [0]parseRange(1.0.x) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "patch": "x",
+  "semver": "1.0.x",
+}
+`;
+
+exports[`singleVersionRange multiple.wildcards 1.x - x 萬用字元 / x wildcard [0]parse(1.x) 1`] = `
+{
+  "major": "1",
+  "minor": "x",
+  "semver": "1.x",
+  "version": "1.x",
+}
+`;
+
+exports[`singleVersionRange multiple.wildcards 1.x - x 萬用字元 / x wildcard [0]parseRange(1.x.0) 1`] = `
+{
+  "major": "1",
+  "minor": "x",
+  "semver": "1.x",
+}
+`;
+
+exports[`singleVersionRange single < 1.0.0 - 小於運算子含空格 / Less than with space 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "operator": "<",
+  "patch": "0",
+  "semver": "< 1.0.0",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange single < v2.0.0 - 運算子含空格和 v 前綴 / Operator with space and v prefix 1`] = `
+{
+  "major": "2",
+  "minor": "0",
+  "operator": "<",
+  "patch": "0",
+  "semver": "< v2.0.0",
+  "version": "2.0.0",
+}
+`;
+
+exports[`singleVersionRange single <=1.0.0 - 小於等於運算子 / Less than or equal operator 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "operator": "<=",
+  "patch": "0",
+  "semver": "<=1.0.0",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange single <1.0.0 - 小於運算子 / Less than operator 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "operator": "<",
+  "patch": "0",
+  "semver": "<1.0.0",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange single =1.0.0 - 等於運算子 / Equal operator 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "operator": "=",
+  "patch": "0",
+  "semver": "=1.0.0",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange single >= 1.0.0 - 大於等於運算子含空格 / Greater than or equal with space 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "operator": ">=",
+  "patch": "0",
+  "semver": ">= 1.0.0",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange single >=1.0.0 - 大於等於運算子 / Greater than or equal operator 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "operator": ">=",
+  "patch": "0",
+  "semver": ">=1.0.0",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange single >=1.2.3-beta.1+build.123 - 完整版本（運算子+預發布+建置）/ Full version with operator, pre-release and build 1`] = `
+{
+  "build": "build.123",
+  "major": "1",
+  "minor": "2",
+  "operator": ">=",
+  "patch": "3",
+  "release": "beta.1",
+  "semver": ">=1.2.3-beta.1+build.123",
+  "version": "1.2.3",
+}
+`;
+
+exports[`singleVersionRange single >=v1.0.0 - 運算子含 v 前綴 / Operator with v prefix 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "operator": ">=",
+  "patch": "0",
+  "semver": ">=v1.0.0",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange single >1.0.0 - 大於運算子 / Greater than operator 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "operator": ">",
+  "patch": "0",
+  "semver": ">1.0.0",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange single ^1.0.0 - 插入運算子（相容版本）/ Caret operator (compatible version) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "operator": "^",
+  "patch": "0",
+  "semver": "^1.0.0",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange single ^v1.0.0 - 插入運算子含 v 前綴 / Caret with v prefix 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "operator": "^",
+  "patch": "0",
+  "semver": "^v1.0.0",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange single ~1.0.0 - 波浪運算子（大約版本）/ Tilde operator (approximately version) 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "operator": "~",
+  "patch": "0",
+  "semver": "~1.0.0",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange single ~v1.0.0 - 波浪運算子含 v 前綴 / Tilde with v prefix 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "operator": "~",
+  "patch": "0",
+  "semver": "~v1.0.0",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange single 0.0.0 - 全零版本 / All-zero version 1`] = `
+{
+  "major": "0",
+  "minor": "0",
+  "patch": "0",
+  "semver": "0.0.0",
+  "version": "0.0.0",
+}
+`;
+
+exports[`singleVersionRange single 1.0.0 - 基本的三部分版本 / Basic three-part version 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "semver": "1.0.0",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange single 1.0.0+build - 建置元資料 / Build metadata 1`] = `
+{
+  "build": "build",
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "semver": "1.0.0+build",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange single 1.0.0+build.123 - 建置元資料 - 多部分 / Build metadata - multi-part 1`] = `
+{
+  "build": "build.123",
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "semver": "1.0.0+build.123",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange single 1.0.0+build.abc.def - 建置元資料 - 多部分 / Build metadata - multi-part 1`] = `
+{
+  "build": "build.abc.def",
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "semver": "1.0.0+build.abc.def",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange single 1.0.0-0.3.7 - 預發布版本 - 數字格式 / Pre-release version - numeric format 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "release": "0.3.7",
+  "semver": "1.0.0-0.3.7",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange single 1.0.0-alpha - 預發布版本 - alpha / Pre-release version - alpha 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "release": "alpha",
+  "semver": "1.0.0-alpha",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange single 1.0.0-alpha.1 - 預發布版本 - alpha.1 / Pre-release version - alpha.1 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "release": "alpha.1",
+  "semver": "1.0.0-alpha.1",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange single 1.0.0-beta - 預發布版本 - beta / Pre-release version - beta 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "release": "beta",
+  "semver": "1.0.0-beta",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange single 1.0.0-beta.1+build.123 - 預發布版本含建置元資料 / Pre-release with build metadata 1`] = `
+{
+  "build": "build.123",
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "release": "beta.1",
+  "semver": "1.0.0-beta.1+build.123",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange single 1.0.0-rc.1 - 預發布版本 - rc.1 / Pre-release version - rc.1 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "release": "rc.1",
+  "semver": "1.0.0-rc.1",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange single 1.0.0-x.7.z.92 - 預發布版本 - 多部分 / Pre-release version - multi-part 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "release": "x.7.z.92",
+  "semver": "1.0.0-x.7.z.92",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange single 1.0.6-1+build-623 - 複合版本（含預發布和建置）/ Complex version with pre-release and build 1`] = `
+{
+  "build": "build-623",
+  "major": "1",
+  "minor": "0",
+  "patch": "6",
+  "release": "1",
+  "semver": "1.0.6-1+build-623",
+  "version": "1.0.6",
+}
+`;
+
+exports[`singleVersionRange single 2.0.0+build.1848 - 建置元資料範例 / Build metadata example 1`] = `
+{
+  "build": "build.1848",
+  "major": "2",
+  "minor": "0",
+  "patch": "0",
+  "semver": "2.0.0+build.1848",
+  "version": "2.0.0",
+}
+`;
+
+exports[`singleVersionRange single 10.20.30 - 多位數版本 / Multi-digit version 1`] = `
+{
+  "major": "10",
+  "minor": "20",
+  "patch": "30",
+  "semver": "10.20.30",
+  "version": "10.20.30",
+}
+`;
+
+exports[`singleVersionRange single 999.999.999 - 大數版本 / Large number version 1`] = `
+{
+  "major": "999",
+  "minor": "999",
+  "patch": "999",
+  "semver": "999.999.999",
+  "version": "999.999.999",
+}
+`;
+
+exports[`singleVersionRange single v1.0.0 - 帶 v 前綴的版本 / Version with v prefix 1`] = `
+{
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "semver": "v1.0.0",
+  "version": "1.0.0",
+}
+`;
+
+exports[`singleVersionRange single v2.3.4 - 帶 v 前綴的版本 / Version with v prefix 1`] = `
+{
+  "major": "2",
+  "minor": "3",
+  "patch": "4",
+  "semver": "v2.3.4",
+  "version": "2.3.4",
+}
+`;

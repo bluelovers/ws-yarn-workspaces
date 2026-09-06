@@ -1,0 +1,369 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`invalid versions 1+ originalSemver 1`] = `"Invalid Version: 1+"`;
+
+exports[`invalid versions 1+ originalSemver 2`] = `
+{
+  "err": [TypeError: Invalid Version: 1+],
+  "input": "1+",
+}
+`;
+
+exports[`invalid versions 1+ parseSimpleSemVer 1`] = `
+{
+  "input": "1+",
+  "result": undefined,
+}
+`;
+
+exports[`invalid versions 1+ parseSimpleSemVerRange 1`] = `
+{
+  "input": "1+",
+  "result": [],
+}
+`;
+
+exports[`invalid versions 1. originalSemver 1`] = `"Invalid Version: 1."`;
+
+exports[`invalid versions 1. originalSemver 2`] = `
+{
+  "err": [TypeError: Invalid Version: 1.],
+  "input": "1.",
+}
+`;
+
+exports[`invalid versions 1. parseSimpleSemVer 1`] = `
+{
+  "input": "1.",
+  "result": undefined,
+}
+`;
+
+exports[`invalid versions 1. parseSimpleSemVerRange 1`] = `
+{
+  "input": "1.",
+  "result": [],
+}
+`;
+
+exports[`invalid versions 1.0+ originalSemver 1`] = `"Invalid Version: 1.0+"`;
+
+exports[`invalid versions 1.0+ originalSemver 2`] = `
+{
+  "err": [TypeError: Invalid Version: 1.0+],
+  "input": "1.0+",
+}
+`;
+
+exports[`invalid versions 1.0+ parseSimpleSemVer 1`] = `
+{
+  "input": "1.0+",
+  "result": undefined,
+}
+`;
+
+exports[`invalid versions 1.0+ parseSimpleSemVerRange 1`] = `
+{
+  "input": "1.0+",
+  "result": [],
+}
+`;
+
+exports[`invalid versions 1.0. originalSemver 1`] = `"Invalid Version: 1.0."`;
+
+exports[`invalid versions 1.0. originalSemver 2`] = `
+{
+  "err": [TypeError: Invalid Version: 1.0.],
+  "input": "1.0.",
+}
+`;
+
+exports[`invalid versions 1.0. parseSimpleSemVer 1`] = `
+{
+  "input": "1.0.",
+  "result": undefined,
+}
+`;
+
+exports[`invalid versions 1.0. parseSimpleSemVerRange 1`] = `
+{
+  "input": "1.0.",
+  "result": [],
+}
+`;
+
+exports[`invalid versions 1.0.0+ originalSemver 1`] = `"Invalid Version: 1.0.0+"`;
+
+exports[`invalid versions 1.0.0+ originalSemver 2`] = `
+{
+  "err": [TypeError: Invalid Version: 1.0.0+],
+  "input": "1.0.0+",
+}
+`;
+
+exports[`invalid versions 1.0.0+ parseSimpleSemVer 1`] = `
+{
+  "input": "1.0.0+",
+  "result": undefined,
+}
+`;
+
+exports[`invalid versions 1.0.0+ parseSimpleSemVerRange 1`] = `
+{
+  "input": "1.0.0+",
+  "result": [],
+}
+`;
+
+exports[`invalid versions 1.0.0+build-abc. originalSemver 1`] = `"Invalid Version: 1.0.0+build-abc."`;
+
+exports[`invalid versions 1.0.0+build-abc. originalSemver 2`] = `
+{
+  "err": [TypeError: Invalid Version: 1.0.0+build-abc.],
+  "input": "1.0.0+build-abc.",
+}
+`;
+
+exports[`invalid versions 1.0.0+build-abc. parseSimpleSemVer 1`] = `
+{
+  "input": "1.0.0+build-abc.",
+  "result": undefined,
+}
+`;
+
+exports[`invalid versions 1.0.0+build-abc. parseSimpleSemVerRange 1`] = `
+{
+  "input": "1.0.0+build-abc.",
+  "result": [],
+}
+`;
+
+exports[`invalid versions 1.0.0. originalSemver 1`] = `"Invalid Version: 1.0.0."`;
+
+exports[`invalid versions 1.0.0. originalSemver 2`] = `
+{
+  "err": [TypeError: Invalid Version: 1.0.0.],
+  "input": "1.0.0.",
+}
+`;
+
+exports[`invalid versions 1.0.0. parseSimpleSemVer 1`] = `
+{
+  "input": "1.0.0.",
+  "result": undefined,
+}
+`;
+
+exports[`invalid versions 1.0.0. parseSimpleSemVerRange 1`] = `
+{
+  "input": "1.0.0.",
+  "result": [],
+}
+`;
+
+exports[`invalid versions 1.0.0- originalSemver 1`] = `"Invalid Version: 1.0.0-"`;
+
+exports[`invalid versions 1.0.0- originalSemver 2`] = `
+{
+  "err": [TypeError: Invalid Version: 1.0.0-],
+  "input": "1.0.0-",
+}
+`;
+
+exports[`invalid versions 1.0.0- parseSimpleSemVer 1`] = `
+{
+  "input": "1.0.0-",
+  "result": undefined,
+}
+`;
+
+exports[`invalid versions 1.0.0- parseSimpleSemVerRange 1`] = `
+{
+  "input": "1.0.0-",
+  "result": [],
+}
+`;
+
+exports[`invalid versions 1.0.0-beta.1+. originalSemver 1`] = `"Invalid Version: 1.0.0-beta.1+."`;
+
+exports[`invalid versions 1.0.0-beta.1+. originalSemver 2`] = `
+{
+  "err": [TypeError: Invalid Version: 1.0.0-beta.1+.],
+  "input": "1.0.0-beta.1+.",
+}
+`;
+
+exports[`invalid versions 1.0.0-beta.1+. parseSimpleSemVer 1`] = `
+{
+  "input": "1.0.0-beta.1+.",
+  "result": undefined,
+}
+`;
+
+exports[`invalid versions 1.0.0-beta.1+. parseSimpleSemVerRange 1`] = `
+{
+  "input": "1.0.0-beta.1+.",
+  "result": [],
+}
+`;
+
+exports[`invalid versions 1.0.0-beta.1+build.123+ originalSemver 1`] = `"Invalid Version: 1.0.0-beta.1+build.123+"`;
+
+exports[`invalid versions 1.0.0-beta.1+build.123+ originalSemver 2`] = `
+{
+  "err": [TypeError: Invalid Version: 1.0.0-beta.1+build.123+],
+  "input": "1.0.0-beta.1+build.123+",
+}
+`;
+
+exports[`invalid versions 1.0.0-beta.1+build.123+ parseSimpleSemVer 1`] = `
+{
+  "input": "1.0.0-beta.1+build.123+",
+  "result": undefined,
+}
+`;
+
+exports[`invalid versions 1.0.0-beta.1+build.123+ parseSimpleSemVerRange 1`] = `
+{
+  "input": "1.0.0-beta.1+build.123+",
+  "result": [],
+}
+`;
+
+exports[`invalid versions 1.0.0-beta.1+build.123. originalSemver 1`] = `"Invalid Version: 1.0.0-beta.1+build.123."`;
+
+exports[`invalid versions 1.0.0-beta.1+build.123. originalSemver 2`] = `
+{
+  "err": [TypeError: Invalid Version: 1.0.0-beta.1+build.123.],
+  "input": "1.0.0-beta.1+build.123.",
+}
+`;
+
+exports[`invalid versions 1.0.0-beta.1+build.123. parseSimpleSemVer 1`] = `
+{
+  "input": "1.0.0-beta.1+build.123.",
+  "result": undefined,
+}
+`;
+
+exports[`invalid versions 1.0.0-beta.1+build.123. parseSimpleSemVerRange 1`] = `
+{
+  "input": "1.0.0-beta.1+build.123.",
+  "result": [],
+}
+`;
+
+exports[`invalid versions 1.0.0-beta.1. originalSemver 1`] = `"Invalid Version: 1.0.0-beta.1."`;
+
+exports[`invalid versions 1.0.0-beta.1. originalSemver 2`] = `
+{
+  "err": [TypeError: Invalid Version: 1.0.0-beta.1.],
+  "input": "1.0.0-beta.1.",
+}
+`;
+
+exports[`invalid versions 1.0.0-beta.1. parseSimpleSemVer 1`] = `
+{
+  "input": "1.0.0-beta.1.",
+  "result": undefined,
+}
+`;
+
+exports[`invalid versions 1.0.0-beta.1. parseSimpleSemVerRange 1`] = `
+{
+  "input": "1.0.0-beta.1.",
+  "result": [],
+}
+`;
+
+exports[`invalid versions 1.0.0b originalSemver 1`] = `"Invalid Version: 1.0.0b"`;
+
+exports[`invalid versions 1.0.0b originalSemver 2`] = `
+{
+  "err": [TypeError: Invalid Version: 1.0.0b],
+  "input": "1.0.0b",
+}
+`;
+
+exports[`invalid versions 1.0.0b parseSimpleSemVer 1`] = `
+{
+  "input": "1.0.0b",
+  "result": undefined,
+}
+`;
+
+exports[`invalid versions 1.0.0b parseSimpleSemVerRange 1`] = `
+{
+  "input": "1.0.0b",
+  "result": [],
+}
+`;
+
+exports[`invalid versions 1.0- originalSemver 1`] = `"Invalid Version: 1.0-"`;
+
+exports[`invalid versions 1.0- originalSemver 2`] = `
+{
+  "err": [TypeError: Invalid Version: 1.0-],
+  "input": "1.0-",
+}
+`;
+
+exports[`invalid versions 1.0- parseSimpleSemVer 1`] = `
+{
+  "input": "1.0-",
+  "result": undefined,
+}
+`;
+
+exports[`invalid versions 1.0- parseSimpleSemVerRange 1`] = `
+{
+  "input": "1.0-",
+  "result": [],
+}
+`;
+
+exports[`invalid versions 1- originalSemver 1`] = `"Invalid Version: 1-"`;
+
+exports[`invalid versions 1- originalSemver 2`] = `
+{
+  "err": [TypeError: Invalid Version: 1-],
+  "input": "1-",
+}
+`;
+
+exports[`invalid versions 1- parseSimpleSemVer 1`] = `
+{
+  "input": "1-",
+  "result": undefined,
+}
+`;
+
+exports[`invalid versions 1- parseSimpleSemVerRange 1`] = `
+{
+  "input": "1-",
+  "result": [],
+}
+`;
+
+exports[`invalid versions a.b.c originalSemver 1`] = `"Invalid Version: a.b.c"`;
+
+exports[`invalid versions a.b.c originalSemver 2`] = `
+{
+  "err": [TypeError: Invalid Version: a.b.c],
+  "input": "a.b.c",
+}
+`;
+
+exports[`invalid versions a.b.c parseSimpleSemVer 1`] = `
+{
+  "input": "a.b.c",
+  "result": undefined,
+}
+`;
+
+exports[`invalid versions a.b.c parseSimpleSemVerRange 1`] = `
+{
+  "input": "a.b.c",
+  "result": [],
+}
+`;

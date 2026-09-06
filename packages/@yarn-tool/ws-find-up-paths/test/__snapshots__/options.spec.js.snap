@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`ignoreCurrentPackage 1`] = `
+{
+  "cwd": Any<String>,
+  "limit": Infinity,
+  "opts": {
+    "cwd": Any<String>,
+    "ignoreCurrentPackage": true,
+    "includeCurrentDirectory": false,
+    "limit": Infinity,
+    "stopPath": Any<Array>,
+  },
+  "path": Anything,
+  "rootData": {
+    "cwd": Any<String>,
+    "hasWorkspace": true,
+    "isRoot": false,
+    "isWorkspace": false,
+    "pkg": Any<String>,
+    "root": Any<String>,
+    "ws": Any<String>,
+  },
+  "stopPath": Any<Array>,
+}
+`;

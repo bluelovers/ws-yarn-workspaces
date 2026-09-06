@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`generatePackageArg edge cases should handle empty semver 1`] = `"lodash"`;
+
+exports[`generatePackageArg edge cases should handle undefined semver 1`] = `"lodash"`;
+
+exports[`generatePackageArg with version should generate package with version when includeVersion is true 1`] = `"lodash@^4.17.0"`;
+
+exports[`generatePackageArg with version should generate scoped package with version 1`] = `"@types/node@18.0.0"`;
+
+exports[`generatePackageArg with version should not include version when includeVersion is false 1`] = `"lodash"`;
+
+exports[`generatePackageArg with version should not include version when includeVersion is not provided 1`] = `"lodash"`;
+
+exports[`generatePackageArg without version should generate package name only 1`] = `"lodash"`;
+
+exports[`generatePackageArg without version should generate scoped package name 1`] = `"@types/node"`;

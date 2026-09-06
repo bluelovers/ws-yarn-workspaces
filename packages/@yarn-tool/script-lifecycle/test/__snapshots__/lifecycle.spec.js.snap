@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`install 1`] = `
+{
+  "after": [
+    "postinstall",
+    "prepublish",
+    "prepare",
+    "preshrinkwrap",
+    "shrinkwrap",
+    "postshrinkwrap",
+  ],
+  "before": [
+    "preinstall",
+  ],
+  "ignoreSelf": false,
+  "name": "install",
+}
+`;
+
+exports[`install 2`] = `
+[
+  "preinstall",
+  "install",
+  "postinstall",
+  "prepublish",
+  "prepare",
+  "preshrinkwrap",
+  "shrinkwrap",
+  "postshrinkwrap",
+]
+`;
+
+exports[`pack 1`] = `
+{
+  "after": [
+    "postpack",
+  ],
+  "before": [
+    "prepublish",
+    "prepare",
+    "prepack",
+  ],
+  "ignoreSelf": true,
+  "name": "pack",
+}
+`;
+
+exports[`pack 2`] = `
+[
+  "prepublish",
+  "prepare",
+  "prepack",
+  "postpack",
+]
+`;
+
+exports[`pack 3`] = `
+[
+  "prepublish",
+  "prepare",
+  "prepack",
+  "pack",
+  "postpack",
+]
+`;
+
+exports[`publish 1`] = `
+{
+  "after": [
+    "postpublish",
+  ],
+  "before": [
+    "prepublish",
+    "prepare",
+    "prepublishOnly",
+    "prepack",
+    "postpack",
+  ],
+  "ignoreSelf": false,
+  "name": "publish",
+}
+`;
+
+exports[`publish 2`] = `
+[
+  "prepublish",
+  "prepare",
+  "prepublishOnly",
+  "prepack",
+  "postpack",
+  "publish",
+  "postpublish",
+]
+`;
+
+exports[`should lifecycle any script name pretitter 1`] = `
+{
+  "after": [
+    "postpretitter",
+  ],
+  "before": [
+    "prepretitter",
+  ],
+  "ignoreSelf": false,
+  "name": "pretitter",
+}
+`;
+
+exports[`should lifecycle any script name pretitter 2`] = `
+[
+  "prepretitter",
+  "pretitter",
+  "postpretitter",
+]
+`;
+
+exports[`should lifecycle any script name yy 1`] = `
+{
+  "after": [
+    "postyy",
+  ],
+  "before": [
+    "preyy",
+  ],
+  "ignoreSelf": false,
+  "name": "yy",
+}
+`;
+
+exports[`should lifecycle any script name yy 2`] = `
+[
+  "preyy",
+  "yy",
+  "postyy",
+]
+`;

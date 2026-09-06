@@ -1,35 +1,5 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`_whichPackageManagerAsyncGenerator should match snapshot for async generator result 1`] = `
-[
-  "pnpm",
-  "C:\\Users\\User\\AppData\\Roaming\\fnm\\aliases\\default\\pnpm.CMD",
-]
-`;
-
-exports[`_whichPackageManagerSyncGenerator should match snapshot for generator result 1`] = `
-[
-  "pnpm",
-  "C:\\Users\\User\\AppData\\Roaming\\fnm\\aliases\\default\\pnpm.CMD",
-]
-`;
-
 exports[`whichPackageManagerAsync should match snapshot for async detection result 1`] = `"pnpm"`;
 
-exports[`whichPackageManagerAsyncAll should match snapshot for async all results 1`] = `
-[
-  "pnpm",
-  "yarn",
-  "npm",
-]
-`;
-
 exports[`whichPackageManagerSync should match snapshot for detection result 1`] = `"pnpm"`;
-
-exports[`whichPackageManagerSyncAll should match snapshot for all detection results 1`] = `
-[
-  "pnpm",
-  "yarn",
-  "npm",
-]
-`;

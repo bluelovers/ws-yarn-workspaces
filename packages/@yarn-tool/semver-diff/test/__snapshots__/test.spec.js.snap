@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`parseVersionsDiffCore 1`] = `
+{
+  "_colors": [
+    "red",
+    "cyan",
+    "green",
+  ],
+  "color": "green",
+  "comp": -1,
+  "index": 2,
+  "leadingWildcard": "",
+  "middot": ".",
+  "partsNew": [
+    "42",
+    "6",
+    "7.9.3-prealpha",
+  ],
+  "partsOld": [
+    "42",
+    "6",
+    "7.9.3-alpha",
+  ],
+  "result": "42.6",
+  "resultAppend": "7.9.3-prealpha",
+  "versionNew": "42.6.7.9.3-prealpha",
+  "versionOld": "42.6.7.9.3-alpha",
+}
+`;

@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`missing range parameter in range intersect 1`] = `"a Range is required"`;
+
+exports[`range as argument to range ctor 1`] = `
+SemverRange {
+  "formatted": "1.2.3",
+  "includePrerelease": false,
+  "loose": true,
+  "options": {
+    "includePrerelease": false,
+    "loose": true,
+  },
+  "raw": "1.2.3",
+  "set": [
+    [
+      Comparator {
+        "loose": true,
+        "operator": "",
+        "options": {
+          "includePrerelease": false,
+          "loose": true,
+        },
+        "semver": SemVer {
+          "build": [],
+          "includePrerelease": false,
+          "loose": true,
+          "major": 1,
+          "minor": 2,
+          "options": {
+            "loose": true,
+          },
+          "patch": 3,
+          "prerelease": [],
+          "raw": "1.2.3",
+          "version": "1.2.3",
+        },
+        "value": "1.2.3",
+      },
+    ],
+  ],
+}
+`;
+
+exports[`range as argument to range ctor 2`] = `
+SemverRange {
+  "formatted": "1.2.3",
+  "includePrerelease": true,
+  "loose": false,
+  "options": {
+    "includePrerelease": true,
+    "loose": false,
+  },
+  "raw": "1.2.3",
+  "set": [
+    [
+      Comparator {
+        "loose": false,
+        "operator": "",
+        "options": {
+          "includePrerelease": true,
+          "loose": false,
+        },
+        "semver": SemVer {
+          "build": [],
+          "includePrerelease": false,
+          "loose": false,
+          "major": 1,
+          "minor": 2,
+          "options": {},
+          "patch": 3,
+          "prerelease": [],
+          "raw": "1.2.3",
+          "version": "1.2.3",
+        },
+        "value": "1.2.3",
+      },
+    ],
+  ],
+}
+`;
+
+exports[`range parsing >01.02.03 undefined null 1`] = `"Invalid comparator: >01.02.03"`;
+
+exports[`range parsing ~1.2.3beta undefined null 1`] = `"Invalid comparator: ~1.2.3beta"`;
+
+exports[`throw for empty comparator set, even in loose mode 1`] = `"Invalid SemVer Range: sadf||asdf"`;
