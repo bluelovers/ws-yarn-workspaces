@@ -60,7 +60,27 @@ function _lazyTest002<T extends Record<string, any>>(result: T, input?: any)
 		delete result.fnmPathReal;
 		delete result.aliasDefaultPathReal;
 
-		expect(result).toMatchSnapshot();
+		if (result.isFnm)
+		{
+			if (result.installationPath)
+			{
+				expect(result).toMatchSnapshot({
+					fnmPath: expect.any(String),
+					installationPath: expect.any(String),
+					version: expect.any(String),
+				} as any);
+			}
+			else
+			{
+				expect(result).toMatchSnapshot({
+					fnmPath: expect.any(String),
+				} as any);
+			}
+		}
+		else
+		{
+			expect(result).toMatchSnapshot();
+		}
 	}
 	else
 	{

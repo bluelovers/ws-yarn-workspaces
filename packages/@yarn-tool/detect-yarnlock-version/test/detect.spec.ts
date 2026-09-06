@@ -33,9 +33,9 @@ describe(`version`, () =>
 
 	_forEachVersionTags().forEach(ver =>
 	{
-		describe(ver, () =>
+		describe(ver as any, () =>
 		{
-			const dir = join(__TEST_YARNLOCK, ver);
+			const dir = join(__TEST_YARNLOCK, ver as any);
 
 			FastGlob([
 				'**/*.lock',
@@ -49,7 +49,7 @@ describe(`version`, () =>
 				{
 
 					let actual = _detectYarnLockVersionCore(buf);
-					let expected = EnumDetectYarnLock[ver];
+					let expected: EnumDetectYarnLock = EnumDetectYarnLock[ver];
 
 					expect(actual).toHaveProperty('verType', expected);
 

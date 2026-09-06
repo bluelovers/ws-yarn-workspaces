@@ -29,14 +29,13 @@ const _defaultCopyStaticFiles = [
 	['.eslintignore', 'file/eslintignore'],
 
 	// TypeScript configuration / TypeScript 配置
-	['tsconfig.json.tpl', 'file/tsconfig.json.tpl', 'tsconfig.json'],
+	['tsconfig.json', 'file/tsconfig.json.tpl'],
+	['tsconfig.json.tpl', 'file/tsconfig.json.tpl'],
 
 	['test/tsconfig.json.tpl', 'file/test/tsconfig.json.tpl', 'test/tsconfig.json'],
 
 	['tsconfig.esm.json.tpl', 'file/tsconfig.esm.json.tpl', 'tsconfig.esm.json'],
 	['tsconfig.tsdx.json.tpl', 'file/tsconfig.tsdx.json.tpl', 'tsconfig.tsdx.json'],
-
-	['tsconfig.json', 'file/tsconfig.json.tpl'],
 
 	// ESLint configuration / ESLint 配置
 	['.eslintrc.json.tpl', 'file/eslintrc.json.tpl', '.eslintrc.json'],

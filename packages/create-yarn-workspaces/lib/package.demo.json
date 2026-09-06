@@ -6,9 +6,9 @@
   "devDependencies": {
     "@bluelovers/tsconfig": "^2.0.3",
     "@types/jest": "^30.0.0",
-    "@types/node": "^25.6.0",
-    "@yarn-tool/require-resolve": "^4.0.7",
-    "@yarn-tool/ws-find-up-paths": "^1.0.20"
+    "@types/node": "^26.4.1",
+    "@yarn-tool/require-resolve": "^4.0.8",
+    "@yarn-tool/ws-find-up-paths": "^1.0.21"
   },
   "peerDependencies": {
     "@bluelovers/conventional-changelog-bluelovers": "*"

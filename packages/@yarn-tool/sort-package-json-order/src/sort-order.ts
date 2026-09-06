@@ -49,6 +49,7 @@ export const sortOrder = [
 	'binary',
 	'scripts',
 	'betterScripts',
+	'wireit',
 	'l10n',
 	'contributes',
 	'activationEvents',
