@@ -27,14 +27,14 @@
   "author": "",
   "main": "index.js",
   "scripts": {
-    "coverage": "yarn run test -- --coverage",
+    "coverage": "pnpm run test -- --coverage",
     "test": "node --run test:jest --",
     "test:jest": "jest --passWithNoTests",
     "test:jest:coverage": "node --run test:jest -- --coverage",
     "test:jest:snapshot": "node --run test:jest -- -u",
-    "test:snapshot": "yarn run test -- -u",
+    "test:snapshot": "pnpm run test -u",
     "test:tsd": "ynpx tsd",
-    "preversion": "yarn run test",
+    "preversion": "pnpm run test",
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {

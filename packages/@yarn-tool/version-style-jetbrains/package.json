@@ -39,9 +39,9 @@
   "main": "index.js",
   "scripts": {
     "review": "node --run review:coverage",
-    "review:coverage": "yarn run lint && yarn run coverage",
-    "review:test": "yarn run lint && yarn run test",
-    "coverage": "yarn run test -- --coverage",
+    "review:coverage": "pnpm run lint && pnpm run coverage",
+    "review:test": "pnpm run lint && pnpm run test",
+    "coverage": "pnpm run test -- --coverage",
     "lint": "node --run lint:eslint",
     "lint:eslint": "ynpx eslint --ext .ts,.tsx,.mts,.cts ./",
     "pretest": "echo pretest",
@@ -50,7 +50,7 @@
     "test:jest:coverage": "node --run test:jest -- --coverage",
     "test:jest:snapshot": "node --run test:jest -- -u",
     "test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
-    "test:snapshot": "yarn run test -- -u",
+    "test:snapshot": "pnpm run test -u",
     "test:tsd": "ynpx tsd",
     "test:tsdx": "ynpx @bluelovers/tsdx test --passWithNoTests",
     "build:dts:bundle": "ynpx @bluelovers/dts-bundle-generator -o ./dist/index.d.ts ./src/index.ts --no-banner --inline-declare-global & echo build:dts:bundle",
@@ -61,7 +61,7 @@
     "build:tsdx": "ynpx @bluelovers/tsdx build --target node --name index",
     "ci:install": "echo ci:install",
     "ci:build": "echo ci:build",
-    "preversion": "echo preversion && yarn run test",
+    "preversion": "echo preversion && pnpm run test",
     "version": "echo version",
     "postversion": "echo postversion",
     "prepublish": "echo prepublish",
@@ -79,7 +79,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "dayjs": "^1.11.20",
+    "dayjs": "^1.11.23",
     "dayjs-tz-helper": "^1.0.8",
     "ts-type": "^3.0.13",
     "tslib": ">=2.8.1"

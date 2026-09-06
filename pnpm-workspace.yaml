@@ -6,20 +6,28 @@ packages:
   # exclude packages that are inside test/ directories
   - '!**/test/**'
 
-publicHoistPattern:
-  - "ts-type"
-  - "yargs"
-  - "@yarn-tool/*"
-  - "@lazy-node/*"
-  - "path-is-same"
-  - "bluebird"
-  - "@ts-type/*"
-  - "upath2"
-  - "fs-extra"
-  - "micromatch"
-  - "strip-ansi"
-  - "@types/expect"
+# publicHoistPattern:
+#   - "ts-type"
+#   - "yargs"
+#   - "@yarn-tool/*"
+#   - "@lazy-node/*"
+#   - "path-is-same"
+#   - "bluebird"
+#   - "@ts-type/*"
+#   - "upath2"
+#   - "fs-extra"
+#   - "micromatch"
+#   - "strip-ansi"
+#   - "@types/expect"
 
 linkWorkspacePackages: true
 saveWorkspaceProtocol: false
 preferWorkspacePackages: true
+
+allowBuilds:
+  '@parcel/watcher': true
+  classic-level: true
+  core-js-pure: true
+  nx: true
+  unrs-resolver: true
+  yarn: true

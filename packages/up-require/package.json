@@ -32,15 +32,15 @@
     "test": "test"
   },
   "scripts": {
-    "coverage": "yarn run test -- --coverage",
+    "coverage": "pnpm run test -- --coverage",
     "test": "ynpx mocha test/*.test.js test/**/*.test.js && echo test",
     "test:jest": "jest --passWithNoTests",
-    "test:jest:coverage": "yarn run test:jest",
-    "test:jest:snapshot": "yarn run test -- -u",
-    "test:snapshot": "yarn run test -- -u",
+    "test:jest:coverage": "pnpm run test:jest",
+    "test:jest:snapshot": "pnpm run test -u",
+    "test:snapshot": "pnpm run test -u",
     "test:tsd": "ynpx tsd",
-    "preversion": "yarn run test",
-    "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
+    "preversion": "pnpm run test",
+    "prepublishOnly:update": "pnpm run ncu && pnpm run sort-package-json",
     "ncu": "yarn-tool ncu -u",
     "sort-package-json": "yarn-tool sort",
     "tsc:showConfig": "ynpx get-current-tsconfig -p"

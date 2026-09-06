@@ -20,18 +20,18 @@
     "test": "tests"
   },
   "scripts": {
-    "coverage": "yarn run test -- --coverage",
+    "coverage": "pnpm run test -- --coverage",
     "test": "jest",
     "test:jest": "jest --passWithNoTests",
-    "test:jest:coverage": "yarn run test:jest -- --coverage",
-    "test:jest:snapshot": "yarn run test:jest -- -u",
-    "test:snapshot": "yarn run test -- -u",
+    "test:jest:coverage": "pnpm run test:jest -- --coverage",
+    "test:jest:snapshot": "pnpm run test:jest -- -u",
+    "test:snapshot": "pnpm run test -u",
     "test:tsd": "ynpx tsd",
-    "preversion": "yarn run test",
+    "preversion": "pnpm run test",
     "prepublishOnly": "echo prepublishOnly",
-    "prepublishOnly_": "yarn run prepublishOnly:check-bin && yarn run test",
+    "prepublishOnly_": "pnpm run prepublishOnly:check-bin && pnpm run test",
     "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
-    "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
+    "prepublishOnly:update": "pnpm run ncu && pnpm run sort-package-json",
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort",
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
@@ -40,7 +40,7 @@
     "micromatch": "^4.0.8",
     "pkg-dir": "<6 >=5",
     "tslib": ">=2.8.1",
-    "upath2": "^3.1.23"
+    "upath2": "^3.1.25"
   },
   "gitHead": "40676553ac196265d354e537459d4c78d67f0a8c"
 }
