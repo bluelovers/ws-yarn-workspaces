@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.11](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-parse@3.0.10...@yarn-tool/yarnlock-parse@3.0.11) (2026-09-06)
+
+
+
+### 🚨　Tests
+
+* **test:** 修正測試檔案中的型別錯誤 ([de43ecf](https://github.com/bluelovers/ws-yarn-workspaces/commit/de43ecf69b0e5beddaa2408bda4924770faf1291))
+
+
+### 🛠　Build System
+
+* update Static Files ([b2f5d72](https://github.com/bluelovers/ws-yarn-workspaces/commit/b2f5d7216773c53eb35f267ba34f8788543d46a1))
+* **deps:** 更新多個套件的依賴版本並引入 yarnlock-types ([18b6d42](https://github.com/bluelovers/ws-yarn-workspaces/commit/18b6d4243777798acf533b01182b6821476fea76))
+
+
+### ♻️　Chores
+
+* **workspace:** 將所有套件的指令從 yarn 改為 pnpm 並更新依賴版本 ([0505892](https://github.com/bluelovers/ws-yarn-workspaces/commit/0505892e5e7c356f8cf59495fefda1aa681499c6))
+
+
+### 🔖　Miscellaneous
+
+* . ([b545589](https://github.com/bluelovers/ws-yarn-workspaces/commit/b54558925d67304019e2b4f9bb3c4671c429a96e))
+
+
+
 ## [3.0.10](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-parse@3.0.9...@yarn-tool/yarnlock-parse@3.0.10) (2026-04-26)
 
 **Note:** Version bump only for package @yarn-tool/yarnlock-parse

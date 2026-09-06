@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.10](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/detect-package-manager@1.0.9...@yarn-tool/detect-package-manager@1.0.10) (2026-09-06)
+
+
+
+### 🚨　Tests
+
+* **@yarn-tool/detect-package-manager:** 將測試驗證方式從 snapshot 改為內容比對 ([ee6f231](https://github.com/bluelovers/ws-yarn-workspaces/commit/ee6f2311f1caa4ffac16ca7c8069a4f31fb4ef09))
+* **tests:** 新增與更新多個套件的單元測試快照 ([11628a4](https://github.com/bluelovers/ws-yarn-workspaces/commit/11628a47aa48be30829cf615a52d7b2b1b273d43))
+
+
+### 🛠　Build System
+
+* update Static Files ([b2f5d72](https://github.com/bluelovers/ws-yarn-workspaces/commit/b2f5d7216773c53eb35f267ba34f8788543d46a1))
+
+
+### ♻️　Chores
+
+* **workspace:** 將所有套件的指令從 yarn 改為 pnpm 並更新依賴版本 ([0505892](https://github.com/bluelovers/ws-yarn-workspaces/commit/0505892e5e7c356f8cf59495fefda1aa681499c6))
+
+
+### 🔖　Miscellaneous
+
+* . ([b545589](https://github.com/bluelovers/ws-yarn-workspaces/commit/b54558925d67304019e2b4f9bb3c4671c429a96e))
+
+
+
 ## [1.0.9](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/detect-package-manager@1.0.8...@yarn-tool/detect-package-manager@1.0.9) (2026-04-26)
 
 

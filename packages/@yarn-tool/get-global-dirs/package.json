@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/get-global-dirs",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "獲取全局安裝目錄的工具，支援 npm、yarn 和 pnpm。Get global installation directories for npm, yarn, and pnpm.",
   "keywords": [
     "global",

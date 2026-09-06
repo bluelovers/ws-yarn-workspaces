@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.27](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/is-npx@1.0.26...@yarn-tool/is-npx@1.0.27) (2026-09-06)
+
+
+
+### 🛠　Build System
+
+* update Static Files ([b2f5d72](https://github.com/bluelovers/ws-yarn-workspaces/commit/b2f5d7216773c53eb35f267ba34f8788543d46a1))
+
+
+### ♻️　Chores
+
+* **workspace:** 將所有套件的指令從 yarn 改為 pnpm 並更新依賴版本 ([0505892](https://github.com/bluelovers/ws-yarn-workspaces/commit/0505892e5e7c356f8cf59495fefda1aa681499c6))
+
+
+### 🔖　Miscellaneous
+
+* . ([b545589](https://github.com/bluelovers/ws-yarn-workspaces/commit/b54558925d67304019e2b4f9bb3c4671c429a96e))
+
+
+
 ## [1.0.26](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/is-npx@1.0.25...@yarn-tool/is-npx@1.0.26) (2026-04-26)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/setup-module-env",
-  "version": "3.0.13",
+  "version": "3.0.14",
   "description": "用於設定 tsdx 專案環境的工具，自動配置 package.json 與靜態檔案 (Tool for setting up tsdx project environment, auto-configuring package.json and static files)",
   "keywords": [
     "yarn",
@@ -55,7 +55,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/pkg-entry-util": "^3.0.13",
+    "@yarn-tool/pkg-entry-util": "^3.0.14",
     "dot-values2": "^2.0.7",
     "tslib": ">=2.8.1"
   },

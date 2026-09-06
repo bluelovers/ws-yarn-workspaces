@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/update-notifier",
-  "version": "1.0.47",
+  "version": "1.0.48",
   "description": "CLI 工具更新通知器，在適當時機提醒使用者有新版本可用 / CLI tool update notifier that reminds users of new versions at appropriate times",
   "keywords": [
     "update-notifier",
@@ -43,7 +43,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/is-npx": "^1.0.26",
+    "@yarn-tool/is-npx": "^1.0.27",
     "ci-info": "^4.4.0",
     "tslib": ">=2.8.1",
     "update-notifier": "<6 >=5.1.0"

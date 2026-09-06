@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.17](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.16...@yarn-tool/static-file@3.0.17) (2026-09-06)
+
+
+
+### 📦　Code Refactoring
+
+* **@yarn-tool/static-file:** 優化模板檔案結構與配置管理 ([4dee77b](https://github.com/bluelovers/ws-yarn-workspaces/commit/4dee77bb027f49b987e689486d828e924492ed99))
+* **@yarn-tool/static-file:** 移除舊版 jest 配置並修正 preset 路徑 ([92c97af](https://github.com/bluelovers/ws-yarn-workspaces/commit/92c97afcf90efacb50ccc81948c727716bd46ef5))
+* **tools:** 優化各工具套件的實作細節與測試邏輯 ([f1f02f2](https://github.com/bluelovers/ws-yarn-workspaces/commit/f1f02f2319e9b5f7383e4001c7c67c60e8aae01a))
+
+
+### 🛠　Build System
+
+* update Static Files ([b2f5d72](https://github.com/bluelovers/ws-yarn-workspaces/commit/b2f5d7216773c53eb35f267ba34f8788543d46a1))
+* **monorepo:** 優化靜態檔案範本與腳本指令 ([3ec7521](https://github.com/bluelovers/ws-yarn-workspaces/commit/3ec7521f4deb6625c4a567dc6885300e92c2a7ed))
+* **static-file:** 在 tsconfig 範本中新增 jest 與 node 型別定義 ([774e55e](https://github.com/bluelovers/ws-yarn-workspaces/commit/774e55e092e07ec2bf72224797e1fe7b6b8a9ddc))
+
+
+### ⚙️　Continuous Integration
+
+* **workflow:** 新增 pnpm 工作流程並重構 GitHub Actions 配置 ([82e781d](https://github.com/bluelovers/ws-yarn-workspaces/commit/82e781dd53007bff5e3d693bb650a483a8b9c48c))
+
+
+### ♻️　Chores
+
+* **@yarn-tool/static-file:** 註解掉 pnpm-workspace 中的 publicHoistPattern 配置 ([49a2905](https://github.com/bluelovers/ws-yarn-workspaces/commit/49a290584df520d00fa55589a4518042b7748d32))
+* **workspace:** 將所有套件的指令從 yarn 改為 pnpm 並更新依賴版本 ([0505892](https://github.com/bluelovers/ws-yarn-workspaces/commit/0505892e5e7c356f8cf59495fefda1aa681499c6))
+
+
+### 🔖　Miscellaneous
+
+* . ([b545589](https://github.com/bluelovers/ws-yarn-workspaces/commit/b54558925d67304019e2b4f9bb3c4671c429a96e))
+* . ([50c995f](https://github.com/bluelovers/ws-yarn-workspaces/commit/50c995f7f5c8640fde49bc6c71e987a7bd01ece4))
+
+
+
 ## [3.0.16](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.15...@yarn-tool/static-file@3.0.16) (2026-04-26)
 
 
