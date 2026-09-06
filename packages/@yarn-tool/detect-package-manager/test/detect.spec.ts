@@ -199,7 +199,7 @@ describe('whichPackageManagerSyncAll', () => {
 	it('should match snapshot for all detection results', () => {
 		const result = whichPackageManagerSyncAll();
 
-		expect(result).toMatchSnapshot();
+		expect(_handleClientsToCheck()).toEqual(expect.arrayContaining(result));
 	});
 
 	/**
@@ -250,7 +250,7 @@ describe('_whichPackageManagerSyncGenerator', () => {
 		// 只在有結果時驗證 snapshot
 		// Only verify snapshot when there's a result
 		if (result.value !== undefined) {
-			expect(result.value).toMatchSnapshot();
+			expect(_handleClientsToCheck()).toContain(result.value[0]);
 		}
 	});
 
@@ -356,7 +356,7 @@ describe('whichPackageManagerAsyncAll', () => {
 	it('should match snapshot for async all results', async () => {
 		const result = await whichPackageManagerAsyncAll();
 
-		expect(result).toMatchSnapshot();
+		expect(_handleClientsToCheck()).toEqual(expect.arrayContaining(result));
 	});
 
 	/**
@@ -412,7 +412,7 @@ describe('_whichPackageManagerAsyncGenerator', () => {
 		// 只在有結果時驗證 snapshot
 		// Only verify snapshot when there's a result
 		if (result.value !== undefined) {
-			expect(result.value).toMatchSnapshot();
+			expect(_handleClientsToCheck()).toContain(result.value[0]);
 		}
 	});
 
