@@ -5,6 +5,7 @@ const fromContent_1 = require("@yarn-tool/yarnlock-entries/lib/fromContent");
 const queryVersion_1 = require("@yarn-tool/pkg-version-query/lib/queryVersion");
 const semver_1 = require("semver");
 const npm_package_arg_util_1 = require("@yarn-tool/npm-package-arg-util");
+const const_1 = require("@lazy-node/semver-ampersand/lib/const");
 const parseSimpleSemVerRange_1 = require("@lazy-node/semver-simple-parse/lib/parseSimpleSemVerRange");
 const package_json_1 = require("package-json");
 const debug_color2_1 = require("debug-color2");
@@ -38,7 +39,7 @@ async function updateYarnLockTag(yarnlock_old) {
                 let semver;
                 let version_new;
                 if (npaResult.subSpec.type === 'range') {
-                    if (npaResult.subSpec.fetchSpec === "" /* EnumSemverVersion.ANY */ || npaResult.subSpec.fetchSpec === "*" /* EnumSemverVersion.STAR */) {
+                    if (npaResult.subSpec.fetchSpec === const_1.EnumSemverVersion.ANY || npaResult.subSpec.fetchSpec === const_1.EnumSemverVersion.STAR) {
                         semver = '>' + version;
                     }
                     else if ((0, parseSimpleSemVerRange_1.parseSimpleSemVerRange)(npaResult.subSpec.fetchSpec).length > 1) {

@@ -20,36 +20,34 @@ const _defaultCopyStaticFiles = [
     ['.gitignore', 'file/gitignore'],
     ['.eslintignore', 'file/eslintignore'],
     // TypeScript configuration / TypeScript 配置
-    ['tsconfig.json.tpl', 'file/tsconfig.json.tpl', 'tsconfig.json'],
+    ['tsconfig.json', 'file/tsconfig.json.tpl'],
+    ['tsconfig.json.tpl', 'file/tsconfig.json.tpl'],
     ['test/tsconfig.json.tpl', 'file/test/tsconfig.json.tpl', 'test/tsconfig.json'],
-    ['test/tsconfig.json', 'file/test/tsconfig.json.tpl'],
     ['tsconfig.esm.json.tpl', 'file/tsconfig.esm.json.tpl', 'tsconfig.esm.json'],
     ['tsconfig.tsdx.json.tpl', 'file/tsconfig.tsdx.json.tpl', 'tsconfig.tsdx.json'],
-    ['tsconfig.json', 'file/tsconfig.json.tpl'],
     // ESLint configuration / ESLint 配置
     ['.eslintrc.json.tpl', 'file/eslintrc.json.tpl', '.eslintrc.json'],
     // Documentation / 文檔
     ['README.md', 'file/README.md'],
     // Test configuration / 測試配置
     ['.mocharc.yml.tpl', 'file/mocharc.yml'],
-    //['jest.config.js', 'file/jest.config.js'],
     ['jest.config.js', 'file/jest.config.auto.js'],
     // Now/Zeit deployment / Now/Zeit 部署配置
     ['.nowignore', 'file/nowignore'],
     ['now.json.tpl', 'file/now.json.tpl', 'now.json'],
     // TSDX configuration / TSDX 配置
     ['tsdx.config.js.tpl', 'file/tsdx.config.js', 'tsdx.config.js'],
-    // Test fixtures / 測試固定檔案
-    ['test/__root.ts', 'file/test/__root.ts'],
-    ['test/fixtures/.gitkeep', 'file/test/fixtures/.gitkeep'],
-    // Temporary test files / 臨時測試檔案
+    // test / 測試
     ...([
         'temp.ts',
+        '__root.ts',
         '__root-core.cjs',
         '__root-core.mjs',
         '__root-core.d.cts',
         '__root-core.d.mts',
         '__root-core.d.ts',
+        // Test fixtures / 測試固定檔案
+        'fixtures/.gitkeep',
     ].map(file => [
         `test/${file}`,
         `file/test/${file}`
@@ -68,31 +66,35 @@ const _defaultCopyStaticFiles = [
 const _defaultCopyStaticFilesRootOnly = [
     // Monorepo configuration / Monorepo 配置
     ['lerna.json.tpl', 'file/lerna.json.tpl', 'lerna.json'],
-    ['pnpm-workspace.yaml.tpl', 'file/pnpm-workspace.yaml', 'pnpm-workspace.yaml'],
+    ['pnpm-workspace.yaml.tpl', 'file/pnpm-workspace.yaml'],
     // GitHub Actions workflows / GitHub Actions 工作流程
-    ['.github/workflows/coverage.yml', 'file/github/workflows/coverage.yml'],
-    ['.github/workflows/action-yarnlock-dedupe.yml', 'file/github/workflows/action-yarnlock-dedupe.yml'],
-    ['.github/workflows/build.yml', 'file/github/workflows/build.yml'],
-    ['.github/workflows/yarn-lock-changes.yml', 'file/github/workflows/yarn-lock-changes.yml'],
-    ['.github/commit-convention.md', 'file/github/commit-convention.md'],
+    ['.github/workflows/build-pnpm.yml', 'file/github/workflows/build-pnpm.yml'],
+    ['.github/workflows/build-yarn.yml', 'file/github/workflows/build-yarn.yml'],
     // Additional GitHub configuration / 額外的 GitHub 配置
     ...([
         'dependabot.yml',
-        'workflows/codeql-analysis.yml',
-        'workflows/cmd-rebase.yml',
+        'commit-convention.md',
+        // ---
+        // 'workflows/codeql-analysis.yml',
+        // 'workflows/cmd-rebase.yml',
+        // 'workflows/coverage.yml',
+        // 'workflows/action-yarnlock-dedupe.yml',
+        // 'workflows/yarn-lock-changes.yml',
+        // ---
     ].map(file => [`.github/${file}`, `file/github/${file}`])),
     // Node version files / Node 版本檔案
-    ['.node-version', 'file/nvmrc'],
-    ['.nvmrc', 'file/nvmrc'],
+    ['.node-version.tpl', 'file/nvmrc'],
+    ['.nvmrc.tpl', 'file/nvmrc'],
     // Root TypeScript configuration / 根目錄 TypeScript 配置
     ['.eslintrc.json', 'file/eslintrc.json.tpl', '.eslintrc.json'],
     //['changelog-option.js', 'file/changelog-option.js', 'changelog-option.js.tpl'],
     // Package manager configuration / 套件管理器配置
     ['.yarnrc.yml.tpl', 'file/root/yarnrc.yml', '.yarnrc.yml'],
     ['.npmrc.tpl', 'file/npmrc', '.npmrc'],
+    ['.env.tpl', 'file/env'],
     // Jest configuration / Jest 配置
-    ['jest.config.js', 'file/jest.config.js'],
-    ['jest.config.js.tpl', 'file/jest.config.js'],
+    // ['jest.config.js', 'file/jest.config.js'],
+    // ['jest.config.js.tpl', 'file/jest.config.js'],
     ['jest.config.auto.js.tpl', 'file/jest.config.auto.js'],
     // Editor configuration / 編輯器配置
     ['.editorconfig.tpl', 'file/tpl.editorconfig'],
@@ -102,9 +104,9 @@ const _defaultCopyStaticFilesRootOnly = [
     // Browserslist configuration / Browserslist 配置
     ['.browserslistrc', 'file/ws-root/browserslistrc'],
     // TSC multi configuration / TSC 多配置
-    ['tsc-multi.json.tpl', 'file/tsc-multi.json.tpl', 'tsc-multi.json'],
+    // ['tsc-multi.json.tpl', 'file/tsc-multi.json.tpl', 'tsc-multi.json'],
     // NYC coverage configuration / NYC 覆蓋率配置
-    ['.nycrc.tpl', 'file/nycrc'],
+    // ['.nycrc.tpl', 'file/nycrc', '.nycrc'],
 ];
 /**
  * Default static files for workspace root only / 僅工作區根目錄的預設靜態檔案
@@ -118,12 +120,13 @@ const _defaultCopyStaticFilesWsRootOnly = [
     // pnpm workspace configuration / pnpm 工作區配置
     ['pnpm-workspace.yaml', 'file/pnpm-workspace.yaml'],
     // TSC multi configuration / TSC 多配置
-    ['tsc-multi.json.tpl', 'file/tsc-multi.json.tpl', 'tsc-multi.json'],
+    // ['tsc-multi.json.tpl', 'file/tsc-multi.json.tpl', 'tsc-multi.json'],
     // Workspace root file / 工作區根目錄檔案
     ['__root_ws.ts', 'file/ws-root/__root_ws.ts'],
     // Jest configuration / Jest 配置
     ['jest.config.js', 'file/ws-root/jest.config.js'],
     ['jest-preset.js', 'file/ws-root/jest-preset.js'],
+    ['jest.config.js.tpl', 'file/ws-root/jest.config.js'],
     // Run configurations / 執行配置
     ['.run/lerna_publish_yes.run.xml', 'file/ws-root/.run/lerna_publish_yes.run.xml'],
 ];

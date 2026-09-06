@@ -16,6 +16,7 @@ const types_1 = require("@ts-type/package-dts/lib/package-json/types");
 const util_1 = require("ws-pkg-list/lib/util");
 const semver_simple_parse_1 = require("@lazy-node/semver-simple-parse");
 const replaceSimpleSemVerVersion_1 = require("@lazy-node/semver-simple-parse/lib/replaceSimpleSemVerVersion");
+const const_1 = require("@lazy-node/semver-ampersand/lib/const");
 /**
  * 處理執行時快取，初始化所有必要欄位
  * Process runtime cache, initialize all required fields
@@ -63,7 +64,7 @@ function fixPkgDepsVersionsCore(row, cache) {
                 // 取得舊版本號 / Get old version
                 const old = row[field][name];
                 // 跳過未定義或萬用字元版本 / Skip undefined or wildcard versions
-                if (typeof old !== 'undefined' && old !== "*" /* EnumSemverVersion.STAR */) {
+                if (typeof old !== 'undefined' && old !== const_1.EnumSemverVersion.STAR) {
                     // 解析版本範圍 / Parse version range
                     const parsed = (0, semver_simple_parse_1.parseRange)(old);
                     // 取得套件當前版本 / Get package current version
