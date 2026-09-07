@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.55](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-root-spawn@1.0.54...ws-root-spawn@1.0.55) (2026-09-07)
+
+
+
+### 🐛　Bug Fixes
+
+* **ws-root-run:** 更新套件名稱與簡化 package.json 腳本 ([6c8a527](https://github.com/bluelovers/ws-yarn-workspaces/commit/6c8a527271d4b820f54e724ce459f79fd5e3cf29))
+
+
+
 ## [1.0.54](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-root-spawn@1.0.53...ws-root-spawn@1.0.54) (2026-09-06)
 
 
