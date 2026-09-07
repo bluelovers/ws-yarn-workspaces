@@ -5,8 +5,8 @@
 ## install
 
 ```bash
-yarn add ws-root-run
-yarn-tool add ws-root-run
-yt add ws-root-run
+yarn add ws-root-spawn
+yarn-tool add ws-root-spawn
+yt add ws-root-spawn
 ```
 
