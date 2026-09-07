@@ -2385,9 +2385,6 @@ importers:
       tslib:
         specifier: '>=2.8.1'
         version: 2.8.1
-      yarn:
-        specifier: ^1.22.22
-        version: 1.22.22
 
   packages/yarn-cmd-module:
     dependencies:
@@ -7808,11 +7805,6 @@ packages:
   yarn-deduplicate@6.0.2:
     resolution: {integrity: sha512-Efx4XEj82BgbRJe5gvQbZmEO7pU5DgHgxohYZp98/+GwPqdU90RXtzvHirb7hGlde0sQqk5G3J3Woyjai8hVqA==}
     engines: {node: '>=v14', yarn: '>=1 <2'}
-    hasBin: true
-
-  yarn@1.22.22:
-    resolution: {integrity: sha512-prL3kGtyG7o9Z9Sv8IPfBNrWTDmXB4Qbes8A9rEzt6wkJV8mUvoirjU0Mp3GGAU06Y0XQyA3/2/RQFVuK7MTfg==}
-    engines: {node: '>=4.0.0'}
     hasBin: true
 
   yawn-yaml@3.0.0:
@@ -14561,8 +14553,6 @@ snapshots:
       commander: 10.0.1
       semver: 7.8.5
       tslib: 2.8.1
-
-  yarn@1.22.22: {}
 
   yawn-yaml@3.0.0:
     dependencies:
