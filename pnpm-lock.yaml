@@ -473,7 +473,7 @@ importers:
         specifier: ^4.0.9
         version: link:../require-resolve
       '@yarn-tool/setup-module-env':
-        specifier: ^3.0.14
+        specifier: ^3.0.15
         version: link:../setup-module-env
       '@yarn-tool/static-file':
         specifier: ^3.0.18
@@ -2184,7 +2184,7 @@ importers:
         specifier: ^1.0.9
         version: link:../@yarn-tool/pkg-readme-tpl
       '@yarn-tool/setup-module-env':
-        specifier: ^3.0.14
+        specifier: ^3.0.15
         version: link:../@yarn-tool/setup-module-env
       '@yarn-tool/static-file':
         specifier: ^3.0.18
