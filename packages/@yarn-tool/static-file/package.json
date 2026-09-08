@@ -15,8 +15,6 @@
   "author": "",
   "main": "index.js",
   "scripts": {
-    "coverage": "npx nyc npm run test",
-    "lint": "npx eslint **/*.ts",
     "test": "node --run test:jest --",
     "test:jest": "jest --passWithNoTests",
     "test:jest:coverage": "pnpm run test:jest -- --coverage",
@@ -25,10 +23,10 @@
     "test:tsd": "ynpx tsd",
     "npm:publish": "npm publish",
     "preversion": "pnpm run test",
-    "prepublishOnly": "echo prepublishOnly",
-    "postpublish_": "git commit -m \"chore(release): publish\" .",
-    "ncu": "npx yarn-tool ncu -u",
-    "sort-package-json": "npx yarn-tool sort",
+    "prepublishOnly": "node --run fix:ignore",
+    "ncu": "yarn-tool ncu -u",
+    "sort-package-json": "yarn-tool sort",
+    "fix:ignore": "tsx test/scripts/update-npmignore-static-files.ts",
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
