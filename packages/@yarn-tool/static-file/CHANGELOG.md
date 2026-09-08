@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.18](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.17...@yarn-tool/static-file@3.0.18) (2026-09-08)
+
+
+
+### ⚙️　Continuous Integration
+
+* **@yarn-tool/static-file:** 自動化更新 .gitignore 與 .npmignore 中的靜態檔案排除清單 ([1841063](https://github.com/bluelovers/ws-yarn-workspaces/commit/1841063c025c0d9e561386b8b4e91e19c24d8bfc))
+
+
+
 ## [3.0.17](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.16...@yarn-tool/static-file@3.0.17) (2026-09-06)
 
 

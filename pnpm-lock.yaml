@@ -476,7 +476,7 @@ importers:
         specifier: ^3.0.14
         version: link:../setup-module-env
       '@yarn-tool/static-file':
-        specifier: ^3.0.17
+        specifier: ^3.0.18
         version: link:../static-file
       '@yarn-tool/write-package-json':
         specifier: ^1.0.17
@@ -2033,7 +2033,7 @@ importers:
         specifier: ^4.0.9
         version: link:../@yarn-tool/require-resolve
       '@yarn-tool/static-file':
-        specifier: ^3.0.17
+        specifier: ^3.0.18
         version: link:../@yarn-tool/static-file
       '@yarn-tool/ws-find-up-paths':
         specifier: ^1.0.22
@@ -2178,7 +2178,7 @@ importers:
         specifier: ^3.0.14
         version: link:../@yarn-tool/setup-module-env
       '@yarn-tool/static-file':
-        specifier: ^3.0.17
+        specifier: ^3.0.18
         version: link:../@yarn-tool/static-file
       '@yarn-tool/types':
         specifier: ^1.0.21

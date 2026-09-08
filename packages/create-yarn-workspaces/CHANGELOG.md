@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.20](https://github.com/bluelovers/ws-yarn-workspaces/compare/create-yarn-workspaces@3.0.19...create-yarn-workspaces@3.0.20) (2026-09-08)
+
+
+
+### ♻️　Chores
+
+* **create-yarn-workspaces:** 擴充測試指令以支援覆蓋率與快照測試 ([1a1f44b](https://github.com/bluelovers/ws-yarn-workspaces/commit/1a1f44b6435f50216c48263dbaaef8973a71a265))
+
+
+
 ## [3.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/create-yarn-workspaces@3.0.18...create-yarn-workspaces@3.0.19) (2026-09-06)
 
 
