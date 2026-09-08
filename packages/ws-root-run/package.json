@@ -18,8 +18,11 @@
     "ws-root-spawn": "bin/ws-root.js"
   },
   "scripts": {
+    "coverage": "pnpm run test --coverage",
     "test": "node --run test:jest --",
     "test:jest": "jest --coverage",
+    "test:jest:coverage": "node --run test:jest -- --coverage",
+    "test:jest:snapshot": "node --run test:jest -- -u",
     "test:snapshot": "pnpm run test -u",
     "test:tsd": "ynpx tsd",
     "npm:publish": "npm publish",
