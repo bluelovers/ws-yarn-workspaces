@@ -1317,9 +1317,18 @@ importers:
 
   packages/@yarn-tool/setup-module-env:
     dependencies:
+      '@ts-type/package-dts':
+        specifier: ^3.0.9
+        version: 3.0.9(ts-toolbelt@9.6.0)
+      '@yarn-tool/find-root':
+        specifier: ^2.0.25
+        version: link:../find-root
       '@yarn-tool/pkg-entry-util':
         specifier: ^3.0.14
         version: link:../pkg-entry-util
+      '@yarn-tool/static-file':
+        specifier: ^3.0.18
+        version: link:../static-file
       dot-values2:
         specifier: ^2.0.7
         version: 2.0.7(ts-toolbelt@9.6.0)
