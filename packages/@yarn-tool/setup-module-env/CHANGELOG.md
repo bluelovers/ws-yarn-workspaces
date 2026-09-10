@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.16](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/setup-module-env@3.0.15...@yarn-tool/setup-module-env@3.0.16) (2026-09-10)
+
+**Note:** Version bump only for package @yarn-tool/setup-module-env
+
+
+
+
+
 ## [3.0.15](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/setup-module-env@3.0.14...@yarn-tool/setup-module-env@3.0.15) (2026-09-08)
 
 

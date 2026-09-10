@@ -473,10 +473,10 @@ importers:
         specifier: ^4.0.9
         version: link:../require-resolve
       '@yarn-tool/setup-module-env':
-        specifier: ^3.0.15
+        specifier: ^3.0.16
         version: link:../setup-module-env
       '@yarn-tool/static-file':
-        specifier: ^3.0.18
+        specifier: ^3.0.19
         version: link:../static-file
       '@yarn-tool/write-package-json':
         specifier: ^1.0.17
@@ -1327,7 +1327,7 @@ importers:
         specifier: ^3.0.14
         version: link:../pkg-entry-util
       '@yarn-tool/static-file':
-        specifier: ^3.0.18
+        specifier: ^3.0.19
         version: link:../static-file
       dot-values2:
         specifier: ^2.0.7
@@ -2042,7 +2042,7 @@ importers:
         specifier: ^4.0.9
         version: link:../@yarn-tool/require-resolve
       '@yarn-tool/static-file':
-        specifier: ^3.0.18
+        specifier: ^3.0.19
         version: link:../@yarn-tool/static-file
       '@yarn-tool/ws-find-up-paths':
         specifier: ^1.0.22
@@ -2184,10 +2184,10 @@ importers:
         specifier: ^1.0.9
         version: link:../@yarn-tool/pkg-readme-tpl
       '@yarn-tool/setup-module-env':
-        specifier: ^3.0.15
+        specifier: ^3.0.16
         version: link:../@yarn-tool/setup-module-env
       '@yarn-tool/static-file':
-        specifier: ^3.0.18
+        specifier: ^3.0.19
         version: link:../@yarn-tool/static-file
       '@yarn-tool/types':
         specifier: ^1.0.21

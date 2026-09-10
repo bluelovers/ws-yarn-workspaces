@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.18...@yarn-tool/static-file@3.0.19) (2026-09-10)
+
+
+
+### ♻️　Chores
+
+* **@yarn-tool/static-file:** 更新 gitignore 並調整 package.json 腳本順序 ([01d437a](https://github.com/bluelovers/ws-yarn-workspaces/commit/01d437afb0bc02b896c3f5cb8bfbfeacbe321fdc))
+
+
+
 ## [3.0.18](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.17...@yarn-tool/static-file@3.0.18) (2026-09-08)
 
 
