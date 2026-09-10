@@ -15,6 +15,7 @@
   "author": "",
   "main": "index.js",
   "scripts": {
+    "coverage": "pnpm run test --coverage",
     "test": "node --run test:jest --",
     "test:jest": "jest --passWithNoTests",
     "test:jest:coverage": "pnpm run test:jest -- --coverage",
@@ -24,9 +25,9 @@
     "npm:publish": "npm publish",
     "preversion": "pnpm run test",
     "prepublishOnly": "node --run fix:ignore",
+    "fix:ignore": "tsx test/scripts/update-npmignore-static-files.ts",
     "ncu": "yarn-tool ncu -u",
     "sort-package-json": "yarn-tool sort",
-    "fix:ignore": "tsx test/scripts/update-npmignore-static-files.ts",
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
