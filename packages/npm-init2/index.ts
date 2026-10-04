@@ -689,7 +689,7 @@ if (!cp.error)
 		 * 將 Package 連結到 node_modules（Workspaces 專案）
 		 * Link package to node_modules (for workspace projects)
 		 */
-		if (wsProject && !rootData.isWorkspace)
+		if (false && wsProject && !rootData.isWorkspace)
 		{
 			linkToNodeModules({
 				cwd: targetDir,
