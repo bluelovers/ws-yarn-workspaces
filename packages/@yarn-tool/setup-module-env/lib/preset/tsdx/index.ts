@@ -57,17 +57,19 @@ export function updatePackageJson<P extends IPackageJson>(pkg: P, config?: ISetu
 
 	// 設定預設的 test 腳本為 jest
 	// Set default test script to jest
-	pkg.scripts["test"] ??= EnumScriptsEntry.JEST_TEST;
+	pkg.scripts["test"] ??= EnumScriptsEntry.NODE_TEST;
+
+	pkg.scripts["test:node"] ??= EnumScriptsEntry.NODE_TEST;
 
 	// 設定 posttest 腳本，在測試後執行 build
 	// Set posttest script to run build after tests
-	pkg.scripts["posttest"] ??= "yarn run build";
+	pkg.scripts["posttest"] ??= "pnpm run build";
 
 	// 如果 build 腳本不包含 tsdx build，則設定新的 build 腳本
 	// If build script doesn't include tsdx build, set new build script
 	if (!pkg.scripts["build"]?.includes('run build:tsdx'))
 	{
-		pkg.scripts["build"] = "node --run build:tsdx && node --run build:dts:bundle";
+		pkg.scripts["build"] = EnumScriptsEntry.BUILD_TSDX_AND_DTS;
 	}
 
 	// 設定 TypeScript 宣告檔案打包腳本
@@ -76,23 +78,19 @@ export function updatePackageJson<P extends IPackageJson>(pkg: P, config?: ISetu
 
 	// 設定 tsdx build 腳本，目標為 node 環境
 	// Set tsdx build script targeting node environment
-	pkg.scripts["build:tsdx"] ??= "ynpx @bluelovers/tsdx build --target node";
+	pkg.scripts["build:tsdx"] ??= EnumScriptsEntry.BUILD_TSDX;
 
 	// 設定複製宣告檔案的腳本 (Windows 語法)
 	// Set declaration file copy script (Windows syntax)
-	pkg.scripts["build:dts:copy"] ??= "copy .\\src\\index.d.ts .\\dist\\index.d.ts & echo build:dts";
+	pkg.scripts["build:dts:copy"] ??= EnumScriptsEntry.BUILD_DTS_COPY;
 
 	// 設定 TypeScript 宣告檔案輸出腳本
 	// Set TypeScript declaration file emit script
-	pkg.scripts["build:dts:tsc:emit"] ??= "tsc --emitDeclarationOnly --declaration --noEmit false";
+	pkg.scripts["build:dts:tsc:emit"] ??= EnumScriptsEntry.BUILD_DTS_TSC_EMIT;
 
-	// 組合完整的 dts 建置腳本
-	// Compose complete dts build script
-	pkg.scripts["build:dts:tsc"] ??= [
-    'node --run build:dts:copy',
-    'node --run build:dts:tsc:emit',
-    'node --run build:dts:copy',
-  ].join(' && ');
+	// 設定完整的 dts 建置腳本
+	// Set complete dts build script
+	pkg.scripts["build:dts:tsc"] ??= EnumScriptsEntry.BUILD_DTS_TSC;
 
 	// 設定模組入口點
 	// Set module entry points

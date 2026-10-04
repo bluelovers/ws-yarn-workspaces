@@ -114,7 +114,7 @@ export function defaultWorkspaceRootScripts()
 		"preversion": EnumScriptsEntry.preversion,
 
 		/** 版本更新後修復 / Fix after version bump */
-		"postversion": "yarn-tool fix-all",
+		// "postversion": "yarn-tool fix-all",
 
 		/** Lerna 發布 / Lerna publish */
 		"lerna:publish": bumpVersion(),
