@@ -27,6 +27,7 @@ const util_1 = require("./lib/util");
 const wsCopyStaticFiles_1 = require("@yarn-tool/static-file/lib/ws/wsCopyStaticFiles");
 const find_root_1 = require("@yarn-tool/find-root");
 const upath2_2 = require("upath2");
+const staticFiles_1 = require("@yarn-tool/fix-all/lib/file/staticFiles");
 tslib_1.__exportStar(require("./lib/index"), exports);
 tslib_1.__exportStar(require("./lib/util"), exports);
 /**
@@ -104,7 +105,7 @@ function createYarnWorkspaces(cwd, options = {}) {
             return false;
         }
     }
-    return _createYarnWorkspaces(targetPath);
+    return _createYarnWorkspaces(targetPath, options);
 }
 /**
  * 內部創建 Workspaces 實作函式
@@ -272,10 +273,19 @@ function _createYarnWorkspaces(targetPath, options = {}) {
      * Copy static template files
      */
     const file_map = (0, wsCopyStaticFiles_1.getWsCopyStaticFiles)();
-    (0, static_file_1.copyStaticFiles)({
-        cwd: targetPath,
-        file_map,
-    });
+    /**
+     * 複製靜態範本檔案
+     * Copy static template files
+     *
+     * 此呼叫點 addStaticFiles 預設為 true，可用 noStaticFiles 關閉
+     * addStaticFiles defaults to true at this call site; disable it with noStaticFiles
+     */
+    if ((0, staticFiles_1._isAddStaticFilesWithReset)(options, true)) {
+        (0, static_file_1.copyStaticFiles)({
+            cwd: targetPath,
+            file_map,
+        });
+    }
     /**
      * 根據 packages 模式創建目錄
      * Create directories based on packages pattern

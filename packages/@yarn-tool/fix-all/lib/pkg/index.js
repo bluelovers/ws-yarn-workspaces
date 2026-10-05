@@ -37,6 +37,7 @@ const scripts_1 = require("@yarn-tool/pkg-entry-util/lib/field/scripts");
 const is_tsdx_1 = require("@yarn-tool/setup-module-env/lib/preset/tsdx/is-tsdx");
 const fix_1 = require("@yarn-tool/setup-module-env/lib/preset/tsdx/fix");
 const reset_1 = require("../file/reset");
+const staticFiles_1 = require("../file/staticFiles");
 const upath2_1 = require("upath2");
 const fs_extra_1 = require("fs-extra");
 const writeReadme_1 = require("@yarn-tool/pkg-readme-tpl/lib/writeReadme");
@@ -61,7 +62,7 @@ function _handler(cwd, ...argv) {
  * 此函數負責對單一套件執行完整的修復流程，包括：
  * This function performs the complete fix process for a single package, including:
  * 1. 重置靜態檔案（如啟用）/ Reset static files (if enabled)
- * 2. 複製靜態檔案到套件目錄 / Copy static files to package directory
+ * 2. 複製靜態檔案到套件目錄（依 addStaticFiles / noStaticFiles / resetStaticFiles 判定）/ Copy static files to package directory (resolved via addStaticFiles / noStaticFiles / resetStaticFiles)
  * 3. 驗證套件匯出 / Verify package exports
  * 4. 填充託管 git 資訊 / Fill hosted git info
  * 5. 修復 tsdx 套件（如適用）/ Fix tsdx package (if applicable)
@@ -78,6 +79,14 @@ function _handler(cwd, ...argv) {
 function _runFixPackagesCore(row, options, cache, err) {
     var _a, _b, _c;
     const { rootData, overwriteHostedGitInfo, hostedGitInfo, branch, resetStaticFiles, } = options;
+    /**
+     * 是否自動偵測並加入靜態檔案
+     * Whether to auto-detect and add static files
+     *
+     * 統一由底層公用邏輯判定 noStaticFiles / addStaticFiles / resetStaticFiles
+     * Resolved by the shared low-level logic for noStaticFiles / addStaticFiles / resetStaticFiles
+     */
+    const _addStaticFiles = (0, staticFiles_1._isAddStaticFilesWithReset)(options);
     // 為套件建立假的根資料 / Create fake root data for the package
     const _rootDataFake = (0, find_root_1.newFakeRootData)(rootData, {
         pkg: row.location,
@@ -106,11 +115,19 @@ function _runFixPackagesCore(row, options, cache, err) {
             shouldWriteReadme = true;
         }
     }
-    // 複製靜態檔案到套件目錄 / Copy static files to package directory
-    (0, static_file_1.copyStaticFiles)({
-        cwd: row.location,
-        file_map: (0, getRootCopyStaticFiles_1.getRootCopyStaticFilesAuto)(_rootDataFake),
-    });
+    /**
+     * 複製靜態檔案到套件目錄
+     * Copy static files to package directory
+     *
+     * 僅在判定結果為 true 時才自動偵測並加入
+     * Only auto-detect and add when the result is true
+     */
+    if (_addStaticFiles) {
+        (0, static_file_1.copyStaticFiles)({
+            cwd: row.location,
+            file_map: (0, getRootCopyStaticFiles_1.getRootCopyStaticFilesAuto)(_rootDataFake),
+        });
+    }
     // 若 README.md 不存在或小於 1KB 則自動生成 / Auto-generate README.md if it doesn't exist or is smaller than 1KB
     if (shouldWriteReadme) {
         (0, writeReadme_1.writeReadme)({
@@ -174,7 +191,7 @@ function _runFixPackagesCore(row, options, cache, err) {
         // 非根套件：修復 preversion 腳本並移除 packageManager
         // Non-root package: fix preversion script and remove packageManager
         if (!((_c = pkg.data.scripts['_preversion']) === null || _c === void 0 ? void 0 : _c.length) && (0, dummy_1.isDummyEchoMaybeOrEmpty)(pkg.data.scripts.preversion)) {
-            pkg.data.scripts.preversion = "yarn run test" /* EnumScriptsEntry.preversion */;
+            pkg.data.scripts.preversion = "pnpm run test" /* EnumScriptsEntry.preversion */;
         }
         // 從非根套件移除 packageManager 欄位
         // Remove packageManager field from non-root packages

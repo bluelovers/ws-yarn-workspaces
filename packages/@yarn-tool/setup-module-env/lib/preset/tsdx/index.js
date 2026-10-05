@@ -41,8 +41,8 @@ const path_1 = require("path");
  * @returns 更新後的 package.json 物件 / Updated package.json object
  */
 function updatePackageJson(pkg, config) {
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p;
-    var _q, _r, _s, _t, _u, _v, _w, _x, _y;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q;
+    var _r, _s, _t, _u, _v, _w, _x, _y, _z, _0;
     // 確保 scripts 欄位存在
     // Ensure scripts field exists
     (_a = pkg.scripts) !== null && _a !== void 0 ? _a : (pkg.scripts = {});
@@ -53,34 +53,31 @@ function updatePackageJson(pkg, config) {
     }
     // 設定預設的 test 腳本為 jest
     // Set default test script to jest
-    (_b = (_q = pkg.scripts)["test"]) !== null && _b !== void 0 ? _b : (_q["test"] = "jest --passWithNoTests" /* EnumScriptsEntry.JEST_TEST */);
+    (_b = (_r = pkg.scripts)["test"]) !== null && _b !== void 0 ? _b : (_r["test"] = "tsx --test --test-update-snapshots test/**/*.node-spec.ts test/**/*.node-test.ts test/**/*.spec.ts test/**/*.test.ts" /* EnumScriptsEntry.NODE_TEST */);
+    (_c = (_s = pkg.scripts)["test:node"]) !== null && _c !== void 0 ? _c : (_s["test:node"] = "tsx --test --test-update-snapshots test/**/*.node-spec.ts test/**/*.node-test.ts test/**/*.spec.ts test/**/*.test.ts" /* EnumScriptsEntry.NODE_TEST */);
     // 設定 posttest 腳本，在測試後執行 build
     // Set posttest script to run build after tests
-    (_c = (_r = pkg.scripts)["posttest"]) !== null && _c !== void 0 ? _c : (_r["posttest"] = "yarn run build");
+    (_d = (_t = pkg.scripts)["posttest"]) !== null && _d !== void 0 ? _d : (_t["posttest"] = "pnpm run build");
     // 如果 build 腳本不包含 tsdx build，則設定新的 build 腳本
     // If build script doesn't include tsdx build, set new build script
-    if (!((_d = pkg.scripts["build"]) === null || _d === void 0 ? void 0 : _d.includes('run build:tsdx'))) {
-        pkg.scripts["build"] = "node --run build:tsdx && node --run build:dts:bundle";
+    if (!((_e = pkg.scripts["build"]) === null || _e === void 0 ? void 0 : _e.includes('run build:tsdx'))) {
+        pkg.scripts["build"] = "node --run build:tsdx && node --run build:dts:bundle" /* EnumScriptsEntry.BUILD_TSDX_AND_DTS */;
     }
     // 設定 TypeScript 宣告檔案打包腳本
     // Set TypeScript declaration file bundling script
-    (_e = (_s = pkg.scripts)["build:dts:bundle"]) !== null && _e !== void 0 ? _e : (_s["build:dts:bundle"] = "ynpx @bluelovers/dts-bundle-generator -o ./dist/index.d.ts ./src/index.ts --no-banner --inline-declare-global & echo build:dts:bundle" /* EnumScriptsEntry.BUILD_DTS_BUNDLE */);
+    (_f = (_u = pkg.scripts)["build:dts:bundle"]) !== null && _f !== void 0 ? _f : (_u["build:dts:bundle"] = "ynpx @bluelovers/dts-bundle-generator -o ./dist/index.d.ts ./src/index.ts --no-banner --inline-declare-global & echo build:dts:bundle" /* EnumScriptsEntry.BUILD_DTS_BUNDLE */);
     // 設定 tsdx build 腳本，目標為 node 環境
     // Set tsdx build script targeting node environment
-    (_f = (_t = pkg.scripts)["build:tsdx"]) !== null && _f !== void 0 ? _f : (_t["build:tsdx"] = "ynpx @bluelovers/tsdx build --target node");
+    (_g = (_v = pkg.scripts)["build:tsdx"]) !== null && _g !== void 0 ? _g : (_v["build:tsdx"] = "ynpx @bluelovers/tsdx build --target node --name index" /* EnumScriptsEntry.BUILD_TSDX */);
     // 設定複製宣告檔案的腳本 (Windows 語法)
     // Set declaration file copy script (Windows syntax)
-    (_g = (_u = pkg.scripts)["build:dts:copy"]) !== null && _g !== void 0 ? _g : (_u["build:dts:copy"] = "copy .\\src\\index.d.ts .\\dist\\index.d.ts & echo build:dts");
+    (_h = (_w = pkg.scripts)["build:dts:copy"]) !== null && _h !== void 0 ? _h : (_w["build:dts:copy"] = "copy .\\src\\index.d.ts .\\dist\\index.d.ts & echo build:dts" /* EnumScriptsEntry.BUILD_DTS_COPY */);
     // 設定 TypeScript 宣告檔案輸出腳本
     // Set TypeScript declaration file emit script
-    (_h = (_v = pkg.scripts)["build:dts:tsc:emit"]) !== null && _h !== void 0 ? _h : (_v["build:dts:tsc:emit"] = "tsc --emitDeclarationOnly --declaration --noEmit false");
-    // 組合完整的 dts 建置腳本
-    // Compose complete dts build script
-    (_j = (_w = pkg.scripts)["build:dts:tsc"]) !== null && _j !== void 0 ? _j : (_w["build:dts:tsc"] = [
-        'node --run build:dts:copy',
-        'node --run build:dts:tsc:emit',
-        'node --run build:dts:copy',
-    ].join(' && '));
+    (_j = (_x = pkg.scripts)["build:dts:tsc:emit"]) !== null && _j !== void 0 ? _j : (_x["build:dts:tsc:emit"] = "tsc --emitDeclarationOnly --declaration --noEmit false" /* EnumScriptsEntry.BUILD_DTS_TSC_EMIT */);
+    // 設定完整的 dts 建置腳本
+    // Set complete dts build script
+    (_k = (_y = pkg.scripts)["build:dts:tsc"]) !== null && _k !== void 0 ? _k : (_y["build:dts:tsc"] = "node --run build:dts:tsc:emit & node --run build:dts:copy" /* EnumScriptsEntry.BUILD_DTS_TSC */);
     // 設定模組入口點
     // Set module entry points
     pkg.main = "dist/index.cjs";
@@ -88,11 +85,11 @@ function updatePackageJson(pkg, config) {
     pkg.types = pkg.typings = "dist/index.d.ts";
     // 設定 unpkg CDN 入口點
     // Set unpkg CDN entry point
-    (_k = pkg.unpkg) !== null && _k !== void 0 ? _k : (pkg.unpkg = "dist/index.umd.production.min.cjs");
+    (_l = pkg.unpkg) !== null && _l !== void 0 ? _l : (pkg.unpkg = "dist/index.umd.production.min.cjs");
     // 設定 exports 欄位，定義模組匯出映射
     // Set exports field, defining module export mappings
-    (_l = pkg.exports) !== null && _l !== void 0 ? _l : (pkg.exports = {});
-    (_m = (_x = pkg.exports)['.']) !== null && _m !== void 0 ? _m : (_x['.'] = {});
+    (_m = pkg.exports) !== null && _m !== void 0 ? _m : (pkg.exports = {});
+    (_o = (_z = pkg.exports)['.']) !== null && _o !== void 0 ? _o : (_z['.'] = {});
     pkg.exports['.'].types = "./dist/index.d.ts";
     pkg.exports['.'].import = "./dist/index.esm.mjs";
     pkg.exports['.'].require = "./dist/index.cjs";
@@ -101,10 +98,10 @@ function updatePackageJson(pkg, config) {
     pkg.exports['./src/*'] = './src/*';
     // 匯出 package.json 本身
     // Export package.json itself
-    (_o = (_y = pkg.exports)['./package.json']) !== null && _o !== void 0 ? _o : (_y['./package.json'] = './package.json');
+    (_p = (_0 = pkg.exports)['./package.json']) !== null && _p !== void 0 ? _p : (_0['./package.json'] = './package.json');
     // 確保 keywords 欄位存在
     // Ensure keywords field exists
-    (_p = pkg.keywords) !== null && _p !== void 0 ? _p : (pkg.keywords = []);
+    (_q = pkg.keywords) !== null && _q !== void 0 ? _q : (pkg.keywords = []);
     // 添加 tsdx 標識關鍵字（如果尚未存在）
     // Add tsdx identifier keyword if not already present
     if (!pkg.keywords.includes("create-by-tsdx" /* EnumTsdx.keyword */)) {

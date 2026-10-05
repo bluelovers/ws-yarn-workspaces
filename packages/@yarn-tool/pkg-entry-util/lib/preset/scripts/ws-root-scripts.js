@@ -100,9 +100,9 @@ function defaultWorkspaceRootScripts() {
         ..._runAllOrSince('coverage'),
         ..._runAllOrSince('lint'),
         /** 版本更新前測試 / Test before version bump */
-        "preversion": "yarn run test" /* EnumScriptsEntry.preversion */,
+        "preversion": "pnpm run test" /* EnumScriptsEntry.preversion */,
         /** 版本更新後修復 / Fix after version bump */
-        "postversion": "yarn-tool fix-all",
+        // "postversion": "yarn-tool fix-all",
         /** Lerna 發布 / Lerna publish */
         "lerna:publish": bumpVersion(),
         // 動態產生各類版本發布腳本 / Dynamically generate version publish scripts

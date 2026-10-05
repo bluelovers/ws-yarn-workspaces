@@ -46,7 +46,7 @@ export type IEntry = ReturnType<typeof _handler>;
  *
  * @extends {ITSRequiredPick<IFillPkgHostedInfoOptions & INpmAutoFixAll, ...>}
  */
-export interface IOptionsRunEachPackages extends ITSRequiredPick<IFillPkgHostedInfoOptions & INpmAutoFixAll, 'overwriteHostedGitInfo' | 'branch' | 'rootData' | 'hostedGitInfo' | 'resetStaticFiles'> {
+export interface IOptionsRunEachPackages extends ITSRequiredPick<IFillPkgHostedInfoOptions & INpmAutoFixAll, 'overwriteHostedGitInfo' | 'branch' | 'rootData' | 'hostedGitInfo' | 'resetStaticFiles' | 'addStaticFiles' | 'noStaticFiles'> {
 }
 /**
  * 執行單一套件修復的核心函數
@@ -55,7 +55,7 @@ export interface IOptionsRunEachPackages extends ITSRequiredPick<IFillPkgHostedI
  * 此函數負責對單一套件執行完整的修復流程，包括：
  * This function performs the complete fix process for a single package, including:
  * 1. 重置靜態檔案（如啟用）/ Reset static files (if enabled)
- * 2. 複製靜態檔案到套件目錄 / Copy static files to package directory
+ * 2. 複製靜態檔案到套件目錄（依 addStaticFiles / noStaticFiles / resetStaticFiles 判定）/ Copy static files to package directory (resolved via addStaticFiles / noStaticFiles / resetStaticFiles)
  * 3. 驗證套件匯出 / Verify package exports
  * 4. 填充託管 git 資訊 / Fill hosted git info
  * 5. 修復 tsdx 套件（如適用）/ Fix tsdx package (if applicable)

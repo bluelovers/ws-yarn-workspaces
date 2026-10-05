@@ -4,6 +4,18 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.setupToYargs = setupToYargs;
+const yargs_setting_1 = require("@yarn-tool/fix-all/lib/util/yargs-setting");
+/**
+ * 設定 Yargs CLI 選項
+ * Setup Yargs CLI options
+ *
+ * 繼承 @yarn-tool/fix-all 的共用選項
+ * （overwriteHostedGitInfo / branch / resetStaticFiles / addStaticFiles / noStaticFiles）
+ * Inherits shared options from @yarn-tool/fix-all
+ * (overwriteHostedGitInfo / branch / resetStaticFiles / addStaticFiles / noStaticFiles)
+ *
+ * @param yargs - Yargs 實例 / Yargs instance
+ */
 function setupToYargs(yargs) {
     const _return = yargs
         .default({
@@ -60,7 +72,11 @@ function setupToYargs(yargs) {
         .option('tsdx', {
         type: 'boolean',
     });
-    return _return;
+    /**
+     * 繼承 @yarn-tool/fix-all 的共用靜態檔案選項
+     * Inherit shared static file options from @yarn-tool/fix-all
+     */
+    return (0, yargs_setting_1.setupToYargs)(_return);
 }
 exports.default = setupToYargs;
 //# sourceMappingURL=yargs-setting.js.map

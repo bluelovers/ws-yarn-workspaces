@@ -22,20 +22,21 @@ const wsCopyStaticFiles_1 = require("@yarn-tool/static-file/lib/ws/wsCopyStaticF
 const getRootCopyStaticFiles_1 = require("@yarn-tool/static-file/lib/root/getRootCopyStaticFiles");
 const lerna_1 = require("./lib/ws/lerna");
 const reset_1 = require("./lib/file/reset");
+const staticFiles_1 = require("./lib/file/staticFiles");
 /**
  * 自動修復 workspaces/package 的主要函數
  * Main function for auto-fixing workspaces/packages
  *
  * 執行以下操作：
  * 1. 尋找工作區根目錄
- * 2. 複製靜態檔案（.gitignore, .npmignore 等）
+ * 2. 複製靜態檔案（.gitignore, .npmignore 等，依 addStaticFiles / noStaticFiles / resetStaticFiles 判定）
  * 3. 更新 git 相關資訊（homepage, repository, bugs）
  * 4. 修復 lerna.json 配置
  * 5. 遍歷所有套件進行修復
  *
  * Performs the following operations:
  * 1. Find workspace root directory
- * 2. Copy static files (.gitignore, .npmignore, etc.)
+ * 2. Copy static files (.gitignore, .npmignore, etc.; resolved via addStaticFiles / noStaticFiles / resetStaticFiles)
  * 3. Update git-related info (homepage, repository, bugs)
  * 4. Fix lerna.json configuration
  * 5. Iterate all packages for fixing
@@ -53,6 +54,8 @@ const reset_1 = require("./lib/file/reset");
  * await npmAutoFixAll(process.cwd(), {
  *   overwriteHostedGitInfo: true,
  *   branch: 'main',
+ *   addStaticFiles: true,
+ *   noStaticFiles: false,
  *   resetStaticFiles: true,
  * });
  */
@@ -90,7 +93,7 @@ function npmAutoFixAll(cwd, options) {
         console.log(`root:`, rootData.root);
         console.log(`hasWorkspace:`, rootData.hasWorkspace);
         // 解構選項 / Destructure options
-        let { branch, overwriteHostedGitInfo, resetStaticFiles } = options !== null && options !== void 0 ? options : {};
+        let { branch, overwriteHostedGitInfo, resetStaticFiles, addStaticFiles, noStaticFiles, } = options !== null && options !== void 0 ? options : {};
         cwd = rootData.cwd;
         // 重置靜態檔案（若選項啟用）/ Reset static files (if option enabled)
         if (resetStaticFiles) {
@@ -99,32 +102,49 @@ function npmAutoFixAll(cwd, options) {
             });
         }
         /**
+         * 是否要自動偵測並加入靜態檔案
+         * Whether to auto-detect and add static files
+         *
+         * 統一由底層公用邏輯判定 noStaticFiles / addStaticFiles / resetStaticFiles
+         * Resolved by the shared low-level logic for noStaticFiles / addStaticFiles / resetStaticFiles
+         */
+        const _addStaticFiles = (0, staticFiles_1._isAddStaticFilesWithReset)(options);
+        /**
          * 複製靜態檔案到 workspace 或根目錄
          * Copy static files to workspace or root
+         *
+         * 僅在判定結果為 true 時才自動偵測並加入
+         * Only auto-detect and add when the result is true
          *
          * 根據專案類型（workspace 或單一套件）複製對應的模板檔案
          * Copy corresponding template files based on project type
          */
-        if (rootData.hasWorkspace) {
-            // Workspace 模式：複製 workspace 靜態檔案（.gitignore, .npmignore 等）
-            // Workspace mode: copy workspace static files
-            const file_map = (0, wsCopyStaticFiles_1.getWsCopyStaticFiles)();
-            (0, static_file_1.copyStaticFiles)({
-                cwd: rootData.ws,
-                file_map,
-            });
-        }
-        else if (rootData.root) {
-            // 單一套件模式：複製根目錄靜態檔案
-            // Single package mode: copy root static files
-            const file_map = (0, getRootCopyStaticFiles_1.getRootCopyStaticFilesAuto)({
-                ...rootData,
-                isRoot: true,
-            });
-            (0, static_file_1.copyStaticFiles)({
-                cwd: rootData.root,
-                file_map,
-            });
+        if (_addStaticFiles) {
+            if (rootData.hasWorkspace) {
+                /**
+                 * Workspace 模式：複製 workspace 靜態檔案（.gitignore, .npmignore 等）
+                 * Workspace mode: copy workspace static files
+                 */
+                const file_map = (0, wsCopyStaticFiles_1.getWsCopyStaticFiles)();
+                (0, static_file_1.copyStaticFiles)({
+                    cwd: rootData.ws,
+                    file_map,
+                });
+            }
+            else if (rootData.root) {
+                /**
+                 * 單一套件模式：複製根目錄靜態檔案
+                 * Single package mode: copy root static files
+                 */
+                const file_map = (0, getRootCopyStaticFiles_1.getRootCopyStaticFilesAuto)({
+                    ...rootData,
+                    isRoot: true,
+                });
+                (0, static_file_1.copyStaticFiles)({
+                    cwd: rootData.root,
+                    file_map,
+                });
+            }
         }
         logger_1.consoleLogger.info(`check git info`);
         // 取得 hosted git 資訊 / Get hosted git info
@@ -185,6 +205,8 @@ function npmAutoFixAll(cwd, options) {
             branch,
             hostedGitInfo,
             resetStaticFiles,
+            addStaticFiles,
+            noStaticFiles,
         });
     }).then(() => void 0);
 }

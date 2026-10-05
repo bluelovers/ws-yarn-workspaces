@@ -43,6 +43,16 @@ export interface IOptions {
      * 啟用除錯模式 / Enable debug mode
      */
     debug?: boolean;
+    /**
+     * 是否自動加入靜態檔案（此呼叫點預設為 true）
+     * Whether to add static files (defaults to true at this call site)
+     */
+    addStaticFiles?: boolean;
+    /**
+     * 是否略過靜態檔案（優先於 addStaticFiles）
+     * Whether to skip static files (takes precedence over addStaticFiles)
+     */
+    noStaticFiles?: boolean;
 }
 /**
  * 創建 Yarn Workspaces 主函式

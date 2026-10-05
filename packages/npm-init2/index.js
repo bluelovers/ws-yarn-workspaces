@@ -48,6 +48,7 @@ const pkg_scripts_1 = require("@yarn-tool/pkg-entry-util/lib/preset/scripts/pkg-
 const write_package_json_1 = require("@yarn-tool/write-package-json");
 const getRootCopyStaticFiles_1 = require("@yarn-tool/static-file/lib/root/getRootCopyStaticFiles");
 const scripts_1 = require("@yarn-tool/pkg-entry-util/lib/field/scripts");
+const staticFiles_1 = require("@yarn-tool/fix-all/lib/file/staticFiles");
 // 更新通知器（已停用）/ Update notifier (disabled)
 //updateNotifier(__dirname);
 /**
@@ -347,7 +348,7 @@ if (!cp.error) {
          * 組合 Pre-version 腳本
          * Compose pre-version scripts
          */
-        preScripts.push("yarn run test" /* EnumScriptsEntry.preversion */);
+        preScripts.push("pnpm run test" /* EnumScriptsEntry.preversion */);
         sharedScript.preversion = preScripts.join(' && ');
         /**
          * 初始化 scripts 欄位（如果不存在）
@@ -551,11 +552,16 @@ if (!cp.error) {
         /**
          * 複製靜態範本檔案
          * Copy static template files
+         *
+         * 此呼叫點 addStaticFiles 預設為 true，可用 --noStaticFiles 關閉
+         * addStaticFiles defaults to true at this call site; disable it with --noStaticFiles
          */
-        (0, static_file_1.copyStaticFiles)({
-            cwd: targetDir,
-            file_map,
-        });
+        if ((0, staticFiles_1._isAddStaticFilesWithReset)(cli.argv, true)) {
+            (0, static_file_1.copyStaticFiles)({
+                cwd: targetDir,
+                file_map,
+            });
+        }
         /**
          * 生成 README.md（如果需要）
          * Generate README.md if needed
@@ -570,7 +576,7 @@ if (!cp.error) {
          * 將 Package 連結到 node_modules（Workspaces 專案）
          * Link package to node_modules (for workspace projects)
          */
-        if (wsProject && !rootData.isWorkspace) {
+        if (false && wsProject && !rootData.isWorkspace) {
             (0, node_modules_link_1.linkToNodeModules)({
                 cwd: targetDir,
                 sourcePackagePath: targetDir,

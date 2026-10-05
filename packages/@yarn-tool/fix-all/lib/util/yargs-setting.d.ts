@@ -6,4 +6,8 @@ export declare function setupToYargs<T>(yargs: Argv<T>): IYargsSync<Argv<T & {
     branch: string;
 } & {
     resetStaticFiles: boolean;
+} & {
+    addStaticFiles: boolean;
+} & {
+    noStaticFiles: boolean;
 }>>;

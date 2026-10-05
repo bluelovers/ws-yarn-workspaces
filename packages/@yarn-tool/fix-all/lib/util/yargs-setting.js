@@ -13,6 +13,12 @@ function setupToYargs(yargs) {
         .option('resetStaticFiles', {
         boolean: true,
         alias: ['S'],
+    })
+        .option('addStaticFiles', {
+        boolean: true,
+    })
+        .option('noStaticFiles', {
+        boolean: true,
     });
     return _return;
 }
