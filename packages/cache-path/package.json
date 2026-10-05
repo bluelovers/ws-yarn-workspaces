@@ -65,7 +65,7 @@
     "array-hyper-unique": "^2.1.8",
     "bluebird": "^3.7.2",
     "cross-spawn-extra": "^3.0.3",
-    "fs-extra": "^11.4.0",
+    "fs-extra": "^11.4.1",
     "hash-sum": "^2.0.0",
     "tmp": "^0.2.7",
     "tslib": ">=2.8.1",

@@ -54,7 +54,7 @@
     "@types/npm-package-arg": "*",
     "@yarn-tool/pkg-name-util": "^1.0.12",
     "npm-package-arg": "^14.0.0",
-    "ts-type": "^3.0.13",
+    "ts-type": "^3.0.18",
     "tslib": ">=2.8.1"
   },
   "engines": {
