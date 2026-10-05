@@ -63,6 +63,14 @@ export function stringifySimpleSemVer(obj: ISimpleSemVerObjectBase, options?: IO
 	// 組合修補版本號 / Compose patch version
 	str += obj.patch ?? '0';
 
+	/**
+	 * 邊界行為：removeRelease 為 true 時，build 也會一併省略
+	 * （build 的判斷巢狀在此 if 之內），因為沒有預發布標籤時
+	 * 只輸出 build 容易讓版本看起來與實際不同。
+	 * Edge behavior: when removeRelease is true, build is omitted too (its
+	 * check is nested inside), since emitting build without a pre-release tag
+	 * can make the version look different from what it really is.
+	 */
 	if (!options?.removeRelease)
 	{
 		// 添加預發布標籤 / Add pre-release tag

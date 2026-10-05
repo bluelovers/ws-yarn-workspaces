@@ -76,7 +76,10 @@ export {
  */
 export function handleOptions(__dirname: string | string[], force?: boolean, inputNoticeOptions?: Settings & NotifyOptions)
 {
-	// 如果傳入陣列，將其組合成完整路徑 / If array passed, join into full path
+	/**
+	 * 如果傳入陣列，將其組合成完整路徑
+	 * If an array is passed, join it into a full path
+	 */
 	if (Array.isArray(__dirname))
 	{
 		__dirname = join(...__dirname);
@@ -122,7 +125,10 @@ export function updateNotifier(__dirname: string | string[], force?: boolean, in
 {
 	const opts = handleOptions(__dirname, force, inputNoticeOptions);
 
-	// 如果需要檢查，建立並設定通知器 / If check needed, create and configure notifier
+	/**
+	 * 如果需要檢查，建立並設定通知器
+	 * If a check is needed, create and configure the notifier
+	 */
 	if (opts.doCheck)
 	{
 		/** 通知選項 / Notification options */
@@ -146,12 +152,20 @@ export function updateNotifier(__dirname: string | string[], force?: boolean, in
 			pkg,
 		});
 
-		// 顯示通知（如果有的話）/ Show notification if any
+		/**
+		 * 顯示通知（如果有的話）
+		 * Show the notification if there is one
+		 */
 		obj.notify(noticeOptions);
 
 		return obj;
 	}
 
+	/**
+	 * 未執行檢查時回傳 null，讓呼叫端得以區分「本次未檢查」與「已檢查但無更新」
+	 * Return null when no check ran, so callers can tell "not checked" from
+	 * "checked, no update"
+	 */
 	return null
 }
 

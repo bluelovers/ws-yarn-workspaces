@@ -51,15 +51,34 @@ export function _versionUnsafe(part: string, defaultValue?: string)
  */
 export function _versionSafe(part: string)
 {
+	/**
+	 * 已具備 major.minor 前綴（如 1.2.3、1.2.3-beta）者直接沿用，
+	 * 避免重新補齊時改寫 pre-release / build 等既有版本語意。
+	 * Already carries a major.minor prefix (e.g. 1.2.3, 1.2.3-beta) → reuse
+	 * as-is, so re-padding never rewrites pre-release/build semantics.
+	 */
 	if (/^\d+\.\d+\./.test(part))
 	{
 		return part
 	}
+	/**
+	 * 只有兩段的形式（如 2.3、9.3-alpha）補上 major 0，
+	 * 因為 semver 必須具備三段才會被視為可解析的版本。
+	 * Two-segment form (e.g. 2.3, 9.3-alpha) gets major 0 prefixed, because
+	 * semver only parses as valid when three segments are present.
+	 */
 	else if (/^\d+\.(?:[^\.]+)$/.test(part))
 	{
 		return '0.' + part
 	}
 
+	/**
+	 * 其餘形式（單一數字、含非數字字元等）無法推斷缺少的段落，
+	 * 退回 0.0.x 補齊以維持函式回傳值永遠是完整版本字串。
+	 * Any other shape (single number, non-numeric chars, …) gives no clue
+	 * about the missing segment, so fall back to 0.0.x padding to keep the
+	 * return value a complete version string in every case.
+	 */
 	return _versionUnsafe(part)
 }
 
@@ -83,15 +102,39 @@ export function _versionSafe(part: string)
  */
 export function _part(part1: string, part2: string): [string, string]
 {
+	/**
+	 * 兩者皆為三段以上的完整形式 → 直接沿用，
+	 * 不補齊可保留 pre-release（如 beta/rc）的原始語意。
+	 * Both are complete (3+ segments) → use as-is; skipping padding keeps
+	 * pre-release (beta/rc) semantics untouched.
+	 */
 	if (/^\d+\.\d+\./.test(part1) && /^\d+\.\d+\./.test(part2))
 	{
 		return [part1, part2]
 	}
+	/**
+	 * 兩者皆為兩段形式 → 同時補上 major 0，
+	 * 讓兩邊格式一致，比較結果才不會因補齊方式不同而失真。
+	 * Both are two-segment → pad both with major 0 so the two sides share
+	 * the same shape; otherwise mismatched padding would skew the result.
+	 */
 	else if (/^\d+\.(?:[^\.]+)$/.test(part1) && /^\d+\.(?:[^\.]+)$/.test(part2))
 	{
 		return ['0.' + part1, '0.' + part2]
 	}
 
+	/**
+	 * 格式混雜（或任一方無法推斷段落）→ 一律退回 0.0.x 補齊；
+	 * 此處刻意不猜測格式，只求兩邊以相同規則標準化。
+	 * 注意邊界情況：若一方已是完整三段、另一方卻不完整，
+	 * 完整方會被再補上 0.0 前綴而產生非標準版本字串，
+	 * 因此混用長度不同的版本部分前應先自行對齊格式。
+	 * Mixed shapes (or either side is unpaddable) → always fall back to
+	 * 0.0.x padding; no format guessing here, only one consistent rule.
+	 * Boundary case: when one side is a full 3-segment version and the other
+	 * is not, the full side gains a 0.0 prefix and yields a non-standard
+	 * string — align the formats yourself before mixing part lengths.
+	 */
 	return [_versionUnsafe(part1), _versionUnsafe(part2)]
 }
 
@@ -132,8 +175,18 @@ export function partsToVersion(parts: string[])
  */
 export function versionToParts(version: string): string[]
 {
+	// 以 '.' 切割；pre-release/build 中的 '.' 會一併被切開，稍後於第三段還原
+	// Split on '.'; dots inside pre-release/build get split too and are restored in the third part below
 	let parts = version.split('.')
 
+	/**
+	 * 超過三段時，把多餘段落重新合併回第三段
+	 * （例如 1.2.3-beta.1 → ['1','2','3-beta.1']），
+	 * 否則 pre-release 的後綴會被誤判成獨立的版本段落。
+	 * When there are more than three segments, rejoin the extras into the
+	 * third part (e.g. 1.2.3-beta.1 → ['1','2','3-beta.1']); otherwise the
+	 * pre-release suffix would be mistaken for a separate version segment.
+	 */
 	if (parts.length > 3)
 	{
 		return [parts[0], parts[1], partsToVersion(parts.slice(2))]

@@ -58,14 +58,29 @@ import { defaultCopyStaticFiles, defaultCopyStaticFilesRootOnly } from '../const
  */
 export function getRootCopyStaticFilesAuto(rootData: Pick<IFindRootReturnType, 'isRoot'| 'hasWorkspace'>)
 {
-	// Start with default package-level files / 從預設套件層級檔案開始
+	/**
+	 * 從預設套件層級檔案開始
+	 * Start with default package-level files
+	 *
+	 * 所有情境都需要的基礎檔案（.gitignore、tsconfig 等）
+	 * Base files needed in every scenario (.gitignore, tsconfig, etc.)
+	 */
 	let file_map: IStaticFilesMapArray<string> = [
 		...defaultCopyStaticFiles,
 	];
 
-	// Add root-only files if this is the root and has no workspaces / 如果這是根目錄且沒有工作區，則添加僅根目錄的檔案
+	/**
+	 * 只有根目錄才可能需要額外檔案
+	 * Only a root directory can need the extra files
+	 */
 	if (rootData.isRoot)
 	{
+		/**
+		 * 具有 workspaces 的根目錄代表 monorepo，
+		 * 根目錄專用檔案（如 pnpm-workspace.yaml）交由工作區流程處理，故不加入
+		 * A root with workspaces is a monorepo, where root-only files (e.g. pnpm-workspace.yaml)
+		 * are handled by the workspace flow, so they are not added here
+		 */
 		if (!rootData.hasWorkspace)
 		{
 			file_map = [

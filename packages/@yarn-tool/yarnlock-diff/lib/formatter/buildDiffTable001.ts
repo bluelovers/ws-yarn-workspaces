@@ -6,7 +6,18 @@ import { _formatVersion } from './formatVersion';
 import { _diffArray } from './diffArray001';
 
 /**
- * @deprecated
+ * 舊版表格渲染器：直接以 `cli-table` + `chalk` 產生三欄表格。
+ * Legacy table renderer: builds a three-column table directly with `cli-table` + `chalk`.
+ *
+ * 已被 `./buildDiffTable002` 取代——本版本顏色硬編寫、不支援 `stripAnsi`，
+ * 且使用到未列入 dependencies 的 `cli-table` / `chalk`。保留僅供比對與回溯。
+ * Superseded by `./buildDiffTable002` — this version hardcodes colors, has no `stripAnsi`
+ * support, and relies on `cli-table` / `chalk` which are not in dependencies. Kept only for
+ * reference and backward comparison.
+ *
+ * @deprecated 請改用 `./buildDiffTable002` / Use `./buildDiffTable002` instead
+ * @param diff `buildDiff` 產生的差異節點 / Diff nodes produced by `buildDiff`
+ * @returns 三欄表格文字 / Three-column table text
  */
 export function buildDiffTable(diff: IDiffNode<IComputedPackage, IComputedPackage>[]): string
 {
@@ -18,10 +29,24 @@ export function buildDiffTable(diff: IDiffNode<IComputedPackage, IComputedPackag
 		],
 		colWidths: [30, 50, 50],
 	});
+	/**
+	 * 以 `formatedDiff` 先收集再一次性 `push`，是為了讓同一個套件的多次變動
+	 * （例如同一列同時有新增與刪除）合併成一列，而不是印出多列相同套件名。
+	 * Collecting into `formatedDiff` before pushing once lets multiple changes to the same
+	 * package (for example an addition and a removal in one row) collapse into a single row
+	 * instead of repeating the package name.
+	 */
 	const formatedDiff: Record<string, [string, string, string]> = {};
 	diff.map(packageDiff =>
 	{
 		const path = packageDiff.path!.find(() => true) as string;
+		/**
+		 * 依 deep-diff 的 `kind` 分派：每一種變動在表格中的語意不同
+		 * （刪除顯示 `-`、新增顯示 `-` 於左欄、編輯則累加逗號）。
+		 * Dispatch on deep-diff's `kind`: each change means something different in the table
+		 * (a removal shows `-` on the right, an addition shows `-` on the left, an edit appends
+		 * with a comma).
+		 */
 		switch (packageDiff.kind)
 		{
 			case EnumKinds.DiffDeleted:

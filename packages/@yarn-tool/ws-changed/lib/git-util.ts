@@ -45,8 +45,12 @@ export function wsRootWithGitRoot(cwd: string)
 	let git_root = gitRoot(cwd)
 
 	/**
-	 * 驗證兩者是否一致
-	 * Validate they match
+	 * 要求工作區根目錄與 Git 根目錄一致：
+	 * 若不同（例如子倉本身又是獨立 git repo），
+	 * 後續以工作區根目錄執行 git diff 會取到錯誤的變更集
+	 * Require the workspace root to equal the Git root: if they differ (e.g. a
+	 * nested folder is itself a git repo), running git diff from the workspace
+	 * root would return the wrong set of changes
 	 */
 	if (!pathEqual(ws_root, git_root))
 	{

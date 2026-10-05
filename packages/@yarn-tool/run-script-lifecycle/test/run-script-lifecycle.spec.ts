@@ -12,8 +12,11 @@ import { IResult, IResultNotExists, IRunLifecycleScriptOptions } from '../lib/ty
 import readPackageJsonFast from 'read-package-json-fast';
 import { __ROOT, __TEST_FIXTURES } from './__root';
 
-// 測試 fixtures 路徑
-// Test fixtures paths
+/**
+ * 測試 fixtures 路徑。
+ *
+ * Test fixtures paths.
+ */
 
 const testPkgPath = join(__TEST_FIXTURES, 'test-pkg');
 const pkgNoScriptsPath = join(__TEST_FIXTURES, 'pkg-no-scripts');
@@ -102,8 +105,11 @@ describe('_options', () => {
     expect(result.event).toBe('build');
     expect(result.path).toBe('/test/path');
     expect(result.env).toEqual({ NODE_ENV: 'production' });
-    // stdio 應該被覆蓋為 'inherit'
-    // stdio should be overwritten to 'inherit'
+    /**
+     * stdio 應該被覆蓋為 'inherit'。
+     *
+     * stdio should be overwritten to 'inherit'.
+     */
     expect(result.stdio).toBe('inherit');
   });
 });
@@ -139,8 +145,11 @@ describe('runLifecycleScript', () => {
     const results = await runLifecycleScript(options);
 
     expect(Array.isArray(results)).toBe(true);
-    // 應該只返回主腳本的結果，因為沒有 pre/post 腳本
-    // Should only return main script result since no pre/post scripts
+    /**
+     * 應該只返回主腳本的結果，因為沒有 pre/post 腳本。
+     *
+     * Should only return the main script result since there are no pre/post scripts.
+     */
     expect(results.length).toBeGreaterThanOrEqual(1);
   });
 
@@ -157,12 +166,18 @@ describe('runLifecycleScript', () => {
     const results = await runLifecycleScript(options);
 
     expect(Array.isArray(results)).toBe(true);
-    // 應該包含 preinstall, install, postinstall
-    // Should contain preinstall, install, postinstall
+    /**
+     * 應該包含 preinstall, install, postinstall。
+     *
+     * Should contain preinstall, install, postinstall.
+     */
     expect(results.length).toBe(3);
 
-    // 檢查事件順序
-    // Check event order
+    /**
+     * 檢查事件順序。
+     *
+     * Check event order.
+     */
     // @ts-ignore
     const events = results.map(r => r.event).filter(Boolean);
     expect(events).toContain('preinstall');
@@ -183,8 +198,11 @@ describe('runLifecycleScript', () => {
     const results = await runLifecycleScript(options);
 
     expect(Array.isArray(results)).toBe(true);
-    // 應該包含 prebuild, build, postbuild
-    // Should contain prebuild, build, postbuild
+    /**
+     * 應該包含 prebuild, build, postbuild。
+     *
+     * Should contain prebuild, build, postbuild.
+     */
     expect(results.length).toBe(3);
 
     // @ts-ignore
@@ -207,8 +225,12 @@ describe('runLifecycleScript', () => {
     const results = await runLifecycleScript(options);
 
     expect(Array.isArray(results)).toBe(true);
-    // 應該只執行 pre 腳本（如果存在）、主腳本（不存在）、post 腳本（如果存在）
-    // Should only run pre script (if exists), main script (non-existent), post script (if exists)
+    /**
+     * 應該只執行 pre 腳本（如果存在）、主腳本（不存在）、post 腳本（如果存在）。
+     *
+     * Should only run the pre script (if it exists), the main script (non-existent),
+     * and the post script (if it exists).
+     */
     expect(results.length).toBeGreaterThanOrEqual(1);
   });
 
@@ -265,16 +287,22 @@ describe('runLifecycleScriptList', () => {
       path: testPkgPath,
     };
 
-    // 只測試存在的腳本
-    // Only test existing scripts
+    /**
+     * 只測試存在的腳本。
+     *
+     * Only test existing scripts.
+     */
     const results = await runLifecycleScriptList({
       tmpOptions,
       eventList: ['preinstall', 'install', 'postinstall'],
       pkg: pkg as any,
     });
 
-    // 所有這些腳本都存在於 test-pkg 中
-    // All these scripts exist in test-pkg
+    /**
+     * 所有這些腳本都存在於 test-pkg 中。
+     *
+     * All of these scripts exist in test-pkg.
+     */
     expect(results.length).toBe(3);
   });
 
@@ -287,16 +315,22 @@ describe('runLifecycleScriptList', () => {
       path: testPkgPath,
     };
 
-    // 包含不存在的腳本
-    // Contains non-existent scripts
+    /**
+     * 包含不存在的腳本。
+     *
+     * Contains non-existent scripts.
+     */
     const results = await runLifecycleScriptList({
       tmpOptions,
       eventList: ['nonexistent1', 'preinstall', 'nonexistent2'],
       pkg: pkg as any,
     });
 
-    // 只有 preinstall 存在
-    // Only preinstall exists
+    /**
+     * 只有 preinstall 存在。
+     *
+     * Only preinstall exists.
+     */
     expect(results.length).toBe(1);
   });
 });
@@ -312,8 +346,11 @@ describe('error handling', () => {
       path: '',
     };
 
-    // 不應該拋出錯誤
-    // Should not throw
+    /**
+     * 不應該拋出錯誤。
+     *
+     * Should not throw.
+     */
     await expect(runLifecycleScript(options)).resolves.toBeDefined();
   });
 });

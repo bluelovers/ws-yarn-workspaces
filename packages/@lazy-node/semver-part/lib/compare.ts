@@ -216,6 +216,8 @@ export function lte(part1: string, part2: string, optionsOrLoose?: IOptionsOrLoo
  */
 export function cmp(part1: string, operator: ISemverOperator, part2: string, optionsOrLoose?: IOptionsOrLoose)
 {
+	// 先標準化兩側再交給 semver，讓 '2.3' 這類部分版本也能用運算子比較
+	// Normalize both sides first so partial versions like '2.3' also work with the operator
 	const [v1, v2] = _part(part1, part2)
 
 	return _cmp(v1, operator, v2, optionsOrLoose)
@@ -241,10 +243,23 @@ export function cmp(part1: string, operator: ISemverOperator, part2: string, opt
  */
 export function tryCompare(v1: string, v2: string, optionsOrLoose?: IOptionsOrLoose)
 {
+	/**
+	 * 部分版本可能不是合法 semver（例如 'invalid'、'1.2.3.4'），
+	 * 交由 compare 拋錯後於此吞掉，讓呼叫端能以 undefined 識別無效輸入，
+	 * 不必自行包 try/catch。
+	 * Partial inputs may be invalid semver (e.g. 'invalid', '1.2.3.4');
+	 * let compare throw and swallow the error here so callers can detect
+	 * bad input via `undefined` without wrapping their own try/catch.
+	 */
 	try
 	{
 		return compare(v1, v2, optionsOrLoose);
 	}
+	/**
+	 * 刻意留空：不記錄、不重拋，維持「回傳 undefined」的合約。
+	 * Intentionally empty: neither log nor rethrow, preserving the
+	 * "returns undefined" contract.
+	 */
 	catch (e)
 	{}
 }

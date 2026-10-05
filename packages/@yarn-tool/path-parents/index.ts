@@ -85,4 +85,8 @@ export function pathUpToWorkspaces(cwd?: string, options?: IOptions)
 	return [...pathUpToWorkspacesGenerator(cwd, options)]
 }
 
+/**
+ * 預設匯出 pathUpToWorkspaces，方便只需路徑陣列的呼叫端直接引入
+ * Default-exports pathUpToWorkspaces so callers that only need the path array can import it directly
+ */
 export default pathUpToWorkspaces

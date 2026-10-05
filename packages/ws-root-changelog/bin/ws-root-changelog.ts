@@ -22,30 +22,36 @@ import { dirname, resolve } from 'upath2';
 let argv = process.argv.slice(2);
 
 /**
-	 * 解析輸入路徑，預設為當前工作目錄
-	 * Parse input path, default to current working directory
-	 */
+ * 解析輸入路徑，預設為當前工作目錄；
+ * 以 `??` 取代 `||`，未傳入參數時 argv[0] 為 undefined，交由 resolve 視為目前目錄
+ * Parse input path, default to current working directory;
+ * `??` is used because a missing argument yields undefined, which resolve() treats as the current directory
+ */
 let input = resolve(process.cwd(), argv[0] ?? '');
 
 console.log(`input: ${input}`);
 
 /**
- * 獲取 Changelog 檔案路徑
- * Get changelog file path
+ * 取得根目錄 Changelog 的完整檔案路徑；
+ * 內部會自動向上尋找工作區根目錄，因此傳入任意子目錄皆可
+ * Get the full path of the root changelog file;
+ * it searches upward for the workspace root internally, so any subdirectory works as input
  */
 const file = getWorkspacesRootChangelogPath(input);
 
 /**
- * 獲取目標目錄
- * Get target directory
+ * 取得目標目錄：寫檔函式會重新解析根目錄，
+ * 因此一併傳入根目錄與絕對檔名，避免重複查找造成路徑不一致
+ * Get the target directory: the writer re-resolves the root,
+ * so both the root and the absolute file path are passed to avoid inconsistent paths from duplicate lookups
  */
 const cwd = dirname(file);
 
 console.log(`target dir: ${cwd}`);
 
 /**
- * 輸出 Changelog 檔案
- * Output changelog file
+ * 輸出 Changelog 檔案（同步），確保程序退出前已完成寫入，才能正確回報輸出路徑
+ * Write the changelog file synchronously so the path can be reported before the process exits
  */
 let ret = outputWorkspacesRootChangelog(cwd, file);
 

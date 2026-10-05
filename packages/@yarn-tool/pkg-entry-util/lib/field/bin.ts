@@ -19,8 +19,10 @@ import { join, posix } from 'upath2';
  */
 export function fixBinPath(bin: string, root: string)
 {
-	// 檢查檔案是否存在於指定路徑，若不存在但存在於 bin/ 子目錄則返回修正路徑
-	// Check if file exists at specified path, if not but exists in bin/ subdirectory, return corrected path
+	/**
+	 * 檢查檔案是否存在於指定路徑，若不存在但存在於 bin/ 子目錄則返回修正路徑
+	 * Check if file exists at specified path, if not but exists in bin/ subdirectory, return corrected path
+	 */
 	if (
 		!existsSync(join(root, bin))
 		&& existsSync(join(root, 'bin', bin))
@@ -46,24 +48,36 @@ export function fixBinPath(bin: string, root: string)
  */
 export function fixPkgBinField<T extends IPackageJson>(pkg: T, root: string)
 {
+	/** 沒有 bin 欄位時直接回傳，避免無謂的檔案系統檢查 */
 	if (pkg.bin)
 	{
-		// 處理字串格式的 bin 欄位
-		// Handle string format bin field
+		/**
+		 * 處理字串格式的 bin 欄位（單一執行檔）
+		 * Handle string format bin field (single executable)
+		 */
 		if (typeof pkg.bin === 'string')
 		{
 			let bin_new = fixBinPath(pkg.bin, root);
 
+			/** fixBinPath 回傳 null 代表路徑已正確，維持原值不覆寫 */
 			if (bin_new)
 			{
 				// @ts-ignore
 				pkg.bin = bin_new;
 			}
 		}
-		// 處理物件格式的 bin 欄位（多個執行檔）
-		// Handle object format bin field (multiple executables)
+		/**
+		 * 處理物件格式的 bin 欄位（多個執行檔）
+		 * Handle object format bin field (multiple executables)
+		 */
 		else if (typeof pkg.bin === 'object' && !Array.isArray(pkg.bin))
 		{
+			/**
+			 * 逐個執行檔名稱修正；僅處理字串值，
+			 * 其他型別（異常輸入）維持原樣以免破壞資料
+			 * Fix each executable name; only string values are processed,
+			 * other types (unexpected input) are left untouched to avoid data loss
+			 */
 			Object.keys(pkg.bin)
 				.forEach(function (key)
 				{
@@ -71,6 +85,7 @@ export function fixPkgBinField<T extends IPackageJson>(pkg: T, root: string)
 					{
 						let bin_new = fixBinPath(pkg.bin[key], root);
 
+						/** 僅在確實需要修正時才覆寫，保持 package.json 變更最小化 */
 						if (bin_new)
 						{
 							pkg.bin[key] = bin_new;

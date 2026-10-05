@@ -20,13 +20,31 @@ import { fixBinPath, fixPkgBinField } from '@yarn-tool/pkg-entry-util/lib/field/
 import { outputPackageJSONSync } from '@yarn-tool/write-package-json';
 import { fixEmptyFields } from '@yarn-tool/pkg-entry-util/lib/field/fixEmpty';
 
-// 檔案路徑或 JSON 物件的聯合類型 / Union type for file path or JSON object
+/**
+ * 檔案路徑或 JSON 物件的聯合類型
+ * Union type for file path or JSON object
+ *
+ * 涵蓋建構子所有可接受的輸入型別，避免呼叫端被迫先行型別判斷
+ * Covers every input type the constructor accepts, so callers need not narrow types themselves
+ */
 type IFileOrJson = Buffer | string | object | IPackageJson
 
-// 類似 package.json 的物件類型 / Package.json-like object type
+/**
+ * 類似 package.json 的物件類型
+ * Package.json-like object type
+ *
+ * 以 Partial 允許不完整的 package.json 草稿，Record 則保留欄位擴充的彈性
+ * Partial allows incomplete package.json drafts, Record keeps field-extension flexibility
+ */
 type IPackageJsonLike<T> = Partial<T> | Record<string, any>;
 
-// 單一項目或項目陣列的類型 / Type for single item or array of items
+/**
+ * 單一項目或項目陣列的類型
+ * Type for single item or array of items
+ *
+ * 讓 API 同時接受單一值與陣列，減少呼叫端的包裝負擔
+ * Lets the API accept a single value or an array, reducing wrapper burden on callers
+ */
 type IItemOrItemArray<T> = T | T[];
 
 /**
@@ -130,8 +148,13 @@ export class PackageJsonLoader<T extends IPackageJsonLike<IPackageJson> = IPacka
 
 		let pkg = this.create<T>(file);
 
-		// 驗證載入的套件名稱是否與請求的名稱相符
-		// Verify loaded package name matches requested name
+		/**
+		 * 驗證載入的套件名稱是否與請求的名稱相符
+		 * Verify loaded package name matches requested name
+		 *
+		 * 名稱不符代表解析到同名的不同套件（例如 monorepo 內的重複名稱），應及早失敗
+		 * A mismatch means a different package with the same name was resolved (e.g. duplicates in a monorepo), so fail early
+		 */
 		if ((pkg.data as any).name !== name)
 		{
 			throw new TypeError(`package name not match, '${(pkg.data as any).name}' != '${name}'`);
@@ -149,7 +172,15 @@ export class PackageJsonLoader<T extends IPackageJsonLike<IPackageJson> = IPacka
 	 */
 	constructor(fileOrJson: IFileOrJson, ...argv)
 	{
-		// 根據輸入類型初始化實例 / Initialize instance based on input type
+		/**
+		 * 依輸入型別分流初始化
+		 * Dispatch initialization by input type
+		 *
+		 * 字串視為檔案路徑；Buffer 與物件皆以 toString() 後交給 JSON.parse 解析，
+		 * 因此傳入的內容必須能轉成合法的 JSON 字串
+		 * A string is treated as a file path; Buffer and object are parsed via JSON.parse after toString(),
+		 * so the input must convert to valid JSON text
+		 */
 		if (typeof fileOrJson === 'string')
 		{
 			this.setFilename(fileOrJson)
@@ -160,10 +191,22 @@ export class PackageJsonLoader<T extends IPackageJsonLike<IPackageJson> = IPacka
 		}
 		else if (typeof fileOrJson === 'object')
 		{
+			/**
+			 * 此分支先於 null 檢查執行（typeof null === 'object'），
+			 * 因此傳入 null 會在 .toString() 拋出原生錯誤而非靜默忽略
+			 * This branch runs before the null check (typeof null === 'object'),
+			 * so passing null throws a native error at .toString() instead of being ignored
+			 */
 			this.setJson(JSON.parse(fileOrJson.toString()))
 		}
 		else if (fileOrJson != null)
 		{
+			/**
+			 * 只有 null / undefined 會靜默通過（建立空實例），
+			 * 其餘非預期型別（數值、布林值等）一律拒絕
+			 * Only null / undefined pass silently (empty instance);
+			 * other unexpected types (number, boolean, …) are always rejected
+			 */
 			throw new TypeError(`fileOrJson is not valid`)
 		}
 	}
@@ -176,6 +219,12 @@ export class PackageJsonLoader<T extends IPackageJsonLike<IPackageJson> = IPacka
 	 */
 	use(ls: IItemOrItemArray<(json: IPackageJsonLike<T>) => void>)
 	{
+		/**
+		 * 單一函式與陣列分流，兩者統一推入同一佇列，
+		 * 以保持 run() 執行順序不受輸入形式影響
+		 * Split single function vs array, both pushed into the same queue,
+		 * so run() execution order is unaffected by input form
+		 */
 		if (Array.isArray(ls))
 		{
 			this._use.push(...ls);
@@ -225,6 +274,12 @@ export class PackageJsonLoader<T extends IPackageJsonLike<IPackageJson> = IPacka
 	 */
 	read(reload?: boolean)
 	{
+		/**
+		 * 已載入時預設不重讀，避免後續 autofix / sort 的結果被靜默覆蓋；
+		 * 只有明確傳入 reload=true 才強制重新讀取
+		 * Once loaded, skip re-reading by default so later autofix / sort results are not silently overwritten;
+		 * only an explicit reload=true forces a fresh read
+		 */
 		if (!this.loaded || reload)
 		{
 			this.json = readJSONSync(this.file);
@@ -298,6 +353,12 @@ export class PackageJsonLoader<T extends IPackageJsonLike<IPackageJson> = IPacka
 	 */
 	get data(): T
 	{
+		/**
+		 * 惰性讀取：僅在尚未載入且已知檔案路徑時才讀檔，
+		 * 讓以 JSON 物件建立的實例不必依賴檔案系統
+		 * Lazy read: only reads when not yet loaded and a file path is known,
+		 * so instances created from a JSON object never depend on the file system
+		 */
 		if (!this.loaded && this.file)
 		{
 			this.read();
@@ -342,23 +403,29 @@ export class PackageJsonLoader<T extends IPackageJsonLike<IPackageJson> = IPacka
 		let self = this;
 		let dir: string;
 
-		// 檢查檔案和目錄是否存在
-		// Check if file and directory exist
+		/**
+		 * 只有已知檔案路徑且目錄實際存在時才做路徑相關修復，
+		 * 因為 bin 與 publishConfig 的修正需要真實目錄來解析相對路徑
+		 * Only perform path-related fixes when a file path is known and the directory really exists,
+		 * because fixing bin and publishConfig requires a real directory to resolve relative paths
+		 */
 		if (self.file && pathExistsSync(dir = self.dir))
 		{
 			if (self.data)
 			{
-				// 修復 bin 欄位路徑 / Fix bin field paths
 				fixPkgBinField(self.data, dir);
-				// 修復 publishConfig 欄位 / Fix publishConfig field
 				fixPublishConfig(self.data);
 			}
 		}
 
-		// 在 exports 中添加 package.json entry / Add package.json entry in exports
+		/**
+		 * exports 的 package.json entry 與空欄位清理不依賴實體目錄，
+		 * 因此放在條件之外執行，讓純 JSON 實例也能修復
+		 * The exports package.json entry and empty-field cleanup do not rely on a physical directory,
+		 * so they run outside the guard to let JSON-only instances be fixed too
+		 */
 		_pkgExportsAddPJsonEntryCore(self.data?.exports);
 
-		// 清理空欄位 / Clean empty fields
 		fixEmptyFields(self.data, dir);
 	}
 
@@ -374,13 +441,23 @@ export class PackageJsonLoader<T extends IPackageJsonLike<IPackageJson> = IPacka
 		autofix?: boolean
 	} = {})
 	{
-		// 預設執行自動修復 / Default to run auto-fix
+		/**
+		 * autofix 未指定或為 truthy 時執行自動修復，
+		 * 讓「不傳選項」與「明確開啟」行為一致
+		 * Auto-fix runs when autofix is unspecified or truthy,
+		 * so "no options" and "explicitly enabled" behave the same
+		 */
 		if (options.autofix == null || options.autofix)
 		{
 			this.autofix();
 		}
 
-		// 執行所有註冊的處理函式 / Execute all registered processing functions
+		/**
+		 * 依註冊順序執行處理函式；以 call(this, data) 綁定實例，
+		 * 使函式內可用 this 取得檔路徑等上下文
+		 * Run handlers in registration order; bound via call(this, data)
+		 * so handlers can access instance context such as the file path
+		 */
 		this._use.forEach(fn => fn.call(this, this.data));
 
 		return this;
@@ -420,6 +497,12 @@ export class PackageJsonLoader<T extends IPackageJsonLike<IPackageJson> = IPacka
 	 */
 	sort()
 	{
+		/**
+		 * 先行檢查資料狀態：sortPackageJson 對 undefined / null 會產生難懂的錯誤，
+		 * 於此轉為明確訊息，方便呼叫端辨識「尚未載入」的情況
+		 * Guard the data state first: sortPackageJson fails with an obscure error on undefined / null,
+		 * so throw a clear message instead to reveal the "not loaded yet" case
+		 */
 		if (typeof this.data === 'undefined' || this.data === null)
 		{
 			throw new Error(`data is undefined`)
@@ -439,6 +522,12 @@ export class PackageJsonLoader<T extends IPackageJsonLike<IPackageJson> = IPacka
 	 */
 	write()
 	{
+		/**
+		 * 未設定檔路徑時拒絕寫入：以 JSON 物件建立的實例沒有目標檔案，
+		 * 直接寫入會覆寫到不明位置
+		 * Refuse to write without a file path: instances built from a JSON object have no target file,
+		 * and writing would overwrite an unknown location
+		 */
 		if (!this.file)
 		{
 			throw new Error(`file is undefined`)
@@ -457,6 +546,10 @@ export class PackageJsonLoader<T extends IPackageJsonLike<IPackageJson> = IPacka
 	 */
 	writeOnlyWhenLoaded()
 	{
+		/**
+		 * 只有真正載入過資料才寫檔，避免把空的 / 未初始化的內容覆蓋原檔
+		 * Write only when data was actually loaded, to avoid overwriting the original file with empty / uninitialized content
+		 */
 		if (this.loaded)
 		{
 			this.write();

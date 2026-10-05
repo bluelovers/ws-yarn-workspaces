@@ -2,10 +2,25 @@
  * Created by user on 2020/6/15.
  */
 
+/**
+ * @yarn-tool/changelog 模組入口 (Module entry point)
+ * 說明：彙整 changelog 相關的類型、更新與版本建議 API，以及 yargs 設定；
+ * 預設匯出直接是 `updateChangelogByCwd`，讓 `import changelog from '@yarn-tool/changelog'`
+ * 即可完成最常見的「依工作目錄更新日誌」操作。
+ * Why: it gathers the changelog types, update/recommend APIs and the yargs setup;
+ * the default export is `updateChangelogByCwd` itself so the most common task —
+ * updating the changelog from a working directory — is a single default import.
+ *
+ * @packageDocumentation
+ */
 export * from './lib/types';
 export * from './lib/lerna';
 export * from './lib/yargs-setting';
 
 import { updateChangelogByCwd } from './lib/lerna';
 
+/**
+ * 預設匯出：依工作目錄更新 CHANGELOG.md 的函式
+ * Default export: the function that updates CHANGELOG.md from a working directory
+ */
 export default updateChangelogByCwd

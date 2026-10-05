@@ -18,7 +18,14 @@ import { join } from 'upath2';
  */
 export function getModulesDir(cwd: string, dir?: string)
 {
-	// 若未提供 dir 參數，則使用預設的 'node_modules'
-	// If dir parameter is not provided, use the default 'node_modules'
+	/**
+	 * 若未提供 dir 參數，則使用預設的 'node_modules'
+	 * If dir parameter is not provided, use the default 'node_modules'
+	 *
+	 * 透過 upath2 的 join 取得路徑，會一併正規化為正斜線 '/',
+	 * 與本套件其他回傳的路徑格式保持一致。
+	 * Joining through upath2 normalizes the path to forward slashes '/',
+	 * keeping it consistent with the paths returned elsewhere in this package.
+	 */
 	return join(cwd, dir ?? 'node_modules')
 }

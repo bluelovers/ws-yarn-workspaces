@@ -101,7 +101,10 @@ export function defaultWorkspaceRootScripts()
 
 		"test": "node --run test:since",
 
-		// 動態產生 all/since 腳本對 / Dynamically generate all/since script pairs
+		/**
+		 * 動態產生 all/since 腳本對
+		 * Dynamically generate all/since script pairs
+		 */
 		..._runAllOrSince('test'),
 		..._runAllOrSince('test:tsd'),
 		..._runAllOrSince('test:snapshot'),
@@ -114,17 +117,26 @@ export function defaultWorkspaceRootScripts()
 		"preversion": EnumScriptsEntry.preversion,
 
 		/** 版本更新後修復 / Fix after version bump */
-		// "postversion": "yarn-tool fix-all",
+		"postversion": "yarn-tool fix-all --noStaticFiles",
 
 		/** Lerna 發布 / Lerna publish */
 		"lerna:publish": bumpVersion(),
 
-		// 動態產生各類版本發布腳本 / Dynamically generate version publish scripts
+		/**
+		 * 動態產生各類版本發布腳本
+		 * Dynamically generate version publish scripts
+		 */
 		...([
 			'patch',
 			'minor',
 			'major',
 		] as const).reduce((a, bump, idx) => {
+			/**
+			 * 只在第一個（patch）迭代建立 `yes` 與 `yes:force` 兩個預設別名，
+			 * 讓使用者不必指定版本類型也能一鍵發布
+			 * Create the `yes` and `yes:force` default aliases only on the first
+			 * (patch) iteration, so users can publish without picking a bump type
+			 */
 			if (idx === 0)
 			{
 				a[`lerna:publish:yes`] = `node --run lerna:publish:yes:${bump} --`;

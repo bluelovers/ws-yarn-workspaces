@@ -56,6 +56,11 @@ export class ScopeJson<K extends string = 'workspaces'> extends ScopeJsonObject<
 	 */
 	loadFile(reload?: boolean)
 	{
+		/**
+		 * 僅在強制重載或尚未載入時讀取：重複 load 會覆寫已變更但未儲存的內容
+		 * Read only on forced reload or first load: re-loading would overwrite
+		 * content that was modified but not yet saved
+		 */
 		if (reload || !this.opened)
 		{
 			this.json = readJSONSync(this.file);
@@ -79,6 +84,12 @@ export class ScopeJson<K extends string = 'workspaces'> extends ScopeJsonObject<
 	 */
 	saveFile()
 	{
+		/**
+		 * 以 && 短路：檔案從未載入（不存在）時不建立檔案，
+		 * 避免 save() 對不存在的設定檔憑空產生空殼
+		 * Short-circuit with &&: never create a file that was never loaded (absent),
+		 * so save() cannot fabricate an empty shell config file
+		 */
 		return this.opened && writePackageJSONSync(this.file, this.json)
 	}
 
@@ -91,6 +102,12 @@ export class ScopeJson<K extends string = 'workspaces'> extends ScopeJsonObject<
 	 */
 	loadFileLazy(reload?: boolean)
 	{
+		/**
+		 * 依賴 existsFile() 先行檢查：readJSONSync 對缺檔會直接拋錯，
+		 * 而設定檔缺檔在此情境屬正常情況
+		 * Check existence first: readJSONSync throws on a missing file, but a
+		 * missing config file is an expected situation here
+		 */
 		return this.existsFile() && this.loadFile(reload)
 	}
 

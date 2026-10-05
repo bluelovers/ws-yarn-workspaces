@@ -28,8 +28,10 @@ import { IParsePackageName, IResult } from './types';
  */
 export function parseArgvPkgName(input: string)
 {
-	// Parse the input using npa
-	// 使用 npa 解析輸入
+	/**
+	 * 使用 npa 解析輸入；npa 遇到無效輸入會拋出錯誤，如需不拋錯的版本請改用 npaTry
+	 * Parse the input with npa; npa throws on invalid input, use npaTry for a non-throwing version
+	 */
 	const result = npa(input);
 
 	return _parseArgvPkgNameCore(result, input);
@@ -57,6 +59,13 @@ export function parseArgvPkgName(input: string)
  */
 export function _parseArgvPkgNameCore(result: IResult, input: string)
 {
+	/**
+	 * 防禦性檢查：result 缺漏時回傳 undefined 而不是拋錯，
+	 * 讓呼叫端只需以 falsy 判斷「解析失敗」
+	 *
+	 * Defensive check: a missing `result` yields undefined instead of a throw, so callers only
+	 * need a falsy test for "parse failed"
+	 */
 	if (result)
 	{
 		return {
@@ -97,17 +106,19 @@ export function _parseArgvPkgNameCore(result: IResult, input: string)
  * // Parse a scoped package
  * // 解析範圍套件
  * parsePackageName('@types/node@18.0.0');
- * // Returns: { type: 'version', name: '@types/node', scope: 'types', subname: 'node', semver: '18.0.0', result: ... }
+ * // Returns: { type: 'version', name: '@types/node', scope: '@types', subname: 'node', semver: '18.0.0', result: ... }
  *
  * @example
  * // Parse without a version / 解析不含版本
  * parsePackageName('lodash');
- * // Returns: { type: 'tag', name: 'lodash', scope: undefined, subname: 'lodash', semver: undefined, result: ... }
+ * // Returns: { type: 'range', name: 'lodash', scope: undefined, subname: 'lodash', semver: '*', result: ... }
  */
 export function parsePackageName(packageName: string): IParsePackageName
 {
-	// Parse the package name using npa
-	// 使用 npa 解析套件名稱
+	/**
+	 * 使用 npa 解析套件名稱，再交給核心函式標準化回傳格式
+	 * Parse the package name with npa, then let the core helper normalize the return shape
+	 */
 	const result = npa(packageName)
 
 	return _parsePackageNameCore(result);
@@ -134,16 +145,29 @@ export function parsePackageName(packageName: string): IParsePackageName
  */
 export function _parsePackageNameCore(result: IResult): IParsePackageName
 {
-	// Strip the scope from the name to get the subname
-	// 從名稱中移除範圍以獲取子名稱
+	/**
+	 * 從名稱中移除範圍以取得子名稱（如 @types/node → node），
+	 * 範圍本身則由 result.scope 提供（含 @ 前綴）
+	 *
+	 * Strip the scope from the name to get the subname (e.g. @types/node → node); the scope
+	 * itself comes from `result.scope` (with the `@` prefix)
+	 */
 	const subname = stripScope(result.name);
 
-	// Extract the semver from the result
-	// 從結果中提取 semver
+	/**
+	 * 從結果中提取 semver；別名需走 subSpec，其餘直接取 rawSpec
+	 * Extract the semver from the result; an alias goes through `subSpec`, everything else uses `rawSpec`
+	 */
 	let semver = getSemverFromNpaResult(result);
 
-	// Set semver to undefined if empty
-	// 如果 semver 為空則設為 undefined
+	/**
+	 * 空字串 semver（例如空白輸入解析出的 rawSpec）統一轉成 undefined，
+	 * 讓呼叫端只需判斷 undefined，不必同時處理 '' 與 undefined 兩種「無版本」表示
+	 *
+	 * An empty-string semver (e.g. the `rawSpec` parsed from blank input) is normalized to
+	 * undefined, so callers only test for undefined instead of handling both `''` and undefined
+	 * as "no version"
+	 */
 	if (!semver?.length)
 	{
 		semver = void 0;

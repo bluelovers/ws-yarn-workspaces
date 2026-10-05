@@ -118,6 +118,13 @@ export function isRegistryResult(npaResult: IResult): npaResult is RegistryResul
  */
 export function isHostedGitResult(npaResult: IResultAll): npaResult is HostedGitResult
 {
+	/**
+	 * hosted 可能不存在（例如直接的 git URL），以可選鏈安全地取得 domain；
+	 * 用 length > 0 而非 truthy 判斷，避免空字串被誤判為託管服務
+	 *
+	 * `hosted` may be absent (e.g. a raw git URL), so optional chaining safely reaches `domain`;
+	 * `length > 0` instead of a truthy check prevents an empty string counting as a hosted service
+	 */
 	return npaResult.type === 'git' && npaResult.hosted?.domain?.length > 0;
 }
 
@@ -144,6 +151,14 @@ export function isHostedGitResult(npaResult: IResultAll): npaResult is HostedGit
  */
 export function isURLResult(npaResult: IResult): npaResult is URLResult
 {
+	/**
+	 * 已辨識為託管服務的 git 結果（GitHub 等）不算 URL 結果，故先以 !isHostedGitResult 排除；
+	 * `&&` 優先於 `||`，實際判斷為「git 且非託管」或「remote tarball」
+	 *
+	 * `git` results already recognized as hosted services (GitHub, etc.) are excluded via
+	 * `!isHostedGitResult`; `&&` binds tighter than `||`, so this reads as
+	 * "git and not hosted" or "remote tarball"
+	 */
 	return npaResult.type === 'git' && !isHostedGitResult(npaResult) || npaResult.type === 'remote';
 }
 
@@ -283,6 +298,14 @@ export function isInputSpecIsStar(result: IResult)
 {
 	const raw = result.raw.trim();
 
+	/**
+	 * 純 "*" 直接成立；其餘情況移除結尾的 "@*"（允許空白）後再與名稱比對，
+	 * 可涵蓋 "lodash@*"、"lodash@ *"，也涵蓋只有名稱的輸入（其 fetchSpec 同樣為 "*"）
+	 *
+	 * A bare `"*"` matches directly; otherwise the trailing `"@*"` (whitespace allowed) is
+	 * stripped before comparing with the name, covering `"lodash@*"`, `"lodash@ *"` and also
+	 * name-only input (whose `fetchSpec` is `"*"` as well)
+	 */
 	return raw === '*' || raw.replace(/@\s*\*\s*$/, '') === result.name
 }
 
@@ -331,5 +354,22 @@ export function isInputSpecIsStar(result: IResult)
  */
 export function isInputSpecIsEmpty(result: IResult)
 {
+	/**
+	 * 兩條路徑判斷為空：
+	 * 1. rawSpec 為空或只有空白（輸入 ''、' '、'fake@ '）
+	 * 2. 輸入只有名稱加 @（"fake@"、"@fake/fake@"，npa 會把 rawSpec 正規化為 "*"），
+	 *    且原始輸入本身不是 "*" 萬用字元
+	 *
+	 * 明確指定 "*" 萬用字元（'*'、'lodash@*'）不算空規格，故以 !isInputSpecIsStar 排除；
+	 * 只有名稱的輸入（'lodash'）同樣被視為 star 而不在此列
+	 *
+	 * Two paths decide emptiness:
+	 * 1. `rawSpec` is empty or whitespace only (inputs `''`, `' '`, `'fake@ '`)
+	 * 2. input is name-plus-@ only (`"fake@"`, `"@fake/fake@"`, whose `rawSpec` npa normalizes
+	 *    to `"*"`) while the input itself is not a `*` wildcard
+	 *
+	 * An explicit `*` wildcard (`'*'`, `'lodash@*'`) is not an empty spec, hence `!isInputSpecIsStar`;
+	 * name-only input (`'lodash'`) is likewise treated as star and excluded here
+	 */
 	return isRawSpecIsEmpty(result) || !isInputSpecIsStar(result) && isNameSameAsRaw(result) && result.fetchSpec === '*'
 }

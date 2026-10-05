@@ -54,33 +54,51 @@ import { assertScope, formatPackageName } from '@yarn-tool/pkg-name-util';
  */
 export function packageNameToTypes(packageName: string, prefix?: string): IParsePackageName
 {
-	// Parse the input package name
-	// 解析輸入的套件名稱
+	/**
+	 * 解析輸入的套件名稱（可含版本），後續只取其中的名稱部分
+	 * Parse the input package name (version optional); only the name part is used below
+	 */
 	let ret = parsePackageName(packageName);
 
-	// Default prefix is @types
-	// 預設前綴為 @types
+	/**
+	 * 預設前綴為 @types / Default prefix is `@types`
+	 */
 	prefix ??= '@types';
 
-	// Validate that the prefix is a valid scope
-	// 驗證前綴是否為有效的範圍
+	/**
+	 * 前綴本身必須是合法的 scope（如 @types），否則組出的名稱會無效
+	 * The prefix itself must be a valid scope (e.g. `@types`), otherwise the composed name would be invalid
+	 */
 	assertScope(prefix, true);
 
 	let { result } = ret;
 
+	/**
+	 * @types 套件的 scope 就是前綴本身，與輸入套件的範圍無關
+	 * The scope of the @types package is the prefix itself, regardless of the input package's scope
+	 */
 	let scope = prefix;
 
-	// Escape the package name for @types format
-	// 將套件名稱轉換為 @types 格式
+	/**
+	 * 將套件名稱轉換為 @types 格式（範圍以雙底線連接）
+	 * Escape the package name into the @types format (scope joined with double underscores)
+	 */
 	let subname = escapePackageNameToTypes(result, prefix);
 
-	// Format the full package name with scope
-	// 使用範圍格式化完整的套件名稱
+	/**
+	 * 用前綴與轉換後的名稱組出完整的 @types 套件名稱
+	 * Compose the full @types package name from the prefix and the escaped name
+	 */
 	let name = formatPackageName({
 		scope: prefix,
 		name: subname,
 	});
 
+	/**
+	 * 保留 parsePackageName 的其餘欄位（result、semver 等），只覆寫 name/scope/subname
+	 * Keep the remaining fields from parsePackageName (result, semver, ...) and only
+	 * overwrite `name` / `scope` / `subname`
+	 */
 	return {
 		...ret,
 		name,

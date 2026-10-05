@@ -92,11 +92,36 @@ export function isSimpleSemVerObjectLike<T extends ISimpleSemVerObjectBase>(obj:
 	return obj.major?.length > 0
 }
 
+/**
+ * 檢查物件是否帶有任一版本段落
+ * Check whether the object carries any version segment
+ *
+ * 與 isSimpleSemVerObjectLike（僅看 major）不同，此函式只要 major/minor/patch
+ * 任一有值即成立，用來辨識「只有部分段落」的輸入。
+ * Unlike isSimpleSemVerObjectLike (major only), this returns true when any of
+ * major/minor/patch has a value, so partially-specified inputs are detected.
+ *
+ * @param obj - 要檢查的物件 / Object to check
+ * @returns 是否帶有版本段落 / Whether any version segment is present
+ */
 export function isSimpleSemVerVersionLike(obj: ISimpleSemVerObjectBaseCoreVersion): obj is Required<ISimpleSemVerObjectBaseCoreVersion>
 {
 	return (obj && (obj.major?.length || obj.minor?.length || obj.patch?.length) > 0)
 }
 
+/**
+ * 檢查物件是否為純萬用字元表示式
+ * Check whether the object is a pure wildcard expression
+ *
+ * 必須同時滿足：無任何版本段落、無運算子、且 semver 為 * 或 x，
+ * 缺一不可，避免把 `1.x` 或 `||` 誤判成純萬用字元。
+ * Requires all of: no version segment, no operator, and `semver` equal to `*`
+ * or `x`; every condition is needed so that `1.x` and `||` are not mistaken
+ * for a pure wildcard.
+ *
+ * @param obj - 要檢查的物件 / Object to check
+ * @returns 是否為純萬用字元 / Whether it is a pure wildcard
+ */
 export function isSimpleSemVerWildcardOnlyLike(obj: ISimpleSemVerObjectBase): obj is Required<ISimpleSemVerObjectBaseCoreWildcardOnly>
 {
 	// 純萬用字元必須有 semver 屬性，且值為 * 或 x
@@ -108,6 +133,18 @@ export function isSimpleSemVerWildcardOnlyLike(obj: ISimpleSemVerObjectBase): ob
 		isSemverWildcard(obj.semver))
 }
 
+/**
+ * 檢查字串是否為 semver 萬用字元
+ * Check whether a string is a semver wildcard
+ *
+ * 這是 `*` / `x` 判定的單一事實來源 (Single Source of Truth)，供解析、
+ * 合併與驗證流程共用，避免各處重複寫死字串常數。
+ * Single source of truth for the `*` / `x` test, shared by the parse, merge,
+ * and validation flows so the string constants are not re-declared everywhere.
+ *
+ * @param value - 要檢查的字串 / String to check
+ * @returns 是否為萬用字元 / Whether it is a wildcard
+ */
 export function isSemverWildcard(value: string): value is ISemverWildcard
 {
 	return value === EnumSemverWildcard.star || value === EnumSemverWildcard.x

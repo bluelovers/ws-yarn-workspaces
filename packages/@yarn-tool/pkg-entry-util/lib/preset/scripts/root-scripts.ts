@@ -62,7 +62,10 @@ export function defaultRootScripts()
 		"npm:publish": "npm publish",
 		"npm:publish:bump": bumpVersion(),
 
-		// 動態產生各類版本遞增腳本 / Dynamically generate version bump scripts
+		/**
+		 * 動態產生各類版本遞增腳本
+		 * Dynamically generate version bump scripts
+		 */
 		...([
 			'patch',
 			'minor',

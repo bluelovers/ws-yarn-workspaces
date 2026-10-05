@@ -9,9 +9,11 @@
  * @license ISC
  */
 
-// ============================================================================
-// 重新匯出 lib 模組的所有內容 / Re-export all content from lib module
-// ============================================================================
+/**
+ * ============================================================================
+ * 重新匯出 lib 模組的所有內容 / Re-export all content from lib module
+ * ============================================================================
+ */
 
 export type {
 	IOptionsRequireResolveCore,
@@ -32,7 +34,14 @@ export {
 	unshiftArray,
 } from './lib/util';
 
-// 匯入 unshiftArray 以建立向後相容的別名 / Import unshiftArray for backward compatible alias
+/**
+ * 匯入 unshiftArray 以建立向後相容的別名
+ * Import unshiftArray for backward compatible alias
+ *
+ * 此處的 export 未帶 from，需要本地綁定，故先以 import 引入再轉為別名。
+ * The export below has no `from`, so it needs a local binding; the import
+ * provides it before re-aliasing.
+ */
 import { unshiftArray } from './lib/util';
 
 export {
@@ -62,9 +71,11 @@ export {
 	resolvePackage,
 } from './lib/package';
 
-// ============================================================================
-// 向後相容的別名 / Backward compatible aliases
-// ============================================================================
+/**
+ * ============================================================================
+ * 向後相容的別名 / Backward compatible aliases
+ * ============================================================================
+ */
 
 /**
  * @deprecated 使用 unshiftArray 代替 / Use unshiftArray instead
@@ -79,8 +90,10 @@ export {
  */
 export { unshiftArray as _unshiftArray };
 
-// ============================================================================
-// 預設匯出 / Default export
-// ============================================================================
+/**
+ * ============================================================================
+ * 預設匯出 / Default export
+ * ============================================================================
+ */
 
 export { requireResolveExtra as default } from './lib/core';

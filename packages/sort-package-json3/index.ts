@@ -94,22 +94,52 @@ import { sortOrder } from '@yarn-tool/sort-package-json-order';
  */
 export function sortPackageJson<T extends Record<string, any> = IPackageJson>(pkg: T): T
 {
+	/**
+	 * 第一步：交由 sort-package-json 核心依照 sortOrder 排序頂層鍵，
+	 * 因為核心已處理未在清單中的未知鍵（放最後），此處不重複實作以免順序規則分歧。
+	 *
+	 * Step 1: delegate top-level key ordering to the sort-package-json core with `sortOrder`,
+	 * since the core already handles unknown keys (kept last), avoiding divergent ordering rules.
+	 */
 	pkg = sortPackageJsonCore(pkg, {
 		sortOrder,
 	});
 
+	/**
+	 * 第二步：只有純物件（Plain object）才可安全地重新排序；
+	 * 若 scripts 被設為陣列、字串或 null（少見但合法的自訂欄位），直接排序會改寫型別或遺失資料，故略過。
+	 *
+	 * Step 2: only plain objects can be safely re-ordered; if `scripts` was set to an
+	 * array, string or null (uncommon but legal custom values), sorting would mutate
+	 * the type or drop data, so the field is skipped instead.
+	 */
 	if (isPlainObject(pkg['scripts']))
 	{
 		// @ts-ignore
 		pkg.scripts = sortPackageJsonScripts(pkg.scripts)
 	}
 
+	/**
+	 * betterScripts 與 scripts 採用同一套生命週期（Lifecycle）順序，
+	 * 但兩者是互相獨立的欄位，因此各自檢查、各自排序。
+	 *
+	 * `betterScripts` follows the same lifecycle ordering as `scripts`, yet they are
+	 * independent fields, so each is checked and sorted on its own.
+	 */
 	if (isPlainObject(pkg['betterScripts']))
 	{
 		// @ts-ignore
 		pkg.betterScripts = sortPackageJsonScripts(pkg.betterScripts)
 	}
 
+	/**
+	 * exports 需要在核心排序之後處理，因為核心只決定 exports 這個鍵的位置，
+	 * 其內部的子路徑（Subpath）與條件（Condition）順序由 sortPackageJsonExports 負責。
+	 *
+	 * `exports` is handled after the core pass because the core only positions the
+	 * `exports` key itself; ordering of its subpaths and conditions is owned by
+	 * `sortPackageJsonExports`.
+	 */
 	if (isPlainObject(pkg['exports']))
 	{
 		// @ts-ignore
@@ -119,4 +149,11 @@ export function sortPackageJson<T extends Record<string, any> = IPackageJson>(pk
 	return pkg
 }
 
+/**
+ * 預設匯出（Default export）：與具名的 sortPackageJson 指向同一函式，
+ * 讓 `import sortPackageJson from 'sort-package-json3'` 與 README 範例一致。
+ *
+ * Default export pointing at the same function as the named `sortPackageJson`,
+ * so `import sortPackageJson from 'sort-package-json3'` matches the README example.
+ */
 export default sortPackageJson

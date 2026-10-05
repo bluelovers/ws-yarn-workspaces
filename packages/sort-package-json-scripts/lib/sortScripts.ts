@@ -126,6 +126,13 @@ export function sortPackageJsonScripts<T extends Record<string, any>>(scripts: T
 	 * Handle options, fill with default values
 	 */
 	opts = handleOptions(opts);
+	/**
+	 * 解構出後續巢狀邏輯會反覆使用的兩個函式，
+	 * 以裸參照呼叫可避免每一層排序都再存取 opts 物件。
+	 *
+	 * Destructure the two callbacks reused by the nested logic below, so each
+	 * sorting level calls a bare reference instead of re-accessing `opts`.
+	 */
 	const { omitKeyFn, sortKeyFn } = opts;
 
 	/**

@@ -69,18 +69,29 @@ export function escapePackageNameToTypes(options: {
 	name: string,
 }, prefix?: string)
 {
-	// Default prefix is @types
-	// 預設前綴為 @types
+	/**
+	 * 預設前綴為 @types / Default prefix is `@types`
+	 */
 	prefix ??= '@types';
 
-	// Strip the scope from the name to get the base package name
-	// 從名稱中移除範圍以獲取基礎套件名稱
+	/**
+	 * 從名稱中移除範圍以取得基礎套件名稱，
+	 * 因為 @types 命名只會用到範圍之後的部分
+	 *
+	 * Strip the scope from the name to get the base package name, since @types naming only
+	 * uses the part after the scope
+	 */
 	const name = stripScope(options.name);
 
-	// If the package has a scope and it's not the @types scope,
-	// prefix the name with the scope using double underscores
-	// 如果套件有範圍且不是 @types 範圍，
-	// 則使用雙底線將範圍加到名稱前綴
+	/**
+	 * 套件有範圍且不是 @types 範圍時，用雙底線把範圍接到名稱前面，
+	 * 這是 TypeScript DefinitelyTyped 對範圍套件的命名慣例；
+	 * 已經是 @types 範圍則不再重複加上
+	 *
+	 * When the package has a scope other than `@types`, the scope is prefixed with double
+	 * underscores, following the TypeScript DefinitelyTyped naming convention; an `@types`
+	 * scope is left untouched to avoid adding it twice
+	 */
 	if (options.scope?.length > 0 && options.scope !== prefix)
 	{
 		return options.scope.replace('@', '') + '__' + name

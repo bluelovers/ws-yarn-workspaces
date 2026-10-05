@@ -75,6 +75,9 @@ export function defaultSharedRootScripts()
 		/** 修復所有工作區問題 / Fix all workspace issues */
 		"ws:fix-all": "yarn-tool fix-all --overwriteHostedGitInfo",
 
+		/** 修復時一併補齊靜態檔案 / Also add missing static files while fixing */
+		"ws:fix-all:addStaticFiles": "node --run ws:fix-all -- --addStaticFiles",
+
 		/** 修復並重置靜態檔 / Fix and reset static files */
 		"ws:fix-all:resetStaticFiles": "node --run ws:fix-all -- --resetStaticFiles",
 	}

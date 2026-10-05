@@ -25,18 +25,20 @@ export function wsFindPackageHasModulesCore(list: IListableRow[], cwd: string, d
 {
 	return list
 		.map(row => {
-			// 對每個套件尋找其 node_modules 中的模組
-			// Find modules in node_modules for each package
+			/**
+			 * 對每個套件尋找其 node_modules 中的模組
+			 * Find modules in node_modules for each package
+			 */
 			let modules = findModulesPackagePaths(row.location, dir).modules
 
 			return {
-				// 保留原有的套件資訊
+				/** 保留原有的套件資訊 / Keep the original package info */
 				...row,
-				// 新增模組資訊
+				/** 新增模組資訊 / Add module information */
 				modules,
 			}
 		})
-		.filter(data => data?.modules?.length)  // 過濾出有模組的套件
+		.filter(data => data?.modules?.length)  /** 過濾出有模組的套件 / Keep only packages that have modules */
 	;
 }
 
@@ -50,12 +52,21 @@ export function wsFindPackageHasModulesCore(list: IListableRow[], cwd: string, d
  */
 export function wsFindPackageHasModules(cwd?: string, dir?: string)
 {
-	// 自動尋找工作區根目錄
-	// Automatically find workspace root directory
+	/**
+	 * 自動尋找工作區根目錄
+	 * Automatically find workspace root directory
+	 *
+	 * 未傳入 cwd 時交由 findWorkspaceRoot 自行向上探測；
+	 * 回傳值會作為後續列出工作區套件的基準目錄。
+	 * When cwd is omitted, findWorkspaceRoot detects it upward; the result
+	 * becomes the base directory used to list workspace packages.
+	 */
 	cwd = findWorkspaceRoot(cwd);
 
-	// 取得工作區套件列表並尋找模組
-	// Get workspace package list and find modules
+	/**
+	 * 取得工作區套件列表並尋找模組
+	 * Get workspace package list and find modules
+	 */
 	return wsFindPackageHasModulesCore(wsPkgListable(cwd), cwd, dir)
 }
 

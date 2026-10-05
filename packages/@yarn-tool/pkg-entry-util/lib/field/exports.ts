@@ -23,8 +23,10 @@ export function _pkgExportsAddPJsonEntryCore<T extends IPackageJson["exports"]>(
 {
 	if (typeof pkgExports === 'object')
 	{
-		// 若 './package.json' entry 不存在則添加
-		// Add './package.json' entry if not exists
+		/**
+		 * 若 './package.json' entry 不存在則添加（`??=` 保留使用者自訂的值）
+		 * Add './package.json' entry if not exists (`??=` keeps a user-defined value)
+		 */
 		pkgExports['./package.json'] ??= './package.json';
 	}
 
@@ -84,8 +86,12 @@ export function pkgExportsVerify<T extends IPackageJson>(pkg: T, options?: {
 {
 	if (typeof pkg.exports === 'object')
 	{
-		// 尋找套件根目錄
-		// Find package root directory
+		/**
+		 * 尋找套件根目錄；僅在「非工作區且找得到 package.json」時才驗證，
+		 * 工作區情境下交由各成員套件自行驗證，避免重複或誤報
+		 * Find the package root; verify only when it is not a workspace and a
+		 * package.json exists, since workspace members verify themselves
+		 */
 		const rootData = findRootLazy({
 			cwd: options?.cwd,
 		});
@@ -93,18 +99,26 @@ export function pkgExportsVerify<T extends IPackageJson>(pkg: T, options?: {
 		if (!rootData.isWorkspace && rootData.pkg)
 		{
 			const list: string[] = [];
-
-			// 遍歷所有 exports entry 檢查路徑
-			// Iterate all exports entries to check paths
+			/**
+			 * 遍歷所有 exports entry 檢查路徑
+			 * Iterate all exports entries to check paths
+			 */
 			Object.entries(pkg.exports)
 				.forEach(([entry, value]) =>
 				{
 					if (_isPackageExportsEntry(entry, value))
 					{
+						/**
+						 * 以套件根目錄建立解析器，讓 `./xxx` 相對路徑能解析為實際檔案位置
+						 * Build a resolver from the package root so `./xxx` relative
+						 * paths can be resolved to their real file locations
+						 */
 						const _ = resolvePackage(rootData.pkg);
 
-						// 將值轉換為陣列並檢查每個檔案路徑
-						// Convert value to array and check each file path
+						/**
+						 * 將值轉換為陣列並檢查每個檔案路徑
+						 * Convert value to array and check each file path
+						 */
 						([typeof value === 'string' ? value : Object.values(value)] as string[])
 							.flat()
 							.forEach(file =>
@@ -120,6 +134,12 @@ export function pkgExportsVerify<T extends IPackageJson>(pkg: T, options?: {
 
 								const bool = pathExistsSync(_.resolveLocation(file));
 
+								/**
+								 * 先收集所有錯誤再一次性拋出，
+								 * 讓使用者一次看到全部問題而非逐次修正
+								 * Collect all errors before throwing so users see
+								 * every problem at once instead of fixing one by one
+								 */
 								if (!bool)
 								{
 									list.push(`path of '${entry}' does not exist: '${file}'`);
@@ -131,8 +151,10 @@ export function pkgExportsVerify<T extends IPackageJson>(pkg: T, options?: {
 				})
 			;
 
-			// 若有錯誤則拋出包含詳細資訊的錯誤
-			// Throw error with details if there are any issues
+			/**
+			 * 若有錯誤則拋出包含詳細資訊的錯誤
+			 * Throw error with details if there are any issues
+			 */
 			if (list.length > 0)
 			{
 				let err = new Error(`Invalid package exports: ${rootData.pkg}\n${list.slice().map(v => ` - ${v}`).join('\n')}`);

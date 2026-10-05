@@ -23,12 +23,18 @@ import { _Key, IStaticFilesKey, IStaticFilesMapArray, IStaticFilesMapArrayEntry 
  */
 const _defaultCopyStaticFiles = [
 
-	// Ignore files / 忽略檔案
+	/**
+	 * 忽略檔案
+	 * Ignore files
+	 */
 	['.npmignore', 'file/npmignore'],
 	['.gitignore', 'file/gitignore'],
 	['.eslintignore', 'file/eslintignore'],
 
-	// TypeScript configuration / TypeScript 配置
+	/**
+	 * TypeScript 配置
+	 * TypeScript configuration
+	 */
 	['tsconfig.json', 'file/tsconfig.json.tpl'],
 	['tsconfig.json.tpl', 'file/tsconfig.json.tpl'],
 
@@ -37,25 +43,46 @@ const _defaultCopyStaticFiles = [
 	['tsconfig.esm.json.tpl', 'file/tsconfig.esm.json.tpl', 'tsconfig.esm.json'],
 	['tsconfig.tsdx.json.tpl', 'file/tsconfig.tsdx.json.tpl', 'tsconfig.tsdx.json'],
 
-	// ESLint configuration / ESLint 配置
+	/**
+	 * ESLint 配置
+	 * ESLint configuration
+	 */
 	['.eslintrc.json.tpl', 'file/eslintrc.json.tpl', '.eslintrc.json'],
 
-	// Documentation / 文檔
+	/**
+	 * 文件
+	 * Documentation
+	 */
 	['README.md', 'file/README.md'],
 
-	// Test configuration / 測試配置
+	/**
+	 * 測試配置
+	 * Test configuration
+	 */
 	['.mocharc.yml.tpl', 'file/mocharc.yml'],
 
 	['jest.config.js', 'file/jest.config.auto.js'],
 
-	// Now/Zeit deployment / Now/Zeit 部署配置
+	/**
+	 * Now/Zeit 部署配置
+	 * Now/Zeit deployment
+	 */
 	['.nowignore', 'file/nowignore'],
 	['now.json.tpl', 'file/now.json.tpl', 'now.json'],
 
-	// TSDX configuration / TSDX 配置
+	/**
+	 * TSDX 配置
+	 * TSDX configuration
+	 */
 	['tsdx.config.js.tpl', 'file/tsdx.config.js', 'tsdx.config.js'],
 
-	// test / 測試
+	/**
+	 * 測試
+	 * test
+	 *
+	 * 以展開運算式一次產生 test/ 底下的固定樣板條目
+	 * Expands into template entries under test/ in one go
+	 */
 	...(([
 		'temp.ts',
 
@@ -69,7 +96,10 @@ const _defaultCopyStaticFiles = [
 
 		'__root-core.d.ts',
 
-		// Test fixtures / 測試固定檔案
+		/**
+		 * 測試固定檔案
+		 * Test fixtures
+		 */
 		'fixtures/.gitkeep',
 
 	] as const).map(file => [
@@ -92,15 +122,24 @@ const _defaultCopyStaticFiles = [
  */
 const _defaultCopyStaticFilesRootOnly = [
 
-	// Monorepo configuration / Monorepo 配置
+	/**
+	 * Monorepo 配置
+	 * Monorepo configuration
+	 */
 	['lerna.json.tpl', 'file/lerna.json.tpl', 'lerna.json'],
 	['pnpm-workspace.yaml.tpl', 'file/pnpm-workspace.yaml'],
 
-	// GitHub Actions workflows / GitHub Actions 工作流程
+	/**
+	 * GitHub Actions 工作流程
+	 * GitHub Actions workflows
+	 */
 	['.github/workflows/build-pnpm.yml', 'file/github/workflows/build-pnpm.yml'],
 	['.github/workflows/build-yarn.yml', 'file/github/workflows/build-yarn.yml'],
 
-	// Additional GitHub configuration / 額外的 GitHub 配置
+	/**
+	 * 額外的 GitHub 配置
+	 * Additional GitHub configuration
+	 */
 	...(([
 		'dependabot.yml',
 		'commit-convention.md',
@@ -118,40 +157,73 @@ const _defaultCopyStaticFilesRootOnly = [
 
 	] as const).map(file => [`.github/${file}`, `file/github/${file}`] as const satisfies IStaticFilesMapArrayEntry<string>)),
 
-	// Node version files / Node 版本檔案
+	/**
+	 * Node 版本檔案
+	 * Node version files
+	 */
 	['.node-version.tpl', 'file/nvmrc'],
 	['.nvmrc.tpl', 'file/nvmrc'],
 
-	// Root TypeScript configuration / 根目錄 TypeScript 配置
+	/**
+	 * 根目錄 TypeScript 配置
+	 * Root TypeScript configuration
+	 *
+	 * 注意：此處目標為 .eslintrc.json，屬於根目錄專用的 ESLint 設定
+	 * Note: the target here is .eslintrc.json, the ESLint config used only at the root
+	 */
 	['.eslintrc.json', 'file/eslintrc.json.tpl', '.eslintrc.json'],
 
 	//['changelog-option.js', 'file/changelog-option.js', 'changelog-option.js.tpl'],
 
-	// Package manager configuration / 套件管理器配置
+	/**
+	 * 套件管理器配置
+	 * Package manager configuration
+	 */
 	['.yarnrc.yml.tpl', 'file/root/yarnrc.yml', '.yarnrc.yml'],
 	['.npmrc.tpl', 'file/npmrc', '.npmrc'],
 
 	['.env.tpl', 'file/env'],
 
-	// Jest configuration / Jest 配置
+	/**
+	 * Jest 配置
+	 * Jest configuration
+	 *
+	 * 僅放置 .tpl 樣板，正式設定檔交由工作區層級建立
+	 * Only the .tpl template is shipped here; the real config is created by the workspace layer
+	 */
 	// ['jest.config.js', 'file/jest.config.js'],
 	// ['jest.config.js.tpl', 'file/jest.config.js'],
 	['jest.config.auto.js.tpl', 'file/jest.config.auto.js'],
 
-	// Editor configuration / 編輯器配置
+	/**
+	 * 編輯器配置
+	 * Editor configuration
+	 */
 	['.editorconfig.tpl', 'file/tpl.editorconfig'],
 	['.editorconfig', 'file/tpl.editorconfig'],
 
-	// Global type declarations / 全局類型聲明
+	/**
+	 * 全域型別宣告
+	 * Global type declarations
+	 */
 	['global.tsdx.d.ts', 'file/root/global.tsdx.d.ts'],
 
-	// Browserslist configuration / Browserslist 配置
+	/**
+	 * Browserslist 配置
+	 * Browserslist configuration
+	 */
 	['.browserslistrc', 'file/ws-root/browserslistrc'],
 
-	// TSC multi configuration / TSC 多配置
+	/**
+	 * TSC 多配置
+	 * TSC multi configuration
+	 */
 	// ['tsc-multi.json.tpl', 'file/tsc-multi.json.tpl', 'tsc-multi.json'],
 
-	// NYC coverage configuration / NYC 覆蓋率配置
+	/**
+	 * NYC 覆蓋率配置
+	 * NYC coverage configuration
+	 */
 	// ['.nycrc.tpl', 'file/nycrc', '.nycrc'],
 
 ] as const satisfies IStaticFilesMapArray<string>;
@@ -164,25 +236,46 @@ const _defaultCopyStaticFilesRootOnly = [
  */
 const _defaultCopyStaticFilesWsRootOnly = [
 
-	// Lerna configuration / Lerna 配置
+	/**
+	 * Lerna 配置
+	 * Lerna configuration
+	 */
 	['lerna.json.tpl', 'file/lerna.json.tpl'],
 
-	// pnpm workspace configuration / pnpm 工作區配置
+	/**
+	 * pnpm 工作區配置
+	 * pnpm workspace configuration
+	 */
 	['pnpm-workspace.yaml', 'file/pnpm-workspace.yaml'],
 
-	// TSC multi configuration / TSC 多配置
+	/**
+	 * TSC 多配置
+	 * TSC multi configuration
+	 */
 	// ['tsc-multi.json.tpl', 'file/tsc-multi.json.tpl', 'tsc-multi.json'],
 
-	// Workspace root file / 工作區根目錄檔案
+	/**
+	 * 工作區根目錄檔案
+	 * Workspace root file
+	 */
 	['__root_ws.ts', 'file/ws-root/__root_ws.ts'],
 
-	// Jest configuration / Jest 配置
+	/**
+	 * Jest 配置
+	 * Jest configuration
+	 *
+	 * 工作區根目錄同時提供正式設定與樣板兩種形式
+	 * The workspace root ships both the real config and the template form
+	 */
 	['jest.config.js', 'file/ws-root/jest.config.js'],
 	['jest-preset.js', 'file/ws-root/jest-preset.js'],
 
 	['jest.config.js.tpl', 'file/ws-root/jest.config.js'],
 
-	// Run configurations / 執行配置
+	/**
+	 * 執行配置
+	 * Run configurations
+	 */
 	['.run/lerna_publish_yes.run.xml', 'file/ws-root/.run/lerna_publish_yes.run.xml'],
 
 ] as const satisfies IStaticFilesMapArray<string>;

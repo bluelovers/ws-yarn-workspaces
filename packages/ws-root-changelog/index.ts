@@ -97,7 +97,18 @@ export function _findWorkspacesRootPath(cwd?: string)
  */
 export function getWorkspacesRootChangelogPath(cwd?: string, filename?: string)
 {
+	/**
+	 * 先解析工作區根目錄，確保無論傳入哪個子目錄，最終路徑都以根目錄為基準
+	 * Resolve the workspace root first, so the resulting path is rooted correctly no matter which subdirectory is passed
+	 */
 	cwd = _findWorkspacesRootPath(cwd);
+
+	/**
+	 * 使用 `??=` 而非 `||`：僅在未傳入（null/undefined）時才套用預設檔名，
+	 * 傳入空字串等 falsy 值時仍保留呼叫者的意圖
+	 * Uses `??=` instead of `||` so the default only applies when nothing was passed (null/undefined),
+	 * preserving the caller's intent for other falsy values such as an empty string
+	 */
 	filename ??= `./CHANGELOG.md`;
 
 	return resolve(cwd, filename)
@@ -113,11 +124,23 @@ export function getWorkspacesRootChangelogPath(cwd?: string, filename?: string)
  */
 export function outputWorkspacesRootChangelog(cwd?: string, filename?: string)
 {
+	/**
+	 * 先解析根目錄，讓內容產生與寫入目標使用同一個根目錄
+	 * Resolve the root first so content generation and the write target share the same root
+	 */
 	cwd = _findWorkspacesRootPath(cwd);
 	const md = createWorkspacesRootChangelog(cwd);
 
+	/**
+	 * 以解析後的根目錄推導實際寫入路徑
+	 * Derive the actual write path from the resolved root
+	 */
 	const file = getWorkspacesRootChangelogPath(cwd, filename);
 
+	/**
+	 * 同步寫檔：CLI 與簡單腳本需要在結束前確認已完成寫入
+	 * Synchronous write: CLI and simple scripts need the write to be complete before they exit
+	 */
 	writeFileSync(file, md);
 
 	return {
@@ -136,11 +159,23 @@ export function outputWorkspacesRootChangelog(cwd?: string, filename?: string)
  */
 export async function outputWorkspacesRootChangelogAsync(cwd?: string, filename?: string)
 {
+	/**
+	 * 先解析根目錄，讓內容產生與寫入目標使用同一個根目錄
+	 * Resolve the root first so content generation and the write target share the same root
+	 */
 	cwd = _findWorkspacesRootPath(cwd);
 	const md = createWorkspacesRootChangelog(cwd);
 
+	/**
+	 * 以解析後的根目錄推導實際寫入路徑
+	 * Derive the actual write path from the resolved root
+	 */
 	const file = getWorkspacesRootChangelogPath(cwd, filename);
 
+	/**
+	 * 非同步寫檔：避免在大型工作區中阻塞事件迴圈 (Event Loop)
+	 * Asynchronous write: avoids blocking the event loop on large workspaces
+	 */
 	await promises.writeFile(file, md);
 
 	return {
@@ -185,6 +220,10 @@ export function createWorkspacesRootChangelog(cwd?: string)
 	 */
 	list.push(...listChangelog(cwd));
 
+	/**
+	 * 結尾保留兩個空行，確保貼上既有 changelog 後接續內容不會黏在同一行
+	 * Keep two trailing blank lines so appended content does not run onto the last link
+	 */
 	list.push('');
 	list.push('');
 
@@ -192,7 +231,9 @@ export function createWorkspacesRootChangelog(cwd?: string)
 }
 
 /**
- * 預設匯出函數
- * Default export function
+ * 預設匯出「產生內容」的函式，而非寫檔函式，
+ * 讓使用者 require() 後可直接取得純字串結果再自行決定是否寫入
+ * Default export is the content builder rather than a file writer,
+ * so require() yields a plain string the caller can decide how to persist
  */
 export default createWorkspacesRootChangelog

@@ -26,7 +26,12 @@ export function buildResolvePaths(options: IOptionsRequireResolve): IPathItemInp
 {
 	const paths: IPathItemInput[] = options.paths ?? [];
 
-	// 處理全域路徑包含選項 / Handle global paths inclusion option
+	/**
+	 * includeGlobal 支援兩種形態：直接給路徑陣列時逐一插入，
+	 * 給布林值時插入全域符號，交由後續轉換依執行環境解析出實際路徑。
+	 * includeGlobal has two shapes: a path array is unshifted item by item,
+	 * a boolean inserts the global symbol for later expansion per environment.
+	 */
 	if (options.includeGlobal)
 	{
 		if (Array.isArray(options.includeGlobal))
@@ -42,7 +47,12 @@ export function buildResolvePaths(options: IOptionsRequireResolve): IPathItemInp
 		}
 	}
 
-	// 處理當前目錄包含選項 / Handle current directory inclusion option
+	/**
+	 * 目前目錄在全域路徑之後才插入，因此最終位於陣列最前端、優先被搜尋，
+	 * 依序為：目前目錄 > 全域路徑 > 使用者提供的 paths。
+	 * The current directory is inserted last so it ends up at the front of the
+	 * array and is searched first: current directory > global paths > user paths.
+	 */
 	if (options.includeCurrentDirectory)
 	{
 		unshiftArray(paths, SymbolCurrentDirectory);
@@ -80,14 +90,35 @@ export function buildResolvePaths(options: IOptionsRequireResolve): IPathItemInp
  */
 export function requireResolveCore(name: string, options?: IOptionsRequireResolve): string
 {
+	/** 允許省略 options，之後一律以空物件存取，避免逐項判斷 undefined / Allow omitting options; an empty object avoids undefined checks later */
 	const opts = options ?? {};
 
-	// 取得目標路徑，優先使用自訂對應表 / Get target path, prefer custom mapping
+	/**
+	 * 取得目標路徑，優先使用自訂對應表
+	 * Get target path, prefer custom mapping
+	 *
+	 * 自訂 map 優先，其次 defaultMap，最後才用原始名稱，
+	 * 讓呼叫端可以覆寫內建的入口點對應。
+	 * The custom map wins over defaultMap and finally the raw name, so callers
+	 * can override the built-in entry mapping.
+	 */
 	const target = getTargetName(name, opts.map);
 
-	// 建構解析路徑 / Build resolution paths
+	/**
+	 * 建構解析路徑
+	 * Build resolution paths
+	 *
+	 * 將符號展開為實際路徑；cwd 用作展開時的基準目錄。
+	 * Expands symbols into real paths, using cwd as the base directory.
+	 */
 	const paths = buildResolvePaths(opts);
 
+	/**
+	 * 使用自訂 require（若有）呼叫 resolve；找不到模組時
+	 * 會依原生行為丟出 MODULE_NOT_FOUND。
+	 * Resolves through the custom require (if any); a missing module throws
+	 * MODULE_NOT_FOUND following the native behavior.
+	 */
 	return (opts.require ?? require).resolve(target, {
 		paths: handleOptionsPaths(paths, opts.cwd),
 	});
@@ -120,13 +151,23 @@ export function requireResolveExtra(name: string, options?: IOptionsRequireResol
 	try
 	{
 		const result = requireResolveCore(name, options);
+		/** 以 void 0 明確帶上 error 欄位（值為 undefined），而非整個省略該欄位 / Uses void 0 to explicitly include the error key as undefined instead of omitting it */
 		return { result, error: void 0 };
 	}
 	catch (e)
 	{
 		const error = e as IErrorModuleNotFound<Error>;
 
-		// MODULE_NOT_FOUND 錯誤不拋出，而是返回 / Don't throw MODULE_NOT_FOUND, return it instead
+		/**
+		 * MODULE_NOT_FOUND 錯誤不拋出，而是返回
+		 * Don't throw MODULE_NOT_FOUND, return it instead
+		 *
+		 * 僅將「模組不存在」視為可回報的結果，
+		 * 其他錯誤（如權限、語法錯誤）仍照原樣丟出以免被靜默吞掉。
+		 * Only "module not found" is treated as a reportable result; other
+		 * errors (permissions, syntax, …) still propagate so they are not
+		 * swallowed silently.
+		 */
 		if (isErrorModuleNotFound(error))
 		{
 			return { error };

@@ -21,39 +21,49 @@ import { getModulesDir } from './util';
  */
 export function findModulesPackagePathsCore(cwd: string, dir?: string)
 {
-	// 取得 node_modules 目錄路徑
-	// Get the node_modules directory path
+	/**
+	 * 取得 node_modules 目錄路徑
+	 * Get the node_modules directory path
+	 */
 	let root = getModulesDir(cwd, dir);
 
-	// 使用 fast-glob 同步搜尋所有 package.json 檔案
-	// Use fast-glob to synchronously search for all package.json files
+	/**
+	 * 使用 fast-glob 同步搜尋所有 package.json 檔案
+	 * Use fast-glob to synchronously search for all package.json files
+	 */
 	let modules = fg.sync<string>([
-			'@*/*/package.json',  // 尋找 scoped packages (如 @types/node)
-			'*/package.json',     // 尋找一般 packages
+			'@*/*/package.json',  /** 尋找 scoped packages（如 @types/node） / Find scoped packages (e.g. @types/node) */
+			'*/package.json',     /** 尋找一般 packages / Find regular packages */
 		], {
-			cwd: root,  // 在 node_modules 目錄下搜尋
+			cwd: root,  /** 在 node_modules 目錄下搜尋 / Search inside the node_modules directory */
 		})
 		.map(name =>
 		{
-			// 計算模組的完整路徑
-			// Calculate the full path of the module
+			/**
+			 * 由 package.json 的相對路徑回推模組目錄
+			 * Derive the module directory from the relative package.json path
+			 */
 			let dir = resolve(root, name)
 
 			return {
-				// 模組名稱（包含 scope）
-				// Module name (including scope)
+				/**
+				 * 模組名稱（包含 scope）
+				 * Module name (including scope)
+				 */
 				name: dirname(name),
-				// 模組實際位置
-				// Actual module location
+				/**
+				 * 模組實際位置
+				 * Actual module location
+				 */
 				location: dirname(dir),
 			}
 		})
 	;
 
 	return {
-		/** 當前工作目錄 */
+		/** 當前工作目錄 / Current working directory */
 		cwd,
-		/* 找到的模組陣列 */
+		/** 找到的模組陣列 / Found modules array */
 		modules,
 	}
 }
@@ -68,8 +78,20 @@ export function findModulesPackagePathsCore(cwd: string, dir?: string)
  */
 export function findModulesPackagePaths(cwd?: string, dir?: string)
 {
-	// 使用 pkg-dir 找到最近的 package.json 所在目錄作為 cwd
-	// Use pkg-dir to find the nearest package.json directory as cwd
+	/**
+	 * 使用 pkg-dir 找到最近的 package.json 所在目錄作為 cwd
+	 * Use pkg-dir to find the nearest package.json directory as cwd
+	 *
+	 * 未傳入 cwd 時以 process.cwd() 為起點；正規化可確保回傳值一律為
+	 * 絕對路徑，避免後續 fast-glob 以相對路徑搜尋而得到不一致的結果。
+	 * When cwd is omitted, process.cwd() is the starting point; normalization
+	 * guarantees an absolute path so fast-glob never searches relatively.
+	 *
+	 * 邊界情況：若向上找不到任何 package.json，pkgDir.sync 會回傳 undefined，
+	 * 此時 resolve() 會因參數非字串而丟出錯誤。
+	 * Edge case: if no package.json is found upward, pkgDir.sync returns
+	 * undefined and resolve() throws because the argument is not a string.
+	 */
 	cwd = resolve(pkgDir.sync(cwd ?? process.cwd()));
 
 	return findModulesPackagePathsCore(cwd, dir)

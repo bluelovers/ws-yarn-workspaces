@@ -117,6 +117,8 @@ export function createYarnWorkspaces(cwd?: string, options: IOptions = {})
 	let root: string = rootData?.pkg;
 	let ws: string = rootData?.ws;
 
+	// 實際要初始化的目標路徑：優先採用既有 package 根目錄，否則退回 cwd。
+	// The actual init target: prefer an existing package root, otherwise fall back to `cwd`.
 	let targetPath = resolve(root || cwd);
 
 	// 除錯輸出 / Debug output

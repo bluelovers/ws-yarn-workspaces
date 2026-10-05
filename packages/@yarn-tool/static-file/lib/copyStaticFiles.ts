@@ -58,32 +58,68 @@ import { __STATIC_ROOT } from '../__root';
  */
 export function copyStaticFiles<K extends string>(options: ICopyStaticFilesOptions<K>)
 {
-	// Validate cwd parameter / 驗證 cwd 參數
+	/**
+	 * 驗證 cwd 參數
+	 * Validate cwd parameter
+	 *
+	 * 空字串與 undefined 都會在後續 resolve 時產生錯誤的根路徑，故先行攔截
+	 * Empty string and undefined would produce a wrong base path during resolve, so intercept early
+	 */
 	if (typeof options.cwd !== 'string' || !options.cwd?.length || !options.cwd)
 	{
 		throw new TypeError(`options.cwd must is string`)
 	}
 
-	// Check if cwd directory exists / 檢查 cwd 目錄是否存在
+	/**
+	 * 檢查 cwd 目錄是否存在
+	 * Check if cwd directory exists
+	 *
+	 * 目標目錄不存在時直接失敗，避免複製到非預期位置
+	 * Fail early when the target directory is absent, to avoid copying into an unintended location
+	 */
 	if (!pathExistsSync(options.cwd))
 	{
 		throw new TypeError(`options.cwd not exists`)
 	}
 
-	// Parse the file map / 解析檔案映射
+	/**
+	 * 解析檔案映射
+	 * Parse the file map
+	 *
+	 * 未提供 file_map 時退回預設清單，讓一般呼叫只需傳入 cwd
+	 * Fall back to the default list when file_map is omitted, so a plain call only needs cwd
+	 */
 	let ls = parseStaticMap<K>(options.file_map ?? defaultCopyStaticFiles as IStaticFilesMapArray<K>);
 
-	// Validate parsed file map / 驗證解析後的檔案映射
+	/**
+	 * 驗證解析後的檔案映射
+	 * Validate parsed file map
+	 *
+	 * 解析結果為空代表映射格式錯誤，若不攔截會安靜地複製零個檔案
+	 * An empty result means a malformed map; without this guard the copy would silently do nothing
+	 */
 	if (!ls.length)
 	{
 		throw new TypeError(`Invalid file map: ${options.file_map}`)
 	}
 
-	// Determine static root directory / 確定靜態檔案根目錄
+	/**
+	 * 確定靜態檔案根目錄
+	 * Determine static root directory
+	 *
+	 * 允許呼叫端覆寫靜態樣板來源；預設指向本套件的 file/ 目錄
+	 * Allows overriding the template source; defaults to this package's file/ directory
+	 */
 	const staticRoot = options.staticRoot || __STATIC_ROOT;
 	const { cwd, overwrite } = options;
 
-	// Filter and copy files / 過濾並複製檔案
+	/**
+	 * 過濾並複製檔案
+	 * Filter and copy files
+	 *
+	 * 以 filter 收集實際複製成功的條目，被 detectFile 跳過的項目不會出現在回傳值中
+	 * Uses filter to collect the entries actually copied; items skipped by detectFile are absent from the result
+	 */
 	return ls.filter((entry) =>
 		{
 			return copyStaticFilesEntry(entry, cwd, staticRoot, overwrite)

@@ -40,24 +40,40 @@ import { join } from 'path';
  */
 function findWorkspacePackageJson(cwd?: string)
 {
-	// 使用 findYarnWorkspaceRoot 找到 workspace 根目錄
-	// Use findYarnWorkspaceRoot to find workspace root directory
+	/**
+	 * 委由 findYarnWorkspaceRoot 判斷工作區根目錄，
+	 * 因為只有它知道 workspaces glob 與 monorepo 結構的判定規則
+	 * Delegate workspace-root detection to findYarnWorkspaceRoot, since only it
+	 * knows the rules for workspaces globs and monorepo layout
+	 */
 	let ws = findYarnWorkspaceRoot(cwd || process.cwd());
 
-	// 若找到 workspace 根目錄，返回 package.json 的完整路徑
-	// If workspace root is found, return full path to package.json
+	/**
+	 * 找到根目錄才組出路徑；此處不回傳 null 而交由下一段處理，
+	 * 讓「找不到」的分支集中在單一出口
+	 * Only join the path when a root was found; deferring the miss case to the
+	 * fall-through below keeps the "not found" branch at a single exit point
+	 */
 	if (ws)
 	{
 		return join(ws, 'package.json');
 	}
 
-	// 未找到 workspace 根目錄，返回 null
-	// Return null if workspace root not found
+	/**
+	 * 回傳 null 而非拋錯：「不在任何 workspace 內」是合法情況，
+	 * 呼叫端應自行決定是否視為錯誤
+	 * Return null instead of throwing: "not inside any workspace" is a legitimate
+	 * situation and the caller decides whether that is an error
+	 */
 	return null;
 }
 
-// 將函數附加為自身的靜態屬性，方便存取
-// Attach function as its own static property for convenient access
+/**
+ * 將函式附加為自身的靜態屬性，
+ * 讓 require() 後無論取用預設或具名存取都能拿到同一函式
+ * Attach the function as its own static property so that after require(),
+ * both default and named access yield the same function
+ */
 findWorkspacePackageJson.findPkg = findWorkspacePackageJson;
 findWorkspacePackageJson.default = findWorkspacePackageJson;
 

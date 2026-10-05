@@ -98,8 +98,24 @@ export function mergeSimpleSemVer<T extends ISimpleSemVer, R extends ISimpleSemV
 
 	const entries = Object.entries(b);
 
+	/**
+	 * not_ok 預設為 true：只有見到至少一個字串欄位時才翻轉為 false，
+	 * 用來擋下「來源完全沒有任何可合併欄位」（如空物件、只有 null）的情況。
+	 * not_ok starts as true and only flips to false once at least one string
+	 * field is seen, which guards against a source with nothing mergeable at
+	 * all (e.g. an empty object, or only null values).
+	 */
 	let not_ok = true;
 
+	/**
+	 * 逐欄驗證來源值：null/undefined 視為「未提供」直接略過，
+	 * 其餘非字串型別（數字、布林、物件等）一律視為錯誤，
+	 * 避免靜默地把意料外的型別寫進版本物件。
+	 * Validate source fields one by one: null/undefined mean "not provided" and
+	 * are skipped, while any other non-string type (number, boolean, object…)
+	 * is an error, so unexpected types never silently land in the version
+	 * object.
+	 */
 	for (const [k, v] of entries)
 	{
 		if (typeof v === 'string')
@@ -115,6 +131,10 @@ export function mergeSimpleSemVer<T extends ISimpleSemVer, R extends ISimpleSemV
 		throw new TypeError(`Invalid '${k}' value: ${v}`);
 	}
 
+	/**
+	 * 來源一個字串欄位都沒有 → 合併必然無意義，直接拒絕。
+	 * The source has no string field at all → merging is meaningless, reject it.
+	 */
 	if (not_ok)
 	{
 		throw new TypeError(`Invalid 'b' value: ${JSON.stringify(b)}`);
@@ -145,6 +165,10 @@ export function mergeSimpleSemVer<T extends ISimpleSemVer, R extends ISimpleSemV
 		// Allowed values: non-empty string and not '*' or 'x'
 		if (isAllowedMergeAbleValue(value1) && isAllowedMergeAbleValue(value2))
 		{
+			/**
+			 * 第一次發生變更時才建立 changed，維持「完全無變更時回傳 undefined」的行為
+			 * Lazily create `changed` on first write, preserving "undefined when nothing changed"
+			 */
 			changed ??= {};
 
 			// 更新目標物件的值

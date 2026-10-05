@@ -25,6 +25,12 @@ export const defaultMap: Record<string, string> = {
  */
 export function unshiftArray<T>(array: T[], item: T): T[]
 {
+	/**
+	 * 僅在第一個元素不是相同項目時才插入，
+	 * 可避免反覆加入相同符號造成路徑陣列重複。
+	 * Only insert when the first element differs, so repeatedly adding the
+	 * same symbol does not duplicate entries in the paths array.
+	 */
 	if (array[0] !== item)
 	{
 		array.unshift(item);
@@ -40,6 +46,11 @@ export function unshiftArray<T>(array: T[], item: T): T[]
  * @param paths - 路徑陣列，可包含符號或實際路徑 / Path array, can contain symbols or actual paths
  * @param cwd - 工作目錄 / Working directory
  * @returns 轉換後的實際路徑陣列 / Converted actual path array
+ *
+ * 轉換結果為空時回傳 undefined 而非空陣列，
+ * 讓 require.resolve 忽略 paths 選項並沿用其預設解析行為。
+ * An empty result becomes undefined instead of an empty array, so
+ * require.resolve ignores the paths option and keeps its default behavior.
  */
 export function handleOptionsPaths(paths: IOptionsRequireResolveCore["paths"], cwd?: string): string[] | undefined
 {

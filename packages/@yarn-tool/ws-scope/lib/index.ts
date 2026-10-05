@@ -85,12 +85,22 @@ export class WorkspacesScope
 	 */
 	constructor(cwd?: string)
 	{
+		/**
+		 * 必須先找到真正的工作區根目錄，且要求根目錄確實含 workspaces 設定，
+		 * 否則後續三種設定檔的路徑解析都會落在錯誤位置
+		 * Locate the real workspace root first; the root must actually contain
+		 * workspaces config, otherwise every path resolved below would be wrong
+		 */
 		this.rootData = findRootLazy({
 			cwd,
 			throwError: true,
 			shouldHasWorkspaces: true,
 		});
 
+		/**
+		 * 三種設定檔格式各由專屬 handler 負責，對外才會有統一的 add/remove/save 行為
+		 * Each config format gets a dedicated handler so add/remove/save stay uniform outside
+		 */
 		this._root_package_json = new ScopeJson(this.resolvePath('package.json'), {
 			field: 'workspaces',
 		});
@@ -101,6 +111,11 @@ export class WorkspacesScope
 			field: 'packages',
 		});
 
+		/**
+		 * 以 lazy 方式載入：三種設定檔皆非必備，缺檔時保持未載入即可，不應因此拋錯
+		 * Load lazily: none of the three files is mandatory; a missing file simply
+		 * stays unloaded and must not throw
+		 */
 		this._root_package_json.loadFileLazy();
 		this._root_lerna_json.loadFileLazy();
 		this._root_pnpm_workspace_yaml.loadFileLazy();
@@ -129,6 +144,12 @@ export class WorkspacesScope
 	 */
 	resolvePath(...paths: [string, ...string[]])
 	{
+		/**
+		 * 型別雖要求至少一個參數，但執行期仍可能收到空 arguments，
+		 * 提前拋錯比讓 resolve 靜默回傳根目錄更安全
+		 * The type requires at least one argument, but an empty call can still happen
+		 * at runtime; failing fast is safer than letting resolve silently return the root
+		 */
 		if (!paths.length)
 		{
 			throw new SyntaxError(`Invalid arguments: ${paths}`)
@@ -153,8 +174,12 @@ export class WorkspacesScope
 	 */
 	add(scope: string)
 	{
-		// If scope is just a basename, prefix with packages/ and suffix with /*
-		// 如果範圍只是基本名稱，則加上 packages/ 前綴和 /* 後綴
+		/**
+		 * 只傳入套件名稱（不含路徑）時，自動補成慣用的 packages/<name>/* 形式，
+		 * 讓呼叫端不必記住 glob 語法
+		 * When only a bare package name (no path) is given, normalize it to the
+		 * conventional packages/<name>/* glob so callers need not remember the syntax
+		 */
 		if (scope === basename(scope))
 		{
 			scope = `packages/${scope}/*`
@@ -179,8 +204,12 @@ export class WorkspacesScope
 	 */
 	remove(scope: string)
 	{
-		// If scope is just a basename, prefix with packages/ and suffix with /*
-		// 如果範圍只是基本名稱，則加上 packages/ 前綴和 /* 後綴
+		/**
+		 * 與 add() 相同的正規化：讓新增與移除可用同一種輸入格式，
+		 * 否則兩邊對同一輸入會解析出不同路徑而無法正確移除
+		 * Same normalization as add(): both sides must resolve an identical path,
+		 * otherwise removing with the same input would miss the entry
+		 */
 		if (scope === basename(scope))
 		{
 			scope = `packages/${scope}/*`
@@ -221,6 +250,12 @@ export class WorkspacesScope
 	 */
 	save()
 	{
+		/**
+		 * 僅在 lerna.json 確實被載入（存在）時才排序：
+		 * 未載入時排序一個空物件沒有意義，也可能在寫入階段產生非預期檔案
+		 * Sort only when lerna.json was actually loaded (exists):
+		 * sorting an empty object is meaningless and could cause an unwanted file on write
+		 */
 		if (this._root_lerna_json.opened)
 		{
 			sortLernaJson(this._root_lerna_json.json);
@@ -272,6 +307,11 @@ export class WorkspacesScope
 
 		array_unique_overwrite(value);
 
+		/**
+		 * 逐一回寫至三種設定檔，使原本分散的清單收斂成相同內容
+		 * Re-add each scope into all three config files so previously
+		 * divergent lists converge to identical content
+		 */
 		value.forEach(scope => this.add(scope));
 
 		return value

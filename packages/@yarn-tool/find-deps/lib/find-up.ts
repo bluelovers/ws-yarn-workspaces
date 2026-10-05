@@ -35,23 +35,35 @@ export function findUpDepsDeepRecordCore<R extends IListableRowExtraWithDeps>(ta
 	map: Record<string, string[]> = {},
 )
 {
-	// 若目標套件不存在或已處理過，直接返回
-	// Return directly if target package doesn't exist or has been processed
+	/**
+	 * 若目標套件不存在或已處理過，直接返回
+	 *
+	 * Return directly if target package doesn't exist or has been processed
+	 */
 	if (!record[target] || map[target]?.length)
 	{
 		return map
 	}
 
-	// 初始化目標套件的向上依賴列表
-	// Initialize upward dependency list for target package
+	/**
+	 * 初始化目標套件的向上依賴列表
+	 *
+	 * Initialize upward dependency list for target package
+	 */
 	map[target] = map[target] ?? [];
 
-	// 遍歷所有套件，找出依賴目標套件的套件
-	// Traverse all packages to find those that depend on target package
+	/**
+	 * 遍歷所有套件，找出依賴目標套件的套件
+	 *
+	 * Traverse all packages to find those that depend on target package
+	 */
 	Object.values(record)
 		.reduce((map, row) => {
-			// 檢查此套件是否在任何依賴欄位中包含目標套件
-			// Check if this package contains target in any dependency field
+			/**
+			 * 檢查此套件是否在任何依賴欄位中包含目標套件
+			 *
+			 * Check if this package contains target in any dependency field
+			 */
 			let bool = packageJsonDependenciesFields
 				.some(field =>
 				{
@@ -59,28 +71,43 @@ export function findUpDepsDeepRecordCore<R extends IListableRowExtraWithDeps>(ta
 				})
 			;
 
-			// 若此套件依賴目標套件
-			// If this package depends on target package
+			/**
+			 * 若此套件依賴目標套件
+			 *
+			 * If this package depends on target package
+			 */
 			if (bool)
 			{
-				// 將此套件加入目標的向上依賴列表
-				// Add this package to target's upward dependency list
+				/**
+				 * 將此套件加入目標的向上依賴列表
+				 *
+				 * Add this package to target's upward dependency list
+				 */
 				map[target].push(row.name)
 
-				// 遞迴尋找此套件的向上依賴
-				// Recursively find upward dependencies of this package
+				/**
+				 * 遞迴尋找此套件的向上依賴
+				 *
+				 * Recursively find upward dependencies of this package
+				 */
 				findUpDepsDeepRecordCore(row.name, record, map)
 
-				// 將此套件的向上依賴也加入目標的列表
-				// Add this package's upward dependencies to target's list
+				/**
+				 * 將此套件的向上依賴也加入目標的列表
+				 *
+				 * Add this package's upward dependencies to target's list
+				 */
 				map[target].push(...map[row.name])
 			}
 
 			return map
 		}, map)
 
-	// 移除重複的套件名稱
-	// Remove duplicate package names
+	/**
+	 * 移除重複的套件名稱
+	 *
+	 * Remove duplicate package names
+	 */
 	array_unique_overwrite(map[target])
 
 	return map
@@ -106,8 +133,11 @@ export function findUpDepsAllDeepRecordCore<R extends IListableRowExtraWithDeps>
 {
 	return targets
 		.reduce((map, target) => {
-			// 對每個目標執行向上依賴尋找
-			// Execute upward dependency search for each target
+			/**
+			 * 對每個目標執行向上依賴尋找
+			 *
+			 * Execute upward dependency search for each target
+			 */
 			findUpDepsDeepRecordCore(target, record, map)
 
 			return map
@@ -137,31 +167,49 @@ export function findUpDepsAllDeep<R extends IListableRowExtraWithDeps>(targets: 
 	record: Record<string, R>
 )
 {
-	// 建立向上依賴映射
-	// Build upward dependency map
+	/**
+	 * 建立向上依賴映射
+	 *
+	 * Build upward dependency map
+	 */
 	let map = findUpDepsAllDeepRecordCore(targets, record)
 
-	// 建立向下依賴映射（用於排序）
-	// Build downward dependency map (for sorting)
+	/**
+	 * 建立向下依賴映射（用於排序）
+	 *
+	 * Build downward dependency map (for sorting)
+	 */
 	let map2 = findDepsAllDeepRecordCore(Object.keys(map), record)
 
-	// 將映射轉換為陣列
-	// Convert map to array
+	/**
+	 * 將映射轉換為陣列
+	 *
+	 * Convert map to array
+	 */
 	let list = Object.entries(map)
 
-	// 依據依賴數量排序（多的在前）
-	// Sort by dependency count (more first)
+	/**
+	 * 依據依賴數量排序（多的在前）
+	 *
+	 * Sort by dependency count (more first)
+	 */
 	list.sort((a, b) => {
 		return b[1].length - a[1].length
 	})
 
-	// 對每個目標的向上依賴列表進行排序
-	// Sort upward dependency list for each target
+	/**
+	 * 對每個目標的向上依賴列表進行排序
+	 *
+	 * Sort upward dependency list for each target
+	 */
 	list.forEach(a => {
 
 		a[1].sort((a, b) => {
-			// 先依據向下依賴數量排序，若相同則依據向上依賴數量排序
-			// Sort by downward dependency count first, then by upward dependency count if equal
+			/**
+			 * 先依據向下依賴數量排序，若相同則依據向上依賴數量排序
+			 *
+			 * Sort by downward dependency count first, then by upward dependency count if equal
+			 */
 			return (map2[a].length - map2[b].length) || (map[b].length - map[a].length)
 		})
 
@@ -170,4 +218,9 @@ export function findUpDepsAllDeep<R extends IListableRowExtraWithDeps>(targets: 
 	return list
 }
 
+/**
+ * 預設匯出 `findUpDepsAllDeep`
+ *
+ * Default export: `findUpDepsAllDeep`.
+ */
 export default findUpDepsAllDeep

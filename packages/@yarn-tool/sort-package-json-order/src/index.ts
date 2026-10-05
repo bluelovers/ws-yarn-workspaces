@@ -22,6 +22,20 @@
 
 import { sortOrder } from './sort-order';
 
+/**
+ * 具名匯出（Named export）：供需要明確指定來源的呼叫端使用，
+ * 與預設匯出指向同一個陣列實例，兩者混用不會產生不同順序。
+ *
+ * Named export for callers that prefer an explicit source; it is the very same
+ * array instance as the default export, so mixing both yields one identical order.
+ */
 export { sortOrder }
 
+/**
+ * 預設匯出（Default export）：讓 `import sortOrder from '...'` 即可取得順序，
+ * 與 README 範例及 sort-package-json3 的 `sortOrder` 選項用法一致。
+ *
+ * Default export so `import sortOrder from '...'` works, matching the README
+ * example and the way `sort-package-json3` consumes the `sortOrder` option.
+ */
 export default sortOrder

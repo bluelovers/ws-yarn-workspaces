@@ -40,33 +40,51 @@ import hashSum from 'hash-sum';
  */
 export function normalizeName(name: string, hash?: IOptions["hash"]): string
 {
-	// 若要求使用雜湊
-	// If hash is requested
+	/**
+	 * 雜湊分支優先：一旦要求雜湊就不再做字元替換，
+	 * 因為雜湊值本身已是安全且唯一的目錄名
+	 * Hash branch first: once hashing is requested no character substitution happens,
+	 * because the hash value is already a safe and unique directory name
+	 */
 	if (hash)
 	{
-		// 若提供自訂雜湊函數，使用該函數
-		// If custom hash function is provided, use it
+		/**
+		 * 允許呼叫端注入自有演算法（例如需跨版本穩定的雜湊），
+		 * 此時完全沿用其結果，不做任何後處理
+		 * Callers may inject their own algorithm (e.g. one that must stay stable across versions);
+		 * its result is used as-is with no post-processing
+		 */
 		if (typeof hash === 'function')
 		{
 			return hash(name)
 		}
 
-		// 使用 hash-sum 產生雜湊值
-		// Use hash-sum to generate hash value
+		/**
+		 * 內建雜湊採 hash-sum，回傳短字串以避免 Windows 路徑長度上限
+		 * Built-in hashing uses hash-sum, which returns a short string that avoids Windows path length limits
+		 */
 		return hashSum(name);
 	}
 
-	// 執行正規化轉換
-	// Perform normalization conversion
+	/**
+	 * 正規化轉換：四個步驟的順序不可調換，
+	 * 先收斂特殊字元、再收斂點號與底線，才能避免殘留連續分隔符
+	 * Normalization steps: the four steps must stay ordered —
+	 * collapsing special chars first, then dots and underscores, avoids leftover separators
+	 */
 	const normalized = name
-		.trim()                                    // 移除前後空白 / Remove leading/trailing whitespace
-		.replace(/[^\w\-\.]/g, '_')               // 替換特殊字元為底線 / Replace special chars with underscore
-		.replace(/\.+/g, '_')                     // 替換連續點號為底線 / Replace consecutive dots with underscore
-		.replace(/_+/g, '_')                      // 合併連續底線 / Merge consecutive underscores
+		.trim()                                    /** 移除前後空白 / Remove leading/trailing whitespace */
+		.replace(/[^\w\-\.]/g, '_')               /** 替換特殊字元為底線 / Replace special chars with underscore */
+		.replace(/\.+/g, '_')                     /** 替換連續點號為底線 / Replace consecutive dots with underscore */
+		.replace(/_+/g, '_')                      /** 合併連續底線 / Merge consecutive underscores */
 	;
 
-	// 檢查結果是否安全（不能只有底線）
-	// Check if result is safe (cannot be only underscores)
+	/**
+	 * 只剩底線代表原名稱毫無可辨識內容，
+	 * 放行會讓多個不同名稱碰撞到同一目錄，故直接拋錯
+	 * An all-underscore result means the original name had no identifiable content;
+	 * allowing it would collide unrelated names into one directory, so it throws instead
+	 */
 	if (!/[^_]/.test(normalized))
 	{
 		throw new Error(`unsafe normalizeName { ${name} => ${normalized} }`)

@@ -223,4 +223,12 @@ export function _findDefaultPackageBinByBins(bins: Record<string, string>, defau
 	return firstPackageBin(bins)
 }
 
+/**
+ * 預設匯出正規化函式，讓 `import getPkgBins from '@yarn-tool/get-pkg-bin'`
+ * 取得最常用的入口（Why：與常見單一預設行為的工具庫慣例一致）。
+ *
+ * Default-exports the normalize function so
+ * `import getPkgBins from '@yarn-tool/get-pkg-bin'` exposes the most common
+ * entry point (Why: matches the usual single-default utility convention).
+ */
 export default normalizePackageBins

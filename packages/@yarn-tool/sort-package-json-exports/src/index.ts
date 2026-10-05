@@ -105,6 +105,13 @@ export function _handleOptions(options?: IOptions)
 	 *
 	 * Includes root order keys plus: default, ., ./, ./package.json
 	 * 包含根順序鍵加上：default, ., ./, ./package.json
+	 *
+	 * 注意：此處在自訂 rootOrder 前置之前就已展開 rootOrder，
+	 * 因此自訂 rootOrder 不會自動帶入 entryOrder，需分別以 entryOrder 指定。
+	 *
+	 * Note: `rootOrder` is spread here *before* any custom `rootOrder` prepending,
+	 * so a custom `rootOrder` does not leak into `entryOrder`; specify both to
+	 * override both levels.
 	 */
 	const entryOrder = [
 		...rootOrder,
@@ -116,6 +123,15 @@ export function _handleOptions(options?: IOptions)
 
 	if (options)
 	{
+		/**
+		 * 僅在傳入非空陣列時才前置（Prepend）：
+		 * 空陣列 splice 出去雖無副作用，但會讓「已明確指定空順序」與「未指定」難以區分，
+		 * 並避免不必要的 O(n) 拷貝。
+		 *
+		 * Only prepend when a non-empty array is given: splicing an empty array is a
+		 * no-op yet blurs the distinction between "explicitly empty" and "unset", and
+		 * it would cost an unnecessary O(n) copy.
+		 */
 		if (options.rootOrder?.length)
 		{
 			rootOrder.splice(0, 0, ...options.rootOrder);
@@ -169,20 +185,54 @@ export function _handleOptions(options?: IOptions)
  */
 export function sortPackageJsonExports(exports: IPackageJson["exports"], options?: IOptions)
 {
+	/**
+	 * 先做型別守衛（Type guard）：exports 可能是字串、陣列或 undefined（合法的簡寫形式），
+	 * 這些形式沒有鍵可排，直接跳過排序以免改寫非物件的值。
+	 *
+	 * Guard first with a type check: `exports` may legally be a string, an array or
+	 * undefined (shorthand forms); those have no keys to sort, so sorting is skipped
+	 * to avoid rewriting a non-object value.
+	 */
 	if (isPackageJsonExportsEntryObject(exports))
 	{
 		const { rootOrder, entryOrder } = _handleOptions(options);
 
+		/**
+		 * useSource: true 表示直接在來源物件上原地回寫，
+		 * 因此此處不接回傳值（sortObjectKeys 仍會回傳同一個物件）。
+		 * 順序表未列出的鍵會被排到已知鍵之後，原有的鍵不會遺失。
+		 *
+		 * `useSource: true` writes the sorted result back into the source object, so
+		 * the return value is intentionally ignored here (`sortObjectKeys` still
+		 * returns the same object). Keys missing from the order list are pushed after
+		 * the known ones; no existing key is lost.
+		 */
 		sortObjectKeys(exports, {
 			keys: rootOrder,
 			useSource: true,
 		});
 
+		/**
+		 * 根層級排序完成後，再逐一處理每個子路徑（Subpath）的入口條件（Condition）；
+		 * 使用 Object.keys 而非重新取值，是為了保持剛排序過的根層級順序。
+		 *
+		 * After root-level ordering, iterate each subpath to sort its conditions;
+		 * `Object.keys` reuses the just-sorted root order instead of re-reading the
+		 * object in a different sequence.
+		 */
 		Object.keys(exports)
 			.forEach(key =>
 			{
 				const value = exports[key];
 
+				/**
+				 * 僅排序仍是項物件的入口；若某子路徑的值是字串（合法的簡寫），
+				 * 則原樣保留，不呼叫 sortObjectKeys。
+				 *
+				 * Only entry objects are sorted; if a subpath's value is a string (a
+				 * legal shorthand), it is left untouched and `sortObjectKeys` is not
+				 * called for it.
+				 */
 				if (isPackageJsonExportsEntryObject(value))
 				{
 					exports[key] = sortObjectKeys(value, {

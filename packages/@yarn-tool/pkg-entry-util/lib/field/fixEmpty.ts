@@ -16,6 +16,14 @@ import { IPackageJson } from '@ts-type/package-dts/package-json';
  */
 export function isEmptyConfig(value: any[] | object | string | unknown)
 {
+	/**
+	 * 複雜條件：`&&` 優先於 `||`，因此實際上是四個獨立判斷的聯集——
+	 * undefined、null、空物件（無自身鍵）、空字串；
+	 * 物件/字串先以 `&&` 確認型別再檢查長度，避免對非該型別取值出錯
+	 * Complex condition: `&&` binds tighter than `||`, so this is the union of
+	 * four checks — undefined, null, empty object (no own keys), empty string;
+	 * the object/string branches verify the type first to avoid bad access
+	 */
 	return typeof value === 'undefined' || value === null || typeof value === 'object' && !Object.keys(value).length || typeof value === 'string' && !value.length;
 }
 
@@ -34,6 +42,12 @@ export function isEmptyConfig(value: any[] | object | string | unknown)
  */
 export function _fixEmptyFieldsCore<T extends IPackageJson>(pkg: T, root: string, keys: (keyof T)[])
 {
+	/**
+	 * 逐欄檢查；空配置直接 delete，
+	 * 讓 package.json 保持精簡並避免空物件影響下游解析
+	 * Check each key; delete empty configurations to keep package.json
+	 * tidy and prevent empty objects from breaking downstream parsers
+	 */
 	for (const key of keys)
 	{
 		if (isEmptyConfig(pkg[key]))
