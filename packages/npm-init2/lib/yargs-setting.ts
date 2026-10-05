@@ -4,8 +4,19 @@
 
 import yargs, { Arguments } from 'yargs';
 import { Argv, Omit } from 'yargs';
-import { IYargsSync, IYargsUnPackArgv } from '@yarn-tool/types';
+import { setupToYargs as setupFixAllToYargs } from '@yarn-tool/fix-all/lib/util/yargs-setting';
 
+/**
+ * 設定 Yargs CLI 選項
+ * Setup Yargs CLI options
+ *
+ * 繼承 @yarn-tool/fix-all 的共用選項
+ * （overwriteHostedGitInfo / branch / resetStaticFiles / addStaticFiles / noStaticFiles）
+ * Inherits shared options from @yarn-tool/fix-all
+ * (overwriteHostedGitInfo / branch / resetStaticFiles / addStaticFiles / noStaticFiles)
+ *
+ * @param yargs - Yargs 實例 / Yargs instance
+ */
 export function setupToYargs<T>(yargs: Argv<T>)
 {
 	const _return = yargs
@@ -65,7 +76,11 @@ export function setupToYargs<T>(yargs: Argv<T>)
 		})
 	;
 
-	return _return as any as IYargsSync<typeof _return>
+	/**
+	 * 繼承 @yarn-tool/fix-all 的共用靜態檔案選項
+	 * Inherit shared static file options from @yarn-tool/fix-all
+	 */
+	return setupFixAllToYargs(_return);
 }
 
 export default setupToYargs

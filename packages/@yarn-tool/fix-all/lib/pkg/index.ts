@@ -33,6 +33,7 @@ import { EnumScriptsEntry, scriptsEntryIsNoTestSpecified } from '@yarn-tool/pkg-
 import { isTsdxPackage } from '@yarn-tool/setup-module-env/lib/preset/tsdx/is-tsdx';
 import { fixTsdxPackage } from '@yarn-tool/setup-module-env/lib/preset/tsdx/fix';
 import { _resetStaticFiles } from '../file/reset';
+import { _isAddStaticFilesWithReset } from '../file/staticFiles';
 import { INpmAutoFixAll } from '../../index';
 import { join } from 'upath2';
 import { existsSync, statSync } from 'fs-extra';
@@ -69,7 +70,7 @@ export type IEntry = ReturnType<typeof _handler>
  *
  * @extends {ITSRequiredPick<IFillPkgHostedInfoOptions & INpmAutoFixAll, ...>}
  */
-export interface IOptionsRunEachPackages extends ITSRequiredPick<IFillPkgHostedInfoOptions & INpmAutoFixAll, 'overwriteHostedGitInfo' | 'branch' | 'rootData' | 'hostedGitInfo' | 'resetStaticFiles'>
+export interface IOptionsRunEachPackages extends ITSRequiredPick<IFillPkgHostedInfoOptions & INpmAutoFixAll, 'overwriteHostedGitInfo' | 'branch' | 'rootData' | 'hostedGitInfo' | 'resetStaticFiles' | 'addStaticFiles' | 'noStaticFiles'>
 {
 
 }
@@ -81,7 +82,7 @@ export interface IOptionsRunEachPackages extends ITSRequiredPick<IFillPkgHostedI
  * 此函數負責對單一套件執行完整的修復流程，包括：
  * This function performs the complete fix process for a single package, including:
  * 1. 重置靜態檔案（如啟用）/ Reset static files (if enabled)
- * 2. 複製靜態檔案到套件目錄 / Copy static files to package directory
+ * 2. 複製靜態檔案到套件目錄（依 addStaticFiles / noStaticFiles / resetStaticFiles 判定）/ Copy static files to package directory (resolved via addStaticFiles / noStaticFiles / resetStaticFiles)
  * 3. 驗證套件匯出 / Verify package exports
  * 4. 填充託管 git 資訊 / Fill hosted git info
  * 5. 修復 tsdx 套件（如適用）/ Fix tsdx package (if applicable)
@@ -104,6 +105,15 @@ export function _runFixPackagesCore(row: IEntry, options: IOptionsRunEachPackage
 		branch,
 		resetStaticFiles,
 	} = options;
+
+	/**
+	 * 是否自動偵測並加入靜態檔案
+	 * Whether to auto-detect and add static files
+	 *
+	 * 統一由底層公用邏輯判定 noStaticFiles / addStaticFiles / resetStaticFiles
+	 * Resolved by the shared low-level logic for noStaticFiles / addStaticFiles / resetStaticFiles
+	 */
+	const _addStaticFiles = _isAddStaticFilesWithReset(options);
 
 	// 為套件建立假的根資料 / Create fake root data for the package
 	const _rootDataFake = newFakeRootData(rootData, {
@@ -143,11 +153,20 @@ export function _runFixPackagesCore(row: IEntry, options: IOptionsRunEachPackage
 		}
 	}
 
-	// 複製靜態檔案到套件目錄 / Copy static files to package directory
-	copyStaticFiles({
-		cwd: row.location,
-		file_map: getRootCopyStaticFilesAuto(_rootDataFake),
-	});
+	/**
+	 * 複製靜態檔案到套件目錄
+	 * Copy static files to package directory
+	 *
+	 * 僅在判定結果為 true 時才自動偵測並加入
+	 * Only auto-detect and add when the result is true
+	 */
+	if (_addStaticFiles)
+	{
+		copyStaticFiles({
+			cwd: row.location,
+			file_map: getRootCopyStaticFilesAuto(_rootDataFake),
+		});
+	}
 
 	// 若 README.md 不存在或小於 1KB 則自動生成 / Auto-generate README.md if it doesn't exist or is smaller than 1KB
 	if (shouldWriteReadme)

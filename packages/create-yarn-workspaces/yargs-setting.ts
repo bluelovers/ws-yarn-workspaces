@@ -12,6 +12,7 @@
 
 import yargs from 'yargs';
 import { Argv, Omit } from 'yargs';
+import { setupToYargs as setupFixAllToYargs } from '@yarn-tool/fix-all/lib/util/yargs-setting';
 
 /**
  * 設定 Workspaces 初始化相關的 Yargs 選項
@@ -35,7 +36,7 @@ import { Argv, Omit } from 'yargs';
  */
 export function setupWorkspacesInitToYargs<T extends any>(yargs: Argv<T>)
 {
-	return yargs
+	const _return = yargs
 		.default({
 			//input: process.cwd(),
 		})
@@ -72,6 +73,9 @@ export function setupWorkspacesInitToYargs<T extends any>(yargs: Argv<T>)
 			boolean: true,
 		})
 	;
+
+	// 繼承 @yarn-tool/fix-all 的共用靜態檔案選項 / Inherit shared static file options from @yarn-tool/fix-all
+	return setupFixAllToYargs(_return);
 }
 
 /**

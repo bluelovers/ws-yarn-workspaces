@@ -18,6 +18,7 @@ import { getWsCopyStaticFiles } from '@yarn-tool/static-file/lib/ws/wsCopyStatic
 import { getRootCopyStaticFilesAuto } from '@yarn-tool/static-file/lib/root/getRootCopyStaticFiles';
 import { _fixLernaJson } from './lib/ws/lerna';
 import { _resetStaticFiles } from './lib/file/reset';
+import { _isAddStaticFilesWithReset } from './lib/file/staticFiles';
 
 /**
  * npmAutoFixAll 的選項介面
@@ -40,8 +41,35 @@ export interface INpmAutoFixAll
 	/**
 	 * 是否重置靜態檔案
 	 * Whether to reset static files
+	 *
+	 * 若為 true 會強制觸發 addStaticFiles（重置後重新加入）
+	 * If true, forces addStaticFiles (re-add after reset)
 	 */
 	resetStaticFiles?: boolean;
+
+	/**
+	 * 是否自動偵測並加入靜態檔案
+	 * Whether to auto-detect and add static files
+	 *
+	 * 僅在指定此選項時才會自動偵測並複製靜態檔案，預設不執行
+	 * Static files are only auto-detected/copied when this option is given; disabled by default
+	 *
+	 * 注意：resetStaticFiles 為 true 時會強制視為 true
+	 * Note: forced to true when resetStaticFiles is true
+	 */
+	addStaticFiles?: boolean;
+
+	/**
+	 * 是否略過（不加入）靜態檔案
+	 * Whether to skip (not add) static files
+	 *
+	 * 為 true 時 addStaticFiles 視為 false（優先於 addStaticFiles）
+	 * When true, addStaticFiles is treated as false (takes precedence over addStaticFiles)
+	 *
+	 * 注意：resetStaticFiles 為 true 時仍會強制加入
+	 * Note: static files are still force-added when resetStaticFiles is true
+	 */
+	noStaticFiles?: boolean;
 }
 
 /**
@@ -50,14 +78,14 @@ export interface INpmAutoFixAll
  *
  * 執行以下操作：
  * 1. 尋找工作區根目錄
- * 2. 複製靜態檔案（.gitignore, .npmignore 等）
+ * 2. 複製靜態檔案（.gitignore, .npmignore 等，依 addStaticFiles / noStaticFiles / resetStaticFiles 判定）
  * 3. 更新 git 相關資訊（homepage, repository, bugs）
  * 4. 修復 lerna.json 配置
  * 5. 遍歷所有套件進行修復
  *
  * Performs the following operations:
  * 1. Find workspace root directory
- * 2. Copy static files (.gitignore, .npmignore, etc.)
+ * 2. Copy static files (.gitignore, .npmignore, etc.; resolved via addStaticFiles / noStaticFiles / resetStaticFiles)
  * 3. Update git-related info (homepage, repository, bugs)
  * 4. Fix lerna.json configuration
  * 5. Iterate all packages for fixing
@@ -75,6 +103,8 @@ export interface INpmAutoFixAll
  * await npmAutoFixAll(process.cwd(), {
  *   overwriteHostedGitInfo: true,
  *   branch: 'main',
+ *   addStaticFiles: true,
+ *   noStaticFiles: false,
  *   resetStaticFiles: true,
  * });
  */
@@ -125,7 +155,9 @@ export function npmAutoFixAll(cwd: string, options?: INpmAutoFixAll)
 		let {
 			branch,
 			overwriteHostedGitInfo,
-			resetStaticFiles
+			resetStaticFiles,
+			addStaticFiles,
+			noStaticFiles,
 		} = options ?? {};
 
 		cwd = rootData.cwd;
@@ -139,36 +171,55 @@ export function npmAutoFixAll(cwd: string, options?: INpmAutoFixAll)
 		}
 
 		/**
+		 * 是否要自動偵測並加入靜態檔案
+		 * Whether to auto-detect and add static files
+		 *
+		 * 統一由底層公用邏輯判定 noStaticFiles / addStaticFiles / resetStaticFiles
+		 * Resolved by the shared low-level logic for noStaticFiles / addStaticFiles / resetStaticFiles
+		 */
+		const _addStaticFiles = _isAddStaticFilesWithReset(options);
+
+		/**
 		 * 複製靜態檔案到 workspace 或根目錄
 		 * Copy static files to workspace or root
+		 *
+		 * 僅在判定結果為 true 時才自動偵測並加入
+		 * Only auto-detect and add when the result is true
 		 *
 		 * 根據專案類型（workspace 或單一套件）複製對應的模板檔案
 		 * Copy corresponding template files based on project type
 		 */
-		if (rootData.hasWorkspace)
+		if (_addStaticFiles)
 		{
-			// Workspace 模式：複製 workspace 靜態檔案（.gitignore, .npmignore 等）
-			// Workspace mode: copy workspace static files
-			const file_map = getWsCopyStaticFiles();
+			if (rootData.hasWorkspace)
+			{
+				/**
+				 * Workspace 模式：複製 workspace 靜態檔案（.gitignore, .npmignore 等）
+				 * Workspace mode: copy workspace static files
+				 */
+				const file_map = getWsCopyStaticFiles();
 
-			copyStaticFiles({
-				cwd: rootData.ws,
-				file_map,
-			});
-		}
-		else if (rootData.root)
-		{
-			// 單一套件模式：複製根目錄靜態檔案
-			// Single package mode: copy root static files
-			const file_map = getRootCopyStaticFilesAuto({
-				...rootData,
-				isRoot: true,
-			});
+				copyStaticFiles({
+					cwd: rootData.ws,
+					file_map,
+				});
+			}
+			else if (rootData.root)
+			{
+				/**
+				 * 單一套件模式：複製根目錄靜態檔案
+				 * Single package mode: copy root static files
+				 */
+				const file_map = getRootCopyStaticFilesAuto({
+					...rootData,
+					isRoot: true,
+				});
 
-			copyStaticFiles({
-				cwd: rootData.root,
-				file_map,
-			});
+				copyStaticFiles({
+					cwd: rootData.root,
+					file_map,
+				});
+			}
 		}
 
 		consoleLogger.info(`check git info`);
@@ -240,6 +291,8 @@ export function npmAutoFixAll(cwd: string, options?: INpmAutoFixAll)
 			branch,
 			hostedGitInfo,
 			resetStaticFiles,
+			addStaticFiles,
+			noStaticFiles,
 		})
 	}).then(() => void 0 as void)
 }

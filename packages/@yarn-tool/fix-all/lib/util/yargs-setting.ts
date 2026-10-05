@@ -15,6 +15,12 @@ export function setupToYargs<T>(yargs: Argv<T>)
 			boolean: true,
 			alias: ['S'],
 		})
+		.option('addStaticFiles', {
+			boolean: true,
+		})
+		.option('noStaticFiles', {
+			boolean: true,
+		})
 	;
 
 	return _return as any as IYargsSync<typeof _return>

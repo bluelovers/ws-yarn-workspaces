@@ -48,6 +48,7 @@ import { defaultPkgNotOldExists } from '@yarn-tool/pkg-entry-util/lib/preset/scr
 import { outputPackageJSONSync } from '@yarn-tool/write-package-json';
 import { getRootCopyStaticFilesAuto } from '@yarn-tool/static-file/lib/root/getRootCopyStaticFiles';
 import { EnumScriptsEntry, scriptsEntryIsNoTestSpecified } from '@yarn-tool/pkg-entry-util/lib/field/scripts';
+import { _isAddStaticFilesWithReset } from '@yarn-tool/fix-all/lib/file/staticFiles';
 
 // 更新通知器（已停用）/ Update notifier (disabled)
 //updateNotifier(__dirname);
@@ -667,11 +668,17 @@ if (!cp.error)
 		/**
 		 * 複製靜態範本檔案
 		 * Copy static template files
+		 *
+		 * 此呼叫點 addStaticFiles 預設為 true，可用 --noStaticFiles 關閉
+		 * addStaticFiles defaults to true at this call site; disable it with --noStaticFiles
 		 */
-		copyStaticFiles({
-			cwd: targetDir,
-			file_map,
-		})
+		if (_isAddStaticFilesWithReset(cli.argv, true))
+		{
+			copyStaticFiles({
+				cwd: targetDir,
+				file_map,
+			})
+		}
 
 		/**
 		 * 生成 README.md（如果需要）

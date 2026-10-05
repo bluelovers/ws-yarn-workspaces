@@ -36,6 +36,15 @@ let cli = setupWorkspacesInitToYargs(yargs)
 			ignoreParentWorkspaces: !!yargs.argv.ignoreParentWorkspaces,
 			// @ts-ignore
 			debug: !!yargs.argv.debug,
+			/*
+			 * 保留 undefined，讓 addStaticFiles 維持預設 true / Keep undefined so addStaticFiles keeps its default of true
+			 * */
+			// @ts-ignore
+			addStaticFiles: yargs.argv.addStaticFiles,
+			// @ts-ignore
+			noStaticFiles: yargs.argv.noStaticFiles,
+			// @ts-ignore
+			resetStaticFiles: yargs.argv.resetStaticFiles,
 		});
 
 		//console.log(77777777777, bool);

@@ -26,6 +26,7 @@ import { IPackageJson } from '@ts-type/package-dts/package-json';
 import { getWsCopyStaticFiles } from '@yarn-tool/static-file/lib/ws/wsCopyStaticFiles';
 import { findRootLazy } from '@yarn-tool/find-root';
 import { normalize as pathNormalize } from 'upath2';
+import { _isAddStaticFilesWithReset } from '@yarn-tool/fix-all/lib/file/staticFiles';
 
 export * from './lib/index';
 export * from './lib/util';
@@ -64,6 +65,18 @@ export interface IOptions
 	 * 啟用除錯模式 / Enable debug mode
 	 */
 	debug?: boolean,
+
+	/**
+	 * 是否自動加入靜態檔案（此呼叫點預設為 true）
+	 * Whether to add static files (defaults to true at this call site)
+	 */
+	addStaticFiles?: boolean,
+
+	/**
+	 * 是否略過靜態檔案（優先於 addStaticFiles）
+	 * Whether to skip static files (takes precedence over addStaticFiles)
+	 */
+	noStaticFiles?: boolean,
 }
 
 /**
@@ -162,7 +175,7 @@ export function createYarnWorkspaces(cwd?: string, options: IOptions = {})
 		}
 	}
 
-	return _createYarnWorkspaces(targetPath);
+	return _createYarnWorkspaces(targetPath, options);
 }
 
 /**
@@ -372,10 +385,20 @@ export function _createYarnWorkspaces(targetPath: string, options: IOptions = {}
 	 */
 	const file_map = getWsCopyStaticFiles();
 
-	copyStaticFiles({
-		cwd: targetPath,
-		file_map,
-	});
+	/**
+	 * 複製靜態範本檔案
+	 * Copy static template files
+	 *
+	 * 此呼叫點 addStaticFiles 預設為 true，可用 noStaticFiles 關閉
+	 * addStaticFiles defaults to true at this call site; disable it with noStaticFiles
+	 */
+	if (_isAddStaticFilesWithReset(options, true))
+	{
+		copyStaticFiles({
+			cwd: targetPath,
+			file_map,
+		});
+	}
 
 	/**
 	 * 根據 packages 模式創建目錄
