@@ -75,6 +75,7 @@
     "@yarn-tool/require-resolve": "^4.0.9",
     "@yarn-tool/setup-module-env": "^3.0.16",
     "@yarn-tool/static-file": "^3.0.19",
+    "@yarn-tool/types": "^1.0.21",
     "@yarn-tool/write-package-json": "^1.0.17",
     "@yarn-tool/ws-scope": "^3.0.11",
     "array-hyper-unique": "^2.1.8",

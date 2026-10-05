@@ -1,4 +1,6 @@
 packages:
+  # exclude packages that are inside test/ directories
+  - '!**/test/**'
   - packages/@yarn-tool/*
   - packages/@lazy-node/*
   # all packages in subdirs of packages/ and components/
@@ -28,6 +30,4 @@ allowBuilds:
   '@parcel/watcher': true
   classic-level: true
   core-js-pure: true
-  nx: true
   unrs-resolver: true
-  yarn: true
