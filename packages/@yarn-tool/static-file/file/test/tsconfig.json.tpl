@@ -16,5 +16,12 @@
   },
   "include": [
     "test"
+  ],
+  "exclude": [
+    "node_modules",
+    "__fixtures__",
+    "__snapshots__",
+    "coverage",
+    "dist"
   ]
 }

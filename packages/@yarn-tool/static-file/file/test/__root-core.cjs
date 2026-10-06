@@ -1,1 +1,1 @@
-module.exports.__ROOT_CORE = require('upath2').resolve(__dirname, '..');
+module.exports.__ROOT_CORE = require('path').resolve(__dirname, '..');

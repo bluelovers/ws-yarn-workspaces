@@ -6,5 +6,10 @@
       "jest",
       "node"
     ]
-  }
+  },
+  "exclude": [
+    "file",
+    "test",
+    "dist"
+  ]
 }

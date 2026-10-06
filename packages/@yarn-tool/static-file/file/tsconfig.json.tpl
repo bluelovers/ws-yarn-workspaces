@@ -9,6 +9,10 @@
   },
   "exclude": [
     "dist",
+    "node_modules",
+    "__fixtures__",
+    "__snapshots__",
+    "coverage",
     "test"
   ]
 }

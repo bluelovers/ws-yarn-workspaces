@@ -1,4 +1,4 @@
-import path from 'upath2';
+import path from 'path';
 import { fileURLToPath } from 'url';
 
 // @ts-ignore
