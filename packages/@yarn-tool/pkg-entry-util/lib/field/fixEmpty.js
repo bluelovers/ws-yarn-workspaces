@@ -67,6 +67,14 @@ function fixEmptyFields(pkg, root) {
     return _fixEmptyFieldsCore(pkg, root, [
         'bin',
         'resolutions',
+        'dependencies',
+        'devDependencies',
+        'dependenciesMeta',
+        'peerDependencies',
+        'peerDependenciesMeta',
+        'optionalDependencies',
+        'bundledDependencies',
+        'bundleDependencies',
     ]);
 }
 //# sourceMappingURL=fixEmpty.js.map

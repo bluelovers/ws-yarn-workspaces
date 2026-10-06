@@ -76,5 +76,14 @@ export function fixEmptyFields<T extends IPackageJson>(pkg: T, root: string)
 	return _fixEmptyFieldsCore(pkg, root, [
 		'bin',
 		'resolutions',
+
+		'dependencies',
+		'devDependencies',
+		'dependenciesMeta',
+		'peerDependencies',
+		'peerDependenciesMeta',
+		'optionalDependencies',
+		'bundledDependencies',
+		'bundleDependencies',
 	])
 }
