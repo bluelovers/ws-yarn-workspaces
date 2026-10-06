@@ -2,7 +2,7 @@ exports[`fixPkgDepsVersionsCore > leaves row untouched when version already matc
 {
   "row": {
     "dependencies": {
-      "@demo/b": "^1.1.0"
+      "@demo/a": "1.5.0"
     }
   },
   "data": {}
@@ -14,7 +14,7 @@ exports[`fixPkgDepsVersionsCore > skips wildcard and non-workspace deps without 
   "row": {
     "dependencies": {
       "@demo/a": "*",
-      "left-pad": "1.0.0"
+      "lodash": "^4.17.21"
     }
   },
   "data": {}
@@ -26,165 +26,326 @@ exports[`fixPkgDepsVersionsCore > updates internal dep version to current and re
   "changed": true,
   "row": {
     "dependencies": {
-      "@demo/b": "^1.1.0"
+      "@demo/a": "^1.5.0"
     }
   },
   "data": {
-    "@demo/b": "1.1.0"
+    "@demo/a": "1.5.0"
   }
 }
 `;
 
 exports[`fixPkgDepsVersionsCore > works with record-only cache and accumulates data across calls 1`] = `
 {
-  "rowA": {
-    "dependencies": {
-      "@demo/b": "^1.1.0"
+  "peerRow": {
+    "peerDependencies": {
+      "@demo/a": "^1.5.0",
+      "@demo/b": "^2.1.0",
+      "@demo/c": "*"
     }
   },
-  "rowC": {
-    "devDependencies": {
-      "@demo/a": "^1.2.0"
+  "depRow": {
+    "dependencies": {
+      "@demo/a": "1.5.0",
+      "@demo/b": "^2.1.0",
+      "@demo/c": ">=3.0.0",
+      "lodash": "^4.17.21"
     }
   },
   "data": {
-    "@demo/b": "1.1.0",
-    "@demo/a": "1.2.0"
+    "@demo/a": "1.5.0",
+    "@demo/b": "2.1.0",
+    "@demo/c": "3.0.0"
   }
 }
 `;
 
-exports[`fixWsVersionsCore > reports no changes when every version already matches 1`] = `
+exports[`fixPkgDepsVersionsCore with workspace protocol > non-workspace deps are unaffected by the option 1`] = `
+{
+  "changed": true,
+  "dependencies": {
+    "@demo/a": "1.5.0",
+    "@demo/b": "^2.1.0",
+    "@demo/c": ">=3.0.0",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@demo/a": "workspace:*",
+    "@demo/b": "workspace:^",
+    "@demo/c": "workspace:~",
+    "lodash": "workspace:^4.17.21"
+  }
+}
+`;
+
+exports[`fixPkgDepsVersionsCore with workspace protocol > saveWorkspaceProtocol false: same conversion as omitted 1`] = `
+{
+  "changed": true,
+  "dependencies": {
+    "@demo/a": "1.5.0",
+    "@demo/b": "^2.1.0",
+    "@demo/c": "~3.0.0",
+    "lodash": "workspace:^4.17.21"
+  }
+}
+`;
+
+exports[`fixPkgDepsVersionsCore with workspace protocol > saveWorkspaceProtocol omitted: converts workspace:* / ^ / ~ 1`] = `
+{
+  "changed": true,
+  "dependencies": {
+    "@demo/a": "1.5.0",
+    "@demo/b": "^2.1.0",
+    "@demo/c": "~3.0.0",
+    "lodash": "workspace:^4.17.21"
+  },
+  "data": {
+    "@demo/a": "1.5.0",
+    "@demo/b": "2.1.0",
+    "@demo/c": "3.0.0"
+  }
+}
+`;
+
+exports[`fixPkgDepsVersionsCore with workspace protocol > saveWorkspaceProtocol true: keeps protocol, bare operators untouched 1`] = `
+{
+  "dependencies": {
+    "@demo/a": "workspace:*",
+    "@demo/b": "workspace:^",
+    "@demo/c": "workspace:~",
+    "lodash": "workspace:^4.17.21"
+  }
+}
+`;
+
+exports[`fixPkgDepsVersionsCore with workspace protocol > saveWorkspaceProtocol true: syncs stale version inside the protocol 1`] = `
+{
+  "changed": true,
+  "dependencies": {
+    "@demo/a": "workspace:^1.5.0",
+    "@demo/b": "workspace:^2.1.0",
+    "@demo/c": "*"
+  },
+  "data": {
+    "@demo/b": "2.1.0"
+  }
+}
+`;
+
+exports[`fixWsVersionsCore > reports no changes when every version already matches (second run) 1`] = `
 {
   "listable": [
     {
       "name": "@demo/a",
-      "version": "1.2.0",
+      "version": "1.5.0",
       "private": false,
       "location": "packages/a",
       "manifestLocation": "packages/a/package.json",
-      "prefix": "packages/a",
-      "dependencies": {
-        "@demo/b": "^1.1.0",
-        "lodash": "^4.17.21"
-      }
+      "prefix": "packages/a"
     },
     {
       "name": "@demo/b",
-      "version": "1.1.0",
+      "version": "2.1.0",
       "private": false,
       "location": "packages/b",
       "manifestLocation": "packages/b/package.json",
       "prefix": "packages/b",
       "dependencies": {
-        "@demo/a": "1.2.0"
+        "@demo/a": "1.5.0"
       }
     },
     {
       "name": "@demo/c",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "private": true,
       "location": "packages/c",
       "manifestLocation": "packages/c/package.json",
       "prefix": "packages/c",
       "dependencies": {
-        "@demo/b": "*"
+        "@demo/a": "*",
+        "lodash": "^4.17.21"
+      }
+    },
+    {
+      "name": "@demo/d",
+      "version": "1.1.0",
+      "private": false,
+      "location": "packages/d",
+      "manifestLocation": "packages/d/package.json",
+      "prefix": "packages/d",
+      "dependencies": {
+        "@demo/a": "^1.5.0"
+      }
+    },
+    {
+      "name": "@demo/app",
+      "version": "1.0.0",
+      "private": false,
+      "location": "packages/app",
+      "manifestLocation": "packages/app/package.json",
+      "prefix": "packages/app",
+      "dependencies": {
+        "@demo/a": "1.5.0",
+        "@demo/b": "^2.1.0",
+        "@demo/c": ">=3.0.0",
+        "lodash": "^4.17.21"
       },
       "devDependencies": {
-        "@demo/a": "^1.2.0"
+        "@demo/a": "1.5.0",
+        "@demo/b": "^2.1.0",
+        "@demo/c": "~3.0.0",
+        "lodash": "workspace:^4.17.21"
       },
       "peerDependencies": {
-        "@demo/a": ">=1.2.0"
+        "@demo/a": "^1.5.0",
+        "@demo/b": "^2.1.0",
+        "@demo/c": "*"
       }
     }
   ],
   "record": {
     "@demo/a": {
       "name": "@demo/a",
-      "version": "1.2.0",
+      "version": "1.5.0",
       "private": false,
       "location": "packages/a",
       "manifestLocation": "packages/a/package.json",
-      "prefix": "packages/a",
-      "dependencies": {
-        "@demo/b": "^1.1.0",
-        "lodash": "^4.17.21"
-      }
+      "prefix": "packages/a"
     },
     "@demo/b": {
       "name": "@demo/b",
-      "version": "1.1.0",
+      "version": "2.1.0",
       "private": false,
       "location": "packages/b",
       "manifestLocation": "packages/b/package.json",
       "prefix": "packages/b",
       "dependencies": {
-        "@demo/a": "1.2.0"
+        "@demo/a": "1.5.0"
       }
     },
     "@demo/c": {
       "name": "@demo/c",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "private": true,
       "location": "packages/c",
       "manifestLocation": "packages/c/package.json",
       "prefix": "packages/c",
       "dependencies": {
-        "@demo/b": "*"
+        "@demo/a": "*",
+        "lodash": "^4.17.21"
+      }
+    },
+    "@demo/d": {
+      "name": "@demo/d",
+      "version": "1.1.0",
+      "private": false,
+      "location": "packages/d",
+      "manifestLocation": "packages/d/package.json",
+      "prefix": "packages/d",
+      "dependencies": {
+        "@demo/a": "^1.5.0"
+      }
+    },
+    "@demo/app": {
+      "name": "@demo/app",
+      "version": "1.0.0",
+      "private": false,
+      "location": "packages/app",
+      "manifestLocation": "packages/app/package.json",
+      "prefix": "packages/app",
+      "dependencies": {
+        "@demo/a": "1.5.0",
+        "@demo/b": "^2.1.0",
+        "@demo/c": ">=3.0.0",
+        "lodash": "^4.17.21"
       },
       "devDependencies": {
-        "@demo/a": "^1.2.0"
+        "@demo/a": "1.5.0",
+        "@demo/b": "^2.1.0",
+        "@demo/c": "~3.0.0",
+        "lodash": "workspace:^4.17.21"
       },
       "peerDependencies": {
-        "@demo/a": ">=1.2.0"
+        "@demo/a": "^1.5.0",
+        "@demo/b": "^2.1.0",
+        "@demo/c": "*"
       }
     }
   },
   "names": [
     "@demo/a",
     "@demo/b",
-    "@demo/c"
+    "@demo/c",
+    "@demo/d",
+    "@demo/app"
   ],
   "changed": [],
   "others": [
     {
       "name": "@demo/a",
-      "version": "1.2.0",
+      "version": "1.5.0",
       "private": false,
       "location": "packages/a",
       "manifestLocation": "packages/a/package.json",
-      "prefix": "packages/a",
-      "dependencies": {
-        "@demo/b": "^1.1.0",
-        "lodash": "^4.17.21"
-      }
+      "prefix": "packages/a"
     },
     {
       "name": "@demo/b",
-      "version": "1.1.0",
+      "version": "2.1.0",
       "private": false,
       "location": "packages/b",
       "manifestLocation": "packages/b/package.json",
       "prefix": "packages/b",
       "dependencies": {
-        "@demo/a": "1.2.0"
+        "@demo/a": "1.5.0"
       }
     },
     {
       "name": "@demo/c",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "private": true,
       "location": "packages/c",
       "manifestLocation": "packages/c/package.json",
       "prefix": "packages/c",
       "dependencies": {
-        "@demo/b": "*"
+        "@demo/a": "*",
+        "lodash": "^4.17.21"
+      }
+    },
+    {
+      "name": "@demo/d",
+      "version": "1.1.0",
+      "private": false,
+      "location": "packages/d",
+      "manifestLocation": "packages/d/package.json",
+      "prefix": "packages/d",
+      "dependencies": {
+        "@demo/a": "^1.5.0"
+      }
+    },
+    {
+      "name": "@demo/app",
+      "version": "1.0.0",
+      "private": false,
+      "location": "packages/app",
+      "manifestLocation": "packages/app/package.json",
+      "prefix": "packages/app",
+      "dependencies": {
+        "@demo/a": "1.5.0",
+        "@demo/b": "^2.1.0",
+        "@demo/c": ">=3.0.0",
+        "lodash": "^4.17.21"
       },
       "devDependencies": {
-        "@demo/a": "^1.2.0"
+        "@demo/a": "1.5.0",
+        "@demo/b": "^2.1.0",
+        "@demo/c": "~3.0.0",
+        "lodash": "workspace:^4.17.21"
       },
       "peerDependencies": {
-        "@demo/a": ">=1.2.0"
+        "@demo/a": "^1.5.0",
+        "@demo/b": "^2.1.0",
+        "@demo/c": "*"
       }
     }
   ],
@@ -198,139 +359,295 @@ exports[`fixWsVersionsCore > syncs internal dep versions and splits changed / ot
   "listable": [
     {
       "name": "@demo/a",
-      "version": "1.2.0",
+      "version": "1.5.0",
       "private": false,
       "location": "packages/a",
       "manifestLocation": "packages/a/package.json",
-      "prefix": "packages/a",
-      "dependencies": {
-        "@demo/b": "^1.1.0",
-        "lodash": "^4.17.21"
-      }
+      "prefix": "packages/a"
     },
     {
       "name": "@demo/b",
-      "version": "1.1.0",
+      "version": "2.1.0",
       "private": false,
       "location": "packages/b",
       "manifestLocation": "packages/b/package.json",
       "prefix": "packages/b",
       "dependencies": {
-        "@demo/a": "1.2.0"
+        "@demo/a": "1.5.0"
       }
     },
     {
       "name": "@demo/c",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "private": true,
       "location": "packages/c",
       "manifestLocation": "packages/c/package.json",
       "prefix": "packages/c",
       "dependencies": {
-        "@demo/b": "*"
+        "@demo/a": "*",
+        "lodash": "^4.17.21"
+      }
+    },
+    {
+      "name": "@demo/d",
+      "version": "1.1.0",
+      "private": false,
+      "location": "packages/d",
+      "manifestLocation": "packages/d/package.json",
+      "prefix": "packages/d",
+      "dependencies": {
+        "@demo/a": "^1.5.0"
+      }
+    },
+    {
+      "name": "@demo/app",
+      "version": "1.0.0",
+      "private": false,
+      "location": "packages/app",
+      "manifestLocation": "packages/app/package.json",
+      "prefix": "packages/app",
+      "dependencies": {
+        "@demo/a": "1.5.0",
+        "@demo/b": "^2.1.0",
+        "@demo/c": ">=3.0.0",
+        "lodash": "^4.17.21"
       },
       "devDependencies": {
-        "@demo/a": "^1.2.0"
+        "@demo/a": "1.5.0",
+        "@demo/b": "^2.1.0",
+        "@demo/c": "~3.0.0",
+        "lodash": "workspace:^4.17.21"
       },
       "peerDependencies": {
-        "@demo/a": ">=1.2.0"
+        "@demo/a": "^1.5.0",
+        "@demo/b": "^2.1.0",
+        "@demo/c": "*"
       }
     }
   ],
   "record": {
     "@demo/a": {
       "name": "@demo/a",
-      "version": "1.2.0",
+      "version": "1.5.0",
       "private": false,
       "location": "packages/a",
       "manifestLocation": "packages/a/package.json",
-      "prefix": "packages/a",
-      "dependencies": {
-        "@demo/b": "^1.1.0",
-        "lodash": "^4.17.21"
-      }
+      "prefix": "packages/a"
     },
     "@demo/b": {
       "name": "@demo/b",
-      "version": "1.1.0",
+      "version": "2.1.0",
       "private": false,
       "location": "packages/b",
       "manifestLocation": "packages/b/package.json",
       "prefix": "packages/b",
       "dependencies": {
-        "@demo/a": "1.2.0"
+        "@demo/a": "1.5.0"
       }
     },
     "@demo/c": {
       "name": "@demo/c",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "private": true,
       "location": "packages/c",
       "manifestLocation": "packages/c/package.json",
       "prefix": "packages/c",
       "dependencies": {
-        "@demo/b": "*"
+        "@demo/a": "*",
+        "lodash": "^4.17.21"
+      }
+    },
+    "@demo/d": {
+      "name": "@demo/d",
+      "version": "1.1.0",
+      "private": false,
+      "location": "packages/d",
+      "manifestLocation": "packages/d/package.json",
+      "prefix": "packages/d",
+      "dependencies": {
+        "@demo/a": "^1.5.0"
+      }
+    },
+    "@demo/app": {
+      "name": "@demo/app",
+      "version": "1.0.0",
+      "private": false,
+      "location": "packages/app",
+      "manifestLocation": "packages/app/package.json",
+      "prefix": "packages/app",
+      "dependencies": {
+        "@demo/a": "1.5.0",
+        "@demo/b": "^2.1.0",
+        "@demo/c": ">=3.0.0",
+        "lodash": "^4.17.21"
       },
       "devDependencies": {
-        "@demo/a": "^1.2.0"
+        "@demo/a": "1.5.0",
+        "@demo/b": "^2.1.0",
+        "@demo/c": "~3.0.0",
+        "lodash": "workspace:^4.17.21"
       },
       "peerDependencies": {
-        "@demo/a": ">=1.2.0"
+        "@demo/a": "^1.5.0",
+        "@demo/b": "^2.1.0",
+        "@demo/c": "*"
       }
     }
   },
   "names": [
     "@demo/a",
     "@demo/b",
-    "@demo/c"
+    "@demo/c",
+    "@demo/d",
+    "@demo/app"
   ],
   "changed": [
     {
-      "name": "@demo/a",
-      "version": "1.2.0",
+      "name": "@demo/d",
+      "version": "1.1.0",
       "private": false,
-      "location": "packages/a",
-      "manifestLocation": "packages/a/package.json",
-      "prefix": "packages/a",
+      "location": "packages/d",
+      "manifestLocation": "packages/d/package.json",
+      "prefix": "packages/d",
       "dependencies": {
-        "@demo/b": "^1.1.0",
-        "lodash": "^4.17.21"
+        "@demo/a": "^1.5.0"
       }
     },
     {
-      "name": "@demo/c",
-      "version": "2.0.0",
-      "private": true,
-      "location": "packages/c",
-      "manifestLocation": "packages/c/package.json",
-      "prefix": "packages/c",
+      "name": "@demo/app",
+      "version": "1.0.0",
+      "private": false,
+      "location": "packages/app",
+      "manifestLocation": "packages/app/package.json",
+      "prefix": "packages/app",
       "dependencies": {
-        "@demo/b": "*"
+        "@demo/a": "1.5.0",
+        "@demo/b": "^2.1.0",
+        "@demo/c": ">=3.0.0",
+        "lodash": "^4.17.21"
       },
       "devDependencies": {
-        "@demo/a": "^1.2.0"
+        "@demo/a": "1.5.0",
+        "@demo/b": "^2.1.0",
+        "@demo/c": "~3.0.0",
+        "lodash": "workspace:^4.17.21"
       },
       "peerDependencies": {
-        "@demo/a": ">=1.2.0"
+        "@demo/a": "^1.5.0",
+        "@demo/b": "^2.1.0",
+        "@demo/c": "*"
       }
     }
   ],
   "others": [
     {
+      "name": "@demo/a",
+      "version": "1.5.0",
+      "private": false,
+      "location": "packages/a",
+      "manifestLocation": "packages/a/package.json",
+      "prefix": "packages/a"
+    },
+    {
       "name": "@demo/b",
-      "version": "1.1.0",
+      "version": "2.1.0",
       "private": false,
       "location": "packages/b",
       "manifestLocation": "packages/b/package.json",
       "prefix": "packages/b",
       "dependencies": {
-        "@demo/a": "1.2.0"
+        "@demo/a": "1.5.0"
+      }
+    },
+    {
+      "name": "@demo/c",
+      "version": "3.0.0",
+      "private": true,
+      "location": "packages/c",
+      "manifestLocation": "packages/c/package.json",
+      "prefix": "packages/c",
+      "dependencies": {
+        "@demo/a": "*",
+        "lodash": "^4.17.21"
       }
     }
   ],
   "data": {
-    "@demo/b": "1.1.0",
-    "@demo/a": "1.2.0"
+    "@demo/a": "1.5.0",
+    "@demo/b": "2.1.0",
+    "@demo/c": "3.0.0"
+  }
+}
+`;
+
+exports[`fixWsVersionsCore with workspace protocol > default: converts Workspace protocol into plain ranges 1`] = `
+{
+  "devDependencies": {
+    "@demo/a": "1.5.0",
+    "@demo/b": "^2.1.0",
+    "@demo/c": "~3.0.0",
+    "lodash": "workspace:^4.17.21"
+  },
+  "peerDependencies": {
+    "@demo/a": "^1.5.0",
+    "@demo/b": "^2.1.0",
+    "@demo/c": "*"
+  }
+}
+`;
+
+exports[`fixWsVersionsCore with workspace protocol > saveWorkspaceProtocol: true keeps protocol but never adds it to plain ranges 1`] = `
+{
+  "plain": {
+    "@demo/d": {
+      "@demo/a": "^1.5.0"
+    },
+    "@demo/app": {
+      "@demo/a": "1.5.0",
+      "@demo/b": "^2.1.0",
+      "@demo/c": ">=3.0.0",
+      "lodash": "^4.17.21"
+    }
+  },
+  "devDependencies": {
+    "@demo/a": "workspace:*",
+    "@demo/b": "workspace:^",
+    "@demo/c": "workspace:~",
+    "lodash": "workspace:^4.17.21"
+  },
+  "peerDependencies": {
+    "@demo/a": "workspace:^1.5.0",
+    "@demo/b": "workspace:^2.1.0",
+    "@demo/c": "*"
+  }
+}
+`;
+
+exports[`handleOptionsFixWsVersions > normalizes cwd / object / opts combinations 1`] = `
+{
+  "undefined": {},
+  "string": {
+    "cwd": "D:/fake/ws"
+  },
+  "empty string": {},
+  "object": {
+    "cwd": "D:/fake/ws",
+    "saveWorkspaceProtocol": true
+  },
+  "null object": {},
+  "string + opts": {
+    "cwd": "D:/fake/ws",
+    "saveWorkspaceProtocol": true
+  },
+  "object + opts": {
+    "cwd": "D:/b"
+  },
+  "undefined + opts": {
+    "saveWorkspaceProtocol": true
+  },
+  "shared protocol opts": {
+    "cwd": "D:/a",
+    "protocol": "custom:"
   }
 }
 `;
@@ -340,7 +657,9 @@ exports[`handleRuntimeCache > from listable: builds record / names / empty map 1
   "names": [
     "@demo/a",
     "@demo/b",
-    "@demo/c"
+    "@demo/c",
+    "@demo/d",
+    "@demo/app"
   ],
   "map": {
     "changed": [],
@@ -368,38 +687,36 @@ exports[`handleRuntimeCache > reuses pre-initialized fields and returns the same
   "names": [
     "@demo/a",
     "@demo/b",
-    "@demo/c"
+    "@demo/c",
+    "@demo/d",
+    "@demo/app"
   ],
   "map": {
     "changed": [
       {
         "name": "@demo/a",
-        "version": "1.2.0",
+        "version": "1.5.0",
         "private": false,
         "location": "packages/a",
         "manifestLocation": "packages/a/package.json",
-        "prefix": "packages/a",
-        "dependencies": {
-          "@demo/b": "^1.0.0",
-          "lodash": "^4.17.21"
-        }
+        "prefix": "packages/a"
       }
     ],
     "others": [
       {
         "name": "@demo/b",
-        "version": "1.1.0",
+        "version": "2.1.0",
         "private": false,
         "location": "packages/b",
         "manifestLocation": "packages/b/package.json",
         "prefix": "packages/b",
         "dependencies": {
-          "@demo/a": "1.2.0"
+          "@demo/a": "1.5.0"
         }
       }
     ],
     "data": {
-      "@demo/b": "1.1.0"
+      "@demo/a": "1.5.0"
     }
   }
 }
@@ -410,281 +727,105 @@ exports[`stale 1.x references to newer workspace versions > fixPkgDepsVersionsCo
   "changed": true,
   "row": {
     "dependencies": {
-      "@demo/x": "3.0.0",
-      "@demo/y": "^2.1.0",
-      "@demo/z": ">=1.5.0"
+      "@demo/a": "1.5.0",
+      "@demo/b": "^2.1.0",
+      "@demo/c": ">=3.0.0",
+      "lodash": "^4.17.21"
     }
   },
   "data": {
-    "@demo/x": "3.0.0",
-    "@demo/y": "2.1.0",
-    "@demo/z": "1.5.0"
+    "@demo/a": "1.5.0",
+    "@demo/b": "2.1.0",
+    "@demo/c": "3.0.0"
   }
 }
 `;
 
-exports[`stale 1.x references to newer workspace versions > fixWsVersionsCore: only the referencing package is marked changed 1`] = `
+exports[`workspace protocol shared helpers > isWorkspaceProtocol: detects default and custom protocol 1`] = `
 {
-  "cwd": "D:/fake/stale-workspace",
-  "listable": [
-    {
-      "name": "@demo/x",
-      "version": "3.0.0",
-      "private": false,
-      "location": "packages/x",
-      "manifestLocation": "packages/x/package.json",
-      "prefix": "packages/x"
-    },
-    {
-      "name": "@demo/y",
-      "version": "2.1.0",
-      "private": false,
-      "location": "packages/y",
-      "manifestLocation": "packages/y/package.json",
-      "prefix": "packages/y"
-    },
-    {
-      "name": "@demo/z",
-      "version": "1.5.0",
-      "private": false,
-      "location": "packages/z",
-      "manifestLocation": "packages/z/package.json",
-      "prefix": "packages/z"
-    },
-    {
-      "name": "@demo/app",
-      "version": "1.0.0",
-      "private": false,
-      "location": "packages/app",
-      "manifestLocation": "packages/app/package.json",
-      "prefix": "packages/app",
-      "dependencies": {
-        "@demo/x": "3.0.0",
-        "@demo/y": "^2.1.0",
-        "@demo/z": ">=1.5.0"
-      }
-    }
-  ],
-  "record": {
-    "@demo/x": {
-      "name": "@demo/x",
-      "version": "3.0.0",
-      "private": false,
-      "location": "packages/x",
-      "manifestLocation": "packages/x/package.json",
-      "prefix": "packages/x"
-    },
-    "@demo/y": {
-      "name": "@demo/y",
-      "version": "2.1.0",
-      "private": false,
-      "location": "packages/y",
-      "manifestLocation": "packages/y/package.json",
-      "prefix": "packages/y"
-    },
-    "@demo/z": {
-      "name": "@demo/z",
-      "version": "1.5.0",
-      "private": false,
-      "location": "packages/z",
-      "manifestLocation": "packages/z/package.json",
-      "prefix": "packages/z"
-    },
-    "@demo/app": {
-      "name": "@demo/app",
-      "version": "1.0.0",
-      "private": false,
-      "location": "packages/app",
-      "manifestLocation": "packages/app/package.json",
-      "prefix": "packages/app",
-      "dependencies": {
-        "@demo/x": "3.0.0",
-        "@demo/y": "^2.1.0",
-        "@demo/z": ">=1.5.0"
-      }
-    }
+  "workspace:*": true,
+  "workspace:^1.5.0": true,
+  "1.5.0": false,
+  "^1.5.0": false,
+  "undefined": false,
+  "custom:* (default opts)": false,
+  "custom:* (custom opts)": true,
+  "workspace:* (custom opts)": false
+}
+`;
+
+exports[`workspace protocol shared helpers > isWorkspaceProtocolBareRange: detects bare operators 1`] = `
+{
+  "": true,
+  "*": true,
+  "^": true,
+  "~": true,
+  "^1.5.0": false,
+  "1.5.0": false
+}
+`;
+
+exports[`workspace protocol shared helpers > parseWorkspaceProtocol: splits protocol from range 1`] = `
+{
+  "workspace:^1.5.0": {
+    "value": "workspace:^1.5.0",
+    "protocol": "workspace:",
+    "range": "^1.5.0"
   },
-  "names": [
-    "@demo/x",
-    "@demo/y",
-    "@demo/z",
-    "@demo/app"
-  ],
-  "changed": [
-    {
-      "name": "@demo/app",
-      "version": "1.0.0",
-      "private": false,
-      "location": "packages/app",
-      "manifestLocation": "packages/app/package.json",
-      "prefix": "packages/app",
-      "dependencies": {
-        "@demo/x": "3.0.0",
-        "@demo/y": "^2.1.0",
-        "@demo/z": ">=1.5.0"
-      }
-    }
-  ],
-  "others": [
-    {
-      "name": "@demo/x",
-      "version": "3.0.0",
-      "private": false,
-      "location": "packages/x",
-      "manifestLocation": "packages/x/package.json",
-      "prefix": "packages/x"
-    },
-    {
-      "name": "@demo/y",
-      "version": "2.1.0",
-      "private": false,
-      "location": "packages/y",
-      "manifestLocation": "packages/y/package.json",
-      "prefix": "packages/y"
-    },
-    {
-      "name": "@demo/z",
-      "version": "1.5.0",
-      "private": false,
-      "location": "packages/z",
-      "manifestLocation": "packages/z/package.json",
-      "prefix": "packages/z"
-    }
-  ],
-  "data": {
-    "@demo/x": "3.0.0",
-    "@demo/y": "2.1.0",
-    "@demo/z": "1.5.0"
+  "workspace:*": {
+    "value": "workspace:*",
+    "protocol": "workspace:",
+    "range": "*"
+  },
+  "workspace:": {
+    "value": "workspace:",
+    "protocol": "workspace:",
+    "range": ""
+  },
+  "1.5.0": null,
+  "custom:~ (custom opts)": {
+    "value": "custom:~",
+    "protocol": "custom:",
+    "range": "~"
   }
 }
 `;
 
-exports[`stale 1.x references to newer workspace versions > fixWsVersionsCore: second run is a no-op 1`] = `
+exports[`workspace protocol shared helpers > rangeToWorkspaceProtocol: reverse conversion with swappable protocol 1`] = `
 {
-  "listable": [
-    {
-      "name": "@demo/x",
-      "version": "3.0.0",
-      "private": false,
-      "location": "packages/x",
-      "manifestLocation": "packages/x/package.json",
-      "prefix": "packages/x"
-    },
-    {
-      "name": "@demo/y",
-      "version": "2.1.0",
-      "private": false,
-      "location": "packages/y",
-      "manifestLocation": "packages/y/package.json",
-      "prefix": "packages/y"
-    },
-    {
-      "name": "@demo/z",
-      "version": "1.5.0",
-      "private": false,
-      "location": "packages/z",
-      "manifestLocation": "packages/z/package.json",
-      "prefix": "packages/z"
-    },
-    {
-      "name": "@demo/app",
-      "version": "1.0.0",
-      "private": false,
-      "location": "packages/app",
-      "manifestLocation": "packages/app/package.json",
-      "prefix": "packages/app",
-      "dependencies": {
-        "@demo/x": "3.0.0",
-        "@demo/y": "^2.1.0",
-        "@demo/z": ">=1.5.0"
-      }
-    }
-  ],
-  "record": {
-    "@demo/x": {
-      "name": "@demo/x",
-      "version": "3.0.0",
-      "private": false,
-      "location": "packages/x",
-      "manifestLocation": "packages/x/package.json",
-      "prefix": "packages/x"
-    },
-    "@demo/y": {
-      "name": "@demo/y",
-      "version": "2.1.0",
-      "private": false,
-      "location": "packages/y",
-      "manifestLocation": "packages/y/package.json",
-      "prefix": "packages/y"
-    },
-    "@demo/z": {
-      "name": "@demo/z",
-      "version": "1.5.0",
-      "private": false,
-      "location": "packages/z",
-      "manifestLocation": "packages/z/package.json",
-      "prefix": "packages/z"
-    },
-    "@demo/app": {
-      "name": "@demo/app",
-      "version": "1.0.0",
-      "private": false,
-      "location": "packages/app",
-      "manifestLocation": "packages/app/package.json",
-      "prefix": "packages/app",
-      "dependencies": {
-        "@demo/x": "3.0.0",
-        "@demo/y": "^2.1.0",
-        "@demo/z": ">=1.5.0"
-      }
-    }
-  },
-  "names": [
-    "@demo/x",
-    "@demo/y",
-    "@demo/z",
-    "@demo/app"
-  ],
-  "changed": [],
-  "others": [
-    {
-      "name": "@demo/x",
-      "version": "3.0.0",
-      "private": false,
-      "location": "packages/x",
-      "manifestLocation": "packages/x/package.json",
-      "prefix": "packages/x"
-    },
-    {
-      "name": "@demo/y",
-      "version": "2.1.0",
-      "private": false,
-      "location": "packages/y",
-      "manifestLocation": "packages/y/package.json",
-      "prefix": "packages/y"
-    },
-    {
-      "name": "@demo/z",
-      "version": "1.5.0",
-      "private": false,
-      "location": "packages/z",
-      "manifestLocation": "packages/z/package.json",
-      "prefix": "packages/z"
-    },
-    {
-      "name": "@demo/app",
-      "version": "1.0.0",
-      "private": false,
-      "location": "packages/app",
-      "manifestLocation": "packages/app/package.json",
-      "prefix": "packages/app",
-      "dependencies": {
-        "@demo/x": "3.0.0",
-        "@demo/y": "^2.1.0",
-        "@demo/z": ">=1.5.0"
-      }
-    }
-  ],
-  "data": {}
+  "1.5.0": "workspace:1.5.0",
+  "^1.5.0": "workspace:^1.5.0",
+  "~1.5.0": "workspace:~1.5.0",
+  ">=1.5.0": "workspace:>=1.5.0",
+  "workspace:^1.5.0 (idempotent)": "workspace:^1.5.0",
+  "^1.5.0 (custom out)": "custom:^1.5.0",
+  "workspace:^1.5.0 (custom out)": "custom:^1.5.0"
+}
+`;
+
+exports[`workspace protocol shared helpers > round trip: workspace → range → workspace 1`] = `
+{
+  "workspace": "workspace:^1.5.0",
+  "workspace (custom out)": "custom:^1.5.0"
+}
+`;
+
+exports[`workspace protocol shared helpers > workspaceProtocolToRange: pnpm docs example (version from base fixture) 1`] = `
+{
+  "workspace:*": "1.5.0",
+  "workspace:~": "~1.5.0",
+  "workspace:^": "^1.5.0",
+  "workspace:^1.5.0": "^1.5.0"
+}
+`;
+
+exports[`workspace protocol shared helpers > workspaceProtocolToRange: without version / non-workspace / custom protocol 1`] = `
+{
+  "workspace:* (no version)": "*",
+  "workspace:^ (no version)": "workspace:^",
+  "1.5.0": "1.5.0",
+  "^1.5.0": "^1.5.0",
+  "workspace:^ (custom protocol)": "workspace:^",
+  "custom:^ (custom protocol)": "custom:^"
 }
 `;
