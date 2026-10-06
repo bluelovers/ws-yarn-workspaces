@@ -1,4 +1,4 @@
-'use strict';
+import { test } from 'node:test';
 
 import findWorkspaceRoot from '../core';
 
@@ -6,7 +6,7 @@ import path from 'upath2';
 
 import cp from 'child_process';
 
-describe('findWorkspaceRoot', () =>
+test('findWorkspaceRoot', () =>
 {
 	let fixtureDirectory = path.resolve(__dirname, './fixtures');
 
@@ -74,14 +74,14 @@ describe('findWorkspaceRoot', () =>
 		const baseDir = item.baseDir;
 		const expectedResult = item.expectedResult;
 
-		it(description, () =>
+		test(description, (t: test.TestContext) =>
 		{
 			let actual = findWorkspaceRoot(baseDir);
-			expect(actual).toStrictEqual(expectedResult);
+			t.assert.strictEqual(actual, expectedResult);
 		});
 	});
 
-	it('uses process.cwd() as a default path', () =>
+	test('uses process.cwd() as a default path', (t: test.TestContext) =>
 	{
 		const dummyBinPath = require.resolve('./fixtures/bin/cwd-find-root');
 		const workspaceRoot = path.join(fixtureDirectory, 'yarn-workspace-default-path');
@@ -90,6 +90,6 @@ describe('findWorkspaceRoot', () =>
 			encoding: 'utf8',
 		};
 		const result = cp.execFileSync(process.execPath, [dummyBinPath], execOptions as any);
-		expect(result).toBe(workspaceRoot);
+		t.assert.strictEqual(result, workspaceRoot);
 	});
 });

@@ -1,0 +1,4 @@
+!bin/cwd-find-root.js
+!yarn.lock
+!.gitkeep
+!yarn-workspace/package-a/sub-path/.gitkeep
