@@ -12,13 +12,14 @@
  * @since 2018/5/13/013
  */
 import { IPackageJson } from '@ts-type/package-dts/package-json';
+import { INpmAutoFixAll } from '@yarn-tool/fix-all';
 export * from './lib/index';
 export * from './lib/util';
 /**
  * 創建 Workspaces 的選項介面
  * Interface for creating workspaces options
  */
-export interface IOptions {
+export interface IOptions extends Pick<INpmAutoFixAll, 'addStaticFiles' | 'noStaticFiles'> {
     /**
      * 工作目錄路徑 / Working directory path
      */
@@ -43,16 +44,6 @@ export interface IOptions {
      * 啟用除錯模式 / Enable debug mode
      */
     debug?: boolean;
-    /**
-     * 是否自動加入靜態檔案（此呼叫點預設為 true）
-     * Whether to add static files (defaults to true at this call site)
-     */
-    addStaticFiles?: boolean;
-    /**
-     * 是否略過靜態檔案（優先於 addStaticFiles）
-     * Whether to skip static files (takes precedence over addStaticFiles)
-     */
-    noStaticFiles?: boolean;
 }
 /**
  * 創建 Yarn Workspaces 主函式
