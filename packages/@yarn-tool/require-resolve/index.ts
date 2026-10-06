@@ -31,18 +31,8 @@ export {
 	defaultMap,
 	handleOptionsPaths,
 	getTargetName,
-	unshiftArray,
+	_unshiftArray,
 } from './lib/util';
-
-/**
- * 匯入 unshiftArray 以建立向後相容的別名
- * Import unshiftArray for backward compatible alias
- *
- * 此處的 export 未帶 from，需要本地綁定，故先以 import 引入再轉為別名。
- * The export below has no `from`, so it needs a local binding; the import
- * provides it before re-aliasing.
- */
-import { unshiftArray } from './lib/util';
 
 export {
 	isErrorModuleNotFound,
@@ -70,25 +60,6 @@ export {
 	readModulePackageJson,
 	resolvePackage,
 } from './lib/package';
-
-/**
- * ============================================================================
- * 向後相容的別名 / Backward compatible aliases
- * ============================================================================
- */
-
-/**
- * @deprecated 使用 unshiftArray 代替 / Use unshiftArray instead
- *
- * 將元素插入陣列開頭（若不存在）
- * Unshift item to array if not already at beginning
- *
- * @typeParam T - 陣列元素類型 / Array element type
- * @param array - 目標陣列 / Target array
- * @param item - 要插入的元素 / Item to insert
- * @returns 修改後的陣列 / Modified array
- */
-export { unshiftArray as _unshiftArray };
 
 /**
  * ============================================================================

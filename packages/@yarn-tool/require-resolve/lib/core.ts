@@ -6,7 +6,7 @@ import type {
 import {
 	handleOptionsPaths,
 	getTargetName,
-	unshiftArray,
+	_unshiftArray,
 } from './util';
 
 import { isErrorModuleNotFound, type IErrorModuleNotFound } from './error';
@@ -38,12 +38,12 @@ export function buildResolvePaths(options: IOptionsRequireResolve): IPathItemInp
 		{
 			for (const value of options.includeGlobal)
 			{
-				unshiftArray(paths, value);
+				_unshiftArray(paths, value);
 			}
 		}
 		else
 		{
-			unshiftArray(paths, SymbolGlobal);
+			_unshiftArray(paths, SymbolGlobal);
 		}
 	}
 
@@ -55,7 +55,7 @@ export function buildResolvePaths(options: IOptionsRequireResolve): IPathItemInp
 	 */
 	if (options.includeCurrentDirectory)
 	{
-		unshiftArray(paths, SymbolCurrentDirectory);
+		_unshiftArray(paths, SymbolCurrentDirectory);
 	}
 
 	return paths;

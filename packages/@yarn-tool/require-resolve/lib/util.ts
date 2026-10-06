@@ -23,7 +23,7 @@ export const defaultMap: Record<string, string> = {
  * @param item - 要插入的元素 / Item to insert
  * @returns 修改後的陣列 / Modified array
  */
-export function unshiftArray<T>(array: T[], item: T): T[]
+export function _unshiftArray<T>(array: T[], item: T): T[]
 {
 	/**
 	 * 僅在第一個元素不是相同項目時才插入，
