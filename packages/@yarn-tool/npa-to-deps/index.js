@@ -74,6 +74,13 @@ const detect_1 = require("@yarn-tool/npm-package-arg-util/lib/detect");
  */
 function npaResultToDepsValue(result, options) {
     var _a, _b, _c;
+    /**
+     * 依 result.type 分別填入的依賴值欄位；未被賦值者維持 undefined，
+     * 用來區分「以 operator 簡寫表達」與「以完整 semver 字串表達」兩種依賴寫法
+     *
+     * Dependency fields assigned per `result.type`; fields never assigned stay `undefined`
+     * to distinguish the operator shorthand form from the full semver string form
+     */
     let semver;
     let operator;
     let fetchQuery;
@@ -90,6 +97,13 @@ function npaResultToDepsValue(result, options) {
          * 標籤類型：根據 preserveTag 選項處理
          */
         case 'tag':
+            /**
+             * 必須同時滿足 fetchSpec 非空才保留標籤，避免空標籤被寫入依賴值；
+             * 未保留時則退回 ^ 並標記需向 registry 查詢
+             *
+             * Keep the tag only when `fetchSpec` is non-empty, so an empty tag never leaks
+             * into the dependency value; otherwise fall back to `^` and flag a registry lookup
+             */
             if (((_a = result.fetchSpec) === null || _a === void 0 ? void 0 : _a.length) && (options === null || options === void 0 ? void 0 : options.preserveTag)) {
                 semver = result.fetchSpec;
             }
@@ -103,53 +117,81 @@ function npaResultToDepsValue(result, options) {
          * 範圍類型：根據範圍結構進行複雜處理
          */
         case 'range':
-            // Empty input spec: mark for query
-            // 空輸入規格：標記為需要查詢
+            /**
+             * 空輸入規格、或輸入只有套件名稱而未指定版本（例如 "lodash"、"lodash@"）：
+             * 此時不寫入 semver，改標記為需要向 registry 查詢
+             *
+             * Empty input spec, or input that only names the package without a version
+             * (e.g. "lodash", "lodash@"): skip `semver` and flag a registry query instead
+             */
             if ((0, detect_1.isInputSpecIsEmpty)(result) || (0, detect_1.isNameSameAsRaw)(result)) {
                 semver = void 0;
                 fetchQuery = true;
             }
             else if ((_b = result.fetchSpec) === null || _b === void 0 ? void 0 : _b.length) {
+                /**
+                 * 先把範圍拆解成多個單一條件項目，才能判斷能否簡化成 operator 簡寫
+                 * Split the range into individual clauses first, to decide whether it can be
+                 * reduced to an operator shorthand
+                 */
                 let ls = (0, parseSimpleSemVerRange_1.parseSimpleSemVerRange)(result.fetchSpec);
-                // Multiple range entries: keep original
-                // 多個範圍項目：保留原始值
+                /**
+                 * 多個範圍項目：保留原始值
+                 * Multiple range entries: keep original
+                 */
                 if (ls.length > 1) {
                     semver = result.fetchSpec;
                 }
-                // Preserve range option is set: keep original
-                // 保留範圍選項已設定：保留原始值
+                /**
+                 * 保留範圍選項已設定：保留原始值
+                 * Preserve range option is set: keep original
+                 */
                 else if (options === null || options === void 0 ? void 0 : options.preserveRange) {
                     semver = result.fetchSpec;
                 }
-                // Single entry: analyze operator
-                // 單一項目：分析運算子
+                /**
+                 * 單一項目：分析運算子
+                 * Single entry: analyze operator
+                 */
                 else if (ls.length === 1) {
                     let entry = ls[0];
-                    // No operator: treat as version to query
-                    // 無運算子：視為需要查詢的版本
+                    /**
+                     * 無運算子：視為需要查詢的版本
+                     * No operator: treat as version to query
+                     */
                     if (!entry.operator) {
                         semver = result.fetchSpec;
                         fetchQuery = true;
                     }
-                    // Non-^ operator: keep original spec
-                    // 非 ^ 運算子：保留原始規格
+                    /**
+                     * 非 ^ 運算子：保留原始規格
+                     * Non-^ operator: keep original spec
+                     */
                     else if (entry.operator !== '^') {
                         semver = result.fetchSpec;
                     }
-                    // ^ operator: use shorthand form
-                    // ^ 運算子：使用簡短形式
+                    /**
+                     * ^ 運算子：使用簡短形式
+                     * ^ operator: use shorthand form
+                     */
                     else {
                         operator = '^';
                         fetchQuery = true;
                     }
                 }
-                // No valid entries: use shorthand
-                // 無有效項目：使用簡短形式
+                /**
+                 * 無有效項目：使用簡短形式
+                 * No valid entries: use shorthand
+                 */
                 else {
                     operator = '^';
                     fetchQuery = true;
                 }
             }
+            /**
+             * fetchSpec 為空：沒有具體範圍可保留，退回 ^ 並標記需查詢
+             * Empty fetchSpec: no concrete range to keep, fall back to `^` and flag a query
+             */
             else {
                 operator = '^';
                 fetchQuery = true;
@@ -186,7 +228,7 @@ function npaResultToDepsValue(result, options) {
  *
  * @param {string} arg - The package argument string to parse / 要解析的套件參數字串
  *
- * @param {IOptions} [options] - Parsing and conversion options / 解析和轉換選項
+ * @param {IOptions} [options] - Parsing and conversion options; only `where` is forwarded / 解析與轉換選項；僅 `where` 會被傳遞
  *
  * @returns {IDepsResult<T>} Standardized dependency value object / 標準化的依賴值物件
  *
@@ -197,13 +239,21 @@ function npaResultToDepsValue(result, options) {
  * // => { name: 'lodash', operator: '^', fetchQuery: true, ... }
  *
  * @example
- * // With options
- * // 使用選項
- * npaToDepsValue('lodash@latest', { preserveTag: true });
- * // => { name: 'lodash', semver: 'latest', ... }
+ * // `where` as base directory for relative paths;
+ * // `preserveTag` / `preserveRange` must be passed to npaResultToDepsValue instead
+ * // `where` 作為相對路徑的基礎目錄；
+ * // `preserveTag` / `preserveRange` 需改傳給 npaResultToDepsValue
+ * npaToDepsValue('./local-pkg', { where: '/path/to/base' });
  */
 function npaToDepsValue(arg, options) {
     let result = (0, npm_package_arg_util_1.npa)(arg, options === null || options === void 0 ? void 0 : options.where);
+    /**
+     * 以 `as any` 略過 npa 回傳的寬鬆 union 型別；
+     * 實際分支由 npaResultToDepsValue 內的 result.type 決定，並涵蓋 default 情況
+     *
+     * Cast with `as any` to bypass npa's loose union return type;
+     * branching is decided by `result.type` inside npaResultToDepsValue, including the default case
+     */
     return npaResultToDepsValue(result);
 }
 exports.default = npaToDepsValue;

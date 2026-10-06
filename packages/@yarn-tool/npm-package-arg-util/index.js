@@ -21,8 +21,10 @@ exports.npaTry2 = npaTry2;
 const tslib_1 = require("tslib");
 const npm_package_arg_1 = tslib_1.__importDefault(require("npm-package-arg"));
 const assert_1 = require("./lib/assert");
-// Re-export utility function for extracting semver from npa result
-// 重新匯出從 npa 結果提取 semver 的工具函數
+/**
+ * 重新匯出從 npa 結果提取 semver 的工具函式
+ * Re-export the utility function for extracting semver from an npa result
+ */
 var getSemverFromNpaResult_1 = require("./lib/getSemverFromNpaResult");
 Object.defineProperty(exports, "getSemverFromNpaResult", { enumerable: true, get: function () { return getSemverFromNpaResult_1.getSemverFromNpaResult; } });
 /**
@@ -40,11 +42,18 @@ Object.defineProperty(exports, "getSemverFromNpaResult", { enumerable: true, get
  * @internal
  */
 function _npa2Core(arg, options) {
-    // Parse the argument using npm-package-arg
-    // 使用 npm-package-arg 解析參數
+    /**
+     * 使用 npm-package-arg 解析參數，`as T` 僅為配合泛數回傳型別
+     * Parse the argument with npm-package-arg; the `as T` cast only satisfies the generic return type
+     */
     const result = (0, npm_package_arg_1.default)(arg, options === null || options === void 0 ? void 0 : options.where);
-    // Validate the result
-    // 驗證結果
+    /**
+     * 以 `&&` 短路決定是否驗證：只有未設定 noThrowError 時才執行，
+     * 驗證失敗會由 assertNpaResultAll 拋出錯誤
+     *
+     * The `&&` short-circuit decides whether to validate: it runs only when `noThrowError`
+     * is not set, and assertNpaResultAll throws when validation fails
+     */
     !(options === null || options === void 0 ? void 0 : options.noThrowError) && (0, assert_1.assertNpaResultAll)(result, options);
     return result;
 }
@@ -130,8 +139,14 @@ function npa2(arg, where, options) {
 function npa(arg, where, options) {
     var _a;
     options = handleOptionsNpaUtil(options, where);
-    // Force shouldHasName validation for legacy behavior
-    // 為了舊版行為強制執行 shouldHasName 驗證
+    /**
+     * 為了舊版行為強制執行 shouldHasName 驗證
+     * 以 `??=` 賦值：只有完全未指定時才補上 true，呼叫端明確傳入 false 仍會被尊重
+     *
+     * Force shouldHasName validation for legacy behavior
+     * `??=` only fills in `true` when the option was never set, so an explicit `false`
+     * from the caller is still respected
+     */
     (_a = options.shouldHasName) !== null && _a !== void 0 ? _a : (options.shouldHasName = true);
     return _npa2Core(arg, options);
 }
@@ -154,12 +169,28 @@ function npa(arg, where, options) {
  * @returns {IOptionsNpaUtil} 標準化的選項物件
  */
 function handleOptionsNpaUtil(options, optOrWhere) {
+    /**
+     * 未提供選項、但第二個參數是物件時，直接把它當作選項，
+     * 容錯處理「呼叫端只傳 options 而略過 where」的情況
+     *
+     * When `options` is missing and the second argument is an object, treat it as the options;
+     * this tolerates callers that pass only the options object and skip `where`
+     */
     if (!options && typeof optOrWhere === 'object') {
         options = optOrWhere;
     }
+    /**
+     * 第二個參數是字串時視為 where 路徑，以展開方式合併，避免覆蓋既有選項
+     * A string second argument is the `where` path; merge it by spreading so existing options survive
+     */
     else if (typeof optOrWhere === 'string') {
         options = { ...options, where: optOrWhere };
     }
+    /**
+     * 兩者皆未提供時回傳空物件，讓下游一律能以 options.xxx 存取而不必擔心 undefined
+     * Return an empty object when neither was given, so downstream code can always read
+     * `options.xxx` without worrying about undefined
+     */
     return options || {};
 }
 /**
@@ -204,14 +235,24 @@ function handleOptionsNpaUtil(options, optOrWhere) {
  */
 function npaTry(arg, where, options) {
     try {
-        // Use custom npa function if provided, otherwise use default npa
-        // 如果提供了自定義 npa 函數則使用，否則使用預設 npa
+        /**
+         * 如果提供了自定義 npa 函式則使用，否則使用預設 npa
+         * Use custom npa function if provided, otherwise use the default npa
+         *
+         * 第二個參數也可能直接傳入選項物件（型別為 string | IOptionsNpaUtil），
+         * 故需以 @ts-ignore 才能存取 where.npa
+         *
+         * The second argument may also be an options object (`string | IOptionsNpaUtil`),
+         * hence the `@ts-ignore` needed to read `where.npa`
+         */
         // @ts-ignore
         return ((options === null || options === void 0 ? void 0 : options.npa) || (where === null || where === void 0 ? void 0 : where.npa) || npa)(arg, where, options);
     }
     catch (e) {
-        // Return undefined on error instead of throwing
-        // 錯誤時返回 undefined 而不是拋出
+        /**
+         * 錯誤時返回 undefined 而不是拋出，讓呼叫端以單一分支處理失敗
+         * Return undefined on error instead of throwing, so callers handle failure in one branch
+         */
     }
 }
 /**
@@ -241,17 +282,29 @@ function npaTry(arg, where, options) {
  */
 function npaTry2(arg, where, options) {
     try {
-        // Use custom npa function if provided, otherwise use default npa2
-        // 如果提供了自定義 npa 函數則使用，否則使用預設 npa2
+        /**
+         * 如果提供了自定義 npa 函式則使用，否則使用預設 npa2
+         * Use custom npa function if provided, otherwise use the default npa2
+         *
+         * 第二個參數也可能直接傳入選項物件（型別為 string | IOptionsNpaUtil），
+         * 故需以 @ts-ignore 才能存取 where.npa
+         *
+         * The second argument may also be an options object (`string | IOptionsNpaUtil`),
+         * hence the `@ts-ignore` needed to read `where.npa`
+         */
         // @ts-ignore
         return ((options === null || options === void 0 ? void 0 : options.npa) || (where === null || where === void 0 ? void 0 : where.npa) || npa2)(arg, where, options);
     }
     catch (e) {
-        // Return undefined on error instead of throwing
-        // 錯誤時返回 undefined 而不是拋出
+        /**
+         * 錯誤時返回 undefined 而不是拋出，讓呼叫端以單一分支處理失敗
+         * Return undefined on error instead of throwing, so callers handle failure in one branch
+         */
     }
 }
-// Default export for convenience
-// 預設匯出以方便使用
+/**
+ * 預設匯出 npa，讓 `import npa from '@yarn-tool/npm-package-arg-util'` 可直接使用
+ * Default-export npa so `import npa from '@yarn-tool/npm-package-arg-util'` works directly
+ */
 exports.default = npa;
 //# sourceMappingURL=index.js.map

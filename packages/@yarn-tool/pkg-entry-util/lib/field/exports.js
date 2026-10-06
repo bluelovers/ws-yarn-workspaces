@@ -21,8 +21,10 @@ const resolve_package_1 = require("@yarn-tool/resolve-package");
 function _pkgExportsAddPJsonEntryCore(pkgExports) {
     var _a;
     if (typeof pkgExports === 'object') {
-        // 若 './package.json' entry 不存在則添加
-        // Add './package.json' entry if not exists
+        /**
+         * 若 './package.json' entry 不存在則添加（`??=` 保留使用者自訂的值）
+         * Add './package.json' entry if not exists (`??=` keeps a user-defined value)
+         */
         (_a = pkgExports['./package.json']) !== null && _a !== void 0 ? _a : (pkgExports['./package.json'] = './package.json');
     }
     return pkgExports;
@@ -69,21 +71,34 @@ function _isPackageExportsEntry(entry, value) {
  */
 function pkgExportsVerify(pkg, options) {
     if (typeof pkg.exports === 'object') {
-        // 尋找套件根目錄
-        // Find package root directory
+        /**
+         * 尋找套件根目錄；僅在「非工作區且找得到 package.json」時才驗證，
+         * 工作區情境下交由各成員套件自行驗證，避免重複或誤報
+         * Find the package root; verify only when it is not a workspace and a
+         * package.json exists, since workspace members verify themselves
+         */
         const rootData = (0, find_root_1.findRootLazy)({
             cwd: options === null || options === void 0 ? void 0 : options.cwd,
         });
         if (!rootData.isWorkspace && rootData.pkg) {
             const list = [];
-            // 遍歷所有 exports entry 檢查路徑
-            // Iterate all exports entries to check paths
+            /**
+             * 遍歷所有 exports entry 檢查路徑
+             * Iterate all exports entries to check paths
+             */
             Object.entries(pkg.exports)
                 .forEach(([entry, value]) => {
                 if (_isPackageExportsEntry(entry, value)) {
+                    /**
+                     * 以套件根目錄建立解析器，讓 `./xxx` 相對路徑能解析為實際檔案位置
+                     * Build a resolver from the package root so `./xxx` relative
+                     * paths can be resolved to their real file locations
+                     */
                     const _ = (0, resolve_package_1.resolvePackage)(rootData.pkg);
-                    // 將值轉換為陣列並檢查每個檔案路徑
-                    // Convert value to array and check each file path
+                    /**
+                     * 將值轉換為陣列並檢查每個檔案路徑
+                     * Convert value to array and check each file path
+                     */
                     [typeof value === 'string' ? value : Object.values(value)]
                         .flat()
                         .forEach(file => {
@@ -96,14 +111,22 @@ function pkgExportsVerify(pkg, options) {
                             return;
                         }
                         const bool = (0, fs_extra_1.pathExistsSync)(_.resolveLocation(file));
+                        /**
+                         * 先收集所有錯誤再一次性拋出，
+                         * 讓使用者一次看到全部問題而非逐次修正
+                         * Collect all errors before throwing so users see
+                         * every problem at once instead of fixing one by one
+                         */
                         if (!bool) {
                             list.push(`path of '${entry}' does not exist: '${file}'`);
                         }
                     });
                 }
             });
-            // 若有錯誤則拋出包含詳細資訊的錯誤
-            // Throw error with details if there are any issues
+            /**
+             * 若有錯誤則拋出包含詳細資訊的錯誤
+             * Throw error with details if there are any issues
+             */
             if (list.length > 0) {
                 let err = new Error(`Invalid package exports: ${rootData.pkg}\n${list.slice().map(v => ` - ${v}`).join('\n')}`);
                 // @ts-ignore - 附加錯誤詳細資訊 / Attach error details

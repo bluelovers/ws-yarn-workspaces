@@ -18,6 +18,12 @@ exports.isNpx = isNpx;
  */
 function _isNpx(opts) {
     var _a;
+    /**
+     * `_` 未設定時 optional chaining 回傳 undefined，
+     * `|| false` 將其正規化為布林值以符合回傳型別
+     * When `_` is unset the optional chaining yields undefined;
+     * `|| false` normalizes it to a boolean to match the return type
+     */
     return ((_a = opts.env['_']) === null || _a === void 0 ? void 0 : _a.endsWith('/npx')) || false;
 }
 /**
@@ -38,6 +44,12 @@ function _isNpx(opts) {
  * @returns {boolean} 是否為 NPX 路徑 / Whether it's an NPX path
  */
 function _inNpxPath(__dirname) {
+    /**
+     * `/i` 讓 Windows 與 Unix 路徑大小寫差異不影響比對；
+     * `[/\\]` 同時相容兩種路徑分隔符
+     * `/i` keeps path casing differences between Windows and Unix from
+     * affecting the match; `[/\\]` accepts both path separators
+     */
     return /[/\\]ypx_|_npx|[/\\]dlx[/\\]/i.test(__dirname);
 }
 /**
@@ -60,15 +72,34 @@ function _inNpxPath(__dirname) {
  */
 function handleOptionsDetectNpx(opts) {
     var _a, _b, _c, _d, _e;
+    /** 僅取出驗證所需的欄位 / Extract only the fields needed for validation */
     let { __dirname, env } = opts;
-    // 驗證必要參數 / Validate required parameters
+    /**
+     * 驗證必要參數 / Validate required parameters
+     * `IOptionsDetectNpxInput` 只在型別上保證至少一項，
+     * 執行期仍可能傳入空值，故在此以執行期檢查攔截
+     * `IOptionsDetectNpxInput` only guarantees one field at the type level;
+     * empty values may still arrive at runtime, so the check happens here
+     */
     if (!(__dirname === null || __dirname === void 0 ? void 0 : __dirname.length) && !env) {
         throw new RangeError(`__dirname or env is required`);
     }
+    /**
+     * 先 shallow copy 再補預設值，
+     * 避免 `??=` 直接改動呼叫端傳入的原始物件
+     * Shallow copy before filling defaults so that `??=`
+     * never mutates the object supplied by the caller
+     */
     opts = {
         ...opts,
     };
-    // 設定預設值 / Set default values
+    /**
+     * 設定預設值 / Set default values
+     * 每項皆以 `??=` 處理，只有 null/undefined 才會被取代，
+     * 呼叫端明確傳入的空字串或空陣列會被保留
+     * Each uses `??=`, so only null/undefined is replaced; explicit empty
+     * strings or arrays from the caller are preserved
+     */
     (_a = opts.__dirname) !== null && _a !== void 0 ? _a : (opts.__dirname = '');
     (_b = opts.env) !== null && _b !== void 0 ? _b : (opts.env = (_c = process === null || process === void 0 ? void 0 : process.env) !== null && _c !== void 0 ? _c : {});
     (_d = opts.argv) !== null && _d !== void 0 ? _d : (opts.argv = (_e = process === null || process === void 0 ? void 0 : process.argv) !== null && _e !== void 0 ? _e : []);
@@ -93,20 +124,47 @@ function handleOptionsDetectNpx(opts) {
  */
 function isNpx(opts) {
     var _a;
+    /**
+     * 先標準化選項（補上預設值並做執行期驗證），
+     * 再解構出偵測所需的三個欄位，避免後續判斷處理未正規化的輸入
+     * Normalize the options first (fill defaults and run the runtime validation),
+     * then destructure the three fields needed for detection so later checks
+     * never have to deal with an un-normalized input
+     */
     opts = handleOptionsDetectNpx(opts);
     const { __dirname, env, argv } = opts;
-    // 檢查路徑特徵 / Check path characteristics
+    /**
+     * 檢查路徑特徵 / Check path characteristics
+     * `argv[0]` 為執行檔路徑，可能與 `__dirname` 不同來源，
+     * `&&` 使 `argv[0]` 為空時略過第二次比對
+     * `argv[0]` is the executable path and may come from a different source
+     * than `__dirname`; `&&` skips the second test when `argv[0]` is empty
+     */
     if (_inNpxPath(__dirname) || argv[0] && _inNpxPath(argv[0])) {
         return true;
     }
-    // 檢查 PNPM 套件名稱 / Check PNPM package name
+    /**
+     * 檢查 PNPM 套件名稱 / Check PNPM package name
+     * pnpm dlx 執行時會設定 PNPM_PACKAGE_NAME，
+     * 其值需涵蓋 npx/ynpx/ypx 等變體
+     * pnpm dlx sets PNPM_PACKAGE_NAME whose value may be
+     * any of the npx/ynpx/ypx variants
+     */
     if ((_a = env['PNPM_PACKAGE_NAME']) === null || _a === void 0 ? void 0 : _a.match(/y?yn?px|npx/)) {
         return true;
     }
-    // 使用原始 is-npx 檢測 / Use original is-npx detection
+    /**
+     * 使用原始 is-npx 檢測 / Use original is-npx detection
+     * 作為最後一道判斷：檢查 `_` 環境變數是否指向 npx 執行檔
+     * As the final check: whether the `_` env variable points at the npx executable
+     */
     if (_isNpx(opts)) {
         return true;
     }
+    /**
+     * 三種策略皆未命中，判定為一般環境
+     * None of the three strategies matched, so this is a normal environment
+     */
     return false;
 }
 /**

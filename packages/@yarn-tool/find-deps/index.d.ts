@@ -14,6 +14,21 @@
  */
 import { findDepsAllDeep } from './lib/find';
 import { findUpDepsAllDeep } from './lib/find-up';
+/**
+ * 匯出向下依賴尋找函數
+ *
+ * Export downward dependency finder function
+ */
 export { findDepsAllDeep };
+/**
+ * 匯出向上依賴尋找函數
+ *
+ * Export upward dependency finder function
+ */
 export { findUpDepsAllDeep };
+/**
+ * 預設匯出向上依賴尋找函數
+ *
+ * Default export upward dependency finder function
+ */
 export default findUpDepsAllDeep;

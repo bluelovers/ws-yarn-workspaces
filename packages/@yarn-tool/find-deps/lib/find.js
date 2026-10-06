@@ -34,24 +34,39 @@ function findDepsAllDeepRecordCore(names, record, map = {}) {
     return names
         .reduce((map, name) => {
         var _a;
-        // 若已處理過此套件，跳過
-        // Skip if this package has already been processed
+        /**
+         * 若已處理過此套件，跳過
+         *
+         * Skip if this package has already been processed
+         */
         if (map[name]) {
             return map;
         }
-        // 遞迴尋找此套件的所有依賴
-        // Recursively find all dependencies of this package
+        /**
+         * 遞迴尋找此套件的所有依賴
+         *
+         * Recursively find all dependencies of this package
+         */
         let list = findDepsDeep(name, record);
-        // 初始化此套件的依賴列表
-        // Initialize dependency list for this package
+        /**
+         * 初始化此套件的依賴列表
+         *
+         * Initialize dependency list for this package
+         */
         map[name] = (_a = map[name]) !== null && _a !== void 0 ? _a : [];
-        // 若有依賴，繼續遞迴處理
-        // If there are dependencies, continue recursive processing
+        /**
+         * 若有依賴，繼續遞迴處理
+         *
+         * If there are dependencies, continue recursive processing
+         */
         if (list === null || list === void 0 ? void 0 : list.length) {
             findDepsAllDeepRecordCore(list, record, map);
         }
-        // 將找到的依賴加入列表
-        // Add found dependencies to the list
+        /**
+         * 將找到的依賴加入列表
+         *
+         * Add found dependencies to the list
+         */
         map[name].push(...list);
         return map;
     }, map);
@@ -75,19 +90,31 @@ function findDepsAllDeepRecordCore(names, record, map = {}) {
  * // 返回 [['pkg-a', ['dep1', 'dep2']], ['pkg-b', ['dep3']]]
  */
 function findDepsAllDeep(names, record) {
-    // 使用核心函數建立依賴映射
-    // Build dependency map using core function
+    /**
+     * 使用核心函數建立依賴映射
+     *
+     * Build dependency map using core function
+     */
     let map = findDepsAllDeepRecordCore(names, record);
-    // 將映射轉換為陣列
-    // Convert map to array
+    /**
+     * 將映射轉換為陣列
+     *
+     * Convert map to array
+     */
     let list = Object.entries(map);
-    // 依據依賴數量排序（少的在前）
-    // Sort by dependency count (fewer first)
+    /**
+     * 依據依賴數量排序（少的在前）
+     *
+     * Sort by dependency count (fewer first)
+     */
     list.sort((a, b) => {
         return (a[1].length - b[1].length);
     });
-    // 對每個套件的依賴列表進行排序
-    // Sort dependency list for each package
+    /**
+     * 對每個套件的依賴列表進行排序
+     *
+     * Sort dependency list for each package
+     */
     list.forEach(a => {
         a[1].sort((a, b) => {
             return (map[a].length - map[b].length);
@@ -111,27 +138,45 @@ function findDepsAllDeep(names, record) {
  * @returns {string[]} 所有依賴套件的名稱陣列 / Array of all dependency package names
  */
 function findDepsDeep(name, record, list = []) {
-    // 確認套件存在於記錄中
-    // Confirm package exists in record
+    /**
+     * 確認套件存在於記錄中
+     *
+     * Confirm package exists in record
+     */
     if (name in record) {
         let row = record[name];
-        // 遍歷所有依賴欄位（dependencies, devDependencies, peerDependencies 等）
-        // Traverse all dependency fields (dependencies, devDependencies, peerDependencies, etc.)
+        /**
+         * 遍歷所有依賴欄位（dependencies, devDependencies, peerDependencies 等）
+         *
+         * Traverse all dependency fields (dependencies, devDependencies, peerDependencies, etc.)
+         */
         types_1.packageJsonDependenciesFields
             .forEach(field => {
             var _a;
-            // 遍歷此欄位中的所有依賴
-            // Traverse all dependencies in this field
+            /**
+             * 遍歷此欄位中的所有依賴
+             *
+             * Traverse all dependencies in this field
+             */
             Object.keys((_a = row[field]) !== null && _a !== void 0 ? _a : {})
                 .forEach(name2 => {
-                // 若依賴存在於 workspace 中、尚未加入列表、且不是自己
-                // If dependency exists in workspace, not yet in list, and not self
+                /**
+                 * 若依賴存在於 workspace 中、尚未加入列表、且不是自己
+                 *
+                 * If dependency exists in workspace, not yet in list, and not self
+                 */
                 if ((name2 in record) && !list.includes(name2) && name2 !== name) {
-                    // 加入依賴列表
-                    // Add to dependency list
+                    /**
+                     * 加入依賴列表
+                     *
+                     * Add to dependency list
+                     */
                     list.push(name2);
-                    // 遞迴尋找此依賴的依賴
-                    // Recursively find dependencies of this dependency
+                    /**
+                     * 遞迴尋找此依賴的依賴
+                     *
+                     * Recursively find dependencies of this dependency
+                     */
                     findDepsDeep(name2, record, list);
                 }
             });
@@ -139,5 +184,10 @@ function findDepsDeep(name, record, list = []) {
     }
     return list;
 }
+/**
+ * 預設匯出 `findDepsAllDeep`
+ *
+ * Default export: `findDepsAllDeep`.
+ */
 exports.default = findDepsAllDeep;
 //# sourceMappingURL=find.js.map

@@ -119,7 +119,7 @@ const devScripts = {
 const sorted = sortPackageJsonScripts(devScripts);
 ```
 
-## Options / 選項
+## Configuration / 設定 (Options)
 
 ```typescript
 import sortPackageJsonScripts, { ISortPackageJsonScriptsOptions } from 'sort-package-json-scripts';
@@ -229,7 +229,7 @@ The library follows this default order:
 5. **Version Management**: ci, npm, yarn, pnpm, lerna, ws, version, major, minor, patch, prerelease
 6. **Publishing**: prepareOnly, prepublish, prepare, prepublishOnly, prepack, pack, postpack, publish, postpublish, postpublishOnly, shrinkwrap, dependencies
 
-## API Reference / API 參考
+## API Documentation / API 文件
 
 ### `sortPackageJsonScripts(scripts, options?)`
 
@@ -252,6 +252,8 @@ Returns a new sorted scripts object (does not modify original).
 
 - [sort-package-json](https://www.npmjs.com/package/sort-package-json) - Sort package.json
 - [sort-object-keys2](https://www.npmjs.com/package/sort-object-keys2) - Sort object keys
+
+相關文件 / Related documentation：[docs/sort-package-json-utils.md](../../docs/sort-package-json-utils.md)
 
 ## License / 授權
 

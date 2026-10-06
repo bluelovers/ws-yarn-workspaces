@@ -3,6 +3,14 @@
 fnm (Fast Node Manager) 環境偵測模組，用於偵測當前 Node.js 程序是否在 fnm 管理的環境中執行。
 A module for detecting whether the current Node.js process is running within an fnm-managed environment.
 
+## 功能 (Features)
+
+- 透過 Node.js 執行檔路徑 (execPath) 偵測 fnm 環境 / Detect fnm environment via Node.js execPath
+- 透過環境變數 (Environment variables) `FNM_DIR`、`FNM_MULTISHELL_PATH` 偵測 fnm 環境
+- 結合兩種偵測方式並回傳偵測來源 (Detection source) / Combine both methods and report where detection came from
+- 解析 fnm 路徑類型 (Path type)：`fnm_multishells`、`aliases`、`node-versions`
+- 提供便利函式 (Convenience function) `isFNM()` 快速取得布林值結果
+
 ## 安裝 (Installation)
 
 ```bash
@@ -21,7 +29,7 @@ pnpm add @yarn-tool/fnm-detect
 npm install @yarn-tool/fnm-detect
 ```
 
-## 使用範例 (Usage Example)
+## 用法 (Usage)
 
 ```typescript
 import {
@@ -59,7 +67,7 @@ const allResult = detectFnmByAll();
 console.log(allResult.detectedBy); // ['execpath', 'env'] 或 ['execpath'] 或 ['env'] 或 []
 ```
 
-## API
+## API 文件 (API Documentation)
 
 ### `detectFnmByExecPath(execPath?, nodeVersion?)`
 
@@ -97,7 +105,22 @@ console.log(allResult.detectedBy); // ['execpath', 'env'] 或 ['execpath'] 或 [
 | `multishellKey` | Multishell 鍵值 / Multishell key |
 | `version` | Node.js 版本 / Node.js version |
 | `installationPath` | 安裝路徑 / Installation path |
-| `aliasDefaultPath` | 預設別名路徑 / Default alias path |
+| `aliasesDefaultPath` | 預設別名路徑 / Default alias path |
+
+## 組態設定 (Configuration)
+
+本套件不需額外設定檔，偵測行為由傳入參數與 fnm 所設定的環境變數 (Environment variables) 決定：
+
+| 設定來源 (Source) | 預設值 (Default) | 說明 (Description) |
+| --- | --- | --- |
+| `execPath` | `process.execPath` | 用於 execPath 偵測的 Node.js 執行檔路徑 / Node.js executable path used by execPath detection |
+| `env` | `process.env` | 環境變數來源，需可讀取 `FNM_DIR` 與 `FNM_MULTISHELL_PATH` / Environment variable source; must expose `FNM_DIR` and `FNM_MULTISHELL_PATH` |
+| `nodeVersion` / `version` | `process.version` | 用於推算 `node-versions/{version}/installation` 安裝路徑的 Node.js 版本 / Node.js version used to derive the `node-versions/{version}/installation` path |
+
+fnm 本身設定的環境變數 (Environment variables set by fnm)：
+
+- `FNM_DIR`：fnm 主目錄 (Main fnm directory)，存放 node 版本與別名 / stores node versions and aliases
+- `FNM_MULTISHELL_PATH`：當前 shell 工作階段的 multishell 臨時符號連結目錄 (Temporary symlink directory of the current shell session)
 
 ## License
 

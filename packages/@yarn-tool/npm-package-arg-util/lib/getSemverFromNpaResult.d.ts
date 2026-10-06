@@ -46,4 +46,8 @@ import { IResult } from './types';
  * getSemverFromNpaResult(result); // '4.17.21'
  */
 export declare function getSemverFromNpaResult(npaResult: IResult): string;
+/**
+ * 預設匯出 getSemverFromNpaResult，讓 `import getSemver from '...'` 可直接使用
+ * Default-export getSemverFromNpaResult so `import getSemver from '...'` works directly
+ */
 export default getSemverFromNpaResult;

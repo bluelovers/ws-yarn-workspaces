@@ -131,6 +131,19 @@ When executing the `install` event, scripts run in the following order:
 2. `install` - 主要安裝腳本 (Main install script)
 3. `postinstall` - 安裝後腳本 (Post-install script)
 
+## 設定 (Configuration)
+
+本套件不需要設定檔，所有行為皆由 `runLifecycleScript()` 的選項 (Options) 控制：
+
+| 選項 (Option) | 預設值 (Default) | 說明 (Description) |
+|--------------|-----------------|-------------------|
+| `stdio` | `'inherit'` | 執行腳本時的標準輸入輸出 (Standard I/O) 模式；內部 `_options()` 會強制覆寫為 `'inherit'`，使子程序輸出直接顯示於終端機 |
+| `args` | `[]` | 傳給腳本的參數；執行前置/後置腳本時會被清空，由各腳本自行決定參數 |
+| `env` | 繼承父程序 | 額外的環境變數 (Environment Variables)，與父程序環境合併 |
+| `event` | （必填） | 要觸發的事件名稱；前置/後置腳本的事件由生命週期配置逐一覆寫 |
+
+生命週期順序由 [`@yarn-tool/script-lifecycle`](../script-lifecycle/README.md) 提供，未知事件會自動推導 `pre<event>` / `post<event>` 鉤子。
+
 ## 相依套件 (Dependencies)
 
 - `@npmcli/run-script` - npm 官方的腳本執行庫
@@ -144,5 +157,5 @@ ISC
 
 ## 相關套件 (Related Packages)
 
-- [`@yarn-tool/script-lifecycle`](../script-lifecycle) - 生命週期配置管理
-- [`@npmcli/run-script`](https://github.com/npm/cli/tree/latest/workspaces/libnpmexec) - npm 腳本執行核心
+- [`@yarn-tool/script-lifecycle`](../script-lifecycle/README.md) - 生命週期配置管理
+- [`@npmcli/run-script`](https://github.com/npm/cli/tree/latest/workspaces/run-script) - npm 腳本執行核心

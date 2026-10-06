@@ -91,6 +91,7 @@ export declare function defaultWorkspaceRootScripts(): {
     /** 版本更新前測試 / Test before version bump */
     preversion: EnumScriptsEntry;
     /** 版本更新後修復 / Fix after version bump */
+    postversion: string;
     /** Lerna 發布 / Lerna publish */
     "lerna:publish": string;
     "lint:all": string;
@@ -115,5 +116,6 @@ export declare function defaultWorkspaceRootScripts(): {
     "install:resetLockfile": string;
     "install:frozenLockfile": string;
     "ws:fix-all": string;
+    "ws:fix-all:addStaticFiles": string;
     "ws:fix-all:resetStaticFiles": string;
 };

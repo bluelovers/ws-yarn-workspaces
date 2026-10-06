@@ -54,7 +54,7 @@ _runtime 選項輸入類型 - 可接受布林值或 IOptionsWhichPackageManager 
 type IRuntimeOptionInput = boolean | IOptionsWhichPackageManager;
 ```
 
-## API (API)
+## API 文件 (API Documentation)
 
 ### whichPackageManagerSync(npmClients?: IPackageManager[], returnDefaultOrOptions?: IRuntimeOptionInput): IPackageManager | undefined
 
@@ -116,6 +116,19 @@ type IRuntimeOptionInput = boolean | IOptionsWhichPackageManager;
 
 **回傳 (Returns):** AsyncGenerator yields `[packageManager, commandPath]` tuples
 
+## 組態設定 (Configuration)
+
+所有偵測函式共用同一組選項，可透過 `IRuntimeOptionInput`（布林值或 `IOptionsWhichPackageManager` 物件）傳入：
+
+| 選項 (Option) | 型別 (Type) | 預設值 (Default) | 說明 (Description) |
+| --- | --- | --- | --- |
+| `returnDefault` | `boolean` | `false` | 找不到任何套件管理器時，是否回傳優先順序中的第一個作為預設值 / Whether to return the first entry of the priority order as fallback when none is found |
+| `noUseDefaultClients` | `boolean` | `false` | 只使用使用者指定的套件管理器，不合併預設優先順序 / Only use user-specified package managers; do not merge the default priority order |
+
+- 預設優先順序 (Default priority)：`pnpm` → `yarn` → `npm`
+- 直接傳入 `true` 等同於 `{ returnDefault: true }` / Passing `true` directly is equivalent to `{ returnDefault: true }`
+- 若完全未指定套件管理器列表，則依預設優先順序檢查 / When no package manager list is given, detection follows the default priority order
+
 ## 安裝 (Installation)
 
 ```bash
@@ -134,7 +147,9 @@ pnpm add @yarn-tool/detect-package-manager
 npm install @yarn-tool/detect-package-manager
 ```
 
-## 範例 (Examples)
+## 用法 (Usage)
+
+以下範例展示常見的使用方式 (The following examples show common usage):
 
 ```typescript
 import {

@@ -49,7 +49,9 @@ const write_package_json_1 = require("@yarn-tool/write-package-json");
 const getRootCopyStaticFiles_1 = require("@yarn-tool/static-file/lib/root/getRootCopyStaticFiles");
 const scripts_1 = require("@yarn-tool/pkg-entry-util/lib/field/scripts");
 const staticFiles_1 = require("@yarn-tool/fix-all/lib/file/staticFiles");
-// 更新通知器（已停用）/ Update notifier (disabled)
+/**
+ * 更新通知器（已停用）/ Update notifier (disabled)
+ */
 //updateNotifier(__dirname);
 /**
  * 避免 IDE 緩衝區問題的權宜之計
@@ -66,7 +68,9 @@ let cli = (0, yargs_setting_1.setupToYargs)(yargs_1.default);
  * Get command line positional arguments
  */
 let argv = cli.argv._;
-// 除錯輸出（已停用）/ Debug output (disabled)
+/**
+ * 除錯輸出（已停用）/ Debug output (disabled)
+ */
 //console.dir(cli.argv);
 /**
  * 解析工作目錄
@@ -102,7 +106,9 @@ let wsProject;
  */
 if (rootData === null || rootData === void 0 ? void 0 : rootData.hasWorkspace) {
     workspacesConfig = (0, workspaces_config_1.parseStaticPackagesPaths)((0, workspaces_config_1.getConfig)(rootData.ws));
-    // 取得第一個前綴作為預設前綴 / Get first prefix as default prefix
+    /**
+     * 取得第一個前綴作為預設前綴 / Take the first prefix as the default prefix
+     */
     if (workspacesConfig.prefix.length) {
         workspacePrefix = workspacesConfig.prefix[0];
     }
@@ -132,10 +138,16 @@ let { targetDir, targetName, scopedPackagePattern } = (0, init_path_1.getTargetD
  */
 let flags = Object.keys(cli.argv)
     .reduce(function (a, f) {
-    // 跳過特定選項 / Skip specific options
+    /**
+     * 跳過特定選項：這些選項不參與 npm init 的旗標組字
+     * Skip specific options: these are not folded into the npm init flag string
+     */
     if (f === 'silent' || f === 'y' || f === 'yes') {
     }
-    // 收集單字母標誌 / Collect single-letter flags
+    /**
+     * 收集單字母標誌：只有單一小寫字母且值為真時才加入
+     * Collect single-letter flags: only a single lowercase letter with a truthy value is added
+     */
     else if (/^[a-z]$/.test(f) && cli.argv[f]) {
         a.push(f);
     }
@@ -152,7 +164,9 @@ let args = [
     cli.argv.createModule,
     cli.argv.yes && '-y',
 ].filter(v => v);
-// 輸出命令參數（已停用）/ Output command arguments (disabled)
+/**
+ * 輸出命令參數（已停用）/ Output command arguments (disabled)
+ */
 //console.log(args);
 /**
  * Package.json 檔案路徑
@@ -213,7 +227,13 @@ else if (!targetName) {
         old_pkg_name = old_pkg.name;
     }
     catch (e) {
-        // 忽略讀取錯誤 / Ignore read errors
+        /**
+         * 讀取失敗時忽略（例如檔案不存在或 JSON 無效），
+         * 讓後續流程改以全新 package.json 處理
+         *
+         * Ignore read failures (e.g. missing file or invalid JSON) so the rest of the flow
+         * treats the target as a brand-new package.json
+         */
     }
 }
 /**
@@ -335,8 +355,10 @@ if (!cp.error) {
          * Merge corresponding script templates based on project type
          */
         if (rootData.hasWorkspace) {
-            // Workspaces 專案不添加額外根腳本
-            // Workspace projects don't add extra root scripts
+            /**
+             * Workspaces 專案不添加額外根腳本：根專案的腳本由 workspaces 設定管理
+             * Workspace projects get no extra root scripts: root scripts are managed by the workspace setup
+             */
         }
         else if (rootData.isRoot) {
             sharedScript = {
@@ -454,7 +476,10 @@ if (!cp.error) {
                 var _a, _b, _c;
                 return ((_a = cpkg.dependencies) === null || _a === void 0 ? void 0 : _a[name]) || ((_b = cpkg.devDependencies) === null || _b === void 0 ? void 0 : _b[name]) || ((_c = cpkg.peerDependencies) === null || _c === void 0 ? void 0 : _c[name]) || "*";
             };
-            // 初始化依賴項欄位 / Initialize dependency fields
+            /**
+             * 初始化依賴項欄位：沿用既有內容，缺漏時才建立空物件
+             * Initialize dependency fields: keep existing entries and only create empty objects when missing
+             */
             pkg.data.dependencies = pkg.data.dependencies || {};
             pkg.data.devDependencies = pkg.data.devDependencies || {};
             pkg.data.peerDependencies = pkg.data.peerDependencies || {};
@@ -466,7 +491,10 @@ if (!cp.error) {
                 pkg.data.devDependencies['@bluelovers/tsconfig'] = findVersion('@bluelovers/tsconfig');
                 pkg.data.devDependencies['@types/node'] = findVersion('@types/node');
             }
-            // 添加 tslib 作為執行時依賴 / Add tslib as runtime dependency
+            /**
+             * 添加 tslib 作為執行時依賴：多數工具鏈會假設 tslib 存在
+             * Add tslib as a runtime dependency: most toolchains assume tslib is present
+             */
             pkg.data.dependencies['tslib'] = findVersion('tslib');
         }
         /**
@@ -575,6 +603,12 @@ if (!cp.error) {
         /**
          * 將 Package 連結到 node_modules（Workspaces 專案）
          * Link package to node_modules (for workspace projects)
+         *
+         * 注意：條件以 `false &&` 開頭，永遠不會成立，此區塊目前已完全停用，
+         * 程式碼保留以便日後恢復
+         *
+         * Note: the guard starts with `false &&` and never holds, so this block is fully
+         * disabled; the code is kept for a possible re-enable later
          */
         if (false && wsProject && !rootData.isWorkspace) {
             (0, node_modules_link_1.linkToNodeModules)({

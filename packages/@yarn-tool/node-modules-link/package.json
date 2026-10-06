@@ -2,7 +2,16 @@
   "name": "@yarn-tool/node-modules-link",
   "version": "3.0.12",
   "description": "link package to node_modules",
-  "keywords": [],
+  "keywords": [
+    "node_modules",
+    "node modules",
+    "link",
+    "symlink",
+    "package link",
+    "link package",
+    "node-modules-link",
+    "cli"
+  ],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/node-modules-link#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"

@@ -3,6 +3,10 @@
   "version": "3.0.16",
   "description": "用於設定 tsdx 專案環境的工具，自動配置 package.json 與靜態檔案 (Tool for setting up tsdx project environment, auto-configuring package.json and static files)",
   "keywords": [
+    "tsdx",
+    "setup-module-env",
+    "project-setup",
+    "static-files",
     "yarn",
     "yarn-tool",
     "npm",

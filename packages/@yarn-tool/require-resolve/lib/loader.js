@@ -116,6 +116,12 @@ function tryRequireExtra(name, options) {
         return requireExtra(name, options);
     }
     catch {
+        /**
+         * 任何載入失敗（模組不存在、入口點錯誤等）一律回傳 null，
+         * 讓呼叫端以 if 判斷即可，不必自行包 try/catch。
+         * Any load failure (missing module, broken entry, …) becomes null so
+         * callers can just test the value instead of wrapping try/catch.
+         */
         return null;
     }
 }
@@ -138,6 +144,12 @@ async function tryImportExtra(name, options) {
         return await importExtra(name, options);
     }
     catch {
+        /**
+         * 與 tryRequireExtra 相同：載入失敗回傳 null 而不拋出，
+         * await 會把同步與非同步的失敗一併捕捉。
+         * Same as tryRequireExtra: a failed load returns null instead of
+         * throwing, and await catches both sync and async failures.
+         */
         return null;
     }
 }

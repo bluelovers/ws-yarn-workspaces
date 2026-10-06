@@ -46,10 +46,22 @@ const _whichOptions = {
  */
 function _handleOptionsWhichPackageManagerCore(returnDefaultOrOptions) {
     if (typeof returnDefaultOrOptions === 'boolean') {
+        /**
+         * 布林值是 `returnDefault` 的簡寫形式，
+         * 正規化成物件後，後續程式只需處理單一型別
+         * A boolean is shorthand for `returnDefault`;
+         * normalizing to an object keeps downstream code single-typed
+         */
         returnDefaultOrOptions = {
             returnDefault: returnDefaultOrOptions,
         };
     }
+    /**
+     * 未傳入任何選項時以空物件代替 undefined，
+     * 讓呼叫端不必額外處理 null/undefined 分支
+     * When no option is given, return an empty object instead of undefined
+     * so callers never have to handle a null/undefined branch
+     */
     return returnDefaultOrOptions !== null && returnDefaultOrOptions !== void 0 ? returnDefaultOrOptions : {};
 }
 /**
@@ -81,21 +93,30 @@ function _handleClientsToCheck(npmClients, options) {
      * Merge user-specified priority with default order
      */
     if (npmClients === null || npmClients === void 0 ? void 0 : npmClients.length) {
-        // 過濾不合法的名稱
+        /**
+         * 過濾不合法的名稱（空字串或 undefined）
+         * Filter out invalid names (empty string or undefined)
+         */
         npmClients = npmClients.filter(v => v === null || v === void 0 ? void 0 : v.length);
+        /**
+         * `noUseDefaultClients` 時只保留使用者清單，否則追加預設順序；
+         * 以 Set 去重，避免使用者重複指定同一個套件管理器時重複檢查
+         * With `noUseDefaultClients` only the user list is kept, otherwise the
+         * default order is appended; Set de-duplicates so an entry specified
+         * twice by the user is not checked twice
+         */
         return (options === null || options === void 0 ? void 0 : options.noUseDefaultClients)
             ? [...new Set([...npmClients])]
             : [...new Set([...npmClients, ...defaultClients])];
     }
+    /**
+     * 使用者未指定任何套件管理器（或清單經篩選後為空）時，
+     * 直接以預設優先順序作為檢查清單
+     * When the user specified nothing (or the list became empty after filtering),
+     * fall back to the default priority order as the check list
+     */
     return [...defaultClients];
 }
-/**
- * 使用 which 依序檢查套件管理器列表，返回第一個可用的
- * Sequentially check package managers using which, return the first available one
- *
- * @param npmClients - 套件管理器列表 / Package manager list
- * @returns 可用的套件管理器名稱 / Available package manager name
- */
 /**
  * 非同步生成器 - 使用 which 依序檢查套件管理器列表
  * Async generator - sequentially check package managers using which
@@ -119,18 +140,40 @@ async function* _whichPackageManagerAsyncGenerator(npmClients, returnDefaultOrOp
  * @yield - 可用的套件管理器元組 [名稱, 路徑] / Available package manager tuple [name, path]
  */
 async function* _whichAsyncGeneratorCore(clientsToCheck, options) {
+    /**
+     * 追蹤是否會有任何套件管理器被找到，
+     * 供最後判斷是否需要回傳預設值
+     * Tracks whether any package manager was found,
+     * used at the end to decide if the default should be returned
+     */
     let notFound = true;
     /**
      * 依序檢查每個套件管理器是否可用
      * Check each package manager sequentially for availability
      */
     for (const client of clientsToCheck) {
+        /**
+         * `nothrow: true` 使找不到命令時回傳 null 而非丟出例外，
+         * `.catch(() => null)` 則涵蓋其他非預期錯誤，讓檢查能繼續下一個候選者
+         * `nothrow: true` makes a missing command resolve to null instead of throwing,
+         * and `.catch(() => null)` swallows unexpected errors so checking continues to the next candidate
+         */
         const commandPath = await (0, which_1.default)(client, _whichOptions).catch(() => null);
+        /**
+         * 只有找到可執行檔時才 yield，避免把不存在的套件管理器當成可用結果
+         * Only yield when the executable exists, so missing package managers are never reported as available
+         */
         if (commandPath) {
             yield [client, commandPath];
             notFound = false;
         }
     }
+    /**
+     * 全部都找不到時，若允許回傳預設值，
+     * 則以檢查清單的第一個作為回報（即使它並未安裝）
+     * When nothing was found, if defaults are allowed, report the first
+     * entry of the check list (even if it is not installed)
+     */
     if (options.returnDefault && notFound)
         return [clientsToCheck[0]];
 }
@@ -142,6 +185,12 @@ async function* _whichAsyncGeneratorCore(clientsToCheck, options) {
  * @returns 可用的套件管理器名稱 / Available package manager name
  */
 async function whichPackageManagerAsync(npmClients, returnDefaultOrOptions) {
+    /**
+     * 只取生成器第一次 yield 的結果，
+     * 找不到時 `next.value` 為 undefined，回傳 undefined
+     * Take only the first value yielded by the generator;
+     * when nothing is found `next.value` is undefined, so undefined is returned
+     */
     return _whichPackageManagerAsyncGenerator(npmClients, returnDefaultOrOptions).next().then(next => { var _a; return (_a = next.value) === null || _a === void 0 ? void 0 : _a[0]; });
 }
 /**
@@ -153,18 +202,15 @@ async function whichPackageManagerAsync(npmClients, returnDefaultOrOptions) {
  */
 async function whichPackageManagerAsyncAll(npmClients, returnDefaultOrOptions) {
     const result = [];
+    /**
+     * 逐一收集生成器 yield 的結果，只保留名稱、捨棄路徑
+     * Collect each value yielded by the generator, keeping only the name and discarding the path
+     */
     for await (const client of _whichPackageManagerAsyncGenerator(npmClients, returnDefaultOrOptions)) {
         result.push(client[0]);
     }
     return result;
 }
-/**
- * 使用 which 依序檢查套件管理器列表，以同步生成器方式 yield 所有可用的套件管理器
- * Sequentially check package managers using which, yield all available package managers via sync generator
- *
- * @param npmClients - 套件管理器列表 / Package manager list
- * @returns 可用的套件管理器（透過 yield）/ Available package manager (via yield)
- */
 /**
  * 同步生成器 - 使用 which 依序檢查套件管理器列表
  * Sync generator - sequentially check package managers using which
@@ -188,18 +234,40 @@ function* _whichPackageManagerSyncGenerator(npmClients, returnDefaultOrOptions) 
  * @yield - 可用的套件管理器元組 [名稱, 路徑] / Available package manager tuple [name, path]
  */
 function* _whichSyncGeneratorCore(clientsToCheck, options) {
+    /**
+     * 追蹤是否會有任何套件管理器被找到，
+     * 供最後判斷是否需要回傳預設值
+     * Tracks whether any package manager was found,
+     * used at the end to decide if the default should be returned
+     */
     let notFound = true;
     /**
      * 依序檢查每個套件管理器是否可用
      * Check each package manager sequentially for availability
      */
     for (const client of clientsToCheck) {
+        /**
+         * `nothrow: true` 使找不到命令時回傳 null 而非丟出例外，
+         * 因此可直接以 truthy 判斷是否找到可執行檔
+         * `nothrow: true` makes a missing command return null instead of throwing,
+         * so a simple truthy check tells us whether the executable was found
+         */
         const commandPath = (0, which_1.sync)(client, _whichOptions);
+        /**
+         * 只有找到可執行檔時才 yield，避免把不存在的套件管理器當成可用結果
+         * Only yield when the executable exists, so missing package managers are never reported as available
+         */
         if (commandPath) {
             yield [client, commandPath];
             notFound = false;
         }
     }
+    /**
+     * 全部都找不到時，若允許回傳預設值，
+     * 則以檢查清單的第一個作為回報（即使它並未安裝）
+     * When nothing was found, if defaults are allowed, report the first
+     * entry of the check list (even if it is not installed)
+     */
     if (options.returnDefault && notFound)
         return [clientsToCheck[0]];
 }
@@ -212,6 +280,10 @@ function* _whichSyncGeneratorCore(clientsToCheck, options) {
  */
 function whichPackageManagerSyncAll(npmClients, returnDefaultOrOptions) {
     const result = [];
+    /**
+     * 逐一收集生成器 yield 的結果，只保留名稱、捨棄路徑
+     * Collect each value yielded by the generator, keeping only the name and discarding the path
+     */
     for (const client of _whichPackageManagerSyncGenerator(npmClients, returnDefaultOrOptions)) {
         result.push(client[0]);
     }
@@ -226,7 +298,17 @@ function whichPackageManagerSyncAll(npmClients, returnDefaultOrOptions) {
  */
 function whichPackageManagerSync(npmClients, returnDefaultOrOptions) {
     var _a;
+    /**
+     * 只取生成器第一次 yield 的結果，
+     * 找不到時 `next.value` 為 undefined，回傳 undefined
+     * Take only the first value yielded by the generator;
+     * when nothing is found `next.value` is undefined, so undefined is returned
+     */
     return (_a = _whichPackageManagerSyncGenerator(npmClients, returnDefaultOrOptions).next().value) === null || _a === void 0 ? void 0 : _a[0];
 }
+/**
+ * 預設匯出：同步偵測第一個可用的套件管理器
+ * Default export: synchronously detect the first available package manager
+ */
 exports.default = whichPackageManagerSync;
 //# sourceMappingURL=index.js.map

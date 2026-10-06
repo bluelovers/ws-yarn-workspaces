@@ -52,8 +52,10 @@ function lernaChanged(cwd, options) {
      */
     let out = cp.stdout.toString().trim();
     /**
-     * 解析 JSON 輸出為套件列表
-     * Parse JSON output to package list
+     * lerna changed 在「無變更套件」時不會輸出 JSON（可能為空字串），
+     * 需先檢查長度再解析，否則 JSON.parse('') 會直接拋錯
+     * `lerna changed` prints no JSON when nothing changed (possibly empty string),
+     * so guard the length before parsing, otherwise JSON.parse('') would throw
      */
     let list = (out.length ? JSON.parse(out) : []);
     /**

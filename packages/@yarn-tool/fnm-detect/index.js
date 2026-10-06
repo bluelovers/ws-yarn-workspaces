@@ -92,11 +92,22 @@ var EnumDetectFnmPathType;
  * ```
  */
 function _detectFnmPathTypeCore(normalizedFnmPath, inDeep) {
+    /**
+     * 空字串或 undefined 直接略過比對並回傳 undefined，
+     * 讓呼叫端能以 falsy 判斷「非 fnm 路徑」
+     * An empty string or undefined skips matching and returns undefined,
+     * so callers can treat a falsy result as "not an fnm path"
+     */
     if (normalizedFnmPath === null || normalizedFnmPath === void 0 ? void 0 : normalizedFnmPath.length) {
+        /**
+         * 以條件式賦值保存比對結果，捕獲組可直接用於回傳值
+         * Keeps the match result via assignment-in-condition so capture groups feed the return value directly
+         */
         let m;
-        // Match fnm_multishells path pattern
-        // 匹配 fnm_multishells 路徑模式
-        // Pattern: .../fnm_multishells/{key}
+        /**
+         * 比對 fnm_multishells 路徑模式 / Match fnm_multishells path pattern
+         * Pattern: .../fnm_multishells/{key}
+         */
         if (m = normalizedFnmPath.match(/((.+\/fnm_multishells)\/([^/]+))/)) {
             return {
                 fnmPathType: "fnm_multishells" /* EnumDetectFnmPathType.fnm_multishells */,
@@ -106,9 +117,10 @@ function _detectFnmPathTypeCore(normalizedFnmPath, inDeep) {
                 multishellDir: m[2],
             };
         }
-        // Match aliases path pattern
-        // 匹配 aliases 路徑模式
-        // Pattern: .../fnm/aliases/{name}
+        /**
+         * 比對 aliases 路徑模式 / Match aliases path pattern
+         * Pattern: .../fnm/aliases/{name}
+         */
         else if (m = normalizedFnmPath.match(/((.+\/fnm)\/aliases\/([^/]+))/)) {
             return {
                 fnmPathType: "aliases" /* EnumDetectFnmPathType.aliases */,
@@ -118,9 +130,10 @@ function _detectFnmPathTypeCore(normalizedFnmPath, inDeep) {
                 aliasesPath: m[1],
             };
         }
-        // Match node-versions path pattern
-        // 匹配 node-versions 路徑模式
-        // Pattern: .../fnm/node-versions/{version}/installation
+        /**
+         * 比對 node-versions 路徑模式 / Match node-versions path pattern
+         * Pattern: .../fnm/node-versions/{version}/installation
+         */
         else if (m = normalizedFnmPath.match(/((.+\/fnm)\/node-versions\/([^/]+)\/installation)/)) {
             return {
                 fnmPathType: "node-versions" /* EnumDetectFnmPathType.node_versions */,
@@ -130,6 +143,13 @@ function _detectFnmPathTypeCore(normalizedFnmPath, inDeep) {
                 installationPath: m[1],
             };
         }
+        /**
+         * 三種模式皆不符（非 fnm 路徑）時不另外組裝結果，
+         * 維持隱含回傳 undefined，讓呼叫端以 falsy 判定「未偵測到」
+         * When none of the three patterns match (not an fnm path), no result is
+         * assembled and the implicit undefined return stays, so callers can treat
+         * a falsy value as "not detected"
+         */
     }
 }
 /**
@@ -204,11 +224,26 @@ var EnumDetectFnmPathAliases;
  * @returns The constructed path / 建構的路徑
  */
 function toFnmPath(fnmPathType) {
+    /**
+     * 依路徑類型分派到對應的建構函式；
+     * 未列出的類型回傳 undefined（刻意不覆蓋未知型別）
+     * Dispatches to the matching builder by path type;
+     * unlisted types return undefined (unknown types are intentionally not handled)
+     */
     switch (fnmPathType.fnmPathType) {
+        /**
+         * multishell 路徑由目錄加工作階段鍵值組成 / Multishell path = directory + session key
+         */
         case "fnm_multishells" /* EnumDetectFnmPathType.fnm_multishells */:
             return _toFnmPathMultishell(fnmPathType.fnmPath, fnmPathType.multishellKey);
+        /**
+         * 別名路徑由 fnm 主目錄加別名組成 / Alias path = fnm main directory + alias name
+         */
         case "aliases" /* EnumDetectFnmPathType.aliases */:
             return _toFnmPathAliases(fnmPathType.fnmDir, fnmPathType.aliasesName);
+        /**
+         * 安裝路徑需以節點版本推算 / Installation path is derived from the Node.js version
+         */
         case "node-versions" /* EnumDetectFnmPathType.node_versions */:
             return _toFnmPathNodeVersion(fnmPathType.fnmDir, fnmPathType.version);
     }
@@ -273,11 +308,24 @@ function _toFnmPathAliases(fnmDir, name) {
  */
 function _fillMergeRecord(source, fillFrom) {
     var _a;
+    /**
+     * fillFrom 可能為 undefined（偵測失敗時），此時直接回傳 source
+     * fillFrom may be undefined (when detection failed), in which case source is returned as-is
+     */
     if (fillFrom) {
+        /**
+         * 逐一走訪 fillFrom 的鍵，只補上 source 尚未定義的欄位，
+         * 以保留偵測流程中已取得的優先資訊
+         * Walk each key of fillFrom, filling only fields not yet defined on source,
+         * so information already gathered earlier in the detection flow is preserved
+         */
         for (const key in fillFrom) {
+            /**
+             * 只在 source 沒有此鍵時才填充 / Only fill if source doesn't have this key
+             * `??=` 確保既有的定義值（含 null 以外的 falsy）不會被覆蓋
+             * `??=` guarantees existing defined values (including falsy ones other than null) are not overwritten
+             */
             // @ts-ignore
-            // Only fill if source doesn't have this key
-            // 只在 source 沒有此鍵時才填充
             if (fillFrom[key])
                 (_a = source[key]) !== null && _a !== void 0 ? _a : (source[key] = fillFrom[key]);
         }
@@ -308,11 +356,18 @@ function _fillMergeRecord(source, fillFrom) {
  * ```
  */
 function detectFnmByExecPath(execPath = process.execPath, nodeVersion = process.version) {
-    // Normalize path style (using upath2 to convert to Unix style)
-    // 統一路徑風格（使用 upath2 轉換為 Unix 風格）
+    /**
+     * 統一路徑風格（使用 upath2 轉換為 Unix 風格），
+     * 否則 Windows 的反斜線會讓後續正規表示式比對失敗
+     * Normalize path style (using upath2 to convert to Unix style),
+     * otherwise Windows backslashes would break the regex matching below
+     */
     const normalizedExecPath = (0, upath2_1.normalize)(execPath);
-    // Use detectFnmPathType to parse path type
-    // 使用 detectFnmPathType 解析路徑類型
+    /**
+     * 使用 detectFnmPathType 解析路徑類型 / Use detectFnmPathType to parse path type
+     * 找不到 fnm 路徑特徵時會得到 undefined，稍後轉為 isFnm: false
+     * A path without fnm characteristics yields undefined, later turned into isFnm: false
+     */
     let fnmPathType = detectFnmPathType(normalizedExecPath);
     return sortDetectFnmByResult(_handleDetectFnmByResult("execpath" /* EnumDetectFnmBy.execpath */, fnmPathType, nodeVersion));
 }
@@ -333,74 +388,126 @@ function detectFnmByExecPath(execPath = process.execPath, nodeVersion = process.
  */
 function _handleDetectFnmByResult(detectedBy, fnmPathType, nodeVersion) {
     var _a;
-    // Determine if this is an fnm environment from execPath
-    // 從 execPath 判斷是否為 fnm 環境
+    /**
+     * 從路徑型別判斷是否為 fnm 環境 / Determine if this is an fnm environment from the path type
+     * 以 `!!` 將 undefined 正規化成布林值 / `!!` normalizes undefined into a boolean
+     */
     const isFnm = !!(fnmPathType === null || fnmPathType === void 0 ? void 0 : fnmPathType.fnmPathType);
+    /** 解析符號連結後的真實路徑 / Real path after resolving symlinks */
     let fnmPathReal;
+    /** 路徑是否存在；以 null 表示尚未檢查（有別於 false） / Whether the path exists; null means "not checked yet" (distinct from false) */
     let exists = null;
+    /** 預設別名路徑 / Default alias path */
     let aliasesDefaultPath;
+    /** 預設別名的真實路徑 / Real path of the default alias */
     let aliasesDefaultPathReal;
+    /** 真實路徑是否與預設別名相同 / Whether the real path equals the default alias */
     let isSameAsAliasDefault;
-    // Process based on path type
-    // 根據路徑類型進行處理
+    /**
+     * 根據路徑類型進行處理 / Process based on path type
+     * 非 fnm 環境時跳過所有路徑解析，回傳最基本的結果
+     * When not an fnm environment, all path resolution is skipped and only the minimal result is returned
+     */
     if (isFnm === true) {
+        /** 重新解析真實路徑後再次比對出的路徑型別 / Path type re-detected from the resolved real path */
         let fnmPathType2;
-        // Use realpathSync to resolve the real path
-        // 使用 realpathSync 解析真實路徑
+        /**
+         * 使用 realpathSync 解析真實路徑 / Use realpathSync to resolve the real path
+         * 以 try/catch 包覆是因為路徑可能已不存在（multishell 為臨時目錄），
+         * 失敗時保留原本的偵測結果、不中斷流程
+         * Wrapped in try/catch because the path may no longer exist (multishell dirs are temporary);
+         * on failure the original detection result is kept and processing continues
+         */
         try {
             fnmPathReal = (0, upath2_1.normalize)((0, fs_extra_1.realpathSync)(fnmPathType.fnmPath));
             fnmPathType2 = _detectFnmPathTypeCore(fnmPathReal);
-            // Fill in fnmDir if not already set
-            // 如果尚未設定 fnmDir 則填入
+            /**
+             * 如果尚未設定 fnmDir 則填入 / Fill in fnmDir if not already set
+             * `??=` 避免覆蓋已由路徑比對取得的值 / `??=` avoids overwriting a value already obtained from path matching
+             */
             (_a = fnmPathType.fnmDir) !== null && _a !== void 0 ? _a : (fnmPathType.fnmDir = fnmPathType2.fnmDir);
         }
         catch { }
-        // Handle different path types
-        // 處理不同的路徑類型
+        /**
+         * 處理不同的路徑類型 / Handle different path types
+         * 目前三種型別皆無額外動作，保留 switch 作為型別擴充點
+         * All three types currently take no extra action; the switch remains an extension point
+         */
         switch (fnmPathType.fnmPathType) {
             case "fnm_multishells" /* EnumDetectFnmPathType.fnm_multishells */:
-                // Multishell paths are temporary symlinks
-                // Multishell 路徑是臨時符號連結
+                /**
+                 * Multishell 路徑是臨時符號連結 / Multishell paths are temporary symlinks
+                 * 依賴後續的 realpathSync 與 exists 檢查 / Relies on the later realpathSync and exists checks
+                 */
                 break;
             case "node-versions" /* EnumDetectFnmPathType.node_versions */:
-                // Direct node version installation path
-                // 直接的 node 版本安裝路徑
+                /**
+                 * 直接的 node 版本安裝路徑 / Direct node version installation path
+                 * 已是最終路徑，無需再推導 / Already the final path, no further derivation needed
+                 */
                 break;
             case "aliases" /* EnumDetectFnmPathType.aliases */:
-                // Alias path pointing to a version
-                // 指向某個版本的別名路徑
+                /**
+                 * 指向某個版本的別名路徑 / Alias path pointing to a version
+                 * 真實路徑會指向 node-versions 安裝目錄 / Its real path points at a node-versions installation directory
+                 */
                 break;
         }
-        // If the real path type differs from the detected type, merge the additional info
-        // 如果真實路徑類型與偵測類型不同，合併額外資訊
+        /**
+         * 如果真實路徑類型與偵測類型不同，合併額外資訊
+         * If the real path type differs from the detected type, merge the additional info
+         * 例如 aliases 經解析後指向 node-versions，可補上安裝路徑等欄位
+         * e.g. an alias resolving to node-versions lets installation paths be filled in
+         */
         if (fnmPathType2 && fnmPathType2.fnmPathType !== fnmPathType.fnmPathType) {
             _fillMergeRecord(fnmPathType, fnmPathType2);
         }
-        // If the resolved path is not a node-versions path, try to compute installationPath
-        // 如果解析後的路徑不是 node-versions 路徑，嘗試計算 installationPath
+        /**
+         * 如果解析後的路徑不是 node-versions 路徑，嘗試計算 installationPath
+         * If the resolved path is not a node-versions path, try to compute installationPath
+         * multishell 等路徑無法直接得知安裝目錄，需另行推算
+         * Paths such as multishell do not reveal the installation directory, so it must be derived
+         */
         if ((fnmPathType2 === null || fnmPathType2 === void 0 ? void 0 : fnmPathType2.fnmPathType) !== "node-versions" /* EnumDetectFnmPathType.node_versions */) {
-            // Calculate installationPath from fnmPathType.fnmDir
-            // 從 fnmPathType.fnmDir 計算 installationPath
-            // fnmPathType.fnmDir example: C:\Users\User\AppData\Roaming\fnm
+            /**
+             * 從 fnmPathType.fnmDir 計算 installationPath / Calculate installationPath from fnmPathType.fnmDir
+             * fnmPathType.fnmDir example: C:\Users\User\AppData\Roaming\fnm
+             * 兩者缺一就無法組出安裝路徑，故需同時成立 / Both are required to build the path, so both must be present
+             */
             if (fnmPathType.fnmDir && nodeVersion) {
                 fnmPathType2 = _detectFnmPathTypeCore(_toFnmPathNodeVersion(fnmPathType.fnmDir, nodeVersion));
                 _fillMergeRecord(fnmPathType, fnmPathType2);
             }
         }
-        // Check if the resolved path exists
-        // 檢查解析後的路徑是否存在
+        /**
+         * 檢查解析後的路徑是否存在 / Check if the resolved path exists
+         * 路徑已失效（例如 shell 工作階段結束）時回傳 false
+         * Returns false when the path is stale (e.g. after the shell session ended)
+         */
         exists = (0, fs_extra_1.pathExistsSync)(fnmPathReal);
-        // Compute the default alias path
-        // 計算預設別名路徑
+        /**
+         * 計算預設別名路徑 / Compute the default alias path
+         * 無 fnmDir 時為 falsy，`&&` 的結果（false）不會被採用
+         * Without fnmDir the `&&` yields falsy, which is simply not picked up
+         */
         aliasesDefaultPath = (fnmPathType.fnmDir) && _toFnmPathAliases(fnmPathType.fnmDir, "default" /* EnumDetectFnmPathAliases.default */);
-        // Resolve the real path of the default alias
-        // 解析預設別名的真實路徑
+        /**
+         * 解析預設別名的真實路徑 / Resolve the real path of the default alias
+         * try/catch 是因為預設別名可能尚未建立，失敗時僅略過比對
+         * try/catch because the default alias may not exist yet; on failure the comparison is simply skipped
+         */
         try {
             aliasesDefaultPathReal = (0, upath2_1.normalize)((0, fs_extra_1.realpathSync)(aliasesDefaultPath));
             isSameAsAliasDefault = aliasesDefaultPathReal && aliasesDefaultPathReal === fnmPathReal;
         }
         catch { }
     }
+    /**
+     * 以 _fillMergeRecord 將路徑型別資訊併入結果；
+     * source 中已定義的欄位優先，偵測細節只用來補空缺
+     * Merge path type details into the result via _fillMergeRecord;
+     * defined fields in source win, detection details only fill the gaps
+     */
     return _fillMergeRecord({
         isFnm,
         detectedBy,
@@ -432,11 +539,18 @@ function _handleDetectFnmByResult(detectedBy, fnmPathType, nodeVersion) {
  * ```
  */
 function detectFnmByEnv(env = process.env, nodeVersion = process.version) {
-    // Use detectFnmPathType to parse path type from FNM_MULTISHELL_PATH
-    // 使用 detectFnmPathType 解析 FNM_MULTISHELL_PATH 的路徑類型
+    /**
+     * 使用 detectFnmPathType 解析 FNM_MULTISHELL_PATH 的路徑類型
+     * Use detectFnmPathType to parse path type from FNM_MULTISHELL_PATH
+     * 變數未設定時 `&&` 回傳 falsy，等同「未偵測到」
+     * When the variable is unset the `&&` yields falsy, i.e. "not detected"
+     */
     let fnmPathType = env.FNM_MULTISHELL_PATH && detectFnmPathType(env.FNM_MULTISHELL_PATH);
-    // If no result from FNM_MULTISHELL_PATH, try FNM_DIR with nodeVersion
-    // 如果 FNM_MULTISHELL_PATH 沒有結果，嘗試使用 FNM_DIR 加上 nodeVersion
+    /**
+     * 如果 FNM_MULTISHELL_PATH 沒有結果，嘗試使用 FNM_DIR 加上 nodeVersion
+     * If no result from FNM_MULTISHELL_PATH, try FNM_DIR with nodeVersion
+     * 兩者皆存在才組得出 node-versions 安裝路徑 / Both must exist to derive the node-versions installation path
+     */
     if (!fnmPathType && env.FNM_DIR && nodeVersion) {
         fnmPathType = detectFnmPathType(_toFnmPathNodeVersion(env.FNM_DIR, nodeVersion));
     }
@@ -510,36 +624,54 @@ function isFNM() {
  * ```
  */
 function detectFnmByAll(pc = process) {
-    // Use detectFnmByExecPath for execpath detection
-    // 使用 detectFnmByExecPath 進行 execpath 偵測
+    /**
+     * 使用 detectFnmByExecPath 進行 execpath 偵測
+     * Use detectFnmByExecPath for execpath detection
+     */
     const execPathResult = detectFnmByExecPath(pc.execPath);
-    // Use detectFnmByEnv for env detection
-    // 使用 detectFnmByEnv 進行 env 偵測
+    /**
+     * 使用 detectFnmByEnv 進行 env 偵測 / Use detectFnmByEnv for env detection
+     */
     const envResult = detectFnmByEnv(pc.env);
+    /**
+     * 合併後的結果；以 `??=` 保證先成功者為主體、後成功者只補空缺
+     * Merged result; `??=` keeps the first success as the base and lets the second only fill gaps
+     */
     let merged;
-    // Collect detection sources
-    // 收集偵測來源
+    /**
+     * 收集偵測來源 / Collect detection sources
+     * 依實際成功的順序記錄，供呼叫端判斷結果可信度
+     * Recorded in the order methods actually succeeded, so callers can weigh reliability
+     */
     const detectedBy = [];
-    // If execpath detection succeeded
-    // 如果 execpath 偵測成功
+    /**
+     * 如果 execpath 偵測成功 / If execpath detection succeeded
+     */
     if (execPathResult.isFnm) {
         detectedBy.push(execPathResult.detectedBy);
         // @ts-ignore
         merged !== null && merged !== void 0 ? merged : (merged = _fillMergeRecord(execPathResult, envResult));
     }
-    // If env detection succeeded
-    // 如果 env 偵測成功
+    /**
+     * 如果 env 偵測成功 / If env detection succeeded
+     */
     if (envResult.isFnm) {
         detectedBy.push(envResult.detectedBy);
         // @ts-ignore
         merged !== null && merged !== void 0 ? merged : (merged = _fillMergeRecord(envResult, execPathResult));
     }
+    /**
+     * 如果兩種偵測都沒成功，預設使用其中一個結果
+     * Default to one of the results if neither detection succeeded
+     * execPathResult 恆為物件，可保證 merged 一定有值
+     * execPathResult is always an object, so merged is guaranteed to be defined
+     */
     // @ts-ignore
-    // Default to one of the results if neither detection succeeded
-    // 如果兩種偵測都沒成功，預設使用其中一個結果
     merged !== null && merged !== void 0 ? merged : (merged = execPathResult || envResult);
-    // Final determination: fnm is detected if either method succeeded
-    // 最終判斷：任一方法成功即表示偵測到 fnm
+    /**
+     * 最終判斷：任一方法成功即表示偵測到 fnm
+     * Final determination: fnm is detected if either method succeeded
+     */
     const isFnm = execPathResult.isFnm || envResult.isFnm;
     return sortDetectFnmByResult(_fillMergeRecord({
         isFnm,

@@ -40,9 +40,19 @@ var EnumOperatorBase;
     /** 小於 (Less than) */
     EnumOperatorBase["LT"] = "<";
 })(EnumOperatorBase || (exports.EnumOperatorBase = EnumOperatorBase = {}));
+/**
+ * 萬用字元列舉
+ * Wildcard enum
+ *
+ * 定義 semver 範圍中可用的萬用字元，於解析/合併時用來判斷「未指定的段落」
+ * Defines the wildcards usable inside a semver range; used by parse/merge to
+ * detect "unspecified segments"
+ */
 var EnumSemverWildcard;
 (function (EnumSemverWildcard) {
+    /** 以 x 表示的萬用字元 / Wildcard written as x */
     EnumSemverWildcard["x"] = "x";
+    /** 以 * 表示的萬用字元 / Wildcard written as * */
     EnumSemverWildcard["star"] = "*";
 })(EnumSemverWildcard || (exports.EnumSemverWildcard = EnumSemverWildcard = {}));
 //# sourceMappingURL=types.js.map

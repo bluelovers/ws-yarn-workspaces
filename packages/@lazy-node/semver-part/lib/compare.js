@@ -190,6 +190,8 @@ function lte(part1, part2, optionsOrLoose) {
  * ```
  */
 function cmp(part1, operator, part2, optionsOrLoose) {
+    // 先標準化兩側再交給 semver，讓 '2.3' 這類部分版本也能用運算子比較
+    // Normalize both sides first so partial versions like '2.3' also work with the operator
     const [v1, v2] = (0, _core_1._part)(part1, part2);
     return (0, cmp_1.default)(v1, operator, v2, optionsOrLoose);
 }
@@ -212,9 +214,22 @@ function cmp(part1, operator, part2, optionsOrLoose) {
  * ```
  */
 function tryCompare(v1, v2, optionsOrLoose) {
+    /**
+     * 部分版本可能不是合法 semver（例如 'invalid'、'1.2.3.4'），
+     * 交由 compare 拋錯後於此吞掉，讓呼叫端能以 undefined 識別無效輸入，
+     * 不必自行包 try/catch。
+     * Partial inputs may be invalid semver (e.g. 'invalid', '1.2.3.4');
+     * let compare throw and swallow the error here so callers can detect
+     * bad input via `undefined` without wrapping their own try/catch.
+     */
     try {
         return compare(v1, v2, optionsOrLoose);
     }
+    /**
+     * 刻意留空：不記錄、不重拋，維持「回傳 undefined」的合約。
+     * Intentionally empty: neither log nor rethrow, preserving the
+     * "returns undefined" contract.
+     */
     catch (e) { }
 }
 //# sourceMappingURL=compare.js.map

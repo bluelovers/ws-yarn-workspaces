@@ -1,8 +1,12 @@
 {
   "name": "workspaces-config",
   "version": "2.0.11",
-  "description": "```ts console.log(parseStaticPackagesPaths(getConfig())); // => { static: [], prefix: [ 'packages' ], all: [ 'packages/*' ] } ```",
+  "description": "Parse and classify the `workspaces` config in package.json (static paths vs glob prefixes)",
   "keywords": [
+    "workspaces-config",
+    "parse",
+    "monorepo",
+    "glob",
     "init",
     "npm",
     "workspace",

@@ -222,22 +222,13 @@ const arg2 = generatePackageArg({ name: 'lodash', semver: '^4.17.0' }, true);
 console.log(arg2); // 'lodash@^4.17.0'
 ```
 
-## API Reference / API 參考
+## Configuration / 設定
 
-### Main Functions / 主要函數
-
-| Function | Description |
-|----------|-------------|
-| `npa(arg, where?, options?)` | Parse npm package argument (legacy, strict name validation) / 解析 npm 套件參數（舊版，嚴格名稱驗證） |
-| `npa2(arg, where?, options?)` | Parse npm package argument with flexible options / 使用靈活選項解析 npm 套件參數 |
-| `npaTry(arg, where?, options?)` | Try parse without throwing (legacy) / 嘗試解析但不拋出錯誤（舊版） |
-| `npaTry2(arg, where?, options?)` | Try parse without throwing (new) / 嘗試解析但不拋出錯誤（新版） |
-| `getSemverFromNpaResult(result)` | Extract version from result / 從結果提取版本 |
-
-### Options Interface / 選項介面
+解析與驗證函式（`npa2`、`npaTry2`、`assertNpaResultAll`）共用 `IOptionsNpaUtil` 選項物件 (Options Object)。
+The parsing and validation helpers (`npa2`, `npaTry2`, `assertNpaResultAll`) share the `IOptionsNpaUtil` options object.
 
 ```typescript
-interface IOptionsNpaUtil {
+export interface IOptionsNpaUtil {
   /** Base directory for resolving relative paths / 解析相對路徑的基礎目錄 */
   where?: string;
   
@@ -251,6 +242,24 @@ interface IOptionsNpaUtil {
   npa?: typeof _npa;
 }
 ```
+
+- `where` - 解析相對路徑的基礎目錄 (Base directory)，例如 `process.cwd()`
+- `shouldHasName` - 是否要求解析結果帶有套件名稱 (Package Name)；解析 GitHub 簡寫等無名稱輸入時需設為 `false`
+  / Whether the parsed result must carry a package name; set to `false` for nameless input such as GitHub shorthands
+- `allowedType` - 允許的結果類型 (Result Type) 白名單，不符合時丟出錯誤 / Whitelist of allowed result types; a mismatch throws
+- `npa` - 自訂底層 npa 函式，方便替換實作或注入快取 / Custom underlying npa function, useful for swapping the implementation or injecting a cache
+
+## API Documentation / API 文件
+
+### Main Functions / 主要函數
+
+| Function | Description |
+|----------|-------------|
+| `npa(arg, where?, options?)` | Parse npm package argument (legacy, strict name validation) / 解析 npm 套件參數（舊版，嚴格名稱驗證） |
+| `npa2(arg, where?, options?)` | Parse npm package argument with flexible options / 使用靈活選項解析 npm 套件參數 |
+| `npaTry(arg, where?, options?)` | Try parse without throwing (legacy) / 嘗試解析但不拋出錯誤（舊版） |
+| `npaTry2(arg, where?, options?)` | Try parse without throwing (new) / 嘗試解析但不拋出錯誤（新版） |
+| `getSemverFromNpaResult(result)` | Extract version from result / 從結果提取版本 |
 
 ### Result Types / 結果類型
 
@@ -331,6 +340,7 @@ type IResultType = 'alias' | 'file' | 'directory' | 'version' | 'range' | 'tag' 
 
 - [npm-package-arg](https://github.com/npm/npm-package-arg) - The underlying parser / 底層解析器
 - [@yarn-tool/pkg-name-util](../pkg-name-util) - Package name utilities / 套件名稱工具
+- [npm-package-arg 特殊輸入狀況說明](../../../docs/npm-package-arg-special-cases.md) - Special input cases (empty string, space, `*`) and how they are detected / npm-package-arg 特殊輸入（空字串、空格、`*`）的行為與偵測方式
 
 ## License / 授權
 

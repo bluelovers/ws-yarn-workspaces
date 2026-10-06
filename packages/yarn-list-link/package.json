@@ -2,7 +2,14 @@
   "name": "yarn-list-link",
   "version": "2.0.12",
   "description": "show list of yarn link",
-  "keywords": [],
+  "keywords": [
+    "yarn",
+    "link",
+    "list",
+    "cli",
+    "workspace",
+    "yarn-link"
+  ],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/yarn-list-link#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"

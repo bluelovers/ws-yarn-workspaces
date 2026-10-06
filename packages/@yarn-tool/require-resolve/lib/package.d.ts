@@ -150,4 +150,10 @@ export declare function readModulePackageJson<P extends IPackageJson = IPackageJ
  * ```
  */
 export declare function resolvePackage<P extends IPackageJson = IPackageJson>(moduleName: string, options?: IOptionsRequireResolve): IPackageInfo<P>;
+/**
+ * 匯出類型 / Export types
+ *
+ * 讓 lib/package.ts 可作為單一入口同時提供實作與型別。
+ * Allows lib/package.ts to expose both implementation and types from one entry.
+ */
 export type { IOptionsRequireResolve, IPackageCoreInfo, IPackageInfo, IPackageJson, };

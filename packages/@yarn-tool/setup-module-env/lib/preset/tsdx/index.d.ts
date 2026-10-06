@@ -47,6 +47,9 @@ declare const _defaultCopyStaticFilesTsdx: readonly [readonly ["tsconfig.json", 
 /**
  * 凍結的預設靜態檔案映射表
  * Frozen default static file mapping table
+ *
+ * 凍結是為了避免執行期意外改動全域預設值，影響其他套件的設定流程
+ * Frozen to prevent accidental mutation of the global default, which would affect setup runs in other packages
  */
 export declare const defaultCopyStaticFilesTsdx: IStaticFilesMapArray<_Key<typeof _defaultCopyStaticFilesTsdx>>;
 /**

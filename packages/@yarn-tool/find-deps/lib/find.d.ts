@@ -61,4 +61,9 @@ export declare function findDepsAllDeep<R extends IListableRowExtraWithDeps>(nam
  * @returns {string[]} 所有依賴套件的名稱陣列 / Array of all dependency package names
  */
 export declare function findDepsDeep<R extends IListableRowExtraWithDeps>(name: string, record: Record<string, R>, list?: string[]): string[];
+/**
+ * 預設匯出 `findDepsAllDeep`
+ *
+ * Default export: `findDepsAllDeep`.
+ */
 export default findDepsAllDeep;

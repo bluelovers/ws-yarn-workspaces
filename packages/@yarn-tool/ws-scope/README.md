@@ -89,7 +89,7 @@ console.log(scopes);
 // Output: ['packages/*', 'packages/@scope/*', ...]
 ```
 
-## API Reference | API 參考
+## API Documentation | API 文件
 
 ### `WorkspacesScope`
 
@@ -125,13 +125,15 @@ constructor(cwd?: string)
 | `sync()` | `string[]` | **Deprecated**: Use `syncValue()` instead / **已棄用**：請改用 `syncValue()` |
 | `resolvePath(...paths)` | `string` | Resolve path relative to workspace root / 解析相對於工作區根目錄的路徑 |
 
-## Supported Configuration Files | 支援的設定檔
+## Configuration | 設定
+
+本套件會自動讀取並同步以下設定檔 (Configuration Files)，修改時盡量保留原有格式：
 
 | File | Field | Description |
 |------|-------|-------------|
-| `package.json` | `workspaces` | Yarn/npm workspaces configuration |
-| `lerna.json` | `packages` | Lerna monorepo packages configuration |
-| `pnpm-workspace.yaml` | `packages` | pnpm workspace configuration |
+| `package.json` | `workspaces` | Yarn/npm workspaces configuration / Yarn/npm 工作區 (Workspaces) 設定 |
+| `lerna.json` | `packages` | Lerna monorepo packages configuration / Lerna monorepo 套件設定 |
+| `pnpm-workspace.yaml` | `packages` | pnpm workspace configuration / pnpm 工作區設定 |
 
 ## Related Packages | 相關套件
 

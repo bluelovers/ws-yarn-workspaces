@@ -28,9 +28,22 @@ const dummy_1 = require("../../util/scripts/dummy");
  * ```
  */
 function _fillDummyScriptsCore(scripts, prefix, fields) {
+    /**
+     * 允許不傳入 scripts 時從空物件開始累積，
+     * 讓 `fillDummyScripts()` 可直接取得一份全新預設腳本
+     * Allow starting from an empty object when no scripts is passed, so
+     * `fillDummyScripts()` can produce a fresh default script set on its own
+     */
     // @ts-ignore
     scripts !== null && scripts !== void 0 ? scripts : (scripts = {});
+    /** 整批腳本共用同一個 echo 前綴，確保輸出訊息可辨識來源套件 */
     let text = (0, dummy_1._dummyEchoPrefix)(prefix);
+    /**
+     * 僅填補尚不存在的腳本鍵（`??=`），
+     * 保留使用者已自訂的腳本不被預設佔位符覆蓋
+     * Fill only missing keys (`??=`), leaving user-defined scripts
+     * untouched instead of overwriting them with placeholders
+     */
     fields.forEach(k => {
         var _a;
         // @ts-ignore

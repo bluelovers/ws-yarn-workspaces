@@ -37,8 +37,12 @@ function wsGitChangedPrefix(cwd, options) {
      */
     let config = (0, workspaces_config_1.default)(data.cwd);
     /**
-     * 將套件 glob 模式轉換為正規表示式
-     * Convert package glob patterns to regex
+     * 將各套件的 glob 模式轉為正規表示式並串接；
+     * 移除結尾的 `$` 錨點是為了讓「子路徑」也能命中，
+     * 例如 `packages/a` 需同時符合 `packages/a/src/index.ts`
+     * Convert each package glob to regex and join them; the trailing `$` anchor
+     * is stripped so sub-paths also match, e.g. `packages/a` must also match
+     * `packages/a/src/index.ts`
      */
     let source = config.packages.map(p => {
         let re = (0, glob_regex_1.default)(p);
@@ -51,8 +55,12 @@ function wsGitChangedPrefix(cwd, options) {
      */
     let re = new RegExp(`(${source})`, 'i');
     /**
-     * 從變更目錄中提取套件前綴
-     * Extract package prefixes from changed directories
+     * 對每個變更目錄試行套件路徑配對；
+     * 未落在任何工作區套件內的目錄（如根目錄的設定檔）會回傳空值，
+     * 由後續 filter 一併濾除
+     * Try to match each changed directory against a package path; directories
+     * outside every workspace package (e.g. root-level config files) yield empty
+     * values and are dropped by the following filter
      */
     let list = data.list
         .map(p => {
@@ -61,8 +69,9 @@ function wsGitChangedPrefix(cwd, options) {
     })
         .filter(r => r === null || r === void 0 ? void 0 : r.length);
     /**
-     * 去重處理
-     * Deduplication
+     * 同一變更可能觸及多個檔案而重複命中同一套件，去重後才不會重複列出
+     * One change may touch multiple files and hit the same package repeatedly;
+     * dedup prevents listing a package more than once
      */
     (0, array_hyper_unique_1.array_unique_overwrite)(list);
     return {

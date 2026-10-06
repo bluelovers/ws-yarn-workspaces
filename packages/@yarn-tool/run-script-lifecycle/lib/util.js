@@ -50,6 +50,13 @@ function formatOutput(result) {
  * // Returns complete options with default stdio: 'inherit'
  */
 function _options(options) {
+    /**
+     * stdio 固定覆寫為 'inherit' 並放在展開之後，
+     * 確保前置/後置腳本的輸出直接串接至父程序終端機。
+     *
+     * stdio is forced to 'inherit' after the spread so pre/post script output is
+     * piped straight through to the parent process terminal.
+     */
     return {
         args: [],
         //stdioString: true,
@@ -71,10 +78,22 @@ function _options(options) {
 function _hook(options, fn = run_script_1.default) {
     return fn(options)
         .then((result) => {
+        /**
+         * 成功時補上 stdio，讓呼叫端能判斷輸出是如何被處理的。
+         *
+         * On success, attach stdio so callers can tell how output was handled.
+         */
         result.stdio = options.stdio;
         return result;
     })
         .catch((e) => {
+        /**
+         * 失敗時同樣補上 stdio 再重新拋出，
+         * 否則錯誤物件會失去輸出設定，呼叫端難以除錯。
+         *
+         * Attach stdio before rethrowing; otherwise the error would lose its
+         * output settings and become hard for callers to debug.
+         */
         e.stdio = options.stdio;
         return Promise.reject(e);
     });
@@ -125,12 +144,31 @@ async function runLifecycleScriptList(options) {
      * Array storing all execution results
      */
     const results = [];
+    /**
+     * package.json 可能完全沒有 scripts 區段，
+     * 此時直接回傳空陣列，避免後續存取 undefined。
+     *
+     * package.json may have no `scripts` section at all; return an empty array
+     * immediately to avoid dereferencing undefined below.
+     */
     if (pkg.scripts) {
-        // 遍歷事件列表，執行存在於 package.json scripts 中的腳本
-        // Iterate through event list, run scripts that exist in package.json scripts
+        /**
+         * 依序執行事件列表，只有存在於 package.json scripts 中的腳本才會被觸發。
+         *
+         * Iterate the event list in order, running only scripts that exist in
+         * the package.json `scripts` section.
+         */
         for (const event of eventList) {
-            // 檢查腳本是否存在於 package.json 的 scripts 區段
-            // Check if script exists in package.json scripts section
+            /**
+             * 以 `in` 檢查 scripts 是否具備該鍵；
+             * 注意 `in` 也會命中原型鏈上的繼承鍵（如 'constructor'），
+             * 屬於既有的邊界行為，改動前需先確認沒有程式碼依賴此特性。
+             *
+             * Checked with `in` to see if `scripts` has the key; note that `in` also
+             * matches inherited keys from the prototype chain (e.g. 'constructor').
+             * This is existing edge-case behaviour — verify no caller depends on it
+             * before changing it.
+             */
             if (event in pkg.scripts) {
                 let result = await _hook({
                     ...tmpOptions,

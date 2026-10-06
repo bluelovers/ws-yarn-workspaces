@@ -104,10 +104,43 @@ function prunedSimpleSemVer(obj, o = {}) {
     }
     return o;
 }
+/**
+ * 規範化 semver 輸入物件的 operator 欄位
+ * Normalize the `operator` field of a semver input object
+ *
+ * 正則表達式的運算子群組在「沒有運算子」時會捕獲空字串，
+ * 直接留下會讓 operator 從「可能不存在」變成「存在但無意義」，
+ * 此函式負責把這類殘留值清除，讓後續字串化與比對不必多分支處理。
+ * The operator capture group yields an empty string when no operator is
+ * present; leaving it turns `operator` from "maybe absent" into "present but
+ * meaningless". This function clears such leftovers so later stringification
+ * and comparison need no extra branch.
+ *
+ * @param obj - 來源 semver 物件（會被原地修正）/ Source semver object (normalized in place)
+ * @param opts - 初始化旗標 / Initialization flag
+ * @param opts.init - true 表示由解析流程呼叫，會一併檢查空字串 operator / When true (called from the parse flow), empty-string operators are also cleaned up
+ * @returns 規範化後的物件 / The normalized object
+ */
 function normalizeSemVerObjectInput(obj, opts = {}) {
+    /**
+     * 非初始化呼叫且已是合法版本物件 → 原樣保留、不做任何修改
+     * （此分支刻意保持空實作，僅留下歷史實驗用的被註解程式碼）。
+     * 邊界情況：此路徑下殘留的空字串 operator 不會被清除。
+     * Not an init call and already a valid version object → keep it untouched
+     * (the branch is intentionally empty; only the commented-out experimental
+     * line remains).
+     * Boundary case: a leftover empty-string operator is NOT cleaned on this
+     * path.
+     */
     if (!(opts === null || opts === void 0 ? void 0 : opts.init) && (0, checker_1.isSimpleSemVerObjectLike)(obj)) {
         //o.operator ??= '';
     }
+    /**
+     * 其餘情況（初始化呼叫，或物件尚不合法）→ 移除空字串 operator，
+     * 避免序列化時輸出 `operator: ''` 這類無意義欄位。
+     * Other cases (init call, or the object is not yet valid) → drop the empty
+     * operator so serialization never emits a meaningless `operator: ''`.
+     */
     else if (obj.operator === '') {
         delete obj.operator;
     }

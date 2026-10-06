@@ -62,6 +62,8 @@ function createYarnWorkspaces(cwd, options = {}) {
     // Get package root directory and workspace path
     let root = rootData === null || rootData === void 0 ? void 0 : rootData.pkg;
     let ws = rootData === null || rootData === void 0 ? void 0 : rootData.ws;
+    // 實際要初始化的目標路徑：優先採用既有 package 根目錄，否則退回 cwd。
+    // The actual init target: prefer an existing package root, otherwise fall back to `cwd`.
     let targetPath = (0, upath2_1.resolve)(root || cwd);
     // 除錯輸出 / Debug output
     options.debug && logger_1.consoleLogger.debug({

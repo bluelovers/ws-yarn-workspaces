@@ -14,10 +14,19 @@
  * @returns 包含 cwd 和 modules 陣列的物件 / Object containing cwd and modules array
  */
 export declare function findModulesPackagePathsCore(cwd: string, dir?: string): {
-    /** 當前工作目錄 */
+    /** 當前工作目錄 / Current working directory */
     cwd: string;
+    /** 找到的模組陣列 / Found modules array */
     modules: {
+        /**
+         * 模組名稱（包含 scope）
+         * Module name (including scope)
+         */
         name: string;
+        /**
+         * 模組實際位置
+         * Actual module location
+         */
         location: string;
     }[];
 };
@@ -30,10 +39,19 @@ export declare function findModulesPackagePathsCore(cwd: string, dir?: string): 
  * @returns 包含 cwd 和 modules 陣列的物件 / Object containing cwd and modules array
  */
 export declare function findModulesPackagePaths(cwd?: string, dir?: string): {
-    /** 當前工作目錄 */
+    /** 當前工作目錄 / Current working directory */
     cwd: string;
+    /** 找到的模組陣列 / Found modules array */
     modules: {
+        /**
+         * 模組名稱（包含 scope）
+         * Module name (including scope)
+         */
         name: string;
+        /**
+         * 模組實際位置
+         * Actual module location
+         */
         location: string;
     }[];
 };

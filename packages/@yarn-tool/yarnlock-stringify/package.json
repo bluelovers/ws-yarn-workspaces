@@ -1,8 +1,11 @@
 {
   "name": "@yarn-tool/yarnlock-stringify",
   "version": "2.0.11",
-  "description": "stringify yarnlock all version",
+  "description": "stringify parsed yarn.lock back to raw text for all yarn lockfile versions (v1/v2/v3)",
   "keywords": [
+    "yarnlock",
+    "lockfile",
+    "stringify",
     "yarn",
     "yarn-tool",
     "npm",

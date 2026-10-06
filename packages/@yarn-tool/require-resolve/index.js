@@ -10,15 +10,12 @@
  * @license ISC
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = exports._unshiftArray = exports.resolvePackage = exports.readModulePackageJson = exports.createResolveLocationFn = exports.resolvePackageJsonLocation = exports.resolvePackageRoot = exports.resolvePackageCore = exports.tryImportExtra = exports.tryRequireExtra = exports.importExtra = exports.requireExtra = exports.buildResolvePaths = exports.requireResolveExtra = exports.requireResolveCore = exports.createModuleNotFoundError = exports.isErrorModuleNotFound = exports.unshiftArray = exports.getTargetName = exports.handleOptionsPaths = exports.defaultMap = void 0;
+exports.default = exports.resolvePackage = exports.readModulePackageJson = exports.createResolveLocationFn = exports.resolvePackageJsonLocation = exports.resolvePackageRoot = exports.resolvePackageCore = exports.tryImportExtra = exports.tryRequireExtra = exports.importExtra = exports.requireExtra = exports.buildResolvePaths = exports.requireResolveExtra = exports.requireResolveCore = exports.createModuleNotFoundError = exports.isErrorModuleNotFound = exports._unshiftArray = exports.getTargetName = exports.handleOptionsPaths = exports.defaultMap = void 0;
 var util_1 = require("./lib/util");
 Object.defineProperty(exports, "defaultMap", { enumerable: true, get: function () { return util_1.defaultMap; } });
 Object.defineProperty(exports, "handleOptionsPaths", { enumerable: true, get: function () { return util_1.handleOptionsPaths; } });
 Object.defineProperty(exports, "getTargetName", { enumerable: true, get: function () { return util_1.getTargetName; } });
-Object.defineProperty(exports, "unshiftArray", { enumerable: true, get: function () { return util_1.unshiftArray; } });
-// 匯入 unshiftArray 以建立向後相容的別名 / Import unshiftArray for backward compatible alias
-const util_2 = require("./lib/util");
-Object.defineProperty(exports, "_unshiftArray", { enumerable: true, get: function () { return util_2.unshiftArray; } });
+Object.defineProperty(exports, "_unshiftArray", { enumerable: true, get: function () { return util_1._unshiftArray; } });
 var error_1 = require("./lib/error");
 Object.defineProperty(exports, "isErrorModuleNotFound", { enumerable: true, get: function () { return error_1.isErrorModuleNotFound; } });
 Object.defineProperty(exports, "createModuleNotFoundError", { enumerable: true, get: function () { return error_1.createModuleNotFoundError; } });
@@ -38,9 +35,11 @@ Object.defineProperty(exports, "resolvePackageJsonLocation", { enumerable: true,
 Object.defineProperty(exports, "createResolveLocationFn", { enumerable: true, get: function () { return package_1.createResolveLocationFn; } });
 Object.defineProperty(exports, "readModulePackageJson", { enumerable: true, get: function () { return package_1.readModulePackageJson; } });
 Object.defineProperty(exports, "resolvePackage", { enumerable: true, get: function () { return package_1.resolvePackage; } });
-// ============================================================================
-// 預設匯出 / Default export
-// ============================================================================
+/**
+ * ============================================================================
+ * 預設匯出 / Default export
+ * ============================================================================
+ */
 var core_2 = require("./lib/core");
 Object.defineProperty(exports, "default", { enumerable: true, get: function () { return core_2.requireResolveExtra; } });
 //# sourceMappingURL=index.js.map

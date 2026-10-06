@@ -1,8 +1,12 @@
 {
   "name": "@yarn-tool/yarnlock-util",
   "version": "3.0.10",
-  "description": "",
+  "description": "parse yarn.lock row into name, version and semver for v1 and berry",
   "keywords": [
+    "yarnlock",
+    "yarn-lock",
+    "lockfile",
+    "parse",
     "yarn",
     "yarn-tool",
     "npm",

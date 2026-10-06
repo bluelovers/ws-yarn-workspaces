@@ -50,8 +50,10 @@ const detect_1 = require("./detect");
  */
 function assertNpaResultHasName(result) {
     var _a;
-    // Check if the result has a valid non-empty name
-    // 檢查結果是否具有有效的非空名稱
+    /**
+     * 檢查結果是否具有有效的非空名稱
+     * Check whether the result carries a valid non-empty name
+     */
     if (!((_a = result.name) === null || _a === void 0 ? void 0 : _a.length)) {
         throw new Error(`Invalid input: ${result.raw}. name is required` + (result.type ? ` for ${result.type} type` : ''));
     }
@@ -86,11 +88,15 @@ function assertNpaResultHasName(result) {
  * assertNpaResultByType(result, 'version');
  */
 function assertNpaResultByType(result, type) {
-    // Assert the type matches
-    // 斷言類型匹配
+    /**
+     * 先比對型別是否符合預期，錯誤訊息需帶上實際型別便於除錯
+     * Compare the actual type against the expected one first; the message carries the actual type for debugging
+     */
     (0, assert_1.strictEqual)(result.type, type, `Invalid type: ${result.type}`);
-    // Perform all standard validations
-    // 執行所有標準驗證
+    /**
+     * 型別符合後再執行一般性驗證（名稱、saveSpec 等），確保結果整體可用
+     * Once the type matches, run the general validations (name, saveSpec, ...) so the result is usable as a whole
+     */
     assertNpaResultAll(result);
 }
 /**
@@ -133,19 +139,44 @@ function assertNpaResultByType(result, type) {
  */
 function assertNpaResultAll(result, options) {
     let { shouldHasName, allowedType } = options !== null && options !== void 0 ? options : {};
-    // Validate allowed types if specified
-    // 如果指定了允許的類型則驗證
+    /**
+     * 以 `&&` 短路：只有呼叫端提供白名單時才驗證型別，
+     * 未提供 allowedType 表示接受所有型別
+     *
+     * The `&&` short-circuits: the type is only checked when the caller supplied a whitelist;
+     * a missing `allowedType` means every type is accepted
+     */
     (allowedType === null || allowedType === void 0 ? void 0 : allowedType.length) && (0, assert_1.ok)(allowedType.includes(result.type), `Type '${result.type}' not allowed, only allow [${allowedType.join(', ')}]`);
+    /**
+     * registry 類型（range、version、alias、tag）由 npa 正規化出 fetchSpec，不需 saveSpec；
+     * 其餘類型（git、file、remote、directory...）必須有 saveSpec 才能保存到 package.json 並再次取得
+     *
+     * Registry types (range, version, alias, tag) are normalized to `fetchSpec` by npa and need no
+     * `saveSpec`; every other type (git, file, remote, directory, ...) requires one so it can be
+     * written to package.json and fetched again
+     */
     if (!['range', 'version', 'alias', 'tag'].includes(result.type)) {
         (0, assert_1.ok)(result.saveSpec, `saveSpec is required for ${result.type} type`);
     }
-    // Type-specific validation
-    // 特定類型的驗證
+    /**
+     * 依型別進行的特定驗證 / Type-specific validation
+     */
     switch (result.type) {
         case 'git':
+            /**
+             * git 型別分兩路驗證：缺少 fetchSpec 時改依賴託管平台資訊；
+             * 有 fetchSpec 時（else 分支此處恆真）保留防禦性斷言以維持舊版行為
+             *
+             * Two validation paths for git: without `fetchSpec` the result must rely on hosting
+             * info; the else branch (always true here) keeps a defensive assertion for
+             * backward compatibility
+             */
             if (!result.fetchSpec) {
-                // Git type requires hosted information
-                // Git 類型需要 hosted 資訊
+                /**
+                 * 舊寫法只檢查 result.hosted，已註解保留；現改以 isHostedGitResult 確認 hosted.domain
+                 * The old check only looked at `result.hosted` and is kept commented out;
+                 * isHostedGitResult now confirms `hosted.domain` as well
+                 */
                 // assertOk(result.hosted, 'hosted is required for git type');
                 (0, assert_1.ok)((0, detect_1.isHostedGitResult)(result), 'hosted.domain is required for git type when fetchSpec is not present');
             }
@@ -154,11 +185,30 @@ function assertNpaResultAll(result, options) {
             }
             break;
         case 'directory':
-            // Directory type requires where path
-            // Directory 類型需要 where 路徑
+            /**
+             * Directory 類型需要 where 路徑：目錄規格相對於 where 解析，缺少時無法還原實際位置
+             * Directory type requires the `where` path: the directory spec resolves relative to it,
+             * so without it the real location cannot be recovered
+             */
             (0, assert_1.ok)(result.where, 'where is required for directory type');
             break;
         case 'range':
+            /**
+             * rawSpec 為空或只有空白（輸入 ''、' '、'fake@ '）時，輸入可能根本沒有套件名稱，
+             * 照常執行名稱驗證會直接拋錯，故預設改為不強制名稱驗證；
+             * `??=` 仍保留呼叫端明確設定的 shouldHasName
+             *
+             * When `rawSpec` is empty or whitespace only (inputs `''`, `' '`, `'fake@ '`), the input
+             * may not name a package at all and a name check would throw right away, so name
+             * validation is relaxed by default; `??=` still honours an explicit `shouldHasName`
+             * from the caller
+             *
+             * 此分支刻意不加 break：rawSpec 非空的 range（如 'lodash@^4.0.0'、'fake@'）
+             * 會 fall through 到下方共用的 fetchSpec 驗證
+             *
+             * This branch intentionally omits `break`: a `range` with a non-empty rawSpec
+             * (e.g. 'lodash@^4.0.0', 'fake@') falls through to the shared `fetchSpec` check below
+             */
             if ((0, detect_1.isRawSpecIsEmpty)(result)) {
                 shouldHasName !== null && shouldHasName !== void 0 ? shouldHasName : (shouldHasName = false);
                 break;
@@ -173,19 +223,40 @@ function assertNpaResultAll(result, options) {
             (0, assert_1.ok)(result.subSpec, `subSpec is required for ${result.type} type`);
             break;
         default:
-            // Other types default to requiring name validation
-            // 其他類型預設需要名稱驗證
+            /**
+             * 目前 IResultType 已在上方全數列出，此分支屬防禦性保留；
+             * 未來新增型別時預設要求名稱驗證，避免遺漏驗證
+             *
+             * Every current IResultType is listed above, so this branch is kept defensively;
+             * a future type will default to requiring name validation rather than skipping it
+             */
             shouldHasName !== null && shouldHasName !== void 0 ? shouldHasName : (shouldHasName = true);
             break;
     }
+    /**
+     * scope 存在時必須以 "@" 開頭（64 為 "@" 的字元碼），
+     * 確保名稱已經過 npa 正規化，避免未帶前綴的 scope 流入依賴值
+     *
+     * When `scope` exists it must start with "@" (64 is the char code of "@"), which guarantees
+     * the name came through npa's normalization and that a prefix-less scope never leaks downstream
+     */
     if (typeof result.scope === 'string') {
         (0, assert_1.ok)(result.scope.charCodeAt(0) === 64, `scope must start with @`);
     }
+    /**
+     * registry 來源的型別（range、version、alias、tag）必然帶有名稱，
+     * 因此預設要求名稱驗證；`??=` 仍允許呼叫端明確關閉
+     *
+     * Registry-sourced types (range, version, alias, tag) always carry a name, so name validation
+     * is required by default; `??=` still lets the caller turn it off explicitly
+     */
     if (['range', 'version', 'alias', 'tag'].includes(result.type)) {
         shouldHasName !== null && shouldHasName !== void 0 ? shouldHasName : (shouldHasName = true);
     }
-    // Validate name if required
-    // 如果需要則驗證名稱
+    /**
+     * 前述各分支只決定 shouldHasName，最後統一在此執行名稱驗證
+     * The branches above only decide `shouldHasName`; the name check runs here in one place
+     */
     if (shouldHasName) {
         assertNpaResultHasName(result);
     }

@@ -65,7 +65,9 @@ export declare function outputWorkspacesRootChangelogAsync(cwd?: string, filenam
  */
 export declare function createWorkspacesRootChangelog(cwd?: string): string;
 /**
- * 預設匯出函數
- * Default export function
+ * 預設匯出「產生內容」的函式，而非寫檔函式，
+ * 讓使用者 require() 後可直接取得純字串結果再自行決定是否寫入
+ * Default export is the content builder rather than a file writer,
+ * so require() yields a plain string the caller can decide how to persist
  */
 export default createWorkspacesRootChangelog;

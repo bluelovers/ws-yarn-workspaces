@@ -180,6 +180,12 @@ function parseSimpleSemVerRange(str) {
         if (build) {
             obj.build = build;
         }
+        /**
+         * 清除正則在「無運算子」時捕獲的空字串 operator，
+         * 否則物件會帶著 operator: '' 進入後續流程。
+         * Drop the empty-string operator the regex captures when there is no
+         * operator, so the object does not carry `operator: ''` onward.
+         */
         (0, pruned_1.normalizeSemVerObjectInput)(obj, {
             init: true,
         });

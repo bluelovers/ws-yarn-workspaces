@@ -16,6 +16,7 @@ import { IListableRow } from 'ws-pkg-list/lib/types';
  * @returns 包含模組資訊的工作區套件列表 / Workspace package list with module information
  */
 export declare function wsFindPackageHasModulesCore(list: IListableRow[], cwd: string, dir?: string): {
+    /** 新增模組資訊 / Add module information */
     modules: {
         name: string;
         location: string;
@@ -35,6 +36,7 @@ export declare function wsFindPackageHasModulesCore(list: IListableRow[], cwd: s
  * @returns 包含模組資訊的工作區套件列表 / Workspace package list with module information
  */
 export declare function wsFindPackageHasModules(cwd?: string, dir?: string): {
+    /** 新增模組資訊 / Add module information */
     modules: {
         name: string;
         location: string;

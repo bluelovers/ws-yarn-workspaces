@@ -12,9 +12,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports._readReadmeTplCore = _readReadmeTplCore;
 exports.writeReadme = writeReadme;
 const tslib_1 = require("tslib");
-// 匯入檔案系統相關函數 / Import file system related functions
+/**
+ * 匯入檔案系統相關函數：existsSync 用來先確認樣板是否存在，
+ * 避免對不存在的路徑直接 readFileSync 而丟出例外。
+ *
+ * File system helpers: existsSync guards the template first, so readFileSync
+ * is never called on a missing path and does not throw.
+ */
 const fs_extra_1 = require("fs-extra");
-// 匯入 lodash 模板函數 / Import lodash template function
+/**
+ * 匯入 lodash 模板函數：刻意只引進 template 子模組而非整個 lodash，
+ * 以縮小打包體積並維持 tree-shaking 效益。
+ *
+ * Imports lodash's template submodule rather than the whole lodash package,
+ * keeping the bundle small and tree-shaking effective.
+ */
 const template_1 = tslib_1.__importDefault(require("lodash/template"));
 /**
  * 讀取並編譯 README 模板的核心函數

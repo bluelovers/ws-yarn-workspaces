@@ -28,11 +28,17 @@ export interface IOptions {
     /**
      * When input is a tag (e.g., "latest", "beta"), preserve it instead of converting to ^
      * 當輸入是標籤（例如："latest"、"beta"）時，保留它而不是轉換為 ^
+     *
+     * Only effective when called through npaResultToDepsValue
+     * 僅在透過 npaResultToDepsValue 呼叫時生效
      */
     preserveTag?: boolean;
     /**
      * When input is a range, preserve the original range instead of normalizing it
      * 當輸入是範圍時，保留原始範圍而不是正規化它
+     *
+     * Only effective when called through npaResultToDepsValue
+     * 僅在透過 npaResultToDepsValue 呼叫時生效
      */
     preserveRange?: boolean;
 }
@@ -140,7 +146,7 @@ export declare function npaResultToDepsValue<T extends IResult>(result: T, optio
  *
  * @param {string} arg - The package argument string to parse / 要解析的套件參數字串
  *
- * @param {IOptions} [options] - Parsing and conversion options / 解析和轉換選項
+ * @param {IOptions} [options] - Parsing and conversion options; only `where` is forwarded / 解析與轉換選項；僅 `where` 會被傳遞
  *
  * @returns {IDepsResult<T>} Standardized dependency value object / 標準化的依賴值物件
  *
@@ -151,10 +157,11 @@ export declare function npaResultToDepsValue<T extends IResult>(result: T, optio
  * // => { name: 'lodash', operator: '^', fetchQuery: true, ... }
  *
  * @example
- * // With options
- * // 使用選項
- * npaToDepsValue('lodash@latest', { preserveTag: true });
- * // => { name: 'lodash', semver: 'latest', ... }
+ * // `where` as base directory for relative paths;
+ * // `preserveTag` / `preserveRange` must be passed to npaResultToDepsValue instead
+ * // `where` 作為相對路徑的基礎目錄；
+ * // `preserveTag` / `preserveRange` 需改傳給 npaResultToDepsValue
+ * npaToDepsValue('./local-pkg', { where: '/path/to/base' });
  */
 export declare function npaToDepsValue<T extends IResult = IResult>(arg: string, options?: IOptions): IDepsResult<T>;
 export default npaToDepsValue;

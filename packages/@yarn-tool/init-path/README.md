@@ -91,6 +91,20 @@ console.log(result.scopedPackagePattern); // true
 | `cwd` | `string` | 當前工作目錄 / Current working directory |
 | `scopedPackagePattern` | `boolean` | 是否為作用域套件 / Whether it's a scoped package |
 
+## 設定 / Configuration
+
+本套件本身沒有獨立設定檔，所有設定皆由呼叫時傳入的 `options` 決定：
+
+This package has no standalone config file; everything is controlled through the `options` passed in:
+
+| 選項 / Option | 說明 / Description |
+|------|------|
+| `workspacesConfig` | 由 [`workspaces-config`](https://www.npmjs.com/package/workspaces-config) 解析而來的工作區 (Workspace) 設定，其 `prefix` 決定了套件會被放置在哪些子目錄下（例如 `packages`、`apps`） |
+| `hasWorkspace` | 工作區根目錄 (Workspace Root) 路徑；有指定時必須能解析出 `workspacesConfig.prefix`，否則會拋出 `RangeError` |
+| `workspacePrefix` | 直接指定工作區前綴 (Workspace Prefix)，可覆寫由名稱搜尋推導的結果 |
+
+> 未傳入 `hasWorkspace` 時，目標路徑會直接以 `cwd` 為基準計算，不受工作區設定影響。
+
 ## 相關套件 / Related Packages
 
 - `@yarn-tool/search-workspace-prefix-by-name` - 搜尋工作區前綴

@@ -97,7 +97,7 @@ const binsWithPaths = normalizePackageBins({
 });
 ```
 
-## API
+## API 文件 (API Documentation)
 
 ### `normalizePackageBins(options)`
 
@@ -181,7 +181,7 @@ const binsWithPaths = normalizePackageBins({
 
 **錯誤：** 若未提供有效的 name 或 pkg，拋出 `TypeError`
 
-## 選項 (Options)
+## 設定 (Configuration) — 選項 (Options)
 
 ```typescript
 interface IOptions {

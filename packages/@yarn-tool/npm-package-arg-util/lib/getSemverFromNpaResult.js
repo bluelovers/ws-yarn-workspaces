@@ -49,23 +49,33 @@ exports.getSemverFromNpaResult = getSemverFromNpaResult;
  */
 function getSemverFromNpaResult(npaResult) {
     let semver;
-    // Handle different result types
-    // 處理不同的結果類型
+    /**
+     * 依 result.type 決定版本來源：別名的版本藏在子規格，其餘型別直接取 rawSpec
+     * Decide the version source by `result.type`: an alias keeps its version in the sub-spec,
+     * every other type exposes it directly as `rawSpec`
+     */
     switch (npaResult.type) {
         case 'alias':
-            // For alias results, extract version from the sub-spec
-            // 對於別名結果，從子規格提取版本
+            /**
+             * 別名（my-pkg@npm:other-pkg@version）的版本寫在 subSpec 而非外層 rawSpec
+             * For an alias (my-pkg@npm:other-pkg@version) the version lives in `subSpec`, not in the outer `rawSpec`
+             */
             semver = npaResult.subSpec.rawSpec;
             break;
         default:
-            // For other types, use the rawSpec directly
-            // 對於其他類型，直接使用 rawSpec
+            /**
+             * 其他型別直接使用 rawSpec；例如只有名稱的輸入經 npa 正規化後 rawSpec 為 "*"
+             * Other types use `rawSpec` as-is; a name-only input, for example, is normalized by
+             * npa into a `rawSpec` of `"*"`
+             */
             semver = npaResult.rawSpec;
             break;
     }
     return semver;
 }
-// Default export for convenience
-// 預設匯出以方便使用
+/**
+ * 預設匯出 getSemverFromNpaResult，讓 `import getSemver from '...'` 可直接使用
+ * Default-export getSemverFromNpaResult so `import getSemver from '...'` works directly
+ */
 exports.default = getSemverFromNpaResult;
 //# sourceMappingURL=getSemverFromNpaResult.js.map

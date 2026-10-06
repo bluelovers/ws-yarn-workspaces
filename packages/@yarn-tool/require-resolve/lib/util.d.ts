@@ -16,7 +16,7 @@ export declare const defaultMap: Record<string, string>;
  * @param item - 要插入的元素 / Item to insert
  * @returns 修改後的陣列 / Modified array
  */
-export declare function unshiftArray<T>(array: T[], item: T): T[];
+export declare function _unshiftArray<T>(array: T[], item: T): T[];
 /**
  * 處理選項中的路徑陣列，將符號轉換為實際路徑
  * Process paths array in options, converting symbols to actual paths
@@ -24,6 +24,11 @@ export declare function unshiftArray<T>(array: T[], item: T): T[];
  * @param paths - 路徑陣列，可包含符號或實際路徑 / Path array, can contain symbols or actual paths
  * @param cwd - 工作目錄 / Working directory
  * @returns 轉換後的實際路徑陣列 / Converted actual path array
+ *
+ * 轉換結果為空時回傳 undefined 而非空陣列，
+ * 讓 require.resolve 忽略 paths 選項並沿用其預設解析行為。
+ * An empty result becomes undefined instead of an empty array, so
+ * require.resolve ignores the paths option and keeps its default behavior.
  */
 export declare function handleOptionsPaths(paths: IOptionsRequireResolveCore["paths"], cwd?: string): string[] | undefined;
 /**

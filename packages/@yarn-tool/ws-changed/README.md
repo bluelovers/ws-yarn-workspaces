@@ -2,7 +2,9 @@
 
 Detect changed packages in monorepo workspaces using both Lerna and Git.
 
-## Features
+同時使用 Lerna 與 Git 檢測 monorepo 工作區 (Workspaces) 中已變更的套件。
+
+## Features | 功能特色
 
 - **Dual Detection**: Combines Lerna and Git to detect changed packages
 - **Lerna Integration**: Uses `lerna changed` to detect packages changed since last release
@@ -10,7 +12,7 @@ Detect changed packages in monorepo workspaces using both Lerna and Git.
 - **Workspace Aware**: Automatically detects workspace root and configuration
 - **Dependency Tracking**: Helps identify affected packages for selective builds
 
-## Install
+## Installation | 安裝
 
 ```bash
 # Using yarn
@@ -23,7 +25,7 @@ yarn-tool add @yarn-tool/ws-changed
 yt add @yarn-tool/ws-changed
 ```
 
-## API Usage
+## Usage | 使用方式
 
 ### Get Changed Packages
 
@@ -55,7 +57,9 @@ const result = wsGitChanged(process.cwd());
 console.log(result.list);  // Array of staged package info
 ```
 
-## Return Type
+## API Documentation | API 文件
+
+### Return Type | 回傳型別
 
 ```typescript
 interface IChangedResult {
@@ -73,7 +77,7 @@ interface IListableRowExtra {
 }
 ```
 
-## Example Output
+## Example Output | 範例輸出
 
 ```typescript
 {
@@ -132,15 +136,15 @@ if (packages.length > 0) {
 }
 ```
 
-## Options
+## Configuration | 設定
 
 | Option | Type | Description |
 |--------|------|-------------|
-| `cwd` | `string` | Working directory (default: `process.cwd()`) |
-| `gitBin` | `string` | Path to Git binary |
-| `lernaBin` | `string` | Path to Lerna binary |
+| `cwd` | `string` | Working directory (default: `process.cwd()`) / 工作目錄（預設：`process.cwd()`） |
+| `gitBin` | `string` | Path to Git binary / Git 執行檔路徑 |
+| `lernaBin` | `string` | Path to Lerna binary / Lerna 執行檔路徑 |
 
-## How It Works
+## How It Works | 運作原理
 
 1. **Lerna Changed**: Executes `lerna changed --json` to get packages changed since last release
 2. **Git Staged**: Analyzes `git diff --staged` to find packages with staged changes

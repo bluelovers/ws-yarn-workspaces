@@ -31,7 +31,17 @@ import { Argv } from 'yargs';
  * @param yargs - Yargs 實例 / Yargs instance
  * @returns 配置後的 Yargs 實例 / Configured Yargs instance
  */
-export declare function setupWorkspacesInitToYargs<T extends any>(yargs: Argv<T>): yargs.Argv<yargs.Omit<T, never> & {
+export declare function setupWorkspacesInitToYargs<T extends any>(yargs: Argv<T>): yargs.Argv<yargs.Omit<T & {
+    overwriteHostedGitInfo: boolean;
+} & {
+    branch: string;
+} & {
+    resetStaticFiles: boolean;
+} & {
+    addStaticFiles: boolean;
+} & {
+    noStaticFiles: boolean;
+}, never> & {
     name: string;
 } & {
     ignoreExistsPackage: boolean;

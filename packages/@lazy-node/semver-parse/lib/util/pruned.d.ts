@@ -75,6 +75,23 @@ export declare function pruned<T>(obj: T, o?: T): T;
  * ```
  */
 export declare function prunedSimpleSemVer<T extends ISimpleSemVer>(obj: T, o?: T): T;
+/**
+ * 規範化 semver 輸入物件的 operator 欄位
+ * Normalize the `operator` field of a semver input object
+ *
+ * 正則表達式的運算子群組在「沒有運算子」時會捕獲空字串，
+ * 直接留下會讓 operator 從「可能不存在」變成「存在但無意義」，
+ * 此函式負責把這類殘留值清除，讓後續字串化與比對不必多分支處理。
+ * The operator capture group yields an empty string when no operator is
+ * present; leaving it turns `operator` from "maybe absent" into "present but
+ * meaningless". This function clears such leftovers so later stringification
+ * and comparison need no extra branch.
+ *
+ * @param obj - 來源 semver 物件（會被原地修正）/ Source semver object (normalized in place)
+ * @param opts - 初始化旗標 / Initialization flag
+ * @param opts.init - true 表示由解析流程呼叫，會一併檢查空字串 operator / When true (called from the parse flow), empty-string operators are also cleaned up
+ * @returns 規範化後的物件 / The normalized object
+ */
 export declare function normalizeSemVerObjectInput<T extends ISimpleSemVer>(obj: T, opts?: {
     init?: boolean;
 }): T;

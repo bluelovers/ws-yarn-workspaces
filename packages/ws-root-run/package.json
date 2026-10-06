@@ -1,7 +1,19 @@
 {
   "name": "ws-root-spawn",
   "version": "1.0.56",
-  "description": "run/exec in workspaces root",
+  "description": "run/exec a command in the workspaces root directory (yarn / npm / lerna)",
+  "keywords": [
+    "workspaces",
+    "workspace-root",
+    "run",
+    "exec",
+    "spawn",
+    "monorepo",
+    "yarn",
+    "npm",
+    "cross-spawn",
+    "cli"
+  ],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/ws-root-run#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"

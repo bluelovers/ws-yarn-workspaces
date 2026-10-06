@@ -56,7 +56,7 @@ export interface IOptionsBase extends IOptionsBaseCore {
  * Input options type
  *
  * 至少需要設定 changelogPreset 或 rootPath 其中一個
-     * At least one of changelogPreset or rootPath must be set
+ * At least one of changelogPreset or rootPath must be set
  */
 export type IOptionsInput = IOptionsBase & ITSRequireAtLeastOne<IOptionsBaseCore>;
 /**

@@ -102,6 +102,20 @@ Array<{
 }>
 ```
 
+## 設定 (Configuration)
+
+本套件不使用獨立設定檔 (Config File)，所有設定皆透過函式參數傳入：
+
+| 參數 | 型別 | 預設值 | 說明 |
+| --- | --- | --- | --- |
+| `cwd` | `string?` | `process.cwd()`（`findModulesPackagePaths`）／自動尋找工作區根目錄 (Workspace Root)（`wsFindPackageHasModules`） | 起始搜尋目錄；`findModulesPackagePaths` 會再以 `pkg-dir` 向上找到最近的 `package.json` 所在目錄並正規化為絕對路徑 |
+| `dir` | `string?` | `'node_modules'` | 相對於 `cwd` 的模組目錄名稱，可用於尋找非標準命名的模組目錄 |
+
+```typescript
+// 指定起始目錄與自訂模組目錄名稱
+findModulesPackagePaths('/path/to/project', 'custom-node-modules');
+```
+
 ## 相容性
 
 - Node.js >= 12

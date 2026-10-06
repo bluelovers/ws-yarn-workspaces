@@ -6,6 +6,15 @@
 
 此套件實現了類似 JetBrains IDE 的版本號生成邏輯，支援多種日期格式的版本號生成，包括 JetBrains 風格的短格式和標準的完整格式。
 
+## 功能特色 (Features)
+
+- **四種版本樣式 (Version Styles)**：JetBrains 短年份、短年份月日合併、標準完整年份、標準完整年份月日合併
+- **雙向轉換**：日期可產生版本號 (`dateToVersion`)，版本號也可反向解析回日期資訊 (`parseVersion`)
+- **遞增與推進**：支援當日遞增 (`incrementVersion`) 與跨日推進 (`getNextDayVersion`)，含跨月、跨年進位
+- **時區安全 (Timezone-safe)**：透過 `dayjs-tz-helper` 安全解析時區，避免本地時間與 UTC 偏移造成日期偏移
+- **彈性容錯**：解析失敗時可依 `throwOnError` 決定拋錯或回退到當日版本
+- **型別完整**：附帶 TypeScript 型別定義與 `EnumVersionStyle` 列舉
+
 ## 安裝 (Installation)
 
 ```bash
@@ -24,7 +33,9 @@ pnpm add @yarn-tool/version-style-jetbrains
 npm install @yarn-tool/version-style-jetbrains
 ```
 
-## 快速開始 (Quick Start)
+## 使用方式 (Usage)
+
+### 快速開始 (Quick Start)
 
 ```typescript
 import { dateToVersion, parseVersion, generateAllStyleVersions } from '@yarn-tool/version-style-jetbrains';
@@ -160,4 +171,4 @@ ISC
 
 ## 版本 (Version)
 
-當前版本：1.0.0
+當前版本：1.0.7

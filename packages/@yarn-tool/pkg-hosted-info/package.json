@@ -1,8 +1,13 @@
 {
   "name": "@yarn-tool/pkg-hosted-info",
   "version": "3.0.11",
-  "description": "",
+  "description": "fill homepage, bugs and repository fields of package.json from hosted git info",
   "keywords": [
+    "hosted-git-info",
+    "package-json",
+    "homepage",
+    "bugs",
+    "repository",
     "yarn",
     "yarn-tool",
     "npm",

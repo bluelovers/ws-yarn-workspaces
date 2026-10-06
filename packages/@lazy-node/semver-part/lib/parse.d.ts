@@ -70,10 +70,28 @@ export declare function parseVersions(versionOld: string, versionNew: string): {
  * ```
  */
 export declare function parseVersionsAndCompare(versionOld: string, versionNew: string, optionsOrLoose?: IOptionsOrLoose): {
+    /**
+     * 差異段落的比較結果（semver 語意：舊 vs 新）/ Comparison result of the differing segment (semver semantics: old vs new)
+     */
     comp: ICompareReturnType;
+    /**
+     * 舊版本字串 / Old version string
+     */
     versionOld: string;
+    /**
+     * 新版本字串 / New version string
+     */
     versionNew: string;
+    /**
+     * 舊版本的段落陣列 / Segment array of the old version
+     */
     partsOld: string[];
+    /**
+     * 新版本的段落陣列 / Segment array of the new version
+     */
     partsNew: string[];
+    /**
+     * 差異發生的段落索引；兩者相同時為 partsNew.length / Segment index where the difference occurs; equals partsNew.length when identical
+     */
     index: IParseVersionsFindIndex;
 };

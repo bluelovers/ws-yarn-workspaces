@@ -3,6 +3,9 @@
   "version": "3.0.12",
   "description": "update yarnlock v1 and berry",
   "keywords": [
+    "yarnlock",
+    "berry",
+    "ncu",
     "yarn",
     "yarn-tool",
     "npm",

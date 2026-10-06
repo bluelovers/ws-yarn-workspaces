@@ -37,39 +37,59 @@ const util_1 = require("./util");
  * console.log(cacheRoot); // 例如: '/Users/user/.cache' / e.g.: '/Users/user/.cache'
  */
 function getCacheRoot(_options) {
-    // 處理選項參數
-    // Process options parameter
+    /**
+     * 處理選項參數（字串會被視為 cwd）
+     * Process the options argument (a string is treated as cwd)
+     */
     let options = (0, util_1.handleOptions)(_options);
     let { processEnv, cwd } = options;
     let dir;
-    // 依序嘗試各個快取位置函數
-    // Try each cache location function in order
+    /**
+     * 以 .some() 逐個嘗試：回傳 true 即停止，
+     * 因此「第一個可寫入的來源」就是最終結果
+     * Try each source with .some(): returning true stops the loop,
+     * so "the first writable source" becomes the final result
+     */
     options.fnOrder.some(function (fn) {
+        /**
+         * 呼叫位置函數取得候選目錄
+         * Call location function to get candidate directory
+         */
         // @ts-ignore
-        // 呼叫位置函數取得候選目錄
-        // Call location function to get candidate directory
         dir = fn(cwd, processEnv);
-        // 若目錄路徑有效
-        // If directory path is valid
+        /**
+         * 若目錄路徑有效（來源可能回傳 undefined）
+         * If the directory path is valid (a source may return undefined)
+         */
         if (dir === null || dir === void 0 ? void 0 : dir.length) {
-            // 若需要建立目錄，嘗試建立
-            // If need to create directory, try to create
+            /**
+             * 需要建立目錄時先嘗試建立；失敗被刻意忽略，
+             * 因為可寫入性檢查會在下一步淘汰這個來源
+             * When the directory may be created, try to create it first; failures are deliberately ignored,
+             * because the writability check will discard this source on the next step
+             */
             if ((0, util_1._createAble)(options, fn)) {
                 try {
                     (0, fs_extra_1.ensureDirSync)(dir);
                 }
                 catch (err) { }
             }
-            // 檢查目錄是否可寫入
-            // Check if directory is writable
+            /**
+             * 檢查目錄是否可寫入，可寫入才視為命中
+             * Check whether the directory is writable; only then does it count as a match
+             */
             return (0, is_writeable_path_1.isWritableDirectorySync)(dir);
         }
     });
-    // 驗證最終結果
-    // Validate final result
+    /**
+     * 驗證最終結果：所有來源都失敗時會在此拋出明確錯誤
+     * Validate the final result: throws a clear error when every source failed
+     */
     (0, util_1._check)(dir, options);
-    // 返回絕對路徑
-    // Return absolute path
+    /**
+     * 統一轉為絕對路徑後回傳
+     * Return after normalizing to an absolute path
+     */
     return (0, upath2_1.resolve)(dir);
 }
 /**
@@ -93,36 +113,54 @@ function getCacheRootAsync(options) {
         .then(async function (options) {
         let { processEnv, cwd } = options;
         let dir;
-        // 依序嘗試各個快取位置函數
-        // Try each cache location function in order
+        /**
+         * 依序嘗試各個快取位置函數，取得第一個可寫入者即中斷
+         * Try each cache location function in order, stopping at the first writable one
+         */
         for (let fn of options.fnOrder) {
+            /**
+             * 非同步呼叫位置函數取得候選目錄
+             * Asynchronously call location function to get candidate directory
+             */
             // @ts-ignore
-            // 非同步呼叫位置函數取得候選目錄
-            // Asynchronously call location function to get candidate directory
             dir = await fn(cwd, processEnv);
-            // 若目錄路徑有效
-            // If directory path is valid
+            /**
+             * 若目錄路徑有效（來源可能回傳 undefined）
+             * If the directory path is valid (a source may return undefined)
+             */
             if (dir === null || dir === void 0 ? void 0 : dir.length) {
-                // 若需要建立目錄，非同步嘗試建立
-                // If need to create directory, asynchronously try to create
+                /**
+                 * 需要建立目錄時非同步建立；失敗被刻意忽略，
+                 * 因為可寫入性檢查會在下一步淘汰這個來源
+                 * When the directory may be created, create it asynchronously; failures are deliberately ignored,
+                 * because the writability check discards this source on the next step
+                 */
                 if ((0, util_1._createAble)(options, fn)) {
                     try {
                         await (0, fs_extra_1.ensureDir)(dir);
                     }
                     catch (err) { }
                 }
-                // 檢查目錄是否可寫入，若可寫入則停止搜尋
-                // Check if directory is writable, stop searching if writable
+                /**
+                 * 檢查目錄是否可寫入，可寫入即中止搜尋；
+                 * 不可寫入則繼續下一個來源
+                 * Check writability and stop the search when writable;
+                 * otherwise continue with the next source
+                 */
                 if (await (0, is_writeable_path_1.isWritableDirectoryAsync)(dir)) {
                     break;
                 }
             }
         }
-        // 驗證最終結果
-        // Validate final result
+        /**
+         * 驗證最終結果：所有來源都失敗時會在此拋出明確錯誤
+         * Validate the final result: throws a clear error when every source failed
+         */
         (0, util_1._check)(dir, options);
-        // 返回絕對路徑
-        // Return absolute path
+        /**
+         * 統一轉為絕對路徑後回傳
+         * Return after normalizing to an absolute path
+         */
         return (0, upath2_1.resolve)(dir);
     });
 }

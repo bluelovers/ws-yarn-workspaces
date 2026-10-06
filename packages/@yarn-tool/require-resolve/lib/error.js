@@ -29,6 +29,12 @@ exports.createModuleNotFoundError = createModuleNotFoundError;
  * ```
  */
 function isErrorModuleNotFound(error) {
+    /**
+     * 以 code 屬性而非 instanceof 或訊息字串判斷，
+     * 可跨 realm（如 vm、worker）且不受錯誤訊息措辭影響。
+     * Checking the code property instead of instanceof or message text works
+     * across realms (vm, workers) and is immune to message wording.
+     */
     return error.code === 'MODULE_NOT_FOUND';
 }
 /**
@@ -38,10 +44,16 @@ function isErrorModuleNotFound(error) {
  * @param moduleName - 模組名稱 / Module name
  * @param basePath - 基礎搜尋路徑 / Base search path
  * @returns 模組未找到錯誤物件 / Module not found error object
+ *
+ * 手動補上 code 與 requireStack，使回傳的錯誤可被
+ * isErrorModuleNotFound 正確辨識，並與 Node 原生錯誤結構一致。
+ * code and requireStack are set manually so the error is recognized by
+ * isErrorModuleNotFound and matches Node's native error shape.
  */
 function createModuleNotFoundError(moduleName, basePath) {
     const error = new Error(`Cannot find module '${moduleName}'`);
     error.code = 'MODULE_NOT_FOUND';
+    /** 未提供 basePath 時保持空陣列，與 Node 原生 requireStack 的型別一致 / Without basePath it stays an empty array, matching Node's requireStack type */
     error.requireStack = basePath ? [basePath] : [];
     return error;
 }

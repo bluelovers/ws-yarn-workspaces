@@ -3,6 +3,10 @@
   "version": "1.0.9",
   "description": "A utility for processing README templates using lodash template engine - 使用 lodash 模板引擎處理 README 模板的工具",
   "keywords": [
+    "readme",
+    "template",
+    "lodash-template",
+    "markdown",
     "yarn",
     "yarn-tool",
     "npm",

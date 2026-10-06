@@ -48,6 +48,8 @@ export declare function defaultSharedRootScripts(): {
     "install:frozenLockfile": string;
     /** 修復所有工作區問題 / Fix all workspace issues */
     "ws:fix-all": string;
+    /** 修復時一併補齊靜態檔案 / Also add missing static files while fixing */
+    "ws:fix-all:addStaticFiles": string;
     /** 修復並重置靜態檔 / Fix and reset static files */
     "ws:fix-all:resetStaticFiles": string;
 };

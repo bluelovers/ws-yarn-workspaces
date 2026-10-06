@@ -325,5 +325,9 @@ function listMatchedPatternByPath(ws, pkg) {
         return a;
     }, []);
 }
+/**
+ * 預設匯出 findRoot，方便只需核心尋找功能的呼叫端直接引用
+ * Default-exports findRoot so callers that only need the core lookup can import it directly
+ */
 exports.default = findRoot;
 //# sourceMappingURL=index.js.map

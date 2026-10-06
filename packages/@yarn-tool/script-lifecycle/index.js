@@ -57,6 +57,13 @@ const lifecycle_1 = require("./lib/lifecycle");
  * ```
  */
 function getLifecycleCore(scriptName) {
+    /**
+     * 只有已知鍵才存在於 lifecycleMap，
+     * 未知鍵刻意回傳 undefined，交由 getLifecycle() 產生預設的 pre/post 結構。
+     *
+     * Only known keys exist in lifecycleMap; unknown keys intentionally return
+     * undefined so getLifecycle() can build the default pre/post structure.
+     */
     if (isKnownLifecycleKey(scriptName)) {
         return lifecycle_1.lifecycleMap[scriptName];
     }
@@ -94,9 +101,25 @@ function getLifecycleCore(scriptName) {
  */
 function getLifecycle(scriptName, currentScriptOnly) {
     let entry;
+    /**
+     * currentScriptOnly 為 true 時刻意跳過查表，
+     * 讓呼叫端能取得純粹的 `pre<script>` / `post<script>` 結構，
+     * 不受內建的 install/pack/publish 規則影響。
+     *
+     * When currentScriptOnly is true the lookup is skipped on purpose so the caller
+     * gets a plain `pre<script>` / `post<script>` structure, unaffected by the
+     * built-in install/pack/publish rules.
+     */
     if (!currentScriptOnly) {
         entry = getLifecycleCore(scriptName);
     }
+    /**
+     * entry 可能為 undefined（未知生命週期鍵或 currentScriptOnly 為 true），
+     * 此處以 ?? 兜底產生預設配置，確保回傳值永遠是完整的 entry。
+     *
+     * `entry` may be undefined (unknown lifecycle key or currentScriptOnly is true),
+     * so ?? falls back to a default config to guarantee a complete entry is returned.
+     */
     return entry !== null && entry !== void 0 ? entry : {
         name: scriptName,
         ignoreSelf: false,
@@ -166,12 +189,35 @@ function getLifecycleList(scriptName, includeSelf, currentScriptOnly) {
 function entryToList(entry, includeSelf) {
     var _a, _b;
     let result = [];
+    /**
+     * before 可能未定義（可選欄位），先檢查長度再展開，
+     * 避免把 undefined 或空陣列推入結果。
+     *
+     * `before` may be undefined (optional field); check length before spreading
+     * to avoid pushing undefined or an empty array into the result.
+     */
     if ((_a = entry.before) === null || _a === void 0 ? void 0 : _a.length) {
         result.push(...entry.before);
     }
+    /**
+     * includeSelf 明確傳入 true 時強制納入主腳本，
+     * 否則以 ignoreSelf 決定；這讓 pack（ignoreSelf: true）
+     * 仍可依需求以 includeSelf=true 取回包含 'pack' 的完整清單。
+     *
+     * An explicit includeSelf === true forces the main script in; otherwise
+     * ignoreSelf decides. This lets `pack` (ignoreSelf: true) still return a full
+     * list containing 'pack' when includeSelf=true is passed.
+     */
     if (includeSelf === true || entry.ignoreSelf !== true) {
         result.push(entry.name);
     }
+    /**
+     * 同 before，after 也是可選欄位，需先確認有內容才展開，
+     * 以保持 before → 主腳本 → after 的執行順序。
+     *
+     * Like `before`, `after` is optional; only spread when non-empty so the
+     * before → main script → after execution order is preserved.
+     */
     if ((_b = entry.after) === null || _b === void 0 ? void 0 : _b.length) {
         result.push(...entry.after);
     }

@@ -46,7 +46,9 @@ await npmAutoFixAll(process.cwd(), {
 });
 ```
 
-## 選項說明 (Options)
+## 設定 (Configuration)
+
+下列選項可透過 `npmAutoFixAll(cwd, options)` 的第二個參數傳入：
 
 | 選項 / Option | 類型 / Type | 說明 / Description |
 |--------------|-------------|-------------------|
@@ -58,6 +60,35 @@ await npmAutoFixAll(process.cwd(), {
 
 > 判定邏輯集中在 `lib/file/staticFiles.ts` 的 `_isAddStaticFiles()` 與 `_isAddStaticFilesWithReset()`，可由其他套件共用（`addStaticFiles` 可透過第二個參數指定預設值）。
 > The decision logic lives in `_isAddStaticFiles()` / `_isAddStaticFilesWithReset()` in `lib/file/staticFiles.ts`, shared by other packages (the second argument sets the default of `addStaticFiles`).
+
+## API 文件 (API Documentation)
+
+### `npmAutoFixAll(cwd, options?)`
+
+主要匯出函式（同時也是預設匯出 / default export），回傳 `Bluebird<void>`。
+
+| 參數 / Param | 型別 / Type | 說明 / Description |
+|--------------|-------------|-------------------|
+| `cwd` | `string` | 當前工作目錄，未傳入時使用 `process.cwd()` / Current working directory; defaults to `process.cwd()` when omitted |
+| `options` | `INpmAutoFixAll` | 修復選項，詳見 [設定 (Configuration)](#設定-configuration) / Fix options; see Configuration above |
+
+拋出 `Invalid workspaces / package` 錯誤的情況：`cwd` 無法解析出有效的 workspace 或套件根目錄。
+
+Throws an `Invalid workspaces / package` error when `cwd` cannot resolve to a valid workspace or package root.
+
+### `INpmAutoFixAll`
+
+選項介面 (Options interface)，欄位說明同 [設定 (Configuration)](#設定-configuration) 表格。
+
+### 內部模組 (Internal modules)
+
+以下模組供 repo 內其他套件共用，非本套件的主要公開 API：
+
+These modules are shared by other packages in the repo and are not part of the main public API:
+
+- `lib/file/staticFiles.ts` - `_isAddStaticFiles()` / `_isAddStaticFilesWithReset()` 靜態檔案判定 (static file decision helpers)
+- `lib/root/index.ts` - `_fixRoot()` / `_fixWsRoot()` 根目錄 package.json 修復 (root package.json fixing)
+- `lib/ws/lerna.ts` - `_fixLernaJson()` lerna.json 修復 (lerna.json fixing)
 
 ## 執行流程 (Execution Flow)
 

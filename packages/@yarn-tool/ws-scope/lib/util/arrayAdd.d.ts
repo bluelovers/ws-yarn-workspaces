@@ -13,21 +13,23 @@
  */
 interface ArrayOperationResult<T> {
     /**
-     * Indicates whether the array was modified
+     * 是否已修改陣列，讓呼叫端只在真正變動時才標記 dirty
+     * Whether the array was modified, so callers can mark dirty only on real changes
      */
     changed: boolean;
     /**
-     * The modified array
+     * 經新增/去重處理後的陣列本身
+     * The array itself after add/dedup processing
      */
     value: T[];
 }
 /**
  * Adds a scope path to an array if not already present
  *
- * @param {string} scope - The scope path to add / 2.0
- * @param {string[]} [value=[]] - The array to modify / 2.0
- * @returns {ArrayOperationResult<string>} Result with changed flag and modified array / 2.0
- * @throws {Error} Throws if value is not an array / 2.0
+ * @param {string} scope - The scope path to add / 要新增的範圍路徑
+ * @param {string[]} [value=[]] - The array to modify / 要修改的陣列
+ * @returns {ArrayOperationResult<string>} Result with changed flag and modified array / 回傳含變更旗標與修改後陣列的結果
+ * @throws {Error} Throws if value is not an array / 若 value 不是陣列則拋出錯誤
  *
  * @description
  * Adds the scope to the array only if it doesn't already exist.
@@ -44,9 +46,9 @@ export declare function arrayAdd(scope: string, value?: string[]): ArrayOperatio
 /**
  * Removes a scope path from an array if present
  *
- * @param {string} scope - The scope path to remove / 2.0
- * @param {string[]} value - The array to modify / 2.0
- * @returns {ArrayOperationResult<string>} Result with changed flag and modified array / 2.0
+ * @param {string} scope - The scope path to remove / 要移除的範圍路徑
+ * @param {string[]} value - The array to modify / 要修改的陣列
+ * @returns {ArrayOperationResult<string>} Result with changed flag and modified array / 回傳含變更旗標與修改後陣列的結果
  *
  * @description
  * Removes the first occurrence of the scope from the array.

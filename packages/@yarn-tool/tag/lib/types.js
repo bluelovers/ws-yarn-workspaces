@@ -1,6 +1,7 @@
 "use strict";
 /**
- * Created by user on 2020/6/15.
+ * 標籤選項型別定義
+ * Tag option type definitions
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 //# sourceMappingURL=types.js.map

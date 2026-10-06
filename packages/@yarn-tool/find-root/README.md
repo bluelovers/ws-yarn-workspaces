@@ -110,7 +110,10 @@ const patterns = listMatchedPatternByPath(
 console.log(patterns); // ['packages/*']
 ```
 
-### 選項說明 / Options
+## 設定 / Configuration
+
+`findRoot` 與 `findRootLazy` 透過 `IFindRootOptions` 介面設定行為，以下為可用選項：
+`findRoot` and `findRootLazy` are configured via the `IFindRootOptions` interface; the available options are listed below:
 
 ```typescript
 interface IFindRootOptions {
@@ -127,7 +130,7 @@ interface IFindRootOptions {
 }
 ```
 
-## API
+## API 文件 / API Documentation
 
 ### `findRoot(options, _throwError?)`
 
@@ -166,6 +169,7 @@ List workspace patterns that match the specified path.
 
 ## 相關模組 / Related Modules
 
+- [docs/find-path-tools.md](../../../docs/find-path-tools.md) - 路徑尋找工具總覽與遷移指南 / Overview and migration guide for path-finding tools
 - [`find-yarn-workspace-root2`](https://www.npmjs.com/package/find-yarn-workspace-root2) - 尋找 yarn workspace 根目錄
 - [`pkg-dir`](https://www.npmjs.com/package/pkg-dir) - 尋找最近的 package.json 目錄
 - [`upath2`](https://www.npmjs.com/package/upath2) - 跨平台路徑處理

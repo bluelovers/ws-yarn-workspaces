@@ -165,4 +165,8 @@ export { pathNormalize, pathEqual };
  * // 可能返回 ['packages/*'] / Might return ['packages/*']
  */
 export declare function listMatchedPatternByPath(ws: string, pkg: string): any;
+/**
+ * 預設匯出 findRoot，方便只需核心尋找功能的呼叫端直接引用
+ * Default-exports findRoot so callers that only need the core lookup can import it directly
+ */
 export default findRoot;

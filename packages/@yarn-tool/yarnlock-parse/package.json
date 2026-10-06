@@ -3,6 +3,8 @@
   "version": "3.0.11",
   "description": "parse yarnlock all version",
   "keywords": [
+    "yarnlock",
+    "parse",
     "yarn",
     "yarn-tool",
     "npm",

@@ -11,6 +11,14 @@ const pkg_dir_1 = tslib_1.__importDefault(require("pkg-dir"));
 const string_natural_compare_1 = tslib_1.__importDefault(require("@bluelovers/string-natural-compare"));
 const table_1 = require("@yarn-tool/table");
 const find_root_1 = require("@yarn-tool/find-root");
+/**
+ * CLI 參數定義：
+ * --workspaces(-w) 強制以 workspace 模式檢查；
+ * 未指定時交由 findRoot 的 isWorkspace 判斷，讓 monorepo 與單套件目錄皆可直接執行。
+ *
+ * CLI options: --workspaces(-w) forces workspace mode; when omitted, findRoot's
+ * isWorkspace decides, so both monorepo and single-package dirs can run as-is.
+ */
 const cli = yargs_1.default
     .option('workspaces', {
     alias: ['w'],
@@ -22,6 +30,8 @@ const cli = yargs_1.default
 })
     .help()
     .parseSync();
+// 以無邊框樣式輸出表格，避免在 CI / 純文字終機中出現雜亂的框線符號。
+// Borderless table style avoids noisy box-drawing glyphs in CI / plain terminals.
 const table = new cli_table3_1.default({
     colAligns: ['left', 'right'],
 });
@@ -31,15 +41,27 @@ table.options.head = [
     chalk.bold.reset('package name'),
     chalk.bold.reset('validate'),
 ];
+// 整體驗證結果：只有「有 bin 且未通過」才會被設為 false；
+// 初值 undefined 保留給「所有套件都沒有 bin」的情況，使其不觸發 exit 1。
+// Overall result: only "has bins and failed" sets false; the initial undefined
+// covers "no package has bins" so that case does not trigger exit 1.
 let bool;
 const rootData = (0, find_root_1.findRoot)(cli);
 if ((_a = cli.workspaces) !== null && _a !== void 0 ? _a : rootData.isWorkspace) {
+    // workspace 模式：依套件名稱自然排序後逐一檢查，
+    // 並在表格中以顏色區分通過（綠）/ 失敗（紅）/ 無 bin（灰）。
+    // Workspace mode: check each package (naturally sorted by name) and color
+    // pass (green) / fail (red) / no bins (gray) in the table.
     (0, __1.checkWorkspaces)(cli.cwd)
         .sort((a, b) => (0, string_natural_compare_1.default)(a.name, b.name))
         .forEach(data => {
         let valid = data.valid.toString();
         let color = 'gray';
         if (data.result.length) {
+            // 僅有 bin 的套件才納入整體驗證；
+            // 空 result 以 none 呈現，不影響 exit code。
+            // Only packages with bins count toward the overall result; an
+            // empty result shows "none" without affecting the exit code.
             bool = data.valid && (bool !== null && bool !== void 0 ? bool : true);
             color = data.valid ? 'green' : 'red';
         }
@@ -53,6 +75,10 @@ if ((_a = cli.workspaces) !== null && _a !== void 0 ? _a : rootData.isWorkspace)
     });
 }
 else {
+    // 單套件模式：以 pkgDir.sync 向上尋找 package.json 所在目錄。
+    // 沒有 bin 或全部通過皆視為成功（true），僅「有 bin 且失敗」才會 exit 1。
+    // Single-package mode: pkgDir.sync walks up to the package.json directory.
+    // No bins or all passing counts as success; only "has bins and failed" exits 1.
     let data = (0, __1.checkPkgDir)(pkg_dir_1.default.sync(cli.cwd));
     bool = (!data.result.length || data.valid);
     let valid = data.valid.toString();
@@ -69,6 +95,10 @@ else {
     ]);
 }
 debug_color2_1.console.log(table.toString());
+// 僅在明確驗證失敗時以狀態碼 1 結束，
+// 讓 CI 可據此攔截「bin 缺少 shebang」的套件。
+// Exit with status 1 only on explicit failure so CI can block packages whose
+// bins are missing a shebang.
 if (bool === false) {
     process.exit(1);
 }

@@ -1,7 +1,16 @@
 {
   "name": "@yarn-tool/is-builtin-module",
   "version": "1.0.28",
-  "description": "",
+  "description": "檢查名稱是否為 Node.js 內建模組 (Builtin Module) / Check whether a module name is a Node.js builtin module",
+  "keywords": [
+    "builtin",
+    "builtin-module",
+    "builtins",
+    "node",
+    "nodejs",
+    "module",
+    "check"
+  ],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/is-builtin-module#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"

@@ -1,6 +1,27 @@
 import { IPackageJson } from '@ts-type/package-dts';
+/**
+ * 檔案路徑或 JSON 物件的聯合類型
+ * Union type for file path or JSON object
+ *
+ * 涵蓋建構子所有可接受的輸入型別，避免呼叫端被迫先行型別判斷
+ * Covers every input type the constructor accepts, so callers need not narrow types themselves
+ */
 type IFileOrJson = Buffer | string | object | IPackageJson;
+/**
+ * 類似 package.json 的物件類型
+ * Package.json-like object type
+ *
+ * 以 Partial 允許不完整的 package.json 草稿，Record 則保留欄位擴充的彈性
+ * Partial allows incomplete package.json drafts, Record keeps field-extension flexibility
+ */
 type IPackageJsonLike<T> = Partial<T> | Record<string, any>;
+/**
+ * 單一項目或項目陣列的類型
+ * Type for single item or array of items
+ *
+ * 讓 API 同時接受單一值與陣列，減少呼叫端的包裝負擔
+ * Lets the API accept a single value or an array, reducing wrapper burden on callers
+ */
 type IItemOrItemArray<T> = T | T[];
 /**
  * package.json 載入器類別

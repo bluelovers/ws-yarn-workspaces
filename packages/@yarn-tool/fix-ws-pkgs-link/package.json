@@ -1,8 +1,11 @@
 {
   "name": "@yarn-tool/fix-ws-pkgs-link",
   "version": "3.0.13",
-  "description": "",
+  "description": "修復 workspace 套件在 node_modules 的符號連結 (Sync workspace package symlinks in node_modules)",
   "keywords": [
+    "symlink",
+    "fix-links",
+    "ws-pkgs-link",
     "yarn",
     "yarn-tool",
     "npm",

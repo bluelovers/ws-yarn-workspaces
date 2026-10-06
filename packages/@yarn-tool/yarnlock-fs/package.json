@@ -3,6 +3,10 @@
   "version": "3.0.11",
   "description": "read/write yarnlock v1 and berry",
   "keywords": [
+    "yarnlock",
+    "yarn.lock",
+    "lockfile",
+    "berry",
     "yarn",
     "yarn-tool",
     "npm",

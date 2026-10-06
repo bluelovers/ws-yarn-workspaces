@@ -1,8 +1,12 @@
 {
   "name": "@yarn-tool/publish-retry",
   "version": "2.0.10",
-  "description": "",
+  "description": "publish un-published workspace packages, skipping versions already on the npm registry",
   "keywords": [
+    "publish",
+    "publish-retry",
+    "npm-publish",
+    "skip-published",
     "yarn",
     "yarn-tool",
     "npm",

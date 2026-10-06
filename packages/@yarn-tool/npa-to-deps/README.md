@@ -9,7 +9,7 @@ Convert npm-package-arg (npa) parsing results to standardized dependency value o
 - Converts npm-package-arg results to standardized dependency objects / 將 npm-package-arg 結果轉換為標準化的依賴物件
 - Supports options for preserving tags and ranges / 支援保留標籤和範圍的選項
 
-## Install / 安裝
+## Installation / 安裝
 
 ```bash
 yarn add @yarn-tool/npa-to-deps
@@ -28,9 +28,10 @@ import { npa } from '@yarn-tool/npm-package-arg-util';
 const deps = npaToDepsValue('lodash@^4.17.0');
 // => { name: 'lodash', operator: '^', fetchQuery: true, result: ... }
 
-// With preserveTag option
-// 使用 preserveTag 選項
-const tagDeps = npaToDepsValue('lodash@latest', { preserveTag: true });
+// Keep the tag by passing options to npaResultToDepsValue
+// 保留標籤：選項需傳給 npaResultToDepsValue
+const tagResult = npa('lodash@latest');
+const tagDeps = npaResultToDepsValue(tagResult, { preserveTag: true });
 // => { name: 'lodash', semver: 'latest', result: ... }
 
 // Convert existing npa result
@@ -40,7 +41,7 @@ const gitDeps = npaResultToDepsValue(result);
 // => { name: 'repo', semver: 'github:user/repo#branch', result: ... }
 ```
 
-## API / API 文件
+## API Documentation / API 文件
 
 ### `npaToDepsValue<T>(arg: string, options?: IOptions): IDepsResult<T>`
 
@@ -51,8 +52,9 @@ Parse a package argument string and convert to dependency value.
 - `arg` - The package argument string to parse / 要解析的套件參數字串
 - `options` - Parsing and conversion options / 解析和轉換選項
   - `where` - Base directory for resolving relative paths / 解析相對路徑的基礎目錄
-  - `preserveTag` - Preserve tag instead of converting to ^ / 保留標籤而不是轉換為 ^
-  - `preserveRange` - Preserve original range instead of normalizing / 保留原始範圍而不是正規化
+
+> **注意 / Note:** 此函式目前僅會使用 `where`；`preserveTag` 與 `preserveRange` 請改用下方的 `npaResultToDepsValue`（詳見 Configuration 章節）。
+> This function currently only uses `where`; use `npaResultToDepsValue` below for `preserveTag` / `preserveRange` (see the Configuration section).
 
 **Returns / 返回:**
 - Standardized dependency value object / 標準化的依賴值物件
@@ -66,16 +68,6 @@ Convert an npm-package-arg result to a dependency value object.
 - `result` - The npm-package-arg parsing result / npm-package-arg 解析結果
 - `options` - Conversion options / 轉換選項
 
-### `IOptions` Interface
-
-```typescript
-interface IOptions {
-  where?: string;           // Base directory for resolving relative paths
-  preserveTag?: boolean;    // Preserve tag instead of converting to ^
-  preserveRange?: boolean;  // Preserve original range
-}
-```
-
 ### `IDepsResult<T>` Interface
 
 ```typescript
@@ -87,6 +79,28 @@ interface IDepsResult<T> {
   result: T;            // Original npm-package-arg result / 原始結果
 }
 ```
+
+## Configuration / 設定
+
+`npaToDepsValue` 與 `npaResultToDepsValue` 皆接受同一組選項物件 (Options)，用來控制解析與轉換的行為。
+Both `npaToDepsValue` and `npaResultToDepsValue` accept the same options object to control parsing and conversion behavior.
+
+> **注意 / Note:** `npaToDepsValue` 目前只會使用 `where`（傳給 npa 解析），`preserveTag` 與 `preserveRange` 需直接呼叫 `npaResultToDepsValue` 才會生效。
+> `npaToDepsValue` currently only uses `where` (passed to npa parsing); call `npaResultToDepsValue` directly to apply `preserveTag` / `preserveRange`.
+
+### `IOptions` Interface
+
+```typescript
+interface IOptions {
+  where?: string;           // Base directory for resolving relative paths / 解析相對路徑的基礎目錄
+  preserveTag?: boolean;    // Preserve tag instead of converting to ^ / 保留標籤而不是轉換為 ^
+  preserveRange?: boolean;  // Preserve original range / 保留原始範圍
+}
+```
+
+- `where` - Base directory for resolving relative paths / 解析相對路徑的基礎目錄
+- `preserveTag` - Preserve tag instead of converting to ^ / 保留標籤而不是轉換為 ^
+- `preserveRange` - Preserve original range instead of normalizing / 保留原始範圍而不是正規化
 
 ## Examples / 範例
 
@@ -106,9 +120,9 @@ npaResultToDepsValue(result);
 npaToDepsValue('lodash@latest');
 // => { name: 'lodash', operator: '^', fetchQuery: true, ... }
 
-// Preserve tag
-// 保留標籤
-npaToDepsValue('lodash@latest', { preserveTag: true });
+// Preserve tag - pass options to npaResultToDepsValue
+// 保留標籤 - 選項傳給 npaResultToDepsValue
+npaResultToDepsValue(npa('lodash@latest'), { preserveTag: true });
 // => { name: 'lodash', semver: 'latest', ... }
 ```
 
@@ -133,6 +147,7 @@ npaToDepsValue('lodash@4.17.21');
 
 - [@yarn-tool/npm-package-arg-util](../npm-package-arg-util) - npm-package-arg utilities
 - [@yarn-tool/normalize-deps-value](../normalize-deps-value) - Normalize dependency values
+- [npm-package-arg 特殊輸入狀況說明](../../../docs/npm-package-arg-special-cases.md) - Special input cases (empty string, space, `*`) and how they are detected / npm-package-arg 特殊輸入（空字串、空格、`*`）的行為與偵測方式
 
 ## License / 授權
 

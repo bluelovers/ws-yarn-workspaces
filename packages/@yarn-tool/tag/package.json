@@ -2,7 +2,19 @@
   "name": "@yarn-tool/tag",
   "version": "3.0.13",
   "description": "git tag a package",
-  "keywords": [],
+  "keywords": [
+    "git-tag",
+    "tag",
+    "git",
+    "package-tag",
+    "release-tag",
+    "cli",
+    "yargs",
+    "yarn",
+    "yarn-tool",
+    "monorepo",
+    "workspaces"
+  ],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/tag#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"

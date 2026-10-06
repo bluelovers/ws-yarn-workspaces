@@ -1,8 +1,13 @@
 {
   "name": "@yarn-tool/env-path",
   "version": "2.0.15",
-  "description": "",
+  "description": "read/write PATH-like environment variables from process.env or any record-like env object",
   "keywords": [
+    "env-path",
+    "environment-variables",
+    "process-env",
+    "PATH",
+    "env",
     "yarn",
     "yarn-tool",
     "npm",

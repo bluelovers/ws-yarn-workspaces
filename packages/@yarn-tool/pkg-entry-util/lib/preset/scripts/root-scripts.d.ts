@@ -54,6 +54,7 @@ export declare function defaultRootScripts(): {
     "install:resetLockfile": string;
     "install:frozenLockfile": string;
     "ws:fix-all": string;
+    "ws:fix-all:addStaticFiles": string;
     "ws:fix-all:resetStaticFiles": string;
     test: string;
     coverage: string;

@@ -3,6 +3,8 @@
 Normalize dependency values to standardized semver format.
 將依賴值正規化為標準化的 semver 格式。
 
+目前版本：`2.0.9`
+
 ## Features / 功能特點
 
 - Handles edge cases like empty inputs, spaces, and star wildcards / 處理空輸入、空格和星號萬用字元等邊緣情況
@@ -59,6 +61,16 @@ Converts an npm-package-arg result to a dependency value string.
 
 Parses a value string into an npm-package-arg result using multiple strategies.
 使用多種策略將值字串解析為 npm-package-arg 結果。
+
+## Configuration / 設定
+
+本套件不需任何設定 (No configuration)，匯入後即可直接使用：
+
+- 所有函式皆為純函式 (Pure function)，不讀取檔案系統、環境變數或設定檔。
+- 內部使用的虛假套件名稱 (Fake Package Name) `@fake/fake` 為固定常數，
+  僅用於解析純 semver 字串（例如 `^4.0.0`），不影響回傳值。
+- 回傳值只會是 `*`（任意版本）或標準的 semver range 字串，
+  因此不需要設定預設版本或替代策略。
 
 ## Related / 相關專案
 

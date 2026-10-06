@@ -55,7 +55,22 @@ const compare_1 = require("./compare");
 function parseVersions(versionOld, versionNew) {
     const partsNew = (0, _core_1.versionToParts)(versionNew);
     const partsOld = (0, _core_1.versionToParts)(versionOld);
+    /**
+     * 找出第一個不相同的段落索引；findIndex 回傳 -1 表示兩者完全相同，
+     * 此處以 `as any` 暫時窄化，實際語意在下一行才決定。
+     * Find the index of the first differing segment; findIndex returns -1 when
+     * the versions are identical, so the `as any` cast defers the real typing
+     * decision to the next line.
+     */
     let index = partsNew.findIndex((part, i) => part !== partsOld[i]);
+    /**
+     * 完全相同時以 partsNew.length 當作索引（慣例上為 3），
+     * 讓呼叫端可用「index 是否超出段落範圍」判斷「無差異」，
+     * 而不必另行比較兩個版本字串。
+     * When identical, use partsNew.length (conventionally 3) as the index, so
+     * callers can detect "no difference" via an out-of-range index instead of
+     * comparing the version strings again.
+     */
     index = index >= 0 ? index : partsNew.length;
     return {
         versionOld,
@@ -95,6 +110,13 @@ function parseVersions(versionOld, versionNew) {
  */
 function parseVersionsAndCompare(versionOld, versionNew, optionsOrLoose) {
     const data = parseVersions(versionOld, versionNew);
+    /**
+     * 只比較差異那一段即可代表整體方向，且即使該段不是合法 semver，
+     * tryCompare 也只會回傳 undefined 而不會中斷呼叫。
+     * Comparing only the differing segment represents the overall direction,
+     * and even when that segment is not valid semver, tryCompare merely
+     * returns undefined instead of interrupting the caller.
+     */
     let comp = (0, compare_1.tryCompare)(data.partsOld[data.index], data.partsNew[data.index], optionsOrLoose);
     return {
         ...data,

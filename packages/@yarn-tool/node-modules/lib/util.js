@@ -18,8 +18,15 @@ const upath2_1 = require("upath2");
  * @returns 完整的 node_modules 目錄路徑 / Complete node_modules directory path
  */
 function getModulesDir(cwd, dir) {
-    // 若未提供 dir 參數，則使用預設的 'node_modules'
-    // If dir parameter is not provided, use the default 'node_modules'
+    /**
+     * 若未提供 dir 參數，則使用預設的 'node_modules'
+     * If dir parameter is not provided, use the default 'node_modules'
+     *
+     * 透過 upath2 的 join 取得路徑，會一併正規化為正斜線 '/',
+     * 與本套件其他回傳的路徑格式保持一致。
+     * Joining through upath2 normalizes the path to forward slashes '/',
+     * keeping it consistent with the paths returned elsewhere in this package.
+     */
     return (0, upath2_1.join)(cwd, dir !== null && dir !== void 0 ? dir : 'node_modules');
 }
 //# sourceMappingURL=util.js.map

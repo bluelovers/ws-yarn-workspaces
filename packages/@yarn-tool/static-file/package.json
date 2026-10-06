@@ -1,7 +1,21 @@
 {
   "name": "@yarn-tool/static-file",
   "version": "3.0.19",
-  "description": "",
+  "description": "用於將靜態設定檔案 (static configuration files) 複製到 yarn 工作區專案的工具 / A utility for copying static configuration files to yarn workspace projects",
+  "keywords": [
+    "static-file",
+    "static-files",
+    "static-templates",
+    "copy-static-files",
+    "config-files",
+    "template",
+    "templates",
+    "yarn-workspace",
+    "workspace",
+    "gitignore",
+    "npmignore",
+    "tsconfig"
+  ],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/static-file#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"

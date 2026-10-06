@@ -119,7 +119,26 @@ exports.reSemverWithRangeAndWildcards = /^(?:((?:(?:~?[<>]?)|\^?)=?)\s*)?(v)?([0
  */
 // export const reSemverRange = /\s*((\|\||\-)|(((?:(?:~?[<>]?)|\^?)=?)\s*(v)?([0-9]+)(\.(x|\*|[0-9]+))?(\.(x|\*|[0-9]+))?(([\-+])([a-zA-Z0-9\.-]+))?))\s*/g;
 exports.reSemverRange = /\s*((\|\||\-)|(((?:(?:~?[<>]?)|\^?)=?)\s*(v)?([0-9]+)(\.(x|\*|[0-9]+))?(\.(x|\*|[0-9]+))?(-([a-zA-Z0-9\.-]+))?(\+([a-zA-Z0-9\.-]+))?))\s*/g;
+/**
+ * 純運算子正規表達式
+ * Pure operator regular expression
+ *
+ * 僅用來判斷整段字串是否就是一個運算子（如 `parse('||')` 這類輸入），
+ * 不允許後接版本號，因此以 $ 錨定結尾。
+ * Used to decide whether the whole string is nothing but an operator (e.g. the
+ * `parse('||')` input); it forbids a trailing version, hence the `$` anchor.
+ */
 exports.reOperator = /^((?:(?:~?[<>]?)|\^?)=?)$/;
+/**
+ * 後接數字版本的運算子正規表達式
+ * Operator regular expression requiring a following numeric version
+ *
+ * 與 reOperator 的差別在於以 lookahead 要求後方緊接數字，
+ * 且刻意不錨定結尾，方便從 `>=1.2.3` 這類混合字串中截出運算子。
+ * Unlike reOperator, the lookahead demands a following digit and the pattern is
+ * deliberately unanchored, so an operator can be stripped out of mixed strings
+ * such as `>=1.2.3`.
+ */
 exports.reOperatorWithSpace = /^((?:(?:~?[<>]?)|\^?)=?)\s*(?=\d)/;
 /**
  * SimpleSemVer 物件的標準屬性鍵列表

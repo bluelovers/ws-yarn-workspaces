@@ -1,7 +1,18 @@
 {
   "name": "@yarn-tool/find-tsconfig",
   "version": "2.0.25",
-  "description": "",
+  "description": "尋找目前套件或 workspace 範圍內的 tsconfig.json，並確保結果位於專案路徑下 (Find tsconfig.json within the current package or workspace, ensuring the result stays inside the project path)",
+  "keywords": [
+    "tsconfig",
+    "find-tsconfig",
+    "tsconfig-finder",
+    "typescript",
+    "tsconfig-json",
+    "find",
+    "workspace",
+    "package-root",
+    "yarn-tool"
+  ],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/find-tsconfig#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"

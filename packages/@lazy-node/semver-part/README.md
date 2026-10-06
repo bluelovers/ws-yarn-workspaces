@@ -11,6 +11,13 @@
 
 This module provides functionality to compare parts of semver version strings (e.g., `major.minor` or `minor.patch`) without requiring complete semver strings. This is useful when dealing with partial version comparisons or version difference analysis.
 
+## 功能特色 / Features
+
+- 🔄 **版本部分比較** - 支援不完整版本字串的比較 / Support for comparing incomplete version strings
+- 📊 **版本差異分析** - 找出版本變更的位置和方向 / Find where and how versions changed
+- 🛠️ **版本部分轉換** - 將版本分割或合併為部分 / Split or merge versions into parts
+- ⚡ **輕量高效** - 基於 semver 套件的輕量封裝 / Lightweight wrapper based on semver package
+
 ## 安裝 / Installation
 
 ```bash
@@ -24,12 +31,21 @@ yarn-tool add @lazy-node/semver-part
 npm install @lazy-node/semver-part
 ```
 
-## 功能特色 / Features
+## 使用方式 / Usage
 
-- 🔄 **版本部分比較** - 支援不完整版本字串的比較 / Support for comparing incomplete version strings
-- 📊 **版本差異分析** - 找出版本變更的位置和方向 / Find where and how versions changed
-- 🛠️ **版本部分轉換** - 將版本分割或合併為部分 / Split or merge versions into parts
-- ⚡ **輕量高效** - 基於 semver 套件的輕量封裝 / Lightweight wrapper based on semver package
+```typescript
+import { compare, eq, gt, parseVersions } from '@lazy-node/semver-part';
+
+// 比較不完整的版本部分（自動補全）/ Compare incomplete version parts (auto-padded)
+compare('1.2', '1.3'); // -1
+eq('1.2', '1.2'); // true
+gt('1.3', '1.2'); // true
+
+// 找出版本差異發生的位置 / Find where the version difference occurs
+parseVersions('1.2.3', '1.3.0').index; // 1 (minor 不同 / minor differs)
+```
+
+更多範例請參閱 [使用案例 / Use Cases](#使用案例--use-cases) 與下方 API 文件。
 
 ## API 文件 / API Documentation
 
@@ -254,6 +270,20 @@ _part('2.3', '3.4'); // ['0.2.3', '0.3.4']
 _part('5', '10'); // ['0.0.5', '0.0.10']
 ```
 
+## 組態設定 / Configuration
+
+此套件沒有設定檔 (Config File)，所有選項皆透過函數參數傳遞。所有比較函數都接受第三個參數 `optionsOrLoose`：
+
+This package has no config file; all options are passed as function arguments. Every comparison function accepts a third parameter `optionsOrLoose`:
+
+```typescript
+// 寬鬆模式 (Loose Mode)：以布林值啟用 / Enable loose mode with a boolean
+compare('1.2.3', '1.3.0', true);
+
+// 或傳入 semver 的 Options 物件 / Or pass a semver `Options` object
+compare('1.2.3', '1.3.0', { includePrerelease: true });
+```
+
 ## 使用案例 / Use Cases
 
 ### 1. 版本升級偵測 / Version Upgrade Detection
@@ -309,6 +339,10 @@ versions.forEach((v, i) => {
 - [`@lazy-node/semver-parse`](../semver-parse) - semver 解析工具 / Semver parsing utilities
 - [`@lazy-node/semver-ampersand`](../semver-ampersand) - 支援 ampersand 的 semver 範圍處理 / Semver range handling with ampersand support
 - [`semver`](https://www.npmjs.com/package/semver) - 語義化版本處理 / Semantic versioning
+
+### 延伸閱讀 / Further Reading
+
+- [docs/semver-packages.md](../../../docs/semver-packages.md) - `@lazy-node/semver-*` 系列套件總覽 / Overview of the `@lazy-node/semver-*` package series
 
 ## 授權 / License
 

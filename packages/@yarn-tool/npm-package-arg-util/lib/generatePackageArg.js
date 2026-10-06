@@ -57,8 +57,13 @@ exports._allowedResultType = _allowedResultType;
  */
 function generatePackageArg(input, includeVersion) {
     var _a;
-    // Include version if requested and semver is present
-    // 如果請求且存在 semver 則包含版本
+    /**
+     * 只有在明確要求且 semver 非空時才附加版本，
+     * 避免輸出 "lodash@" 這種結尾多出 @ 的無效參數
+     *
+     * Append the version only when explicitly requested and `semver` is non-empty, so the output
+     * never becomes an invalid argument like "lodash@" with a trailing @
+     */
     if (includeVersion && ((_a = input.semver) === null || _a === void 0 ? void 0 : _a.length) > 0) {
         return input.name + '@' + input.semver;
     }

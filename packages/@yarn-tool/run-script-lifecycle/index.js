@@ -68,34 +68,60 @@ const read_package_json_fast_1 = tslib_1.__importDefault(require("read-package-j
  * @throws {IError} 當腳本執行失敗時拋出錯誤 (Throws error when script execution fails)
  */
 async function runLifecycleScript(options) {
-    // 建立 package.json 的完整路徑
-    // Build full path to package.json
+    /**
+     * 建立 package.json 的完整路徑。
+     *
+     * Build the full path to package.json.
+     */
     const pkg_path = (0, path_1.join)(options.path, 'package.json');
     console.log('pathExistsSync', pkg_path, (0, fs_extra_1.pathExistsSync)(pkg_path));
-    // 檢查 package.json 是否存在
-    // Check if package.json exists
+    /**
+     * 檢查 package.json 是否存在；不存在時無法取得 scripts，改走下方的直跑分支。
+     *
+     * Check whether package.json exists; without it there is no scripts section,
+     * so the direct-run branch below is taken instead.
+     */
     if ((0, fs_extra_1.pathExistsSync)(pkg_path)) {
-        // 讀取並解析 package.json
-        // Read and parse package.json
+        /**
+         * 讀取並解析 package.json，取得 scripts 後才決定要執行哪些鉤子。
+         *
+         * Read and parse package.json; the scripts section decides which hooks run.
+         */
         return (0, read_package_json_fast_1.default)(pkg_path)
             .then(async (pkg) => {
             var _a, _b;
-            // 取得生命週期配置，包含前置和後置腳本列表
-            // Get lifecycle configuration, including pre and post script lists
+            /**
+             * 取得生命週期配置，包含前置和後置腳本列表。
+             *
+             * Get the lifecycle configuration, including the pre/post script lists.
+             */
             let lifecycle = (0, script_lifecycle_1.getLifecycle)(options.event);
-            // 準備執行選項，用於前置和後置腳本
-            // Prepare execution options for pre and post scripts
+            /**
+             * 準備執行選項：刻意清空 args 與 event，
+             * 因為前置/後置腳本各自的 event 由 eventList 逐一覆蓋。
+             *
+             * Prepare execution options: args and event are intentionally cleared
+             * because each pre/post script overrides event from eventList one by one.
+             */
             let tmpOptions = (0, util_1._options)({
                 ...options,
                 args: [],
                 event: void 0,
                 pkg,
             });
-            // 儲存所有執行結果的陣列
-            // Array to store all execution results
+            /**
+             * 儲存所有執行結果的陣列，依 pre → main → post 順序累積。
+             *
+             * Array accumulating every execution result in pre → main → post order.
+             */
             const resultList = [];
-            // 執行前置腳本 (如 preinstall)
-            // Run pre-scripts (e.g., preinstall)
+            /**
+             * 執行前置腳本 (如 preinstall)；
+             * 以 ?.length 判斷是因為未知腳本可能沒有 before 清單。
+             *
+             * Run pre-scripts (e.g. preinstall); the ?.length check guards against
+             * unknown scripts that may have no `before` list at all.
+             */
             if ((_a = lifecycle.before) === null || _a === void 0 ? void 0 : _a.length) {
                 const results = await (0, util_1.runLifecycleScriptList)({
                     eventList: lifecycle.before,
@@ -107,15 +133,25 @@ async function runLifecycleScript(options) {
                 //					})
                 resultList.push(...results);
             }
-            // 執行主要腳本 (如 install)
-            // Run main script (e.g., install)
+            /**
+             * 執行主要腳本 (如 install)；直接使用原始 options，
+             * 讓 runScriptPkg 依 pkg.scripts 找到對應腳本。
+             *
+             * Run the main script (e.g. install); the original options are passed
+             * through so runScriptPkg can resolve it from pkg.scripts.
+             */
             const result = await (0, util_1.runLifecycleScriptCore)({
                 ...options,
                 pkg,
             }, run_script_pkg_1.default);
             resultList.push(result);
-            // 執行後置腳本 (如 postinstall)
-            // Run post-scripts (e.g., postinstall)
+            /**
+             * 執行後置腳本 (如 postinstall)；
+             * 與前置腳本分開判斷，因為兩者可能只存在其中一邊。
+             *
+             * Run post-scripts (e.g. postinstall); checked separately from the
+             * pre-scripts because only one of the two lists may exist.
+             */
             if ((_b = lifecycle.after) === null || _b === void 0 ? void 0 : _b.length) {
                 const results = await (0, util_1.runLifecycleScriptList)({
                     eventList: lifecycle.after,
@@ -127,17 +163,29 @@ async function runLifecycleScript(options) {
                 //					})
                 resultList.push(...results);
             }
-            // 返回所有執行結果
-            // Return all execution results
+            /**
+             * 返回所有執行結果。
+             *
+             * Return all execution results.
+             */
             return resultList;
         });
     }
-    // 如果 package.json 不存在，直接執行腳本
-    // If package.json doesn't exist, execute script directly
+    /**
+     * 如果 package.json 不存在，直接執行腳本；
+     * 回傳值包成單元素陣列，讓兩條分支的回傳型別一致。
+     *
+     * If package.json does not exist, run the script directly; the result is wrapped
+     * in a single-element array so both branches share the same return type.
+     */
     return (0, util_1.runLifecycleScriptCore)(options)
         .then(result => [result]);
 }
-// 匯出預設函數
-// Export default function
+/**
+ * 匯出預設函數，讓使用者可直接 `import runLifecycleScript from ...`。
+ *
+ * Export the default function so consumers can
+ * `import runLifecycleScript from ...` directly.
+ */
 exports.default = runLifecycleScript;
 //# sourceMappingURL=index.js.map

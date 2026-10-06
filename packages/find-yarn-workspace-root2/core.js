@@ -46,55 +46,90 @@ const micromatch_1 = tslib_1.__importDefault(require("micromatch"));
  * const root = findWorkspaceRoot('/path/to/project');
  */
 function findWorkspaceRoot(initial) {
-    // 若未提供起始目錄，使用當前工作目錄
-    // Use current working directory if no initial path provided
+    /**
+     * 若未提供起始目錄，使用當前工作目錄
+     * Use current working directory if no initial path provided
+     */
     if (!initial) {
         initial = process.cwd();
     }
-    // 使用 pkg-dir 找出最近的 package.json 所在目錄
-    // Use pkg-dir to find the nearest directory containing package.json
+    /**
+     * 使用 pkg-dir 找出最近的 package.json 所在目錄
+     * Use pkg-dir to find the nearest directory containing package.json
+     */
     let _pkg = pkg_dir_1.default.sync(initial);
-    // 若找不到 package.json，返回 null
-    // Return null if no package.json found
+    /**
+     * 找不到 package.json 表示不在任何 npm 套件內，此時無從判斷 workspace，返回 null
+     * Return null if no package.json found, meaning there is no package to evaluate a workspace from
+     */
     if (!_pkg) {
         return null;
     }
-    // 標準化路徑格式
-    // Normalize path format
+    /**
+     * 標準化路徑格式，避免因分隔符或大小寫差異導致後續相對路徑 glob 匹配失敗
+     * Normalize path format to prevent relative path glob mismatch caused by separator or case differences
+     */
     initial = (0, upath2_1.normalize)(_pkg);
-    // 用於追蹤上一個檢查的目錄，防止無限迴圈
-    // Track previous directory to prevent infinite loops
+    /**
+     * 用於追蹤上一個檢查的目錄，防止無限迴圈
+     * Track previous directory to prevent infinite loops
+     */
     let previous = null;
-    // 當前正在檢查的目錄
-    // Current directory being examined
+    /**
+     * 當前正在檢查的目錄
+     * Current directory being examined
+     */
     let current = initial;
-    // 向上遍歷目錄樹，尋找 workspace 根目錄
-    // Traverse up the directory tree to find workspace root
+    /**
+     * 向上遍歷目錄樹，尋找 workspace 根目錄
+     * Traverse up the directory tree to find workspace root
+     *
+     * 每次迭代會讀取當前目錄的 package.json 與 workspaces 配置，並交由 checkWorkspaces 判定；
+     * 讀取結果亦作為日後除錯時的中繼狀態，實際判定以 checkWorkspaces 的回傳值為準。
+     * Each iteration reads the current directory's package.json and workspaces configuration, then defers
+     * the verdict to checkWorkspaces; the read result is intermediate state, the returned value is authoritative.
+     */
     do {
-        // 讀取當前目錄的 package.json
-        // Read package.json from current directory
+        /**
+         * 讀取當前目錄的 package.json
+         * Read package.json from current directory
+         */
         const manifest = readPackageJSON(current);
-        // 提取 workspaces 配置
-        // Extract workspaces configuration
+        /**
+         * 提取 workspaces 配置
+         * Extract workspaces configuration
+         */
         const workspaces = extractWorkspaces(manifest);
-        // 檢查當前目錄是否符合 workspace 條件
-        // Check if current directory matches workspace conditions
+        /**
+         * 檢查當前目錄是否符合 workspace 條件
+         * Check if current directory matches workspace conditions
+         */
         let { done, found } = checkWorkspaces(current, initial);
-        // 若檢查完成，返回結果
-        // Return result if check is complete
+        /**
+         * 若檢查完成（已找到帶 workspaces 配置的目錄），立即返回結果，
+         * 包含「找到根目錄」與「路徑不符合模式」兩種情況
+         * Return immediately once the check is done (a directory with workspaces config was reached),
+         * covering both "root found" and "path does not match the pattern" outcomes
+         */
         if (done) {
             return found;
         }
-        // 更新追蹤變數，移動到上層目錄
-        // Update tracking variables, move to parent directory
+        /**
+         * 更新追蹤變數，移動到上層目錄繼續查找
+         * Update tracking variables, move to parent directory to continue the search
+         */
         previous = current;
         current = (0, upath2_1.dirname)(current);
     } 
-    // 當 current 等於 previous 時表示已到達根目錄
-    // When current equals previous, we've reached the root directory
+    /**
+     * 當 current 等於 previous 時表示已到達根目錄，終止迴圈以免在根目錄無限迴圈
+     * When current equals previous we've reached the root directory; stop to avoid looping forever at the root
+     */
     while (current !== previous);
-    // 未找到 workspace 根目錄
-    // No workspace root found
+    /**
+     * 已到達根目錄仍未找到 workspace 根目錄
+     * Reached the root directory without finding a workspace root
+     */
     return null;
 }
 /**
@@ -114,34 +149,54 @@ function findWorkspaceRoot(initial) {
  * @returns {string} returns.relativePath - 從 current 到 initial 的相對路徑 / Relative path from current to initial
  */
 function checkWorkspaces(current, initial) {
-    // 讀取當前目錄的 package.json
-    // Read package.json from current directory
+    /**
+     * 讀取當前目錄的 package.json
+     * Read package.json from current directory
+     */
     const manifest = readPackageJSON(current);
-    // 提取 workspaces 配置
-    // Extract workspaces configuration
+    /**
+     * 提取 workspaces 配置
+     * Extract workspaces configuration
+     */
     const workspaces = extractWorkspaces(manifest);
-    // 檢查結果的狀態變數
-    // Status variables for check result
+    /**
+     * 檢查結果的狀態變數：done 表示是否已完成判定，found 為找到的根目錄
+     * Status variables: done indicates the verdict is final, found holds the located root
+     */
     let done = false;
     let found;
     let relativePath;
-    // 若存在 workspaces 配置，進行進一步檢查
-    // If workspaces configuration exists, perform further checks
+    /**
+     * 若存在 workspaces 配置，進行進一步檢查；
+     * 找到配置即代表檢查結束（done = true），不再往上層目錄查找
+     * If a workspaces configuration exists, perform further checks;
+     * reaching a configured directory ends the search (done = true), no further ancestors are inspected
+     */
     if (workspaces) {
-        // 標記檢查完成
-        // Mark check as complete
+        /**
+         * 標記檢查完成
+         * Mark check as complete
+         */
         done = true;
-        // 計算從當前目錄到起始目錄的相對路徑
-        // Calculate relative path from current directory to initial directory
+        /**
+         * 計算從當前目錄到起始目錄的相對路徑，作為 glob 匹配的輸入
+         * Calculate relative path from current directory to initial directory, used as input for glob matching
+         */
         relativePath = (0, upath2_1.relative)(current, initial);
-        // 若相對路徑為空（同一目錄）或符合 workspaces 模式，則找到根目錄
-        // If relative path is empty (same directory) or matches workspaces pattern, root is found
+        /**
+         * 相對路徑為空表示起始目錄就是根目錄本身，此時不需匹配直接成立；
+         * 否則需符合 workspaces 的 glob 模式才算找到根目錄
+         * An empty relative path means the initial directory is the root itself and matches without globbing;
+         * otherwise the path must match a workspaces glob pattern to count as the root
+         */
         if (relativePath === '' || isMatchWorkspaces(relativePath, workspaces)) {
             found = current;
         }
         else {
-            // 路徑不符合 workspaces 模式
-            // Path does not match workspaces pattern
+            /**
+             * 路徑不符合 workspaces 模式，表示此配置屬於其他 workspace 分支
+             * Path does not match workspaces pattern, meaning this configuration belongs to another workspace branch
+             */
             found = null;
         }
     }
@@ -169,19 +224,34 @@ function checkWorkspaces(current, initial) {
  * isMatchWorkspaces('src/utils', ['packages/*']); // false
  */
 function isMatchWorkspaces(relativePath, workspaces) {
-    // 使用 micromatch 進行 glob 模式匹配
-    // Use micromatch for glob pattern matching
+    /**
+     * 使用 micromatch 進行 glob 模式匹配，將單一路徑視為候選字串比對所有模式
+     * Use micromatch for glob pattern matching, treating the single path as the candidate against all patterns
+     */
     let ls = (0, micromatch_1.default)([relativePath], workspaces);
-    // 若匹配結果不為空，表示路徑符合 workspaces 模式
-    // If match result is not empty, path matches workspaces pattern
+    /**
+     * 匹配結果非空即表示路徑符合 workspaces 模式；
+     * micromatch 找不到符合項時回傳空陣列，故以此作為 false 的判定
+     * A non-empty match result means the path matches a workspaces pattern;
+     * micromatch returns an empty array when nothing matches, which serves as the false case
+     */
     return ls.length > 0;
 }
 function extractWorkspaces(manifest) {
-    // 從 manifest 中取得 workspaces 屬性
-    // Get workspaces property from manifest
+    /**
+     * 從 manifest 中取得 workspaces 屬性
+     * Get workspaces property from manifest
+     *
+     * 以 `(manifest || {})` 防禦 manifest 為 null/undefined 的情況（例如 package.json 不存在）
+     * Guards against a null/undefined manifest (e.g. missing package.json) via `(manifest || {})`
+     */
     const workspaces = (manifest || {}).workspaces;
-    // 優先返回物件格式的 packages 屬性，否則返回陣列格式，皆無則返回 null
-    // Return packages property from object format first, otherwise return array format, or null if neither
+    /**
+     * 優先返回物件格式的 packages 屬性，否則返回陣列格式，皆無則返回 null
+     * 物件格式若不含 packages，會被視為無效配置而退回 null
+     * Return packages property from object format first, otherwise return array format, or null if neither
+     * An object-format entry without a `packages` field is treated as invalid and falls back to null
+     */
     return (workspaces && workspaces.packages) || (Array.isArray(workspaces) ? workspaces : null);
 }
 /**
@@ -202,20 +272,30 @@ function extractWorkspaces(manifest) {
  * console.log(manifest?.name); // 套件名稱 / Package name
  */
 function readPackageJSON(dir) {
-    // 組合 package.json 的完整路徑
-    // Construct full path to package.json
+    /**
+     * 組合 package.json 的完整路徑
+     * Construct full path to package.json
+     */
     const file = (0, upath2_1.join)(dir, 'package.json');
-    // 檢查檔案是否存在，若存在則讀取並解析
-    // Check if file exists, read and parse if it does
+    /**
+     * 先檢查檔案是否存在再讀取，避免不存在時 readFileSync 拋出 ENOENT 例外中斷向上查找
+     * Check existence before reading, so a missing file does not throw ENOENT and abort the upward search
+     */
     if ((0, fs_1.existsSync)(file)) {
         return JSON.parse((0, fs_1.readFileSync)(file, 'utf8'));
     }
-    // 檔案不存在時返回 null
-    // Return null when file doesn't exist
+    /**
+     * 檔案不存在時返回 null
+     * Return null when file doesn't exist
+     */
     return null;
 }
-// 將輔助函數附加到 findWorkspaceRoot 作為靜態屬性
-// Attach helper functions to findWorkspaceRoot as static properties
+/**
+ * 將輔助函數附加到 findWorkspaceRoot 作為靜態屬性，
+ * 使 CommonJS 使用者只取得預設函式也能存取其餘 API
+ * Attach helper functions to findWorkspaceRoot as static properties,
+ * so CommonJS consumers holding only the default function can still reach the rest of the API
+ */
 findWorkspaceRoot.findWorkspaceRoot = findWorkspaceRoot;
 findWorkspaceRoot.readPackageJSON = readPackageJSON;
 findWorkspaceRoot.extractWorkspaces = extractWorkspaces;

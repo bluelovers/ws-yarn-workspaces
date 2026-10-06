@@ -32,5 +32,17 @@ import { IOptionsQueryVersion } from './types';
  * ```
  */
 export declare function queryVersionWithCache(name: string, targetVersion?: string, options?: IOptionsQueryVersion<Options>): Bluebird<string>;
+/**
+ * 查詢版本的核心流程：registry 查詢 → 失敗時正規化版本重試 → 結果回寫快取。
+ *
+ * Core query flow: registry lookup → normalise the version and retry on failure →
+ * write the outcome back to the cache.
+ *
+ * @param name 套件名稱 / Package name
+ * @param targetVersion 目標版本或範圍，預設 latest / Target version or range, defaults to latest
+ * @param save 是否將結果寫回快取；正規化後的遞迴重試傳 false / Whether to write the outcome back to the cache; pass false for the normalised retry
+ * @param options 查詢與快取選項 / Query and cache options
+ * @returns 解析出的版本字串 / The resolved version string
+ */
 export declare function queryVersion(name: string, targetVersion?: string, save?: boolean, options?: IOptionsQueryVersion<Options>): Bluebird<string>;
 export default queryVersionWithCache;

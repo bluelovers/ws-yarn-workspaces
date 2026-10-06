@@ -23,24 +23,34 @@ Object.defineProperty(exports, "findPkgModulePath", { enumerable: true, get: fun
 const findYarnCachePath_1 = require("./lib/finder/findYarnCachePath");
 Object.defineProperty(exports, "findYarnCachePath", { enumerable: true, get: function () { return findYarnCachePath_1.findYarnCachePath; } });
 const getCachePath_1 = require("./lib/getCachePath");
-// 匯出主要的快取路徑取得函數
-// Export main cache path getter functions
+/**
+ * 匯出主要的快取路徑取得函數（同步與非同步）
+ * Export main cache path getter functions (sync and async)
+ */
 var getCachePath_2 = require("./lib/getCachePath");
 Object.defineProperty(exports, "getCachePath", { enumerable: true, get: function () { return getCachePath_2.getCachePath; } });
 Object.defineProperty(exports, "getCachePathAsync", { enumerable: true, get: function () { return getCachePath_2.getCachePathAsync; } });
-// 匯出快取根目錄取得函數
-// Export cache root directory getter functions
+/**
+ * 匯出快取根目錄取得函數（同步與非同步）
+ * Export cache root directory getter functions (sync and async)
+ */
 var getCacheRoot_1 = require("./lib/getCacheRoot");
 Object.defineProperty(exports, "getCacheRoot", { enumerable: true, get: function () { return getCacheRoot_1.getCacheRoot; } });
 Object.defineProperty(exports, "getCacheRootAsync", { enumerable: true, get: function () { return getCacheRoot_1.getCacheRootAsync; } });
-// 匯出名稱正規化函數
-// Export name normalization function
+/**
+ * 匯出名稱正規化函數，用於將套件名稱轉為檔案系統安全的目錄名
+ * Export name normalization function, used to turn a package name into a file-system-safe directory name
+ */
 var normalizeName_1 = require("./lib/normalizeName");
 Object.defineProperty(exports, "normalizeName", { enumerable: true, get: function () { return normalizeName_1.normalizeName; } });
-// 匯出所有類型定義
-// Export all type definitions
+/**
+ * 匯出所有型別定義（IOptions、ICachePathThunk 等）
+ * Export all type definitions (IOptions, ICachePathThunk, etc.)
+ */
 tslib_1.__exportStar(require("./lib/types"), exports);
-// 預設匯出 getCachePath 函數
-// Default export getCachePath function
+/**
+ * 預設匯出 getCachePath，讓 `import getCachePath from 'cache-path'` 可直接使用
+ * Default export getCachePath so `import getCachePath from 'cache-path'` works directly
+ */
 exports.default = getCachePath_1.getCachePath;
 //# sourceMappingURL=index.js.map

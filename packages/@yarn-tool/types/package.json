@@ -1,8 +1,11 @@
 {
   "name": "@yarn-tool/types",
   "version": "1.0.21",
-  "description": "typescript types for share use",
+  "description": "Shared TypeScript types for use across yarn-tool packages",
   "keywords": [
+    "types",
+    "typescript",
+    "yargs",
     "yarn",
     "yarn-tool",
     "npm",

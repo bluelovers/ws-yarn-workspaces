@@ -119,7 +119,7 @@ yarn-tool ncu --filter "typescript" --dep dev
    - Updates root resolutions if needed
    - 在需要時更新根套件的 resolutions
 
-## API Reference / API 參考
+## API Documentation / API 文件
 
 ### `_handleNcuArgvAuto(argv, runtimeInput, isWorkspace?, includeRoot?)`
 
@@ -157,6 +157,52 @@ Type for parsed command line arguments. Extends the base ncu options with worksp
 | `dedupe` | Remove duplicate dependencies from resolutions / 從 resolutions 移除重複依賴 |
 | `upgrade` | Apply updates to package.json / 將更新套用到 package.json |
 | `filter` | Filter packages by name pattern / 依名稱模式篩選套件 |
+
+## Configuration / 設定方式
+
+ncu-ws 的行為由三層設定決定：workspace 相關旗標、由 `setupNcuToYargs2` 建立的命令列選項 (CLI Options)，以及執行時期配置物件 `IRuntimeInput`。
+The behaviour of ncu-ws is controlled by three layers: the workspace flags, the CLI options built by `setupNcuToYargs2`, and the `IRuntimeInput` runtime object.
+
+### Workspace Flags / Workspace 旗標
+
+| Option | Alias | Default | Description |
+|--------|-------|---------|-------------|
+| `AA` | | `false` | 一次啟用 workspace 模式並包含根套件 / Enable workspace mode and include the root package at once |
+| `resolutions` | `-R` | `false` | 只處理 resolutions，不更新依賴 / Handle resolutions only, without updating dependencies |
+| `dedupe` | | `false` | 從 resolutions 與 yarn.lock 移除重複依賴 / Remove duplicated dependencies from resolutions and yarn.lock |
+| `no-safe` | | `false` | 允許跳離目前版本範圍（例如 `~` 約束） / Allow leaving the current range (e.g. a `~` constraint) |
+| `upgrade` | `-u` | `false` | 將更新實際寫入 package.json 與 yarn.lock / Actually write updates into package.json and yarn.lock |
+| `filter` | | | 依名稱模式篩選要處理的套件 / Filter packages to process by name pattern |
+
+其餘通用選項（`dep`、`minimal`、`newest`、`greatest`、`semverLevel`、`removeRange`、`registry`、`silent`）由 `@yarn-tool/ncu` 提供，詳見 [ncu 的 Configuration 章節](../ncu#configuration--設定方式)。
+The remaining generic options (`dep`, `minimal`, `newest`, `greatest`, `semverLevel`, `removeRange`, `registry`, `silent`) come from `@yarn-tool/ncu`; see the [Configuration section of ncu](../ncu#configuration--設定方式).
+
+### Runtime Input / 執行時期配置
+
+`IRuntimeInput` 決定輸出方式與目前處理項目的顯示：
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `console` | `Console2` | 一般輸出用的 console / Console used for regular output |
+| `consoleDebug` | `Console2` | 除錯輸出用的 console / Console used for debug output |
+| `printRootData` | `(rootData, argv) => void` | 輸出目前處理的根目錄或套件 / Prints the root or package currently processed |
+
+未提供的欄位會在 `_handleNcuArgvAuto` 內以預設值補齊，因此可以只傳入需要的部分。
+Missing fields are filled in with defaults inside `_handleNcuArgvAuto`, so only the parts you need must be supplied.
+
+### Environment Detection / 環境偵測
+
+- 以 `@yarn-tool/find-root` 偵測專案根目錄 (Project Root)，並判斷是否具備 workspace 結構。
+  Uses `@yarn-tool/find-root` to locate the project root and to tell whether a workspace structure exists.
+- `resolutions` 預設取自目前套件；當處於 workspace 根目錄且本身不是工作區成員時，改讀根套件的 `resolutions`。
+  `resolutions` come from the current package by default; when running at the workspace root itself, the root package's `resolutions` are read instead.
+- 所有子套件處理完成後才會統一更新一次 yarn.lock，避免重複寫檔。
+  The yarn.lock is updated once after every sub-package has been processed, to avoid repeated writes.
+
+### More Documentation / 更多文件
+
+- [NCU 版本檢查工具模組](../../../docs/ncu-tools.md) — ncu / ncu-ws / pkg-version-query 的分工與檔案清單 / Module map of ncu, ncu-ws and pkg-version-query
+- [NCU 模組指南](../../../docs/ncu-modules-guide.md) — 進階用法與整合方式 / Advanced usage and integration guide
 
 ## Related Packages / 相關套件
 

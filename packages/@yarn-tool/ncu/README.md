@@ -102,7 +102,7 @@ const parser = setupNcuToYargs(yargs);
 | `--dedupe` | | Remove upgrade module from resolutions / 從 resolutions 移除升級模組 |
 | `--filter` | | Include only packages matching the given pattern / 只包含符合給定模式的套件 |
 
-## API Reference / API 參考
+## API Documentation / API 文件
 
 ### `npmCheckUpdates(cache, options)`
 
@@ -151,6 +151,37 @@ Check and update resolutions in yarn.lock.
 | `yarnlock_changed` | `boolean` | Whether yarn.lock was modified / yarn.lock 是否被修改 |
 | `yarnlock_new` | `string` | Updated yarn.lock content / 更新後的 yarn.lock 內容 |
 | `deps` | `object` | Dependency update information / 依賴更新資訊 |
+
+## Configuration / 設定方式
+
+ncu 的行為由兩層設定決定：由 `setupNcuToYargs` 建立的命令列選項 (CLI Options)，以及程式化呼叫時傳入的 `IOptionsNpmCheckUpdates`。
+The behaviour of ncu is controlled by two layers: the CLI options built by `setupNcuToYargs`, and the `IOptionsNpmCheckUpdates` object passed to programmatic calls.
+
+### Version Resolution / 版本解析策略
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `versionTarget` | `'latest' \| 'newest' \| 'greatest' \| 'major' \| 'minor'` | `latest` | Which strategy to use when resolving remote versions / 解析遠端版本時使用的策略 |
+| `semverLevel` | `'major' \| 'minor'` | | 在 major 或 minor 範圍內尋找最高版本 / Find the highest version within major or minor |
+| `noSafe` | `boolean` | `false` | 允許跳離目前版本範圍的升級，例如 `~` 約束 / Allow upgrades that leave the current range, e.g. `~` |
+| `packageManager` | `'npm' \| 'bower'` | `npm` | 要查詢的套件管理器 / Package manager to query |
+| `filter` | `string[]` | | 只處理符合模式的套件名稱 / Only process package names matching the pattern |
+| `dep` | `string` | | 只檢查特定依賴區段 (prod\|dev\|peer\|optional\|bundle) / Only check specific dependency sections |
+| `loglevel` | `'silent' \| 'verbose'` | | 輸出 verbosity，`silent` 會關閉表格輸出 / Output verbosity, `silent` disables table output |
+
+### Version Cache / 版本快取
+
+- 遠端套件中繼資料 (metadata) 與解析後的版本會暫存在記憶體 Map（`versionCacheMap`、`remoteCacheMap`），同一個 process 內重複查詢不會再次呼叫 npm registry。
+  Remote package metadata and resolved versions are kept in in-memory Maps (`versionCacheMap`, `remoteCacheMap`), so repeated queries inside one process do not hit the npm registry again.
+- 執行 `npmCheckUpdates` 後會呼叫 `getCache().fsDump()`，將 `@yarn-tool/pkg-version-query` 的 LRU 快取 (LRU cache) 寫入檔案系統，供下次執行重用。
+  After `npmCheckUpdates` runs, `getCache().fsDump()` persists the `@yarn-tool/pkg-version-query` LRU cache to the filesystem for the next run.
+- 快取鍵 (cache key) 由套件名稱、`versionTarget` 與舊版本組成，因此切換解析策略會得到各自獨立的快取。
+  The cache key is composed of the package name, `versionTarget` and the old version, so switching strategy yields an independent cache entry.
+
+### More Documentation / 更多文件
+
+- [NCU 版本檢查工具模組](../../../docs/ncu-tools.md) — 各 ncu 相關套件的分工與檔案清單 / Module map of the ncu related packages
+- [NCU 模組指南](../../../docs/ncu-modules-guide.md) — 進階用法與整合方式 / Advanced usage and integration guide
 
 ## Exported Modules / 匯出模組
 

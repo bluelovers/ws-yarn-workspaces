@@ -85,4 +85,11 @@ import { IPackageJson } from '@ts-type/package-dts/package-json';
  * ```
  */
 export declare function sortPackageJson<T extends Record<string, any> = IPackageJson>(pkg: T): T;
+/**
+ * 預設匯出（Default export）：與具名的 sortPackageJson 指向同一函式，
+ * 讓 `import sortPackageJson from 'sort-package-json3'` 與 README 範例一致。
+ *
+ * Default export pointing at the same function as the named `sortPackageJson`,
+ * so `import sortPackageJson from 'sort-package-json3'` matches the README example.
+ */
 export default sortPackageJson;

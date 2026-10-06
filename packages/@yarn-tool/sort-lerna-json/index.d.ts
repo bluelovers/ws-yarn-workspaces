@@ -124,4 +124,11 @@ export declare function sortLernaJson<T extends ILernaJson>(json: T): T;
  * ```
  */
 export declare function sortLernaJsonFile<T extends ILernaJson>(file: string): void;
+/**
+ * 預設匯出（Default export）：與具名的 sortLernaJson 指向同一函式，
+ * 讓 `import sortLernaJson from '...'` 與文件範例保持一致。
+ *
+ * Default export pointing at the same function as the named `sortLernaJson`,
+ * so `import sortLernaJson from '...'` matches the documented examples.
+ */
 export default sortLernaJson;

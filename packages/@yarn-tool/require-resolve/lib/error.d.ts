@@ -33,6 +33,11 @@ export declare function isErrorModuleNotFound<T extends Error>(error: T): error 
  * @param moduleName - 模組名稱 / Module name
  * @param basePath - 基礎搜尋路徑 / Base search path
  * @returns 模組未找到錯誤物件 / Module not found error object
+ *
+ * 手動補上 code 與 requireStack，使回傳的錯誤可被
+ * isErrorModuleNotFound 正確辨識，並與 Node 原生錯誤結構一致。
+ * code and requireStack are set manually so the error is recognized by
+ * isErrorModuleNotFound and matches Node's native error shape.
  */
 export declare function createModuleNotFoundError(moduleName: string, basePath?: string): IErrorModuleNotFound;
 export type { IErrorModuleNotFound, };

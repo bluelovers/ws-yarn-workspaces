@@ -3,6 +3,19 @@
 CLI 工具更新通知器，在適當時機提醒使用者有新版本可用  
 CLI tool update notifier that reminds users of new versions at appropriate times
 
+## Features / 功能特色
+
+- 🛡️ **Smart Skip / 智能跳過** - Automatically skips checks in CI, test or npx environments
+  - 自動於 CI、測試與 npx 環境中跳過更新檢查
+- ⏱️ **Interval Control / 間隔控制** - Configurable update check interval, default once every 7 days
+  - 可自訂更新檢查間隔 (Update Check Interval)，預設每 7 天一次
+- 🔧 **Force Check / 強制檢查** - Bypass environment restrictions when you need an immediate check
+  - 需要立即檢查時可忽略環境限制強制執行
+- 🧩 **Flexible Input / 靈活輸入** - Accepts a directory path or an array of path segments
+  - 支援傳入目錄路徑或路徑片段陣列 (Path Segments Array)
+- 🔕 **npm script Aware / npm script 感知** - Suppresses notifications inside npm scripts by default
+  - 預設不在 npm script 中顯示通知
+
 ## 安裝 / Install
 
 ```bash
@@ -50,7 +63,7 @@ updateNotifier(__dirname, false, {
 });
 ```
 
-## API
+## API Documentation / API 文件
 
 ### `updateNotifier(__dirname, force?, inputNoticeOptions?)`
 
@@ -80,7 +93,25 @@ Determine if should check for updates.
 
 **回傳值 / Returns:** `boolean` - 是否應該檢查更新 / Whether should check for updates
 
-## 檢查機制 / Check Mechanism
+### `handleOptions(__dirname, force?, inputNoticeOptions?)`
+
+正規化輸入並判斷是否該執行檢查 (Whether to run a check)。
+
+**回傳值 / Returns:** `{ __dirname, force, inputNoticeOptions, doCheck }`
+其中 `doCheck` 為 `force || !force && shouldCheckMaybe(__dirname)`，代表 `force` 為 true 時會略過所有環境限制。
+Where `doCheck` is `force || !force && shouldCheckMaybe(__dirname)`, i.e. `force: true` bypasses every environment restriction.
+
+### `notNpxMaybe`
+
+`shouldCheckMaybe` 的別名 (Alias)，已標記 `@deprecated`，請改用 `shouldCheckMaybe`。
+Marked `@deprecated`; use `shouldCheckMaybe` instead.
+
+## Configuration / 設定方式
+
+本套件的設定由三層組成：環境判斷 (Environment Detection)、預設通知選項 (Default Notification Options)，以及傳入 `update-notifier` 的其餘選項。
+Configuration consists of three layers: environment detection, the default notification options, and the remaining options forwarded to `update-notifier`.
+
+### Environment Detection / 環境偵測
 
 此模組會在以下情況下**跳過**更新檢查：
 
@@ -91,7 +122,10 @@ This module **skips** update checks in the following conditions:
 3. **測試環境 / Test Environment** - `NODE_ENV` 為 `test` / `NODE_ENV` is `test`
 4. **NPX/YPX 環境 / NPX/YPX Environment** - 透過 `@yarn-tool/is-npx` 檢測 / Detected via `@yarn-tool/is-npx`
 
-## 預設選項 / Default Options
+### Default Options / 預設選項
+
+未指定時套用以下預設值（`inputNoticeOptions` 的欄位會覆寫它們）：
+These defaults are applied unless overridden field-by-field by `inputNoticeOptions`:
 
 ```typescript
 {
@@ -99,6 +133,17 @@ This module **skips** update checks in the following conditions:
   updateCheckInterval: 1000 * 60 * 60 * 24 * 7,  // 每 7 天檢查一次 / Check every 7 days
 }
 ```
+
+### Pass-through Options / 透傳選項
+
+`inputNoticeOptions` 的型別為 `Settings & NotifyOptions`，除上述兩個欄位外，
+其餘欄位（例如通知框樣式、延遲顯示、自訂 registry 等）會原樣傳給底層的 `update-notifier`，
+詳細清單請參考 [update-notifier 文件](https://github.com/sindresorhus/update-notifier#readme)。
+`inputNoticeOptions` is typed as `Settings & NotifyOptions`; besides the two fields above,
+every other field (notification box styling, deferred display, custom registry, etc.)
+is forwarded verbatim to the underlying `update-notifier` — see the
+[update-notifier documentation](https://github.com/sindresorhus/update-notifier#readme)
+for the full list.
 
 ## 相關套件 / Related Packages
 

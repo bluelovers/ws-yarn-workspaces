@@ -3,6 +3,15 @@
 解析 Node.js 套件的根目錄與 package.json 路徑的工具庫，支援 Node.js 17 以上版本。
 A utility for resolving package root and package.json paths, compatible with Node.js 17+.
 
+## 功能特色 (Features)
+
+- `resolvePackageJsonLocation()` - 取得套件的 `package.json` 檔案路徑
+- `resolvePackageRoot()` - 取得套件根目錄 (Package root)
+- `resolvePackage()` - 一次取得根目錄、入口點、`package.json` 內容與路徑解析函式
+- `createResolveLocationFn()` - 建立相對於套件根目錄的路徑解析函式
+- `readModulePackageJson()` - 讀取模組的 `package.json` 內容
+- 相容 Node.js 17 以上版本，並重新匯出 (Re-export) `@yarn-tool/require-resolve` 的完整 API
+
 ## 安裝 (Installation)
 
 ```bash
@@ -21,7 +30,7 @@ pnpm add @yarn-tool/resolve-package
 npm install @yarn-tool/resolve-package
 ```
 
-## 使用範例 (Usage Example)
+## 使用方式 (Usage)
 
 ```typescript
 import { resolvePackageJsonLocation, resolvePackage, resolvePackageRoot } from '@yarn-tool/resolve-package'
@@ -40,7 +49,7 @@ console.dir(pkg.pkg);            // package.json 內容 / package.json content
 console.dir(pkg.resolveLocation('lib/index.js')); // 相對路徑解析 / Resolve relative path
 ```
 
-## API
+## API 文件 (API Documentation)
 
 ### `resolvePackageCore(moduleName, options?)`
 
@@ -65,6 +74,12 @@ console.dir(pkg.resolveLocation('lib/index.js')); // 相對路徑解析 / Resolv
 ### `resolvePackage(moduleName, options?)`
 
 最完整的解析函數，返回套件根目錄、入口點、package.json 內容及路徑解析函數。
+
+## 設定 (Configuration)
+
+本套件沒有設定檔 (Config file)，所有行為皆透過各函式第二個參數 `options`（`IOptionsRequireResolve`）控制，例如指定解析的起始目錄或自訂解析條件。相關選項型別與實作細節請參考來源套件 [@yarn-tool/require-resolve](../require-resolve)。
+
+其他路徑查找 (Path finding) 相關工具請參考 [路徑工具模組](../docs/find-path-tools.md)。
 
 ## License
 

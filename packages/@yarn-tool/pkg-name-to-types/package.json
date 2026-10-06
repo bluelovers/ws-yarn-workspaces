@@ -1,7 +1,14 @@
 {
   "name": "@yarn-tool/pkg-name-to-types",
   "version": "3.0.9",
-  "description": "",
+  "description": "Convert npm package names into their matching @types package names",
+  "keywords": [
+    "npm",
+    "convert",
+    "types",
+    "package-name",
+    "to-types"
+  ],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/pkg-name-to-types#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"

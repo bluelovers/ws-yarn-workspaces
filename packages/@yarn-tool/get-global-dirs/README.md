@@ -73,3 +73,42 @@ console.log(globalDirectory.pnpm.packages);
 - `prefix`: pnpm 資料目錄
 - `packages`: pnpm 全局套件目錄
 - `binaries`: pnpm 全局二進位檔目錄
+
+## 設定（Configuration）
+
+本模組沒有自身的設定檔，解析結果完全取決於執行環境中的環境變數（Environment Variables）與各套件管理器的設定檔。
+優先順序由高至低如下：
+
+### 通用
+
+| 來源 | 說明 |
+| --- | --- |
+| `npm_config_*` 環境變數 | 例如 `npm_config_prefix`，大小寫不敏感，連字號 `-` 會正規化為底線 `_`；優先度最高 |
+| `~/.npmrc` | 使用者層級的 npm 設定檔（`prefix` 等鍵值） |
+| `PREFIX` | 覆寫 npm / yarn 的全局前綴（Global Prefix） |
+| 全域 `npmrc` | Windows 為 `%APPDATA%/npm/etc/npmrc`；Homebrew 安裝則取 `$(brew --prefix)/lib/node_modules/npm/npmrc`；其餘為 `<install dir>/etc/npmrc` |
+| `npm prefix --global` 推導值 | 以上皆未設定時，由 `process.execPath` 推導預設前綴 |
+
+### npm
+
+- 無任何設定時：Windows 使用 `%APPDATA%/npm`，其餘平台使用 `dirname(dirname(process.execPath))`（例如 `/usr/local/bin/node` → `/usr/local`）。
+
+### yarn
+
+- `XDG_DATA_HOME`：設定 yarn 資料目錄（Data Directory），於 `yarn` 子目錄下解析。
+- Windows：優先使用 `%LOCALAPPDATA%/Yarn/Data`，否則退回 `~/.config/yarn`。
+- root 使用者：若 `process.getuid() === 0` 且非 fakeroot 環境，家目錄（Home Directory）採用 `/usr/local/share`。
+- yarn 的 `binaries` 由 `PREFIX`（Windows 為 `%LOCALAPPDATA%/Yarn`，否則 `DESTDIR + /usr/local`）加上 `bin` 組成。
+
+### pnpm
+
+- `PNPM_HOME`：pnpm 資料目錄，優先度最高。
+- `XDG_DATA_HOME` / `XDG_CONFIG_HOME`：分別對應資料目錄與設定檔位置。
+- `global-dir`、`global-bin-dir`：可經由 pnpm 設定檔（`rc`）或 `~/.npmrc` 指定，未設定時退回 `<pnpm data dir>/global` 與 `<pnpm data dir>`。
+- 平台預設值：
+  - macOS：`~/Library/pnpm`
+  - Linux：`~/.local/share/pnpm`
+  - Windows：`%LOCALAPPDATA%/pnpm`，否則 `~/.pnpm`
+  - 設定檔路徑：macOS 為 `~/Library/Preferences/pnpm/rc`、Windows 為 `%LOCALAPPDATA%/pnpm/config/rc`、其餘為 `~/.config/pnpm/rc`
+
+> ⚠️ 已知限制：目前未支援 pnpm 的 `config.yaml`（YAML 格式）設定檔，僅支援 `rc` 格式，詳見文首的注意事項。

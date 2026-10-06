@@ -12,6 +12,7 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.setupWorkspacesInitToYargs = setupWorkspacesInitToYargs;
+const yargs_setting_1 = require("@yarn-tool/fix-all/lib/util/yargs-setting");
 /**
  * 設定 Workspaces 初始化相關的 Yargs 選項
  * Setup Yargs options for workspaces initialization
@@ -33,7 +34,7 @@ exports.setupWorkspacesInitToYargs = setupWorkspacesInitToYargs;
  * @returns 配置後的 Yargs 實例 / Configured Yargs instance
  */
 function setupWorkspacesInitToYargs(yargs) {
-    return yargs
+    const _return = (0, yargs_setting_1.setupToYargs)(yargs)
         .default({
     //input: process.cwd(),
     })
@@ -69,6 +70,7 @@ function setupWorkspacesInitToYargs(yargs) {
         .option('debug', {
         boolean: true,
     });
+    return _return;
 }
 /**
  * 預設導出設定函式

@@ -28,7 +28,6 @@ function getTargetDir(options) {
     let targetDir;
     /** 目標套件名稱 / Target package name */
     let targetName = options.targetName || null;
-    /** 解構配置選項 / Destructure configuration options */
     let { inputName, cwd, hasWorkspace, workspacePrefix, workspacesConfig } = options;
     /**
      * 驗證工作區配置
@@ -50,7 +49,17 @@ function getTargetDir(options) {
     if (targetName) {
         (0, validate_npm_package_name_1.validateNpmPackageName)(targetName, true);
     }
-    /** 是否為作用域套件模式 / Whether it's a scoped package pattern */
+    /**
+     * 是否為作用域套件 (Scoped Package) 模式
+     * Whether it's a scoped package pattern
+     *
+     * 僅在 `inputName` 有值的分支中被賦值；無輸入名稱時保持 `undefined`，
+     * 此為刻意行為——回傳值的真假性即可代表「是否走過名稱解析」。
+     *
+     * Only assigned inside the `inputName` branch; stays `undefined` when there
+     * is no input name. This is intentional: the truthiness of the returned value
+     * already tells callers whether name resolution actually ran.
+     */
     let scopedPackagePattern;
     /**
      * 處理輸入的套件名稱
@@ -62,7 +71,16 @@ function getTargetDir(options) {
     if (inputName) {
         /** 設定目標套件名稱 / Set target package name */
         targetName = targetName || inputName;
-        /** 驗證輸入的套件名稱 / Validate input package name */
+        /**
+         * 驗證輸入的套件名稱，並將結果存入 `ret`
+         * Validate the input package name and keep the result in `ret`
+         *
+         * `ret` 除了通過驗證外，還提供後續所需的 `scopedPackagePattern`
+         * 與 `subname`，故不能只當布林檢查使用。
+         *
+         * Besides passing validation, `ret` also supplies `scopedPackagePattern`
+         * and `subname` used below, so it cannot be treated as a mere boolean check.
+         */
         let ret = (0, validate_npm_package_name_1.validateNpmPackageName)(inputName, true);
         /** 套件名稱 / Package name */
         let name = inputName;
@@ -128,6 +146,13 @@ function getTargetDir(options) {
     /**
      * 無輸入名稱時使用當前目錄
      * Use current directory when no input name
+     *
+     * `inputName` 為可選輸入；缺省代表呼叫端只想在 `cwd` 本身進行初始化，
+     * 因此目標目錄直接等於 `cwd`，不再做任何工作區組路徑。
+     *
+     * `inputName` is optional; omitting it means the caller only wants to
+     * initialize in `cwd` itself, so the target directory equals `cwd` with
+     * no workspace path composition involved.
      */
     else {
         targetDir = cwd;

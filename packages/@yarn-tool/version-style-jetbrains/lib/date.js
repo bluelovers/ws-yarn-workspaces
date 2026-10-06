@@ -50,9 +50,11 @@ function getJetbrainsYearCode(year, quarter) {
  * @returns 月日資訊 / Month-day info
  */
 function _parseMonthDayFromMD(monthDay) {
+    /** 調用端可能傳入字串（如 regex 捕獲組），先統一轉為數字 / Callers may pass a string (e.g. a regex capture group); normalize to number first */
     if (typeof monthDay === 'string') {
         monthDay = parseInt(monthDay, 10);
     }
+    /** 以百位切分月與日：101 -> 1 月 1 日、615 -> 6 月 15 日 / Split at the hundreds place: 101 -> Jan 1, 615 -> Jun 15 */
     const month = Math.floor(monthDay / 100);
     const day = monthDay % 100;
     return {
@@ -72,7 +74,13 @@ function _parseMonthDayFromMD(monthDay) {
  * @returns 檢測結果 { monthDay, isMDCombined } / Detection result
  */
 function _detectIsMDCombined(monthOrMD) {
-    // 判斷是否為月日合併格式 (MD > 12)
+    /**
+     * 判斷是否為月日合併格式 (MD > 12)：
+     * 標準格式的「月」最多 12，因此大於 12 必為合併數字（如 101 = 1月1日）
+     *
+     * Detect month-day combined format (MD > 12): a plain month never exceeds
+     * 12, so any larger value must be combined (e.g. 101 = Jan 1)
+     */
     const monthDay = parseInt(monthOrMD, 10);
     const isMDCombined = monthDay > 12;
     return {
@@ -95,12 +103,18 @@ function _parseMonthDayInfo(monthOrMD, dayOrIncrement, increment) {
     let day;
     let dailyVersion;
     if (isMDCombined) {
-        // 格式: YYYY.MD.increment 或 YYQ.MD.increment
+        /** 格式: YYYY.MD.increment 或 YYQ.MD.increment，第三段才是遞增號 / Format YYYY.MD.increment or YYQ.MD.increment: the third segment is the increment */
         ({ month, day } = _parseMonthDayFromMD(monthDay));
         dailyVersion = increment ? parseInt(increment, 10) : parseInt(dayOrIncrement, 10);
     }
     else {
-        // 格式: YYYY.M.D-increment 或 YYQ.M.D-increment
+        /**
+         * 格式: YYYY.M.D-increment 或 YYQ.M.D-increment；
+         * 缺少日或遞增段時回退到 1，視為最小合法版本
+         *
+         * Format YYYY.M.D-increment or YYQ.M.D-increment; missing day or
+         * increment segments fall back to 1 as the minimal valid version
+         */
         month = monthOrMD ? parseInt(monthOrMD, 10) : 1;
         day = dayOrIncrement ? parseInt(dayOrIncrement, 10) : 1;
         dailyVersion = increment ? parseInt(increment, 10) : 1;
@@ -119,7 +133,9 @@ function _parseMonthDayInfo(monthOrMD, dayOrIncrement, increment) {
  */
 function _parseJetbrainsYearQuarter(yearQuarterStr) {
     const yearQuarter = parseInt(yearQuarterStr, 10);
+    /** 末位為季度、其餘為年份後兩位，故以 % 10 取季度 / The last digit is the quarter, so take it with % 10 */
     const quarter = yearQuarter % 10;
+    /** 年份固定補回 2000 年代：JetBrains 短格式只存兩位年 / Anchor the year to the 2000s: the short format only stores two digits */
     const year = 2000 + Math.floor(yearQuarter / 10);
     return { year, quarter };
 }
@@ -135,6 +151,13 @@ function _parseJetbrainsYearQuarter(yearQuarterStr) {
  * @returns dayjs 物件 / dayjs object
  */
 function getDayjsFromInput(date, opts) {
+    /**
+     * 物件型別需再細分：Dayjs、Date、IDateInfo 三者的解析方式不同，
+     * 統一交給 tzDayjsSafeParse 可保留時區 (Timezone) 資訊
+     *
+     * Object inputs need further discrimination: Dayjs, Date and IDateInfo each
+     * parse differently; routing through tzDayjsSafeParse preserves timezone info
+     */
     if (typeof date === 'object') {
         if ((0, dayjs_1.isDayjs)(date)) {
             return (0, dayjs_tz_helper_1.tzDayjsSafeParse)(date, opts);
@@ -143,12 +166,21 @@ function getDayjsFromInput(date, opts) {
             return (0, dayjs_tz_helper_1.tzDayjsSafeParse)(date, opts);
         }
         else if ((0, assert_1.isValidDateInfo)(date)) {
+            /** IDateInfo 沒有時區資訊，以字串組合後交由 safeParse 處理 / IDateInfo carries no timezone, so compose a string and let safeParse handle it */
             return (0, dayjs_tz_helper_1.tzDayjsSafeParse)(`${date.year}-${date.month}-${date.day}`, opts);
         }
     }
     else if (typeof date === 'string' || typeof date === 'number') {
+        /** 字串或 timestamp：交給 safeParse 嘗試多種格式 / String or timestamp: let safeParse try its supported formats */
         return (0, dayjs_tz_helper_1.tzDayjsSafeParse)(date, opts);
     }
+    /**
+     * 未知或無效輸入回傳 null（而非拋錯），
+     * 由 _handleVersionStyleOptionsCore 以 new Date() 取代
+     *
+     * Unknown or invalid input returns null (instead of throwing);
+     * _handleVersionStyleOptionsCore substitutes new Date() for it
+     */
     return null;
 }
 /**
@@ -199,6 +231,13 @@ function _getDateInfoFromDayjs(date) {
  */
 function _getDateInfoFromOptions(options) {
     var _a;
+    /**
+     * 相容兩種呼叫方式：傳整個 options 時取其 .date，
+     * 傳純日期時直接當日期使用，最後統一經 _getDateInfoFromDayjs 取年月日
+     *
+     * Accepts both call styles: use .date when a full options object is passed,
+     * or treat the value itself as the date, both ending at _getDateInfoFromDayjs
+     */
     let date = (0, options_1._handleVersionStyleOptionsCore)((_a = options === null || options === void 0 ? void 0 : options.date) !== null && _a !== void 0 ? _a : options).date;
     return _getDateInfoFromDayjs(date);
 }

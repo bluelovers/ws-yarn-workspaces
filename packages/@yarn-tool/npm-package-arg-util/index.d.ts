@@ -11,8 +11,16 @@
  */
 import { AliasResult, FileResult, HostedGitResult, RegistryResult, URLResult } from 'npm-package-arg';
 import { IOptionsNpaBase, IOptionsNpaUtil, IResult, IResultType } from './lib/types';
+/**
+ * 重新匯出類型供外部使用
+ * Re-export types for external usage
+ */
 export type { AliasResult, FileResult, RegistryResult, HostedGitResult, URLResult };
 export type { IResult, IResultType, IOptionsNpaUtil };
+/**
+ * 重新匯出從 npa 結果提取 semver 的工具函式
+ * Re-export the utility function for extracting semver from an npa result
+ */
 export { getSemverFromNpaResult } from './lib/getSemverFromNpaResult';
 /**
  * Core parsing function for npm package arguments
@@ -192,4 +200,8 @@ export declare function npaTry<T extends IResult>(arg: string, where?: string | 
  * @returns {T | undefined} 解析結果，如果解析失敗則返回 undefined
  */
 export declare function npaTry2<T extends IResult>(arg: string, where?: string | IOptionsNpaUtil, options?: IOptionsNpaUtil): T;
+/**
+ * 預設匯出 npa，讓 `import npa from '@yarn-tool/npm-package-arg-util'` 可直接使用
+ * Default-export npa so `import npa from '@yarn-tool/npm-package-arg-util'` works directly
+ */
 export default npa;

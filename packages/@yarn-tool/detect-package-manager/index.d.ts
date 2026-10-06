@@ -13,6 +13,12 @@ export declare const enum EnumPackageManager {
  * Supported package manager types
  */
 export type IPackageManager = ITSTypeAndStringLiteral<EnumPackageManager>;
+/**
+ * 支援的套件管理器型別，並允許擴充額外的自訂字串
+ * Supported package manager type, extended with extra custom string literals
+ *
+ * @typeParam T - 額外允許的自訂型別 / Additional custom literal type allowed
+ */
 export type IPackageManager2<T extends string> = IPackageManager | T;
 /**
  * 偵測結果類型 - 包含套件管理器名稱和命令路徑
@@ -81,13 +87,6 @@ export declare function handleOptionsWhichPackageManager<T extends string = IPac
  */
 export declare function _handleClientsToCheck<T extends string = IPackageManager>(npmClients?: ITSArrayListMaybeReadonly<T> | undefined, options?: IOptionsWhichPackageManager): readonly IPackageManager2<T>[];
 /**
- * 使用 which 依序檢查套件管理器列表，返回第一個可用的
- * Sequentially check package managers using which, return the first available one
- *
- * @param npmClients - 套件管理器列表 / Package manager list
- * @returns 可用的套件管理器名稱 / Available package manager name
- */
-/**
  * 非同步生成器 - 使用 which 依序檢查套件管理器列表
  * Async generator - sequentially check package managers using which
  *
@@ -123,13 +122,6 @@ export declare function whichPackageManagerAsync(npmClients?: ITSArrayListMaybeR
  */
 export declare function whichPackageManagerAsyncAll(npmClients?: ITSArrayListMaybeReadonly<IPackageManager> | undefined, returnDefaultOrOptions?: IRuntimeOptionInput): Promise<IPackageManager[]>;
 /**
- * 使用 which 依序檢查套件管理器列表，以同步生成器方式 yield 所有可用的套件管理器
- * Sequentially check package managers using which, yield all available package managers via sync generator
- *
- * @param npmClients - 套件管理器列表 / Package manager list
- * @returns 可用的套件管理器（透過 yield）/ Available package manager (via yield)
- */
-/**
  * 同步生成器 - 使用 which 依序檢查套件管理器列表
  * Sync generator - sequentially check package managers using which
  *
@@ -164,4 +156,8 @@ export declare function whichPackageManagerSyncAll(npmClients?: ITSArrayListMayb
  * @returns 可用的套件管理器名稱 / Available package manager name
  */
 export declare function whichPackageManagerSync(npmClients?: ITSArrayListMaybeReadonly<IPackageManager> | undefined, returnDefaultOrOptions?: IRuntimeOptionInput): IPackageManager;
+/**
+ * 預設匯出：同步偵測第一個可用的套件管理器
+ * Default export: synchronously detect the first available package manager
+ */
 export default whichPackageManagerSync;

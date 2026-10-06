@@ -1,8 +1,11 @@
 {
   "name": "@yarn-tool/yarn-struct-utils",
   "version": "2.0.10",
-  "description": "",
+  "description": "parse yarn resolution and descriptor strings into structured data",
   "keywords": [
+    "parse",
+    "resolution",
+    "descriptor",
     "yarn",
     "yarn-tool",
     "npm",

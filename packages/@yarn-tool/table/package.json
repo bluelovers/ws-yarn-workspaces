@@ -2,6 +2,19 @@
   "name": "@yarn-tool/table",
   "version": "2.0.22",
   "description": "shared cli table utils for yarn-tool",
+  "keywords": [
+    "cli",
+    "table",
+    "cli-table",
+    "dependency-table",
+    "dependencies",
+    "semver",
+    "version-diff",
+    "yarn-tool",
+    "utils",
+    "terminal",
+    "output"
+  ],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/table#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-yarn-workspaces/issues"

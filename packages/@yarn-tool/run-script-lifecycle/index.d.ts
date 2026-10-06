@@ -38,4 +38,10 @@ import { IRunLifecycleScriptOptions, IResult, IResultNotExists } from './lib/typ
  * @throws {IError} 當腳本執行失敗時拋出錯誤 (Throws error when script execution fails)
  */
 export declare function runLifecycleScript(options: IRunLifecycleScriptOptions): Promise<(IResultNotExists | IResult)[]>;
+/**
+ * 匯出預設函數，讓使用者可直接 `import runLifecycleScript from ...`。
+ *
+ * Export the default function so consumers can
+ * `import runLifecycleScript from ...` directly.
+ */
 export default runLifecycleScript;

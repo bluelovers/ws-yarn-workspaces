@@ -10,4 +10,10 @@
  * @packageDocumentation
  */
 import { findWorkspaceRoot } from './core';
+/**
+ * 匯出 findWorkspaceRoot 函數作為模組的預設匯出
+ * 以 `export =` 形式匯出，讓 CommonJS 的 require() 可直接取得該函式
+ * Export findWorkspaceRoot function as module's default export
+ * Uses `export =` so CommonJS require() receives the function itself
+ */
 export = findWorkspaceRoot;

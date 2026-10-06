@@ -70,7 +70,7 @@ import { queryVersionByNpmPackageArgWithCache } from '@yarn-tool/pkg-version-que
 const version = await queryVersionByNpmPackageArgWithCache('lodash@^4.0.0');
 ```
 
-## API Reference / API 參考
+## API Documentation / API 文件
 
 ### `queryVersionWithCache(name, targetVersion?, options?)`
 
@@ -122,6 +122,39 @@ interface IOptionsQueryVersion {
   cacheAgentOptions?: IOptionsLRUCacheFS<string, ICachedVersionResult>;
 }
 ```
+
+## Configuration / 設定
+
+本套件沒有設定檔 (Config File)，行為完全由查詢函式傳入的 `options`（`IOptionsQueryVersion`）決定：
+
+| 選項 | 型別 | 預設 | 說明 |
+| --- | --- | --- | --- |
+| `notThrowError` | `boolean` | `false` | 查詢失敗時回傳 `undefined` 而非丟出例外 (Return `undefined` instead of throwing) |
+| `cacheAgent` | `Cache<string, ICachedVersionResult>` | 內建單例 (Built-in Singleton) | 自訂快取實例 (Cache Instance)，傳入後即不使用內建快取 |
+| `cacheAgentOptions` | `IOptionsLRUCacheFS<string, ICachedVersionResult>` | 見下方預設值 | 傳給 `lru-cache-fs2` 的快取設定 |
+
+其餘欄位會原樣轉交給底層的 `package-json`（例如自訂 npm registry 的相關選項）。
+
+快取 (Cache) 的行為由 `initCache()` 決定：
+
+- 快取目錄由 `cache-path` 依序嘗試 `findYarnCachePath` → `findNpmCachePath` → `findOSTempPath` → `findPkgModulePath`，並以套件名稱 `@yarn-tool/pkg-version-query` 作為快取名稱 (Cache Name)。
+- `max` 未設定或 `<= 100` 時會被提升為 `1000`，避免快取過小導致頻繁的 registry 查詢。
+- `maxAge` 未設定或 `<= 1 分鐘` 時會被提升為 `10 分鐘`，避免版本資料過期過快。
+- `getCache()` 回傳模組層級的單例 (Module-level Singleton)，首次建立後重複使用；若需完全隔離的快取，請自行傳入 `cacheAgent`。
+
+```typescript
+import { queryVersionWithCache } from '@yarn-tool/pkg-version-query';
+
+const version = await queryVersionWithCache('lodash', 'latest', {
+  notThrowError: true,
+  cacheAgentOptions: {
+    max: 1000,
+    maxAge: 10 * 60 * 1000,
+  },
+});
+```
+
+This module has no config file; everything is driven by the `options` passed to the query functions. The cache directory is resolved in order: yarn cache → npm cache → OS temp dir → node_modules path. `max` is raised to `1000` and `maxAge` to `10 minutes` when unset or below the built-in floors, and `getCache()` returns a module-level singleton unless you supply your own `cacheAgent`.
 
 ## Related Packages / 相關套件
 

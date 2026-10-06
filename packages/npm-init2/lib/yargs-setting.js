@@ -17,6 +17,10 @@ const yargs_setting_1 = require("@yarn-tool/fix-all/lib/util/yargs-setting");
  * @param yargs - Yargs 實例 / Yargs instance
  */
 function setupToYargs(yargs) {
+    /**
+     * 註冊 npm-init2 的命令列選項，完成後再交給 @yarn-tool/fix-all 補上共用選項
+     * Register npm-init2's CLI options, then let @yarn-tool/fix-all append the shared options
+     */
     const _return = yargs
         .default({
     //input: process.cwd(),
@@ -35,6 +39,13 @@ function setupToYargs(yargs) {
         //		default: 'npm',
         type: 'boolean',
     })
+        /**
+         * 只設定 defaultDescription 而未設定 default：
+         * 未傳入時 argv.cwd 保持 undefined，主流程得以區分「使用者明確指定」與「使用預設值」
+         *
+         * Only `defaultDescription` is set instead of `default`, so `argv.cwd` stays undefined
+         * when not passed and the main flow can distinguish an explicit path from the default
+         */
         .option('cwd', {
         alias: ['C'],
         requiresArg: true,
@@ -51,6 +62,10 @@ function setupToYargs(yargs) {
         alias: ['f'],
         type: 'boolean',
     })
+        /**
+         * 預設排序；yargs 會為布林選項自動產生 --noSort 反向旗標
+         * Sorted by default; yargs auto-generates the `--noSort` negation flag for boolean options
+         */
         .option('sort', {
         type: 'boolean',
         default: true,
@@ -78,5 +93,9 @@ function setupToYargs(yargs) {
      */
     return (0, yargs_setting_1.setupToYargs)(_return);
 }
+/**
+ * 預設匯出 setupToYargs，讓 `import setupToYargs from '...'` 可直接使用
+ * Default-export setupToYargs so `import setupToYargs from '...'` works directly
+ */
 exports.default = setupToYargs;
 //# sourceMappingURL=yargs-setting.js.map

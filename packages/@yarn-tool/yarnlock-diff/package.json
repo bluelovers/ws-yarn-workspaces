@@ -3,6 +3,11 @@
   "version": "3.0.10",
   "description": "given one or many old yarn.lock, and one or many new yarn.lock, compute the diff for v1 and berry",
   "keywords": [
+    "yarnlock",
+    "yarn-lock",
+    "lockfile",
+    "diff",
+    "berry",
     "oclif"
   ],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/yarnlock-diff#readme",

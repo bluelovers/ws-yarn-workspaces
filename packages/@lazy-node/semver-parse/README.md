@@ -11,6 +11,14 @@
 
 This module provides lightweight semver parsing functionality, converting version strings to structured objects, and supporting parsing and stringification of version ranges. It's a supplementary toolkit for the `semver` package, providing useful features not available in the mainstream `semver` module.
 
+## 功能特色 / Features
+
+- 🔍 **版本解析** - 將版本字串解析為結構化物件 / Parse version strings to structured objects
+- 📝 **版本字串化** - 將版本物件轉換為版本字串 / Convert version objects to version strings
+- 🎯 **範圍解析** - 解析版本範圍字串 / Parse version range strings
+- 🔄 **範圍字串化** - 將範圍陣列轉換為範圍字串 / Convert range arrays to range strings
+- 🛠️ **合併與替換** - 合併版本物件或替換版本部分 / Merge version objects or replace version parts
+
 ## 安裝 / Installation
 
 ```bash
@@ -29,13 +37,21 @@ pnpm add @lazy-node/semver-simple-parse
 npm install @lazy-node/semver-simple-parse
 ```
 
-## 功能特色 / Features
+## 使用方式 / Usage
 
-- 🔍 **版本解析** - 將版本字串解析為結構化物件 / Parse version strings to structured objects
-- 📝 **版本字串化** - 將版本物件轉換為版本字串 / Convert version objects to version strings
-- 🎯 **範圍解析** - 解析版本範圍字串 / Parse version range strings
-- 🔄 **範圍字串化** - 將範圍陣列轉換為範圍字串 / Convert range arrays to range strings
-- 🛠️ **合併與替換** - 合併版本物件或替換版本部分 / Merge version objects or replace version parts
+```typescript
+import { parse, stringify, parseRange, stringifyRange } from '@lazy-node/semver-simple-parse';
+
+// 單一版本字串：解析與字串化 / Single version string: parse and stringify
+const version = parse('>=1.2.3-beta.1+build.123');
+version.major; // '1'
+version.release; // 'beta.1'
+stringify(version); // '1.2.3-beta.1+build.123'
+
+// 版本範圍：支援多個條件組合 / Version range: multiple conditions supported
+const range = parseRange('^1.2.0 || >=2.0.0 <3.0.0');
+stringifyRange(range); // '^1.2.0 || >=2.0.0 <3.0.0'
+```
 
 ## 重要說明 / Important Notes
 
@@ -289,6 +305,27 @@ interface ISimpleSemVerObject {
 }
 ```
 
+## 組態設定 / Configuration
+
+此套件沒有設定檔 (Config File)，所有選項皆透過函數參數傳遞。字串化函數 `stringify()` / `stringifyFull()` 可接受第二個參數 `IOptionsSimpleSemVerStringify`：
+
+This package has no config file; all options are passed as function arguments. The stringifiers `stringify()` / `stringifyFull()` accept a second parameter, `IOptionsSimpleSemVerStringify`:
+
+| 選項 / Option | 型別 / Type | 說明 / Description |
+| --- | --- | --- |
+| `removeRelease` | `boolean` | 省略預發布標籤 (Pre-release)；`build` 也會一併省略 / Omit the pre-release tag; `build` is omitted as well |
+| `removeBuild` | `boolean` | 省略建置元資料 (Build metadata) / Omit build metadata |
+
+```typescript
+import { stringify } from '@lazy-node/semver-simple-parse';
+
+stringify({ major: '1', minor: '0', patch: '0', release: 'beta.1', build: 'b.1' }, { removeRelease: true });
+// '1.0.0'
+
+stringify({ major: '1', minor: '0', patch: '0', build: 'b.1' }, { removeBuild: true });
+// '1.0.0'
+```
+
 ## 使用案例 / Use Cases
 
 ### 1. 版本字串解析 / Version String Parsing
@@ -362,6 +399,10 @@ const rangeString = stringifyRange(customRange);
 - [`@lazy-node/semver-part`](../semver-part) - 版本部分比較工具 / Version part comparison utilities
 - [`@lazy-node/semver-ampersand`](../semver-ampersand) - 支援 ampersand 的 semver 範圍處理 / Semver range handling with ampersand support
 - [`semver`](https://www.npmjs.com/package/semver) - 語義化版本處理 / Semantic versioning
+
+### 延伸閱讀 / Further Reading
+
+- [docs/semver-packages.md](../../../docs/semver-packages.md) - `@lazy-node/semver-*` 系列套件總覽 / Overview of the `@lazy-node/semver-*` package series
 
 ## 授權 / License
 

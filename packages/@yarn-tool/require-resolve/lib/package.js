@@ -45,23 +45,57 @@ const util_1 = require("./util");
  * ```
  */
 function resolvePackageCore(moduleName, options) {
-    // 建構解析路徑 / Build resolution paths
+    /**
+     * 建構解析路徑
+     * Build resolution paths
+     *
+     * 展開符號並以 cwd 為基準，取得實際的搜尋路徑清單。
+     * Symbols are expanded against cwd to produce the real search path list.
+     */
     const paths = (0, core_1.buildResolvePaths)(options !== null && options !== void 0 ? options : {});
     const processedPaths = (0, util_1.handleOptionsPaths)(paths, options === null || options === void 0 ? void 0 : options.cwd);
+    /**
+     * 由 try/catch 決定賦值；若兩者皆未執行，TypeScript 會視其為未初始化
+     * Assigned by the try/catch; if neither branch runs, TypeScript treats it as unassigned
+     */
     let entryPointLocation;
-    // 嘗試解析模組入口點 / Try to resolve module entry point
+    /**
+     * 嘗試解析模組入口點
+     * Try to resolve module entry point
+     *
+     * 這是最常見的情況，成功即可直接取得入口點路徑。
+     * This is the common case; on success the entry point path is available directly.
+     */
     try {
         entryPointLocation = require.resolve(moduleName, {
             paths: processedPaths,
         });
     }
     catch (e) {
-        // 若失敗則解析 package.json 作為替代 / Fallback to resolving package.json
+        /**
+         * 若失敗則解析 package.json 作為替代
+         * Fallback to resolving package.json
+         *
+         * 入口點可能無法解析（例如套件未定義入口或 exports 限制），
+         * 但 package.json 仍可用來定位套件位置，故改以它作為退路。
+         * The entry point may be unresolvable (missing entry or exports
+         * restrictions), but package.json still locates the package, so it
+         * serves as the fallback.
+         */
         entryPointLocation = require.resolve(moduleName + '/package.json', {
             paths: processedPaths,
         });
     }
-    // 從入口點位置找到套件根目錄 / Find package root from entry point location
+    /**
+     * 從入口點位置找到套件根目錄
+     * Find package root from entry point location
+     *
+     * 邊界情況：pkg-dir 找不到 package.json 時回傳 undefined，
+     * 此處保留 falsy 結果而不丟錯，讓呼叫端自行決定是否視為錯誤。
+     * Edge case: pkg-dir returns undefined when no package.json is found;
+     * the falsy result is kept instead of throwing so the caller decides
+     * whether that counts as an error.
+     */
     const pkgRoot = (0, pkg_dir_1.sync)(entryPointLocation);
     return {
         name: moduleName,
@@ -195,7 +229,13 @@ function readModulePackageJson(moduleName, options) {
 function resolvePackage(moduleName, options) {
     const coreInfo = resolvePackageCore(moduleName, options);
     const { pkgRoot } = coreInfo;
-    // 建立 package.json 的完整路徑 / Build full path to package.json
+    /**
+     * 建立 package.json 的完整路徑
+     * Build full path to package.json
+     *
+     * 後續 require 與 resolveLocation 都以這條路徑為基礎。
+     * Both require and resolveLocation are based on this path afterwards.
+     */
     const pkgJsonLocation = (0, upath2_1.resolve)(pkgRoot, 'package.json');
     return {
         ...coreInfo,

@@ -53,6 +53,11 @@ class ScopeJson extends json_object_1.ScopeJsonObject {
      * @returns {IJsonObject<K>} The parsed JSON object / 解析後的 JSON 物件
      */
     loadFile(reload) {
+        /**
+         * 僅在強制重載或尚未載入時讀取：重複 load 會覆寫已變更但未儲存的內容
+         * Read only on forced reload or first load: re-loading would overwrite
+         * content that was modified but not yet saved
+         */
         if (reload || !this.opened) {
             this.json = (0, fs_json_1.readJSONSync)(this.file);
         }
@@ -72,6 +77,12 @@ class ScopeJson extends json_object_1.ScopeJsonObject {
      * @returns {boolean|undefined} True if saved, undefined if not opened / 若已儲存則為 true，未開啟則為 undefined
      */
     saveFile() {
+        /**
+         * 以 && 短路：檔案從未載入（不存在）時不建立檔案，
+         * 避免 save() 對不存在的設定檔憑空產生空殼
+         * Short-circuit with &&: never create a file that was never loaded (absent),
+         * so save() cannot fabricate an empty shell config file
+         */
         return this.opened && (0, write_package_json_1.writePackageJSONSync)(this.file, this.json);
     }
     /**
@@ -82,6 +93,12 @@ class ScopeJson extends json_object_1.ScopeJsonObject {
      * @returns {IJsonObject<K>|false} The parsed JSON object or false if file doesn't exist / 解析後的 JSON 物件，或若檔案不存在則為 false
      */
     loadFileLazy(reload) {
+        /**
+         * 依賴 existsFile() 先行檢查：readJSONSync 對缺檔會直接拋錯，
+         * 而設定檔缺檔在此情境屬正常情況
+         * Check existence first: readJSONSync throws on a missing file, but a
+         * missing config file is an expected situation here
+         */
         return this.existsFile() && this.loadFile(reload);
     }
 }

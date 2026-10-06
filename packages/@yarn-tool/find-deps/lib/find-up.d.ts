@@ -60,4 +60,9 @@ export declare function findUpDepsAllDeepRecordCore<R extends IListableRowExtraW
  * // Returns [['pkg-a', ['pkg-b', 'pkg-c']]] meaning pkg-b and pkg-c depend on pkg-a
  */
 export declare function findUpDepsAllDeep<R extends IListableRowExtraWithDeps>(targets: string[], record: Record<string, R>): [string, string[]][];
+/**
+ * 預設匯出 `findUpDepsAllDeep`
+ *
+ * Default export: `findUpDepsAllDeep`.
+ */
 export default findUpDepsAllDeep;

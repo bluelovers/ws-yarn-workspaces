@@ -1,8 +1,10 @@
 {
   "name": "create-yarn-workspaces",
   "version": "3.0.22",
-  "description": "yarn create yarn-workspaces npx create-yarn-workspaces",
+  "description": "Quickly initialize Yarn Workspaces project structure",
   "keywords": [
+    "create",
+    "yarn-workspaces",
     "cli",
     "init",
     "npm",

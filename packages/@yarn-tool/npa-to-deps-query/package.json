@@ -1,8 +1,13 @@
 {
   "name": "@yarn-tool/npa-to-deps-query",
   "version": "3.0.10",
-  "description": "",
+  "description": "Resolve npm-package-arg specs to concrete versions by querying the npm registry / 透過查詢 npm registry 將 npm-package-arg 規格解析為具體版本",
   "keywords": [
+    "npm-package-arg",
+    "npa",
+    "version-query",
+    "registry",
+    "query",
     "yarn",
     "yarn-tool",
     "npm",

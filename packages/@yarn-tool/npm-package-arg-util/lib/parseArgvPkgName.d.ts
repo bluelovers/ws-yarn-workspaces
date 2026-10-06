@@ -84,12 +84,12 @@ export declare function _parseArgvPkgNameCore(result: IResult, input: string): {
  * // Parse a scoped package
  * // 解析範圍套件
  * parsePackageName('@types/node@18.0.0');
- * // Returns: { type: 'version', name: '@types/node', scope: 'types', subname: 'node', semver: '18.0.0', result: ... }
+ * // Returns: { type: 'version', name: '@types/node', scope: '@types', subname: 'node', semver: '18.0.0', result: ... }
  *
  * @example
  * // Parse without a version / 解析不含版本
  * parsePackageName('lodash');
- * // Returns: { type: 'tag', name: 'lodash', scope: undefined, subname: 'lodash', semver: undefined, result: ... }
+ * // Returns: { type: 'range', name: 'lodash', scope: undefined, subname: 'lodash', semver: '*', result: ... }
  */
 export declare function parsePackageName(packageName: string): IParsePackageName;
 /**

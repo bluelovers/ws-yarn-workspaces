@@ -39,8 +39,18 @@ export declare const enum EnumOperatorBase {
     /** 小於 (Less than) */
     LT = "<"
 }
+/**
+ * 萬用字元列舉
+ * Wildcard enum
+ *
+ * 定義 semver 範圍中可用的萬用字元，於解析/合併時用來判斷「未指定的段落」
+ * Defines the wildcards usable inside a semver range; used by parse/merge to
+ * detect "unspecified segments"
+ */
 export declare const enum EnumSemverWildcard {
+    /** 以 x 表示的萬用字元 / Wildcard written as x */
     x = "x",
+    /** 以 * 表示的萬用字元 / Wildcard written as * */
     star = "*"
 }
 /**
@@ -51,8 +61,26 @@ export declare const enum EnumSemverWildcard {
  * Defines the basic set of semver range operators
  */
 export type IOperatorBase = ITSTypeAndStringLiteral<EnumOperatorBase>;
+/**
+ * 萬用字元類型 / Wildcard type
+ *
+ * 由 EnumSemverWildcard 推導出的字面型別，避免各處重複宣告字串常數
+ * Literal type derived from EnumSemverWildcard so the string constants are
+ * declared in one place only
+ */
 export type ISemverWildcard = ITSTypeAndStringLiteral<EnumSemverWildcard>;
+/**
+ * 可同時接受 number 與其字串形式的版本欄位型別
+ * Version field type accepting both `number` and its string form
+ *
+ * 解析來源可能保留數值型別（如 parseRange 的結果），字串化前需一併相容
+ * Parse results may keep numeric fields (e.g. from parseRange), so stringification must accept both
+ */
 export type ISemverNumber = ITSTypeAndStringLiteral<number>;
+/**
+ * 由數值推導出的數字字串型別（如 '0' | '1' | ...）
+ * Digit-string literal type derived from `number` (e.g. '0' | '1' | ...)
+ */
 export type ISemverNumberString = ITSToStringLiteral<number>;
 /**
  * 運算子類型
@@ -62,15 +90,44 @@ export type ISemverNumberString = ITSToStringLiteral<number>;
  * Extends base operator type to support custom operators
  */
 export type IOperator = IOperatorBase | string;
+/**
+ * 版本三段核心欄位介面
+ * Core interface for the three version segments
+ *
+ * minor/patch 允許萬用字元，因為範圍表示式可寫成 1.x / 1.2.*，
+ * 而 major 不允許，此處刻意收窄型別以於編譯期捕捉誤植。
+ * minor/patch allow wildcards because ranges may be written as 1.x / 1.2.*,
+ * while major does not; the narrower type catches typos at compile time.
+ */
 export interface ISimpleSemVerObjectBaseCoreVersion {
+    /** 主版本號 / Major version */
     major?: string | ISemverNumberString;
+    /** 次版本號，可為萬用字元 / Minor version, wildcard allowed */
     minor?: string | ISemverWildcard | ISemverNumberString;
+    /** 修補版本號，可為萬用字元 / Patch version, wildcard allowed */
     patch?: string | ISemverWildcard | ISemverNumberString;
 }
+/**
+ * 僅含萬用字元 semver 欄位的介面
+ * Interface holding only the wildcard `semver` field
+ *
+ * 用來表示 `*`、`x` 這類「整段省略」的範圍
+ * Represents whole-range omissions such as `*` or `x`
+ */
 export interface ISimpleSemVerObjectBaseCoreWildcardOnly {
+    /** 整段萬用字元 / Whole-segment wildcard */
     semver?: ISemverWildcard;
 }
+/**
+ * 僅含運算子欄位的介面
+ * Interface holding only the operator field
+ *
+ * 獨立拆出是為了讓 IHasOperator<> 能只針對 operator 做 Required<> 收窄
+ * Split out on its own so `IHasOperator<>` can narrow just the `operator`
+ * field with `Required<>`
+ */
 export interface ISimpleSemVerObjectBaseCoreOperator {
+    /** 版本範圍運算子 / Version range operator */
     operator?: IOperator;
 }
 /**
@@ -90,9 +147,13 @@ export interface ISimpleSemVerObjectBaseCoreOperator {
  * @property {string} build - 建置元資料 / Build metadata
  */
 export interface ISimpleSemVerObjectBase extends ISimpleSemVerObjectBaseCoreVersion, ISimpleSemVerObjectBaseCoreOperator {
+    /** 完整版本字串（不含運算子）/ Full version string without operator */
     version?: string;
+    /** 包含運算子的完整 semver 字串 / Full semver string including operator */
     semver?: string;
+    /** 預發布標籤 (Pre-release)，如 beta.1 / Pre-release tag, e.g. beta.1 */
     release?: string;
+    /** 建置元資料 (Build metadata)，如 build.123 / Build metadata, e.g. build.123 */
     build?: string;
 }
 /**
@@ -103,6 +164,13 @@ export interface ISimpleSemVerObjectBase extends ISimpleSemVerObjectBaseCoreVers
  * Represents a parsed semver version object
  */
 export interface ISimpleSemVerObject extends IToSimpleSemVerObject<ISimpleSemVerObjectBase> {
+    /**
+     * 與基礎介面同名的可選屬性，重複宣告不改變型別語意，
+     * 但可讓單獨閱讀此介面的人直接看到完整欄位。
+     * Same optional property as in the base interface; re-declaring does not
+     * change the type semantics, but lets readers of this interface alone see
+     * the full field list.
+     */
     semver?: string;
 }
 /**
@@ -131,6 +199,16 @@ export interface ISimpleSemVerOperator extends ITSPartialRecord<Exclude<keyof IS
  * Can be a version object, operator object, or version object with operator
  */
 export type ISimpleSemVer = ISimpleSemVerObject | ISimpleSemVerOperator | ISimpleSemVerObjectWithOperator;
+/**
+ * 執行期可接受的 SimpleSemVer 輸入聯集
+ * Runtime-acceptable SimpleSemVer input union
+ *
+ * 函式參數常用此型別，以便同時接收解析結果、class 實例與部分填寫的物件，
+ * 真正的必要欄位於函式內部再行檢查。
+ * Used for function parameters so they can accept parse results, class
+ * instances, and partially-filled objects alike; required fields are checked
+ * inside the function instead.
+ */
 export type ISimpleSemVerRuntime = ISimpleSemVer | SimpleSemVer | ISimpleSemVerObjectBase;
 /**
  * 具有運算子的類型標記
@@ -148,6 +226,7 @@ export type IHasOperator<T extends ISimpleSemVerObjectBaseCoreOperator> = T & Re
  * Represents a type containing only an operator
  */
 export type IToSimpleSemVerOperator<T extends ISimpleSemVerObjectBase> = IHasOperator<T> & {
+    /** 以 never 收窄，排除「同時是運算子物件又有主版本號」的矛盾組合 / Narrowed to `never` to rule out the contradictory "operator object with a major version" shape */
     major?: never;
 };
 /**
@@ -176,7 +255,18 @@ export type IToSimpleSemVerObjectWithOperator<T extends ISimpleSemVerObjectBase>
  * Can be either operator type or version object type
  */
 export type IToSimpleSemVerObjectOrOperator<T extends ISimpleSemVerObjectBase> = IToSimpleSemVerOperator<T> | IToSimpleSemVerObject<T>;
+/**
+ * 字串化選項介面
+ * Stringify options interface
+ *
+ * 允許在輸出時省略預發布標籤或建置元資料，
+ * 例如只要回傳用於比對的基準版本時。
+ * Allows omitting the pre-release tag or build metadata on output, e.g. when
+ * only a baseline version for comparison is wanted.
+ */
 export interface IOptionsSimpleSemVerStringify {
+    /** 省略建置元資料 (Build metadata) / Omit build metadata */
     removeBuild?: boolean;
+    /** 省略預發布標籤 (Pre-release) / Omit pre-release tag */
     removeRelease?: boolean;
 }

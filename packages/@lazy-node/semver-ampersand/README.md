@@ -11,6 +11,15 @@
 
 This module extends the standard `semver` package's range handling with support for the `&` symbol to represent "AND" conditions. This is particularly useful when handling dependency versions in yarn or npm workspaces, where more explicit version range expressions are sometimes needed.
 
+## 功能特色 / Features
+
+- 🔗 **Ampersand 支援** - 使用 `&` 符號組合多個版本條件 / Use `&` symbol to combine multiple version conditions
+- ✅ **satisfies** - 檢查版本是否符合範圍 / Check if version satisfies range
+- 🔍 **maxSatisfying / minSatisfying** - 找出最大/最小符合版本 / Find max/min satisfying version
+- 📝 **validRange** - 驗證範圍字串是否有效 / Validate if range string is valid
+- 🔄 **simplifyRange** - 簡化版本範圍 / Simplify version range
+- 🏗️ **Range 類別** - 類似 semver.Range 的增強版 / Enhanced Range class similar to semver.Range
+
 ## 安裝 / Installation
 
 ```bash
@@ -24,14 +33,26 @@ yarn-tool add @lazy-node/semver-ampersand
 npm install @lazy-node/semver-ampersand
 ```
 
-## 功能特色 / Features
+## 使用方式 / Usage
 
-- 🔗 **Ampersand 支援** - 使用 `&` 符號組合多個版本條件 / Use `&` symbol to combine multiple version conditions
-- ✅ **satisfies** - 檢查版本是否符合範圍 / Check if version satisfies range
-- 🔍 **maxSatisfying / minSatisfying** - 找出最大/最小符合版本 / Find max/min satisfying version
-- 📝 **validRange** - 驗證範圍字串是否有效 / Validate if range string is valid
-- 🔄 **simplifyRange** - 簡化版本範圍 / Simplify version range
-- 🏗️ **Range 類別** - 類似 semver.Range 的增強版 / Enhanced Range class similar to semver.Range
+```typescript
+import { satisfies, validRange, maxSatisfying, Range } from '@lazy-node/semver-ampersand';
+
+// 標準 semver 與 ampersand 語法皆可 / Both standard and ampersand syntax work
+satisfies('1.2.3', '>=1.0.0 <2.0.0'); // true
+satisfies('1.2.3', '>=1.0.0 & <2.0.0'); // true
+
+// 驗證範圍是否有效 / Validate the range string
+validRange('>=1.0.0 & <2.0.0'); // 回傳規範化後的範圍字串 / returns the normalized range string
+validRange('>=1.0.0 & invalid'); // null
+
+// 從版本清單挑選符合的版本 / Pick a satisfying version from a list
+maxSatisfying(['1.0.0', '1.2.3', '2.0.0'], '>=1.0.0 & <2.0.0'); // '1.2.3'
+
+// 重複使用同一個範圍 / Reuse one range instance
+const range = new Range('>=1.0.0 & <2.0.0');
+range.test('1.5.0'); // true
+```
 
 ## Ampersand (`&`) 語法說明 / Ampersand (`&`) Syntax Explanation
 
@@ -79,7 +100,7 @@ Validate if a range string is valid, returns normalized range or `null`.
 ```typescript
 import { validRange } from '@lazy-node/semver-ampersand';
 
-validRange('>=1.0.0 & <2.0.0'); // true (返回規範化的範圍)
+validRange('>=1.0.0 & <2.0.0'); // 回傳規範化後的範圍字串 / Returns the normalized range string
 validRange('invalid-range'); // null
 validRange('>=1.0.0 & invalid'); // null
 ```
@@ -160,21 +181,37 @@ console.log(range.set); // 比較器集合
 console.log(range.toString()); // '>=1.0.0 <2.0.0'
 ```
 
-### 選項 / Options
+## 組態設定 / Configuration
+
+此套件沒有設定檔 (Config File)，所有選項皆透過各函數的 `options` 參數傳遞，型別為 `IOptions`（繼承 `semver.Options` 與 `semver.RangeOptions`）。
+
+This package has no config file; all options are passed through the `options` parameter of each function, typed as `IOptions` (extending `semver.Options` and `semver.RangeOptions`).
+
+| 選項 / Option | 型別 / Type | 預設 / Default | 說明 / Description |
+| --- | --- | --- | --- |
+| `loose` | `boolean` | `false` | 寬鬆模式 (Loose Mode)，放寬版本字串解析規則 / Relax version string parsing rules |
+| `includePrerelease` | `boolean` | `false` | 將預發布版本 (Pre-release) 視為候選 / Include pre-release versions as candidates |
+| `noAmpersand` | `boolean` | `false` | 停用 ampersand (`&`) 支援，此時 `&` 會被視為無效字元 / Disable ampersand (`&`) support; `&` is then treated as an invalid character |
+| `unsafeOptimize` | `boolean` | `false` | 啟用不安全的比較器集合優化，可能改變邊界行為，請謹慎使用 / Enable unsafe comparator-set optimization; may alter edge behavior, use with caution |
 
 ```typescript
-interface IOptions extends semver.Options, semver.RangeOptions {
-  /**
-   * 停用 ampersand 處理 / Disable ampersand handling
-   */
-  noAmpersand?: boolean;
-  
-  /**
-   * 啟用不安全優化 / Enable unsafe optimization
-   */
-  unsafeOptimize?: boolean;
-}
+import { satisfies, validRange } from '@lazy-node/semver-ampersand';
+
+// noAmpersand: true → `&` 被視為無效字元，範圍回傳 null / `&` becomes an invalid character, so the range returns null
+validRange('>=1.0.0 & <2.0.0', { noAmpersand: true }); // null
+validRange('>=1.0.0 & <2.0.0'); // 回傳規範化後的範圍字串 / returns the normalized range string
+
+// 允許預發布版本 / Include pre-release versions
+satisfies('1.0.1-beta.1', '^1.0.0', { includePrerelease: true }); // true
+satisfies('1.0.1-beta.1', '^1.0.0'); // false
+
+// 布林值簡寫等同於 { loose: true } / Boolean shorthand equals `{ loose: true }`
+satisfies('1.2.3', '>=1.0.0', true);
 ```
+
+> ⚠️ `noAmpersand` 只在有傳遞選項的路徑（如 `Range`、`validRange`）生效；`satisfies()`、`maxSatisfying()` 等函式一律會先把 `&` 視為「且」處理。
+>
+> ⚠️ `noAmpersand` only takes effect on paths that forward options (such as `Range` and `validRange`); `satisfies()`, `maxSatisfying()`, etc. always treat `&` as "AND".
 
 ## 使用案例 / Use Cases
 
@@ -271,6 +308,10 @@ const range = new Range(complexRange);
 - [`@lazy-node/semver-part`](../semver-part) - 版本部分比較工具 / Version part comparison utilities
 - [`@lazy-node/semver-parse`](../semver-parse) - semver 解析工具 / Semver parsing utilities
 - [`semver`](https://www.npmjs.com/package/semver) - 語義化版本處理 / Semantic versioning
+
+### 延伸閱讀 / Further Reading
+
+- [docs/semver-packages.md](../../../docs/semver-packages.md) - `@lazy-node/semver-*` 系列套件總覽 / Overview of the `@lazy-node/semver-*` package series
 
 ## 授權 / License
 

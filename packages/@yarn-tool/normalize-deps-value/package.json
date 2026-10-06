@@ -3,6 +3,8 @@
   "version": "2.0.9",
   "description": "Normalize dependency values to standardized semver format / 將依賴值正規化為標準化的 semver 格式",
   "keywords": [
+    "normalize",
+    "semver",
     "yarn",
     "yarn-tool",
     "npm",

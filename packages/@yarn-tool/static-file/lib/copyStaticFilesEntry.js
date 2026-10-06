@@ -48,24 +48,57 @@ const __root_1 = require("../__root");
  */
 function copyStaticFilesEntry(entry, cwd, staticRoot = __root_1.__STATIC_ROOT, overwrite) {
     const [targetFile, staticFile, detectFile] = entry;
-    // Check if detect file exists - skip copy if it does / 檢查檢測檔案是否存在 - 如果存在則跳過複製
+    /**
+     * 檢查檢測檔案 (detect file) 是否存在，存在即跳過複製
+     * Check if detect file exists - skip copy if it does
+     *
+     * 用於「範本檔」情境：專案已有正式設定檔時不應被樣板覆蓋
+     * For template scenarios: an existing real config file must not be overwritten by the template
+     */
     if (detectFile === null || detectFile === void 0 ? void 0 : detectFile.length) {
         const fc = (0, path_1.resolve)(cwd, detectFile);
         if ((0, fs_extra_1.existsSync)(fc)) {
             return;
         }
     }
-    // Resolve source file path / 解析來源檔案路徑
+    /**
+     * 解析來源檔案路徑
+     * Resolve source file path
+     *
+     * 以靜態根目錄為基準，樣板路徑可為巢狀（如 file/test/…）
+     * Resolved against the static root; template paths may be nested (e.g. file/test/…)
+     */
     const fb = (0, path_1.resolve)(staticRoot, staticFile);
-    // Verify source file exists / 驗證來源檔案是否存在
+    /**
+     * 驗證來源檔案是否存在
+     * Verify source file exists
+     *
+     * 來源缺失代表清單與 file/ 目錄不同步，應立即失敗而非複製出殘缺結果
+     * A missing source means the map is out of sync with file/; fail instead of producing a partial copy
+     */
     if (!(0, fs_extra_1.existsSync)(fb)) {
         throw new Error(`file not exists. ${fb}`);
     }
-    // Resolve target file path / 解析目標檔案路徑
+    /**
+     * 解析目標檔案路徑
+     * Resolve target file path
+     */
     const fa = (0, path_1.resolve)(cwd, targetFile);
-    // Ensure target directory exists / 確保目標目錄存在
+    /**
+     * 確保目標目錄存在
+     * Ensure target directory exists
+     *
+     * 目標可能位於子目錄（如 .github/workflows/），需先建立
+     * Targets may live in subdirectories (e.g. .github/workflows/), which must be created first
+     */
     (0, fs_extra_1.ensureDirSync)((0, path_1.dirname)(fa));
-    // Copy the file / 複製檔案
+    /**
+     * 複製檔案
+     * Copy the file
+     *
+     * overwrite 預設關閉並搭配 errorOnExist: false，讓已存在的目標維持原狀且不中斷批次
+     * overwrite defaults off with errorOnExist: false so existing targets stay untouched and the batch continues
+     */
     (0, fs_extra_1.copySync)(fb, fa, {
         overwrite: overwrite || false,
         preserveTimestamps: true,

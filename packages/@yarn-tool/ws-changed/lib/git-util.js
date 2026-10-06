@@ -44,8 +44,12 @@ function wsRootWithGitRoot(cwd) {
      */
     let git_root = (0, core_1.gitRoot)(cwd);
     /**
-     * 驗證兩者是否一致
-     * Validate they match
+     * 要求工作區根目錄與 Git 根目錄一致：
+     * 若不同（例如子倉本身又是獨立 git repo），
+     * 後續以工作區根目錄執行 git diff 會取到錯誤的變更集
+     * Require the workspace root to equal the Git root: if they differ (e.g. a
+     * nested folder is itself a git repo), running git diff from the workspace
+     * root would return the wrong set of changes
      */
     if (!(0, path_is_same_1.pathIsSame)(ws_root, git_root)) {
         throw new Error(`ws_root not same as git_root\nws_root: ${ws_root}\ngit_root: ${git_root}`);

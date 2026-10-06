@@ -19,7 +19,10 @@ const find_1 = require("./lib/find");
 Object.defineProperty(exports, "findDepsAllDeep", { enumerable: true, get: function () { return find_1.findDepsAllDeep; } });
 const find_up_1 = require("./lib/find-up");
 Object.defineProperty(exports, "findUpDepsAllDeep", { enumerable: true, get: function () { return find_up_1.findUpDepsAllDeep; } });
-// 預設匯出向上依賴尋找函數
-// Default export upward dependency finder function
+/**
+ * 預設匯出向上依賴尋找函數
+ *
+ * Default export upward dependency finder function
+ */
 exports.default = find_up_1.findUpDepsAllDeep;
 //# sourceMappingURL=index.js.map

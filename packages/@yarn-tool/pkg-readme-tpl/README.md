@@ -13,6 +13,14 @@
 
 This module provides functionality to process README files using lodash template engine. It can read files containing lodash template syntax, compile them with provided variables, and write to the file only when content has changed.
 
+## 特性 (Features)
+
+- 使用 lodash 模板引擎 (Lodash Template Engine) 編譯 README 樣板，支援 `<% %>`、`<%= %>`、`<%- %>` 語法
+- 只有在內容有變化時才寫入檔案 (Write only when changed)，避免不必要的磁碟操作 (Disk I/O) 與 git diff 噪音
+- 檔案不存在時直接略過，不會意外建立新檔
+- 支援泛型 (Generic) 型別定義模板變數，取得完整的型別提示 (Type Hint)
+- 同時接受字串 (String) 或 `Buffer` 形式的模板內容
+
 ## 安裝 (Installation)
 
 ```bash
@@ -140,6 +148,19 @@ Core function to read and compile README template.
 編譯後的模板函數，可傳入變數物件來生成最終內容。
 
 Compiled template function that accepts a variable object to generate final content.
+
+## 設定 (Configuration)
+
+本套件沒有設定檔 (Config File)，行為完全由 `writeReadme()` 的 `options` 決定：
+
+| 選項 | 型別 | 必填 | 說明 |
+|------|------|------|------|
+| `options.file` | `string` | 是 | 樣板檔案路徑；檔案不存在時會直接略過，不寫入任何內容 |
+| `options.variable` | `T` | 是 | 傳入模板的變數物件，對應樣板中的 `<%= ... %>` 佔位符 |
+
+模板編譯採用 lodash `template()` 的預設分隔符 (Delimiters)，未開放自訂；若需要其他分隔符，請自行呼叫 lodash 的 `template()`。
+
+本套件也不會自動建立不存在的目錄或檔案，請確保 `options.file` 所在的目錄已存在。
 
 ## 相關套件 (Related Packages)
 

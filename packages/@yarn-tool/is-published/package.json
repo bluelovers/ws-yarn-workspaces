@@ -3,6 +3,11 @@
   "version": "2.0.10",
   "description": "check package is published or not",
   "keywords": [
+    "is-published",
+    "published",
+    "publish-check",
+    "registry",
+    "npm-registry",
     "yarn",
     "yarn-tool",
     "npm",

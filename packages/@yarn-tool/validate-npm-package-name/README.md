@@ -1,48 +1,32 @@
 # validate-npm-package-name
 
-Give me a string and I'll tell you if it's a valid `npm` package name.
+> Give me a string and I'll tell you if it's a valid `npm` package name.
 
-This package exports a single synchronous function that takes a `string` as
-input and returns an object with two properties:
+傳入一個字串，判斷它是否為合法的 npm 套件名稱 (Package Name)。
+回傳物件包含 `validForNewPackages` 與 `validForOldPackages` 兩個布林 (Boolean) 屬性。
 
-- `validForNewPackages` :: `Boolean`
-- `validForOldPackages` :: `Boolean`
+## 特色 (Features)
 
-## Contents
+- 同步 (Sync) 函式、無任何相依副作用，可直接在腳本或 CLI 中使用。
+- 區分「錯誤 (Errors)」與「警告 (Warnings)」：舊版曾合法的名稱只警告、不禁止。
+- 支援 scoped 套件（`@scope/name`），回傳值附帶 `user` / `subname` 切分結果。
+- 可自訂黑名單 (Blacklist)，並可指定目標 Node.js 版本判斷核心模組名稱。
+- 提供 `throwErr` 選項，將錯誤轉為 `RangeError` 例外 (Exception)。
 
-- [Naming rules](#naming-rules)
-- [Examples](#examples)
-    + [Valid Names](#valid-names)
-    + [Invalid Names](#invalid-names)
-- [Legacy Names](#legacy-names)
-- [Tests](#tests)
-- [License](#license)
+## 安裝 (Installation)
 
-## Naming Rules
+```bash
+yarn add @yarn-tool/validate-npm-package-name
+yarn-tool add @yarn-tool/validate-npm-package-name
+yt add @yarn-tool/validate-npm-package-name
+```
 
-Below is a list of rules that valid `npm` package name should conform to.
+## 使用方式 (Usage)
 
-- package name length should be greater than zero
-- all the characters in the package name must be lowercase i.e., no uppercase or mixed case names are allowed
-- package name *can* consist of hyphens
-- package name must *not* contain any non-url-safe characters (since name ends up being part of a URL)
-- package name should not start with `.` or `_`
-- package name should *not* contain any leading or trailing spaces
-- package name should *not* contain any of the following characters: `~)('!*`
-- package name *cannot* be the same as a node.js/io.js core module nor a reserved/blacklisted name. For example, the following names are invalid:
-    + http
-    + stream
-    + node_modules
-    + favicon.ico
-- package name length cannot exceed 214
-
-
-## Examples
-
-### Valid Names
+### 合法名稱
 
 ```js
-var validate = require("validate-npm-package-name")
+var validate = require("@yarn-tool/validate-npm-package-name")
 
 validate("some-package")
 validate("example.com")
@@ -52,7 +36,7 @@ validate("@npm/thingy")
 validate("@jane/foo.js")
 ```
 
-All of the above names are valid, so you'll get this object back:
+以上名稱皆合法，回傳：
 
 ```js
 {
@@ -61,14 +45,14 @@ All of the above names are valid, so you'll get this object back:
 }
 ```
 
-### Invalid Names
+### 非法名稱
 
 ```js
 validate("excited!")
 validate(" leading-space:and:weirdchars")
 ```
 
-That was never a valid package name, so you get this:
+這類名稱從未合法過，因此回傳：
 
 ```js
 {
@@ -81,21 +65,16 @@ That was never a valid package name, so you get this:
 }
 ```
 
-## Legacy Names
+### 舊版名稱 (Legacy Names)
 
-In the old days of npm, package names were wild. They could have capital
-letters in them. They could be really long. They could be the name of an
-existing module in node core.
-
-If you give this function a package name that **used to be valid**, you'll see
-a change in the value of `validForNewPackages` property, and a warnings array
-will be present:
+早期 npm 的套件名稱可含大寫字母、可超過長度上限、也可與 Node.js 核心模組同名。
+這類「過去合法」的名稱會讓 `validForNewPackages` 變成 `false`，並附上 `warnings`：
 
 ```js
 validate("eLaBorAtE-paCkAgE-with-mixed-case-and-more-than-214-characters-----------------------------------------------------------------------------------------------------------------------------------------------------------")
 ```
 
-returns:
+回傳：
 
 ```js
 {
@@ -108,12 +87,58 @@ returns:
 }
 ```
 
-## Tests
+## API 文件 (API Documentation)
 
-```sh
-npm install
-npm test
-```
+### `validateNpmPackageName(name, options?)`
+
+定義於 [lib/validateNpmPackageName.ts](lib/validateNpmPackageName.ts)。
+
+| 參數 | 型別 | 說明 |
+|------|------|------|
+| `name` | `string` | 待驗證的套件名稱 |
+| `options` | `boolean \| IOptions` | 布林值等同 `{ throwErr }`，或完整選項物件 |
+
+回傳 `IValidateNpmPackageNameReturnType`：
+
+| 欄位 | 型別 | 說明 |
+|------|------|------|
+| `validForNewPackages` | `boolean` | 無錯誤且無警告時為 `true` |
+| `validForOldPackages` | `boolean` | 沒有錯誤時為 `true` |
+| `warnings` | `string[]` | 舊版名稱警告；無警告時欄位不存在 |
+| `errors` | `string[]` | 非法名稱錯誤；無錯誤時欄位不存在 |
+| `name` | `string` | 原始輸入名稱 |
+| `scopedPackagePattern` | `boolean` | 是否符合 `@scope/name` 格式 |
+| `user` / `subname` | `string` | scoped 套件的 scope 與子名稱 |
+
+### 名稱規則 (Naming Rules)
+
+- 名稱長度必須大於 0，且不得超過 214
+- 所有字元必須為小寫（不允許大寫或混合大小寫）
+- 可包含連字號 (Hyphen)
+- 不得包含非 URL 安全字元（名稱最終會成為 URL 的一部分）
+- 不得以 `.` 或 `_` 開頭
+- 不得有前後空白
+- 不得包含 `~)('!*` 等特殊字元
+- 不得與 Node.js 核心模組同名，也不得在黑名單內，例如：`http`、`stream`、`node_modules`、`favicon.ico`
+
+### 其他匯出
+
+| 匯出 | 說明 |
+|------|------|
+| `validate(name, options?)` | 未加總的 [核心驗證](lib/validateNpmPackageNameCore.ts)，不處理 scoped 切分與 `throwErr` |
+| `handleResult(warnings, errors)` | [產生最終結果物件](lib/handleResult.ts)，空陣列欄位會被移除 |
+| `IResult` / `IOptions` / `IValidateNpmPackageNameReturnType` | [共用型別](lib/types.ts) |
+| `scopedPackagePattern` | [scoped 套件正規表示式](lib/types.ts) |
+
+## 設定 (Configuration)
+
+本套件沒有設定檔，行為由 `IOptions`（[lib/types.ts](lib/types.ts)）決定：
+
+| 選項 | 型別 | 說明 |
+|------|------|------|
+| `targetNodeJSVersion` | `string` | 判斷核心模組名稱時所用的目標 Node.js 版本 |
+| `blacklist` | `(string \| RegExp)[]` | 自訂黑名單，未指定時使用內建的 `node_modules`、`favicon.ico` |
+| `throwErr` | `boolean` | 驗證發生錯誤時拋出 `RangeError`（訊息為錯誤與警告的合併字串） |
 
 ## License
 

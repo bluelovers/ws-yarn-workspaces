@@ -14,6 +14,19 @@ It ensures consistent key ordering for better readability and version control.
 此模組提供排序 package.json 中 exports 欄位的工具函式。
 確保鍵值順序一致，提高可讀性和版本控制友好性。
 
+## Features / 功能
+
+- **Root-level Key Sorting / 根層級鍵排序**：依 Node.js 解析偏好排序根層級鍵（`types`、`require`、`import`、`node`、`node-addons`）。
+  Sorts root-level keys following Node.js resolution preferences.
+- **Entry-level Key Sorting / 項層級鍵排序**：巢狀入口條件一併排序，並以 `default`、`.`、`./`、`./package.json` 收尾。
+  Sorts nested entry conditions as well, ending with `default`, `.`, `./`, `./package.json`.
+- **Custom Ordering / 自定義順序**：可透過 `rootOrder`、`entryOrder` 將自訂鍵前置（Prepend）到預設順序。
+  Custom keys can be prepended to the default order via `rootOrder` / `entryOrder`.
+- **Type-safe Guards / 型別安全守衛**：非純物件（Plain object）的 exports 值一律略過，不改寫字串或陣列簡寫。
+  Non-plain-object exports values are skipped, so string/array shorthands are never rewritten.
+- **In-place Sorting / 原地排序**：以 `useSource: true` 回寫傳入的物件，方便呼叫端直接沿用。
+  Sorting writes back into the passed object via `useSource: true`, convenient for callers.
+
 ## Installation / 安裝
 
 ```bash
@@ -107,7 +120,7 @@ isPackageJsonExportsEntryObject('./dist/index.js');              // false
 8. `./`
 9. `./package.json`
 
-## API Reference / API 參考
+## API Documentation / API 文件
 
 | Function | Description |
 |----------|-------------|
@@ -121,10 +134,40 @@ isPackageJsonExportsEntryObject('./dist/index.js');              // false
 | `rootOrder` | `readonly string[]` | Custom order for root-level exports keys |
 | `entryOrder` | `readonly string[]` | Custom order for nested exports entry keys |
 
+## Configuration / 設定
+
+排序順序由 `IOptions` 兩個欄位控制，兩者皆為**前置（Prepend）**語意：
+
+Sorting is controlled by the two `IOptions` fields, both of which **prepend**:
+
+```typescript
+import sortPackageJsonExports from '@yarn-tool/sort-package-json-exports';
+
+const sorted = sortPackageJsonExports(exports, {
+  rootOrder: ['browser', 'module'],  // 放到預設根層級順序之前 / placed before the default root order
+  entryOrder: ['worker'],            // 放到預設項層級順序之前 / placed before the default entry order
+});
+```
+
+設定要點 / Configuration notes：
+
+- 自訂鍵會插到預設順序最前方；預設順序中的其餘鍵維持相對次序。
+  Custom keys are inserted at the front of the default order; the remaining default keys keep their relative order.
+- **邊界情況（Edge case）**：`rootOrder` 不會自動帶入 `entryOrder`（預設 `entryOrder` 在前置自訂鍵之前就已建立），
+  若要同時調整兩個層級，必須分別指定。
+  `rootOrder` does not propagate into `entryOrder` (the default `entryOrder` is built before your custom keys are
+  prepended); specify both if you need to change two levels.
+- 傳入空陣列等同未指定，不會改變順序。
+  Passing an empty array is equivalent to omitting the option and changes nothing.
+- 順序表未列出的鍵會排在已知鍵之後，原有鍵值不會遺失。
+  Keys absent from the order list are placed after the known ones; no existing key is dropped.
+
 ## Related / 相關套件
 
 - [sort-object-keys2](https://www.npmjs.com/package/sort-object-keys2) - Sort object keys
 - [@yarn-tool/sort-package-json-order](https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/sort-package-json-order) - Sort package.json
+
+相關文件 / Related documentation：[docs/sort-package-json-utils.md](../../../docs/sort-package-json-utils.md)
 
 ## License / 授權
 

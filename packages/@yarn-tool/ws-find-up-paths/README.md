@@ -16,7 +16,7 @@ This module combines `find-up-paths` with yarn workspaces functionality, providi
 - ⚡ **同步/非同步支援 (Sync/Async Support)** - 提供同步與非同步兩種 API
 - 🎯 **靈活選項 (Flexible Options)** - 支援忽略當前套件或從套件目錄開始搜尋
 
-## 安裝 / Install
+## 安裝 / Installation
 
 ```bash
 yarn add @yarn-tool/ws-find-up-paths
@@ -67,33 +67,7 @@ console.log(paths);
 // ['/path/to/current', '/path/to/parent', '/path/to/workspace-root']
 ```
 
-### 選項說明 / Options
-
-```typescript
-interface IOptionsFindUpPathsWorkspaces {
-  /**
-   * 是否忽略當前套件目錄
-   * Whether to ignore the current package directory
-   */
-  ignoreCurrentPackage?: boolean;
-  
-  /**
-   * 是否從當前套件目錄開始搜尋
-   * Whether to start searching from the current package directory
-   */
-  startFromCurrentPackage?: boolean;
-  
-  // 繼承自 find-up-paths 的選項
-  // Options inherited from find-up-paths
-  cwd?: string;
-  includeCurrentDirectory?: boolean;
-  stopPath?: string | string[];
-  onlyFiles?: boolean;
-  onlyDirectories?: boolean;
-}
-```
-
-## API
+## API Documentation / API 文件
 
 ### `findUpPathsWorkspaces(pattern, opts?)`
 
@@ -114,6 +88,40 @@ Get all parent paths from current directory to workspace root.
 
 處理選項並返回執行時期物件。  
 Process options and return runtime object.
+
+## Configuration / 設定
+
+所有搜尋行為皆可透過 `IOptionsFindUpPathsWorkspaces` 調整：  
+All search behavior can be tuned via `IOptionsFindUpPathsWorkspaces`:
+
+```typescript
+interface IOptionsFindUpPathsWorkspaces {
+  /**
+   * 是否忽略當前套件目錄
+   * Whether to ignore the current package directory
+   */
+  ignoreCurrentPackage?: boolean;
+
+  /**
+   * 是否從當前套件目錄開始搜尋
+   * Whether to start searching from the current package directory
+   */
+  startFromCurrentPackage?: boolean;
+
+  // 繼承自 find-up-paths 的選項
+  // Options inherited from find-up-paths
+  cwd?: string;
+  includeCurrentDirectory?: boolean;
+  stopPath?: string | string[];
+  onlyFiles?: boolean;
+  onlyDirectories?: boolean;
+}
+```
+
+- `ignoreCurrentPackage` 與 `startFromCurrentPackage` 互斥，前者僅在非 workspace 子目錄時生效。  
+  `ignoreCurrentPackage` and `startFromCurrentPackage` are mutually exclusive; the former only takes effect outside a workspace subdirectory.
+- 搜尋永遠不會超過工作區根目錄 (Workspace Root)，該根目錄會被自動加入 `stopPath`。  
+  Search never goes beyond the workspace root; it is automatically appended to `stopPath`.
 
 ## 相關模組 / Related Modules
 

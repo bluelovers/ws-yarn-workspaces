@@ -18,8 +18,15 @@ exports.isTsdxPackage = isTsdxPackage;
  */
 function isTsdxPackage(pkg, config) {
     var _a, _b;
-    // 檢查關鍵字是否包含 tsdx 標記，且 exports['.'] 為物件類型
-    // Check if keywords include tsdx marker and exports['.'] is an object type
+    /**
+     * 檢查關鍵字是否包含 tsdx 標記，且 exports['.'] 為物件類型
+     * Check if keywords include tsdx marker and exports['.'] is an object type
+     *
+     * 兩個條件缺一不可：只有 keywords 可能是手動殘留，
+     * 只有 exports 則無法區分是否由 tsdx 建立
+     * Both conditions are required: keywords alone may be manually left over,
+     * and exports alone cannot tell whether the project was created by tsdx
+     */
     return ((_a = pkg.keywords) === null || _a === void 0 ? void 0 : _a.includes("create-by-tsdx" /* EnumTsdx.keyword */)) && typeof ((_b = pkg.exports) === null || _b === void 0 ? void 0 : _b['.']) === 'object';
 }
 //# sourceMappingURL=is-tsdx.js.map

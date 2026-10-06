@@ -1,8 +1,12 @@
 {
   "name": "@yarn-tool/pkg-deps-add",
   "version": "3.0.10",
-  "description": "",
+  "description": "Utilities to add and check dependencies fields (dependencies, devDependencies, peerDependencies, optionalDependencies) in package.json",
   "keywords": [
+    "package.json",
+    "devDependencies",
+    "peerDependencies",
+    "optionalDependencies",
     "yarn",
     "yarn-tool",
     "npm",

@@ -37,20 +37,41 @@ const array_hyper_unique_1 = require("array-hyper-unique");
  * ```
  */
 function reMapStaticFilesMapArray(file_map, replaceMap) {
-    // Parse the source file map / 解析來源檔案映射
+    /**
+     * 解析來源檔案映射
+     * Parse the source file map
+     *
+     * 先正規化成陣列，之後才能依 key 查找並重複合成
+     * Normalize into an array first, so entries can be looked up by key and merged later
+     */
     const ls = (0, parseStaticMap_1.parseStaticMap)(file_map);
-    // Process each replacement mapping / 處理每個替換映射
+    /**
+     * 逐筆處理替換映射：把「新路徑 → 舊路徑」轉成新的條目
+     * Process each replacement mapping: turn "new path → old path" into new entries
+     */
     const arr = Object.entries(replaceMap)
         .reduce((arr, [targetNew, targetOld]) => {
-        // Find the original entry / 查找原始條目
+        /**
+         * 查找原始條目
+         * Find the original entry
+         */
         let old = (0, getRowOfStaticFilesMapArray_1.getRowOfStaticFilesMapArray)(ls, targetOld);
-        // If entry exists, create a new entry with the new target path / 如果條目存在，使用新目標路徑創建新條目
+        /**
+         * 原始條目不存在時略過（例如清單中沒有該檔案），避免產生無來源的條目
+         * Skip when the original entry is absent (e.g. the file is not in the list) to avoid source-less entries
+         */
         if (old === null || old === void 0 ? void 0 : old.length) {
             arr.push((0, replaceTargetOfStaticFilesMapArrayEntry_1.replaceTargetOfStaticFilesMapArrayEntry)(old, targetNew));
         }
         return arr;
     }, []);
-    // Combine remapped entries with original entries and remove duplicates / 合併重新映射的條目與原始條目並移除重複項
+    /**
+     * 合併重新映射的條目與原始條目並移除重複項
+     * Combine remapped entries with original entries and remove duplicates
+     *
+     * 重新映射的條目排在原始條目之前，去重結果決定同鍵條目的保留者
+     * Remapped entries come before the originals; dedup decides which entry survives for the same key
+     */
     return (0, array_hyper_unique_1.array_unique_overwrite)(arr.concat(ls));
 }
 //# sourceMappingURL=reMapStaticFilesMapArray.js.map

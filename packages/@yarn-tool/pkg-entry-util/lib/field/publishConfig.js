@@ -16,16 +16,19 @@ exports.fixPublishConfig = fixPublishConfig;
  * @returns {T & { publishConfig: IPackageJsonPublishConfig }} 修正後的 package.json 物件 / Corrected package.json object
  */
 function fixPublishConfig(pkg) {
-    // 檢查是否需要添加 publishConfig：
-    // 1. 尚未有 publishConfig
-    // 2. 非私有套件
-    // 3. 有套件名稱
-    // 4. 套件名稱包含 '/'（scoped package）
-    // Check if publishConfig needs to be added:
-    // 1. No existing publishConfig
-    // 2. Not a private package
-    // 3. Has package name
-    // 4. Package name contains '/' (scoped package)
+    /**
+     * 檢查是否需要添加 publishConfig：
+     * 1. 尚未有 publishConfig
+     * 2. 非私有套件
+     * 3. 有套件名稱
+     * 4. 套件名稱包含 '/'（scoped package）
+     *
+     * Check if publishConfig needs to be added:
+     * 1. No existing publishConfig
+     * 2. Not a private package
+     * 3. Has package name
+     * 4. Package name contains '/' (scoped package)
+     */
     if (!pkg.publishConfig
         && !pkg.private
         && pkg.name

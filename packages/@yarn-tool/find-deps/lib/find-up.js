@@ -34,42 +34,69 @@ const find_1 = require("./find");
  */
 function findUpDepsDeepRecordCore(target, record, map = {}) {
     var _a, _b;
-    // 若目標套件不存在或已處理過，直接返回
-    // Return directly if target package doesn't exist or has been processed
+    /**
+     * 若目標套件不存在或已處理過，直接返回
+     *
+     * Return directly if target package doesn't exist or has been processed
+     */
     if (!record[target] || ((_a = map[target]) === null || _a === void 0 ? void 0 : _a.length)) {
         return map;
     }
-    // 初始化目標套件的向上依賴列表
-    // Initialize upward dependency list for target package
+    /**
+     * 初始化目標套件的向上依賴列表
+     *
+     * Initialize upward dependency list for target package
+     */
     map[target] = (_b = map[target]) !== null && _b !== void 0 ? _b : [];
-    // 遍歷所有套件，找出依賴目標套件的套件
-    // Traverse all packages to find those that depend on target package
+    /**
+     * 遍歷所有套件，找出依賴目標套件的套件
+     *
+     * Traverse all packages to find those that depend on target package
+     */
     Object.values(record)
         .reduce((map, row) => {
-        // 檢查此套件是否在任何依賴欄位中包含目標套件
-        // Check if this package contains target in any dependency field
+        /**
+         * 檢查此套件是否在任何依賴欄位中包含目標套件
+         *
+         * Check if this package contains target in any dependency field
+         */
         let bool = types_1.packageJsonDependenciesFields
             .some(field => {
             var _a, _b;
             return (_b = (_a = row === null || row === void 0 ? void 0 : row[field]) === null || _a === void 0 ? void 0 : _a[target]) === null || _b === void 0 ? void 0 : _b.length;
         });
-        // 若此套件依賴目標套件
-        // If this package depends on target package
+        /**
+         * 若此套件依賴目標套件
+         *
+         * If this package depends on target package
+         */
         if (bool) {
-            // 將此套件加入目標的向上依賴列表
-            // Add this package to target's upward dependency list
+            /**
+             * 將此套件加入目標的向上依賴列表
+             *
+             * Add this package to target's upward dependency list
+             */
             map[target].push(row.name);
-            // 遞迴尋找此套件的向上依賴
-            // Recursively find upward dependencies of this package
+            /**
+             * 遞迴尋找此套件的向上依賴
+             *
+             * Recursively find upward dependencies of this package
+             */
             findUpDepsDeepRecordCore(row.name, record, map);
-            // 將此套件的向上依賴也加入目標的列表
-            // Add this package's upward dependencies to target's list
+            /**
+             * 將此套件的向上依賴也加入目標的列表
+             *
+             * Add this package's upward dependencies to target's list
+             */
             map[target].push(...map[row.name]);
         }
         return map;
     }, map);
-    // 移除重複的套件名稱
-    // Remove duplicate package names
+    /**
+     * 移除重複的套件名稱
+     *
+     * Remove duplicate package names
+     */
     (0, array_hyper_unique_1.array_unique_overwrite)(map[target]);
     return map;
 }
@@ -89,8 +116,11 @@ function findUpDepsDeepRecordCore(target, record, map = {}) {
 function findUpDepsAllDeepRecordCore(targets, record, map = {}) {
     return targets
         .reduce((map, target) => {
-        // 對每個目標執行向上依賴尋找
-        // Execute upward dependency search for each target
+        /**
+         * 對每個目標執行向上依賴尋找
+         *
+         * Execute upward dependency search for each target
+         */
         findUpDepsDeepRecordCore(target, record, map);
         return map;
     }, map);
@@ -115,30 +145,53 @@ function findUpDepsAllDeepRecordCore(targets, record, map = {}) {
  * // Returns [['pkg-a', ['pkg-b', 'pkg-c']]] meaning pkg-b and pkg-c depend on pkg-a
  */
 function findUpDepsAllDeep(targets, record) {
-    // 建立向上依賴映射
-    // Build upward dependency map
+    /**
+     * 建立向上依賴映射
+     *
+     * Build upward dependency map
+     */
     let map = findUpDepsAllDeepRecordCore(targets, record);
-    // 建立向下依賴映射（用於排序）
-    // Build downward dependency map (for sorting)
+    /**
+     * 建立向下依賴映射（用於排序）
+     *
+     * Build downward dependency map (for sorting)
+     */
     let map2 = (0, find_1.findDepsAllDeepRecordCore)(Object.keys(map), record);
-    // 將映射轉換為陣列
-    // Convert map to array
+    /**
+     * 將映射轉換為陣列
+     *
+     * Convert map to array
+     */
     let list = Object.entries(map);
-    // 依據依賴數量排序（多的在前）
-    // Sort by dependency count (more first)
+    /**
+     * 依據依賴數量排序（多的在前）
+     *
+     * Sort by dependency count (more first)
+     */
     list.sort((a, b) => {
         return b[1].length - a[1].length;
     });
-    // 對每個目標的向上依賴列表進行排序
-    // Sort upward dependency list for each target
+    /**
+     * 對每個目標的向上依賴列表進行排序
+     *
+     * Sort upward dependency list for each target
+     */
     list.forEach(a => {
         a[1].sort((a, b) => {
-            // 先依據向下依賴數量排序，若相同則依據向上依賴數量排序
-            // Sort by downward dependency count first, then by upward dependency count if equal
+            /**
+             * 先依據向下依賴數量排序，若相同則依據向上依賴數量排序
+             *
+             * Sort by downward dependency count first, then by upward dependency count if equal
+             */
             return (map2[a].length - map2[b].length) || (map[b].length - map[a].length);
         });
     });
     return list;
 }
+/**
+ * 預設匯出 `findUpDepsAllDeep`
+ *
+ * Default export: `findUpDepsAllDeep`.
+ */
 exports.default = findUpDepsAllDeep;
 //# sourceMappingURL=find-up.js.map

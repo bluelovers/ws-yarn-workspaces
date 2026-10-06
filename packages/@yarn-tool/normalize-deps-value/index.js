@@ -93,26 +93,38 @@ const FAKE_NAME = '@fake/fake';
  */
 function normalizeResultToDepsValue(result) {
     let value;
-    // String input: use directly
-    // 字串輸入：直接使用
+    /**
+     * 字串輸入：直接使用
+     *
+     * String input: use directly
+     */
     if (typeof result === 'string') {
         value = result;
     }
-    // Object result: process based on type
-    // 物件結果：根據類型處理
+    /**
+     * 物件結果：根據類型處理
+     *
+     * Object result: process based on type
+     */
     else if (result) {
         /**
          * Range type: requires special normalization
          * Range 類型：需要特殊正規化
          */
         if (result.type === 'range') {
-            // Empty/space/star input: return ANY (which becomes STAR)
-            // 空/空格/星號輸入：返回 ANY（會變成 STAR）
+            /**
+             * 空/空格/星號輸入：返回 ANY（會變成 STAR）
+             *
+             * Empty/space/star input: return ANY (which becomes STAR)
+             */
             if ((0, detect_1.isInputSpecIsEmpty)(result)) {
                 value = "" /* EnumSemverVersion.ANY */;
             }
-            // Non-empty range: normalize through semver-ampersand
-            // 非空範圍：透過 semver-ampersand 正規化
+            /**
+             * 非空範圍：透過 semver-ampersand 正規化
+             *
+             * Non-empty range: normalize through semver-ampersand
+             */
             else {
                 const rangeSet = (0, buildRangeSet_1.buildRangeSet)(result.rawSpec);
                 value = (0, toRangeString_1.toRangeString)((0, stringifyRangeSet_1.stringifyRangeSet)(rangeSet));
@@ -135,13 +147,19 @@ function normalizeResultToDepsValue(result) {
             value = result.rawSpec;
         }
     }
-    // Convert ANY to undefined (will fallback to STAR)
-    // 將 ANY 轉換為 undefined（會回退到 STAR）
+    /**
+     * 將 ANY 轉換為 undefined（會回退到 STAR）
+     *
+     * Convert ANY to undefined (will fallback to STAR)
+     */
     if (value === "" /* EnumSemverVersion.ANY */) {
         value = void 0;
     }
-    // Return value or default to STAR wildcard
-    // 返回值或預設為 STAR 萬用字元
+    /**
+     * 返回值或預設為 STAR 萬用字元
+     *
+     * Return value or default to STAR wildcard
+     */
     return value !== null && value !== void 0 ? value : "*" /* EnumSemverVersion.STAR */;
 }
 /**
@@ -187,27 +205,39 @@ function normalizeResultToDepsValue(result) {
  */
 function _getNpaResult(value) {
     let result;
-    // Strategy 1: Parse as semver range with fake name
-    // 策略 1：作為帶虛假名稱的 semver 範圍解析
+    /**
+     * 策略 1：作為帶虛假名稱的 semver 範圍解析
+     *
+     * Strategy 1: Parse as semver range with fake name
+     */
     try {
         let sr = new Range_1.SemverRange(value);
         result = (0, npm_package_arg_util_1.npa)(`${FAKE_NAME}@${value}`);
     }
-    // Strategy 2: Parse as full package spec
-    // 策略 2：作為完整套件規格解析
+    /**
+     * 策略 2：作為完整套件規格解析
+     *
+     * Strategy 2: Parse as full package spec
+     */
     catch (e) {
         try {
             result = (0, npm_package_arg_util_1.npa)(`${value}`);
         }
-        // Strategy 3: Parse with noThrowError flag
-        // 策略 3：使用 noThrowError 標誌解析
+        /**
+         * 策略 3：使用 noThrowError 標誌解析
+         *
+         * Strategy 3: Parse with noThrowError flag
+         */
         catch (e) {
             try {
                 result = (0, npm_package_arg_util_1.npa)(`${FAKE_NAME}@${value}`, {
                     noThrowError: true,
                 });
-                // Type check for range (appears to be validation placeholder)
-                // 範圍類型檢查（似乎是驗證預留位置）
+                /**
+                 * 範圍類型檢查（似乎是驗證預留位置）
+                 *
+                 * Type check for range (appears to be validation placeholder)
+                 */
                 if (result.type === 'range') {
                 }
             }
@@ -267,5 +297,10 @@ function normalizeDepsValue(value) {
     const result = _getNpaResult(value);
     return normalizeResultToDepsValue(result);
 }
+/**
+ * 預設匯出 `normalizeDepsValue` (Default export)
+ *
+ * The default export is `normalizeDepsValue`.
+ */
 exports.default = normalizeDepsValue;
 //# sourceMappingURL=index.js.map

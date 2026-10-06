@@ -1,8 +1,12 @@
 {
   "name": "@yarn-tool/write-package-json",
   "version": "1.0.17",
-  "description": "",
+  "description": "write package.json with pretty formatting (2-space indent, final EOL)",
   "keywords": [
+    "write-package-json",
+    "package-json",
+    "json",
+    "pretty-print",
     "yarn",
     "yarn-tool",
     "npm",

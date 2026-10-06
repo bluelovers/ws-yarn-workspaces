@@ -159,4 +159,9 @@ export declare function _getNpaResult(value: string): IResult;
  * // => "^4.0.0"
  */
 export declare function normalizeDepsValue(value: string): string;
+/**
+ * 預設匯出 `normalizeDepsValue` (Default export)
+ *
+ * The default export is `normalizeDepsValue`.
+ */
 export default normalizeDepsValue;

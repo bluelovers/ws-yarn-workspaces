@@ -37,6 +37,12 @@ export interface IOptionsDetectNpx {
  * NPX detection options input type (requires at least __dirname or env)
  */
 export type IOptionsDetectNpxInput = ITSRequireAtLeastOne<IOptionsDetectNpx & {
+    /**
+     * 交叉 `Record<any, any>` 將值型別放寬為 `any`，
+     * 讓測試或特殊情境能傳入非純字串的環境變數值
+     * Intersecting `Record<any, any>` widens values to `any`, so tests or
+     * special cases may pass environment variable values that are not plain strings
+     */
     env: Record<any, any>;
 }>;
 /**

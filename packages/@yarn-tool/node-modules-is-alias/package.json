@@ -3,6 +3,10 @@
   "version": "3.0.12",
   "description": "check given node modules path is alias or not",
   "keywords": [
+    "alias",
+    "is-alias",
+    "module path",
+    "node modules alias",
     "yarn",
     "yarn-tool",
     "npm",

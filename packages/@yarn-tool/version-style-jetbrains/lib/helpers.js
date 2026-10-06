@@ -23,12 +23,13 @@ const date_1 = require("./date");
  */
 function _parseStandardFullVersion(version) {
     const standardFullMatch = version.match(/^(\d{4})\.(\d+)\.(\d+)(?:-(\d+))?$/);
+    /** 格式不符即回傳 null，交由上層改嘗試其他格式 / Return null on mismatch so the caller can try another format */
     if (!standardFullMatch) {
         return null;
     }
     const [, yearStr, monthOrMD, dayOrIncrement, increment] = standardFullMatch;
     const year = parseInt(yearStr, 10);
-    // 使用輔助函數解析月日資訊
+    /** 月日部分可能是「月.日」或合併的「月日」數字，交給共用輔助函式判定 / The month/day part may be separate or a combined number; delegate to the shared helper */
     const { month, day, dailyVersion, isMDCombined } = (0, date_1._parseMonthDayInfo)(monthOrMD, dayOrIncrement, increment);
     return {
         year,
@@ -51,13 +52,14 @@ function _parseStandardFullVersion(version) {
  */
 function _parseJetbrainsVersion(version) {
     const jetbrainsMatch = version.match(/^(\d+)\.(\d+)\.(\d+)(?:-(\d+))?$/);
+    /** 格式不符即回傳 null，交由上層決定是否改用其他格式 / Return null on mismatch so the caller can decide on another format */
     if (!jetbrainsMatch) {
         return null;
     }
     const [, yearQuarterStr, monthOrMD, dayOrIncrement, increment] = jetbrainsMatch;
-    // 使用輔助函數解析 JetBrains 年份和季度
+    /** 首段為「年份後兩位 + 季度」的壓縮編碼，需還原成完整年份 / The first segment encodes two-digit year + quarter and must be expanded back to a full year */
     const { year } = (0, date_1._parseJetbrainsYearQuarter)(yearQuarterStr);
-    // 使用輔助函數解析月日資訊
+    /** 月日部分可能是「月.日」或合併的「月日」數字，交給共用輔助函式判定 / The month/day part may be separate or a combined number; delegate to the shared helper */
     const { month, day, dailyVersion, isMDCombined } = (0, date_1._parseMonthDayInfo)(monthOrMD, dayOrIncrement, increment);
     return {
         year,
@@ -76,16 +78,36 @@ function _parseJetbrainsVersion(version) {
  * @returns 解析結果 / Parse result
  */
 function _parseVersion(version) {
-    // 嘗試解析標準格式: YYYY.M.D-increment 或 YYYY.MD.increment
+    /**
+     * 先嘗試解析標準格式: YYYY.M.D-increment 或 YYYY.MD.increment
+     *
+     * Try the standard format first: YYYY.M.D-increment or YYYY.MD.increment
+     */
     let result = _parseStandardFullVersion(version);
+    /**
+     * 標準格式失敗才退回 JetBrains 短年份格式: YY+OFFSET.M.D-increment 或 YY+OFFSET.MD.increment
+     *
+     * Only fall back to the JetBrains short-year format when the standard one fails
+     */
     if (!result) {
-        // 嘗試解析 JetBrains 短年份格式: YY+OFFSET.M.D-increment 或 YY+OFFSET.MD.increment
         result = _parseJetbrainsVersion(version);
     }
+    /**
+     * 解析成功仍需驗證日期合法性（如月份 1-12），
+     * 不合法會在此拋出 RangeError 而非回傳錯誤結果
+     *
+     * Even a successful parse needs date validation (e.g. month 1-12);
+     * invalid data throws RangeError here instead of returning a bad result
+     */
     if (result) {
         (0, assert_1._assertValidDateInfo)(result);
         return result;
     }
+    /**
+     * 兩種格式皆不符：回傳 null 交由呼叫端決定容錯策略
+     *
+     * Neither format matched: return null and let the caller choose the fallback policy
+     */
     return null;
 }
 //# sourceMappingURL=helpers.js.map

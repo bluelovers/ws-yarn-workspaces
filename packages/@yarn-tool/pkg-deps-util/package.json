@@ -1,8 +1,11 @@
 {
   "name": "@yarn-tool/pkg-deps-util",
   "version": "3.0.10",
-  "description": "",
+  "description": "Utilities for checking, filtering and installing package dependencies with yarn.lock and yarn workspaces support",
   "keywords": [
+    "install",
+    "yarn.lock",
+    "semver",
     "yarn",
     "yarn-tool",
     "npm",
