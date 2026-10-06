@@ -6,5 +6,8 @@
       "jest",
       "node"
     ]
-  }
+  },
+  "exclude": [
+    "test"
+  ]
 }

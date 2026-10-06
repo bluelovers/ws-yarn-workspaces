@@ -1,3 +1,5 @@
+import { describe, test } from 'node:test';
+import assert from 'node:assert/strict';
 import { checkPaths, EnumCheckPaths } from '../lib/util';
 import { join } from 'path';
 
@@ -15,10 +17,7 @@ describe(`describe`, () =>
 		});
 		let expected = EnumCheckPaths.root;
 
-		expect(actual).toStrictEqual(expected);
-		//expect(actual).toBeInstanceOf(Date);
-		expect(actual).toMatchSnapshot();
-
+		assert.strictEqual(actual, expected);
 	});
 
 	test(`EnumCheckPaths.rootPath`, () =>
@@ -31,10 +30,7 @@ describe(`describe`, () =>
 		});
 		let expected = EnumCheckPaths.rootPath;
 
-		expect(actual).toStrictEqual(expected);
-		//expect(actual).toBeInstanceOf(Date);
-		expect(actual).toMatchSnapshot();
-
+		assert.strictEqual(actual, expected);
 	});
 
 	test(`failed`, () =>
@@ -47,10 +43,7 @@ describe(`describe`, () =>
 		});
 		let expected = EnumCheckPaths.failed;
 
-		expect(actual).toStrictEqual(expected);
-		//expect(actual).toBeInstanceOf(Date);
-		expect(actual).toMatchSnapshot();
-
+		assert.strictEqual(actual, expected);
 	});
 
 	test(`root is empty return EnumCheckPaths.rootPath`, () =>
@@ -63,10 +56,7 @@ describe(`describe`, () =>
 		});
 		let expected = EnumCheckPaths.rootPath;
 
-		expect(actual).toStrictEqual(expected);
-		//expect(actual).toBeInstanceOf(Date);
-		expect(actual).toMatchSnapshot();
-
+		assert.strictEqual(actual, expected);
 	});
 
 	test(`rootPath is empty return EnumCheckPaths.failed`, () =>
@@ -79,10 +69,7 @@ describe(`describe`, () =>
 		});
 		let expected = EnumCheckPaths.failed;
 
-		expect(actual).toStrictEqual(expected);
-		//expect(actual).toBeInstanceOf(Date);
-		expect(actual).toMatchSnapshot();
-
+		assert.strictEqual(actual, expected);
 	});
 
 	test(`empty return EnumCheckPaths.failed`, () =>
@@ -95,10 +82,7 @@ describe(`describe`, () =>
 		});
 		let expected = EnumCheckPaths.failed;
 
-		expect(actual).toStrictEqual(expected);
-		//expect(actual).toBeInstanceOf(Date);
-		expect(actual).toMatchSnapshot();
-
+		assert.strictEqual(actual, expected);
 	});
 
 });
@@ -121,10 +105,7 @@ describe(`skipStrictCheck`, () =>
 		}, options);
 		let expected = EnumCheckPaths.root;
 
-		expect(actual).toStrictEqual(expected);
-		//expect(actual).toBeInstanceOf(Date);
-		expect(actual).toMatchSnapshot();
-
+		assert.strictEqual(actual, expected);
 	});
 
 	test(`EnumCheckPaths.rootPath`, () =>
@@ -137,10 +118,7 @@ describe(`skipStrictCheck`, () =>
 		}, options);
 		let expected = EnumCheckPaths.rootPath;
 
-		expect(actual).toStrictEqual(expected);
-		//expect(actual).toBeInstanceOf(Date);
-		expect(actual).toMatchSnapshot();
-
+		assert.strictEqual(actual, expected);
 	});
 
 	test(`failed => rootPath`, () =>
@@ -153,10 +131,7 @@ describe(`skipStrictCheck`, () =>
 		}, options);
 		let expected = EnumCheckPaths.rootPath
 
-		expect(actual).toStrictEqual(expected);
-		//expect(actual).toBeInstanceOf(Date);
-		expect(actual).toMatchSnapshot();
-
+		assert.strictEqual(actual, expected);
 	});
 
 	test(`root is empty return EnumCheckPaths.rootPath`, () =>
@@ -169,10 +144,7 @@ describe(`skipStrictCheck`, () =>
 		}, options);
 		let expected = EnumCheckPaths.rootPath;
 
-		expect(actual).toStrictEqual(expected);
-		//expect(actual).toBeInstanceOf(Date);
-		expect(actual).toMatchSnapshot();
-
+		assert.strictEqual(actual, expected);
 	});
 
 	test(`rootPath is empty return EnumCheckPaths.failed`, () =>
@@ -185,10 +157,7 @@ describe(`skipStrictCheck`, () =>
 		}, options);
 		let expected = EnumCheckPaths.failed;
 
-		expect(actual).toStrictEqual(expected);
-		//expect(actual).toBeInstanceOf(Date);
-		expect(actual).toMatchSnapshot();
-
+		assert.strictEqual(actual, expected);
 	});
 
 	test(`empty return EnumCheckPaths.failed`, () =>
@@ -201,10 +170,7 @@ describe(`skipStrictCheck`, () =>
 		}, options);
 		let expected = EnumCheckPaths.failed;
 
-		expect(actual).toStrictEqual(expected);
-		//expect(actual).toBeInstanceOf(Date);
-		expect(actual).toMatchSnapshot();
-
+		assert.strictEqual(actual, expected);
 	});
 
 })

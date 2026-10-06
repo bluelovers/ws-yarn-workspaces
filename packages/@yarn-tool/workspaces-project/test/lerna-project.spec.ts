@@ -1,30 +1,26 @@
-import findWorkspaceRoot from 'find-yarn-workspace-root2/core';
+import { describe, it } from 'node:test';
+
+import { findWorkspaceRoot } from 'find-yarn-workspace-root2/core';
 import { Project as LernaProject } from '@lerna/project';
 import { checkPaths, EnumCheckPaths } from '../lib/util';
 
 describe(`lerna project`, () =>
 {
-
-	let root = findWorkspaceRoot(__dirname);
+	const root = findWorkspaceRoot(__dirname);
 	const cwd = __dirname;
 
-	test(`check workspace root`, () =>
+	it(`check workspace root`, (t) =>
 	{
-		let _project = new LernaProject(cwd)
-		let rootPath: string = _project.rootPath;
+		const _project = new LernaProject(cwd);
+		const rootPath: string = _project.rootPath;
 
-		let actual = checkPaths({
+		const actual = checkPaths({
 			root,
 			rootPath,
 		});
-		let expected = EnumCheckPaths.rootPath;
+		const expected = EnumCheckPaths.rootPath;
 
-		console.dir(actual)
-
-		expect(actual).toStrictEqual(expected);
-		//expect(actual).toBeInstanceOf(Date);
-		//expect(actual).toMatchSnapshot();
-
+		t.assert.equal(actual, expected);
 	});
 
-})
+});

@@ -51,8 +51,9 @@ export class WorkspacesProject
 		this._project = new LernaProject(cwd)
 		let rootPath: string = this._project.rootPath;
 
-		// checkPaths 決定要用哪個根目錄；failed 代表兩根目錄衝突，直接失敗比默默採用錯誤根目錄更安全。
-		// `checkPaths` decides which root to use; `failed` means the roots conflict, and failing fast is safer than silently using the wrong one.
+		/**
+		 * checkPaths 決定要用哪個根目錄；failed 代表兩根目錄衝突，直接失敗比默默採用錯誤根目錄更安全。
+		 */
 		switch (checkPaths({
 			root,
 			rootPath,
@@ -66,19 +67,22 @@ export class WorkspacesProject
 				break;
 		}
 
-		// 有 yarn 工作區時，未明確設定 npmClient 就補上 yarn 並啟用 useWorkspaces，讓 lerna 使用 yarn workspaces。
-		// When a yarn workspace exists and `npmClient` is unset, default to yarn and enable `useWorkspaces` so lerna leverages yarn workspaces.
+		/**
+		 * 有 yarn 工作區時，未明確設定 npmClient 就補上 yarn 並啟用 useWorkspaces，讓 lerna 使用 yarn workspaces。
+		 */
 		if (root?.length)
 		{
-			if (typeof this.config.npmClient === 'undefined' && this.config.useWorkspaces !== false)
+			if (typeof this.config.npmClient === 'undefined' && this.config['useWorkspaces'] !== false)
 			{
 				this.npmClient = 'yarn';
-				this.config.useWorkspaces = true;
+				this.config['useWorkspaces'] = true;
 			}
 		}
 
-		// 統一路徑分隔符，避免 Windows 與 POSIX 產生不一致的字串比較結果。
-		// Normalize path separators so Windows and POSIX do not produce inconsistent string comparisons.
+		/**
+		 * 統一路徑分隔符，避免 Windows 與 POSIX 產生不一致的字串比較結果。
+		 * Normalize path separators so Windows and POSIX do not produce inconsistent string comparisons.
+		 */
 		this._project.rootPath = normalize(this._project.rootPath);
 
 		this._project.rootConfigLocation = normalize(this._project.rootConfigLocation);
