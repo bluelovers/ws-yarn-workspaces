@@ -65,6 +65,7 @@
     "lerna:publish:yes:minor": "node --run prepublishOnly:root && lerna publish --no-private --yes --bump minor && pnpm run postpublishOnly",
     "lerna:publish:yes:patch": "node --run prepublishOnly:root && lerna publish --no-private --yes --bump patch && pnpm run postpublishOnly",
     "ws:fix-all": "tsx ./test/scripts/fix-all.ts",
+    "ws:fix-all:addStaticFiles": "node --run ws:fix-all -- --addStaticFiles",
     "ws:fix-all:resetStaticFiles": "node --run ws:fix-all -- --resetStaticFiles",
     "preversion": "pnpm run test",
     "version": "echo version",
