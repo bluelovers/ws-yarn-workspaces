@@ -24,7 +24,8 @@ import { IOptionsRequireResolve } from "./types.js";
  * const ts = await importExtra('typescript', { includeGlobal: true });
  * ```
  */
-export function importExtra<T = unknown>(name: string, options?: IOptionsRequireResolve): Promise<T>
+export async function importExtra<T = unknown>(name: string, options?: IOptionsRequireResolve): Promise<T>
 {
-	return import(pathToFileURL(requireResolveCore(name, options)).href);
+	const path = requireResolveCore(name, options);
+	return import(path).catch(() => import(pathToFileURL(path)?.href));
 }

@@ -8,6 +8,9 @@ describe('importExtra', () =>
 {
 	test('應該能夠動態導入存在的模組', async (t) =>
 	{
+		/**
+		 * 專案根目錄的 package.json 中有 jest，所以應該能夠成功導入
+		 */
 		const result = await importExtra('jest');
 		// t.assert.snapshot(result);
 		t.assert.notEqual(result, undefined);
@@ -18,6 +21,9 @@ describe('tryImportExtra', () =>
 {
 	test('應該能夠動態導入存在的模組', async () =>
 	{
+		/**
+		 * 專案根目錄的 package.json 中有 jest，所以應該能夠成功導入
+		 */
 		const result = await tryImportExtra('jest');
 		assert.notStrictEqual(result, undefined);
 		assert.notStrictEqual(result, null);

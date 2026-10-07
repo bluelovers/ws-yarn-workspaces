@@ -58,7 +58,3 @@ export function createModuleNotFoundError(moduleName: string, basePath?: string)
 	error.requireStack = basePath ? [basePath] : [];
 	return error;
 }
-
-export type {
-	IErrorModuleNotFound,
-}

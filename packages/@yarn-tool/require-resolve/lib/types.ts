@@ -62,6 +62,8 @@ export interface IPackageCoreInfo
 	pkgRoot: string;
 	/** 入口點位置 / Entry point location */
 	entryPointLocation: string;
+	/** 處理後的搜尋路徑 / Processed search paths */
+	processedPaths?: string[];
 }
 
 /**

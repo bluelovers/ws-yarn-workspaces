@@ -2,6 +2,7 @@ import type {
 	IOptionsRequireResolve,
 	IOptionsRequireResolveCore,
 	IResolveResult,
+	IErrorModuleNotFound,
 } from './types';
 import {
 	handleOptionsPaths,
@@ -9,7 +10,7 @@ import {
 	_unshiftArray,
 } from './util';
 
-import { isErrorModuleNotFound, type IErrorModuleNotFound } from './error';
+import { isErrorModuleNotFound } from './error';
 import { IPathItemInput, SymbolGlobal, SymbolCurrentDirectory } from '@yarn-tool/get-paths-by-type';
 
 /**

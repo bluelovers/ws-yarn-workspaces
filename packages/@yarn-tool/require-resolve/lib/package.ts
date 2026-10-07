@@ -107,6 +107,7 @@ export function resolvePackageCore(moduleName: string, options?: IOptionsRequire
 		name: moduleName,
 		pkgRoot: pkgRoot?.length && normalize(pkgRoot),
 		entryPointLocation,
+		processedPaths,
 	};
 }
 
