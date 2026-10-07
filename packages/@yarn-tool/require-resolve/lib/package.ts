@@ -9,6 +9,47 @@ import type { IPackageJson } from '@ts-type/package-dts';
 import { buildResolvePaths } from './core';
 import { handleOptionsPaths } from './util';
 
+export function _nodeRequireResolveLazyForPkgDir(moduleName: string, processedPaths?: string[])
+{
+	/**
+	 * 由 try/catch 決定賦值；若兩者皆未執行，TypeScript 會視其為未初始化
+	 * Assigned by the try/catch; if neither branch runs, TypeScript treats it as unassigned
+	 */
+	let entryPointLocation: string;
+
+	/**
+	 * 嘗試解析模組入口點
+	 * Try to resolve module entry point
+	 *
+	 * 這是最常見的情況，成功即可直接取得入口點路徑。
+	 * This is the common case; on success the entry point path is available directly.
+	 */
+	try
+	{
+		entryPointLocation = require.resolve(moduleName, {
+			paths: processedPaths,
+		});
+	}
+	catch (e)
+	{
+		/**
+		 * 若失敗則解析 package.json 作為替代
+		 * Fallback to resolving package.json
+		 *
+		 * 入口點可能無法解析（例如套件未定義入口或 exports 限制），
+		 * 但 package.json 仍可用來定位套件位置，故改以它作為退路。
+		 * The entry point may be unresolvable (missing entry or exports
+		 * restrictions), but package.json still locates the package, so it
+		 * serves as the fallback.
+		 */
+		entryPointLocation = require.resolve(moduleName + '/package.json', {
+			paths: processedPaths,
+		});
+	}
+
+	return entryPointLocation;
+}
+
 /**
  * 解析套件的核心函數
  * Core function for package resolution
@@ -55,41 +96,7 @@ export function resolvePackageCore(moduleName: string, options?: IOptionsRequire
 	const paths = buildResolvePaths(options ?? {});
 	const processedPaths = handleOptionsPaths(paths, options?.cwd);
 
-	/**
-	 * 由 try/catch 決定賦值；若兩者皆未執行，TypeScript 會視其為未初始化
-	 * Assigned by the try/catch; if neither branch runs, TypeScript treats it as unassigned
-	 */
-	let entryPointLocation: string;
-
-	/**
-	 * 嘗試解析模組入口點
-	 * Try to resolve module entry point
-	 *
-	 * 這是最常見的情況，成功即可直接取得入口點路徑。
-	 * This is the common case; on success the entry point path is available directly.
-	 */
-	try
-	{
-		entryPointLocation = require.resolve(moduleName, {
-			paths: processedPaths,
-		});
-	}
-	catch (e)
-	{
-		/**
-		 * 若失敗則解析 package.json 作為替代
-		 * Fallback to resolving package.json
-		 *
-		 * 入口點可能無法解析（例如套件未定義入口或 exports 限制），
-		 * 但 package.json 仍可用來定位套件位置，故改以它作為退路。
-		 * The entry point may be unresolvable (missing entry or exports
-		 * restrictions), but package.json still locates the package, so it
-		 * serves as the fallback.
-		 */
-		entryPointLocation = require.resolve(moduleName + '/package.json', {
-			paths: processedPaths,
-		});
-	}
+	const entryPointLocation = _nodeRequireResolveLazyForPkgDir(moduleName, processedPaths);
 
 	/**
 	 * 從入口點位置找到套件根目錄
