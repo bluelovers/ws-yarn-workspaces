@@ -1,6 +1,7 @@
 import type { IOptionsRequireResolve } from './types';
 import { requireResolveCore } from './core';
 
+
 /**
  * 解析並載入模組
  * Resolve and load module
@@ -26,33 +27,6 @@ import { requireResolveCore } from './core';
 export function requireExtra<T = unknown>(name: string, options?: IOptionsRequireResolve): T
 {
 	return require(requireResolveCore(name, options));
-}
-
-/**
- * 解析並動態導入模組
- * Resolve and dynamically import module
- *
- * 此函數使用 ES Module 動態導入語法載入模組，適用於非同步載入場景。
- * This function uses ES Module dynamic import syntax to load modules,
- * suitable for asynchronous loading scenarios.
- *
- * @typeParam T - 模組的預期類型 / Expected type of the module
- * @param name - 模組名稱 / Module name
- * @param options - 解析選項 / Resolution options
- * @returns 模組的 Promise / Promise of the module
- *
- * @example
- * ```typescript
- * // 非同步載入模組 / Asynchronously load module
- * const jest = await importExtra<typeof import('jest')>('jest');
- *
- * // 使用全域路徑載入 / Load with global paths
- * const ts = await importExtra('typescript', { includeGlobal: true });
- * ```
- */
-export function importExtra<T = unknown>(name: string, options?: IOptionsRequireResolve): Promise<T>
-{
-	return import(requireResolveCore(name, options));
 }
 
 /**
@@ -91,38 +65,6 @@ export function tryRequireExtra<T = unknown>(name: string, options?: IOptionsReq
 		 * 讓呼叫端以 if 判斷即可，不必自行包 try/catch。
 		 * Any load failure (missing module, broken entry, …) becomes null so
 		 * callers can just test the value instead of wrapping try/catch.
-		 */
-		return null;
-	}
-}
-
-/**
- * 嘗試非同步載入模組，失敗時返回 null
- * Try to asynchronously load module, return null on failure
- *
- * @typeParam T - 模組的預期類型 / Expected type of the module
- * @param name - 模組名稱 / Module name
- * @param options - 解析選項 / Resolution options
- * @returns 模組的 Promise 或 null / Promise of the module or null
- *
- * @example
- * ```typescript
- * const module = await tryImportExtra('optional-module');
- * ```
- */
-export async function tryImportExtra<T = unknown>(name: string, options?: IOptionsRequireResolve): Promise<T | null>
-{
-	try
-	{
-		return await importExtra<T>(name, options);
-	}
-	catch
-	{
-		/**
-		 * 與 tryRequireExtra 相同：載入失敗回傳 null 而不拋出，
-		 * await 會把同步與非同步的失敗一併捕捉。
-		 * Same as tryRequireExtra: a failed load returns null instead of
-		 * throwing, and await catches both sync and async failures.
 		 */
 		return null;
 	}

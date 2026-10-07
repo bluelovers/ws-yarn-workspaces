@@ -47,10 +47,13 @@ export {
 
 export {
 	requireExtra,
-	importExtra,
 	tryRequireExtra,
-	tryImportExtra,
 } from './lib/loader';
+
+export {
+	importExtra,
+	tryImportExtra,
+} from './lib/loader-import-try';
 
 export {
 	resolvePackageCore,

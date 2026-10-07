@@ -1,0 +1,11 @@
+exports[`整合測試 > ts-jest 1`] = `
+{
+  "result": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\node_modules\\\\.pnpm\\\\ts-jest@29.4.14_@babel+core_2743d5be23c3a9144f97c9f050b4de52\\\\node_modules\\\\ts-jest\\\\dist\\\\index.js"
+}
+`;
+
+exports[`整合測試 > typescript 1`] = `
+{
+  "result": "C:\\\\Users\\\\user\\\\AppData\\\\Roaming\\\\fnm\\\\node-versions\\\\v26.7.0\\\\installation\\\\node_modules\\\\typescript\\\\lib\\\\typescript.js"
+}
+`;

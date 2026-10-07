@@ -2,6 +2,8 @@ import {
 	requireResolveExtra,
 	isErrorModuleNotFound,
 } from '../index';
+import assert from 'node:assert/strict';
+import { describe, test } from 'node:test';
 
 describe('整合測試', () =>
 {
@@ -10,7 +12,7 @@ describe('整合測試', () =>
 		includeCurrentDirectory: true,
 	}).result;
 
-	test('ts-jest', () =>
+	test('ts-jest', (t) =>
 	{
 		let actual = requireResolveExtra('ts-jest', {
 			includeGlobal: true,
@@ -20,13 +22,10 @@ describe('整合測試', () =>
 			],
 		});
 
-		expect(actual).toMatchSnapshot({
-			result: expect.any(String),
-			error: void 0
-		});
+		t.assert.snapshot(actual);
 	});
 
-	test('typescript', () =>
+	test('typescript', (t) =>
 	{
 		let actual = requireResolveExtra('typescript', {
 			includeGlobal: true,
@@ -36,10 +35,7 @@ describe('整合測試', () =>
 			],
 		});
 
-		expect(actual).toMatchSnapshot({
-			result: expect.any(String),
-			error: void 0
-		});
+		t.assert.snapshot(actual);
 	});
 
 	test('MODULE_NOT_FOUND', () =>
@@ -52,8 +48,8 @@ describe('整合測試', () =>
 			],
 		});
 
-		expect(actual).toHaveProperty('error.code', 'MODULE_NOT_FOUND');
-		expect(isErrorModuleNotFound(actual.error!)).toBeTruthy();
-		expect(actual.result).toBeUndefined();
+		assert.strictEqual(actual.error?.code, 'MODULE_NOT_FOUND');
+		assert.ok(isErrorModuleNotFound(actual.error!));
+		assert.strictEqual(actual.result, undefined);
 	});
 });
