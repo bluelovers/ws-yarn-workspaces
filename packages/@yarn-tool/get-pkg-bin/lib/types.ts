@@ -9,7 +9,7 @@
  */
 
 import { IPackageJson } from '@ts-type/package-dts';
-import { IOptionsRequireResolve } from '@yarn-tool/resolve-package';
+import { IOptionsRequireResolve } from '@yarn-tool/require-resolve';
 
 /**
  * 類似 package.json 的物件類型
@@ -44,7 +44,7 @@ export type IPackageJsonLike = IPackageJson | Record<string, any>;
  * Extended resolution options interface (compatible with @yarn-tool/require-resolve)
  *
  * @description
- * 此介面從 @yarn-tool/resolve-package 中選取常用的解析選項，
+ * 此介面從 @yarn-tool/require-resolve 中選取常用的解析選項，
  * 讓 get-pkg-bin 可以控制套件解析的行為。
  *
  * 包含的選項：

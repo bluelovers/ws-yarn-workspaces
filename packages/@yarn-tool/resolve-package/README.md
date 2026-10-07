@@ -1,5 +1,7 @@
 # @yarn-tool/resolve-package
 
+> This package is deprecated, use @yarn-tool/require-resolve instead
+
 解析 Node.js 套件的根目錄與 package.json 路徑的工具庫，支援 Node.js 17 以上版本。
 A utility for resolving package root and package.json paths, compatible with Node.js 17+.
 

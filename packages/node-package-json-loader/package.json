@@ -56,6 +56,7 @@
     "@bluelovers/fs-json": "^1.0.17",
     "@ts-type/package-dts": "^3.0.14",
     "@yarn-tool/pkg-entry-util": "^3.0.14",
+    "@yarn-tool/require-resolve": "^4.0.9",
     "@yarn-tool/resolve-package": "^3.0.10",
     "@yarn-tool/write-package-json": "^1.0.17",
     "bind-decorator": "^1.0.11",

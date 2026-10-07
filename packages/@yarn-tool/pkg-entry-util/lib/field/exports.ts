@@ -6,7 +6,7 @@ import { IPackageJson } from '@ts-type/package-dts/package-json';
 import { PackageExportsEntry, PackageExportsFallback } from '@ts-type/package-dts/types/package.json';
 import { pathExistsSync } from 'fs-extra';
 import { findRootLazy } from '@yarn-tool/find-root';
-import { resolvePackage, resolvePackageRoot } from '@yarn-tool/resolve-package';
+import { resolvePackage, resolvePackageRoot } from '@yarn-tool/require-resolve';
 
 /**
  * 在 exports 物件中添加 package.json entry 的核心函數

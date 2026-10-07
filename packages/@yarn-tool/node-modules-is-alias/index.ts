@@ -10,7 +10,7 @@
 
 import { sync as pkgDirSync } from 'pkg-dir';
 import { parsePackageName } from '@yarn-tool/npm-package-arg-util/lib/parseArgvPkgName';
-import { resolvePackage, resolvePackageCore } from '@yarn-tool/resolve-package';
+import { resolvePackage, resolvePackageCore } from '@yarn-tool/require-resolve';
 import { basename, dirname, isAbsolute, normalize } from 'upath2';
 
 /**

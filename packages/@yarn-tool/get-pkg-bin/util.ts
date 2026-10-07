@@ -7,7 +7,7 @@
 
 import type { IPackageJson } from '@ts-type/package-dts';
 import { sep, isAbsolute, normalize } from 'upath2';
-import { resolvePackage } from '@yarn-tool/resolve-package';
+import { resolvePackage } from '@yarn-tool/require-resolve';
 
 export * from './lib/types';
 import { IPackageJsonLike, IOptions } from './lib/types';

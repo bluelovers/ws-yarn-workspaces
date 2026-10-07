@@ -12,7 +12,7 @@ import { sortPackageJson } from 'sort-package-json3';
 import bind from 'bind-decorator';
 import path from 'path';
 import { IPackageJson } from '@ts-type/package-dts';
-import { resolvePackageJsonLocation } from '@yarn-tool/resolve-package';
+import { resolvePackageJsonLocation } from '@yarn-tool/require-resolve';
 import { _pkgExportsAddPJsonEntryCore } from '@yarn-tool/pkg-entry-util/lib/field/exports';
 import { readJSONSync } from '@bluelovers/fs-json';
 import { fixPublishConfig } from '@yarn-tool/pkg-entry-util/lib/field/publishConfig';
