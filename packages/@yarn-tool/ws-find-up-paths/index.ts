@@ -43,6 +43,17 @@ export interface IOptionsFindUpPathsWorkspaces extends IOptionsFindUpPaths
 	 * If true, search upward starts from the package root directory.
 	 */
 	startFromCurrentPackage?: boolean,
+	/**
+	 * 是否停止向上搜尋於當前套件根目錄
+	 * Whether to stop the upward search at the current package directory
+	 *
+	 * 若設為 true，則將 runtime.rootData.pkg 加入停止路徑，
+	 * 使向上搜尋不會超過當前套件根目錄（仍保留 workspace 根目錄的停止點）。
+	 * If true, runtime.rootData.pkg is added to the stop paths, so the upward
+	 * search never goes above the current package directory
+	 * (the workspace root stop point is still kept).
+	 */
+	stopAtCurrentPackage?: boolean,
 }
 
 /**
@@ -100,6 +111,22 @@ export function handleOptions<T extends IOptionsFindUpPathsWorkspaces = IOptions
 	 * Add root to stop paths to prevent searching beyond workspace scope
 	 */
 	runtime.stopPath.push(runtime.rootData.root);
+
+	/**
+	 * 處理 stopAtCurrentPackage 選項：將當前套件根目錄加入停止路徑，
+	 * 讓向上搜尋停止於 runtime.rootData.pkg
+	 * Handle stopAtCurrentPackage: add current package directory to stop paths,
+	 * so the upward search stops at runtime.rootData.pkg
+	 *
+	 * 當套件根目錄與工作區根目錄相同（例如位於 workspace 根目錄時），
+	 * 不重複加入相同路徑。
+	 * Skip duplicate entries when the package directory is the same as the
+	 * workspace root (e.g. when located at the workspace root).
+	 */
+	if (runtime.opts.stopAtCurrentPackage && !runtime.stopPath.includes(runtime.rootData.pkg))
+	{
+		runtime.stopPath.push(runtime.rootData.pkg);
+	}
 
 	/**
 	 * 處理 ignoreCurrentPackage 選項：若不在 workspace 中則從套件目錄開始
