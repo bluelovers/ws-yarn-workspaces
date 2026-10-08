@@ -1,3 +1,5 @@
+import assert from 'node:assert/strict';
+import { describe, test } from 'node:test';
 import shebang, { matchShebang, removeShebang, reShebang } from '../';
 import { inspect } from 'util';
 
@@ -32,23 +34,23 @@ describe(`shebang`, () =>
 			`#! ${_prop}\n\n`,
 		].forEach((prop, index) => {
 
-			test(`${inspect(prop)} => ${expected}`, () =>
+			test(`${inspect(prop)} => ${expected}`, (t) =>
 			{
 				let actual: unknown;
 
 				actual = shebang(prop);
 
-				expect(actual).toStrictEqual(expected);
+				assert.deepStrictEqual(actual, expected);
 
 				actual = matchShebang(prop);
 
-				expect(actual).toHaveProperty('bin', _prop.split(' ')[0])
+				assert.strictEqual((actual as any).bin, _prop.split(' ')[0])
 
-				expect(actual).toMatchSnapshot();
+				t.assert.snapshot(actual);
 
-				expect(removeShebang(prop)).not.toMatch(reShebang);
+				assert.doesNotMatch(removeShebang(prop), reShebang);
 
-				expect(removeShebang(prop)).toMatchSnapshot();
+				t.assert.snapshot(removeShebang(prop));
 			})
 
 		})
@@ -67,11 +69,11 @@ describe(`should not found`, () =>
 
 			actual = shebang(prop);
 
-			expect(actual).toBeUndefined();
+			assert.strictEqual(actual, undefined);
 
 			actual = matchShebang(prop);
 
-			expect(actual).toBeUndefined();
+			assert.strictEqual(actual, undefined);
 		})
 	}
 })

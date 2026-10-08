@@ -5,6 +5,8 @@
 import { EnumSemverWildcard } from '../../lib/types';
 import { parse, parseRange } from '../../index';
 import { _lazyReturnResultAll, _lazyThrowError } from '../lib/util';
+import assert from 'node:assert/strict';
+import { describe, test } from 'node:test';
 
 describe('invalid versions', () =>
 {
@@ -48,46 +50,58 @@ describe('invalid versions', () =>
 			// 	resultAll = _lazyReturnResultAll(input);
 			// });
 
-			test('originalSemver', () =>
+			test('originalSemver', (t) =>
 			{
 				if (resultAll.originalSemver.err)
 				{
-					expect(() => _lazyThrowError(resultAll.originalSemver.err)).toThrowErrorMatchingSnapshot();
+					assert.throws(() => _lazyThrowError(resultAll.originalSemver.err), (err: any) =>
+					{
+						t.assert.snapshot(err.message);
+						return true;
+					});
 				}
 				else
 				{
-					expect(resultAll.originalSemver.result).toBeFalsy();
+					assert.ok(!resultAll.originalSemver.result);
 				}
 
-				expect(resultAll.originalSemver).toMatchSnapshot();
+				t.assert.snapshot(resultAll.originalSemver);
 			});
 
-			test('parseSimpleSemVer', () =>
+			test('parseSimpleSemVer', (t) =>
 			{
 				if (resultAll.parseSimpleSemVer.err)
 				{
-					expect(() => _lazyThrowError(resultAll.parseSimpleSemVer.err)).toThrowErrorMatchingSnapshot();
+					assert.throws(() => _lazyThrowError(resultAll.parseSimpleSemVer.err), (err: any) =>
+					{
+						t.assert.snapshot(err.message);
+						return true;
+					});
 				}
 				else
 				{
-					expect(resultAll.parseSimpleSemVer.result).toBeFalsy();
+					assert.ok(!resultAll.parseSimpleSemVer.result);
 				}
 
-				expect(resultAll.parseSimpleSemVer).toMatchSnapshot();
+				t.assert.snapshot(resultAll.parseSimpleSemVer);
 			});
 
-			test('parseSimpleSemVerRange', () =>
+			test('parseSimpleSemVerRange', (t) =>
 			{
 				if (resultAll.parseSimpleSemVerRange.err)
 				{
-					expect(() => _lazyThrowError(resultAll.parseSimpleSemVerRange.err)).toThrowErrorMatchingSnapshot();
+					assert.throws(() => _lazyThrowError(resultAll.parseSimpleSemVerRange.err), (err: any) =>
+					{
+						t.assert.snapshot(err.message);
+						return true;
+					});
 				}
 				else
 				{
-					expect(resultAll.parseSimpleSemVerRange.result).toHaveLength(0);
+					assert.strictEqual(resultAll.parseSimpleSemVerRange.result.length, 0);
 				}
 
-				expect(resultAll.parseSimpleSemVerRange).toMatchSnapshot();
+				t.assert.snapshot(resultAll.parseSimpleSemVerRange);
 			});
 
 		});

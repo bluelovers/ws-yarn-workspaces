@@ -1,15 +1,18 @@
+import assert from 'node:assert/strict';
+import { describe, test } from 'node:test';
+
 describe(`throw`, () =>
 {
 
-	test(`empty`, () =>
+	test(`empty`, (t) =>
 	{
 
 		let actual;
 		let expected;
 
-		expect(actual).toStrictEqual(expected);
+		assert.deepStrictEqual(actual, expected);
 		//expect(actual).toBeInstanceOf(Date);
-		expect(actual).toMatchSnapshot();
+		t.assert.snapshot(actual);
 
 	});
 

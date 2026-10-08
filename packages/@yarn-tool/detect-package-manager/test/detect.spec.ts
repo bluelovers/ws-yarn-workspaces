@@ -21,6 +21,8 @@ import {
 	_handleClientsToCheck,
 } from '../index';
 import { DEFAULT_CLIENTS_EXPECTED, EXPECTED_PACKAGE_MANAGERS } from './fixtures/data';
+import assert from 'node:assert/strict';
+import { describe, it } from 'node:test';
 
 describe('EnumPackageManager', () => {
 	/**
@@ -28,15 +30,15 @@ describe('EnumPackageManager', () => {
 	 * Verify enum values are correct
 	 */
 	it('should have correct yarn value', () => {
-		expect(EnumPackageManager.yarn).toBe('yarn');
+		assert.strictEqual(EnumPackageManager.yarn, 'yarn');
 	});
 
 	it('should have correct npm value', () => {
-		expect(EnumPackageManager.npm).toBe('npm');
+		assert.strictEqual(EnumPackageManager.npm, 'npm');
 	});
 
 	it('should have correct pnpm value', () => {
-		expect(EnumPackageManager.pnpm).toBe('pnpm');
+		assert.strictEqual(EnumPackageManager.pnpm, 'pnpm');
 	});
 });
 
@@ -47,7 +49,7 @@ describe('_handleClientsToCheck', () => {
 	 */
 	it('should return default clients when input is undefined', () => {
 		const result = _handleClientsToCheck(undefined);
-		expect(result).toEqual(DEFAULT_CLIENTS_EXPECTED);
+		assert.deepStrictEqual(result, DEFAULT_CLIENTS_EXPECTED);
 	});
 
 	/**
@@ -56,7 +58,7 @@ describe('_handleClientsToCheck', () => {
 	 */
 	it('should return default clients when input is empty array', () => {
 		const result = _handleClientsToCheck([]);
-		expect(result).toEqual(DEFAULT_CLIENTS_EXPECTED);
+		assert.deepStrictEqual(result, DEFAULT_CLIENTS_EXPECTED);
 	});
 
 	/**
@@ -66,9 +68,9 @@ describe('_handleClientsToCheck', () => {
 	it('should merge custom clients with default clients', () => {
 		const result = _handleClientsToCheck([EnumPackageManager.yarn]);
 
-		expect(result).toContain(EnumPackageManager.yarn);
-		expect(result).toContain(EnumPackageManager.pnpm);
-		expect(result).toContain(EnumPackageManager.npm);
+		assert.ok(result.includes(EnumPackageManager.yarn));
+		assert.ok(result.includes(EnumPackageManager.pnpm));
+		assert.ok(result.includes(EnumPackageManager.npm));
 	});
 
 	/**
@@ -83,7 +85,7 @@ describe('_handleClientsToCheck', () => {
 		]);
 
 		const uniqueSet = new Set(result);
-		expect(result.length).toBe(uniqueSet.size);
+		assert.strictEqual(result.length, uniqueSet.size);
 	});
 
 	/**
@@ -95,7 +97,7 @@ describe('_handleClientsToCheck', () => {
 
 		// 自訂客戶端應在預設客戶端之前
 		// Custom clients should be before default clients
-		expect(result[0]).toBe(EnumPackageManager.npm);
+		assert.strictEqual(result[0], EnumPackageManager.npm);
 	});
 });
 
@@ -110,11 +112,11 @@ describe('whichPackageManagerSync', () => {
 		// 如果有可用的套件管理器，應該返回其中一個
 		// If any package manager is available, should return one of them
 		if (result !== undefined) {
-			expect(EXPECTED_PACKAGE_MANAGERS).toContain(result);
+			assert.ok(EXPECTED_PACKAGE_MANAGERS.includes(result));
 		} else {
 			// 如果沒有任何可用的套件管理器，結果應為 undefined
 			// If no package manager is available, result should be undefined
-			expect(result).toBeUndefined();
+			assert.strictEqual(result, undefined);
 		}
 	});
 
@@ -122,10 +124,10 @@ describe('whichPackageManagerSync', () => {
 	 * 應使用 snapshot 測試驗證結果結構
 	 * Should use snapshot to verify result structure
 	 */
-	it('should match snapshot for detection result', () => {
+	it('should match snapshot for detection result', (t) => {
 		const result = whichPackageManagerSync();
 
-		expect(result).toMatchSnapshot();
+		t.assert.snapshot(result);
 	});
 
 	/**
@@ -138,7 +140,7 @@ describe('whichPackageManagerSync', () => {
 		const result = whichPackageManagerSync(['nonexistent'] as unknown as IPackageManager[], {
 			noUseDefaultClients: true,
 		});
-		expect(result).toBeUndefined()
+		assert.strictEqual(result, undefined)
 	});
 
 	/**
@@ -155,7 +157,7 @@ describe('whichPackageManagerSync', () => {
 		// 如果有可用的套件管理器
 		// If any package manager is available
 		if (result !== undefined) {
-			expect(EXPECTED_PACKAGE_MANAGERS).toContain(result);
+			assert.ok(EXPECTED_PACKAGE_MANAGERS.includes(result));
 		}
 	});
 
@@ -174,7 +176,7 @@ describe('whichPackageManagerSync', () => {
 		);
 		// 由於 whichSync(null) 不會拋出錯誤但也不會找到命令，returnDefault 邏輯可能無法正確觸發
 		// Since whichSync(null) doesn't throw but also doesn't find command, returnDefault logic may not trigger correctly
-		expect(result).toBeUndefined();
+		assert.strictEqual(result, undefined);
 	});
 });
 
@@ -186,10 +188,10 @@ describe('whichPackageManagerSyncAll', () => {
 	it('should return array of available package managers', () => {
 		const result = whichPackageManagerSyncAll();
 
-		expect(Array.isArray(result)).toBe(true);
+		assert.strictEqual(Array.isArray(result), true);
 		// 結果可以是空陣列（當沒有套件管理器可用時）
 		// Result can be empty array (when no package managers are available)
-		expect(result.length).toBeGreaterThanOrEqual(0);
+		assert.ok(result.length >= 0);
 	});
 
 	/**
@@ -199,7 +201,7 @@ describe('whichPackageManagerSyncAll', () => {
 	it('should match snapshot for all detection results', () => {
 		const result = whichPackageManagerSyncAll();
 
-		expect(_handleClientsToCheck()).toEqual(expect.arrayContaining(result));
+		assert.ok(result.every(v => _handleClientsToCheck().includes(v)));
 	});
 
 	/**
@@ -210,7 +212,7 @@ describe('whichPackageManagerSyncAll', () => {
 		const result = whichPackageManagerSyncAll(['nonexistent'] as unknown as IPackageManager[], {
 			noUseDefaultClients: true,
 		});
-		expect(result).toEqual([]);
+		assert.deepStrictEqual(result, []);
 	});
 
 	/**
@@ -221,7 +223,7 @@ describe('whichPackageManagerSyncAll', () => {
 		const result = whichPackageManagerSyncAll();
 
 		result.forEach(pm => {
-			expect(EXPECTED_PACKAGE_MANAGERS).toContain(pm);
+			assert.ok(EXPECTED_PACKAGE_MANAGERS.includes(pm));
 		});
 	});
 
@@ -236,7 +238,7 @@ describe('_whichPackageManagerSyncGenerator', () => {
 		const generator = _whichPackageManagerSyncGenerator();
 		const result = generator.next();
 
-		expect(result.value).toEqual(expect.any(Array));
+		assert.ok(Array.isArray(result.value));
 	});
 
 	/**
@@ -250,7 +252,7 @@ describe('_whichPackageManagerSyncGenerator', () => {
 		// 只在有結果時驗證 snapshot
 		// Only verify snapshot when there's a result
 		if (result.value !== undefined) {
-			expect(_handleClientsToCheck()).toContain(result.value[0]);
+			assert.ok(_handleClientsToCheck().includes(result.value[0]));
 		}
 	});
 
@@ -263,10 +265,10 @@ describe('_whichPackageManagerSyncGenerator', () => {
 
 		// 結果可以是空陣列
 		// Results can be empty array
-		expect(results.length).toBeGreaterThanOrEqual(0);
+		assert.ok(results.length >= 0);
 		results.forEach(([pm, path]) => {
-			expect(EXPECTED_PACKAGE_MANAGERS).toContain(pm);
-			expect(typeof path).toBe('string');
+			assert.ok(EXPECTED_PACKAGE_MANAGERS.includes(pm));
+			assert.strictEqual(typeof path, 'string');
 		});
 	});
 
@@ -286,7 +288,7 @@ describe('_whichPackageManagerSyncGenerator', () => {
 
 		// 由於 whichSync 返回 null 而不是拋出錯誤，邏輯可能不同
 		// Since whichSync returns null instead of throwing, logic may be different
-		expect(results.length).toBe(0);
+		assert.strictEqual(results.length, 0);
 	});
 });
 
@@ -301,11 +303,11 @@ describe('whichPackageManagerAsync', () => {
 		// 如果有可用的套件管理器，應該返回其中一個
 		// If any package manager is available, should return one of them
 		if (result !== undefined) {
-			expect(EXPECTED_PACKAGE_MANAGERS).toContain(result);
+			assert.ok(EXPECTED_PACKAGE_MANAGERS.includes(result));
 		} else {
 			// 如果沒有任何可用的套件管理器，結果應為 undefined
 			// If no package manager is available, result should be undefined
-			expect(result).toBeUndefined();
+			assert.strictEqual(result, undefined);
 		}
 	});
 
@@ -313,10 +315,10 @@ describe('whichPackageManagerAsync', () => {
 	 * 應使用 snapshot 測試驗證非同步結果
 	 * Should use snapshot to verify async result
 	 */
-	it('should match snapshot for async detection result', async () => {
+	it('should match snapshot for async detection result', async (t) => {
 		const result = await whichPackageManagerAsync();
 
-		expect(result).toMatchSnapshot();
+		t.assert.snapshot(result);
 	});
 
 	/**
@@ -331,7 +333,7 @@ describe('whichPackageManagerAsync', () => {
 			}
 		);
 
-		expect(result).toBeUndefined();
+		assert.strictEqual(result, undefined);
 	});
 });
 
@@ -343,10 +345,10 @@ describe('whichPackageManagerAsyncAll', () => {
 	it('should return array of all available package managers', async () => {
 		const result = await whichPackageManagerAsyncAll();
 
-		expect(Array.isArray(result)).toBe(true);
+		assert.strictEqual(Array.isArray(result), true);
 		// 結果可以是空陣列（當沒有套件管理器可用時）
 		// Result can be empty array (when no package managers are available)
-		expect(result.length).toBeGreaterThanOrEqual(0);
+		assert.ok(result.length >= 0);
 	});
 
 	/**
@@ -356,7 +358,7 @@ describe('whichPackageManagerAsyncAll', () => {
 	it('should match snapshot for async all results', async () => {
 		const result = await whichPackageManagerAsyncAll();
 
-		expect(_handleClientsToCheck()).toEqual(expect.arrayContaining(result));
+		assert.ok(result.every(v => _handleClientsToCheck().includes(v)));
 	});
 
 	/**
@@ -367,7 +369,7 @@ describe('whichPackageManagerAsyncAll', () => {
 		const result = await whichPackageManagerAsyncAll();
 
 		result.forEach(pm => {
-			expect(EXPECTED_PACKAGE_MANAGERS).toContain(pm);
+			assert.ok(EXPECTED_PACKAGE_MANAGERS.includes(pm));
 		});
 	});
 
@@ -383,7 +385,7 @@ describe('whichPackageManagerAsyncAll', () => {
 			}
 		);
 
-		expect(result).toEqual([]);
+		assert.deepStrictEqual(result, []);
 	});
 });
 
@@ -398,7 +400,7 @@ describe('_whichPackageManagerAsyncGenerator', () => {
 
 		// 如果 done 為 true，表示沒有更多結果
 		// If done is true, there are no more results
-		expect(result.value).toEqual(expect.any(Array));
+		assert.ok(Array.isArray(result.value));
 	});
 
 	/**
@@ -412,7 +414,7 @@ describe('_whichPackageManagerAsyncGenerator', () => {
 		// 只在有結果時驗證 snapshot
 		// Only verify snapshot when there's a result
 		if (result.value !== undefined) {
-			expect(_handleClientsToCheck()).toContain(result.value[0]);
+			assert.ok(_handleClientsToCheck().includes(result.value[0]));
 		}
 	});
 
@@ -427,13 +429,13 @@ describe('_whichPackageManagerAsyncGenerator', () => {
 		{
 			count++;
 			const [pm, path] = client;
-			expect(EXPECTED_PACKAGE_MANAGERS).toContain(pm);
-			expect(typeof path).toBe('string');
+			assert.ok(EXPECTED_PACKAGE_MANAGERS.includes(pm));
+			assert.strictEqual(typeof path, 'string');
 		}
 
 		// count 可以是 0
 		// count can be 0
-		expect(count).toBeGreaterThanOrEqual(0);
+		assert.ok(count >= 0);
 	});
 
 	/**
@@ -455,6 +457,6 @@ describe('_whichPackageManagerAsyncGenerator', () => {
 
 		// 由於 which 返回 null 而不是拋出錯誤
 		// Since which returns null instead of throwing
-		expect(results).toHaveLength(0);
+		assert.strictEqual(results.length, 0);
 	});
 });

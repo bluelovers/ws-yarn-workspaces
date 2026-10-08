@@ -10,13 +10,15 @@
 /// <reference types="jest" />
 /// <reference types="node" />
 
+import assert from 'node:assert/strict';
+import { describe, it } from 'node:test';
 import { assertValidDateInfo, assertValidQuarter, isValidDateInfo, isValidQuarter } from '../lib/assert';
 
 describe('Validators', () => {
 
 	describe('isValidDateInfo', () => {
 
-		it.each([
+		for (const { input, expected } of [
 			// 有效日期 / Valid dates
 			{ input: { year: 2026, month: 1, day: 1 }, expected: true },
 			{ input: { year: 2026, month: 1, day: 31 }, expected: true },
@@ -41,15 +43,17 @@ describe('Validators', () => {
 			{ input: { year: '2026', month: 1, day: 1 }, expected: false },
 			{ input: { year: 2026, month: '1', day: 1 }, expected: false },
 			{ input: { year: 2026, month: 1, day: '1' }, expected: false },
-		])('should return $expected for $input', ({ input, expected }) => {
-			expect(isValidDateInfo(input as any)).toBe(expected);
-		});
+		]) {
+			it(`should return ${expected} for ${JSON.stringify(input)}`, () => {
+				assert.strictEqual(isValidDateInfo(input as any), expected);
+			});
+		}
 
 	});
 
 	describe('isValidQuarter', () => {
 
-		it.each([
+		for (const { input, expected } of [
 			// 有效季度 / Valid quarters
 			{ input: 1, expected: true },
 			{ input: 2, expected: true },
@@ -67,23 +71,25 @@ describe('Validators', () => {
 			{ input: null, expected: false },
 			{ input: undefined, expected: false },
 			{ input: {}, expected: false },
-		])('should return $expected for quarter $input', ({ input, expected }) => {
-			expect(isValidQuarter(input)).toBe(expected);
-		});
+		]) {
+			it(`should return ${expected} for quarter ${typeof input === 'object' && input !== null ? JSON.stringify(input) : String(input)}`, () => {
+				assert.strictEqual(isValidQuarter(input), expected);
+			});
+		}
 
 	});
 
 	describe('assertValidDateInfo', () => {
 
 		it('should not throw for valid date info', () => {
-			expect(() => assertValidDateInfo({ year: 2026, month: 1, day: 1 })).not.toThrow();
+			assert.doesNotThrow(() => assertValidDateInfo({ year: 2026, month: 1, day: 1 }));
 		});
 
 		it('should throw for invalid date info', () => {
-			expect(() => assertValidDateInfo({ year: 2026, month: 0, day: 1 })).toThrow(RangeError);
-			expect(() => assertValidDateInfo({ year: 2026, month: 13, day: 1 })).toThrow(RangeError);
-			expect(() => assertValidDateInfo({ year: 2026, month: 1, day: 0 })).toThrow(RangeError);
-			expect(() => assertValidDateInfo({ year: 0, month: 1, day: 1 })).toThrow(RangeError);
+			assert.throws(() => assertValidDateInfo({ year: 2026, month: 0, day: 1 }), RangeError);
+			assert.throws(() => assertValidDateInfo({ year: 2026, month: 13, day: 1 }), RangeError);
+			assert.throws(() => assertValidDateInfo({ year: 2026, month: 1, day: 0 }), RangeError);
+			assert.throws(() => assertValidDateInfo({ year: 0, month: 1, day: 1 }), RangeError);
 		});
 
 	});
@@ -91,15 +97,15 @@ describe('Validators', () => {
 	describe('assertValidQuarter', () => {
 
 		it('should not throw for valid quarter', () => {
-			expect(() => assertValidQuarter(1)).not.toThrow();
-			expect(() => assertValidQuarter(4)).not.toThrow();
+			assert.doesNotThrow(() => assertValidQuarter(1));
+			assert.doesNotThrow(() => assertValidQuarter(4));
 		});
 
 		it('should throw for invalid quarter', () => {
-			expect(() => assertValidQuarter(0)).toThrow(RangeError);
-			expect(() => assertValidQuarter(5)).toThrow(RangeError);
-			expect(() => assertValidQuarter(-1)).toThrow(RangeError);
-			expect(() => assertValidQuarter('1')).toThrow(RangeError);
+			assert.throws(() => assertValidQuarter(0), RangeError);
+			assert.throws(() => assertValidQuarter(5), RangeError);
+			assert.throws(() => assertValidQuarter(-1), RangeError);
+			assert.throws(() => assertValidQuarter('1'), RangeError);
 		});
 
 	});

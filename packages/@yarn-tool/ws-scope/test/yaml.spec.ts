@@ -2,11 +2,13 @@
 /// <reference types="jest" />
 /// <reference types="node" />
 
+import assert from 'node:assert/strict';
+import { before, describe, test } from 'node:test';
 import { basename, extname, join } from 'path';
 import { __ROOT_WS } from '../../../../__root_ws';
 import { ScopeYaml } from '../lib/format/yaml';
 
-beforeAll(async () =>
+before(async () =>
 {
 
 });
@@ -26,17 +28,17 @@ describe(basename(__filename, extname(__filename)), () =>
 		let actual;
 		let expected;
 
-		expect(wss).toHaveProperty('opened', true);
+		assert.strictEqual(wss.opened, true);
 
 		let old = [
 			...wss.value,
 		];
 
-		expect(old).not.toContainEqual('lazy-test');
+		assert.ok(!old.includes('lazy-test'));
 
 		wss.add('lazy-test');
 
-		expect(wss.value).toContainEqual('lazy-test');
+		assert.ok(wss.value.includes('lazy-test'));
 
 	});
 

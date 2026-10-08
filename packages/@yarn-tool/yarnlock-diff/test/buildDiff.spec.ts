@@ -1,3 +1,4 @@
+import { describe, test } from 'node:test';
 import FastGlob from '@bluelovers/fast-glob';
 import { join } from "path";
 import { readFileSync } from "fs";
@@ -18,14 +19,14 @@ describe(`buildDiff`, () =>
 	files.forEach(file =>
 	{
 
-		test(file, () =>
+		test(file, (t) =>
 		{
 			const yarnlock_old = readFileSync(join(__res, 'a', file));
 			const yarnlock_new = readFileSync(join(__res, 'b', file));
 
 			let actual = buildDiff(yarnlock_old, yarnlock_new);
 
-			expect(actual).toMatchSnapshot();
+			t.assert.snapshot(actual);
 
 		});
 

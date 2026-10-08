@@ -1,5 +1,7 @@
 import { handleOptions } from '../lib/lerna/util';
 import { inspect } from 'util';
+import assert from 'node:assert/strict';
+import { describe, test } from 'node:test';
 
 
 describe(`describe`, () =>
@@ -19,11 +21,9 @@ describe(`describe`, () =>
 				changelogPreset: tagPrefix,
 			} as any);
 
-			expect(actual).toMatchObject({
-				type: 'independent',
-				changelogPreset: expect.stringContaining('conventional-changelog-bluelovers'),
-				tagPrefix: 'v',
-			});
+			assert.strictEqual(actual.type, 'independent');
+			assert.ok(actual.changelogPreset.includes('conventional-changelog-bluelovers'));
+			assert.strictEqual(actual.tagPrefix, 'v');
 
 		});
 

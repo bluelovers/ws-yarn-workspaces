@@ -1,3 +1,5 @@
+import assert from 'node:assert/strict';
+import { test } from 'node:test';
 import { basename, extname } from 'path';
 import { npaToDepsValue } from '@yarn-tool/npa-to-deps';
 import { queryDepsValueByNpaResult } from '../index';
@@ -12,7 +14,7 @@ import { queryDepsValueByNpaResult } from '../index';
 ].forEach((input) =>
 {
 
-	test(input, async () =>
+	test(input, async (t) =>
 	{
 		let depsResult = npaToDepsValue(input);
 
@@ -23,20 +25,20 @@ import { queryDepsValueByNpaResult } from '../index';
 			actual,
 		});
 
-		expect(actual).toHaveProperty('name', depsResult.name);
+		assert.strictEqual(actual.name, depsResult.name);
 
 		const operator = depsResult.operator ?? '';
 
 		if (operator === '^')
 		{
-			expect(actual.value).toMatch(/^\^\d+/);
+			assert.match(actual.value, /^\^\d+/);
 		}
 		else
 		{
-			expect(actual.value).toContain(`${operator}${depsResult.semver}`);
+			assert.ok(actual.value.includes(`${operator}${depsResult.semver}`));
 		}
 
-		expect(actual).toMatchSnapshot();
+		t.assert.snapshot(actual);
 
 	});
 

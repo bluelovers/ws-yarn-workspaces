@@ -3,8 +3,10 @@
 import sortPackageJsonScripts from '../index';
 import { defaultNpmScriptsOrder, omitKey } from '../lib/util';
 import { array_unique, array_unique_overwrite } from 'array-hyper-unique';
+import assert from 'node:assert/strict';
+import { it } from 'node:test';
 
-it('sort base', function ()
+it('sort base', function (t)
 {
 	const fixture = {
 		test: 'node test.js',
@@ -40,13 +42,13 @@ it('sort base', function ()
 
 	let actual = sortPackageJsonScripts(fixture)
 
-	expect(actual).toStrictEqual(expected);
+	assert.deepStrictEqual(actual, expected);
 
-	expectMatchSnapshot(actual, fixture);
+	expectMatchSnapshot(actual, fixture, t);
 	expectStringify(actual, expected)
 });
 
-it('sort base v2', function ()
+it('sort base v2', function (t)
 {
 	const fixture = {
 		test: 'node test.js',
@@ -82,13 +84,13 @@ it('sort base v2', function ()
 
 	let actual = sortPackageJsonScripts(fixture)
 
-	expect(actual).toStrictEqual(expected);
+	assert.deepStrictEqual(actual, expected);
 
-	expectMatchSnapshot(actual, fixture);
+	expectMatchSnapshot(actual, fixture, t);
 	expectStringify(actual, expected)
 });
 
-it('sort yarn-tool scripts', function ()
+it('sort yarn-tool scripts', function (t)
 {
 	const fixture = {
 		"coverage": "npx nyc yarn run test",
@@ -125,11 +127,11 @@ it('sort yarn-tool scripts', function ()
 	let actual = sortPackageJsonScripts(fixture)
 	let actual2 = sortPackageJsonScripts(fixture2)
 
-	expectMatchSnapshot(actual, fixture);
-	expectMatchSnapshot(actual2, fixture2);
+	expectMatchSnapshot(actual, fixture, t);
+	expectMatchSnapshot(actual2, fixture2, t);
 });
 
-it('should defaultNpmScriptsOrder', function ()
+it('should defaultNpmScriptsOrder', function (t)
 {
 	let keys = [...defaultNpmScriptsOrder.values()];
 
@@ -141,9 +143,9 @@ it('should defaultNpmScriptsOrder', function ()
 
 	let actual = sortPackageJsonScripts(source)
 
-	expect(Object.keys(actual)).toStrictEqual(keys)
+	assert.deepStrictEqual(Object.keys(actual), keys)
 
-	expectMatchSnapshot(actual, source)
+	expectMatchSnapshot(actual, source, t)
 
 	source = keys.slice()
 		.reduce((a, k, i) => {
@@ -153,12 +155,12 @@ it('should defaultNpmScriptsOrder', function ()
 
 	actual = sortPackageJsonScripts(source)
 
-	expect(Object.keys(actual)).toStrictEqual(keys)
+	assert.deepStrictEqual(Object.keys(actual), keys)
 
-	expectMatchSnapshot(actual, source)
+	expectMatchSnapshot(actual, source, t)
 });
 
-it('should defaultNpmScriptsOrder v2', function ()
+it('should defaultNpmScriptsOrder v2', function (t)
 {
 	let keys = [...defaultNpmScriptsOrder.values()];
 
@@ -176,10 +178,10 @@ it('should defaultNpmScriptsOrder v2', function ()
 
 	let actual = sortPackageJsonScripts(source)
 
-	expectMatchSnapshot(actual, source)
+	expectMatchSnapshot(actual, source, t)
 });
 
-it('should script lifecycle', function ()
+it('should script lifecycle', function (t)
 {
 	let keys = array_unique([
 		...defaultNpmScriptsOrder.values(),
@@ -236,20 +238,20 @@ it('should script lifecycle', function ()
 		scripts[`post${key}`] = `echo post${key}`;
 	}
 
-	expectMatchSnapshot(actual, source)
+	expectMatchSnapshot(actual, source, t)
 });
 
 function expectStringify(actual, expected)
 {
-	expect(actual).toStrictEqual(expected);
-	expect(JSON.stringify(actual, null, 2)).toStrictEqual(JSON.stringify(expected, null, 2));
+	assert.deepStrictEqual(actual, expected);
+	assert.deepStrictEqual(JSON.stringify(actual, null, 2), JSON.stringify(expected, null, 2));
 }
 
-function expectMatchSnapshot(actual, fixture)
+function expectMatchSnapshot(actual, fixture, t)
 {
-	expect(actual).toStrictEqual(fixture);
+	assert.deepStrictEqual(actual, fixture);
 
-	expect(actual).toMatchSnapshot();
-	expect(Object.keys(actual)).toMatchSnapshot();
-	expect(JSON.stringify(actual, null, 2)).toMatchSnapshot();
+	t.assert.snapshot(actual);
+	t.assert.snapshot(Object.keys(actual));
+	t.assert.snapshot(JSON.stringify(actual, null, 2));
 }

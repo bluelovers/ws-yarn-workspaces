@@ -5,6 +5,9 @@
  * Edge case tests for @yarn-tool/get-pkg-bin
  */
 
+import assert from 'node:assert/strict';
+import { describe, it } from 'node:test';
+
 import {
 	normalizePackageBins,
 	defaultPackageBin,
@@ -25,7 +28,7 @@ describe('Edge Cases', () => {
 				bin: '',
 			};
 			const result = getPackageBins(pkg);
-			expect(result).toEqual({
+			assert.deepStrictEqual(result, {
 				'test-pkg': '',
 			});
 		});
@@ -36,7 +39,7 @@ describe('Edge Cases', () => {
 				bin: {},
 			};
 			const result = getPackageBins(pkg);
-			expect(result).toEqual({});
+			assert.deepStrictEqual(result, {});
 		});
 
 		it('should handle package name with scope', () => {
@@ -45,7 +48,7 @@ describe('Edge Cases', () => {
 				bin: './cli.js',
 			};
 			const result = getPackageBins(pkg);
-			expect(result).toEqual({
+			assert.deepStrictEqual(result, {
 				'@org/my-cli': './cli.js',
 			});
 		});
@@ -59,16 +62,16 @@ describe('Edge Cases', () => {
 				},
 			};
 			const result = getPackageBins(pkg);
-			expect(result).toBeDefined();
-			expect(result).toHaveProperty('cli-1');
-			expect(result).toHaveProperty('cli_2');
+			assert.notStrictEqual(result, undefined);
+			assert.notStrictEqual(result!['cli-1'], undefined);
+			assert.notStrictEqual(result!.cli_2, undefined);
 		});
 	});
 
 	describe('handlePackageBins edge cases', () => {
 		it('should handle empty bins object', () => {
 			const result = handlePackageBins({});
-			expect(result).toEqual({});
+			assert.deepStrictEqual(result, {});
 		});
 
 		it('should handle bins with dot paths', () => {
@@ -76,7 +79,7 @@ describe('Edge Cases', () => {
 				'cli': './../cli.js',
 			};
 			const result = handlePackageBins(bins);
-			expect(result).toHaveProperty('cli');
+			assert.notStrictEqual(result.cli, undefined);
 		});
 
 		it('should handle bins with windows-style paths', () => {
@@ -84,7 +87,7 @@ describe('Edge Cases', () => {
 				'cli': 'bin\\\\cli.js',
 			};
 			const result = handlePackageBins(bins);
-			expect(result).toHaveProperty('cli');
+			assert.notStrictEqual(result.cli, undefined);
 		});
 
 		it('should handle resolveFn that throws error', () => {
@@ -95,7 +98,7 @@ describe('Edge Cases', () => {
 				throw new Error('Resolution failed');
 			};
 
-			expect(() => handlePackageBins(bins, resolveFn)).toThrow('Resolution failed');
+			assert.throws(() => handlePackageBins(bins, resolveFn), /Resolution failed/);
 		});
 	});
 
@@ -105,7 +108,7 @@ describe('Edge Cases', () => {
 				'only': './only.js',
 			};
 			const result = firstPackageBin(bins);
-			expect(result).toBe('./only.js');
+			assert.strictEqual(result, './only.js');
 		});
 
 		it('should handle bins with Symbol keys (ignored)', () => {
@@ -116,7 +119,7 @@ describe('Edge Cases', () => {
 			bins[Symbol('invalid')] = './invalid.js';
 
 			const result = firstPackageBin(bins);
-			expect(result).toBe('./valid.js');
+			assert.strictEqual(result, './valid.js');
 		});
 	});
 
@@ -127,7 +130,7 @@ describe('Edge Cases', () => {
 			};
 			// 當 pkg.name 不存在時，name 應該是 undefined
 			const result = getPackageInfo({ pkg } as any);
-			expect(result.pkg).toBe(pkg);
+			assert.strictEqual(result.pkg, pkg);
 		});
 
 		it('should handle deeply nested scoped package names', () => {
@@ -136,7 +139,7 @@ describe('Edge Cases', () => {
 				bin: './cli.js',
 			};
 			const result = getPackageInfo({ pkg });
-			expect(result.name).toBe('@org/scope/nested');
+			assert.strictEqual(result.name, '@org/scope/nested');
 		});
 	});
 
@@ -148,7 +151,7 @@ describe('Edge Cases', () => {
 				pkg: {} as any,
 			};
 			const result = _handleDefaultKey(pkgInfo, '');
-			expect(result).toBe('my-package');
+			assert.strictEqual(result, 'my-package');
 		});
 
 		it('should handle whitespace-only defaultKey', () => {
@@ -159,7 +162,7 @@ describe('Edge Cases', () => {
 			};
 			// 空白字串的 length > 0，所以不會被忽略
 			const result = _handleDefaultKey(pkgInfo, '   ');
-			expect(result).toBe('   ');
+			assert.strictEqual(result, '   ');
 		});
 
 		it('should handle package name with multiple slashes', () => {
@@ -170,7 +173,7 @@ describe('Edge Cases', () => {
 			};
 			const result = _handleDefaultKey(pkgInfo, undefined);
 			// pop() 會取得最後一個元素
-			expect(result).toBe('d');
+			assert.strictEqual(result, 'd');
 		});
 
 		it('should handle package name that is just a scope', () => {
@@ -180,7 +183,7 @@ describe('Edge Cases', () => {
 				pkg: {} as any,
 			};
 			const result = _handleDefaultKey(pkgInfo, undefined);
-			expect(result).toBe('');
+			assert.strictEqual(result, '');
 		});
 	});
 
@@ -194,8 +197,8 @@ describe('Edge Cases', () => {
 			};
 
 			const bins = getPackageBins(mockPkg);
-			expect(bins).toBeDefined();
-			expect(bins).toHaveProperty('cli');
+			assert.notStrictEqual(bins, undefined);
+			assert.notStrictEqual(bins!.cli, undefined);
 		});
 
 		it('should handle very long bin paths', () => {
@@ -206,8 +209,8 @@ describe('Edge Cases', () => {
 			};
 
 			const bins = getPackageBins(mockPkg);
-			expect(bins).toBeDefined();
-			expect(bins!['test-pkg']).toBe(longPath);
+			assert.notStrictEqual(bins, undefined);
+			assert.strictEqual(bins!['test-pkg'], longPath);
 		});
 
 		it('should handle unicode in package names', () => {
@@ -217,8 +220,8 @@ describe('Edge Cases', () => {
 			};
 
 			const bins = getPackageBins(mockPkg);
-			expect(bins).toBeDefined();
-			expect(bins).toHaveProperty('我的套件');
+			assert.notStrictEqual(bins, undefined);
+			assert.notStrictEqual(bins!['我的套件'], undefined);
 		});
 	});
 });

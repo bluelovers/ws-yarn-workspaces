@@ -1,3 +1,4 @@
+import { describe, test } from 'node:test';
 import { _lazyTestNpaTypeGuard } from "./lib/test";
 import { tests as _tests } from "./fixtures/npa";
 
@@ -5,12 +6,15 @@ import { tests as _tests } from "./fixtures/npa";
 describe('basic', () =>
 {
 	/**
- * @see {@link https://github.com/npm/npm/blob/latest/test/lib/npa.js}
- */
-	test.each(Object.entries(_tests))('%s', (raw, propertyMatchers) =>
+	 * @see {@link https://github.com/npm/npm/blob/latest/test/lib/npa.js}
+	 */
+	Object.entries(_tests).forEach(([raw, propertyMatchers]) =>
 	{
-		_lazyTestNpaTypeGuard(raw, {
-			propertyMatchers,
+		test(raw, () =>
+		{
+			_lazyTestNpaTypeGuard(raw, {
+				propertyMatchers,
+			});
 		});
 	});
 });

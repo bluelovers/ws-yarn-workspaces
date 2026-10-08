@@ -10,6 +10,8 @@
 /// <reference types="jest" />
 /// <reference types="node" />
 
+import assert from 'node:assert/strict';
+import { describe, it } from 'node:test';
 import {
 	parseVersion,
 	dateToVersion,
@@ -39,33 +41,41 @@ describe('Version Style Generator', () => {
 
 	describe('getQuarterFromMonth', () => {
 
-		it.each(QUARTER_TEST_CASES)('should return correct quarter for month $month', ({ month, expected }) => {
-			expect(getQuarterFromMonth(month)).toBe(expected);
-		});
+		for (const { month, expected } of QUARTER_TEST_CASES) {
+			it(`should return correct quarter for month ${month}`, () => {
+				assert.strictEqual(getQuarterFromMonth(month), expected);
+			});
+		}
 
 	});
 
 	describe('getJetbrainsYearCode', () => {
 
-		it.each(JETBRAINS_YEAR_CODE_TEST_CASES)('should return $expected for year $year, quarter $quarter', ({ year, quarter, expected }) => {
-			expect(getJetbrainsYearCode(year, quarter)).toBe(expected);
-		});
+		for (const { year, quarter, expected } of JETBRAINS_YEAR_CODE_TEST_CASES) {
+			it(`should return ${expected} for year ${year}, quarter ${quarter}`, () => {
+				assert.strictEqual(getJetbrainsYearCode(year, quarter), expected);
+			});
+		}
 
 	});
 
 	describe('dateToVersionByStyle', () => {
 
-		it.each(DATE_TO_VERSION_STYLE_TEST_CASES)('should generate $expected for $style style', ({ style, dateInfo, expected }) => {
-			const result = dateToVersionByStyle(style, dateInfo);
-			expect(result).toBe(expected);
-		});
+		for (const { style, dateInfo, expected } of DATE_TO_VERSION_STYLE_TEST_CASES) {
+			it(`should generate ${expected} for ${style} style`, () => {
+				const result = dateToVersionByStyle(style, dateInfo);
+				assert.strictEqual(result, expected);
+			});
+		}
 
 		describe('disableDailyVersionSuffix', () => {
 
-			it.each(DATE_TO_VERSION_DISABLE_SUFFIX_TEST_CASES)('should $expected for $style with disableDailyVersionSuffix', ({ style, dateInfo, expected }) => {
-				const result = dateToVersionByStyle(style, dateInfo);
-				expect(result).toBe(expected);
-			});
+			for (const { style, dateInfo, expected } of DATE_TO_VERSION_DISABLE_SUFFIX_TEST_CASES) {
+				it(`should ${expected} for ${style} with disableDailyVersionSuffix`, () => {
+					const result = dateToVersionByStyle(style, dateInfo);
+					assert.strictEqual(result, expected);
+				});
+			}
 
 		});
 
@@ -81,7 +91,7 @@ describe('Version Style Generator', () => {
 			const expectedMonthDay = (today.getMonth() + 1) * 100 + today.getDate();
 			const expectedYearCode = getJetbrainsYearCode(today.getFullYear(), getQuarterFromMonth(today.getMonth() + 1));
 
-			expect(result).toMatch(new RegExp(`^${expectedYearCode}\\.${expectedMonthDay}\\.1$`));
+			assert.match(result, new RegExp(`^${expectedYearCode}\\.${expectedMonthDay}\\.1$`));
 		});
 
 		it('should generate version with custom date', () => {
@@ -92,48 +102,50 @@ describe('Version Style Generator', () => {
 			});
 
 			// 2026年1月 = Q1, getJetbrainsYearCode(2026, 1) = 261
-			expect(result).toBe('261.101.1');
+			assert.strictEqual(result, '261.101.1');
 		});
 
 	});
 
 	describe('parseVersion', () => {
 
-		it.each(PARSE_VERSION_TEST_CASES)('should parse $version', ({ version, expected }) => {
-			const result = _lazyParseVersion(version);
+		for (const { version, expected } of PARSE_VERSION_TEST_CASES) {
+			it(`should parse ${version}`, (t) => {
+				const result = _lazyParseVersion(version);
 
-			if (expected === null) {
-				expect(result.parseVersion).toBeNull();
-			} else {
-				expect(result).toMatchSnapshot({
-					parseVersion: expected
-				});
-			}
-		});
+				if (expected === null) {
+					assert.strictEqual(result.parseVersion, null);
+				} else {
+					assert.deepStrictEqual(result.parseVersion, expected);
+					t.assert.snapshot(result.parseVersion);
+				}
+			});
+		}
 
-		it('should parse JetbrainsShort style with full details', () => {
+		it('should parse JetbrainsShort style with full details', (t) => {
 			const result = _lazyParseVersion('261.1.1-1');
 
-			expect(result).toMatchSnapshot({
-				parseVersion: {
-					year: 2026,
-					month: 1,
-					day: 1,
-					dailyVersion: 1,
-					isJetbrainsShort: true,
-					isMDCombined: false,
-				},
+			assert.deepStrictEqual(result.parseVersion, {
+				year: 2026,
+				month: 1,
+				day: 1,
+				dailyVersion: 1,
+				isJetbrainsShort: true,
+				isMDCombined: false,
 			});
+			t.assert.snapshot(result.parseVersion);
 		});
 
 	});
 
 	describe('incrementVersion', () => {
 
-		it.each(INCREMENT_VERSION_TEST_CASES)('should increment $version to $expected', ({ version, expected }) => {
-			const result = incrementVersion(version);
-			expect(result).toBe(expected);
-		});
+		for (const { version, expected } of INCREMENT_VERSION_TEST_CASES) {
+			it(`should increment ${version} to ${expected}`, () => {
+				const result = incrementVersion(version);
+				assert.strictEqual(result, expected);
+			});
+		}
 
 	});
 
@@ -146,13 +158,13 @@ describe('Version Style Generator', () => {
 			const version = `${year}.${month * 100 + day}.1`;
 			const result = isTodayVersion(version, { date: today });
 
-			expect(result).toBe(true);
+			assert.strictEqual(result, true);
 		});
 
 		it('should return false for not today version', () => {
 			const result = isTodayVersion('2020.1.1-1', { date: new Date() });
 
-			expect(result).toBe(false);
+			assert.strictEqual(result, false);
 		});
 
 	});
@@ -169,7 +181,7 @@ describe('Version Style Generator', () => {
 			// 應該是今天的版本 + 遞增
 			const expectedYearCode = getJetbrainsYearCode(year, getQuarterFromMonth(month));
 			const expected = `${expectedYearCode}.${month * 100 + day}.2`;
-			expect(result).toBe(expected);
+			assert.strictEqual(result, expected);
 		});
 
 		it('should return incremented version for given date', () => {
@@ -181,22 +193,22 @@ describe('Version Style Generator', () => {
 			// 使用 JetBrains Short MD 格式
 			const expectedYearCode = getJetbrainsYearCode(year, getQuarterFromMonth(month));
 			const expected = `${expectedYearCode}.${month * 100 + day}.2`;
-			expect(result).toBe(expected);
+			assert.strictEqual(result, expected);
 		});
 
 	});
 
 	describe('_handleVersionStyleOptions', () => {
 
-		it('should handle Date input', () => {
+		it('should handle Date input', (t) => {
 			const testDate = TEST_DATE_Q1;
-			const result = _expectHandleVersionStyleOptions(testDate);
+			const result = _expectHandleVersionStyleOptions(t, testDate);
 
-			expect(result.date.toDate()).toEqual(testDate);
+			assert.deepStrictEqual(result.date.toDate(), testDate);
 		});
 
-		it('should handle IVersionStyleOptions with date', () => {
-			const result = _expectHandleVersionStyleOptions({
+		it('should handle IVersionStyleOptions with date', (t) => {
+			const result = _expectHandleVersionStyleOptions(t, {
 				date: TEST_DATE_Q1,
 				dailyIncrement: 5,
 				disableDailyVersionSuffix: true,
@@ -205,41 +217,43 @@ describe('Version Style Generator', () => {
 				disableDailyVersionSuffix: true,
 			});
 
-			expect(result.date.toDate()).toEqual(TEST_DATE_Q1);
+			assert.deepStrictEqual(result.date.toDate(), TEST_DATE_Q1);
 		});
 
-		it('should use default values when no input', () => {
+		it('should use default values when no input', (t) => {
 			const before = new Date();
-			const result = _expectHandleVersionStyleOptions();
+			const result = _expectHandleVersionStyleOptions(t);
 			const after = new Date();
 
 			// 日期應該在調用前後的時間範圍內
 			const date = result.date.toDate();
 
-			expect(date.getTime()).toBeGreaterThanOrEqual(before.getTime());
-			expect(date.getTime()).toBeLessThanOrEqual(after.getTime());
+			assert.ok(date.getTime() >= before.getTime());
+			assert.ok(date.getTime() <= after.getTime());
 		});
 
-		it('should handle empty object', () => {
+		it('should handle empty object', (t) => {
 			const before = new Date();
-			const result = _expectHandleVersionStyleOptions({});
+			const result = _expectHandleVersionStyleOptions(t, {});
 			const after = new Date();
 
 			// 日期應該在調用前後的時間範圍內
 			const date = result.date.toDate();
 
-			expect(date.getTime()).toBeGreaterThanOrEqual(before.getTime());
-			expect(date.getTime()).toBeLessThanOrEqual(after.getTime());
+			assert.ok(date.getTime() >= before.getTime());
+			assert.ok(date.getTime() <= after.getTime());
 		});
 
 	});
 
 	describe('isValidDateInfo', () => {
 
-		it.each(VALID_DATE_INFO_TEST_CASES)('should return $expected for $input', ({ input, expected }) => {
-			const result = isValidDateInfo(input as any);
-			expect(result).toBe(expected);
-		});
+		for (const { input, expected } of VALID_DATE_INFO_TEST_CASES) {
+			it(`should return ${expected} for ${JSON.stringify(input)}`, () => {
+				const result = isValidDateInfo(input as any);
+				assert.strictEqual(result, expected);
+			});
+		}
 
 	});
 
@@ -251,7 +265,7 @@ describe('Version Style Generator', () => {
 				dailyIncrement: 1,
 			});
 
-			expect(result).toEqual({
+			assert.deepStrictEqual(result, {
 				[EnumVersionStyle.JetbrainsShort]: '261.1.1-1',
 				[EnumVersionStyle.JetbrainsShortMD]: '261.101.1',
 				[EnumVersionStyle.StandardFull]: '2026.1.1-1',
@@ -265,7 +279,7 @@ describe('Version Style Generator', () => {
 				dailyIncrement: 1,
 			});
 
-			expect(result).toEqual({
+			assert.deepStrictEqual(result, {
 				[EnumVersionStyle.JetbrainsShort]: '262.6.15-1',
 				[EnumVersionStyle.JetbrainsShortMD]: '262.615.1',
 				[EnumVersionStyle.StandardFull]: '2026.6.15-1',

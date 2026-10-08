@@ -6,6 +6,8 @@
  */
 import { replaceSimpleSemVerVersion } from '../lib/replaceSimpleSemVerVersion';
 import { parse, stringify, stringifyFull } from '../index';
+import assert from 'node:assert/strict';
+import { describe, test } from 'node:test';
 
 describe('replaceSimpleSemVerVersion', () =>
 {
@@ -15,37 +17,37 @@ describe('replaceSimpleSemVerVersion', () =>
 		{
 			const result = replaceSimpleSemVerVersion('>=1.0.0', '2.3.4');
 			
-			expect(result.major).toBe('2');
-			expect(result.minor).toBe('3');
-			expect(result.patch).toBe('4');
-			expect(result.operator).toBe('>=');
+			assert.strictEqual(result.major, '2');
+			assert.strictEqual(result.minor, '3');
+			assert.strictEqual(result.patch, '4');
+			assert.strictEqual(result.operator, '>=');
 		});
 
 		test('should replace version preserving caret operator', () =>
 		{
 			const result = replaceSimpleSemVerVersion('^1.0.0', '2.0.0');
 			
-			expect(result.operator).toBe('^');
-			expect(result.major).toBe('2');
+			assert.strictEqual(result.operator, '^');
+			assert.strictEqual(result.major, '2');
 		});
 
 		test('should replace version preserving tilde operator', () =>
 		{
 			const result = replaceSimpleSemVerVersion('~1.2.3', '3.4.5');
 			
-			expect(result.operator).toBe('~');
-			expect(result.major).toBe('3');
-			expect(result.minor).toBe('4');
-			expect(result.patch).toBe('5');
+			assert.strictEqual(result.operator, '~');
+			assert.strictEqual(result.major, '3');
+			assert.strictEqual(result.minor, '4');
+			assert.strictEqual(result.patch, '5');
 		});
 
 		test('should replace version without operator', () =>
 		{
 			const result = replaceSimpleSemVerVersion('1.0.0', '2.0.0');
 			
-			expect(result.major).toBe('2');
-			expect(result.minor).toBe('0');
-			expect(result.patch).toBe('0');
+			assert.strictEqual(result.major, '2');
+			assert.strictEqual(result.minor, '0');
+			assert.strictEqual(result.patch, '0');
 		});
 	});
 
@@ -56,10 +58,10 @@ describe('replaceSimpleSemVerVersion', () =>
 			const parsed = parse('>=1.0.0');
 			const result = replaceSimpleSemVerVersion(parsed, '2.3.4');
 			
-			expect(result.major).toBe('2');
-			expect(result.minor).toBe('3');
-			expect(result.patch).toBe('4');
-			expect(result.operator).toBe('>=');
+			assert.strictEqual(result.major, '2');
+			assert.strictEqual(result.minor, '3');
+			assert.strictEqual(result.patch, '4');
+			assert.strictEqual(result.operator, '>=');
 		});
 
 		test('should replace version from object with caret', () =>
@@ -67,8 +69,8 @@ describe('replaceSimpleSemVerVersion', () =>
 			const parsed = parse('^1.2.3');
 			const result = replaceSimpleSemVerVersion(parsed, '4.5.6');
 			
-			expect(result.operator).toBe('^');
-			expect(result.major).toBe('4');
+			assert.strictEqual(result.operator, '^');
+			assert.strictEqual(result.major, '4');
 		});
 	});
 
@@ -78,19 +80,19 @@ describe('replaceSimpleSemVerVersion', () =>
 		{
 			const result = replaceSimpleSemVerVersion('^1.0.0', '2.0.0-beta.1');
 			
-			expect(result.major).toBe('2');
-			expect(result.minor).toBe('0');
-			expect(result.patch).toBe('0');
-			expect(result.release).toBe('beta.1');
-			expect(result.operator).toBe('^');
+			assert.strictEqual(result.major, '2');
+			assert.strictEqual(result.minor, '0');
+			assert.strictEqual(result.patch, '0');
+			assert.strictEqual(result.release, 'beta.1');
+			assert.strictEqual(result.operator, '^');
 		});
 
 		test('should replace pre-release with stable version', () =>
 		{
 			const result = replaceSimpleSemVerVersion('>=1.0.0-alpha.1', '2.0.0');
 			
-			expect(result.major).toBe('2');
-			expect(result.release).toBeUndefined();
+			assert.strictEqual(result.major, '2');
+			assert.strictEqual(result.release, undefined);
 		});
 	});
 
@@ -100,17 +102,17 @@ describe('replaceSimpleSemVerVersion', () =>
 		{
 			const result = replaceSimpleSemVerVersion('^1.0.0', '2.0.0+build.123');
 			
-			expect(result.major).toBe('2');
-			expect(result.build).toBe('build.123');
-			expect(result.operator).toBe('^');
+			assert.strictEqual(result.major, '2');
+			assert.strictEqual(result.build, 'build.123');
+			assert.strictEqual(result.operator, '^');
 		});
 
 		test('should replace build with new version', () =>
 		{
 			const result = replaceSimpleSemVerVersion('>=1.0.0+build.100', '2.0.0+build.200');
 			
-			expect(result.major).toBe('2');
-			expect(result.build).toBe('build.200');
+			assert.strictEqual(result.major, '2');
+			assert.strictEqual(result.build, 'build.200');
 		});
 	});
 
@@ -120,12 +122,12 @@ describe('replaceSimpleSemVerVersion', () =>
 		{
 			const result = replaceSimpleSemVerVersion('^1.0.0', '2.3.4-beta.1+build.123');
 			
-			expect(result.major).toBe('2');
-			expect(result.minor).toBe('3');
-			expect(result.patch).toBe('4');
-			expect(result.release).toBe('beta.1');
-			expect(result.build).toBe('build.123');
-			expect(result.operator).toBe('^');
+			assert.strictEqual(result.major, '2');
+			assert.strictEqual(result.minor, '3');
+			assert.strictEqual(result.patch, '4');
+			assert.strictEqual(result.release, 'beta.1');
+			assert.strictEqual(result.build, 'build.123');
+			assert.strictEqual(result.operator, '^');
 		});
 	});
 
@@ -134,25 +136,25 @@ describe('replaceSimpleSemVerVersion', () =>
 		test('should produce correct string with stringifyFull', () =>
 		{
 			const result = replaceSimpleSemVerVersion('>=1.0.0', '2.3.4');
-			expect(stringifyFull(result)).toBe('>=2.3.4');
+			assert.strictEqual(stringifyFull(result), '>=2.3.4');
 		});
 
 		test('should produce correct string with pre-release', () =>
 		{
 			const result = replaceSimpleSemVerVersion('^1.0.0', '2.0.0-beta.1');
-			expect(stringifyFull(result)).toBe('^2.0.0-beta.1');
+			assert.strictEqual(stringifyFull(result), '^2.0.0-beta.1');
 		});
 
 		test('should produce correct string with build', () =>
 		{
 			const result = replaceSimpleSemVerVersion('~1.0.0', '2.0.0+build.123');
-			expect(stringifyFull(result)).toBe('~2.0.0+build.123');
+			assert.strictEqual(stringifyFull(result), '~2.0.0+build.123');
 		});
 
 		test('should produce correct string with full version', () =>
 		{
 			const result = replaceSimpleSemVerVersion('>=1.0.0', '2.3.4-beta.1+build.123');
-			expect(stringifyFull(result)).toBe('>=2.3.4-beta.1+build.123');
+			assert.strictEqual(stringifyFull(result), '>=2.3.4-beta.1+build.123');
 		});
 	});
 
@@ -161,37 +163,37 @@ describe('replaceSimpleSemVerVersion', () =>
 		test('should preserve >= operator', () =>
 		{
 			const result = replaceSimpleSemVerVersion('>=1.0.0', '2.0.0');
-			expect(result.operator).toBe('>=');
+			assert.strictEqual(result.operator, '>=');
 		});
 
 		test('should preserve <= operator', () =>
 		{
 			const result = replaceSimpleSemVerVersion('<=1.0.0', '2.0.0');
-			expect(result.operator).toBe('<=');
+			assert.strictEqual(result.operator, '<=');
 		});
 
 		test('should preserve > operator', () =>
 		{
 			const result = replaceSimpleSemVerVersion('>1.0.0', '2.0.0');
-			expect(result.operator).toBe('>');
+			assert.strictEqual(result.operator, '>');
 		});
 
 		test('should preserve < operator', () =>
 		{
 			const result = replaceSimpleSemVerVersion('<1.0.0', '2.0.0');
-			expect(result.operator).toBe('<');
+			assert.strictEqual(result.operator, '<');
 		});
 
 		test('should preserve = operator', () =>
 		{
 			const result = replaceSimpleSemVerVersion('=1.0.0', '2.0.0');
-			expect(result.operator).toBe('=');
+			assert.strictEqual(result.operator, '=');
 		});
 
 		test('should preserve ~> operator', () =>
 		{
 			const result = replaceSimpleSemVerVersion('~>1.0.0', '2.0.0');
-			expect(result.operator).toBe('~>');
+			assert.strictEqual(result.operator, '~>');
 		});
 	});
 
@@ -201,25 +203,25 @@ describe('replaceSimpleSemVerVersion', () =>
 		{
 			const result = replaceSimpleSemVerVersion('^1.0.0', '0.0.0');
 			
-			expect(result.major).toBe('0');
-			expect(result.minor).toBe('0');
-			expect(result.patch).toBe('0');
+			assert.strictEqual(result.major, '0');
+			assert.strictEqual(result.minor, '0');
+			assert.strictEqual(result.patch, '0');
 		});
 
 		test('should handle large version numbers', () =>
 		{
 			const result = replaceSimpleSemVerVersion('^1.0.0', '100.200.300');
 			
-			expect(result.major).toBe('100');
-			expect(result.minor).toBe('200');
-			expect(result.patch).toBe('300');
+			assert.strictEqual(result.major, '100');
+			assert.strictEqual(result.minor, '200');
+			assert.strictEqual(result.patch, '300');
 		});
 
 		test('should handle v prefix in new version', () =>
 		{
 			const result = replaceSimpleSemVerVersion('^1.0.0', 'v2.0.0');
 			
-			expect(result.major).toBe('2');
+			assert.strictEqual(result.major, '2');
 		});
 	});
 
@@ -232,7 +234,7 @@ describe('replaceSimpleSemVerVersion', () =>
 			const newVersion = '18.2.0';
 			const result = replaceSimpleSemVerVersion(oldDep, newVersion);
 			
-			expect(stringifyFull(result)).toBe('^18.2.0');
+			assert.strictEqual(stringifyFull(result), '^18.2.0');
 		});
 
 		test('should update single version constraint', () =>
@@ -242,8 +244,8 @@ describe('replaceSimpleSemVerVersion', () =>
 			const newVersion = '17.0.0';
 			const result = replaceSimpleSemVerVersion(oldConstraint, newVersion);
 			
-			expect(result.operator).toBe('>=');
-			expect(result.major).toBe('17');
+			assert.strictEqual(result.operator, '>=');
+			assert.strictEqual(result.major, '17');
 		});
 	});
 
@@ -262,36 +264,36 @@ describe('replaceSimpleSemVerVersion', () =>
 			const validInput = '^1.0.0';
 			const result = replaceSimpleSemVerVersion(validInput, '2.0.0');
 			
-			expect(result.operator).toBe('^');
-			expect(result.major).toBe('2');
+			assert.strictEqual(result.operator, '^');
+			assert.strictEqual(result.major, '2');
 		});
 
 		test('should accept version with operator', () =>
 		{
 			// 接受帶運算子的單一版本 / Accepts single version with operator
 			const result = replaceSimpleSemVerVersion('>=1.0.0', '2.0.0');
-			expect(result.operator).toBe('>=');
+			assert.strictEqual(result.operator, '>=');
 		});
 
 		test('should accept version without operator', () =>
 		{
 			// 接受不帶運算子的單一版本 / Accepts single version without operator
 			const result = replaceSimpleSemVerVersion('1.0.0', '2.0.0');
-			expect(result.major).toBe('2');
+			assert.strictEqual(result.major, '2');
 		});
 
 		test('should accept version with pre-release', () =>
 		{
 			// 接受預發布版本 / Accepts pre-release version
 			const result = replaceSimpleSemVerVersion('1.0.0-alpha.1', '2.0.0');
-			expect(result.major).toBe('2');
+			assert.strictEqual(result.major, '2');
 		});
 
 		test('should accept version with build metadata', () =>
 		{
 			// 接受帶建構元資料的版本 / Accepts version with build metadata
 			const result = replaceSimpleSemVerVersion('1.0.0+build.123', '2.0.0');
-			expect(result.major).toBe('2');
+			assert.strictEqual(result.major, '2');
 		});
 	});
 });

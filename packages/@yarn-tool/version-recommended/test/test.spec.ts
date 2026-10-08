@@ -1,7 +1,8 @@
 //@noUnusedParameters:false
-/// <reference types="jest" />
 /// <reference types="node" />
 
+import assert from 'node:assert/strict';
+import { before, beforeEach, describe, test, TestContext } from 'node:test';
 import { basename, extname } from 'path';
 import { INextVersionRecommendedOptions, releaseTypes } from '../lib/types';
 import { nextVersionRecommended } from '../lib/nextVersionRecommended';
@@ -10,139 +11,154 @@ import { parse, ReleaseType } from 'semver';
 import { inc as semverIncrement } from 'semver';
 import { nextVersionRecommendedByPackageFindUp } from '../lib/pkg';
 
-beforeAll(async () =>
-{
-
-});
-
 describe('nextVersionRecommendedByPackageFindUp', () =>
 {
-	describe.each([...releaseTypes])('bump: %j', (bump) =>
+	for (const bump of [...releaseTypes])
 	{
-		if (bump)
+		describe(`bump: ${JSON.stringify(bump)}`, () =>
 		{
-			test(`bump: ${bump}`, () =>
+			if (bump)
 			{
-				let actual = nextVersionRecommendedByPackageFindUp({
-					bump,
-				});
+				test(`bump: ${bump}`, () =>
+				{
+					let actual = nextVersionRecommendedByPackageFindUp({
+						bump,
+					});
 
-				expect(actual).toHaveProperty('bump', bump)
-			})
+					assert.strictEqual(actual.bump, bump)
+				})
 
-			test(`flag: ${bump}`, () =>
-			{
-				let actual = nextVersionRecommendedByPackageFindUp({
-					[bump]: true,
-				});
+				test(`flag: ${bump}`, () =>
+				{
+					let actual = nextVersionRecommendedByPackageFindUp({
+						[bump]: true,
+					});
 
-				expect(actual).toHaveProperty('bump', bump)
-			})
-		}
-	})
+					assert.strictEqual(actual.bump, bump)
+				})
+			}
+		})
+	}
 })
 
 describe('version', () =>
 {
 
-	test.skip(`dummy`, () => {});
-
-	describe.each([
+	for (const oldVersion of [
 		'5.5.0-dev.20240225+rev.2',
 		'5.5.0-dev.20240225',
 		'5.5.0-20240225',
 		'5.5.0',
-	])('%s', (oldVersion) => {
+	]) {
+		describe(`${oldVersion}`, () => {
 
-		const sv = parse(oldVersion);
+			const sv = parse(oldVersion);
 
-		describe.each([...releaseTypes, void 0])('bump: %j', (bump) => {
+			for (const bump of [...releaseTypes, void 0]) {
+				describe(`bump: ${JSON.stringify(bump)}`, () => {
 
-			describe.each([
-				'dev',
-				'next',
-				'beta',
-				'55',
-				void 0,
-			])('preid: %j', (preid) =>
-			{
-
-				describe.each([
-					0,
-					1,
-					'0',
-					'1',
-					void 0,
-					false,
-					true,
-				])('identifierBase: %j', (identifierBase) =>
-				{
-					let options: INextVersionRecommendedOptions;
-
-					beforeEach(() => {
-						options = {
-							bump,
-							preid,
-							identifierBase,
-						} as any;
-					})
-
-					test('handleOptions', () =>
+					for (const preid of [
+						'dev',
+						'next',
+						'beta',
+						'55',
+						void 0,
+					])
 					{
-						expect({
-							['with oldVersion']: handleOptions(options, oldVersion),
-							['without']: handleOptions(options),
-						}).toMatchSnapshot();
-					});
-
-					test('detectPreidByVersion', () =>
-					{
-						let actual = detectPreidByVersion(oldVersion);
-
-						let ex = expect({
-							['with options']: detectPreidByVersion(oldVersion, options),
-							['without']: detectPreidByVersion(oldVersion),
-						});
-
-						if (sv.prerelease?.length)
+						describe(`preid: ${JSON.stringify(preid)}`, () =>
 						{
-							ex.toMatchSnapshot();
-						}
-						else
-						{
-							ex.toStrictEqual({
-								['with options']: null,
-								['without']: null,
-							});
-						}
-					});
 
-					test('nextVersionRecommended', () =>
-					{
-						let actual = nextVersionRecommended(oldVersion, options);
+							for (const identifierBase of [
+								0,
+								1,
+								'0',
+								'1',
+								void 0,
+								false,
+								true,
+							])
+							{
+								describe(`identifierBase: ${JSON.stringify(identifierBase)}`, () =>
+								{
+									let options: INextVersionRecommendedOptions;
 
-						let expected = {} as any;
+									beforeEach(() => {
+										options = {
+											bump,
+											preid,
+											identifierBase,
+										} as any;
+									})
 
-						if (typeof options.bump === 'string' && !releaseTypesIsPre(options.bump))
-						{
-							expected.actual = {
-								newVersion: semverIncrement(oldVersion, options.bump)
+									test('handleOptions', (t) =>
+									{
+										t.assert.snapshot({
+											['with oldVersion']: handleOptions(options, oldVersion),
+											['without']: handleOptions(options),
+										});
+									});
+
+									test('detectPreidByVersion', (t) =>
+									{
+										let actual = detectPreidByVersion(oldVersion);
+
+										let ex = {
+											['with options']: detectPreidByVersion(oldVersion, options),
+											['without']: detectPreidByVersion(oldVersion),
+										};
+
+										if (sv.prerelease?.length)
+										{
+											t.assert.snapshot(ex);
+										}
+										else
+										{
+											assert.deepStrictEqual(ex, {
+												['with options']: null,
+												['without']: null,
+											});
+										}
+									});
+
+									test('nextVersionRecommended', (t: TestContext) =>
+									{
+										let actual = nextVersionRecommended(oldVersion, options);
+
+										let expected = {} as any;
+
+										if (typeof options.bump === 'string' && !releaseTypesIsPre(options.bump))
+										{
+											expected.actual = {
+												newVersion: semverIncrement(oldVersion, options.bump)
+											}
+										}
+
+										if (expected.actual)
+										{
+											t.assert.partialDeepStrictEqual(actual, expected.actual);
+										}
+
+										t.assert.snapshot({
+											sv,
+											options,
+											actual,
+										});
+									});
+
+								})
+
 							}
-						}
 
-						expect({
-							sv,
-							options,
-							actual,
-						}).toMatchSnapshot(expected);
-					});
+						})
+
+					}
 
 				})
 
-			})
+			}
 
 		})
 
-	})
+	}
 
 })

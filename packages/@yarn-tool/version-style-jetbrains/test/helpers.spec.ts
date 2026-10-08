@@ -12,6 +12,8 @@
 
 
 
+import assert from 'node:assert/strict';
+import { describe, it } from 'node:test';
 import { EnumVersionStyle } from '../lib/types';
 import { _isJetbrainsStyleFromStyle, _isMDCombinedFromStyle } from '../lib/assert';
 import { _getStyleFromFlags } from '../lib/options';
@@ -21,40 +23,46 @@ describe('Helper Functions', () => {
 
 	describe('_isJetbrainsStyleFromStyle', () => {
 
-		it.each([
+		for (const { style, expected } of [
 			{ style: EnumVersionStyle.JetbrainsShort, expected: true },
 			{ style: EnumVersionStyle.JetbrainsShortMD, expected: true },
 			{ style: EnumVersionStyle.StandardFull, expected: false },
 			{ style: EnumVersionStyle.StandardFullMD, expected: false },
-		])('should return $expected for $style', ({ style, expected }) => {
-			expect(_isJetbrainsStyleFromStyle(style)).toBe(expected);
-		});
+		]) {
+			it(`should return ${expected} for ${style}`, () => {
+				assert.strictEqual(_isJetbrainsStyleFromStyle(style), expected);
+			});
+		}
 
 	});
 
 	describe('_isMDCombinedFromStyle', () => {
 
-		it.each([
+		for (const { style, expected } of [
 			{ style: EnumVersionStyle.JetbrainsShort, expected: false },
 			{ style: EnumVersionStyle.JetbrainsShortMD, expected: true },
 			{ style: EnumVersionStyle.StandardFull, expected: false },
 			{ style: EnumVersionStyle.StandardFullMD, expected: true },
-		])('should return $expected for $style', ({ style, expected }) => {
-			expect(_isMDCombinedFromStyle(style)).toBe(expected);
-		});
+		]) {
+			it(`should return ${expected} for ${style}`, () => {
+				assert.strictEqual(_isMDCombinedFromStyle(style), expected);
+			});
+		}
 
 	});
 
 	describe('_getStyleFromFlags', () => {
 
-		it.each([
+		for (const { isJetbrainsShort, isMDCombined, expected } of [
 			{ isJetbrainsShort: true, isMDCombined: false, expected: EnumVersionStyle.JetbrainsShort },
 			{ isJetbrainsShort: true, isMDCombined: true, expected: EnumVersionStyle.JetbrainsShortMD },
 			{ isJetbrainsShort: false, isMDCombined: false, expected: EnumVersionStyle.StandardFull },
 			{ isJetbrainsShort: false, isMDCombined: true, expected: EnumVersionStyle.StandardFullMD },
-		])('should return $expected for isJetbrainsShort=$isJetbrainsShort, isMDCombined=$isMDCombined', ({ isJetbrainsShort, isMDCombined, expected }) => {
-			expect(_getStyleFromFlags(isJetbrainsShort, isMDCombined)).toBe(expected);
-		});
+		]) {
+			it(`should return ${expected} for isJetbrainsShort=${isJetbrainsShort}, isMDCombined=${isMDCombined}`, () => {
+				assert.strictEqual(_getStyleFromFlags(isJetbrainsShort, isMDCombined), expected);
+			});
+		}
 
 	});
 
@@ -62,7 +70,7 @@ describe('Helper Functions', () => {
 
 		describe('MD format (monthDay > 12)', () => {
 
-			it.each([
+			for (const { monthOrMD, dayOrIncrement, increment, expected } of [
 				// MD 格式 / MD format
 				{ monthOrMD: '101', dayOrIncrement: '1', increment: undefined, expected: { month: 1, day: 1, dailyVersion: 1, isMDCombined: true } },
 				{ monthOrMD: '115', dayOrIncrement: '1', increment: undefined, expected: { month: 1, day: 15, dailyVersion: 1, isMDCombined: true } },
@@ -70,16 +78,18 @@ describe('Helper Functions', () => {
 				{ monthOrMD: '615', dayOrIncrement: '1', increment: undefined, expected: { month: 6, day: 15, dailyVersion: 1, isMDCombined: true } },
 				// MD 格式有遞增 / MD format with increment
 				{ monthOrMD: '101', dayOrIncrement: 'x', increment: '2', expected: { month: 1, day: 1, dailyVersion: 2, isMDCombined: true } },
-			])('should parse $monthOrMD correctly', ({ monthOrMD, dayOrIncrement, increment, expected }) => {
-				const result = _parseMonthDayInfo(monthOrMD, dayOrIncrement, increment);
-				expect(result).toEqual(expected);
-			});
+			]) {
+				it(`should parse ${monthOrMD} correctly`, () => {
+					const result = _parseMonthDayInfo(monthOrMD, dayOrIncrement, increment);
+					assert.deepStrictEqual(result, expected);
+				});
+			}
 
 		});
 
 		describe('Standard format (monthDay <= 12)', () => {
 
-			it.each([
+			for (const { monthOrMD, dayOrIncrement, increment, expected } of [
 				// 標準格式 / Standard format
 				{ monthOrMD: '1', dayOrIncrement: '1', increment: undefined, expected: { month: 1, day: 1, dailyVersion: 1, isMDCombined: false } },
 				{ monthOrMD: '6', dayOrIncrement: '15', increment: undefined, expected: { month: 6, day: 15, dailyVersion: 1, isMDCombined: false } },
@@ -89,10 +99,12 @@ describe('Helper Functions', () => {
 				// 邊界情況 / Edge cases
 				{ monthOrMD: '', dayOrIncrement: '1', increment: undefined, expected: { month: 1, day: 1, dailyVersion: 1, isMDCombined: false } },
 				{ monthOrMD: '1', dayOrIncrement: '', increment: undefined, expected: { month: 1, day: 1, dailyVersion: 1, isMDCombined: false } },
-			])('should parse $monthOrMD.$dayOrIncrement correctly', ({ monthOrMD, dayOrIncrement, increment, expected }) => {
-				const result = _parseMonthDayInfo(monthOrMD, dayOrIncrement, increment);
-				expect(result).toEqual(expected);
-			});
+			]) {
+				it(`should parse ${monthOrMD}.${dayOrIncrement} correctly`, () => {
+					const result = _parseMonthDayInfo(monthOrMD, dayOrIncrement, increment);
+					assert.deepStrictEqual(result, expected);
+				});
+			}
 
 		});
 
@@ -100,7 +112,7 @@ describe('Helper Functions', () => {
 
 	describe('_parseJetbrainsYearQuarter', () => {
 
-		it.each([
+		for (const { input, expected } of [
 			// Q1 / Quarter 1
 			{ input: '261', expected: { year: 2026, quarter: 1 } },
 			{ input: '211', expected: { year: 2021, quarter: 1 } },
@@ -118,10 +130,12 @@ describe('Helper Functions', () => {
 			{ input: '271', expected: { year: 2027, quarter: 1 } },
 			{ input: '241', expected: { year: 2024, quarter: 1 } },
 			{ input: '191', expected: { year: 2019, quarter: 1 } },
-		])('should parse $input to year=$expected.year, quarter=$expected.quarter', ({ input, expected }) => {
-			const result = _parseJetbrainsYearQuarter(input);
-			expect(result).toEqual(expected);
-		});
+		]) {
+			it(`should parse ${input} to year=${expected.year}, quarter=${expected.quarter}`, () => {
+				const result = _parseJetbrainsYearQuarter(input);
+				assert.deepStrictEqual(result, expected);
+			});
+		}
 
 	});
 

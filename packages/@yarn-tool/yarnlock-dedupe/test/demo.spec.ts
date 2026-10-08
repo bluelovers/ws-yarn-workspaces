@@ -7,6 +7,8 @@ import { crlf } from 'crlf-normalize';
 import { __TEST_YARNLOCK } from '../../../../__root_ws';
 import { EnumDetectYarnLock } from '@yarn-tool/yarnlock-types';
 import { _forEachVersionTags } from '../../../../test/lib/forEachVersionTags';
+import assert from 'node:assert/strict';
+import { describe, test } from 'node:test';
 
 const __res = join(__TEST_YARNLOCK, 'dedupe');
 
@@ -40,28 +42,28 @@ describe(`yarnlock-dedupe`, () =>
 				describe(file, () =>
 				{
 
-					test(`listDuplicates`, () =>
+					test(`listDuplicates`, (t) =>
 					{
 						let actual = listDuplicates(yarnlock);
 
 						if (file !== 'meta-only.lock')
 						{
-							expect(actual.length).toBeGreaterThanOrEqual(1);
+							assert.ok(actual.length >= 1);
 						}
 
-						expect(actual).toMatchSnapshot();
+						t.assert.snapshot(actual);
 					})
 
-					test(`fixDuplicates`, () =>
+					test(`fixDuplicates`, (t) =>
 					{
 						let actual = fixDuplicates(yarnlock);
 
-						expect(actual).not.toStrictEqual(yarnlock);
+						assert.notDeepStrictEqual(actual, yarnlock);
 
 						let actual2 = detectYarnLockVersion(actual);
 
-						expect(actual2).toStrictEqual(expected2)
-						expect(actual2).toMatchSnapshot();
+						assert.deepStrictEqual(actual2, expected2)
+						t.assert.snapshot(actual2);
 					})
 
 				});

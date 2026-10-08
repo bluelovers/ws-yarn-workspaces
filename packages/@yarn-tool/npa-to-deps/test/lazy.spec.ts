@@ -1,3 +1,6 @@
+import assert from 'node:assert/strict';
+import { describe, test } from 'node:test';
+
 import { basename, extname } from 'path';
 import { npaToDepsValue } from '../index';
 import { parseSimpleSemVerRange } from '@lazy-node/semver-simple-parse/lib/parseSimpleSemVerRange';
@@ -13,15 +16,15 @@ describe(`should return semver`, () =>
 	].forEach((input) =>
 	{
 
-		test(input, () =>
+		test(input, (t) =>
 		{
 			let actual = _actualNpaToDepsValue(input);
 
-			expect(actual).toMatchSnapshot();
+			t.assert.snapshot(actual);
 
-			expect(actual.depsResult.semver.length).toBeGreaterThanOrEqual(1);
+			assert.ok(actual.depsResult.semver.length >= 1);
 
-			expect(actual.depsResult).toHaveProperty('semver', expect.any(String));
+			assert.strictEqual(typeof actual.depsResult.semver, 'string');
 		});
 
 	});
@@ -37,17 +40,22 @@ describe(`should return undefined`, () =>
 	].forEach((input) =>
 	{
 
-		test(input, () =>
+		test(input, (t) =>
 		{
 
 			let actual = _actualNpaToDepsValue(input);
 
-			expect(actual).toMatchSnapshot();
+			t.assert.snapshot(actual);
 
-			expect(actual.depsResult).toMatchSnapshot({
-				semver: void 0,
-				fetchQuery: true,
-			});
+			/*
+			 * 原 `expect(actual.depsResult).toMatchSnapshot({ semver: void 0, fetchQuery: true })`
+			 * 的 property matchers 在 node:test 無對應 API，改以等效斷言表達：
+			 * The property matchers of the original snapshot call have no node:test
+			 * equivalent; expressed as equivalent assertions below.
+			 */
+			assert.strictEqual(actual.depsResult.semver, void 0);
+			assert.strictEqual(actual.depsResult.fetchQuery, true);
+			t.assert.snapshot(actual.depsResult);
 
 		});
 
@@ -66,12 +74,12 @@ describe(`alias`, () =>
 	].forEach((input) =>
 	{
 
-		test(input, () =>
+		test(input, (t) =>
 		{
 
 			let actual = npaToDepsValue(input);
 
-			expect(actual).toMatchSnapshot();
+			t.assert.snapshot(actual);
 
 		});
 

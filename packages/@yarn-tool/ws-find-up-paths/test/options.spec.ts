@@ -1,32 +1,15 @@
 //@noUnusedParameters:false
 
+import { test, before } from 'node:test';
+import assert from 'node:assert/strict';
 import { handleOptions } from '../index';
 
-beforeAll(async () =>
+before(async () =>
 {
 
 });
 
-const baseExpectedRuntimeBase = {
-	cwd: expect.any(String),
-	stopPath: expect.any(Array),
-}
-
-const baseExpectedRuntime = {
-	...baseExpectedRuntimeBase,
-	opts: {
-		...baseExpectedRuntimeBase,
-	},
-	path: expect.anything(),
-	rootData: {
-		cwd: expect.any(String),
-		pkg: expect.any(String),
-		ws: expect.any(String),
-		root: expect.any(String),
-	},
-}
-
-test(`ignoreCurrentPackage`, () =>
+test(`ignoreCurrentPackage`, (t) =>
 {
 
 	let actual = handleOptions({
@@ -35,9 +18,26 @@ test(`ignoreCurrentPackage`, () =>
 
 	console.dir(actual);
 
-	expect(actual).toMatchSnapshot(baseExpectedRuntime);
+	// 原為 toMatchSnapshot(baseExpectedRuntime)，matcher 物件（expect.any / expect.anything）改為逐欄斷言
 
-	expect(actual).toHaveProperty('opts.ignoreCurrentPackage', true);
-	expect(actual).toHaveProperty('opts.includeCurrentDirectory', false);
+	assert.ok(typeof actual.cwd === 'string');
+	assert.ok(Array.isArray(actual.stopPath));
+	assert.ok(typeof actual.opts.cwd === 'string');
+	assert.ok(Array.isArray(actual.opts.stopPath));
+	assert.ok(actual.path != null);
+	assert.ok(typeof actual.rootData.cwd === 'string');
+	assert.ok(typeof actual.rootData.pkg === 'string');
+	assert.ok(typeof actual.rootData.ws === 'string');
+	assert.ok(typeof actual.rootData.root === 'string');
+
+	assert.strictEqual(actual.opts.ignoreCurrentPackage, true);
+	assert.strictEqual(actual.opts.includeCurrentDirectory, false);
+
+	/**
+	 * TypeError: Converting circular structure to JSON
+	 * remove path to avoid circular reference
+	 */
+	delete actual.path;
+	t.assert.snapshot(actual);
 
 });

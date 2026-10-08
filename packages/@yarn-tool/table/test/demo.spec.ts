@@ -1,6 +1,7 @@
+import { test } from 'node:test';
 import { createDependencyTable } from '..';
 
-test(`createDependencyTable`, () =>
+test(`createDependencyTable`, (t) =>
 {
 
 	let table = createDependencyTable();
@@ -15,9 +16,9 @@ test(`createDependencyTable`, () =>
 
 	//expect(actual).toStrictEqual(expected);
 	//expect(actual).toBeInstanceOf(Date);
-	expect(table).toMatchSnapshot();
+	t.assert.snapshot(table);
 
-	expect(table.toString()).toMatchSnapshot();
+	t.assert.snapshot(table.toString());
 
 });
 

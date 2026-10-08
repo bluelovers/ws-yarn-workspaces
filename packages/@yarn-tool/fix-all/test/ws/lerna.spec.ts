@@ -1,6 +1,8 @@
 /// <reference types="jest" />
 /// <reference types="node" />
 
+import assert from 'node:assert/strict';
+import { describe, it, after, beforeEach, afterEach, mock } from 'node:test';
 import {
 	_fixLernaJsonCore,
 	_fixLernaDeprecatedCore,
@@ -16,9 +18,11 @@ import { __root } from '../__root';
  * Mock resolvePackage 函數
  * Mock resolvePackage function
  */
-jest.mock('@yarn-tool/require-resolve/lib/package', () => ({
-	resolvePackage: jest.fn(),
-}));
+// node:test 未提供可用的模組級 mock（本機 Node 無 mock.module），改以 mock.method 替換模組 exports 上的 resolvePackage，等效於原 jest.mock 工廠
+// node:test has no usable module-level mock (mock.module is unavailable in this Node build); patch the exported resolvePackage via mock.method instead, equivalent to the original jest.mock factory
+const _resolvePackageModule = require('@yarn-tool/require-resolve/lib/package');
+
+mock.method(_resolvePackageModule, 'resolvePackage');
 
 import { resolvePackage } from '@yarn-tool/require-resolve/lib/package';
 
@@ -97,8 +101,8 @@ describe('_fixLernaJsonCore', () => {
 			tplLernaJson
 		);
 
-		expect(result.command.publish.concurrency).toBe(1);
-		expect(result.command.version?.conventionalCommits).toBe(true);
+		assert.strictEqual(result.command.publish.concurrency, 1);
+		assert.strictEqual(result.command.version?.conventionalCommits, true);
 	});
 
 	it('should concatenate and deduplicate ignoreChanges', () => {
@@ -107,8 +111,10 @@ describe('_fixLernaJsonCore', () => {
 			tplLernaJson
 		);
 
-		expect(result.command.publish.ignoreChanges).toEqual(
-			expect.arrayContaining(['*.log', '**/node_modules/**', '*.test.ts'])
+		assert.ok(
+			['*.log', '**/node_modules/**', '*.test.ts'].every(pattern =>
+				(result.command.publish.ignoreChanges as string[]).includes(pattern)
+			)
 		);
 	});
 
@@ -129,7 +135,7 @@ describe('_fixLernaJsonCore', () => {
 		// 計算唯一值的數量應該等於陣列長度
 		// Count of unique values should equal array length
 		const uniqueCount = new Set(result.command.publish.ignoreChanges as string[]).size;
-		expect((result.command.publish.ignoreChanges as string[]).length).toBe(uniqueCount);
+		assert.strictEqual((result.command.publish.ignoreChanges as string[]).length, uniqueCount);
 	});
 
 	it('should preserve existing command settings', () => {
@@ -148,8 +154,8 @@ describe('_fixLernaJsonCore', () => {
 
 		// 現有設定應該被保留
 		// Existing settings should be preserved
-		expect(result.command.publish.concurrency).toBe(5);
-		expect(result.command.publish.loglevel).toBe('verbose');
+		assert.strictEqual(result.command.publish.concurrency, 5);
+		assert.strictEqual(result.command.publish.loglevel, 'verbose');
 	});
 });
 
@@ -177,10 +183,10 @@ describe('_fixLernaDeprecatedCore', () => {
 	beforeEach(() => {
 		// 每次測試前重置 mock
 		// Reset mock before each test
-		(resolvePackage as jest.Mock).mockClear();
+		(resolvePackage as any).mock.resetCalls();
 	});
 
-	afterAll(() => {
+	after(() => {
 		_cleanup();
 	});
 
@@ -189,9 +195,9 @@ describe('_fixLernaDeprecatedCore', () => {
 
 		// Mock 回傳 lerna 7.0.0 版本
 		// Mock return lerna 7.0.0 version
-		(resolvePackage as jest.Mock).mockReturnValue({
+		(resolvePackage as any).mock.mockImplementation(() => ({
 			pkg: { version: '7.0.0' },
-		});
+		}));
 
 		const lernaJson: ILernaJson = {
 			packages: ['packages/*'],
@@ -201,11 +207,11 @@ describe('_fixLernaDeprecatedCore', () => {
 
 		const result = _fixLernaDeprecatedCore(mockOptions, lernaJson);
 
-		expect(result.useWorkspaces).toBeUndefined();
-		expect(resolvePackage).toHaveBeenCalledWith('lerna', {
+		assert.strictEqual(result.useWorkspaces, undefined);
+		assert.deepStrictEqual((resolvePackage as any).mock.calls[0]?.arguments, ['lerna', {
 			includeGlobal: true,
 			includeCurrentDirectory: true,
-		});
+		}]);
 	});
 
 	it('should keep useWorkspaces when lerna < 7.0.0', () => {
@@ -213,9 +219,9 @@ describe('_fixLernaDeprecatedCore', () => {
 
 		// Mock 回傳 lerna 6.0.0 版本
 		// Mock return lerna 6.0.0 version
-		(resolvePackage as jest.Mock).mockReturnValue({
+		(resolvePackage as any).mock.mockImplementation(() => ({
 			pkg: { version: '6.0.0' },
-		});
+		}));
 
 		const lernaJson: ILernaJson = {
 			packages: ['packages/*'],
@@ -225,7 +231,7 @@ describe('_fixLernaDeprecatedCore', () => {
 
 		const result = _fixLernaDeprecatedCore(mockOptions, lernaJson);
 
-		expect(result.useWorkspaces).toBe(true);
+		assert.strictEqual(result.useWorkspaces, true);
 	});
 
 	it('should handle missing lerna package gracefully', () => {
@@ -233,7 +239,7 @@ describe('_fixLernaDeprecatedCore', () => {
 
 		// Mock 拋出錯誤（模擬 lerna 未安裝）
 		// Mock throw error (simulate lerna not installed)
-		(resolvePackage as jest.Mock).mockImplementation(() => {
+		(resolvePackage as any).mock.mockImplementation(() => {
 			throw new Error('Cannot find module lerna');
 		});
 
@@ -247,7 +253,7 @@ describe('_fixLernaDeprecatedCore', () => {
 		// Should silently handle error and return original object
 		const result = _fixLernaDeprecatedCore(mockOptions, lernaJson);
 
-		expect(result).toEqual(lernaJson);
+		assert.deepStrictEqual(result, lernaJson);
 	});
 });
 
@@ -291,8 +297,8 @@ describe('_fixLernaJson Integration', () => {
 			readFileSync(join(TEMP_DIR, 'lerna.json'), 'utf-8')
 		);
 
-		expect(updatedContent).toBeDefined();
-		expect(updatedContent.command).toBeDefined();
+		assert.notStrictEqual(updatedContent, undefined);
+		assert.notStrictEqual(updatedContent.command, undefined);
 	});
 
 	it('should not throw when lerna.json does not exist', () => {
@@ -310,6 +316,6 @@ describe('_fixLernaJson Integration', () => {
 
 		// 應該靜默處理不存在的檔案
 		// Should silently handle non-existent file
-		expect(() => _fixLernaJson(options)).not.toThrow();
+		assert.doesNotThrow(() => _fixLernaJson(options));
 	});
 });

@@ -1,5 +1,7 @@
 import { parse, parseRange } from "../..";
 import { EnumOperatorBase, EnumSemverWildcard, ISimpleSemVerObjectBase } from "../../lib/types";
+import assert from 'node:assert/strict';
+import { describe, test } from 'node:test';
 
 describe('wildcards', () =>
 {
@@ -24,7 +26,7 @@ describe('wildcards', () =>
 
 		_testCore001(EnumSemverWildcard.x, result[0]);
 
-		expect(result[1]).toHaveProperty('operator', EnumOperatorBase.OR);
+		assert.strictEqual(result[1].operator, EnumOperatorBase.OR);
 
 		_testCore001(EnumSemverWildcard.star, result[2]);
 
@@ -55,6 +57,6 @@ function _testW(input: string)
 
 function _testCore001(input: string, result: ISimpleSemVerObjectBase)
 {
-	expect(result).toBeTruthy();
-	expect(result).toHaveProperty('semver', input);
+	assert.ok(result);
+	assert.strictEqual(result.semver, input);
 }

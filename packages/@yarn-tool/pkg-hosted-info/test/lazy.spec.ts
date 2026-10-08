@@ -1,5 +1,7 @@
 import { basename, extname } from 'path';
 import { fillPkgHostedInfo } from '../index';
+import assert from 'node:assert/strict';
+import { test } from 'node:test';
 
 test(`{}`, () =>
 {
@@ -8,14 +10,10 @@ test(`{}`, () =>
 
 	console.dir(actual);
 
-	expect(actual).toMatchObject({
-		homepage: expect.any(String),
-		bugs: { url: expect.any(String) },
-		repository: {
-			type: expect.any(String),
-			url: expect.any(String),
-			directory: 'packages/@yarn-tool/pkg-hosted-info',
-		},
-	});
+	assert.strictEqual(typeof actual.homepage, 'string');
+	assert.strictEqual(typeof actual.bugs.url, 'string');
+	assert.strictEqual(typeof actual.repository.type, 'string');
+	assert.strictEqual(typeof actual.repository.url, 'string');
+	assert.strictEqual(actual.repository.directory, 'packages/@yarn-tool/pkg-hosted-info');
 
 });

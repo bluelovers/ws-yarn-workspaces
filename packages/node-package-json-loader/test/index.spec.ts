@@ -5,8 +5,9 @@
 import PackageJsonLoader from '../index';
 import { join } from "path";
 import { outputJSON } from 'fs-extra';
+import { it } from 'node:test';
 
-it('should sort', function ()
+it('should sort', function (t)
 {
 
 	let pkg = new PackageJsonLoader(Buffer.from(JSON.stringify({
@@ -87,16 +88,16 @@ it('should sort', function ()
 
 	let json = pkg.data;
 
-	expectMatchSnapshot(json);
+	expectMatchSnapshot(json, t);
 
 	outputJSON(join(__dirname, 'demo.json'), json, {
 		spaces: 2
 	})
 });
 
-function expectMatchSnapshot(actual)
+function expectMatchSnapshot(actual, t)
 {
-	expect(actual).toMatchSnapshot();
-	expect(Object.keys(actual)).toMatchSnapshot();
-	expect(JSON.stringify(actual, null, 2)).toMatchSnapshot();
+	t.assert.snapshot(actual);
+	t.assert.snapshot(Object.keys(actual));
+	t.assert.snapshot(JSON.stringify(actual, null, 2));
 }

@@ -15,6 +15,8 @@ import {
 	handleOptionsWhichPackageManager,
 	_handleClientsToCheck,
 } from '../index';
+import assert from 'node:assert/strict';
+import { describe, it } from 'node:test';
 
 /**
  * 測試資料：預設的套件管理器順序（pnpm, yarn, npm）
@@ -40,11 +42,11 @@ describe('_handleClientsToCheck - null and undefined handling', () => {
 
 		// 結果不應包含 null
 		// Result should not contain null
-		expect(result).not.toContain(null);
+		assert.ok(!result.includes(null));
 		// 結果應只包含有效的套件管理器
 		// Result should only contain valid package managers
-		expect(result).toContain(EnumPackageManager.yarn);
-		expect(result).toContain(EnumPackageManager.npm);
+		assert.ok(result.includes(EnumPackageManager.yarn));
+		assert.ok(result.includes(EnumPackageManager.npm));
 	});
 
 	/**
@@ -60,11 +62,11 @@ describe('_handleClientsToCheck - null and undefined handling', () => {
 
 		// 結果不應包含 undefined
 		// Result should not contain undefined
-		expect(result).not.toContain(undefined);
+		assert.ok(!result.includes(undefined));
 		// 結果應只包含有效的套件管理器
 		// Result should only contain valid package managers
-		expect(result).toContain(EnumPackageManager.pnpm);
-		expect(result).toContain(EnumPackageManager.yarn);
+		assert.ok(result.includes(EnumPackageManager.pnpm));
+		assert.ok(result.includes(EnumPackageManager.yarn));
 	});
 
 	/**
@@ -82,12 +84,12 @@ describe('_handleClientsToCheck - null and undefined handling', () => {
 
 		// 結果不應包含 null 或 undefined
 		// Result should not contain null or undefined
-		expect(result).not.toContain(null);
-		expect(result).not.toContain(undefined);
+		assert.ok(!result.includes(null));
+		assert.ok(!result.includes(undefined));
 		// 結果應只包含有效的套件管理器
 		// Result should only contain valid package managers
-		expect(result).toContain(EnumPackageManager.npm);
-		expect(result).toContain(EnumPackageManager.pnpm);
+		assert.ok(result.includes(EnumPackageManager.npm));
+		assert.ok(result.includes(EnumPackageManager.pnpm));
 	});
 
 	/**
@@ -102,7 +104,7 @@ describe('_handleClientsToCheck - null and undefined handling', () => {
 
 		// 應返回預設客戶端
 		// Should return default clients
-		expect(result).toEqual(DEFAULT_CLIENTS_EXPECTED);
+		assert.deepStrictEqual(result, DEFAULT_CLIENTS_EXPECTED);
 	});
 
 	/**
@@ -118,11 +120,11 @@ describe('_handleClientsToCheck - null and undefined handling', () => {
 
 		// 結果不應包含空字串
 		// Result should not contain empty strings
-		expect(result).not.toContain('');
+		assert.ok(!result.includes(''));
 		// 結果應只包含有效的套件管理器
 		// Result should only contain valid package managers
-		expect(result).toContain(EnumPackageManager.yarn);
-		expect(result).toContain(EnumPackageManager.pnpm);
+		assert.ok(result.includes(EnumPackageManager.yarn));
+		assert.ok(result.includes(EnumPackageManager.pnpm));
 	});
 
 	/**
@@ -144,15 +146,15 @@ describe('_handleClientsToCheck - null and undefined handling', () => {
 
 		// 不應包含 null 或 undefined
 		// Should not contain null or undefined
-		expect(result).not.toContain(null);
-		expect(result).not.toContain(undefined);
+		assert.ok(!result.includes(null));
+		assert.ok(!result.includes(undefined));
 		// 應只包含有效的自訂客戶端
 		// Should only contain valid custom clients
-		expect(result).toContain(EnumPackageManager.npm);
-		expect(result).toContain(EnumPackageManager.yarn);
+		assert.ok(result.includes(EnumPackageManager.npm));
+		assert.ok(result.includes(EnumPackageManager.yarn));
 		// 不應包含預設客戶端（因為 noUseDefaultClients 為 true）
 		// Should not contain default clients (because noUseDefaultClients is true)
-		expect(result).not.toContain(EnumPackageManager.pnpm);
+		assert.ok(!result.includes(EnumPackageManager.pnpm));
 	});
 });
 
@@ -171,10 +173,10 @@ describe('handleOptionsWhichPackageManager - null and undefined handling', () =>
 
 		// clientsToCheck 不應包含 null
 		// clientsToCheck should not contain null
-		expect(result.clientsToCheck).not.toContain(null);
+		assert.ok(!result.clientsToCheck.includes(null));
 		// 選項應正確傳遞
 		// Options should be passed correctly
-		expect(result.options.returnDefault).toBe(true);
+		assert.strictEqual(result.options.returnDefault, true);
 	});
 
 	/**
@@ -191,10 +193,10 @@ describe('handleOptionsWhichPackageManager - null and undefined handling', () =>
 
 		// clientsToCheck 不應包含 undefined
 		// clientsToCheck should not contain undefined
-		expect(result.clientsToCheck).not.toContain(undefined);
+		assert.ok(!result.clientsToCheck.includes(undefined));
 		// 選項應正確傳遞
 		// Options should be passed correctly
-		expect(result.options.noUseDefaultClients).toBe(true);
+		assert.strictEqual(result.options.noUseDefaultClients, true);
 	});
 
 	/**
@@ -209,7 +211,7 @@ describe('handleOptionsWhichPackageManager - null and undefined handling', () =>
 
 		// 應返回預設客戶端
 		// Should return default clients
-		expect(result.clientsToCheck).toEqual(DEFAULT_CLIENTS_EXPECTED);
+		assert.deepStrictEqual(result.clientsToCheck, DEFAULT_CLIENTS_EXPECTED);
 	});
 
 	/**
@@ -231,13 +233,13 @@ describe('handleOptionsWhichPackageManager - null and undefined handling', () =>
 
 		// 過濾後的結果應只包含有效值
 		// Result after filtering should only contain valid values
-		expect(result.clientsToCheck).not.toContain(null);
-		expect(result.clientsToCheck).not.toContain(undefined);
-		expect(result.clientsToCheck).not.toContain('');
+		assert.ok(!result.clientsToCheck.includes(null));
+		assert.ok(!result.clientsToCheck.includes(undefined));
+		assert.ok(!result.clientsToCheck.includes(''));
 		// 應包含所有有效的套件管理器
 		// Should contain all valid package managers
-		expect(result.clientsToCheck).toContain(EnumPackageManager.pnpm);
-		expect(result.clientsToCheck).toContain(EnumPackageManager.npm);
-		expect(result.clientsToCheck).toContain(EnumPackageManager.yarn);
+		assert.ok(result.clientsToCheck.includes(EnumPackageManager.pnpm));
+		assert.ok(result.clientsToCheck.includes(EnumPackageManager.npm));
+		assert.ok(result.clientsToCheck.includes(EnumPackageManager.yarn));
 	});
 });

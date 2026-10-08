@@ -11,6 +11,8 @@ import { formatOutput, _options, runLifecycleScriptCore, runLifecycleScriptList 
 import { IResult, IResultNotExists, IRunLifecycleScriptOptions } from '../lib/types';
 import readPackageJsonFast from 'read-package-json-fast';
 import { __ROOT, __TEST_FIXTURES } from './__root';
+import assert from 'node:assert/strict';
+import { describe, it } from 'node:test';
 
 /**
  * 測試 fixtures 路徑。
@@ -27,13 +29,13 @@ const pkgNoScriptsPath = join(__TEST_FIXTURES, 'pkg-no-scripts');
  */
 describe('module exports', () => {
   it('should have default export', () => {
-    expect(runLifecycleScript).toBeDefined();
-    expect(typeof runLifecycleScript).toBe('function');
+    assert.notStrictEqual(runLifecycleScript, undefined);
+    assert.strictEqual(typeof runLifecycleScript, 'function');
   });
 
   it('should have named export', () => {
-    expect(namedExport).toBeDefined();
-    expect(namedExport).toBe(runLifecycleScript);
+    assert.notStrictEqual(namedExport, undefined);
+    assert.strictEqual(namedExport, runLifecycleScript);
   });
 });
 
@@ -59,9 +61,9 @@ describe('formatOutput', () => {
 
     const output = formatOutput(mockResult);
 
-    expect(output).toContain('test-pkg@1.0.0 test');
-    expect(output).toContain('echo test');
-    expect(output).toContain('test output');
+    assert.ok(output.includes('test-pkg@1.0.0 test'));
+    assert.ok(output.includes('echo test'));
+    assert.ok(output.includes('test output'));
   });
 });
 
@@ -78,7 +80,7 @@ describe('_options', () => {
 
     const result = _options(options);
 
-    expect(result.stdio).toBe('inherit');
+    assert.strictEqual(result.stdio, 'inherit');
   });
 
   it('should set default args to empty array', () => {
@@ -89,7 +91,7 @@ describe('_options', () => {
 
     const result = _options(options);
 
-    expect(result.args).toEqual([]);
+    assert.deepStrictEqual(result.args, []);
   });
 
   it('should preserve provided options', () => {
@@ -102,15 +104,15 @@ describe('_options', () => {
 
     const result = _options(options);
 
-    expect(result.event).toBe('build');
-    expect(result.path).toBe('/test/path');
-    expect(result.env).toEqual({ NODE_ENV: 'production' });
+    assert.strictEqual(result.event, 'build');
+    assert.strictEqual(result.path, '/test/path');
+    assert.deepStrictEqual(result.env, { NODE_ENV: 'production' });
     /**
      * stdio 應該被覆蓋為 'inherit'。
      *
      * stdio should be overwritten to 'inherit'.
      */
-    expect(result.stdio).toBe('inherit');
+    assert.strictEqual(result.stdio, 'inherit');
   });
 });
 
@@ -129,7 +131,7 @@ describe('runLifecycleScript', () => {
       path: '/non/existent/path',
     };
 
-    expect(() => runLifecycleScript(options)).rejects.toThrow();
+    await assert.rejects(() => runLifecycleScript(options));
   });
 
   /**
@@ -144,13 +146,13 @@ describe('runLifecycleScript', () => {
 
     const results = await runLifecycleScript(options);
 
-    expect(Array.isArray(results)).toBe(true);
+    assert.strictEqual(Array.isArray(results), true);
     /**
      * 應該只返回主腳本的結果，因為沒有 pre/post 腳本。
      *
      * Should only return the main script result since there are no pre/post scripts.
      */
-    expect(results.length).toBeGreaterThanOrEqual(1);
+    assert.ok(results.length >= 1);
   });
 
   /**
@@ -165,13 +167,13 @@ describe('runLifecycleScript', () => {
 
     const results = await runLifecycleScript(options);
 
-    expect(Array.isArray(results)).toBe(true);
+    assert.strictEqual(Array.isArray(results), true);
     /**
      * 應該包含 preinstall, install, postinstall。
      *
      * Should contain preinstall, install, postinstall.
      */
-    expect(results.length).toBe(3);
+    assert.strictEqual(results.length, 3);
 
     /**
      * 檢查事件順序。
@@ -180,9 +182,9 @@ describe('runLifecycleScript', () => {
      */
     // @ts-ignore
     const events = results.map(r => r.event).filter(Boolean);
-    expect(events).toContain('preinstall');
-    expect(events).toContain('install');
-    expect(events).toContain('postinstall');
+    assert.ok(events.includes('preinstall'));
+    assert.ok(events.includes('install'));
+    assert.ok(events.includes('postinstall'));
   });
 
   /**
@@ -197,19 +199,19 @@ describe('runLifecycleScript', () => {
 
     const results = await runLifecycleScript(options);
 
-    expect(Array.isArray(results)).toBe(true);
+    assert.strictEqual(Array.isArray(results), true);
     /**
      * 應該包含 prebuild, build, postbuild。
      *
      * Should contain prebuild, build, postbuild.
      */
-    expect(results.length).toBe(3);
+    assert.strictEqual(results.length, 3);
 
     // @ts-ignore
     const events = results.map(r => r.event).filter(Boolean);
-    expect(events).toContain('prebuild');
-    expect(events).toContain('build');
-    expect(events).toContain('postbuild');
+    assert.ok(events.includes('prebuild'));
+    assert.ok(events.includes('build'));
+    assert.ok(events.includes('postbuild'));
   });
 
   /**
@@ -224,14 +226,14 @@ describe('runLifecycleScript', () => {
 
     const results = await runLifecycleScript(options);
 
-    expect(Array.isArray(results)).toBe(true);
+    assert.strictEqual(Array.isArray(results), true);
     /**
      * 應該只執行 pre 腳本（如果存在）、主腳本（不存在）、post 腳本（如果存在）。
      *
      * Should only run the pre script (if it exists), the main script (non-existent),
      * and the post script (if it exists).
      */
-    expect(results.length).toBeGreaterThanOrEqual(1);
+    assert.ok(results.length >= 1);
   });
 
   /**
@@ -249,8 +251,8 @@ describe('runLifecycleScript', () => {
 
     const results = await runLifecycleScript(options);
 
-    expect(Array.isArray(results)).toBe(true);
-    expect(results.length).toBeGreaterThanOrEqual(1);
+    assert.strictEqual(Array.isArray(results), true);
+    assert.ok(results.length >= 1);
   });
 });
 
@@ -267,9 +269,9 @@ describe('runLifecycleScriptCore', () => {
 
     const result = await runLifecycleScriptCore(options);
 
-    expect(result).toBeDefined();
-    expect(result.code).toBeDefined();
-    expect(result.stdio).toBe('inherit');
+    assert.notStrictEqual(result, undefined);
+    assert.notStrictEqual(result.code, undefined);
+    assert.strictEqual(result.stdio, 'inherit');
   });
 });
 
@@ -303,7 +305,7 @@ describe('runLifecycleScriptList', () => {
      *
      * All of these scripts exist in test-pkg.
      */
-    expect(results.length).toBe(3);
+    assert.strictEqual(results.length, 3);
   });
 
   it('should skip non-existent scripts', async () => {
@@ -331,7 +333,7 @@ describe('runLifecycleScriptList', () => {
      *
      * Only preinstall exists.
      */
-    expect(results.length).toBe(1);
+    assert.strictEqual(results.length, 1);
   });
 });
 
@@ -351,7 +353,7 @@ describe('error handling', () => {
      *
      * Should not throw.
      */
-    await expect(runLifecycleScript(options)).resolves.toBeDefined();
+    assert.notStrictEqual(await runLifecycleScript(options), undefined);
   });
 });
 
@@ -375,9 +377,9 @@ describe('type definitions', () => {
       stdio: 'inherit',
     };
 
-    expect(result.code).toBe(0);
-    expect(result.event).toBe('test');
-    expect(result.pkgid).toBe('pkg@1.0.0');
+    assert.strictEqual(result.code, 0);
+    assert.strictEqual(result.event, 'test');
+    assert.strictEqual(result.pkgid, 'pkg@1.0.0');
   });
 
   it('IResultNotExists should have required properties', () => {
@@ -387,8 +389,8 @@ describe('type definitions', () => {
       stdio: 'inherit',
     };
 
-    expect(result.code).toBe(0);
-    expect(result.signal).toBeNull();
+    assert.strictEqual(result.code, 0);
+    assert.strictEqual(result.signal, null);
   });
 
   it('IRunLifecycleScriptOptions should accept valid options', () => {
@@ -401,7 +403,7 @@ describe('type definitions', () => {
       stdioString: true,
     };
 
-    expect(options.event).toBe('install');
-    expect(options.path).toBe('/path/to/pkg');
+    assert.strictEqual(options.event, 'install');
+    assert.strictEqual(options.path, '/path/to/pkg');
   });
 });

@@ -1,15 +1,17 @@
+import assert from 'node:assert/strict';
+import { test } from 'node:test';
 import validate from '../lib/validateNpmPackageNameCore';
 
 test('validate-npm-package-name', () =>
 {
 	// Traditional
 
-	expect(validate('some-package')).toEqual({ validForNewPackages: true, validForOldPackages: true })
-	expect(validate('example.com')).toEqual({ validForNewPackages: true, validForOldPackages: true })
-	expect(validate('under_score')).toEqual({ validForNewPackages: true, validForOldPackages: true })
-	expect(validate('period.js')).toEqual({ validForNewPackages: true, validForOldPackages: true })
-	expect(validate('123numeric')).toEqual({ validForNewPackages: true, validForOldPackages: true })
-	expect(validate('crazy!')).toEqual({
+	assert.deepStrictEqual(validate('some-package'), { validForNewPackages: true, validForOldPackages: true })
+	assert.deepStrictEqual(validate('example.com'), { validForNewPackages: true, validForOldPackages: true })
+	assert.deepStrictEqual(validate('under_score'), { validForNewPackages: true, validForOldPackages: true })
+	assert.deepStrictEqual(validate('period.js'), { validForNewPackages: true, validForOldPackages: true })
+	assert.deepStrictEqual(validate('123numeric'), { validForNewPackages: true, validForOldPackages: true })
+	assert.deepStrictEqual(validate('crazy!'), {
 		validForNewPackages: false,
 		validForOldPackages: true,
 		warnings: ['name can no longer contain special characters ("~\'!()*")'],
@@ -17,8 +19,8 @@ test('validate-npm-package-name', () =>
 
 	// Scoped (npm 2+)
 
-	expect(validate('@npm/thingy')).toEqual({ validForNewPackages: true, validForOldPackages: true })
-	expect(validate('@npm-zors/money!time.js')).toEqual({
+	assert.deepStrictEqual(validate('@npm/thingy'), { validForNewPackages: true, validForOldPackages: true })
+	assert.deepStrictEqual(validate('@npm-zors/money!time.js'), {
 		validForNewPackages: false,
 		validForOldPackages: true,
 		warnings: ['name can no longer contain special characters ("~\'!()*")'],
@@ -26,61 +28,61 @@ test('validate-npm-package-name', () =>
 
 	// Invalid
 
-	expect(validate('')).toEqual({
+	assert.deepStrictEqual(validate(''), {
 		validForNewPackages: false,
 		validForOldPackages: false,
 		errors: ['name length must be greater than zero'],
 	})
 
-	expect(validate('')).toEqual({
+	assert.deepStrictEqual(validate(''), {
 		validForNewPackages: false,
 		validForOldPackages: false,
 		errors: ['name length must be greater than zero'],
 	})
 
-	expect(validate('.start-with-period')).toEqual({
+	assert.deepStrictEqual(validate('.start-with-period'), {
 		validForNewPackages: false,
 		validForOldPackages: false,
 		errors: ['name cannot start with a period'],
 	})
 
-	expect(validate('_start-with-underscore')).toEqual({
+	assert.deepStrictEqual(validate('_start-with-underscore'), {
 		validForNewPackages: false,
 		validForOldPackages: false,
 		errors: ['name cannot start with an underscore'],
 	})
 
-	expect(validate('contain:colons')).toEqual({
+	assert.deepStrictEqual(validate('contain:colons'), {
 		validForNewPackages: false,
 		validForOldPackages: false,
 		errors: ['name can only contain URL-friendly characters'],
 	})
 
-	expect(validate(' leading-space')).toEqual({
+	assert.deepStrictEqual(validate(' leading-space'), {
 		validForNewPackages: false,
 		validForOldPackages: false,
 		errors: ['name cannot contain leading or trailing spaces', 'name can only contain URL-friendly characters'],
 	})
 
-	expect(validate('trailing-space ')).toEqual({
+	assert.deepStrictEqual(validate('trailing-space '), {
 		validForNewPackages: false,
 		validForOldPackages: false,
 		errors: ['name cannot contain leading or trailing spaces', 'name can only contain URL-friendly characters'],
 	})
 
-	expect(validate('s/l/a/s/h/e/s')).toEqual({
+	assert.deepStrictEqual(validate('s/l/a/s/h/e/s'), {
 		validForNewPackages: false,
 		validForOldPackages: false,
 		errors: ['name can only contain URL-friendly characters'],
 	})
 
-	expect(validate('node_modules')).toEqual({
+	assert.deepStrictEqual(validate('node_modules'), {
 		validForNewPackages: false,
 		validForOldPackages: false,
 		errors: ['node_modules is a blacklisted name'],
 	})
 
-	expect(validate('favicon.ico')).toEqual({
+	assert.deepStrictEqual(validate('favicon.ico'), {
 		validForNewPackages: false,
 		validForOldPackages: false,
 		errors: ['favicon.ico is a blacklisted name'],
@@ -88,7 +90,7 @@ test('validate-npm-package-name', () =>
 
 	// Node/IO Core
 
-	expect(validate('http')).toEqual({
+	assert.deepStrictEqual(validate('http'), {
 		validForNewPackages: false,
 		validForOldPackages: true,
 		warnings: ['http is a core module name'],
@@ -96,24 +98,26 @@ test('validate-npm-package-name', () =>
 
 	// Long Package Names
 
-	expect(
+	assert.deepStrictEqual(
 		validate('ifyouwanttogetthesumoftwonumberswherethosetwonumbersarechosenbyfindingthelargestoftwooutofthreenumbersandsquaringthemwhichismultiplyingthembyitselfthenyoushouldinputthreenumbersintothisfunctionanditwilldothatforyou-'),
-	).toEqual({
-		validForNewPackages: false,
-		validForOldPackages: true,
-		warnings: ['name can no longer contain more than 214 characters'],
-	})
+		{
+			validForNewPackages: false,
+			validForOldPackages: true,
+			warnings: ['name can no longer contain more than 214 characters'],
+		}
+	)
 
-	expect(
+	assert.deepStrictEqual(
 		validate('ifyouwanttogetthesumoftwonumberswherethosetwonumbersarechosenbyfindingthelargestoftwooutofthreenumbersandsquaringthemwhichismultiplyingthembyitselfthenyoushouldinputthreenumbersintothisfunctionanditwilldothatforyou'),
-	).toEqual({
-		validForNewPackages: true,
-		validForOldPackages: true,
-	})
+		{
+			validForNewPackages: true,
+			validForOldPackages: true,
+		}
+	)
 
 	// Legacy Mixed-Case
 
-	expect(validate('CAPITAL-LETTERS')).toEqual({
+	assert.deepStrictEqual(validate('CAPITAL-LETTERS'), {
 		validForNewPackages: false,
 		validForOldPackages: true,
 		warnings: ['name can no longer contain capital letters'],

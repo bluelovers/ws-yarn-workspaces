@@ -17,6 +17,8 @@ import {
 	assertSimpleSemVerObjectOrOperatorLike,
 } from '../lib/checker';
 import { parse, parseRange } from '../index';
+import assert from 'node:assert/strict';
+import { describe, test } from 'node:test';
 
 describe('checker', () =>
 {
@@ -25,32 +27,32 @@ describe('checker', () =>
 		test('should return true for valid semver object', () =>
 		{
 			const parsed = parse('1.0.0');
-			expect(isSimpleSemVerObjectLike(parsed)).toBe(true);
+			assert.strictEqual(isSimpleSemVerObjectLike(parsed), true);
 		});
 
 		test('should return true for object with major', () =>
 		{
-			expect(isSimpleSemVerObjectLike({ major: '1' })).toBe(true);
+			assert.strictEqual(isSimpleSemVerObjectLike({ major: '1' }), true);
 		});
 
 		test('should return true for object with major, minor, patch', () =>
 		{
-			expect(isSimpleSemVerObjectLike({ major: '1', minor: '0', patch: '0' })).toBe(true);
+			assert.strictEqual(isSimpleSemVerObjectLike({ major: '1', minor: '0', patch: '0' }), true);
 		});
 
 		test('should return false for object without major', () =>
 		{
-			expect(isSimpleSemVerObjectLike({})).toBe(false);
+			assert.strictEqual(isSimpleSemVerObjectLike({}), false);
 		});
 
 		test('should return false for object with empty major', () =>
 		{
-			expect(isSimpleSemVerObjectLike({ major: '' })).toBe(false);
+			assert.strictEqual(isSimpleSemVerObjectLike({ major: '' }), false);
 		});
 
 		test('should return false for operator-only object', () =>
 		{
-			expect(isSimpleSemVerObjectLike({ operator: '||' })).toBe(false);
+			assert.strictEqual(isSimpleSemVerObjectLike({ operator: '||' }), false);
 		});
 	});
 
@@ -59,17 +61,17 @@ describe('checker', () =>
 		test('should not throw for valid semver object', () =>
 		{
 			const parsed = parse('1.0.0');
-			expect(() => assertSimpleSemVerObjectLike(parsed)).not.toThrow();
+			assert.doesNotThrow(() => assertSimpleSemVerObjectLike(parsed));
 		});
 
 		test('should throw for invalid object', () =>
 		{
-			expect(() => assertSimpleSemVerObjectLike({})).toThrow('obj not a SimpleSemVerObject');
+			assert.throws(() => assertSimpleSemVerObjectLike({}), 'obj not a SimpleSemVerObject');
 		});
 
 		test('should not throw when notThrow is true', () =>
 		{
-			expect(() => assertSimpleSemVerObjectLike({}, true)).not.toThrow();
+			assert.doesNotThrow(() => assertSimpleSemVerObjectLike({}, true));
 		});
 	});
 
@@ -78,28 +80,28 @@ describe('checker', () =>
 		test('should return true for object with operator', () =>
 		{
 			const parsed = parse('^1.0.0');
-			expect(hasOperator(parsed)).toBe(true);
+			assert.strictEqual(hasOperator(parsed), true);
 		});
 
 		test('should return true for || operator', () =>
 		{
-			expect(hasOperator({ operator: '||' })).toBe(true);
+			assert.strictEqual(hasOperator({ operator: '||' }), true);
 		});
 
 		test('should return false for object without operator', () =>
 		{
 			const parsed = parse('1.0.0');
-			expect(hasOperator(parsed)).toBe(false);
+			assert.strictEqual(hasOperator(parsed), false);
 		});
 
 		test('should return false for object with empty operator', () =>
 		{
-			expect(hasOperator({ operator: '' })).toBe(false);
+			assert.strictEqual(hasOperator({ operator: '' }), false);
 		});
 
 		test('should return false for empty object', () =>
 		{
-			expect(hasOperator({})).toBe(false);
+			assert.strictEqual(hasOperator({}), false);
 		});
 	});
 
@@ -108,17 +110,17 @@ describe('checker', () =>
 		test('should not throw for object with operator', () =>
 		{
 			const parsed = parse('^1.0.0');
-			expect(() => assertHasOperator(parsed)).not.toThrow();
+			assert.doesNotThrow(() => assertHasOperator(parsed));
 		});
 
 		test('should throw for object without operator', () =>
 		{
-			expect(() => assertHasOperator({})).toThrow('obj not has operator');
+			assert.throws(() => assertHasOperator({}));
 		});
 
 		test('should not throw when notThrow is true', () =>
 		{
-			expect(() => assertHasOperator({}, true)).not.toThrow();
+			assert.doesNotThrow(() => assertHasOperator({}, true));
 		});
 	});
 
@@ -126,28 +128,28 @@ describe('checker', () =>
 	{
 		test('should return true for operator-only object', () =>
 		{
-			expect(isSimpleSemVerOperatorLike({ operator: '||' })).toBe(true);
+			assert.strictEqual(isSimpleSemVerOperatorLike({ operator: '||' }), true);
 		});
 
 		test('should return true for operator object without major', () =>
 		{
-			expect(isSimpleSemVerOperatorLike({ operator: '-' })).toBe(true);
+			assert.strictEqual(isSimpleSemVerOperatorLike({ operator: '-' }), true);
 		});
 
 		test('should return false for semver object with major', () =>
 		{
 			const parsed = parse('^1.0.0');
-			expect(isSimpleSemVerOperatorLike(parsed)).toBe(false);
+			assert.strictEqual(isSimpleSemVerOperatorLike(parsed), false);
 		});
 
 		test('should return false for object without operator', () =>
 		{
-			expect(isSimpleSemVerOperatorLike({ major: '1' })).toBe(false);
+			assert.strictEqual(isSimpleSemVerOperatorLike({ major: '1' }), false);
 		});
 
 		test('should return false for empty object', () =>
 		{
-			expect(isSimpleSemVerOperatorLike({})).toBe(false);
+			assert.strictEqual(isSimpleSemVerOperatorLike({}), false);
 		});
 	});
 
@@ -155,18 +157,18 @@ describe('checker', () =>
 	{
 		test('should not throw for operator-only object', () =>
 		{
-			expect(() => assertSimpleSemVerOperatorLike({ operator: '||' })).not.toThrow();
+			assert.doesNotThrow(() => assertSimpleSemVerOperatorLike({ operator: '||' }));
 		});
 
 		test('should throw for semver object', () =>
 		{
 			const parsed = parse('1.0.0');
-			expect(() => assertSimpleSemVerOperatorLike(parsed)).toThrow();
+			assert.throws(() => assertSimpleSemVerOperatorLike(parsed));
 		});
 
 		test('should not throw when notThrow is true', () =>
 		{
-			expect(() => assertSimpleSemVerOperatorLike({}, true)).not.toThrow();
+			assert.doesNotThrow(() => assertSimpleSemVerOperatorLike({}, true));
 		});
 	});
 
@@ -175,29 +177,29 @@ describe('checker', () =>
 		test('should return true for semver with operator', () =>
 		{
 			const parsed = parse('^1.0.0');
-			expect(isSimpleSemVerObjectWithOperatorLike(parsed)).toBe(true);
+			assert.strictEqual(isSimpleSemVerObjectWithOperatorLike(parsed), true);
 		});
 
 		test('should return true for >= operator', () =>
 		{
 			const parsed = parse('>=1.0.0');
-			expect(isSimpleSemVerObjectWithOperatorLike(parsed)).toBe(true);
+			assert.strictEqual(isSimpleSemVerObjectWithOperatorLike(parsed), true);
 		});
 
 		test('should return false for semver without operator', () =>
 		{
 			const parsed = parse('1.0.0');
-			expect(isSimpleSemVerObjectWithOperatorLike(parsed)).toBe(false);
+			assert.strictEqual(isSimpleSemVerObjectWithOperatorLike(parsed), false);
 		});
 
 		test('should return false for operator-only object', () =>
 		{
-			expect(isSimpleSemVerObjectWithOperatorLike({ operator: '||' })).toBe(false);
+			assert.strictEqual(isSimpleSemVerObjectWithOperatorLike({ operator: '||' }), false);
 		});
 
 		test('should return false for empty object', () =>
 		{
-			expect(isSimpleSemVerObjectWithOperatorLike({})).toBe(false);
+			assert.strictEqual(isSimpleSemVerObjectWithOperatorLike({}), false);
 		});
 	});
 
@@ -206,18 +208,18 @@ describe('checker', () =>
 		test('should not throw for semver with operator', () =>
 		{
 			const parsed = parse('^1.0.0');
-			expect(() => assertSimpleSemVerObjectWithOperatorLike(parsed)).not.toThrow();
+			assert.doesNotThrow(() => assertSimpleSemVerObjectWithOperatorLike(parsed));
 		});
 
 		test('should throw for semver without operator', () =>
 		{
 			const parsed = parse('1.0.0');
-			expect(() => assertSimpleSemVerObjectWithOperatorLike(parsed)).toThrow();
+			assert.throws(() => assertSimpleSemVerObjectWithOperatorLike(parsed));
 		});
 
 		test('should not throw when notThrow is true', () =>
 		{
-			expect(() => assertSimpleSemVerObjectWithOperatorLike({}, true)).not.toThrow();
+			assert.doesNotThrow(() => assertSimpleSemVerObjectWithOperatorLike({}, true));
 		});
 	});
 
@@ -226,23 +228,23 @@ describe('checker', () =>
 		test('should return true for semver object', () =>
 		{
 			const parsed = parse('1.0.0');
-			expect(isSimpleSemVerObjectOrOperatorLike(parsed)).toBe(true);
+			assert.strictEqual(isSimpleSemVerObjectOrOperatorLike(parsed), true);
 		});
 
 		test('should return true for semver with operator', () =>
 		{
 			const parsed = parse('^1.0.0');
-			expect(isSimpleSemVerObjectOrOperatorLike(parsed)).toBe(true);
+			assert.strictEqual(isSimpleSemVerObjectOrOperatorLike(parsed), true);
 		});
 
 		test('should return true for operator-only object', () =>
 		{
-			expect(isSimpleSemVerObjectOrOperatorLike({ operator: '||' })).toBe(true);
+			assert.strictEqual(isSimpleSemVerObjectOrOperatorLike({ operator: '||' }), true);
 		});
 
 		test('should return false for empty object', () =>
 		{
-			expect(isSimpleSemVerObjectOrOperatorLike({})).toBe(false);
+			assert.strictEqual(isSimpleSemVerObjectOrOperatorLike({}), false);
 		});
 
 		test('should return true for parsed range items', () =>
@@ -250,7 +252,7 @@ describe('checker', () =>
 			const range = parseRange('^1.0.0 || >=2.0.0');
 			range.forEach(item =>
 			{
-				expect(isSimpleSemVerObjectOrOperatorLike(item)).toBe(true);
+				assert.strictEqual(isSimpleSemVerObjectOrOperatorLike(item), true);
 			});
 		});
 	});
@@ -260,22 +262,22 @@ describe('checker', () =>
 		test('should not throw for semver object', () =>
 		{
 			const parsed = parse('1.0.0');
-			expect(() => assertSimpleSemVerObjectOrOperatorLike(parsed)).not.toThrow();
+			assert.doesNotThrow(() => assertSimpleSemVerObjectOrOperatorLike(parsed));
 		});
 
 		test('should not throw for operator-only object', () =>
 		{
-			expect(() => assertSimpleSemVerObjectOrOperatorLike({ operator: '||' })).not.toThrow();
+			assert.doesNotThrow(() => assertSimpleSemVerObjectOrOperatorLike({ operator: '||' }));
 		});
 
 		test('should throw for empty object', () =>
 		{
-			expect(() => assertSimpleSemVerObjectOrOperatorLike({})).toThrow();
+			assert.throws(() => assertSimpleSemVerObjectOrOperatorLike({}));
 		});
 
 		test('should not throw when notThrow is true', () =>
 		{
-			expect(() => assertSimpleSemVerObjectOrOperatorLike({}, true)).not.toThrow();
+			assert.doesNotThrow(() => assertSimpleSemVerObjectOrOperatorLike({}, true));
 		});
 	});
 
@@ -285,43 +287,43 @@ describe('checker', () =>
 		{
 			const range = parseRange('>=1.0.0 <2.0.0');
 
-			expect(range).toHaveLength(2);
+			assert.strictEqual(range.length, 2);
 
-			expect(isSimpleSemVerObjectWithOperatorLike(range[0])).toBe(true);
-			expect(hasOperator(range[0])).toBe(true);
-			expect(isSimpleSemVerObjectLike(range[0])).toBe(true);
+			assert.strictEqual(isSimpleSemVerObjectWithOperatorLike(range[0]), true);
+			assert.strictEqual(hasOperator(range[0]), true);
+			assert.strictEqual(isSimpleSemVerObjectLike(range[0]), true);
 
-			expect(isSimpleSemVerObjectWithOperatorLike(range[1])).toBe(true);
-			expect(hasOperator(range[1])).toBe(true);
+			assert.strictEqual(isSimpleSemVerObjectWithOperatorLike(range[1]), true);
+			assert.strictEqual(hasOperator(range[1]), true);
 		});
 
 		test('should correctly identify OR operator in range', () =>
 		{
 			const range = parseRange('~1.0.0 || ~2.0.0');
 
-			expect(isSimpleSemVerObjectLike(range[0])).toBe(true);
-			expect(hasOperator(range[0])).toBe(true);
+			assert.strictEqual(isSimpleSemVerObjectLike(range[0]), true);
+			assert.strictEqual(hasOperator(range[0]), true);
 
-			expect(isSimpleSemVerOperatorLike(range[1])).toBe(true);
-			expect(hasOperator(range[1])).toBe(true);
-			expect(isSimpleSemVerObjectLike(range[1])).toBe(false);
+			assert.strictEqual(isSimpleSemVerOperatorLike(range[1]), true);
+			assert.strictEqual(hasOperator(range[1]), true);
+			assert.strictEqual(isSimpleSemVerObjectLike(range[1]), false);
 
-			expect(isSimpleSemVerObjectLike(range[2])).toBe(true);
+			assert.strictEqual(isSimpleSemVerObjectLike(range[2]), true);
 		});
 
 		test('should correctly identify hyphen range', () =>
 		{
 			const range = parseRange('1.0.0 - 2.0.0');
 
-			expect(range).toHaveLength(3);
+			assert.strictEqual(range.length, 3);
 
-			expect(isSimpleSemVerObjectLike(range[0])).toBe(true);
-			expect(hasOperator(range[0])).toBe(false);
+			assert.strictEqual(isSimpleSemVerObjectLike(range[0]), true);
+			assert.strictEqual(hasOperator(range[0]), false);
 
-			expect(isSimpleSemVerOperatorLike(range[1])).toBe(true);
-			expect(range[1].operator).toBe('-');
+			assert.strictEqual(isSimpleSemVerOperatorLike(range[1]), true);
+			assert.strictEqual(range[1].operator, '-');
 
-			expect(isSimpleSemVerObjectLike(range[2])).toBe(true);
+			assert.strictEqual(isSimpleSemVerObjectLike(range[2]), true);
 		});
 	});
 
@@ -330,57 +332,57 @@ describe('checker', () =>
 		test('should recognize caret operator', () =>
 		{
 			const parsed = parse('^1.0.0');
-			expect(hasOperator(parsed)).toBe(true);
-			expect(parsed.operator).toBe('^');
+			assert.strictEqual(hasOperator(parsed), true);
+			assert.strictEqual(parsed.operator, '^');
 		});
 
 		test('should recognize tilde operator', () =>
 		{
 			const parsed = parse('~1.0.0');
-			expect(hasOperator(parsed)).toBe(true);
-			expect(parsed.operator).toBe('~');
+			assert.strictEqual(hasOperator(parsed), true);
+			assert.strictEqual(parsed.operator, '~');
 		});
 
 		test('should recognize >= operator', () =>
 		{
 			const parsed = parse('>=1.0.0');
-			expect(hasOperator(parsed)).toBe(true);
-			expect(parsed.operator).toBe('>=');
+			assert.strictEqual(hasOperator(parsed), true);
+			assert.strictEqual(parsed.operator, '>=');
 		});
 
 		test('should recognize <= operator', () =>
 		{
 			const parsed = parse('<=1.0.0');
-			expect(hasOperator(parsed)).toBe(true);
-			expect(parsed.operator).toBe('<=');
+			assert.strictEqual(hasOperator(parsed), true);
+			assert.strictEqual(parsed.operator, '<=');
 		});
 
 		test('should recognize > operator', () =>
 		{
 			const parsed = parse('>1.0.0');
-			expect(hasOperator(parsed)).toBe(true);
-			expect(parsed.operator).toBe('>');
+			assert.strictEqual(hasOperator(parsed), true);
+			assert.strictEqual(parsed.operator, '>');
 		});
 
 		test('should recognize < operator', () =>
 		{
 			const parsed = parse('<1.0.0');
-			expect(hasOperator(parsed)).toBe(true);
-			expect(parsed.operator).toBe('<');
+			assert.strictEqual(hasOperator(parsed), true);
+			assert.strictEqual(parsed.operator, '<');
 		});
 
 		test('should recognize = operator', () =>
 		{
 			const parsed = parse('=1.0.0');
-			expect(hasOperator(parsed)).toBe(true);
-			expect(parsed.operator).toBe('=');
+			assert.strictEqual(hasOperator(parsed), true);
+			assert.strictEqual(parsed.operator, '=');
 		});
 
 		test('should recognize ~> operator', () =>
 		{
 			const parsed = parse('~>1.0.0');
-			expect(hasOperator(parsed)).toBe(true);
-			expect(parsed.operator).toBe('~>');
+			assert.strictEqual(hasOperator(parsed), true);
+			assert.strictEqual(parsed.operator, '~>');
 		});
 	});
 });

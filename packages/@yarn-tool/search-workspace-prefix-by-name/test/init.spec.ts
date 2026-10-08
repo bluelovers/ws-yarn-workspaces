@@ -1,3 +1,5 @@
+import assert from 'node:assert/strict';
+import { it } from 'node:test';
 import { parseWorkspaces, parseStaticPackagesPaths } from 'workspaces-config';
 import { searchWorkspacePrefixByName } from '..';
 
@@ -8,7 +10,7 @@ const data = [
 
 const workspacesConfig = parseStaticPackagesPaths(data)
 
-it('should searchWorkspacePrefixByName', function ()
+it('should searchWorkspacePrefixByName', function (t)
 {
 
 	let actual = searchWorkspacePrefixByName({
@@ -16,15 +18,15 @@ it('should searchWorkspacePrefixByName', function ()
 		workspacesConfig,
 	})
 
-	expect(actual).toStrictEqual('packages/@yarn-tool')
-	expect(actual).toMatchSnapshot();
+	assert.deepStrictEqual(actual, 'packages/@yarn-tool')
+	t.assert.snapshot(actual);
 
 	actual = searchWorkspacePrefixByName({
 		inputName: 'kkk',
 		workspacesConfig,
 	})
 
-	expect(actual).toStrictEqual('packages')
-	expect(actual).toMatchSnapshot();
+	assert.deepStrictEqual(actual, 'packages')
+	t.assert.snapshot(actual);
 
 });

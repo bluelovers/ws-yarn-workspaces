@@ -1,5 +1,7 @@
 //@noUnusedParameters:false
 
+import assert from 'node:assert/strict';
+import { describe, test, before } from 'node:test';
 import { join } from 'path';
 import { __TEST_YARNLOCK } from '../../../../__root_ws';
 import { EnumDetectYarnLock } from '@yarn-tool/yarnlock-types';
@@ -10,7 +12,7 @@ import { parseYarnLockRawV2Root, stringifyYarnLockRawV2 } from '../lib/v2';
 import { detectYarnLockVersionByObject } from '@yarn-tool/detect-yarnlock-version/lib/detectYarnLockVersionByObject';
 import { _forEachVersionTags } from '../../../../test/lib/forEachVersionTags';
 
-beforeAll(async () =>
+before(async () =>
 {
 
 });
@@ -38,23 +40,25 @@ describe(`parseYarnLockRaw`, () =>
 				break;
 		}
 
-		pathExistsSync(file) && test(ver as any, async () =>
+		pathExistsSync(file) && test(ver as any, async (t: test.TestContext) =>
 		{
 			const content = readFileSync(file).toString();
+
+			t.assert.equal(typeof content, 'string');
 
 			let actual = fn(content);
 			let actual2 = detectYarnLockVersionByObject(actual);
 
 			const expected2 = EnumDetectYarnLock[ver];
 
-			expect(actual2).toStrictEqual(expected2)
-			expect(actual2).toMatchSnapshot();
+			t.assert.deepStrictEqual(actual2, expected2)
+			t.assert.snapshot(actual2);
 
-			expect(actual).not.toHaveProperty('object');
+			t.assert.strictEqual((actual as any).object, undefined);
 
 			const content2 = fn2(actual);
 
-			expect(content2).toStrictEqual(content)
+			t.assert.deepStrictEqual(content2, content)
 
 		});
 	});

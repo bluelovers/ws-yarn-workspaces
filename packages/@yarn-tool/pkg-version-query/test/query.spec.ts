@@ -1,26 +1,28 @@
+import { describe, test } from 'node:test';
+
 import { parseVersionByNpmPackageArg } from '../lib/queryVersionByNpmPackageArg';
 
 describe(`parseVersionByNpmPackageArg`, () =>
 {
 
-	test(`typescript@>= 1 & < 2`, () =>
+	test(`typescript@>= 1 & < 2`, (t) =>
 	{
 
-		expect(parseVersionByNpmPackageArg(`typescript@>= 1 & < 2`)).toMatchSnapshot();
+		t.assert.snapshot(parseVersionByNpmPackageArg(`typescript@>= 1 & < 2`));
 
 	});
 
-	test(`typescript@1`, () =>
+	test(`typescript@1`, (t) =>
 	{
 
-		expect(parseVersionByNpmPackageArg(`typescript@1`)).toMatchSnapshot();
+		t.assert.snapshot(parseVersionByNpmPackageArg(`typescript@1`));
 
 	});
 
-	test(`typescript`, () =>
+	test(`typescript`, (t) =>
 	{
 
-		expect(parseVersionByNpmPackageArg(`typescript`)).toMatchSnapshot();
+		t.assert.snapshot(parseVersionByNpmPackageArg(`typescript`));
 
 	});
 

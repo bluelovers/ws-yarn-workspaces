@@ -1,5 +1,7 @@
 import { inspect } from 'util';
 import { versionToParts, partsToVersion } from '..';
+import assert from 'node:assert/strict';
+import { describe, test } from 'node:test';
 
 describe(`versionToParts`, () =>
 {
@@ -26,7 +28,7 @@ describe(`versionToParts`, () =>
 		],
 	] as [string, string[]?][]).forEach(tastCase => {
 
-		test(inspect(tastCase[0]), () =>
+		test(inspect(tastCase[0]), (t) =>
 		{
 
 			let actual = versionToParts(tastCase[0]);
@@ -34,17 +36,16 @@ describe(`versionToParts`, () =>
 
 			if (typeof expected !== 'undefined')
 			{
-				expect(actual).toStrictEqual(expected);
+				assert.deepStrictEqual(actual, expected);
 			}
 
-			expect(actual.length).toBeGreaterThanOrEqual(1);
+			assert.ok(actual.length >= 1);
 
-			expect(partsToVersion(actual)).toStrictEqual(tastCase[0]);
+			assert.deepStrictEqual(partsToVersion(actual), tastCase[0]);
 
-			expect(actual).toMatchSnapshot();
+			t.assert.snapshot(actual);
 		});
 
 	})
 
 })
-

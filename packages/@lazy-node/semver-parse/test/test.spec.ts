@@ -1,5 +1,7 @@
 import { deepOwnEqual } from './lib/deepOwnEqual';
 import { parse, parseRange } from '../index';
+import assert from 'node:assert/strict';
+import { describe, it } from 'node:test';
 
 describe('parse', function ()
 {
@@ -41,10 +43,10 @@ describe('parse', function ()
 
 	it('should not parse invalid versions', function ()
 	{
-		expect(parse('a.b.c')).toBeUndefined();
+		assert.strictEqual(parse('a.b.c'), undefined);
 		// expect(parse('1')).toBeUndefined();
 		// expect(parse('1.0')).toBeUndefined();
-		expect(parse('1.0.0b')).toBeUndefined();
+		assert.strictEqual(parse('1.0.0b'), undefined);
 		// expect(parse('1.0.0+build-abc.')).toBeUndefined();
 	});
 

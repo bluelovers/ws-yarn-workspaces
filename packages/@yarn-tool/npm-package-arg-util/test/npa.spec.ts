@@ -3,6 +3,8 @@
  * @description 主要 npa 函數的測試
  */
 
+import assert from 'node:assert/strict';
+import { describe, test } from 'node:test';
 import { npaTry } from '../index';
 import { _lazyTestNpa, _lazyTestGetSemver } from './lib/test';
 
@@ -124,11 +126,11 @@ describe('npa', () =>
  */
 describe('npaTry', () =>
 {
-	test('should return result for valid package', () =>
+	test('should return result for valid package', (t) =>
 	{
 		const result = npaTry('lodash@4.17.21');
 
-		expect(result).toMatchSnapshot();
+		t.assert.snapshot(result);
 	});
 
 	test('should return undefined for invalid package without throwing', () =>
@@ -137,7 +139,7 @@ describe('npaTry', () =>
 		// 這不應該拋出錯誤，而是返回 undefined
 		const result = npaTry('invalid:package:format');
 
-		expect(result).toBeUndefined();
+		assert.strictEqual(result, undefined);
 	});
 });
 

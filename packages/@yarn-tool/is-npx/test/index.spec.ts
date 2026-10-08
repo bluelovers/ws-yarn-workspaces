@@ -2,6 +2,9 @@
  * @yarn-tool/is-npx 測試檔案
  * Test file for @yarn-tool/is-npx
  */
+import assert from 'node:assert/strict';
+import { describe, it } from 'node:test';
+
 import {
 	isNpx,
 	_isNpx,
@@ -30,21 +33,21 @@ describe('@yarn-tool/is-npx', () => {
 				const opts = _createTestOptions({
 					__dirname: '/home/user/.cache/ypx_abc123',
 				});
-				expect(isNpx(opts)).toBe(true);
+				assert.strictEqual(isNpx(opts), true);
 			});
 
 			it('應該在 _npx 路徑中檢測為 true / should detect true in _npx path', () => {
 				const opts = _createTestOptions({
 					__dirname: '/home/user/.npm/_npx/12345',
 				});
-				expect(isNpx(opts)).toBe(true);
+				assert.strictEqual(isNpx(opts), true);
 			});
 
 			it('應該在 dlx 路徑中檢測為 true / should detect true in dlx path', () => {
 				const opts = _createTestOptions({
 					__dirname: '/home/user/.pnpm-cache/dlx/abc123',
 				});
-				expect(isNpx(opts)).toBe(true);
+				assert.strictEqual(isNpx(opts), true);
 			});
 
 			it('應該在 argv[0] 包含 NPX 路徑時檢測為 true / should detect true when argv[0] contains NPX path', () => {
@@ -52,7 +55,7 @@ describe('@yarn-tool/is-npx', () => {
 					__dirname: '/normal/path',
 					argv: ['/home/user/.cache/ypx_abc123/node_modules/.bin/ts-node'],
 				});
-				expect(isNpx(opts)).toBe(true);
+				assert.strictEqual(isNpx(opts), true);
 			});
 
 			it('應該在 PNPM_PACKAGE_NAME 為 npx 時檢測為 true / should detect true when PNPM_PACKAGE_NAME is npx', () => {
@@ -60,7 +63,7 @@ describe('@yarn-tool/is-npx', () => {
 					__dirname: '/normal/path',
 					env: { PNPM_PACKAGE_NAME: 'npx' },
 				});
-				expect(isNpx(opts)).toBe(true);
+				assert.strictEqual(isNpx(opts), true);
 			});
 
 			it('應該在 PNPM_PACKAGE_NAME 為 ypx 時檢測為 true / should detect true when PNPM_PACKAGE_NAME is ypx', () => {
@@ -68,7 +71,7 @@ describe('@yarn-tool/is-npx', () => {
 					__dirname: '/normal/path',
 					env: { PNPM_PACKAGE_NAME: 'ypx' },
 				});
-				expect(isNpx(opts)).toBe(true);
+				assert.strictEqual(isNpx(opts), true);
 			});
 
 			it('應該在 PNPM_PACKAGE_NAME 為 ynpx 時檢測為 true / should detect true when PNPM_PACKAGE_NAME is ynpx', () => {
@@ -76,22 +79,23 @@ describe('@yarn-tool/is-npx', () => {
 					__dirname: '/normal/path',
 					env: { PNPM_PACKAGE_NAME: 'ynpx' },
 				});
-				expect(isNpx(opts)).toBe(true);
+				assert.strictEqual(isNpx(opts), true);
 			});
 
-			it('應該在 env._ 以 /npx 結尾時檢測為 true / should detect true when env._ ends with /npx', () => {
+			it('應該在 env._ 以 /npx 結尾時檢測為 true / should detect true when env._ ends with /npx', (t) => {
 				const opts = _createTestOptions({
 					__dirname: '/normal/path',
 					env: { _: '/usr/local/bin/npx' },
 				});
-				expect({
+				const actual = {
 					opts,
 					isNpx: isNpx(opts),
 					_isNpx: _isNpx(opts),
-				}).toMatchSnapshot({
-					isNpx: true,
-					_isNpx: true,
-				});
+				};
+
+				assert.strictEqual(actual.isNpx, true);
+				assert.strictEqual(actual._isNpx, true);
+				t.assert.snapshot(actual);
 			});
 		});
 
@@ -100,7 +104,7 @@ describe('@yarn-tool/is-npx', () => {
 				const opts = _createTestOptions({
 					__dirname: '/home/user/project',
 				});
-				expect(isNpx(opts)).toBe(false);
+				assert.strictEqual(isNpx(opts), false);
 			});
 
 			it('應該在空環境中檢測為 false / should detect false in empty environment', () => {
@@ -108,7 +112,7 @@ describe('@yarn-tool/is-npx', () => {
 					__dirname: '/home/user/project',
 					env: {},
 				});
-				expect(isNpx(opts)).toBe(false);
+				assert.strictEqual(isNpx(opts), false);
 			});
 
 			it('應該在非 NPX 相關的 PNPM_PACKAGE_NAME 中檢測為 false / should detect false with non-NPX related PNPM_PACKAGE_NAME', () => {
@@ -116,7 +120,7 @@ describe('@yarn-tool/is-npx', () => {
 					__dirname: '/home/user/project',
 					env: { PNPM_PACKAGE_NAME: 'some-package' },
 				});
-				expect(isNpx(opts)).toBe(false);
+				assert.strictEqual(isNpx(opts), false);
 			});
 		});
 
@@ -125,14 +129,14 @@ describe('@yarn-tool/is-npx', () => {
 				const opts = _createTestOptions({
 					__dirname: 'C:\\Users\\User\\AppData\\Local\\pnpm-cache\\dlx\\abc123',
 				});
-				expect(isNpx(opts)).toBe(true);
+				assert.strictEqual(isNpx(opts), true);
 			});
 
 			it('應該處理大小寫不敏感的路徑 / should handle case-insensitive paths', () => {
 				const opts = _createTestOptions({
 					__dirname: '/home/user/.cache/YPX_ABC',
 				});
-				expect(isNpx(opts)).toBe(true);
+				assert.strictEqual(isNpx(opts), true);
 			});
 		});
 	});
@@ -142,54 +146,54 @@ describe('@yarn-tool/is-npx', () => {
 			const opts = _createTestOptions({
 				env: { _: '/usr/local/bin/npx' },
 			});
-			expect(_isNpx(opts)).toBe(true);
+			assert.strictEqual(_isNpx(opts), true);
 		});
 
 		it('應該在 env._ 不以 /npx 結尾時回傳 false / should return false when env._ does not end with /npx', () => {
 			const opts = _createTestOptions({
 				env: { _: '/usr/local/bin/node' },
 			});
-			expect(_isNpx(opts)).toBe(false);
+			assert.strictEqual(_isNpx(opts), false);
 		});
 
 		it('應該在 env._ 不存在時回傳 false / should return false when env._ does not exist', () => {
 			const opts = _createTestOptions({
 				env: {},
 			});
-			expect(_isNpx(opts)).toBe(false);
+			assert.strictEqual(_isNpx(opts), false);
 		});
 	});
 
 	describe('_inNpxPath', () => {
 		describe('應該檢測為 true / Should detect as true', () => {
 			it('包含 ypx_ 路徑 / contains ypx_ path', () => {
-				expect(_inNpxPath('/home/user/.cache/ypx_abc123')).toBe(true);
+				assert.strictEqual(_inNpxPath('/home/user/.cache/ypx_abc123'), true);
 			});
 
 			it('包含 _npx 路徑 / contains _npx path', () => {
-				expect(_inNpxPath('/home/user/.npm/_npx/12345')).toBe(true);
+				assert.strictEqual(_inNpxPath('/home/user/.npm/_npx/12345'), true);
 			});
 
 			it('包含 dlx 路徑 / contains dlx path', () => {
-				expect(_inNpxPath('/home/user/.pnpm-cache/dlx/abc123')).toBe(true);
+				assert.strictEqual(_inNpxPath('/home/user/.pnpm-cache/dlx/abc123'), true);
 			});
 
 			it('包含 Windows 格式的 dlx 路徑 / contains Windows format dlx path', () => {
-				expect(_inNpxPath('C:\\Users\\User\\pnpm-cache\\dlx\\abc123')).toBe(true);
+				assert.strictEqual(_inNpxPath('C:\\Users\\User\\pnpm-cache\\dlx\\abc123'), true);
 			});
 		});
 
 		describe('應該檢測為 false / Should detect as false', () => {
 			it('普通路徑 / normal path', () => {
-				expect(_inNpxPath('/home/user/project')).toBe(false);
+				assert.strictEqual(_inNpxPath('/home/user/project'), false);
 			});
 
 			it('空的 ypx（沒有底線）/ ypx without underscore', () => {
-				expect(_inNpxPath('/home/user/.cache/ypx')).toBe(false);
+				assert.strictEqual(_inNpxPath('/home/user/.cache/ypx'), false);
 			});
 
 			it('包含 npx 但不是路徑標記 / contains npx but not as path marker', () => {
-				expect(_inNpxPath('/home/user/myproject')).toBe(false);
+				assert.strictEqual(_inNpxPath('/home/user/myproject'), false);
 			});
 		});
 	});
@@ -202,21 +206,24 @@ describe('@yarn-tool/is-npx', () => {
 			};
 			const result = handleOptionsDetectNpx(opts);
 
-			expect(result).toHaveProperty('__dirname', '/test');
-			expect(result).toHaveProperty('env');
-			expect(result).toHaveProperty('argv');
+			assert.strictEqual(result.__dirname, '/test');
+			assert.notStrictEqual(result.env, undefined);
+			assert.notStrictEqual(result.argv, undefined);
 		});
 
-		it('應該為缺失的選項提供預設值 / should provide defaults for missing options', () => {
+		it('應該為缺失的選項提供預設值 / should provide defaults for missing options', (t) => {
 			const opts = {
 				__dirname: '/test',
 				env: { TEST: 'value' },
 			};
 			const result = handleOptionsDetectNpx(opts);
 
-			expect(result).toMatchSnapshot({
-				argv: expect.any(Array),
-			})
+			/*
+			 * 原 `expect.any(Array)` 無 node:test 對應，改以等效斷言表達：
+			 * `expect.any(Array)` has no node:test equivalent, expressed as an equivalent assertion.
+			 */
+			assert.ok(Array.isArray(result.argv));
+			t.assert.snapshot(result)
 		});
 
 		it('應該拋出 RangeError / should throw RangeError', () => {
@@ -224,7 +231,7 @@ describe('@yarn-tool/is-npx', () => {
 				__dirname: '',
 				env: null,
 			};
-			expect(() => handleOptionsDetectNpx(opts as any)).toThrow(RangeError);
+			assert.throws(() => handleOptionsDetectNpx(opts as any), RangeError);
 		});
 
 	});

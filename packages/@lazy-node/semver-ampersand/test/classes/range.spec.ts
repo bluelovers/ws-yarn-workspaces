@@ -1,3 +1,5 @@
+import assert from 'node:assert/strict';
+import { describe, test } from 'node:test';
 import { Comparator } from 'semver';
 import { Range } from '../../lib/Range';
 
@@ -17,7 +19,7 @@ describe('range tests', () =>
 	{
 		test(`${range} ${inspect(options)}`, () => {
 			const r = new Range(range, options)
-			expect(r.test(ver)).toBeTruthy()
+			assert.ok(r.test(ver))
 		})
 	})
 })
@@ -25,50 +27,58 @@ describe('range tests', () =>
 describe('range parsing', () =>
 {
 	//expect.assertions(rangeParse.length)
-	rangeParse.forEach(([range, expected, options]) => test(`${range} ${inspect(options)} ${expected = _replaceDoubleVerticalBar(expected)}`, () =>
+	rangeParse.forEach(([range, expected, options]) => test(`${range} ${inspect(options)} ${expected = _replaceDoubleVerticalBar(expected)}`, (t) =>
 	{
 		if (expected == null)
 		{
-			expect(() => new Range(range)).toThrowErrorMatchingSnapshot()
+			assert.throws(() => new Range(range), (err: any) =>
+			{
+				t.assert.snapshot(err.message)
+				return true
+			})
 		}
 		else
 		{
-			expect(new Range(range, options).range || '*').toStrictEqual(expected)
-			expect(new Range(range, options).range).toStrictEqual(new Range(expected).range)
+			assert.strictEqual(new Range(range, options).range || '*', expected)
+			assert.strictEqual(new Range(range, options).range, new Range(expected).range)
 		}
 	}))
 })
 
-test('throw for empty comparator set, even in loose mode', () =>
+test('throw for empty comparator set, even in loose mode', (t) =>
 {
-	expect(() => new Range('sadf||asdf', { loose: true })).toThrowErrorMatchingSnapshot()
+	assert.throws(() => new Range('sadf||asdf', { loose: true }), (err: any) =>
+	{
+		t.assert.snapshot(err.message)
+		return true
+	})
 })
 
 test('convert comparator to range', () =>
 {
 	const c = new Comparator('>=1.2.3')
 	const r = new Range(c)
-	expect(r.raw).toStrictEqual(c.value)
+	assert.strictEqual(r.raw, c.value)
 })
 
-test('range as argument to range ctor', () =>
+test('range as argument to range ctor', (t) =>
 {
 	const loose = new Range('1.2.3', { loose: true })
 
-	expect(loose).toMatchSnapshot();
+	t.assert.snapshot(loose)
 
-	expect(new Range(loose, { loose: true })).toStrictEqual(loose)
-	expect(new Range(loose, true)).toStrictEqual(loose)
+	assert.deepStrictEqual(new Range(loose, { loose: true }), loose)
+	assert.deepStrictEqual(new Range(loose, true), loose)
 
-	expect(new Range(loose)).toStrictEqual(loose)
-	expect(new Range(loose, { loose: false })).not.toStrictEqual(loose)
+	assert.deepStrictEqual(new Range(loose), loose)
+	assert.notDeepStrictEqual(new Range(loose, { loose: false }), loose)
 
 	const incPre = new Range('1.2.3', { includePrerelease: true })
 
-	expect(incPre).toMatchSnapshot();
+	t.assert.snapshot(incPre)
 
-	expect(new Range(incPre, { includePrerelease: true })).toStrictEqual(incPre)
-	expect(new Range(incPre)).toStrictEqual(incPre)
+	assert.deepStrictEqual(new Range(incPre, { includePrerelease: true }), incPre)
+	assert.deepStrictEqual(new Range(incPre), incPre)
 })
 
 describe('negative range tests', () =>
@@ -77,7 +87,7 @@ describe('negative range tests', () =>
 	{
 		test(`${range} ${inspect(options)}`, () => {
 			const r = new Range(range, options)
-			expect(r.test(ver)).toBeFalsy()
+			assert.ok(!r.test(ver))
 		})
 	})
 })
@@ -89,14 +99,14 @@ test('strict vs loose ranges', () =>
 		['~1.02.03beta', '>=1.2.3-beta <1.3.0-0'],
 	].forEach(([loose, comps]) =>
 	{
-		expect(() => new Range(loose)).toThrow()
-		expect(new Range(loose, true).range).toStrictEqual(comps)
+		assert.throws(() => new Range(loose))
+		assert.strictEqual(new Range(loose, true).range, comps)
 	})
 })
 
 test('tostrings', () =>
 {
-	expect(new Range('>= v1.2.3').toString()).toStrictEqual('>=1.2.3')
+	assert.strictEqual(new Range('>= v1.2.3').toString(), '>=1.2.3')
 })
 
 describe('ranges intersect', () =>
@@ -108,18 +118,21 @@ describe('ranges intersect', () =>
 			const range0 = new Range(r0)
 			const range1 = new Range(r1)
 
-			expect(range0.intersects(range1)).toStrictEqual(expected)
-			expect(range1.intersects(range0)).toStrictEqual(expected)
+			assert.strictEqual(range0.intersects(range1), expected)
+			assert.strictEqual(range1.intersects(range0), expected)
 		})
 	})
 })
 
-test('missing range parameter in range intersect', () =>
+test('missing range parameter in range intersect', (t) =>
 {
-	expect(() =>
+	assert.throws(() =>
 	{
 		// @ts-expect-error
 		new Range('1.0.0').intersects()
-	}).toThrowErrorMatchingSnapshot()
+	}, (err: any) =>
+	{
+		t.assert.snapshot(err.message)
+		return true
+	})
 })
-

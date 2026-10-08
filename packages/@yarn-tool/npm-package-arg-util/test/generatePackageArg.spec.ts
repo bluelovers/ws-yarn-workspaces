@@ -3,6 +3,8 @@
  * @description generatePackageArg 函數的測試
  */
 
+import assert from 'node:assert/strict';
+import { describe, test } from 'node:test';
 import { generatePackageArg, _allowedResultType } from '../lib/generatePackageArg';
 
 /**
@@ -17,18 +19,18 @@ describe('generatePackageArg', () =>
 	 */
 	describe('without version', () =>
 	{
-		test('should generate package name only', () =>
+		test('should generate package name only', (t) =>
 		{
 			const result = generatePackageArg({ name: 'lodash' });
 
-			expect(result).toMatchSnapshot();
+			t.assert.snapshot(result);
 		});
 
-		test('should generate scoped package name', () =>
+		test('should generate scoped package name', (t) =>
 		{
 			const result = generatePackageArg({ name: '@types/node' });
 
-			expect(result).toMatchSnapshot();
+			t.assert.snapshot(result);
 		});
 	});
 
@@ -38,32 +40,32 @@ describe('generatePackageArg', () =>
 	 */
 	describe('with version', () =>
 	{
-		test('should generate package with version when includeVersion is true', () =>
+		test('should generate package with version when includeVersion is true', (t) =>
 		{
 			const result = generatePackageArg({ name: 'lodash', semver: '^4.17.0' }, true);
 
-			expect(result).toMatchSnapshot();
+			t.assert.snapshot(result);
 		});
 
-		test('should generate scoped package with version', () =>
+		test('should generate scoped package with version', (t) =>
 		{
 			const result = generatePackageArg({ name: '@types/node', semver: '18.0.0' }, true);
 
-			expect(result).toMatchSnapshot();
+			t.assert.snapshot(result);
 		});
 
-		test('should not include version when includeVersion is false', () =>
+		test('should not include version when includeVersion is false', (t) =>
 		{
 			const result = generatePackageArg({ name: 'lodash', semver: '^4.17.0' }, false);
 
-			expect(result).toMatchSnapshot();
+			t.assert.snapshot(result);
 		});
 
-		test('should not include version when includeVersion is not provided', () =>
+		test('should not include version when includeVersion is not provided', (t) =>
 		{
 			const result = generatePackageArg({ name: 'lodash', semver: '^4.17.0' });
 
-			expect(result).toMatchSnapshot();
+			t.assert.snapshot(result);
 		});
 	});
 
@@ -73,18 +75,18 @@ describe('generatePackageArg', () =>
 	 */
 	describe('edge cases', () =>
 	{
-		test('should handle empty semver', () =>
+		test('should handle empty semver', (t) =>
 		{
 			const result = generatePackageArg({ name: 'lodash', semver: '' }, true);
 
-			expect(result).toMatchSnapshot();
+			t.assert.snapshot(result);
 		});
 
-		test('should handle undefined semver', () =>
+		test('should handle undefined semver', (t) =>
 		{
 			const result = generatePackageArg({ name: 'lodash', semver: undefined }, true);
 
-			expect(result).toMatchSnapshot();
+			t.assert.snapshot(result);
 		});
 	});
 });
@@ -99,55 +101,55 @@ describe('_allowedResultType', () =>
 	{
 		const result = _allowedResultType('version');
 
-		expect(result).toBeTruthy();
+		assert.ok(result);
 	});
 
 	test('should return true for range type', () =>
 	{
 		const result = _allowedResultType('range');
 
-		expect(result).toBeTruthy();
+		assert.ok(result);
 	});
 
 	test('should return true for tag type', () =>
 	{
 		const result = _allowedResultType('tag');
 
-		expect(result).toBeTruthy();
+		assert.ok(result);
 	});
 
 	test('should return false for git type', () =>
 	{
 		const result = _allowedResultType('git');
 
-		expect(result).toBeFalsy();
+		assert.ok(!result);
 	});
 
 	test('should return false for file type', () =>
 	{
 		const result = _allowedResultType('file');
 
-		expect(result).toBeFalsy();
+		assert.ok(!result);
 	});
 
 	test('should return false for directory type', () =>
 	{
 		const result = _allowedResultType('directory');
 
-		expect(result).toBeFalsy();
+		assert.ok(!result);
 	});
 
 	test('should return false for alias type', () =>
 	{
 		const result = _allowedResultType('alias');
 
-		expect(result).toBeFalsy();
+		assert.ok(!result);
 	});
 
 	test('should return false for remote type', () =>
 	{
 		const result = _allowedResultType('remote');
 
-		expect(result).toBeFalsy();
+		assert.ok(!result);
 	});
 });

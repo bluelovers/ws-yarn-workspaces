@@ -2,6 +2,8 @@ import pathUpToWorkspaces from '../index';
 import __ from 'lodash/fp/__';
 import { join } from 'path';
 import { findRootLazy } from '@yarn-tool/find-root';
+import assert from 'node:assert/strict';
+import { describe, test } from 'node:test';
 
 describe(`describe`, () =>
 {
@@ -11,13 +13,13 @@ describe(`describe`, () =>
 
 		let actual = pathUpToWorkspaces(__dirname);
 
-		expect(actual.length).toBeGreaterThan(2);
+		assert.ok(actual.length > 2);
 
 		actual = pathUpToWorkspaces(__dirname, {
 			ignoreCurrentDirectory: true,
 		});
 
-		expect(actual.length).toBeGreaterThan(2);
+		assert.ok(actual.length > 2);
 
 	});
 
@@ -32,13 +34,13 @@ describe(`ws.root`, () =>
 	{
 		let actual = pathUpToWorkspaces(cwd);
 
-		expect(actual.length).toStrictEqual(1);
+		assert.deepStrictEqual(actual.length, 1);
 
 		actual = pathUpToWorkspaces(cwd, {
 			ignoreCurrentDirectory: true,
 		});
 
-		expect(actual.length).toStrictEqual(0);
+		assert.deepStrictEqual(actual.length, 0);
 
 	});
 

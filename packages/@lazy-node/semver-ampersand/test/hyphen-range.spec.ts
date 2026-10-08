@@ -19,6 +19,8 @@
  *
  * @see https://github.com/npm/node-semver/tree/main?tab=readme-ov-file#advanced-range-syntax
  */
+import assert from 'node:assert/strict';
+import { describe, it } from 'node:test';
 import { satisfies } from '../index';
 import semverSatisfies from 'semver/functions/satisfies';
 import hyphenRangeTestCases, { labelRangeTestCaseCategory } from './fixtures/hyphen-range';
@@ -50,7 +52,7 @@ describe('satisfies with hyphen range', () =>
 						 */
 						it(`semver-ampersand satisfies should return ${expected}`, () =>
 						{
-							expect(satisfies(version, range)).toBe(expected);
+							assert.strictEqual(satisfies(version, range), expected);
 						});
 
 						/**
@@ -59,7 +61,7 @@ describe('satisfies with hyphen range', () =>
 						 */
 						it(`original semver satisfies should return ${expected}`, () =>
 						{
-							expect(semverSatisfies(version, range)).toBe(expected);
+							assert.strictEqual(semverSatisfies(version, range), expected);
 						});
 
 						/**
@@ -70,7 +72,7 @@ describe('satisfies with hyphen range', () =>
 						{
 							const ampersandResult = satisfies(version, range);
 							const originalResult = semverSatisfies(version, equivalentRange);
-							expect(ampersandResult).toBe(originalResult);
+							assert.strictEqual(ampersandResult, originalResult);
 						});
 
 						/**
@@ -81,7 +83,7 @@ describe('satisfies with hyphen range', () =>
 						{
 							const hyphenResult = semverSatisfies(version, range);
 							const equivalentResult = semverSatisfies(version, equivalentRange);
-							expect(hyphenResult).toBe(equivalentResult);
+							assert.strictEqual(hyphenResult, equivalentResult);
 						});
 
 						/**
@@ -92,7 +94,7 @@ describe('satisfies with hyphen range', () =>
 						{
 							const hyphenResult = satisfies(version, range);
 							const equivalentResult = satisfies(version, equivalentRange);
-							expect(hyphenResult).toBe(equivalentResult);
+							assert.strictEqual(hyphenResult, equivalentResult);
 						});
 					});
 				});
@@ -118,7 +120,7 @@ describe('satisfies with hyphen range', () =>
 				{
 					const hyphenResult = satisfies(version, range);
 					const equivalentResult = semverSatisfies(version, equivalentRange);
-					expect(hyphenResult).toBe(equivalentResult);
+					assert.strictEqual(hyphenResult, equivalentResult);
 				});
 			});
 		});

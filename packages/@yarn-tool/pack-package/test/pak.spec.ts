@@ -1,8 +1,9 @@
 import { basename, dirname, extname } from 'path';
 import { packPackage } from '../index';
-import { resolvePackage } from '@yarn-tool/resolve-package';
+import { resolvePackage } from '@yarn-tool/require-resolve';
+import { test } from 'node:test';
 
-test(`packPackage`, async () =>
+test(`packPackage`, async (t) =>
 {
 	const packageDir = resolvePackage('@yarn-tool/script-lifecycle/test/res/pkg-a').pkgRoot;
 
@@ -10,18 +11,12 @@ test(`packPackage`, async () =>
 		packageDir,
 	});
 
-	expect(actual).toMatchSnapshot({
-		packageDir: expect.any(String),
-		packageTarball: expect.any(String),
-		pkg: expect.any(Object),
-	});
+	t.assert.snapshot(actual);
 
 	await actual.log();
 
 	console.dir(await actual.tarball());
 
-	expect(await actual.tarball()).toMatchSnapshot({
-		tarFilePath: expect.any(String),
-	});
+	t.assert.snapshot(await actual.tarball());
 
 });

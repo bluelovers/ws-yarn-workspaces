@@ -1,10 +1,12 @@
 //@noUnusedParameters:false
 
+import assert from 'node:assert/strict';
+import { before, describe, test } from 'node:test';
 import { basename, extname } from 'path';
 import { EnumDetectYarnLock, IYarnLockParsed, IYarnLockParsedV1, IYarnLockParsedV2 } from '@yarn-tool/yarnlock-types';
 import { yarnLockParsedToRawJSON, yarnLockParsedV1ToRawJSON, yarnLockParsedV2ToRawJSON } from '../index';
 
-beforeAll(async () =>
+before(async () =>
 {
 
 });
@@ -21,7 +23,7 @@ describe(basename(__filename, extname(__filename)), () =>
 		}
 	}
 
-	test(`yarnLockParsedV1ToRawJSON`, () =>
+	test(`yarnLockParsedV1ToRawJSON`, (t) =>
 	{
 		const json: IYarnLockParsedV1 = {
 			...(parsedObject as any as IYarnLockParsedV1),
@@ -30,11 +32,11 @@ describe(basename(__filename, extname(__filename)), () =>
 
 		let actual = yarnLockParsedV1ToRawJSON(json);
 
-		expect(actual).toMatchSnapshot();
+		t.assert.snapshot(actual);
 
 	});
 
-	test(`yarnLockParsedV2ToRawJSON`, () =>
+	test(`yarnLockParsedV2ToRawJSON`, (t) =>
 	{
 		const json: IYarnLockParsedV2 = {
 			...(parsedObject as any as IYarnLockParsedV2),
@@ -43,23 +45,23 @@ describe(basename(__filename, extname(__filename)), () =>
 
 		let actual = yarnLockParsedV2ToRawJSON(json);
 
-		expect(actual).toMatchSnapshot();
+		t.assert.snapshot(actual);
 
 	});
 
 	test(`throw`, () => {
 
-		expect(() => yarnLockParsedToRawJSON(parsedObject)).toThrow();
+		assert.throws(() => yarnLockParsedToRawJSON(parsedObject));
 
-		expect(() => yarnLockParsedToRawJSON({
+		assert.doesNotThrow(() => yarnLockParsedToRawJSON({
 			...(parsedObject as any as IYarnLockParsedV1),
 			verType: EnumDetectYarnLock.v1,
-		})).not.toThrow();
+		}));
 
-		expect(() => yarnLockParsedToRawJSON({
+		assert.doesNotThrow(() => yarnLockParsedToRawJSON({
 			...(parsedObject as any as IYarnLockParsedV2),
 			verType: EnumDetectYarnLock.v2,
-		})).not.toThrow();
+		}));
 
 	});
 

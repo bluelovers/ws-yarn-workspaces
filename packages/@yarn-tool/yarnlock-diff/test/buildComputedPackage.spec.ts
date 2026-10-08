@@ -1,3 +1,4 @@
+import { describe, test } from 'node:test';
 import { join } from 'path';
 import FastGlob from '@bluelovers/fast-glob';
 import { readFileSync } from 'fs';
@@ -19,13 +20,13 @@ describe(`buildComputedPackage`, () =>
 	files.forEach(file =>
 	{
 
-		test(file, () =>
+		test(file, (t) =>
 		{
 			const yarnlock_old = readFileSync(join(__res, file));
 
 			let actual = buildComputedPackage(yarnlock_old);
 
-			expect(actual).toMatchSnapshot();
+			t.assert.snapshot(actual);
 
 		});
 

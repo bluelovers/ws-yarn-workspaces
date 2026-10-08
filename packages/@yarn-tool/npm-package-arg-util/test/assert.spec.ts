@@ -1,15 +1,20 @@
-import { basename, extname } from 'path';
+
+import assert from 'node:assert/strict';
+import { test } from 'node:test';
 import { npa, npa2 } from '../index';
 
-test(`should throw an error`, () =>
+test(`should throw an error`, (t) =>
 {
 
-	expect(() => npa2('botkit@jonchurch/botkit#multi-hears')).not.toThrow();
+	assert.doesNotThrow(() => npa2('botkit@jonchurch/botkit#multi-hears'));
 
-	expect(() => npa2('jonchurch/botkit#multi-hears')).not.toThrow();
+	assert.doesNotThrow(() => npa2('jonchurch/botkit#multi-hears'));
 
-	expect(() => npa('botkit@jonchurch/botkit#multi-hears')).not.toThrow();
+	assert.doesNotThrow(() => npa('botkit@jonchurch/botkit#multi-hears'));
 
-	expect(() => npa('jonchurch/botkit#multi-hears')).toThrowErrorMatchingSnapshot();
+	assert.throws(() => npa('jonchurch/botkit#multi-hears'), (err: any) => {
+		t.assert.snapshot(err.message);
+		return true;
+	});
 
 });

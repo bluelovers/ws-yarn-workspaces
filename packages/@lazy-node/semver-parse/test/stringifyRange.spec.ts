@@ -6,6 +6,8 @@
  */
 import { stringifyRange, parseRange } from '../index';
 import { SimpleSemVer } from '../lib/SimpleSemVer';
+import assert from 'node:assert/strict';
+import { describe, test } from 'node:test';
 
 describe('stringifyRange', () =>
 {
@@ -16,7 +18,7 @@ describe('stringifyRange', () =>
 			const result = stringifyRange([
 				{ major: '1', minor: '0', patch: '0' },
 			]);
-			expect(result).toBe('1.0.0');
+			assert.strictEqual(result, '1.0.0');
 		});
 
 		test('should stringify version with operator', () =>
@@ -24,7 +26,7 @@ describe('stringifyRange', () =>
 			const result = stringifyRange([
 				{ operator: '^', major: '1', minor: '2', patch: '3' },
 			]);
-			expect(result).toBe('^1.2.3');
+			assert.strictEqual(result, '^1.2.3');
 		});
 
 		test('should stringify version with tilde operator', () =>
@@ -32,7 +34,7 @@ describe('stringifyRange', () =>
 			const result = stringifyRange([
 				{ operator: '~', major: '2', minor: '0', patch: '0' },
 			]);
-			expect(result).toBe('~2.0.0');
+			assert.strictEqual(result, '~2.0.0');
 		});
 
 		test('should stringify version with comparison operator', () =>
@@ -40,7 +42,7 @@ describe('stringifyRange', () =>
 			const result = stringifyRange([
 				{ operator: '>=', major: '1', minor: '0', patch: '0' },
 			]);
-			expect(result).toBe('>=1.0.0');
+			assert.strictEqual(result, '>=1.0.0');
 		});
 	});
 
@@ -51,7 +53,7 @@ describe('stringifyRange', () =>
 			const result = stringifyRange([
 				{ major: '1', minor: '0', patch: '0', release: 'alpha.1' },
 			]);
-			expect(result).toBe('1.0.0-alpha.1');
+			assert.strictEqual(result, '1.0.0-alpha.1');
 		});
 
 		test('should stringify version with build', () =>
@@ -59,7 +61,7 @@ describe('stringifyRange', () =>
 			const result = stringifyRange([
 				{ major: '1', minor: '0', patch: '0', build: 'build.123' },
 			]);
-			expect(result).toBe('1.0.0+build.123');
+			assert.strictEqual(result, '1.0.0+build.123');
 		});
 
 		test('should stringify version with pre-release and build', () =>
@@ -67,7 +69,7 @@ describe('stringifyRange', () =>
 			const result = stringifyRange([
 				{ major: '1', minor: '2', patch: '3', release: 'beta.1', build: 'build.456' },
 			]);
-			expect(result).toBe('1.2.3-beta.1+build.456');
+			assert.strictEqual(result, '1.2.3-beta.1+build.456');
 		});
 
 		test('should stringify with operator and pre-release', () =>
@@ -75,7 +77,7 @@ describe('stringifyRange', () =>
 			const result = stringifyRange([
 				{ operator: '^', major: '4', minor: '0', patch: '0', release: 'dev.20200615' },
 			]);
-			expect(result).toBe('^4.0.0-dev.20200615');
+			assert.strictEqual(result, '^4.0.0-dev.20200615');
 		});
 	});
 
@@ -87,7 +89,7 @@ describe('stringifyRange', () =>
 				{ operator: '>=', major: '1', minor: '0', patch: '0' },
 				{ operator: '<', major: '2', minor: '0', patch: '0' },
 			]);
-			expect(result).toBe('>=1.0.0 <2.0.0');
+			assert.strictEqual(result, '>=1.0.0 <2.0.0');
 		});
 
 		test('should stringify OR range', () =>
@@ -97,7 +99,7 @@ describe('stringifyRange', () =>
 				{ operator: '||' },
 				{ operator: '~', major: '2', minor: '0', patch: '0' },
 			]);
-			expect(result).toBe('~1.0.0 || ~2.0.0');
+			assert.strictEqual(result, '~1.0.0 || ~2.0.0');
 		});
 
 		test('should stringify hyphen range', () =>
@@ -107,7 +109,7 @@ describe('stringifyRange', () =>
 				{ operator: '-' },
 				{ major: '2', minor: '0', patch: '0' },
 			]);
-			expect(result).toBe('1.0.0 - 2.0.0');
+			assert.strictEqual(result, '1.0.0 - 2.0.0');
 		});
 
 		test('should stringify complex range', () =>
@@ -118,7 +120,7 @@ describe('stringifyRange', () =>
 				{ operator: '||' },
 				{ major: '1', minor: '1', patch: '3' },
 			]);
-			expect(result).toBe('>=1.1.7 <2.0.0 || 1.1.3');
+			assert.strictEqual(result, '>=1.1.7 <2.0.0 || 1.1.3');
 		});
 	});
 
@@ -133,7 +135,7 @@ describe('stringifyRange', () =>
 				patch: '3',
 			});
 			const result = stringifyRange([semver as any]);
-			expect(result).toBe('^1.2.3');
+			assert.strictEqual(result, '^1.2.3');
 		});
 
 		test('should stringify mixed SimpleSemVer and plain objects', () =>
@@ -151,7 +153,7 @@ describe('stringifyRange', () =>
 				patch: '0',
 			};
 			const result = stringifyRange([semver1 as any, semver2 as any]);
-			expect(result).toBe('>=1.0.0 <2.0.0');
+			assert.strictEqual(result, '>=1.0.0 <2.0.0');
 		});
 	});
 
@@ -162,7 +164,7 @@ describe('stringifyRange', () =>
 			const original = '^1.2.3';
 			const parsed = parseRange(original);
 			const result = stringifyRange(parsed);
-			expect(result).toBe(original);
+			assert.strictEqual(result, original);
 		});
 
 		test('should be reversible for AND range', () =>
@@ -170,7 +172,7 @@ describe('stringifyRange', () =>
 			const original = '>=1.0.0 <2.0.0';
 			const parsed = parseRange(original);
 			const result = stringifyRange(parsed);
-			expect(result).toBe(original);
+			assert.strictEqual(result, original);
 		});
 
 		test('should be reversible for OR range', () =>
@@ -178,7 +180,7 @@ describe('stringifyRange', () =>
 			const original = '~1.0.0 || ~2.0.0';
 			const parsed = parseRange(original);
 			const result = stringifyRange(parsed);
-			expect(result).toBe(original);
+			assert.strictEqual(result, original);
 		});
 
 		test('should be reversible for hyphen range', () =>
@@ -186,7 +188,7 @@ describe('stringifyRange', () =>
 			const original = '1.0.0 - 2.0.0';
 			const parsed = parseRange(original);
 			const result = stringifyRange(parsed);
-			expect(result).toBe(original);
+			assert.strictEqual(result, original);
 		});
 
 		test('should be reversible for complex range', () =>
@@ -194,7 +196,7 @@ describe('stringifyRange', () =>
 			const original = '>=1.1.7 <2.0.0 || 1.1.3';
 			const parsed = parseRange(original);
 			const result = stringifyRange(parsed);
-			expect(result).toBe(original);
+			assert.strictEqual(result, original);
 		});
 	});
 
@@ -203,7 +205,7 @@ describe('stringifyRange', () =>
 		test('should handle empty array', () =>
 		{
 			const result = stringifyRange([]);
-			expect(result).toBe('');
+			assert.strictEqual(result, '');
 		});
 
 		test('should handle version 0.0.0', () =>
@@ -211,7 +213,7 @@ describe('stringifyRange', () =>
 			const result = stringifyRange([
 				{ major: '0', minor: '0', patch: '0' },
 			]);
-			expect(result).toBe('0.0.0');
+			assert.strictEqual(result, '0.0.0');
 		});
 
 		test('should handle large version numbers', () =>
@@ -219,7 +221,7 @@ describe('stringifyRange', () =>
 			const result = stringifyRange([
 				{ major: '100', minor: '200', patch: '300' },
 			]);
-			expect(result).toBe('100.200.300');
+			assert.strictEqual(result, '100.200.300');
 		});
 	});
 
@@ -227,18 +229,18 @@ describe('stringifyRange', () =>
 	{
 		test('should throw for invalid object', () =>
 		{
-			expect(() =>
+			assert.throws(() =>
 			{
 				stringifyRange([{ invalid: 'object' } as any]);
-			}).toThrow();
+			});
 		});
 
 		test('should throw for object without major or operator', () =>
 		{
-			expect(() =>
+			assert.throws(() =>
 			{
 				stringifyRange([{ version: '1.0.0' } as any]);
-			}).toThrow();
+			});
 		});
 	});
 });

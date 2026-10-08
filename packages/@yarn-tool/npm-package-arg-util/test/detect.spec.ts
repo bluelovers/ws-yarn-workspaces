@@ -3,8 +3,10 @@
  * @description 類型守衛函數的測試
  */
 
+import { describe, test } from 'node:test';
 import { isURLResult } from '../lib/detect';
 import {
+	anyString,
 	_lazyTestIsAliasResult,
 	_lazyTestIsFileResult,
 	_lazyTestIsRegistryResult,
@@ -41,8 +43,8 @@ describe('isFileResult', () =>
 	{
 		_lazyTestIsFileResult('./packages/my-pkg', {
 			type: 'directory',
-			fetchSpec: expect.any(String),
-			where: expect.any(String),
+			fetchSpec: anyString,
+			where: anyString,
 		});
 	});
 
@@ -50,8 +52,8 @@ describe('isFileResult', () =>
 	{
 		_lazyTestIsFileResult('../other-pkg', {
 			type: 'directory',
-			fetchSpec: expect.any(String),
-			where: expect.any(String),
+			fetchSpec: anyString,
+			where: anyString,
 		});
 	});
 
@@ -187,8 +189,8 @@ describe('isNpmPackageArgResult', () =>
 		_lazyTestNpaTypeGuard('./packages/my-pkg', {
 			propertyMatchers: {
 				type: 'directory',
-				fetchSpec: expect.any(String),
-				where: expect.any(String),
+				fetchSpec: anyString,
+				where: anyString,
 			}
 		});
 	});

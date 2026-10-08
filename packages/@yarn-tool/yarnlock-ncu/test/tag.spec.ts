@@ -1,3 +1,5 @@
+import assert from 'node:assert/strict';
+import { describe, test } from 'node:test';
 import { join } from "path";
 import { updateYarnLockTag } from '../lib/updateYarnLockTag';
 import { readFileSync } from "fs";
@@ -23,7 +25,7 @@ describe(`fixYarnLockTagUpdate`, () =>
 			}
 			else
 			{
-				test(`should update tag in yarn.lock`, async () =>
+				test(`should update tag in yarn.lock`, { timeout: TIMEOUT }, async (t) =>
 				{
 					const file = join(dir, 'yarn.lock');
 					let buf = readFileSync(file);
@@ -32,34 +34,30 @@ describe(`fixYarnLockTagUpdate`, () =>
 
 					console.dir(actual.yarnlock_changed);
 
-					expect(actual).toHaveProperty(['yarnlock_changed'], true);
+					assert.strictEqual(actual.yarnlock_changed, true);
 
 					console.dir(actual.report);
 
-					expect(actual).toHaveProperty(['report', 'removed', 'next@canary']);
-					expect(actual).toHaveProperty(['report', 'removed', 'typescript@next']);
+					assert.notStrictEqual(actual.report?.removed?.['next@canary'], undefined);
+					assert.notStrictEqual(actual.report?.removed?.['typescript@next'], undefined);
 
-					expect(actual).toMatchSnapshot({
-						yarnlock_new: expect.any(String),
-						yarnlock_old: expect.any(String),
-						report: {
-							removed: {
-								'next@canary': {
-									to: expect.any(String),
-								},
-								'typescript@next': {
-									to: expect.any(String),
-								},
-								'dts-bundle-generator@npm:@bluelovers/dts-bundle-generator': {
-									to: expect.any(String),
-								},
-							},
-						},
-					});
+					/*
+					 * 原本是 Jest property matcher 快照，node:test 無等效寫法，
+					 * 改以逐欄斷言保留 matcher 語意，再對實際值做快照
+					 * / Jest property-matcher snapshot has no node:test equivalent;
+					 * kept matcher semantics via per-field assertions, then snapshot the actual value
+					 */
+					assert.strictEqual(typeof actual.yarnlock_new, 'string');
+					assert.strictEqual(typeof actual.yarnlock_old, 'string');
+					assert.strictEqual(typeof actual.report?.removed?.['next@canary']?.to, 'string');
+					assert.strictEqual(typeof actual.report?.removed?.['typescript@next']?.to, 'string');
+					assert.strictEqual(typeof actual.report?.removed?.['dts-bundle-generator@npm:@bluelovers/dts-bundle-generator']?.to, 'string');
+
+					t.assert.snapshot(actual);
 
 					console.log(printReport(actual.report));
 
-				}, TIMEOUT);
+				});
 			}
 
 		});

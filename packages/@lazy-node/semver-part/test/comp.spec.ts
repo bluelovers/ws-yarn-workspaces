@@ -2,6 +2,8 @@ import { inspect } from "util";
 import { versionToParts, partsToVersion } from '..';
 import { Options } from 'semver';
 import { ICompareReturnType, compare } from '../lib/compare';
+import assert from 'node:assert/strict';
+import { describe, test } from 'node:test';
 
 describe(`compare`, () =>
 {
@@ -54,7 +56,7 @@ describe(`compare`, () =>
 		],
 	] as [[string, string, (boolean | Options)?], ICompareReturnType?][]).forEach(tastCase => {
 
-		test(inspect(tastCase[0]), () =>
+		test(inspect(tastCase[0]), (t) =>
 		{
 
 			let actual = compare(...tastCase[0]);
@@ -62,10 +64,10 @@ describe(`compare`, () =>
 
 			if (typeof expected !== 'undefined')
 			{
-				expect(actual).toStrictEqual(expected);
+				assert.deepStrictEqual(actual, expected);
 			}
 
-			expect(actual).toMatchSnapshot();
+			t.assert.snapshot(actual);
 		});
 
 	})

@@ -1,3 +1,4 @@
+import { describe, test } from 'node:test';
 import { join } from "path";
 import FastGlob from '@bluelovers/fast-glob';
 import { checkAndReadYarnLockFileSafe } from '@yarn-tool/yarnlock-fs';
@@ -17,14 +18,14 @@ describe(`yarn.lock`, () =>
 		{
 			const _file = join(__res, file);
 
-			test(file, () =>
+			test(file, (t) =>
 			{
 				let actual = checkAndReadYarnLockFileSafe(_file);
 				let expected;
 
 				//expect(actual).toStrictEqual(expected);
 				//expect(actual).toBeInstanceOf(Date);
-				expect(actual).toMatchSnapshot();
+				t.assert.snapshot(actual);
 
 			});
 		})

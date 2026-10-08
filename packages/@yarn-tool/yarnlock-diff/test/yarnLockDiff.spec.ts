@@ -1,3 +1,5 @@
+import { describe, test } from 'node:test';
+import assert from 'node:assert/strict';
 import { join } from 'path';
 import FastGlob from '@bluelovers/fast-glob';
 import { readFileSync } from 'fs';
@@ -21,7 +23,7 @@ describe(`yarnLockDiff`, () =>
 	files.forEach(file =>
 	{
 
-		test(file, () =>
+		test(file, (t) =>
 		{
 			const yarnlock_old = readFileSync(join(__res, 'a', file));
 			const yarnlock_new = readFileSync(join(__res, 'b', file));
@@ -32,15 +34,17 @@ describe(`yarnLockDiff`, () =>
 
 			console.dir(actual.formatedDiff);
 
-			expect(actual).toHaveProperty(['table', '0', 'length'], 4);
+			assert.strictEqual(actual.table['0'].length, 4);
 
-			expect(actual).toMatchSnapshot({
-				table: expect.any(Array),
-			});
+			// 原本為 toMatchSnapshot({ table: expect.any(Array) })，matcher 改為明確斷言
+			// was toMatchSnapshot({ table: expect.any(Array) }); matcher replaced by an explicit assertion
+			assert.ok(Array.isArray(actual.table));
 
-			expect(_handleDiffTable(actual, {
+			t.assert.snapshot(actual);
+
+			t.assert.snapshot(_handleDiffTable(actual, {
 				stripAnsi: true,
-			})).toMatchSnapshot();
+			}));
 		});
 
 	})

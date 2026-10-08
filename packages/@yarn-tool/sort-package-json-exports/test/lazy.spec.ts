@@ -1,6 +1,7 @@
+import { test } from 'node:test';
 import { sortPackageJsonExports } from '../src/index';
 
-test(`exports`, () =>
+test(`exports`, (t) =>
 {
 	let data = {
 		"./k2": {
@@ -24,8 +25,8 @@ test(`exports`, () =>
 
 	let actual = sortPackageJsonExports(data);
 
-	expect(actual).toMatchSnapshot();
-	expect(JSON.stringify(actual, null, 2)).toMatchSnapshot();
+	t.assert.snapshot(actual);
+	t.assert.snapshot(JSON.stringify(actual, null, 2));
 
 });
 

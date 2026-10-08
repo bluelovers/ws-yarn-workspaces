@@ -1,3 +1,5 @@
+import assert from 'node:assert/strict';
+import { describe, it } from 'node:test';
 import { updateNotifier } from '../index';
 import { _getTestPackagePath } from './lib/util';
 
@@ -10,10 +12,10 @@ describe('updateNotifier', () =>
 			const result = updateNotifier(_getTestPackagePath(), true);
 			// 當 force 為 true 時，一定會回傳 UpdateNotifier 物件
 			// When force is true, should always return UpdateNotifier object
-			expect(result).toBeDefined();
+			assert.notStrictEqual(result, undefined);
 			if (result !== null)
 			{
-				expect(typeof result.notify).toBe('function');
+				assert.strictEqual(typeof result.notify, 'function');
 			}
 		});
 
@@ -23,7 +25,7 @@ describe('updateNotifier', () =>
 			process.env.NODE_ENV = 'test';
 
 			const result = updateNotifier(_getTestPackagePath());
-			expect(result).toBeNull();
+			assert.strictEqual(result, null);
 
 			process.env.NODE_ENV = originalNodeEnv;
 		});
@@ -34,13 +36,13 @@ describe('updateNotifier', () =>
 		it('應該接受字串路徑 / should accept string path', () =>
 		{
 			const result = updateNotifier(_getTestPackagePath(), true);
-			expect(result).toBeDefined();
+			assert.notStrictEqual(result, undefined);
 		});
 
 		it('應該接受路徑片段陣列 / should accept path segments array', () =>
 		{
 			const result = updateNotifier([__dirname, '..'], true);
-			expect(result).toBeDefined();
+			assert.notStrictEqual(result, undefined);
 		});
 
 		it('應該接受自訂通知選項 / should accept custom notification options', () =>
@@ -50,7 +52,7 @@ describe('updateNotifier', () =>
 				updateCheckInterval: 1000,
 			};
 			const result = updateNotifier(_getTestPackagePath(), true, options);
-			expect(result).toBeDefined();
+			assert.notStrictEqual(result, undefined);
 		});
 	});
 });

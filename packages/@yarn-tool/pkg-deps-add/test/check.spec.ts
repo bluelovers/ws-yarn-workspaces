@@ -1,10 +1,12 @@
 //@noUnusedParameters:false
 
+import assert from 'node:assert/strict';
+import { before, describe, test } from 'node:test';
 import { basename, extname } from 'path';
 import { checkDependenciesExistsAll } from '../index';
 import { IPackageJson } from '@ts-type/package-dts/package-json';
 
-beforeAll(async () =>
+before(async () =>
 {
 
 });
@@ -13,7 +15,7 @@ describe(basename(__filename, extname(__filename)), () =>
 {
 	let pkg: IPackageJson;
 
-	beforeAll(async () =>
+	before(async () =>
 	{
 		pkg = {
 			dependencies: {
@@ -32,10 +34,10 @@ describe(basename(__filename, extname(__filename)), () =>
 		}
 	});
 
-	test(`test`, () =>
+	test(`test`, (t) =>
 	{
-		expect(checkDependenciesExistsAll(pkg, "tslib")).toMatchSnapshot();
-		expect(checkDependenciesExistsAll(pkg, "@types/node")).toMatchSnapshot();
+		t.assert.snapshot(checkDependenciesExistsAll(pkg, "tslib"));
+		t.assert.snapshot(checkDependenciesExistsAll(pkg, "@types/node"));
 	});
 
 })

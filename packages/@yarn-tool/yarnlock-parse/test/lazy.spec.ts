@@ -10,8 +10,10 @@ import {
 import { _getMetadataVersionCore } from '@yarn-tool/detect-yarnlock-version/lib/util';
 import { EnumDetectYarnLock } from '@yarn-tool/yarnlock-types';
 import { _forEachVersionTags } from '../../../../test/lib/forEachVersionTags';
+import assert from 'node:assert/strict';
+import { before, describe, test } from 'node:test';
 
-beforeAll(async () =>
+before(async () =>
 {
 
 });
@@ -24,19 +26,19 @@ describe(basename(__filename, extname(__filename)), () =>
 		const file = join(__TEST_YARNLOCK, ver as any, 'yarn.lock');
 		const buf = readFileSync(file);
 
-		test(ver as any, () =>
+		test(ver as any, (t) =>
 		{
 
 			let actual = yarnLockParse(buf);
 
-			expect(actual.verType).toStrictEqual(EnumDetectYarnLock[ver]);
+			assert.deepStrictEqual(actual.verType, EnumDetectYarnLock[ver]);
 
 			if (ver !== 'v1')
 			{
-				expect(_detectYarnLockVersionWithMetadataCore(_getMetadataVersionCore(actual.meta))).toStrictEqual(EnumDetectYarnLock[ver]);
+				assert.deepStrictEqual(_detectYarnLockVersionWithMetadataCore(_getMetadataVersionCore(actual.meta)), EnumDetectYarnLock[ver]);
 			}
 
-			expect(actual).toMatchSnapshot();
+			t.assert.snapshot(actual);
 
 		});
 

@@ -1,3 +1,5 @@
+import assert from 'node:assert/strict';
+import { describe, test } from 'node:test';
 import { readFileSync } from "fs";
 import { join, dirname, basename, extname } from "path";
 import { detectYarnLockVersion, _detectYarnLockVersionCore, _tryParse } from '../lib/detectYarnLockVersion';
@@ -9,7 +11,7 @@ import { _forEachVersionTags } from '../../../../test/lib/forEachVersionTags';
 
 const __res = __TEST_YARNLOCK;
 
-test(`empty`, () =>
+test(`empty`, (t) =>
 {
 	let file = join(__res, 'empty', 'yarn.lock')
 	let buf = readFileSync(file)
@@ -17,14 +19,14 @@ test(`empty`, () =>
 	let actual = _detectYarnLockVersionCore(buf);
 	let expected = EnumDetectYarnLock.unknown;
 
-	expect(actual).toHaveProperty('verType', expected);
+	assert.strictEqual(actual.verType, expected);
 
-	expect(detectYarnLockVersionByFile(file)).toStrictEqual(expected);
-	expect(detectYarnLockVersionByDir(dirname(file))).toStrictEqual(expected);
+	assert.deepStrictEqual(detectYarnLockVersionByFile(file), expected);
+	assert.deepStrictEqual(detectYarnLockVersionByDir(dirname(file)), expected);
 
-	expect(actual).toMatchSnapshot({
-		input: expect.anything(),
-	});
+	// 原為 property matcher `input: expect.anything()`；node:test 快照不支援 property matchers，改以等效斷言表達
+	assert.ok(actual.input != null);
+	t.assert.snapshot(actual);
 
 });
 
@@ -45,25 +47,25 @@ describe(`version`, () =>
 				const file = join(dir, name);
 				const buf = readFileSync(file);
 
-				test(name, () =>
+				test(name, (t) =>
 				{
 
 					let actual = _detectYarnLockVersionCore(buf);
 					let expected: EnumDetectYarnLock = EnumDetectYarnLock[ver];
 
-					expect(actual).toHaveProperty('verType', expected);
+					assert.strictEqual(actual.verType, expected);
 
-					expect(detectYarnLockVersionByFile(file)).toStrictEqual(expected);
-					expect(detectYarnLockVersionByDir(dirname(file))).toStrictEqual(expected);
+					assert.deepStrictEqual(detectYarnLockVersionByFile(file), expected);
+					assert.deepStrictEqual(detectYarnLockVersionByDir(dirname(file)), expected);
 
 					if (ver !== 'v1')
 					{
-						expect(_tryParse(buf)).toStrictEqual(expected);
+						assert.deepStrictEqual(_tryParse(buf), expected);
 					}
 
-					expect(actual).toMatchSnapshot({
-						input: expect.anything(),
-					});
+					// 原為 property matcher `input: expect.anything()`；node:test 快照不支援 property matchers，改以等效斷言表達
+					assert.ok(actual.input != null);
+					t.assert.snapshot(actual);
 
 				});
 			})
@@ -85,18 +87,18 @@ describe(`others`, () =>
 		const file = join(__TEST_YARNLOCK, name);
 		const buf = readFileSync(file);
 
-		test(name, () =>
+		test(name, (t) =>
 		{
 			let actual = _detectYarnLockVersionCore(buf);
 
 			if (actual.verType && actual.verType !== EnumDetectYarnLock.v1)
 			{
-				expect(_tryParse(buf)).toStrictEqual(actual.verType);
+				assert.deepStrictEqual(_tryParse(buf), actual.verType);
 			}
 
-			expect(actual).toMatchSnapshot({
-				input: expect.anything(),
-			});
+			// 原為 property matcher `input: expect.anything()`；node:test 快照不支援 property matchers，改以等效斷言表達
+			assert.ok(actual.input != null);
+			t.assert.snapshot(actual);
 
 		});
 	})

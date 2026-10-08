@@ -2,8 +2,10 @@
 
 import { _getNpaResult, normalizeDepsValue, normalizeResultToDepsValue } from '../index';
 import { EnumSemverVersion } from '@lazy-node/semver-ampersand/lib/const';
+import assert from 'node:assert/strict';
+import { describe, test, before } from 'node:test';
 
-beforeAll(async () =>
+before(async () =>
 {
 
 });
@@ -34,19 +36,18 @@ describe(`normalizeDepsValue`, () =>
 		'npm:@foo/bar@next',
 	].forEach(input =>
 	{
-		test(input === EnumSemverVersion.ANY ? 'empty' : input === ' ' ? 'space' : input, () =>
+		test(input === EnumSemverVersion.ANY ? 'empty' : input === ' ' ? 'space' : input, (t) =>
 		{
 
 			let result = _getNpaResult(input);
 			let actual = normalizeResultToDepsValue(result);
 
-			expect(result).toMatchSnapshot({
-				// @ts-ignore
-				fetchSpec: result.fetchSpec !== null ? expect.any(String) : null,
-				// @ts-ignore
-				where: result.where ? expect.any(String) : void 0,
-			});
-			expect(actual).toMatchSnapshot();
+			// @ts-ignore
+			assert.ok(result.fetchSpec !== null ? typeof result.fetchSpec === 'string' : result.fetchSpec === null);
+			// @ts-ignore
+			assert.ok(result.where ? typeof result.where === 'string' : result.where === void 0);
+			t.assert.snapshot(result);
+			t.assert.snapshot(actual);
 
 		});
 	})

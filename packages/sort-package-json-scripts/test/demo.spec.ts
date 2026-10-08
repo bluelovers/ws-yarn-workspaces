@@ -1,6 +1,8 @@
 import sortPackageJsonScripts from '../index';
+import assert from 'node:assert/strict';
+import { test } from 'node:test';
 
-test(`yarn-tool`, () =>
+test(`yarn-tool`, (t) =>
 {
 	let source = {
 		"test": "echo \"Error: no test specified\" && exit 1",
@@ -24,23 +26,23 @@ test(`yarn-tool`, () =>
 
 	let actual = sortPackageJsonScripts(source)
 
-	expectMatchSnapshot(actual, source)
+	expectMatchSnapshot(actual, source, t)
 
 });
 
 function expectStringify(actual, expected)
 {
-	expect(actual).toStrictEqual(expected);
-	expect(JSON.stringify(actual, null, 2)).toStrictEqual(JSON.stringify(expected, null, 2));
+	assert.deepStrictEqual(actual, expected);
+	assert.deepStrictEqual(JSON.stringify(actual, null, 2), JSON.stringify(expected, null, 2));
 }
 
-function expectMatchSnapshot(actual, fixture)
+function expectMatchSnapshot(actual, fixture, t)
 {
-	expect(actual).toStrictEqual(fixture);
+	assert.deepStrictEqual(actual, fixture);
 
 	//expect(actual).toMatchSnapshot();
-	expect(Object.keys(actual)).toMatchSnapshot();
-	expect(JSON.stringify(actual, null, 2)).toMatchSnapshot();
+	t.assert.snapshot(Object.keys(actual));
+	t.assert.snapshot(JSON.stringify(actual, null, 2));
 
 	console.dir(actual)
 }

@@ -4,6 +4,9 @@
 
 import { getLifecycle, entryToList } from '../index';
 import { ILifecycleEntry } from '../lib/types';
+import assert from 'node:assert/strict';
+import { describe, it } from 'node:test';
+import { isDeepStrictEqual } from 'node:util';
 
 describe('should lifecycle any script name', function ()
 {
@@ -18,30 +21,28 @@ describe('should lifecycle any script name', function ()
 		'yy',
 		'pretitter',
 	] as const).forEach(name => {
-		it(name, function ()
+		it(name, function (t)
 		{
 			let actual = getLifecycle(name);
 
-			expect(actual).toMatchObject({
-				name,
-				before: [
-					`pre${name}`
-				],
-				after: [
-					`post${name}`
-				],
-			})
+			assert.strictEqual(actual.name, name);
+			assert.deepStrictEqual(actual.before, [
+				`pre${name}`
+			]);
+			assert.deepStrictEqual(actual.after, [
+				`post${name}`
+			])
 
-			expect(entryToList(actual)).toContainEqual(name);
+			assert.ok(entryToList(actual).some(v => isDeepStrictEqual(v, name)));
 
-			expect(actual.ignoreSelf).not.toBeTruthy();
-			expect(actual).toMatchSnapshot();
-			expect(entryToList(actual)).toMatchSnapshot();
+			assert.ok(!actual.ignoreSelf);
+			t.assert.snapshot(actual);
+			t.assert.snapshot(entryToList(actual));
 		});
 	});
 });
 
-it('install', function ()
+it('install', function (t)
 {
 	/**
 	 * install 生命週期應依序包含 postinstall 之後的 prepublish/prepare/shrinkwrap 系列。
@@ -52,28 +53,26 @@ it('install', function ()
 	let name = 'install' as const;
 	let actual = getLifecycle(name);
 
-	expect(actual).toMatchObject({
-		name,
-		before: [
-			"preinstall",
-		],
-		after: [
-			"postinstall",
-			"prepublish",
-			"prepare",
-			"preshrinkwrap",
-			"shrinkwrap",
-			"postshrinkwrap",
-		],
-	})
+	assert.strictEqual(actual.name, name);
+	assert.deepStrictEqual(actual.before, [
+		"preinstall",
+	]);
+	assert.deepStrictEqual(actual.after, [
+		"postinstall",
+		"prepublish",
+		"prepare",
+		"preshrinkwrap",
+		"shrinkwrap",
+		"postshrinkwrap",
+	])
 
-	expect(entryToList(actual)).toContainEqual(name);
+	assert.ok(entryToList(actual).some(v => isDeepStrictEqual(v, name)));
 
-	expect(actual).toMatchSnapshot();
-	expect(entryToList(actual)).toMatchSnapshot();
+	t.assert.snapshot(actual);
+	t.assert.snapshot(entryToList(actual));
 });
 
-it('pack', function ()
+it('pack', function (t)
 {
 	/**
 	 * pack 生命週期的 ignoreSelf 為 true（npm pack 不執行 pack 腳本），
@@ -86,31 +85,29 @@ it('pack', function ()
 	let name = 'pack' as const;
 	let actual = getLifecycle(name);
 
-	expect(actual).toMatchObject({
-		name,
-		ignoreSelf: true,
-		before: [
-			"prepublish",
-			"prepare",
-			"prepack",
-		],
-		after: [
-			"postpack"
-		],
-	})
+	assert.strictEqual(actual.name, name);
+	assert.strictEqual(actual.ignoreSelf, true);
+	assert.deepStrictEqual(actual.before, [
+		"prepublish",
+		"prepare",
+		"prepack",
+	]);
+	assert.deepStrictEqual(actual.after, [
+		"postpack"
+	])
 
-	expect(actual).toMatchSnapshot();
-	expect(entryToList(actual)).not.toContainEqual(name);
-	expect(entryToList(actual)).toMatchSnapshot();
+	t.assert.snapshot(actual);
+	assert.ok(!entryToList(actual).some(v => isDeepStrictEqual(v, name)));
+	t.assert.snapshot(entryToList(actual));
 
 	let actual2 = entryToList(actual, true)
 
-	expect(actual2).toContainEqual(name);
-	expect(actual2).toMatchSnapshot();
+	assert.ok(actual2.some(v => isDeepStrictEqual(v, name)));
+	t.assert.snapshot(actual2);
 
 });
 
-it('publish', function ()
+it('publish', function (t)
 {
 	/**
 	 * publish 生命週期在 prepublishOnly 與 postpublish 之間還需帶入
@@ -122,22 +119,20 @@ it('publish', function ()
 	let name = 'publish' as const;
 	let actual = getLifecycle(name);
 
-	expect(actual).toMatchObject({
-		name,
-		before: [
-			"prepublish",
-			"prepare",
-			"prepublishOnly",
-			"prepack",
-			"postpack",
-		],
-		after: [
-			"postpublish"
-		],
-	})
+	assert.strictEqual(actual.name, name);
+	assert.deepStrictEqual(actual.before, [
+		"prepublish",
+		"prepare",
+		"prepublishOnly",
+		"prepack",
+		"postpack",
+	]);
+	assert.deepStrictEqual(actual.after, [
+		"postpublish"
+	])
 
-	expect(entryToList(actual)).toContainEqual(name);
+	assert.ok(entryToList(actual).some(v => isDeepStrictEqual(v, name)));
 
-	expect(actual).toMatchSnapshot();
-	expect(entryToList(actual)).toMatchSnapshot();
+	t.assert.snapshot(actual);
+	t.assert.snapshot(entryToList(actual));
 });

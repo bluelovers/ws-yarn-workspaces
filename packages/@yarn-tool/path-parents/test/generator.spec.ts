@@ -1,5 +1,7 @@
 import pathUpToWorkspaces, { pathUpToWorkspacesGenerator } from '../index';
 import { findRootLazy } from '@yarn-tool/find-root';
+import assert from 'node:assert/strict';
+import { describe, test } from 'node:test';
 
 describe('pathUpToWorkspacesGenerator', () => {
   test('generator yields same list as array API (include current dir)', () => {
@@ -7,8 +9,8 @@ describe('pathUpToWorkspacesGenerator', () => {
     const list = pathUpToWorkspaces(cwd);
     const genList = [...pathUpToWorkspacesGenerator(cwd)];
 
-    expect(genList.length).toBeGreaterThan(0);
-    expect(genList).toEqual(list);
+    assert.ok(genList.length > 0);
+    assert.deepStrictEqual(genList, list);
   });
 
   test('generator respects ignoreCurrentDirectory option', () => {
@@ -16,10 +18,10 @@ describe('pathUpToWorkspacesGenerator', () => {
     const list = pathUpToWorkspaces(cwd, { ignoreCurrentDirectory: true });
     const genList = [...pathUpToWorkspacesGenerator(cwd, { ignoreCurrentDirectory: true })];
 
-    expect(genList.length).toBeGreaterThan(0);
-    expect(genList).toEqual(list);
+    assert.ok(genList.length > 0);
+    assert.deepStrictEqual(genList, list);
     // When ignoring current directory, first yielded path should not be cwd
-    expect(genList[0]).not.toBe(require('path').resolve(cwd));
+    assert.notStrictEqual(genList[0], require('path').resolve(cwd));
   });
 
   test('last yielded path equals workspace root', () => {
@@ -27,6 +29,6 @@ describe('pathUpToWorkspacesGenerator', () => {
     const cwd = __dirname;
     const genList = [...pathUpToWorkspacesGenerator(cwd)];
 
-    expect(genList[genList.length - 1]).toBe(rootData.root);
+    assert.strictEqual(genList[genList.length - 1], rootData.root);
   });
 });

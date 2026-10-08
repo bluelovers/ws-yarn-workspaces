@@ -5,6 +5,7 @@ import { validMultipleVersionRangeFixtures, validMultipleVersionRangeFixturesWil
 import { validSingleVersionRangeFixtures } from './fixtures/single-version-range/valid';
 import { IFixturesEntryMultipleVersionRange } from './lib/types';
 import stringifySimpleSemVer from '../lib/stringifySimpleSemVer';
+import { describe, test } from 'node:test';
 
 describe('singleVersionRange', () =>
 {
@@ -12,10 +13,10 @@ describe('singleVersionRange', () =>
 	{
 		validSingleVersionRangeFixtures.forEach(({input, expected, description}) =>
 		{
-			test(`${input} - ${description}`, () =>
+			test(`${input} - ${description}`, (t) =>
 			{
 				const result = parse(input);
-				expect(result).toMatchSnapshot(expected);
+				t.assert.snapshot(result);
 			});
 		});
 	});
@@ -82,15 +83,15 @@ function _testMultipleVersionRangeFixtures(validMultipleFixtures: IFixturesEntry
 							_fn = test.skip;
 						}
 
-						_fn(`[${i}]parseRange(${result_current})`, () =>
+						_fn(`[${i}]parseRange(${result_current})`, (t) =>
 						{
-							expect(result_current).toMatchSnapshot(_fixExpected(expected[i]));
+							t.assert.snapshot(result_current);
 						});
 
-						_fn(`[${i}]parse(${result_current?.semver})`, () =>
+						_fn(`[${i}]parse(${result_current?.semver})`, (t) =>
 						{
 							const result2 = parse(result_current.semver);
-							expect(result2.toJSON()).toMatchSnapshot(_fixExpected(result_current));
+							t.assert.snapshot(result2.toJSON());
 						});
 					}
 					catch (e)

@@ -1,5 +1,7 @@
 //@noUnusedParameters:false
 
+import { test, describe, before } from 'node:test';
+import assert from 'node:assert/strict';
 import { basename, extname, join } from 'path';
 import {
 	detectYarnLockVersion,
@@ -13,7 +15,7 @@ import { EnumDetectYarnLock } from '@yarn-tool/yarnlock-types';
 import { _forEachVersionTags } from '../../../../test/lib/forEachVersionTags';
 import { sync as FastGlob } from '@bluelovers/fast-glob';
 
-beforeAll(async () =>
+before(async () =>
 {
 
 });
@@ -38,26 +40,26 @@ describe(basename(__filename, extname(__filename)), () =>
 
 				let actual = fromContent(buf);
 
-				test(name, () =>
+				test(name, (t) =>
 				{
-					expect(actual.verType).toStrictEqual(EnumDetectYarnLock[ver]);
+					assert.deepStrictEqual(actual.verType, EnumDetectYarnLock[ver]);
 
 					if (ver === 'v1')
 					{
-						expect(actual.isV1()).toBeTruthy()
-						expect(actual.isV2()).toBeFalsy()
+						assert.ok(actual.isV1())
+						assert.ok(!actual.isV2())
 					}
 					else
 					{
-						expect(actual.isV2()).toBeTruthy()
-						expect(actual.isV1()).toBeFalsy()
+						assert.ok(actual.isV2())
+						assert.ok(!actual.isV1())
 					}
 
 					let output = actual.stringify();
 
-					expect(detectYarnLockVersion(output)).toStrictEqual(EnumDetectYarnLock[ver]);
+					assert.deepStrictEqual(detectYarnLockVersion(output), EnumDetectYarnLock[ver]);
 
-					expect(output.slice(0, 160)).toMatchSnapshot();
+					t.assert.snapshot(output.slice(0, 160));
 				});
 
 				(ver !== 'v1') && test(`${name} check iterator`, () =>

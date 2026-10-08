@@ -1,3 +1,5 @@
+import assert from 'node:assert/strict';
+import { test } from 'node:test';
 import { findRootLazy } from '@yarn-tool/find-root';
 import { wsEnvConfig } from '../index';
 
@@ -7,12 +9,10 @@ test(`test`, () =>
 
 	let actual = wsEnvConfig();
 
-	expect(actual).toMatchObject({
-		error: expect.anything(),
-		path: expect.stringContaining('.env'),
-		cwd: expect.any(String),
-		current: rootData.root,
-		fileExists: expect.any(Boolean),
-	});
+	assert.ok(actual.error !== null && actual.error !== undefined);
+	assert.ok(actual.path.includes('.env'));
+	assert.strictEqual(typeof actual.cwd, 'string');
+	assert.strictEqual(actual.current, rootData.root);
+	assert.strictEqual(typeof actual.fileExists, 'boolean');
 
 });

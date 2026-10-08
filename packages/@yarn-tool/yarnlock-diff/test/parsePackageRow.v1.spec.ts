@@ -1,25 +1,27 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
 import { parsePackageRow } from '../lib/diff-service/v1/parsePackageRow';
 
-test(`@babel/parser@next`, () =>
+test(`@babel/parser@next`, (t) =>
 {
 
 	let actual = parsePackageRow('@babel/parser@next', {
 		version: '1.0.0',
 	} as any);
 
-	expect(actual).toHaveProperty('name', '@babel/parser');
-	expect(actual).toMatchSnapshot();
+	assert.strictEqual(actual.name, '@babel/parser');
+	t.assert.snapshot(actual);
 
 });
 
-test(`@babel/parser@*`, () =>
+test(`@babel/parser@*`, (t) =>
 {
 
 	let actual = parsePackageRow('@babel/parser@*', {
 		version: '1.0.0',
 	} as any);
 
-	expect(actual).toHaveProperty('name', '@babel/parser');
-	expect(actual).toMatchSnapshot();
+	assert.strictEqual(actual.name, '@babel/parser');
+	t.assert.snapshot(actual);
 
 });

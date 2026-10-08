@@ -1,9 +1,11 @@
 //@noUnusedParameters:false
 
+import { test, before } from 'node:test';
+import assert from 'node:assert/strict';
 import { handleOptions, IOptionsFindUpPathsWorkspaces } from '../index';
 import { findUpPathsRuntime } from 'find-up-paths';
 
-beforeAll(async () =>
+before(async () =>
 {
 
 });
@@ -20,7 +22,7 @@ test(`ignoreCurrentPackage:true`, () =>
 
 	console.dir(actual);
 
-	expect(runtime.path.dirname(actual.result)).toStrictEqual(runtime.rootData.root);
+	assert.deepStrictEqual(runtime.path.dirname(actual.result), runtime.rootData.root);
 
 });
 
@@ -36,6 +38,6 @@ test(`ignoreCurrentPackage:false`, () =>
 
 	console.dir(actual);
 
-	expect(runtime.path.dirname(actual.result)).toStrictEqual(runtime.rootData.pkg);
+	assert.deepStrictEqual(runtime.path.dirname(actual.result), runtime.rootData.pkg);
 
 });

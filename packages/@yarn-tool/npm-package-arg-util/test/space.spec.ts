@@ -1,6 +1,8 @@
+import assert from 'node:assert/strict';
+import { before, describe, test } from 'node:test';
 import { _lazyTestNpaTypeGuard } from './lib/test';
 
-beforeAll(async () =>
+before(async () =>
 {
 
 });
@@ -25,22 +27,28 @@ describe(`Any`, () =>
 				isInputSpecIsStar,
 			} satisfies Partial<ReturnType<typeof _lazyTestNpaTypeGuard>>;
 
-			test(title, () =>
+			test(title, (t) =>
 			{
 				let actual = _lazyTestNpaTypeGuard(value);
-				expect(actual).toMatchSnapshot(expected);
+				assert.strictEqual(actual.isInputSpecIsEmpty, expected.isInputSpecIsEmpty);
+				assert.strictEqual(actual.isInputSpecIsStar, expected.isInputSpecIsStar);
+				t.assert.snapshot(actual);
 			});
 
-			test(`${FAKE_NAME}@${value}`, () =>
+			test(`${FAKE_NAME}@${value}`, (t) =>
 			{
 				let actual = _lazyTestNpaTypeGuard(`${FAKE_NAME}@${value}`);
-				expect(actual).toMatchSnapshot(expected);
+				assert.strictEqual(actual.isInputSpecIsEmpty, expected.isInputSpecIsEmpty);
+				assert.strictEqual(actual.isInputSpecIsStar, expected.isInputSpecIsStar);
+				t.assert.snapshot(actual);
 			});
 
-			test(`fake@${value}`, () =>
+			test(`fake@${value}`, (t) =>
 			{
 				let actual = _lazyTestNpaTypeGuard(`fake@${value}`);
-				expect(actual).toMatchSnapshot(expected);
+				assert.strictEqual(actual.isInputSpecIsEmpty, expected.isInputSpecIsEmpty);
+				assert.strictEqual(actual.isInputSpecIsStar, expected.isInputSpecIsStar);
+				t.assert.snapshot(actual);
 			});
 		})
 

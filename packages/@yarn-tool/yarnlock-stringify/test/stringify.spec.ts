@@ -17,8 +17,10 @@ import { detectYarnLockVersionByObject } from '@yarn-tool/detect-yarnlock-versio
 import { EnumDetectYarnLock } from '@yarn-tool/yarnlock-types';
 import { _forEachVersionTags } from '../../../../test/lib/forEachVersionTags';
 import yarnLockParsedToRawJSON from '@yarn-tool/yarnlock-parsed-to-json';
+import assert from 'node:assert/strict';
+import { before, describe, test } from 'node:test';
 
-beforeAll(async () =>
+before(async () =>
 {
 
 });
@@ -43,27 +45,27 @@ describe(`version`, () =>
 
 				const rawObject = yarnLockParse(buf);
 
-				test(name, () =>
+				test(name, (t) =>
 				{
 
 					let actual = yarnLockStringify(rawObject);
 					let expected = EnumDetectYarnLock[ver];
 
-					expect(detectYarnLockVersion(actual)).toStrictEqual(expected);
+					assert.deepStrictEqual(detectYarnLockVersion(actual), expected);
 
-					expect(actual).toStrictEqual(buf);
+					assert.deepStrictEqual(actual, buf);
 
 					const rawObject2 = yarnLockParse(actual);
 
-					expect(detectYarnLockVersionByParsed(rawObject2)).toStrictEqual(expected);
+					assert.deepStrictEqual(detectYarnLockVersionByParsed(rawObject2), expected);
 
 					let actual2 = yarnLockStringify(rawObject2);
 
-					expect(rawObject2).not.toHaveProperty(['data', 'object']);
-					expect(rawObject2).toStrictEqual(rawObject);
-					expect(actual2).toStrictEqual(actual);
+					assert.strictEqual((rawObject2 as any).data?.object, undefined);
+					assert.deepStrictEqual(rawObject2, rawObject);
+					assert.deepStrictEqual(actual2, actual);
 
-					expect(actual.slice(0, 120 * 3)).toMatchSnapshot();
+					t.assert.snapshot(actual.slice(0, 120 * 3));
 
 				});
 			})

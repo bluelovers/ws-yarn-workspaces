@@ -1,5 +1,7 @@
 // @ts-nocheck
 
+import assert from 'node:assert/strict';
+import { test } from 'node:test';
 import { parseOptionsOrLoose, parseOptionsOrLoose as parseOptions } from '../../lib/internal/parseOptionsOrLoose';
 
 test('false values return { loose: false }', () =>
@@ -8,19 +10,19 @@ test('false values return { loose: false }', () =>
 		loose: false,
 	};
 
-	expect(parseOptions(false)).toStrictEqual(expected)
+	assert.deepStrictEqual(parseOptions(false), expected)
 })
 
 test('falsey values always empty options object', () =>
 {
 	const expected = {};
 
-	expect(parseOptions(null)).toStrictEqual(expected)
+	assert.deepStrictEqual(parseOptions(null), expected)
 	//expect(parseOptions(false)).toStrictEqual( expected)
-	expect(parseOptions(undefined)).toStrictEqual(expected)
-	expect(parseOptions()).toStrictEqual(expected)
-	expect(parseOptions(0)).toStrictEqual(expected)
-	expect(parseOptions('')).toStrictEqual(expected)
+	assert.deepStrictEqual(parseOptions(undefined), expected)
+	assert.deepStrictEqual(parseOptions(), expected)
+	assert.deepStrictEqual(parseOptions(0), expected)
+	assert.deepStrictEqual(parseOptions(''), expected)
 })
 
 test('truthy non-objects always loose mode, for backwards comp', () =>
@@ -29,21 +31,21 @@ test('truthy non-objects always loose mode, for backwards comp', () =>
 		loose: true,
 	};
 
-	expect(parseOptions('hello')).toStrictEqual(expected)
-	expect(parseOptions(true)).toStrictEqual(expected)
-	expect(parseOptions(1)).toStrictEqual(expected)
+	assert.deepStrictEqual(parseOptions('hello'), expected)
+	assert.deepStrictEqual(parseOptions(true), expected)
+	assert.deepStrictEqual(parseOptions(1), expected)
 })
 
 test('objects only include truthy flags we know about, set to true', () =>
 {
-	expect(parseOptions(/asdf/)).toStrictEqual({})
-	expect(parseOptions(new Error('hello'))).toStrictEqual({})
-	expect(parseOptions({ loose: true, a: 1, rtl: 0 })).toStrictEqual({
+	assert.deepStrictEqual(parseOptions(/asdf/), {})
+	assert.deepStrictEqual(parseOptions(new Error('hello')), {})
+	assert.deepStrictEqual(parseOptions({ loose: true, a: 1, rtl: 0 }), {
 		loose: true,
 		a: 1,
 		rtl: false,
 	})
-	expect(parseOptions({ loose: 1, rtl: 2, includePrerelease: 10 })).toStrictEqual({
+	assert.deepStrictEqual(parseOptions({ loose: 1, rtl: 2, includePrerelease: 10 }), {
 		loose: true,
 		rtl: true,
 		includePrerelease: true,
