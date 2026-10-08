@@ -16,6 +16,9 @@ let _sortOrder = sortOrder.slice();
 insertAfter(_sortOrder, 'tap', 'tsd');
 insertAfter(_sortOrder, 'license', 'licenses');
 
+lines.push(`/**
+ * This file/list is auto generate, do not edit
+ */`);
 lines.push(`export const sortOrder = [`);
 lines.push(`\t'` + _sortOrder.join(`',\n\t'`) + `',`);
 lines.push(`] as const;`);

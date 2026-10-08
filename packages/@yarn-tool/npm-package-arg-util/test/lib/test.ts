@@ -3,6 +3,8 @@
  * @description npm-package-arg-util 的測試工具函數
  */
 
+import assert from 'node:assert/strict';
+import test, { getTestContext, type TestContext } from 'node:test';
 import { IResult, npa2 } from '../..';
 import { getSemverFromNpaResult } from '../../lib/getSemverFromNpaResult';
 import {
@@ -16,14 +18,61 @@ import {
 import { _parsePackageNameCore } from '../../lib/parseArgvPkgName';
 
 /**
+ * jest `expect.any(String)` 的原生替代 sentinel
+ * Native sentinel replacing jest's `expect.any(String)`
+ *
+ * 僅供 propertyMatchers 使用，由 `_assertPropertyMatchers` 解析；
+ * 以 symbol 承載、以 string 呈現，故可直接放入 `Partial<IResult>` 且不會與真實字串相等
+ *
+ * Only used inside propertyMatchers and resolved by `_assertPropertyMatchers`.
+ * It is carried as a symbol but typed as `string`, so it can be assigned into
+ * `Partial<IResult>` while never equaling a real string value
+ */
+export const anyString = Symbol('anyString') as unknown as string;
+
+/**
+ * 以 `node:assert` 遞迴比對 partial property matchers
+ * Recursively assert partial property matchers with `node:assert`
+ *
+ * 為 jest `toMatchSnapshot(propertyMatchers)` 的原生替代：
+ * 物件屬性遞迴比對、`anyString` 僅檢查型別、其餘值以 `deepStrictEqual` 比對
+ *
+ * Native replacement for jest's `toMatchSnapshot(propertyMatchers)`: objects are
+ * compared key by key, `anyString` only checks the type, and every other value
+ * goes through `deepStrictEqual`
+ */
+export function _assertPropertyMatchers(actual: unknown, expected: unknown, path: string): void
+{
+	if (expected === anyString)
+	{
+		assert.strictEqual(typeof actual, 'string', `${path} should be a string`);
+		return;
+	}
+
+	if (expected !== null && typeof expected === 'object')
+	{
+		assert.ok(actual !== null && typeof actual === 'object', `${path} should be an object`);
+
+		for (const [key, value] of Object.entries(expected))
+		{
+			_assertPropertyMatchers((actual as Record<string, unknown>)[key], value, `${path}.${key}`);
+		}
+
+		return;
+	}
+
+	assert.deepStrictEqual(actual, expected, path);
+}
+
+/**
  * Options for lazy test functions
  * 懶惰測試函數的選項
  */
 export interface ILazyTestOptions<T extends IResult = IResult>
 {
 	/**
-	 * Property matchers for snapshot
-	 * snapshot 的屬性匹配器
+	 * Partial property matchers asserted with `node:assert`
+	 * 以 `node:assert` 比對的 partial property matchers
 	 */
 	propertyMatchers?: Partial<T>;
 
@@ -60,10 +109,10 @@ export function _lazyTestNpaTypeGuard<T extends IResult = IResult>(
 	{
 		if (propertyMatchers.type === 'directory' || propertyMatchers.type === 'file')
 		{
-			propertyMatchers.fetchSpec = expect.any(String);
-			propertyMatchers.saveSpec = expect.any(String);
+			propertyMatchers.fetchSpec = anyString;
+			propertyMatchers.saveSpec = anyString;
 			// @ts-ignore
-			propertyMatchers.where ??= expect.any(String);
+			propertyMatchers.where ??= anyString;
 		}
 
 		for (const key of [
@@ -97,12 +146,24 @@ export function _lazyTestNpaTypeGuard<T extends IResult = IResult>(
 
 	};
 
-	expect(ret).toMatchSnapshot(propertyMatchers ? {
-		result: propertyMatchers,
-		actual: actualExpected,
-	} : {
-		actual: actualExpected,
-	});
+	/**
+	 * 原生斷言取代 jest 的 `toMatchSnapshot(propertyMatchers)`：
+	 * `actual` 與預期型別守衛結果比對，`propertyMatchers` 以 `node:assert` 遞迴比對，
+	 * 最後再以 node:test 的 snapshot 記錄完整結果
+	 *
+	 * Native replacement for jest's `toMatchSnapshot(propertyMatchers)`: `actual`
+	 * is checked against the expected type-guard result, `propertyMatchers` is
+	 * asserted recursively with `node:assert`, then the full result is recorded
+	 * through node:test's snapshot
+	 */
+	assert.strictEqual(actual, actualExpected, `${inputSpec}: type guard should return ${actualExpected}`);
+
+	if (propertyMatchers)
+	{
+		_assertPropertyMatchers(result, propertyMatchers, `${inputSpec} => result`);
+	}
+
+	(getTestContext() as test.TestContext).assert.snapshot(ret);
 
 	return ret;
 }
@@ -213,7 +274,7 @@ export function _lazyTestIsURLResult<T extends IResult = IResult>(
  *
  * @template T - The result type
  * @param {string} inputSpec - The package spec to parse
- * @param {Partial<T>} propertyMatchers - Property matchers for snapshot
+ * @param {Partial<T>} propertyMatchers - Partial matchers asserted with `node:assert`
  * @returns The parsed result
  */
 export function _lazyTestNpa<T extends IResult = IResult>(
@@ -222,18 +283,23 @@ export function _lazyTestNpa<T extends IResult = IResult>(
 )
 {
 	const result: T = npa2(inputSpec);
-
-	expect({
-		inputSpec,
-		result,
-	}).toMatchSnapshot(propertyMatchers ? {
-		result: propertyMatchers,
-	} : {});
-
-	return {
+	const ret = {
 		inputSpec,
 		result,
 	};
+
+	/**
+	 * 原生斷言 propertyMatchers，再以 node:test snapshot 記錄
+	 * Assert propertyMatchers natively, then record via node:test's snapshot
+	 */
+	if (propertyMatchers)
+	{
+		_assertPropertyMatchers(result, propertyMatchers, `${inputSpec} => result`);
+	}
+
+	(getTestContext() as test.TestContext).assert.snapshot(ret);
+
+	return ret;
 }
 
 /**
@@ -247,11 +313,16 @@ export function _lazyTestGetSemver(inputSpec: string)
 {
 	const result = npa2(inputSpec);
 	const semver = getSemverFromNpaResult(result);
-
-	expect({
+	const ret = {
 		inputSpec,
 		semver,
-	}).toMatchSnapshot();
+	};
+
+	/**
+	 * 以 node:test 的 snapshot 記錄取代 jest 的 `toMatchSnapshot()`
+	 * Replace jest's `toMatchSnapshot()` with node:test's snapshot
+	 */
+	(getTestContext() as test.TestContext).assert.snapshot(ret);
 
 	return {
 		inputSpec,

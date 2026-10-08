@@ -3,6 +3,7 @@
   "compilerOptions": {
     "importHelpers": true,
     "types": [
+      "node",
       "jest"
     ]
   }

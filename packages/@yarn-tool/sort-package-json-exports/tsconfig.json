@@ -5,6 +5,7 @@
     "moduleResolution": "bundler",
     "rootDir": "src",
     "types": [
+      "node",
       "jest"
     ]
   }
