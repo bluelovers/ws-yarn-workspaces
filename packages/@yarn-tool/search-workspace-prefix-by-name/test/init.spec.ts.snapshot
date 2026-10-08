@@ -1,0 +1,7 @@
+exports[`should searchWorkspacePrefixByName 1`] = `
+"packages/@yarn-tool"
+`;
+
+exports[`should searchWorkspacePrefixByName 2`] = `
+"packages"
+`;

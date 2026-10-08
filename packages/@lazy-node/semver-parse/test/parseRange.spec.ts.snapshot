@@ -1,0 +1,447 @@
+exports[`parseRange > 單一版本解析 / Single version parsing > should parse exact version 1`] = `
+{
+  "semver": "1.0.0",
+  "major": "1",
+  "minor": "0",
+  "patch": "0"
+}
+`;
+
+exports[`parseRange > 單一版本解析 / Single version parsing > should parse version with v prefix 1`] = `
+{
+  "semver": "v1.2.3",
+  "major": "1",
+  "minor": "2",
+  "patch": "3"
+}
+`;
+
+exports[`parseRange > 實際套件版本範例 / Real package version examples > should parse dev dependency range 1`] = `
+[
+  {
+    "semver": "~4.4.0",
+    "operator": "~",
+    "major": "4",
+    "minor": "4",
+    "patch": "0"
+  },
+  {
+    "operator": "||"
+  },
+  {
+    "semver": "~5.0.0",
+    "operator": "~",
+    "major": "5",
+    "minor": "0",
+    "patch": "0"
+  }
+]
+`;
+
+exports[`parseRange > 實際套件版本範例 / Real package version examples > should parse exact version with build 1`] = `
+[
+  {
+    "semver": "1.0.0+build.1848",
+    "major": "1",
+    "minor": "0",
+    "patch": "0",
+    "build": "build.1848"
+  }
+]
+`;
+
+exports[`parseRange > 實際套件版本範例 / Real package version examples > should parse peer dependency range 1`] = `
+[
+  {
+    "semver": ">=16.0.0",
+    "operator": ">=",
+    "major": "16",
+    "minor": "0",
+    "patch": "0"
+  },
+  {
+    "semver": "<18.0.0",
+    "operator": "<",
+    "major": "18",
+    "minor": "0",
+    "patch": "0"
+  }
+]
+`;
+
+exports[`parseRange > 實際套件版本範例 / Real package version examples > should parse typical npm dependency range 1`] = `
+[
+  {
+    "semver": "^16.8.0",
+    "operator": "^",
+    "major": "16",
+    "minor": "8",
+    "patch": "0"
+  }
+]
+`;
+
+exports[`parseRange > 範圍組合 / Range combinations > should parse AND range (space separated) 1`] = `
+{
+  "semver": ">=1.0.0",
+  "operator": ">=",
+  "major": "1",
+  "minor": "0",
+  "patch": "0"
+}
+`;
+
+exports[`parseRange > 範圍組合 / Range combinations > should parse AND range (space separated) 2`] = `
+{
+  "semver": "<2.0.0",
+  "operator": "<",
+  "major": "2",
+  "minor": "0",
+  "patch": "0"
+}
+`;
+
+exports[`parseRange > 範圍組合 / Range combinations > should parse OR range (|| separated) 1`] = `
+{
+  "semver": "~1.0.0",
+  "operator": "~",
+  "major": "1",
+  "minor": "0",
+  "patch": "0"
+}
+`;
+
+exports[`parseRange > 範圍組合 / Range combinations > should parse OR range (|| separated) 2`] = `
+{
+  "operator": "||"
+}
+`;
+
+exports[`parseRange > 範圍組合 / Range combinations > should parse OR range (|| separated) 3`] = `
+{
+  "semver": "~2.0.0",
+  "operator": "~",
+  "major": "2",
+  "minor": "0",
+  "patch": "0"
+}
+`;
+
+exports[`parseRange > 範圍組合 / Range combinations > should parse caret range with OR 1`] = `
+[
+  {
+    "semver": "^1.2.0",
+    "operator": "^",
+    "major": "1",
+    "minor": "2",
+    "patch": "0"
+  },
+  {
+    "operator": "||"
+  },
+  {
+    "semver": ">=2.0.0",
+    "operator": ">=",
+    "major": "2",
+    "minor": "0",
+    "patch": "0"
+  },
+  {
+    "semver": "<3.0.0",
+    "operator": "<",
+    "major": "3",
+    "minor": "0",
+    "patch": "0"
+  }
+]
+`;
+
+exports[`parseRange > 範圍組合 / Range combinations > should parse complex range 1`] = `
+[
+  {
+    "semver": ">= 1.1.7",
+    "operator": ">=",
+    "major": "1",
+    "minor": "1",
+    "patch": "7"
+  },
+  {
+    "semver": "< 2.0.0",
+    "operator": "<",
+    "major": "2",
+    "minor": "0",
+    "patch": "0"
+  },
+  {
+    "operator": "||"
+  },
+  {
+    "semver": "1.1.3",
+    "major": "1",
+    "minor": "1",
+    "patch": "3"
+  }
+]
+`;
+
+exports[`parseRange > 範圍組合 / Range combinations > should parse hyphen range 1`] = `
+{
+  "semver": "1.0.0",
+  "major": "1",
+  "minor": "0",
+  "patch": "0"
+}
+`;
+
+exports[`parseRange > 範圍組合 / Range combinations > should parse hyphen range 2`] = `
+{
+  "operator": "-"
+}
+`;
+
+exports[`parseRange > 範圍組合 / Range combinations > should parse hyphen range 3`] = `
+{
+  "semver": "2.0.0",
+  "major": "2",
+  "minor": "0",
+  "patch": "0"
+}
+`;
+
+exports[`parseRange > 與 stringifyRange 整合 / Integration with stringifyRange > should be reversible with complex range 1`] = `
+">=1.1.7 <2.0.0 || 1.1.3"
+`;
+
+exports[`parseRange > 萬用字元與 x 範圍 / Wildcard and x ranges > should parse * range (major.*) 1`] = `
+{
+  "semver": "1.*",
+  "major": "1",
+  "minor": "*"
+}
+`;
+
+exports[`parseRange > 萬用字元與 x 範圍 / Wildcard and x ranges > should parse * wildcard 1`] = `
+[
+  {
+    "semver": "*"
+  }
+]
+`;
+
+exports[`parseRange > 萬用字元與 x 範圍 / Wildcard and x ranges > should parse *.* range 1`] = `
+[
+  {
+    "semver": "1.2.*",
+    "major": "1",
+    "minor": "2",
+    "patch": "*"
+  }
+]
+`;
+
+exports[`parseRange > 萬用字元與 x 範圍 / Wildcard and x ranges > should parse x range (major.x) 1`] = `
+{
+  "semver": "1.x",
+  "major": "1",
+  "minor": "x"
+}
+`;
+
+exports[`parseRange > 萬用字元與 x 範圍 / Wildcard and x ranges > should parse x.x range 1`] = `
+[
+  {
+    "semver": "1.2.x",
+    "major": "1",
+    "minor": "2",
+    "patch": "x"
+  }
+]
+`;
+
+exports[`parseRange > 運算子解析 / Operator parsing > should parse < operator 1`] = `
+{
+  "semver": "<2.0.0",
+  "operator": "<",
+  "major": "2",
+  "minor": "0",
+  "patch": "0"
+}
+`;
+
+exports[`parseRange > 運算子解析 / Operator parsing > should parse <= operator 1`] = `
+{
+  "semver": "<=2.0.0",
+  "operator": "<=",
+  "major": "2",
+  "minor": "0",
+  "patch": "0"
+}
+`;
+
+exports[`parseRange > 運算子解析 / Operator parsing > should parse = operator 1`] = `
+{
+  "semver": "=1.0.0",
+  "operator": "=",
+  "major": "1",
+  "minor": "0",
+  "patch": "0"
+}
+`;
+
+exports[`parseRange > 運算子解析 / Operator parsing > should parse > operator 1`] = `
+{
+  "semver": ">1.0.0",
+  "operator": ">",
+  "major": "1",
+  "minor": "0",
+  "patch": "0"
+}
+`;
+
+exports[`parseRange > 運算子解析 / Operator parsing > should parse >= operator 1`] = `
+{
+  "semver": ">=1.0.0",
+  "operator": ">=",
+  "major": "1",
+  "minor": "0",
+  "patch": "0"
+}
+`;
+
+exports[`parseRange > 運算子解析 / Operator parsing > should parse ^ (caret) operator 1`] = `
+{
+  "semver": "^1.2.3",
+  "operator": "^",
+  "major": "1",
+  "minor": "2",
+  "patch": "3"
+}
+`;
+
+exports[`parseRange > 運算子解析 / Operator parsing > should parse operator with space 1`] = `
+{
+  "semver": ">= 1.0.0",
+  "operator": ">=",
+  "major": "1",
+  "minor": "0",
+  "patch": "0"
+}
+`;
+
+exports[`parseRange > 運算子解析 / Operator parsing > should parse operator with v prefix 1`] = `
+{
+  "semver": ">= v1.0.0",
+  "operator": ">=",
+  "major": "1",
+  "minor": "0",
+  "patch": "0"
+}
+`;
+
+exports[`parseRange > 運算子解析 / Operator parsing > should parse tilde with v prefix 1`] = `
+{
+  "semver": "~v1.0.0",
+  "operator": "~",
+  "major": "1",
+  "minor": "0",
+  "patch": "0"
+}
+`;
+
+exports[`parseRange > 運算子解析 / Operator parsing > should parse ~ (tilde) operator 1`] = `
+{
+  "semver": "~1.2.3",
+  "operator": "~",
+  "major": "1",
+  "minor": "2",
+  "patch": "3"
+}
+`;
+
+exports[`parseRange > 運算子解析 / Operator parsing > should parse ~> operator 1`] = `
+{
+  "semver": "~>1.2.3",
+  "operator": "~>",
+  "major": "1",
+  "minor": "2",
+  "patch": "3"
+}
+`;
+
+exports[`parseRange > 邊界案例 / Edge cases > should handle extra whitespace 1`] = `
+[
+  {
+    "semver": ">=  1.0.0",
+    "operator": ">=",
+    "major": "1",
+    "minor": "0",
+    "patch": "0"
+  },
+  {
+    "semver": "<  2.0.0",
+    "operator": "<",
+    "major": "2",
+    "minor": "0",
+    "patch": "0"
+  }
+]
+`;
+
+exports[`parseRange > 邊界案例 / Edge cases > should parse 0.x version 1`] = `
+{
+  "semver": "0.0.1",
+  "major": "0",
+  "minor": "0",
+  "patch": "1"
+}
+`;
+
+exports[`parseRange > 邊界案例 / Edge cases > should parse version 0.0.0 1`] = `
+{
+  "semver": "0.0.0",
+  "major": "0",
+  "minor": "0",
+  "patch": "0"
+}
+`;
+
+exports[`parseRange > 預發布版本與建構元資料 / Pre-release and build metadata > should parse build metadata 1`] = `
+{
+  "semver": "2.0.0+build.1848",
+  "major": "2",
+  "minor": "0",
+  "patch": "0",
+  "build": "build.1848"
+}
+`;
+
+exports[`parseRange > 預發布版本與建構元資料 / Pre-release and build metadata > should parse pre-release and build together 1`] = `
+{
+  "semver": "1.0.0-alpha+build.123",
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "release": "alpha",
+  "build": "build.123"
+}
+`;
+
+exports[`parseRange > 預發布版本與建構元資料 / Pre-release and build metadata > should parse pre-release version 1`] = `
+{
+  "semver": "1.0.0-rc1",
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "release": "rc1"
+}
+`;
+
+exports[`parseRange > 預發布版本與建構元資料 / Pre-release and build metadata > should parse pre-release with hyphens 1`] = `
+{
+  "semver": "1.0.0-rc-2",
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "release": "rc-2"
+}
+`;

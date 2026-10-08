@@ -1,0 +1,617 @@
+exports[`isAliasResult > should return false for non-alias packages 1`] = `
+{
+  "inputSpec": "lodash@4.17.21",
+  "result": {
+    "type": "version",
+    "registry": true,
+    "raw": "lodash@4.17.21",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "4.17.21",
+    "saveSpec": null,
+    "fetchSpec": "4.17.21"
+  },
+  "actual": false,
+  "getSemverFromNpaResult": "4.17.21",
+  "_parsePackageNameCore": {
+    "type": "version",
+    "name": "lodash",
+    "subname": "lodash",
+    "semver": "4.17.21",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "lodash@4.17.21",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "4.17.21",
+      "saveSpec": null,
+      "fetchSpec": "4.17.21"
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`isAliasResult > should return true for alias packages 1`] = `
+{
+  "inputSpec": "my-lodash@npm:lodash@4.17.21",
+  "result": {
+    "type": "alias",
+    "registry": true,
+    "raw": "my-lodash@npm:lodash@4.17.21",
+    "name": "my-lodash",
+    "escapedName": "my-lodash",
+    "rawSpec": "npm:lodash@4.17.21",
+    "saveSpec": null,
+    "fetchSpec": null,
+    "subSpec": {
+      "type": "version",
+      "registry": true,
+      "raw": "lodash@4.17.21",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "4.17.21",
+      "saveSpec": null,
+      "fetchSpec": "4.17.21"
+    }
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "4.17.21",
+  "_parsePackageNameCore": {
+    "type": "alias",
+    "name": "my-lodash",
+    "subname": "my-lodash",
+    "semver": "4.17.21",
+    "result": {
+      "type": "alias",
+      "registry": true,
+      "raw": "my-lodash@npm:lodash@4.17.21",
+      "name": "my-lodash",
+      "escapedName": "my-lodash",
+      "rawSpec": "npm:lodash@4.17.21",
+      "saveSpec": null,
+      "fetchSpec": null,
+      "subSpec": {
+        "type": "version",
+        "registry": true,
+        "raw": "lodash@4.17.21",
+        "name": "lodash",
+        "escapedName": "lodash",
+        "rawSpec": "4.17.21",
+        "saveSpec": null,
+        "fetchSpec": "4.17.21"
+      }
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`isFileResult > should return false for registry packages 1`] = `
+{
+  "inputSpec": "lodash@4.17.21",
+  "result": {
+    "type": "version",
+    "registry": true,
+    "raw": "lodash@4.17.21",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "4.17.21",
+    "saveSpec": null,
+    "fetchSpec": "4.17.21"
+  },
+  "actual": false,
+  "getSemverFromNpaResult": "4.17.21",
+  "_parsePackageNameCore": {
+    "type": "version",
+    "name": "lodash",
+    "subname": "lodash",
+    "semver": "4.17.21",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "lodash@4.17.21",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "4.17.21",
+      "saveSpec": null,
+      "fetchSpec": "4.17.21"
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`isFileResult > should return true for directory packages 1`] = `
+{
+  "inputSpec": "../other-pkg",
+  "result": {
+    "type": "directory",
+    "where": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\npm-package-arg-util",
+    "raw": "../other-pkg",
+    "rawSpec": "../other-pkg",
+    "saveSpec": "file:../other-pkg",
+    "fetchSpec": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\other-pkg"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "../other-pkg",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`isFileResult > should return true for file packages 1`] = `
+{
+  "inputSpec": "./packages/my-pkg",
+  "result": {
+    "type": "directory",
+    "where": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\npm-package-arg-util",
+    "raw": "./packages/my-pkg",
+    "rawSpec": "./packages/my-pkg",
+    "saveSpec": "file:packages/my-pkg",
+    "fetchSpec": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\npm-package-arg-util\\\\packages\\\\my-pkg"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "./packages/my-pkg",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`isHostedGitResult > should return false for registry packages 1`] = `
+{
+  "inputSpec": "lodash@4.17.21",
+  "result": {
+    "type": "version",
+    "registry": true,
+    "raw": "lodash@4.17.21",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "4.17.21",
+    "saveSpec": null,
+    "fetchSpec": "4.17.21"
+  },
+  "actual": false,
+  "getSemverFromNpaResult": "4.17.21",
+  "_parsePackageNameCore": {
+    "type": "version",
+    "name": "lodash",
+    "subname": "lodash",
+    "semver": "4.17.21",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "lodash@4.17.21",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "4.17.21",
+      "saveSpec": null,
+      "fetchSpec": "4.17.21"
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`isHostedGitResult > should return true for GitHub URL 1`] = `
+{
+  "inputSpec": "github:bluelovers/ws-yarn-workspaces",
+  "result": {
+    "type": "git",
+    "raw": "github:bluelovers/ws-yarn-workspaces",
+    "rawSpec": "github:bluelovers/ws-yarn-workspaces",
+    "saveSpec": "github:bluelovers/ws-yarn-workspaces",
+    "fetchSpec": null,
+    "gitCommittish": null
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "github:bluelovers/ws-yarn-workspaces",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`isHostedGitResult > should return true for GitHub shorthand 1`] = `
+{
+  "inputSpec": "bluelovers/ws-yarn-workspaces",
+  "result": {
+    "type": "git",
+    "raw": "bluelovers/ws-yarn-workspaces",
+    "rawSpec": "bluelovers/ws-yarn-workspaces",
+    "saveSpec": "github:bluelovers/ws-yarn-workspaces",
+    "fetchSpec": null,
+    "gitCommittish": null
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "bluelovers/ws-yarn-workspaces",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`isNpmPackageArgResult > should return true for alias packages 1`] = `
+{
+  "inputSpec": "my-lodash@npm:lodash@4.17.21",
+  "result": {
+    "type": "alias",
+    "registry": true,
+    "raw": "my-lodash@npm:lodash@4.17.21",
+    "name": "my-lodash",
+    "escapedName": "my-lodash",
+    "rawSpec": "npm:lodash@4.17.21",
+    "saveSpec": null,
+    "fetchSpec": null,
+    "subSpec": {
+      "type": "version",
+      "registry": true,
+      "raw": "lodash@4.17.21",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "4.17.21",
+      "saveSpec": null,
+      "fetchSpec": "4.17.21"
+    }
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "4.17.21",
+  "_parsePackageNameCore": {
+    "type": "alias",
+    "name": "my-lodash",
+    "subname": "my-lodash",
+    "semver": "4.17.21",
+    "result": {
+      "type": "alias",
+      "registry": true,
+      "raw": "my-lodash@npm:lodash@4.17.21",
+      "name": "my-lodash",
+      "escapedName": "my-lodash",
+      "rawSpec": "npm:lodash@4.17.21",
+      "saveSpec": null,
+      "fetchSpec": null,
+      "subSpec": {
+        "type": "version",
+        "registry": true,
+        "raw": "lodash@4.17.21",
+        "name": "lodash",
+        "escapedName": "lodash",
+        "rawSpec": "4.17.21",
+        "saveSpec": null,
+        "fetchSpec": "4.17.21"
+      }
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`isNpmPackageArgResult > should return true for file packages 1`] = `
+{
+  "inputSpec": "./packages/my-pkg",
+  "result": {
+    "type": "directory",
+    "where": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\npm-package-arg-util",
+    "raw": "./packages/my-pkg",
+    "rawSpec": "./packages/my-pkg",
+    "saveSpec": "file:packages/my-pkg",
+    "fetchSpec": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\npm-package-arg-util\\\\packages\\\\my-pkg"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "./packages/my-pkg",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`isNpmPackageArgResult > should return true for git packages 1`] = `
+{
+  "inputSpec": "bluelovers/ws-yarn-workspaces",
+  "result": {
+    "type": "git",
+    "raw": "bluelovers/ws-yarn-workspaces",
+    "rawSpec": "bluelovers/ws-yarn-workspaces",
+    "saveSpec": "github:bluelovers/ws-yarn-workspaces",
+    "fetchSpec": null,
+    "gitCommittish": null
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "bluelovers/ws-yarn-workspaces",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`isNpmPackageArgResult > should return true for registry packages 1`] = `
+{
+  "inputSpec": "lodash@4.17.21",
+  "result": {
+    "type": "version",
+    "registry": true,
+    "raw": "lodash@4.17.21",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "4.17.21",
+    "saveSpec": null,
+    "fetchSpec": "4.17.21"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "4.17.21",
+  "_parsePackageNameCore": {
+    "type": "version",
+    "name": "lodash",
+    "subname": "lodash",
+    "semver": "4.17.21",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "lodash@4.17.21",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "4.17.21",
+      "saveSpec": null,
+      "fetchSpec": "4.17.21"
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`isRegistryResult > should return false for git packages 1`] = `
+{
+  "inputSpec": "bluelovers/ws-yarn-workspaces",
+  "result": {
+    "type": "git",
+    "raw": "bluelovers/ws-yarn-workspaces",
+    "rawSpec": "bluelovers/ws-yarn-workspaces",
+    "saveSpec": "github:bluelovers/ws-yarn-workspaces",
+    "fetchSpec": null,
+    "gitCommittish": null
+  },
+  "actual": false,
+  "getSemverFromNpaResult": "bluelovers/ws-yarn-workspaces",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`isRegistryResult > should return true for packages without version (defaults to range) 1`] = `
+{
+  "inputSpec": "lodash",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "lodash",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "*",
+    "saveSpec": null,
+    "fetchSpec": "*"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "*",
+  "_parsePackageNameCore": {
+    "type": "range",
+    "name": "lodash",
+    "subname": "lodash",
+    "semver": "*",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "lodash",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": true,
+  "isInputSpecIsStar": true
+}
+`;
+
+exports[`isRegistryResult > should return true for range packages 1`] = `
+{
+  "inputSpec": "lodash@^4.17.0",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "lodash@^4.17.0",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "^4.17.0",
+    "saveSpec": null,
+    "fetchSpec": "^4.17.0"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "^4.17.0",
+  "_parsePackageNameCore": {
+    "type": "range",
+    "name": "lodash",
+    "subname": "lodash",
+    "semver": "^4.17.0",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "lodash@^4.17.0",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "^4.17.0",
+      "saveSpec": null,
+      "fetchSpec": "^4.17.0"
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`isRegistryResult > should return true for tag packages 1`] = `
+{
+  "inputSpec": "lodash@beta",
+  "result": {
+    "type": "tag",
+    "registry": true,
+    "raw": "lodash@beta",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "beta",
+    "saveSpec": null,
+    "fetchSpec": "beta"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "beta",
+  "_parsePackageNameCore": {
+    "type": "tag",
+    "name": "lodash",
+    "subname": "lodash",
+    "semver": "beta",
+    "result": {
+      "type": "tag",
+      "registry": true,
+      "raw": "lodash@beta",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "beta",
+      "saveSpec": null,
+      "fetchSpec": "beta"
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`isRegistryResult > should return true for version packages 1`] = `
+{
+  "inputSpec": "lodash@4.17.21",
+  "result": {
+    "type": "version",
+    "registry": true,
+    "raw": "lodash@4.17.21",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "4.17.21",
+    "saveSpec": null,
+    "fetchSpec": "4.17.21"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "4.17.21",
+  "_parsePackageNameCore": {
+    "type": "version",
+    "name": "lodash",
+    "subname": "lodash",
+    "semver": "4.17.21",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "lodash@4.17.21",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "4.17.21",
+      "saveSpec": null,
+      "fetchSpec": "4.17.21"
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`isURLResult > should return false for GitHub shorthand (hosted) 1`] = `
+{
+  "inputSpec": "bluelovers/ws-yarn-workspaces",
+  "result": {
+    "type": "git",
+    "raw": "bluelovers/ws-yarn-workspaces",
+    "rawSpec": "bluelovers/ws-yarn-workspaces",
+    "saveSpec": "github:bluelovers/ws-yarn-workspaces",
+    "fetchSpec": null,
+    "gitCommittish": null
+  },
+  "actual": false,
+  "getSemverFromNpaResult": "bluelovers/ws-yarn-workspaces",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`isURLResult > should return false for registry packages 1`] = `
+{
+  "inputSpec": "lodash@4.17.21",
+  "result": {
+    "type": "version",
+    "registry": true,
+    "raw": "lodash@4.17.21",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "4.17.21",
+    "saveSpec": null,
+    "fetchSpec": "4.17.21"
+  },
+  "actual": false,
+  "getSemverFromNpaResult": "4.17.21",
+  "_parsePackageNameCore": {
+    "type": "version",
+    "name": "lodash",
+    "subname": "lodash",
+    "semver": "4.17.21",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "lodash@4.17.21",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "4.17.21",
+      "saveSpec": null,
+      "fetchSpec": "4.17.21"
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;

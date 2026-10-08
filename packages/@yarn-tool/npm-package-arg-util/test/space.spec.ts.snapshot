@@ -1,0 +1,629 @@
+exports[`Any > empty > @fake/fake@ 1`] = `
+{
+  "inputSpec": "@fake/fake@",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "@fake/fake@",
+    "name": "@fake/fake",
+    "escapedName": "@fake%2ffake",
+    "scope": "@fake",
+    "rawSpec": "*",
+    "saveSpec": null,
+    "fetchSpec": "*"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "*",
+  "_parsePackageNameCore": {
+    "type": "range",
+    "name": "@fake/fake",
+    "scope": "@fake",
+    "subname": "fake",
+    "semver": "*",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "@fake/fake@",
+      "name": "@fake/fake",
+      "escapedName": "@fake%2ffake",
+      "scope": "@fake",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": true,
+  "isNameSameAsRaw": true,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`Any > empty > @fake/fake@ 2`] = `
+{
+  "inputSpec": "@fake/fake@",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "@fake/fake@",
+    "name": "@fake/fake",
+    "escapedName": "@fake%2ffake",
+    "scope": "@fake",
+    "rawSpec": "*",
+    "saveSpec": null,
+    "fetchSpec": "*"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "*",
+  "_parsePackageNameCore": {
+    "type": "range",
+    "name": "@fake/fake",
+    "scope": "@fake",
+    "subname": "fake",
+    "semver": "*",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "@fake/fake@",
+      "name": "@fake/fake",
+      "escapedName": "@fake%2ffake",
+      "scope": "@fake",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": true,
+  "isNameSameAsRaw": true,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`Any > empty > empty 1`] = `
+{
+  "inputSpec": "",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": ""
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "",
+  "isRawSpecIsEmpty": true,
+  "isInputSpecIsEmpty": true,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`Any > empty > empty 2`] = `
+{
+  "inputSpec": "",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": ""
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "",
+  "isRawSpecIsEmpty": true,
+  "isInputSpecIsEmpty": true,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`Any > empty > fake@ 1`] = `
+{
+  "inputSpec": "fake@",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "fake@",
+    "name": "fake",
+    "escapedName": "fake",
+    "rawSpec": "*",
+    "saveSpec": null,
+    "fetchSpec": "*"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "*",
+  "_parsePackageNameCore": {
+    "type": "range",
+    "name": "fake",
+    "subname": "fake",
+    "semver": "*",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "fake@",
+      "name": "fake",
+      "escapedName": "fake",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": true,
+  "isNameSameAsRaw": true,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`Any > empty > fake@ 2`] = `
+{
+  "inputSpec": "fake@",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "fake@",
+    "name": "fake",
+    "escapedName": "fake",
+    "rawSpec": "*",
+    "saveSpec": null,
+    "fetchSpec": "*"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "*",
+  "_parsePackageNameCore": {
+    "type": "range",
+    "name": "fake",
+    "subname": "fake",
+    "semver": "*",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "fake@",
+      "name": "fake",
+      "escapedName": "fake",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": true,
+  "isNameSameAsRaw": true,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`Any > space > @fake/fake@  1`] = `
+{
+  "inputSpec": "@fake/fake@ ",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "@fake/fake@ ",
+    "name": "@fake/fake",
+    "escapedName": "@fake%2ffake",
+    "scope": "@fake",
+    "rawSpec": " ",
+    "saveSpec": null,
+    "fetchSpec": ""
+  },
+  "actual": true,
+  "getSemverFromNpaResult": " ",
+  "_parsePackageNameCore": {
+    "type": "range",
+    "name": "@fake/fake",
+    "scope": "@fake",
+    "subname": "fake",
+    "semver": " ",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "@fake/fake@ ",
+      "name": "@fake/fake",
+      "escapedName": "@fake%2ffake",
+      "scope": "@fake",
+      "rawSpec": " ",
+      "saveSpec": null,
+      "fetchSpec": ""
+    }
+  },
+  "isRawSpecIsEmpty": true,
+  "isInputSpecIsEmpty": true,
+  "isNameSameAsRaw": true,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`Any > space > @fake/fake@  2`] = `
+{
+  "inputSpec": "@fake/fake@ ",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "@fake/fake@ ",
+    "name": "@fake/fake",
+    "escapedName": "@fake%2ffake",
+    "scope": "@fake",
+    "rawSpec": " ",
+    "saveSpec": null,
+    "fetchSpec": ""
+  },
+  "actual": true,
+  "getSemverFromNpaResult": " ",
+  "_parsePackageNameCore": {
+    "type": "range",
+    "name": "@fake/fake",
+    "scope": "@fake",
+    "subname": "fake",
+    "semver": " ",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "@fake/fake@ ",
+      "name": "@fake/fake",
+      "escapedName": "@fake%2ffake",
+      "scope": "@fake",
+      "rawSpec": " ",
+      "saveSpec": null,
+      "fetchSpec": ""
+    }
+  },
+  "isRawSpecIsEmpty": true,
+  "isInputSpecIsEmpty": true,
+  "isNameSameAsRaw": true,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`Any > space > fake@  1`] = `
+{
+  "inputSpec": "fake@ ",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "fake@ ",
+    "name": "fake",
+    "escapedName": "fake",
+    "rawSpec": " ",
+    "saveSpec": null,
+    "fetchSpec": ""
+  },
+  "actual": true,
+  "getSemverFromNpaResult": " ",
+  "_parsePackageNameCore": {
+    "type": "range",
+    "name": "fake",
+    "subname": "fake",
+    "semver": " ",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "fake@ ",
+      "name": "fake",
+      "escapedName": "fake",
+      "rawSpec": " ",
+      "saveSpec": null,
+      "fetchSpec": ""
+    }
+  },
+  "isRawSpecIsEmpty": true,
+  "isInputSpecIsEmpty": true,
+  "isNameSameAsRaw": true,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`Any > space > fake@  2`] = `
+{
+  "inputSpec": "fake@ ",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "fake@ ",
+    "name": "fake",
+    "escapedName": "fake",
+    "rawSpec": " ",
+    "saveSpec": null,
+    "fetchSpec": ""
+  },
+  "actual": true,
+  "getSemverFromNpaResult": " ",
+  "_parsePackageNameCore": {
+    "type": "range",
+    "name": "fake",
+    "subname": "fake",
+    "semver": " ",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "fake@ ",
+      "name": "fake",
+      "escapedName": "fake",
+      "rawSpec": " ",
+      "saveSpec": null,
+      "fetchSpec": ""
+    }
+  },
+  "isRawSpecIsEmpty": true,
+  "isInputSpecIsEmpty": true,
+  "isNameSameAsRaw": true,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`Any > space > space 1`] = `
+{
+  "inputSpec": " ",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": " ",
+    "rawSpec": " ",
+    "saveSpec": null,
+    "fetchSpec": ""
+  },
+  "actual": true,
+  "getSemverFromNpaResult": " ",
+  "isRawSpecIsEmpty": true,
+  "isInputSpecIsEmpty": true,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`Any > space > space 2`] = `
+{
+  "inputSpec": " ",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": " ",
+    "rawSpec": " ",
+    "saveSpec": null,
+    "fetchSpec": ""
+  },
+  "actual": true,
+  "getSemverFromNpaResult": " ",
+  "isRawSpecIsEmpty": true,
+  "isInputSpecIsEmpty": true,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`Any > star > @fake/fake@* 1`] = `
+{
+  "inputSpec": "@fake/fake@*",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "@fake/fake@*",
+    "name": "@fake/fake",
+    "escapedName": "@fake%2ffake",
+    "scope": "@fake",
+    "rawSpec": "*",
+    "saveSpec": null,
+    "fetchSpec": "*"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "*",
+  "_parsePackageNameCore": {
+    "type": "range",
+    "name": "@fake/fake",
+    "scope": "@fake",
+    "subname": "fake",
+    "semver": "*",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "@fake/fake@*",
+      "name": "@fake/fake",
+      "escapedName": "@fake%2ffake",
+      "scope": "@fake",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": true
+}
+`;
+
+exports[`Any > star > @fake/fake@* 2`] = `
+{
+  "inputSpec": "@fake/fake@*",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "@fake/fake@*",
+    "name": "@fake/fake",
+    "escapedName": "@fake%2ffake",
+    "scope": "@fake",
+    "rawSpec": "*",
+    "saveSpec": null,
+    "fetchSpec": "*"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "*",
+  "_parsePackageNameCore": {
+    "type": "range",
+    "name": "@fake/fake",
+    "scope": "@fake",
+    "subname": "fake",
+    "semver": "*",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "@fake/fake@*",
+      "name": "@fake/fake",
+      "escapedName": "@fake%2ffake",
+      "scope": "@fake",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": true
+}
+`;
+
+exports[`Any > star > fake@* 1`] = `
+{
+  "inputSpec": "fake@*",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "fake@*",
+    "name": "fake",
+    "escapedName": "fake",
+    "rawSpec": "*",
+    "saveSpec": null,
+    "fetchSpec": "*"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "*",
+  "_parsePackageNameCore": {
+    "type": "range",
+    "name": "fake",
+    "subname": "fake",
+    "semver": "*",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "fake@*",
+      "name": "fake",
+      "escapedName": "fake",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": true
+}
+`;
+
+exports[`Any > star > fake@* 2`] = `
+{
+  "inputSpec": "fake@*",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "fake@*",
+    "name": "fake",
+    "escapedName": "fake",
+    "rawSpec": "*",
+    "saveSpec": null,
+    "fetchSpec": "*"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "*",
+  "_parsePackageNameCore": {
+    "type": "range",
+    "name": "fake",
+    "subname": "fake",
+    "semver": "*",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "fake@*",
+      "name": "fake",
+      "escapedName": "fake",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": true
+}
+`;
+
+exports[`Any > star > star 1`] = `
+{
+  "inputSpec": "*",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "*",
+    "name": "*",
+    "escapedName": "*",
+    "rawSpec": "*",
+    "saveSpec": null,
+    "fetchSpec": "*"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "*",
+  "_parsePackageNameCore": {
+    "type": "range",
+    "name": "*",
+    "subname": "*",
+    "semver": "*",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "*",
+      "name": "*",
+      "escapedName": "*",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": true,
+  "isInputSpecIsStar": true
+}
+`;
+
+exports[`Any > star > star 2`] = `
+{
+  "inputSpec": "*",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "*",
+    "name": "*",
+    "escapedName": "*",
+    "rawSpec": "*",
+    "saveSpec": null,
+    "fetchSpec": "*"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "*",
+  "_parsePackageNameCore": {
+    "type": "range",
+    "name": "*",
+    "subname": "*",
+    "semver": "*",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "*",
+      "name": "*",
+      "escapedName": "*",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": true,
+  "isInputSpecIsStar": true
+}
+`;

@@ -1,0 +1,959 @@
+exports[`shebang > '#! /bin/sed -f' => sed 1`] = `
+{
+  "shebang": "#! /bin/sed -f",
+  "bin": "/bin/sed",
+  "name": "sed",
+  "script": "sed",
+  "argv": "-f",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '#! /bin/sed -f' => sed 2`] = `
+""
+`;
+
+exports[`shebang > '#! /bin/sed -f\\n\\n' => sed 1`] = `
+{
+  "shebang": "#! /bin/sed -f",
+  "bin": "/bin/sed",
+  "name": "sed",
+  "script": "sed",
+  "argv": "-f",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '#! /bin/sed -f\\n\\n' => sed 2`] = `
+"\\n\\n"
+`;
+
+exports[`shebang > '#! /bin/sh' => sh 1`] = `
+{
+  "shebang": "#! /bin/sh",
+  "bin": "/bin/sh",
+  "name": "sh",
+  "script": "sh",
+  "argv": "",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '#! /bin/sh' => sh 2`] = `
+""
+`;
+
+exports[`shebang > '#! /bin/sh\\n\\n' => sh 1`] = `
+{
+  "shebang": "#! /bin/sh",
+  "bin": "/bin/sh",
+  "name": "sh",
+  "script": "sh",
+  "argv": "",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '#! /bin/sh\\n\\n' => sh 2`] = `
+"\\n\\n"
+`;
+
+exports[`shebang > '#! /usr/awk -f' => awk 1`] = `
+{
+  "shebang": "#! /usr/awk -f",
+  "bin": "/usr/awk",
+  "name": "awk",
+  "script": "awk",
+  "argv": "-f",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '#! /usr/awk -f' => awk 2`] = `
+""
+`;
+
+exports[`shebang > '#! /usr/awk -f\\n\\n' => awk 1`] = `
+{
+  "shebang": "#! /usr/awk -f",
+  "bin": "/usr/awk",
+  "name": "awk",
+  "script": "awk",
+  "argv": "-f",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '#! /usr/awk -f\\n\\n' => awk 2`] = `
+"\\n\\n"
+`;
+
+exports[`shebang > '#! /usr/bin/env node' => node 1`] = `
+{
+  "shebang": "#! /usr/bin/env node",
+  "bin": "/usr/bin/env",
+  "name": "env",
+  "script": "node",
+  "argv": "",
+  "isExtra": true
+}
+`;
+
+exports[`shebang > '#! /usr/bin/env node' => node 2`] = `
+""
+`;
+
+exports[`shebang > '#! /usr/bin/env node\\n\\n' => node 1`] = `
+{
+  "shebang": "#! /usr/bin/env node",
+  "bin": "/usr/bin/env",
+  "name": "env",
+  "script": "node",
+  "argv": "",
+  "isExtra": true
+}
+`;
+
+exports[`shebang > '#! /usr/bin/env node\\n\\n' => node 2`] = `
+"\\n\\n"
+`;
+
+exports[`shebang > '#! /usr/bin/env python -c' => python 1`] = `
+{
+  "shebang": "#! /usr/bin/env python -c",
+  "bin": "/usr/bin/env",
+  "name": "env",
+  "script": "python",
+  "argv": "-c",
+  "isExtra": true
+}
+`;
+
+exports[`shebang > '#! /usr/bin/env python -c' => python 2`] = `
+""
+`;
+
+exports[`shebang > '#! /usr/bin/env python -c\\n\\n' => python 1`] = `
+{
+  "shebang": "#! /usr/bin/env python -c",
+  "bin": "/usr/bin/env",
+  "name": "env",
+  "script": "python",
+  "argv": "-c",
+  "isExtra": true
+}
+`;
+
+exports[`shebang > '#! /usr/bin/env python -c\\n\\n' => python 2`] = `
+"\\n\\n"
+`;
+
+exports[`shebang > '#! /usr/bin/php' => php 1`] = `
+{
+  "shebang": "#! /usr/bin/php",
+  "bin": "/usr/bin/php",
+  "name": "php",
+  "script": "php",
+  "argv": "",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '#! /usr/bin/php' => php 2`] = `
+""
+`;
+
+exports[`shebang > '#! /usr/bin/php5' => php5 1`] = `
+{
+  "shebang": "#! /usr/bin/php5",
+  "bin": "/usr/bin/php5",
+  "name": "php5",
+  "script": "php5",
+  "argv": "",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '#! /usr/bin/php5' => php5 2`] = `
+""
+`;
+
+exports[`shebang > '#! /usr/bin/php5\\n\\n' => php5 1`] = `
+{
+  "shebang": "#! /usr/bin/php5",
+  "bin": "/usr/bin/php5",
+  "name": "php5",
+  "script": "php5",
+  "argv": "",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '#! /usr/bin/php5\\n\\n' => php5 2`] = `
+"\\n\\n"
+`;
+
+exports[`shebang > '#! /usr/bin/php\\n\\n' => php 1`] = `
+{
+  "shebang": "#! /usr/bin/php",
+  "bin": "/usr/bin/php",
+  "name": "php",
+  "script": "php",
+  "argv": "",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '#! /usr/bin/php\\n\\n' => php 2`] = `
+"\\n\\n"
+`;
+
+exports[`shebang > '#! /usr/bin/ruby' => ruby 1`] = `
+{
+  "shebang": "#! /usr/bin/ruby",
+  "bin": "/usr/bin/ruby",
+  "name": "ruby",
+  "script": "ruby",
+  "argv": "",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '#! /usr/bin/ruby' => ruby 2`] = `
+""
+`;
+
+exports[`shebang > '#! /usr/bin/ruby\\n\\n' => ruby 1`] = `
+{
+  "shebang": "#! /usr/bin/ruby",
+  "bin": "/usr/bin/ruby",
+  "name": "ruby",
+  "script": "ruby",
+  "argv": "",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '#! /usr/bin/ruby\\n\\n' => ruby 2`] = `
+"\\n\\n"
+`;
+
+exports[`shebang > '#!/bin/sed -f' => sed 1`] = `
+{
+  "shebang": "#!/bin/sed -f",
+  "bin": "/bin/sed",
+  "name": "sed",
+  "script": "sed",
+  "argv": "-f",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '#!/bin/sed -f' => sed 2`] = `
+""
+`;
+
+exports[`shebang > '#!/bin/sed -f\\n\\n' => sed 1`] = `
+{
+  "shebang": "#!/bin/sed -f",
+  "bin": "/bin/sed",
+  "name": "sed",
+  "script": "sed",
+  "argv": "-f",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '#!/bin/sed -f\\n\\n' => sed 2`] = `
+"\\n\\n"
+`;
+
+exports[`shebang > '#!/bin/sh' => sh 1`] = `
+{
+  "shebang": "#!/bin/sh",
+  "bin": "/bin/sh",
+  "name": "sh",
+  "script": "sh",
+  "argv": "",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '#!/bin/sh' => sh 2`] = `
+""
+`;
+
+exports[`shebang > '#!/bin/sh\\n\\n' => sh 1`] = `
+{
+  "shebang": "#!/bin/sh",
+  "bin": "/bin/sh",
+  "name": "sh",
+  "script": "sh",
+  "argv": "",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '#!/bin/sh\\n\\n' => sh 2`] = `
+"\\n\\n"
+`;
+
+exports[`shebang > '#!/usr/awk -f' => awk 1`] = `
+{
+  "shebang": "#!/usr/awk -f",
+  "bin": "/usr/awk",
+  "name": "awk",
+  "script": "awk",
+  "argv": "-f",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '#!/usr/awk -f' => awk 2`] = `
+""
+`;
+
+exports[`shebang > '#!/usr/awk -f\\n\\n' => awk 1`] = `
+{
+  "shebang": "#!/usr/awk -f",
+  "bin": "/usr/awk",
+  "name": "awk",
+  "script": "awk",
+  "argv": "-f",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '#!/usr/awk -f\\n\\n' => awk 2`] = `
+"\\n\\n"
+`;
+
+exports[`shebang > '#!/usr/bin/env node' => node 1`] = `
+{
+  "shebang": "#!/usr/bin/env node",
+  "bin": "/usr/bin/env",
+  "name": "env",
+  "script": "node",
+  "argv": "",
+  "isExtra": true
+}
+`;
+
+exports[`shebang > '#!/usr/bin/env node' => node 2`] = `
+""
+`;
+
+exports[`shebang > '#!/usr/bin/env node\\n\\n' => node 1`] = `
+{
+  "shebang": "#!/usr/bin/env node",
+  "bin": "/usr/bin/env",
+  "name": "env",
+  "script": "node",
+  "argv": "",
+  "isExtra": true
+}
+`;
+
+exports[`shebang > '#!/usr/bin/env node\\n\\n' => node 2`] = `
+"\\n\\n"
+`;
+
+exports[`shebang > '#!/usr/bin/env python -c' => python 1`] = `
+{
+  "shebang": "#!/usr/bin/env python -c",
+  "bin": "/usr/bin/env",
+  "name": "env",
+  "script": "python",
+  "argv": "-c",
+  "isExtra": true
+}
+`;
+
+exports[`shebang > '#!/usr/bin/env python -c' => python 2`] = `
+""
+`;
+
+exports[`shebang > '#!/usr/bin/env python -c\\n\\n' => python 1`] = `
+{
+  "shebang": "#!/usr/bin/env python -c",
+  "bin": "/usr/bin/env",
+  "name": "env",
+  "script": "python",
+  "argv": "-c",
+  "isExtra": true
+}
+`;
+
+exports[`shebang > '#!/usr/bin/env python -c\\n\\n' => python 2`] = `
+"\\n\\n"
+`;
+
+exports[`shebang > '#!/usr/bin/php' => php 1`] = `
+{
+  "shebang": "#!/usr/bin/php",
+  "bin": "/usr/bin/php",
+  "name": "php",
+  "script": "php",
+  "argv": "",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '#!/usr/bin/php' => php 2`] = `
+""
+`;
+
+exports[`shebang > '#!/usr/bin/php5' => php5 1`] = `
+{
+  "shebang": "#!/usr/bin/php5",
+  "bin": "/usr/bin/php5",
+  "name": "php5",
+  "script": "php5",
+  "argv": "",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '#!/usr/bin/php5' => php5 2`] = `
+""
+`;
+
+exports[`shebang > '#!/usr/bin/php5\\n\\n' => php5 1`] = `
+{
+  "shebang": "#!/usr/bin/php5",
+  "bin": "/usr/bin/php5",
+  "name": "php5",
+  "script": "php5",
+  "argv": "",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '#!/usr/bin/php5\\n\\n' => php5 2`] = `
+"\\n\\n"
+`;
+
+exports[`shebang > '#!/usr/bin/php\\n\\n' => php 1`] = `
+{
+  "shebang": "#!/usr/bin/php",
+  "bin": "/usr/bin/php",
+  "name": "php",
+  "script": "php",
+  "argv": "",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '#!/usr/bin/php\\n\\n' => php 2`] = `
+"\\n\\n"
+`;
+
+exports[`shebang > '#!/usr/bin/ruby' => ruby 1`] = `
+{
+  "shebang": "#!/usr/bin/ruby",
+  "bin": "/usr/bin/ruby",
+  "name": "ruby",
+  "script": "ruby",
+  "argv": "",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '#!/usr/bin/ruby' => ruby 2`] = `
+""
+`;
+
+exports[`shebang > '#!/usr/bin/ruby\\n\\n' => ruby 1`] = `
+{
+  "shebang": "#!/usr/bin/ruby",
+  "bin": "/usr/bin/ruby",
+  "name": "ruby",
+  "script": "ruby",
+  "argv": "",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '#!/usr/bin/ruby\\n\\n' => ruby 2`] = `
+"\\n\\n"
+`;
+
+exports[`shebang > '\\n\\n#! /bin/sed -f' => sed 1`] = `
+{
+  "shebang": "\\n\\n#! /bin/sed -f",
+  "bin": "/bin/sed",
+  "name": "sed",
+  "script": "sed",
+  "argv": "-f",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '\\n\\n#! /bin/sed -f' => sed 2`] = `
+""
+`;
+
+exports[`shebang > '\\n\\n#! /bin/sed -f\\n\\n' => sed 1`] = `
+{
+  "shebang": "\\n\\n#! /bin/sed -f",
+  "bin": "/bin/sed",
+  "name": "sed",
+  "script": "sed",
+  "argv": "-f",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '\\n\\n#! /bin/sed -f\\n\\n' => sed 2`] = `
+"\\n\\n"
+`;
+
+exports[`shebang > '\\n\\n#! /bin/sh' => sh 1`] = `
+{
+  "shebang": "\\n\\n#! /bin/sh",
+  "bin": "/bin/sh",
+  "name": "sh",
+  "script": "sh",
+  "argv": "",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '\\n\\n#! /bin/sh' => sh 2`] = `
+""
+`;
+
+exports[`shebang > '\\n\\n#! /bin/sh\\n\\n' => sh 1`] = `
+{
+  "shebang": "\\n\\n#! /bin/sh",
+  "bin": "/bin/sh",
+  "name": "sh",
+  "script": "sh",
+  "argv": "",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '\\n\\n#! /bin/sh\\n\\n' => sh 2`] = `
+"\\n\\n"
+`;
+
+exports[`shebang > '\\n\\n#! /usr/awk -f' => awk 1`] = `
+{
+  "shebang": "\\n\\n#! /usr/awk -f",
+  "bin": "/usr/awk",
+  "name": "awk",
+  "script": "awk",
+  "argv": "-f",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '\\n\\n#! /usr/awk -f' => awk 2`] = `
+""
+`;
+
+exports[`shebang > '\\n\\n#! /usr/awk -f\\n\\n' => awk 1`] = `
+{
+  "shebang": "\\n\\n#! /usr/awk -f",
+  "bin": "/usr/awk",
+  "name": "awk",
+  "script": "awk",
+  "argv": "-f",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '\\n\\n#! /usr/awk -f\\n\\n' => awk 2`] = `
+"\\n\\n"
+`;
+
+exports[`shebang > '\\n\\n#! /usr/bin/env node' => node 1`] = `
+{
+  "shebang": "\\n\\n#! /usr/bin/env node",
+  "bin": "/usr/bin/env",
+  "name": "env",
+  "script": "node",
+  "argv": "",
+  "isExtra": true
+}
+`;
+
+exports[`shebang > '\\n\\n#! /usr/bin/env node' => node 2`] = `
+""
+`;
+
+exports[`shebang > '\\n\\n#! /usr/bin/env node\\n\\n' => node 1`] = `
+{
+  "shebang": "\\n\\n#! /usr/bin/env node",
+  "bin": "/usr/bin/env",
+  "name": "env",
+  "script": "node",
+  "argv": "",
+  "isExtra": true
+}
+`;
+
+exports[`shebang > '\\n\\n#! /usr/bin/env node\\n\\n' => node 2`] = `
+"\\n\\n"
+`;
+
+exports[`shebang > '\\n\\n#! /usr/bin/env python -c' => python 1`] = `
+{
+  "shebang": "\\n\\n#! /usr/bin/env python -c",
+  "bin": "/usr/bin/env",
+  "name": "env",
+  "script": "python",
+  "argv": "-c",
+  "isExtra": true
+}
+`;
+
+exports[`shebang > '\\n\\n#! /usr/bin/env python -c' => python 2`] = `
+""
+`;
+
+exports[`shebang > '\\n\\n#! /usr/bin/env python -c\\n\\n' => python 1`] = `
+{
+  "shebang": "\\n\\n#! /usr/bin/env python -c",
+  "bin": "/usr/bin/env",
+  "name": "env",
+  "script": "python",
+  "argv": "-c",
+  "isExtra": true
+}
+`;
+
+exports[`shebang > '\\n\\n#! /usr/bin/env python -c\\n\\n' => python 2`] = `
+"\\n\\n"
+`;
+
+exports[`shebang > '\\n\\n#! /usr/bin/php' => php 1`] = `
+{
+  "shebang": "\\n\\n#! /usr/bin/php",
+  "bin": "/usr/bin/php",
+  "name": "php",
+  "script": "php",
+  "argv": "",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '\\n\\n#! /usr/bin/php' => php 2`] = `
+""
+`;
+
+exports[`shebang > '\\n\\n#! /usr/bin/php5' => php5 1`] = `
+{
+  "shebang": "\\n\\n#! /usr/bin/php5",
+  "bin": "/usr/bin/php5",
+  "name": "php5",
+  "script": "php5",
+  "argv": "",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '\\n\\n#! /usr/bin/php5' => php5 2`] = `
+""
+`;
+
+exports[`shebang > '\\n\\n#! /usr/bin/php5\\n\\n' => php5 1`] = `
+{
+  "shebang": "\\n\\n#! /usr/bin/php5",
+  "bin": "/usr/bin/php5",
+  "name": "php5",
+  "script": "php5",
+  "argv": "",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '\\n\\n#! /usr/bin/php5\\n\\n' => php5 2`] = `
+"\\n\\n"
+`;
+
+exports[`shebang > '\\n\\n#! /usr/bin/php\\n\\n' => php 1`] = `
+{
+  "shebang": "\\n\\n#! /usr/bin/php",
+  "bin": "/usr/bin/php",
+  "name": "php",
+  "script": "php",
+  "argv": "",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '\\n\\n#! /usr/bin/php\\n\\n' => php 2`] = `
+"\\n\\n"
+`;
+
+exports[`shebang > '\\n\\n#! /usr/bin/ruby' => ruby 1`] = `
+{
+  "shebang": "\\n\\n#! /usr/bin/ruby",
+  "bin": "/usr/bin/ruby",
+  "name": "ruby",
+  "script": "ruby",
+  "argv": "",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '\\n\\n#! /usr/bin/ruby' => ruby 2`] = `
+""
+`;
+
+exports[`shebang > '\\n\\n#! /usr/bin/ruby\\n\\n' => ruby 1`] = `
+{
+  "shebang": "\\n\\n#! /usr/bin/ruby",
+  "bin": "/usr/bin/ruby",
+  "name": "ruby",
+  "script": "ruby",
+  "argv": "",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '\\n\\n#! /usr/bin/ruby\\n\\n' => ruby 2`] = `
+"\\n\\n"
+`;
+
+exports[`shebang > '\\n\\n#!/bin/sed -f' => sed 1`] = `
+{
+  "shebang": "\\n\\n#!/bin/sed -f",
+  "bin": "/bin/sed",
+  "name": "sed",
+  "script": "sed",
+  "argv": "-f",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '\\n\\n#!/bin/sed -f' => sed 2`] = `
+""
+`;
+
+exports[`shebang > '\\n\\n#!/bin/sed -f\\n\\n' => sed 1`] = `
+{
+  "shebang": "\\n\\n#!/bin/sed -f",
+  "bin": "/bin/sed",
+  "name": "sed",
+  "script": "sed",
+  "argv": "-f",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '\\n\\n#!/bin/sed -f\\n\\n' => sed 2`] = `
+"\\n\\n"
+`;
+
+exports[`shebang > '\\n\\n#!/bin/sh' => sh 1`] = `
+{
+  "shebang": "\\n\\n#!/bin/sh",
+  "bin": "/bin/sh",
+  "name": "sh",
+  "script": "sh",
+  "argv": "",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '\\n\\n#!/bin/sh' => sh 2`] = `
+""
+`;
+
+exports[`shebang > '\\n\\n#!/bin/sh\\n\\n' => sh 1`] = `
+{
+  "shebang": "\\n\\n#!/bin/sh",
+  "bin": "/bin/sh",
+  "name": "sh",
+  "script": "sh",
+  "argv": "",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '\\n\\n#!/bin/sh\\n\\n' => sh 2`] = `
+"\\n\\n"
+`;
+
+exports[`shebang > '\\n\\n#!/usr/awk -f' => awk 1`] = `
+{
+  "shebang": "\\n\\n#!/usr/awk -f",
+  "bin": "/usr/awk",
+  "name": "awk",
+  "script": "awk",
+  "argv": "-f",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '\\n\\n#!/usr/awk -f' => awk 2`] = `
+""
+`;
+
+exports[`shebang > '\\n\\n#!/usr/awk -f\\n\\n' => awk 1`] = `
+{
+  "shebang": "\\n\\n#!/usr/awk -f",
+  "bin": "/usr/awk",
+  "name": "awk",
+  "script": "awk",
+  "argv": "-f",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '\\n\\n#!/usr/awk -f\\n\\n' => awk 2`] = `
+"\\n\\n"
+`;
+
+exports[`shebang > '\\n\\n#!/usr/bin/env node' => node 1`] = `
+{
+  "shebang": "\\n\\n#!/usr/bin/env node",
+  "bin": "/usr/bin/env",
+  "name": "env",
+  "script": "node",
+  "argv": "",
+  "isExtra": true
+}
+`;
+
+exports[`shebang > '\\n\\n#!/usr/bin/env node' => node 2`] = `
+""
+`;
+
+exports[`shebang > '\\n\\n#!/usr/bin/env node\\n\\n' => node 1`] = `
+{
+  "shebang": "\\n\\n#!/usr/bin/env node",
+  "bin": "/usr/bin/env",
+  "name": "env",
+  "script": "node",
+  "argv": "",
+  "isExtra": true
+}
+`;
+
+exports[`shebang > '\\n\\n#!/usr/bin/env node\\n\\n' => node 2`] = `
+"\\n\\n"
+`;
+
+exports[`shebang > '\\n\\n#!/usr/bin/env python -c' => python 1`] = `
+{
+  "shebang": "\\n\\n#!/usr/bin/env python -c",
+  "bin": "/usr/bin/env",
+  "name": "env",
+  "script": "python",
+  "argv": "-c",
+  "isExtra": true
+}
+`;
+
+exports[`shebang > '\\n\\n#!/usr/bin/env python -c' => python 2`] = `
+""
+`;
+
+exports[`shebang > '\\n\\n#!/usr/bin/env python -c\\n\\n' => python 1`] = `
+{
+  "shebang": "\\n\\n#!/usr/bin/env python -c",
+  "bin": "/usr/bin/env",
+  "name": "env",
+  "script": "python",
+  "argv": "-c",
+  "isExtra": true
+}
+`;
+
+exports[`shebang > '\\n\\n#!/usr/bin/env python -c\\n\\n' => python 2`] = `
+"\\n\\n"
+`;
+
+exports[`shebang > '\\n\\n#!/usr/bin/php' => php 1`] = `
+{
+  "shebang": "\\n\\n#!/usr/bin/php",
+  "bin": "/usr/bin/php",
+  "name": "php",
+  "script": "php",
+  "argv": "",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '\\n\\n#!/usr/bin/php' => php 2`] = `
+""
+`;
+
+exports[`shebang > '\\n\\n#!/usr/bin/php5' => php5 1`] = `
+{
+  "shebang": "\\n\\n#!/usr/bin/php5",
+  "bin": "/usr/bin/php5",
+  "name": "php5",
+  "script": "php5",
+  "argv": "",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '\\n\\n#!/usr/bin/php5' => php5 2`] = `
+""
+`;
+
+exports[`shebang > '\\n\\n#!/usr/bin/php5\\n\\n' => php5 1`] = `
+{
+  "shebang": "\\n\\n#!/usr/bin/php5",
+  "bin": "/usr/bin/php5",
+  "name": "php5",
+  "script": "php5",
+  "argv": "",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '\\n\\n#!/usr/bin/php5\\n\\n' => php5 2`] = `
+"\\n\\n"
+`;
+
+exports[`shebang > '\\n\\n#!/usr/bin/php\\n\\n' => php 1`] = `
+{
+  "shebang": "\\n\\n#!/usr/bin/php",
+  "bin": "/usr/bin/php",
+  "name": "php",
+  "script": "php",
+  "argv": "",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '\\n\\n#!/usr/bin/php\\n\\n' => php 2`] = `
+"\\n\\n"
+`;
+
+exports[`shebang > '\\n\\n#!/usr/bin/ruby' => ruby 1`] = `
+{
+  "shebang": "\\n\\n#!/usr/bin/ruby",
+  "bin": "/usr/bin/ruby",
+  "name": "ruby",
+  "script": "ruby",
+  "argv": "",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '\\n\\n#!/usr/bin/ruby' => ruby 2`] = `
+""
+`;
+
+exports[`shebang > '\\n\\n#!/usr/bin/ruby\\n\\n' => ruby 1`] = `
+{
+  "shebang": "\\n\\n#!/usr/bin/ruby",
+  "bin": "/usr/bin/ruby",
+  "name": "ruby",
+  "script": "ruby",
+  "argv": "",
+  "isExtra": false
+}
+`;
+
+exports[`shebang > '\\n\\n#!/usr/bin/ruby\\n\\n' => ruby 2`] = `
+"\\n\\n"
+`;

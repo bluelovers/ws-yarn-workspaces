@@ -1,0 +1,7 @@
+exports[`createDependencyTable 1`] = `
+[]
+`;
+
+exports[`createDependencyTable 2`] = `
+"\\u001b[31m package name \\u001b[39m\\u001b[31m old version(s) \\u001b[39m\\u001b[31m  \\u001b[39m\\u001b[31m new version(s) \\u001b[39m"
+`;

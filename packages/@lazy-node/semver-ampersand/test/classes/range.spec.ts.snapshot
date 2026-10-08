@@ -1,0 +1,93 @@
+exports[`missing range parameter in range intersect 1`] = `
+"a Range is required"
+`;
+
+exports[`range as argument to range ctor 1`] = `
+{
+  "options": {
+    "loose": true,
+    "includePrerelease": false
+  },
+  "loose": true,
+  "includePrerelease": false,
+  "raw": "1.2.3",
+  "set": [
+    [
+      {
+        "options": {
+          "loose": true,
+          "includePrerelease": false
+        },
+        "loose": true,
+        "operator": "",
+        "semver": {
+          "options": {
+            "loose": true
+          },
+          "loose": true,
+          "includePrerelease": false,
+          "raw": "1.2.3",
+          "major": 1,
+          "minor": 2,
+          "patch": 3,
+          "prerelease": [],
+          "build": [],
+          "version": "1.2.3"
+        },
+        "value": "1.2.3"
+      }
+    ]
+  ],
+  "formatted": "1.2.3"
+}
+`;
+
+exports[`range as argument to range ctor 2`] = `
+{
+  "options": {
+    "includePrerelease": true,
+    "loose": false
+  },
+  "loose": false,
+  "includePrerelease": true,
+  "raw": "1.2.3",
+  "set": [
+    [
+      {
+        "options": {
+          "includePrerelease": true,
+          "loose": false
+        },
+        "loose": false,
+        "operator": "",
+        "semver": {
+          "options": {},
+          "loose": false,
+          "includePrerelease": false,
+          "raw": "1.2.3",
+          "major": 1,
+          "minor": 2,
+          "patch": 3,
+          "prerelease": [],
+          "build": [],
+          "version": "1.2.3"
+        },
+        "value": "1.2.3"
+      }
+    ]
+  ],
+  "formatted": "1.2.3"
+}
+`;
+
+exports[`range parsing > >01.02.03 undefined null 1`] = `
+"Invalid comparator: >01.02.03"
+`;
+
+exports[`range parsing > ~1.2.3beta undefined null 1`] = `
+"Invalid comparator: ~1.2.3beta"
+`;
+
+exports[`throw for empty comparator set, even in loose mode 1`] = `
+"Invalid SemVer Range: sadf||asdf"
+`;

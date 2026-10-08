@@ -1,0 +1,157 @@
+exports[`parseArgvPkgName > should parse package name and version 1`] = `
+{
+  "input": "lodash@4.17.21",
+  "name": "lodash",
+  "version": "4.17.21",
+  "result": {
+    "type": "version",
+    "registry": true,
+    "raw": "lodash@4.17.21",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "4.17.21",
+    "saveSpec": null,
+    "fetchSpec": "4.17.21"
+  }
+}
+`;
+
+exports[`parseArgvPkgName > should parse scoped package 1`] = `
+{
+  "input": "@types/node@^18.0.0",
+  "namespace": "@types",
+  "name": "node",
+  "version": "^18.0.0",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "@types/node@^18.0.0",
+    "name": "@types/node",
+    "escapedName": "@types%2fnode",
+    "scope": "@types",
+    "rawSpec": "^18.0.0",
+    "saveSpec": null,
+    "fetchSpec": "^18.0.0"
+  }
+}
+`;
+
+exports[`parsePackageName > scoped packages > should parse scoped package with range 1`] = `
+{
+  "type": "range",
+  "name": "@types/node",
+  "scope": "@types",
+  "subname": "node",
+  "semver": "^18.0.0",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "@types/node@^18.0.0",
+    "name": "@types/node",
+    "escapedName": "@types%2fnode",
+    "scope": "@types",
+    "rawSpec": "^18.0.0",
+    "saveSpec": null,
+    "fetchSpec": "^18.0.0"
+  }
+}
+`;
+
+exports[`parsePackageName > scoped packages > should parse scoped package with version 1`] = `
+{
+  "type": "version",
+  "name": "@types/node",
+  "scope": "@types",
+  "subname": "node",
+  "semver": "18.0.0",
+  "result": {
+    "type": "version",
+    "registry": true,
+    "raw": "@types/node@18.0.0",
+    "name": "@types/node",
+    "escapedName": "@types%2fnode",
+    "scope": "@types",
+    "rawSpec": "18.0.0",
+    "saveSpec": null,
+    "fetchSpec": "18.0.0"
+  }
+}
+`;
+
+exports[`parsePackageName > scoped packages > should parse scoped package without version 1`] = `
+{
+  "type": "range",
+  "name": "@types/node",
+  "scope": "@types",
+  "subname": "node",
+  "semver": "*",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "@types/node",
+    "name": "@types/node",
+    "escapedName": "@types%2fnode",
+    "scope": "@types",
+    "rawSpec": "*",
+    "saveSpec": null,
+    "fetchSpec": "*"
+  }
+}
+`;
+
+exports[`parsePackageName > simple packages > should parse package with version 1`] = `
+{
+  "type": "version",
+  "name": "lodash",
+  "subname": "lodash",
+  "semver": "4.17.21",
+  "result": {
+    "type": "version",
+    "registry": true,
+    "raw": "lodash@4.17.21",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "4.17.21",
+    "saveSpec": null,
+    "fetchSpec": "4.17.21"
+  }
+}
+`;
+
+exports[`parsePackageName > simple packages > should parse package with version range 1`] = `
+{
+  "type": "range",
+  "name": "lodash",
+  "subname": "lodash",
+  "semver": "^4.17.0",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "lodash@^4.17.0",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "^4.17.0",
+    "saveSpec": null,
+    "fetchSpec": "^4.17.0"
+  }
+}
+`;
+
+exports[`parsePackageName > simple packages > should parse package without version 1`] = `
+{
+  "type": "range",
+  "name": "lodash",
+  "subname": "lodash",
+  "semver": "*",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "lodash",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "*",
+    "saveSpec": null,
+    "fetchSpec": "*"
+  }
+}
+`;

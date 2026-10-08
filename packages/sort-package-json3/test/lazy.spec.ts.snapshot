@@ -1,0 +1,24 @@
+exports[`exports 1`] = `
+{
+  "name": "my-package",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "require": "./commonjs/index.cjs",
+      "import": "./esm/index.js"
+    },
+    "./k2": {
+      "types": "./types/index.d.ts",
+      "require": "./commonjs/index.cjs",
+      "import": "./esm/index.js"
+    }
+  },
+  "main": "./commonjs/index.cjs",
+  "types": "./types/index.d.ts"
+}
+`;
+
+exports[`exports 2`] = `
+"{\\n  \\"name\\": \\"my-package\\",\\n  \\"type\\": \\"module\\",\\n  \\"exports\\": {\\n    \\".\\": {\\n      \\"types\\": \\"./types/index.d.ts\\",\\n      \\"require\\": \\"./commonjs/index.cjs\\",\\n      \\"import\\": \\"./esm/index.js\\"\\n    },\\n    \\"./k2\\": {\\n      \\"types\\": \\"./types/index.d.ts\\",\\n      \\"require\\": \\"./commonjs/index.cjs\\",\\n      \\"import\\": \\"./esm/index.js\\"\\n    }\\n  },\\n  \\"main\\": \\"./commonjs/index.cjs\\",\\n  \\"types\\": \\"./types/index.d.ts\\"\\n}"
+`;

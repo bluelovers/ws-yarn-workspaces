@@ -1,0 +1,131 @@
+exports[`packPackage 1`] = `
+{
+  "packageDir": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\script-lifecycle\\\\test\\\\res\\\\pkg-a",
+  "pkg": {
+    "name": "pkg-a",
+    "private": true,
+    "version": "1.0.0",
+    "keywords": [],
+    "license": "ISC",
+    "author": "bluelovers",
+    "main": "index.js",
+    "scripts": {
+      "publish:npm": "npm publish --dry-run",
+      "publish:yarn": "yarn publish --dry-run",
+      "prestart": "echo prestart",
+      "start": "echo start",
+      "poststart": "echo poststart",
+      "predev": "echo predev",
+      "dev": "echo dev",
+      "postdev": "echo postdev",
+      "prerestart": "echo prerestart",
+      "restart": "echo restart",
+      "postrestart": "echo postrestart",
+      "prestop": "echo prestop",
+      "stop": "echo stop",
+      "poststop": "echo poststop",
+      "precoverage": "echo precoverage",
+      "coverage": "echo coverage",
+      "postcoverage": "echo postcoverage",
+      "prelint": "echo prelint",
+      "lint": "echo lint",
+      "postlint": "echo postlint",
+      "pretest": "echo pretest",
+      "test": "echo test",
+      "posttest": "echo posttest",
+      "preinstall": "echo preinstall",
+      "install": "echo install",
+      "postinstall": "echo postinstall",
+      "preuninstall": "echo preuninstall",
+      "uninstall": "echo uninstall",
+      "postuninstall": "echo postuninstall",
+      "prebuild": "echo prebuild",
+      "build": "echo build",
+      "postbuild": "echo postbuild",
+      "prelink": "echo prelink",
+      "link": "echo link",
+      "postlink": "echo postlink",
+      "prenpm": "echo prenpm",
+      "npm": "echo npm",
+      "postnpm": "echo postnpm",
+      "preprepublish": "echo preprepublish",
+      "prepublish": "echo prepublish",
+      "postprepublish": "echo postprepublish",
+      "preprepare": "echo preprepare",
+      "prepare": "echo prepare",
+      "postprepare": "echo postprepare",
+      "preprepublishOnly": "echo preprepublishOnly",
+      "prepublishOnly": "echo prepublishOnly",
+      "postprepublishOnly": "echo postprepublishOnly",
+      "preprepack": "echo preprepack",
+      "prepack": "echo prepack",
+      "postprepack": "echo postprepack",
+      "pack": "echo pack",
+      "postpack": "echo postpack",
+      "prepostpack": "echo prepostpack",
+      "postpostpack": "echo postpostpack",
+      "publish": "echo publish",
+      "postpublish": "echo postpublish",
+      "prepostpublish": "echo prepostpublish",
+      "postpostpublish": "echo postpostpublish",
+      "preshrinkwrap": "echo preshrinkwrap",
+      "shrinkwrap": "echo shrinkwrap",
+      "postshrinkwrap": "echo postshrinkwrap",
+      "preversion": "echo preversion",
+      "version": "echo version",
+      "postversion": "echo postversion",
+      "premyscript": "echo premyscript",
+      "postmyscript": "echo postmyscript",
+      "postpare": "echo postpare",
+      "postpublishOnly": "echo postpublishOnly",
+      "myscript": "echo myscript",
+      "pare": "echo pare",
+      "publishOnly": "echo publishOnly",
+      "prepremyscript": "echo prepremyscript",
+      "postpremyscript": "echo postpremyscript",
+      "prepostmyscript": "echo prepostmyscript",
+      "postpostmyscript": "echo postpostmyscript"
+    },
+    "description": ""
+  },
+  "packageTarball": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\script-lifecycle\\\\test\\\\res\\\\pkg-a\\\\pkg-a-1.0.0.tgz",
+  "files": [
+    ".yarnrc",
+    "package.json",
+    "pkg-a-1.0.0.tgz"
+  ]
+}
+`;
+
+exports[`packPackage 2`] = `
+{
+  "id": "pkg-a@1.0.0",
+  "name": "pkg-a",
+  "version": "1.0.0",
+  "size": 775,
+  "unpackedSize": 2954,
+  "shasum": "9a52ad9b58e1b3209c0d36bc8635433997f91886",
+  "integrity": "sha512-f1Bt5HqeFERl/CIPdVfD1lvjXtpgykZ3CHBR4ghh/VLlBtAW7HTstmEaYb3clooXaXUUbQji0DAGwsNb3R5M4Q==",
+  "filename": "pkg-a-1.0.0.tgz",
+  "files": [
+    {
+      "path": ".yarnrc",
+      "size": 52,
+      "mode": 420
+    },
+    {
+      "path": "package.json",
+      "size": 2902,
+      "mode": 420
+    },
+    {
+      "path": "pkg-a-1.0.0.tgz",
+      "size": 0,
+      "mode": 420
+    }
+  ],
+  "entryCount": 3,
+  "bundled": [],
+  "tarFilePath": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\script-lifecycle\\\\test\\\\res\\\\pkg-a\\\\pkg-a-1.0.0.tgz"
+}
+`;

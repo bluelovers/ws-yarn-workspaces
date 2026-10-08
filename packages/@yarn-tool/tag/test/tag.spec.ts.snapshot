@@ -1,0 +1,3 @@
+exports[`throw > empty 1`] = `
+undefined
+`;

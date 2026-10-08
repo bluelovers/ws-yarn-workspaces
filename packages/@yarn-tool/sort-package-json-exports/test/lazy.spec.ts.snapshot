@@ -1,0 +1,18 @@
+exports[`exports 1`] = `
+{
+  ".": {
+    "types": "./types/index.d.ts",
+    "require": "./commonjs/index.cjs",
+    "import": "./esm/index.js"
+  },
+  "./k2": {
+    "types": "./types/index.d.ts",
+    "require": "./commonjs/index.cjs",
+    "import": "./esm/index.js"
+  }
+}
+`;
+
+exports[`exports 2`] = `
+"{\\n  \\".\\": {\\n    \\"types\\": \\"./types/index.d.ts\\",\\n    \\"require\\": \\"./commonjs/index.cjs\\",\\n    \\"import\\": \\"./esm/index.js\\"\\n  },\\n  \\"./k2\\": {\\n    \\"types\\": \\"./types/index.d.ts\\",\\n    \\"require\\": \\"./commonjs/index.cjs\\",\\n    \\"import\\": \\"./esm/index.js\\"\\n  }\\n}"
+`;

@@ -1,0 +1,232 @@
+exports[`getSemverFromNpaResult > should extract version from alias type 1`] = `
+{
+  "inputSpec": "my-lodash@npm:lodash@4.17.21",
+  "semver": "4.17.21"
+}
+`;
+
+exports[`getSemverFromNpaResult > should extract version from range type 1`] = `
+{
+  "inputSpec": "lodash@^4.17.0",
+  "semver": "^4.17.0"
+}
+`;
+
+exports[`getSemverFromNpaResult > should extract version from tag type 1`] = `
+{
+  "inputSpec": "lodash@beta",
+  "semver": "beta"
+}
+`;
+
+exports[`getSemverFromNpaResult > should extract version from version type 1`] = `
+{
+  "inputSpec": "lodash@4.17.21",
+  "semver": "4.17.21"
+}
+`;
+
+exports[`getSemverFromNpaResult > should return latest for package without version 1`] = `
+{
+  "inputSpec": "lodash",
+  "semver": "*"
+}
+`;
+
+exports[`npa > alias packages > should parse npm alias 1`] = `
+{
+  "inputSpec": "my-lodash@npm:lodash@4.17.21",
+  "result": {
+    "type": "alias",
+    "registry": true,
+    "raw": "my-lodash@npm:lodash@4.17.21",
+    "name": "my-lodash",
+    "escapedName": "my-lodash",
+    "rawSpec": "npm:lodash@4.17.21",
+    "saveSpec": null,
+    "fetchSpec": null,
+    "subSpec": {
+      "type": "version",
+      "registry": true,
+      "raw": "lodash@4.17.21",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "4.17.21",
+      "saveSpec": null,
+      "fetchSpec": "4.17.21"
+    }
+  }
+}
+`;
+
+exports[`npa > git packages > should parse GitHub URL 1`] = `
+{
+  "inputSpec": "github:bluelovers/ws-yarn-workspaces",
+  "result": {
+    "type": "git",
+    "raw": "github:bluelovers/ws-yarn-workspaces",
+    "rawSpec": "github:bluelovers/ws-yarn-workspaces",
+    "saveSpec": "github:bluelovers/ws-yarn-workspaces",
+    "fetchSpec": null,
+    "gitCommittish": null
+  }
+}
+`;
+
+exports[`npa > git packages > should parse GitHub shorthand 1`] = `
+{
+  "inputSpec": "bluelovers/ws-yarn-workspaces",
+  "result": {
+    "type": "git",
+    "raw": "bluelovers/ws-yarn-workspaces",
+    "rawSpec": "bluelovers/ws-yarn-workspaces",
+    "saveSpec": "github:bluelovers/ws-yarn-workspaces",
+    "fetchSpec": null,
+    "gitCommittish": null
+  }
+}
+`;
+
+exports[`npa > git packages > should parse GitHub shorthand with package name 1`] = `
+{
+  "inputSpec": "ws-yarn-workspaces@bluelovers/ws-yarn-workspaces",
+  "result": {
+    "type": "git",
+    "raw": "ws-yarn-workspaces@bluelovers/ws-yarn-workspaces",
+    "name": "ws-yarn-workspaces",
+    "escapedName": "ws-yarn-workspaces",
+    "rawSpec": "bluelovers/ws-yarn-workspaces",
+    "saveSpec": "github:bluelovers/ws-yarn-workspaces",
+    "fetchSpec": null,
+    "gitCommittish": null
+  }
+}
+`;
+
+exports[`npa > scoped packages > should parse scoped package with range 1`] = `
+{
+  "inputSpec": "@types/node@^18.0.0",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "@types/node@^18.0.0",
+    "name": "@types/node",
+    "escapedName": "@types%2fnode",
+    "scope": "@types",
+    "rawSpec": "^18.0.0",
+    "saveSpec": null,
+    "fetchSpec": "^18.0.0"
+  }
+}
+`;
+
+exports[`npa > scoped packages > should parse scoped package with version 1`] = `
+{
+  "inputSpec": "@types/node@18.0.0",
+  "result": {
+    "type": "version",
+    "registry": true,
+    "raw": "@types/node@18.0.0",
+    "name": "@types/node",
+    "escapedName": "@types%2fnode",
+    "scope": "@types",
+    "rawSpec": "18.0.0",
+    "saveSpec": null,
+    "fetchSpec": "18.0.0"
+  }
+}
+`;
+
+exports[`npa > scoped packages > should parse scoped package without version 1`] = `
+{
+  "inputSpec": "@types/node",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "@types/node",
+    "name": "@types/node",
+    "escapedName": "@types%2fnode",
+    "scope": "@types",
+    "rawSpec": "*",
+    "saveSpec": null,
+    "fetchSpec": "*"
+  }
+}
+`;
+
+exports[`npa > simple packages > should parse package name with exact version 1`] = `
+{
+  "inputSpec": "lodash@4.17.21",
+  "result": {
+    "type": "version",
+    "registry": true,
+    "raw": "lodash@4.17.21",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "4.17.21",
+    "saveSpec": null,
+    "fetchSpec": "4.17.21"
+  }
+}
+`;
+
+exports[`npa > simple packages > should parse package name with tag 1`] = `
+{
+  "inputSpec": "lodash@beta",
+  "result": {
+    "type": "tag",
+    "registry": true,
+    "raw": "lodash@beta",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "beta",
+    "saveSpec": null,
+    "fetchSpec": "beta"
+  }
+}
+`;
+
+exports[`npa > simple packages > should parse package name with version range 1`] = `
+{
+  "inputSpec": "lodash@^4.17.0",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "lodash@^4.17.0",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "^4.17.0",
+    "saveSpec": null,
+    "fetchSpec": "^4.17.0"
+  }
+}
+`;
+
+exports[`npa > simple packages > should parse package name without version 1`] = `
+{
+  "inputSpec": "lodash",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "lodash",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "*",
+    "saveSpec": null,
+    "fetchSpec": "*"
+  }
+}
+`;
+
+exports[`npaTry > should return result for valid package 1`] = `
+{
+  "type": "version",
+  "registry": true,
+  "raw": "lodash@4.17.21",
+  "name": "lodash",
+  "escapedName": "lodash",
+  "rawSpec": "4.17.21",
+  "saveSpec": null,
+  "fetchSpec": "4.17.21"
+}
+`;

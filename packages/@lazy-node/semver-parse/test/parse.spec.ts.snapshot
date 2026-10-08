@@ -1,0 +1,307 @@
+exports[`parse > 基本版本解析 / Basic version parsing > should parse a simple 3-part version 1`] = `
+{
+  "semver": "1.0.0",
+  "version": "1.0.0",
+  "major": "1",
+  "minor": "0",
+  "patch": "0"
+}
+`;
+
+exports[`parse > 基本版本解析 / Basic version parsing > should parse version with different numbers 1`] = `
+{
+  "semver": "2.3.4",
+  "version": "2.3.4",
+  "major": "2",
+  "minor": "3",
+  "patch": "4"
+}
+`;
+
+exports[`parse > 基本版本解析 / Basic version parsing > should parse version with large numbers 1`] = `
+{
+  "semver": "100.200.300",
+  "version": "100.200.300",
+  "major": "100",
+  "minor": "200",
+  "patch": "300"
+}
+`;
+
+exports[`parse > 基本版本解析 / Basic version parsing > should parse version with v prefix 1`] = `
+{
+  "semver": "v1.2.3",
+  "version": "1.2.3",
+  "major": "1",
+  "minor": "2",
+  "patch": "3"
+}
+`;
+
+exports[`parse > 建構元資料解析 / Build metadata parsing > should parse build metadata 1`] = `
+{
+  "semver": "1.0.0+build.123",
+  "version": "1.0.0",
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "build": "build.123"
+}
+`;
+
+exports[`parse > 建構元資料解析 / Build metadata parsing > should parse build with dots 1`] = `
+{
+  "semver": "1.0.0+build.1.2.3",
+  "version": "1.0.0",
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "build": "build.1.2.3"
+}
+`;
+
+exports[`parse > 建構元資料解析 / Build metadata parsing > should parse build with hyphens 1`] = `
+{
+  "semver": "1.0.6+build-623",
+  "version": "1.0.6",
+  "major": "1",
+  "minor": "0",
+  "patch": "6",
+  "build": "build-623"
+}
+`;
+
+exports[`parse > 建構元資料解析 / Build metadata parsing > should parse build with numbers 1`] = `
+{
+  "semver": "1.0.0+20130313144700",
+  "version": "1.0.0",
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "build": "20130313144700"
+}
+`;
+
+exports[`parse > 運算子解析 / Operator parsing > should parse < operator 1`] = `
+{
+  "semver": "<3.0.0",
+  "operator": "<",
+  "version": "3.0.0",
+  "major": "3",
+  "minor": "0",
+  "patch": "0"
+}
+`;
+
+exports[`parse > 運算子解析 / Operator parsing > should parse <= operator 1`] = `
+{
+  "semver": "<=2.0.0",
+  "operator": "<=",
+  "version": "2.0.0",
+  "major": "2",
+  "minor": "0",
+  "patch": "0"
+}
+`;
+
+exports[`parse > 運算子解析 / Operator parsing > should parse = operator 1`] = `
+{
+  "semver": "=1.0.0",
+  "operator": "=",
+  "version": "1.0.0",
+  "major": "1",
+  "minor": "0",
+  "patch": "0"
+}
+`;
+
+exports[`parse > 運算子解析 / Operator parsing > should parse > operator 1`] = `
+{
+  "semver": ">1.5.0",
+  "operator": ">",
+  "version": "1.5.0",
+  "major": "1",
+  "minor": "5",
+  "patch": "0"
+}
+`;
+
+exports[`parse > 運算子解析 / Operator parsing > should parse >= operator 1`] = `
+{
+  "semver": ">=1.0.0",
+  "operator": ">=",
+  "version": "1.0.0",
+  "major": "1",
+  "minor": "0",
+  "patch": "0"
+}
+`;
+
+exports[`parse > 運算子解析 / Operator parsing > should parse ^ (caret) operator 1`] = `
+{
+  "semver": "^1.2.3",
+  "operator": "^",
+  "version": "1.2.3",
+  "major": "1",
+  "minor": "2",
+  "patch": "3"
+}
+`;
+
+exports[`parse > 運算子解析 / Operator parsing > should parse operator with space 1`] = `
+{
+  "semver": ">= 1.0.0",
+  "operator": ">=",
+  "version": "1.0.0",
+  "major": "1",
+  "minor": "0",
+  "patch": "0"
+}
+`;
+
+exports[`parse > 運算子解析 / Operator parsing > should parse operator with v prefix 1`] = `
+{
+  "semver": ">=v1.0.0",
+  "operator": ">=",
+  "version": "1.0.0",
+  "major": "1",
+  "minor": "0",
+  "patch": "0"
+}
+`;
+
+exports[`parse > 運算子解析 / Operator parsing > should parse ~ (tilde) operator 1`] = `
+{
+  "semver": "~1.2.3",
+  "operator": "~",
+  "version": "1.2.3",
+  "major": "1",
+  "minor": "2",
+  "patch": "3"
+}
+`;
+
+exports[`parse > 運算子解析 / Operator parsing > should parse ~> operator 1`] = `
+{
+  "semver": "~>1.2.3",
+  "operator": "~>",
+  "version": "1.2.3",
+  "major": "1",
+  "minor": "2",
+  "patch": "3"
+}
+`;
+
+exports[`parse > 預發布版本解析 / Pre-release version parsing > should parse alpha pre-release 1`] = `
+{
+  "semver": "1.0.0-alpha",
+  "version": "1.0.0",
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "release": "alpha"
+}
+`;
+
+exports[`parse > 預發布版本解析 / Pre-release version parsing > should parse beta pre-release 1`] = `
+{
+  "semver": "1.0.0-beta",
+  "version": "1.0.0",
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "release": "beta"
+}
+`;
+
+exports[`parse > 預發布版本解析 / Pre-release version parsing > should parse complex pre-release 1`] = `
+{
+  "semver": "4.0.0-dev.20200615",
+  "version": "4.0.0",
+  "major": "4",
+  "minor": "0",
+  "patch": "0",
+  "release": "dev.20200615"
+}
+`;
+
+exports[`parse > 預發布版本解析 / Pre-release version parsing > should parse pre-release with dots 1`] = `
+{
+  "semver": "1.0.0-alpha.beta.1",
+  "version": "1.0.0",
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "release": "alpha.beta.1"
+}
+`;
+
+exports[`parse > 預發布版本解析 / Pre-release version parsing > should parse pre-release with hyphens 1`] = `
+{
+  "semver": "1.0.0-beta-2",
+  "version": "1.0.0",
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "release": "beta-2"
+}
+`;
+
+exports[`parse > 預發布版本解析 / Pre-release version parsing > should parse pre-release with numbers 1`] = `
+{
+  "semver": "1.0.0-alpha.1",
+  "version": "1.0.0",
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "release": "alpha.1"
+}
+`;
+
+exports[`parse > 預發布版本解析 / Pre-release version parsing > should parse rc pre-release 1`] = `
+{
+  "semver": "1.0.0-rc.1",
+  "version": "1.0.0",
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "release": "rc.1"
+}
+`;
+
+exports[`parse > 預發布與建構元資料組合 / Pre-release and build combination > should parse complex pre-release with build 1`] = `
+{
+  "semver": "1.2.3-beta.1+build.456",
+  "version": "1.2.3",
+  "major": "1",
+  "minor": "2",
+  "patch": "3",
+  "release": "beta.1",
+  "build": "build.456"
+}
+`;
+
+exports[`parse > 預發布與建構元資料組合 / Pre-release and build combination > should parse pre-release and build together 1`] = `
+{
+  "semver": "1.0.0-alpha+build.123",
+  "version": "1.0.0",
+  "major": "1",
+  "minor": "0",
+  "patch": "0",
+  "release": "alpha",
+  "build": "build.123"
+}
+`;
+
+exports[`parse > 預發布與建構元資料組合 / Pre-release and build combination > should parse with operator, pre-release and build 1`] = `
+{
+  "semver": ">=1.2.3-beta.1+build.123",
+  "operator": ">=",
+  "version": "1.2.3",
+  "major": "1",
+  "minor": "2",
+  "patch": "3",
+  "release": "beta.1",
+  "build": "build.123"
+}
+`;

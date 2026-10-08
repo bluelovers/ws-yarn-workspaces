@@ -1,0 +1,14 @@
+exports[`json.spec > yarnLockParsedV1ToRawJSON 1`] = `
+{
+  "version": "5",
+  "object": {}
+}
+`;
+
+exports[`json.spec > yarnLockParsedV2ToRawJSON 1`] = `
+{
+  "__metadata": {
+    "version": "5"
+  }
+}
+`;

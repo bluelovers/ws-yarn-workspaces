@@ -1,0 +1,25 @@
+exports[`yarn-tool 1`] = `
+[
+  "test",
+  "npm:publish",
+  "npm:publish:lerna",
+  "prepublish:yarn:install",
+  "prepublishOnly",
+  "prepublishOnly_",
+  "prepublishOnly:check-bin",
+  "prepublishOnly:lockfile",
+  "prepublishOnly:update",
+  "postpublish",
+  "postpublish:changelog",
+  "postpublish:git:commit",
+  "postpublish:git:push",
+  "postpublish:git:tag",
+  "help",
+  "ncu",
+  "sort-package-json"
+]
+`;
+
+exports[`yarn-tool 2`] = `
+"{\\n  \\"test\\": \\"echo \\\\\\"Error: no test specified\\\\\\" && exit 1\\",\\n  \\"npm:publish\\": \\"npm publish\\",\\n  \\"npm:publish:lerna\\": \\"npx lerna publish --yes --bump patch\\",\\n  \\"prepublish:yarn:install\\": \\"yarn-tool install\\",\\n  \\"prepublishOnly\\": \\"yarn run ncu && yarn run prepublish:yarn:install && yarn run sort-package-json\\",\\n  \\"prepublishOnly_\\": \\"yarn run prepublishOnly:update && yarn run prepublishOnly:check-bin && yarn run test\\",\\n  \\"prepublishOnly:check-bin\\": \\"ynpx --quiet @yarn-tool/check-pkg-bin\\",\\n  \\"prepublishOnly:lockfile\\": \\"ynpx --quiet sync-lockfile\\",\\n  \\"prepublishOnly:update\\": \\"yarn run ncu && yarn run sort-package-json\\",\\n  \\"postpublish\\": \\"yarn run postpublish:changelog && yarn run postpublish:git:commit && yarn run postpublish:git:tag && yarn run postpublish:git:push\\",\\n  \\"postpublish:changelog\\": \\"ynpx --quiet @yarn-tool/changelog && git add ./CHANGELOG.md\\",\\n  \\"postpublish:git:commit\\": \\"git commit -m \\\\\\"chore(release): publish\\\\\\" . & echo postpublish:git:commit\\",\\n  \\"postpublish:git:push\\": \\"git push --follow-tags\\",\\n  \\"postpublish:git:tag\\": \\"ynpx --quiet @yarn-tool/tag\\",\\n  \\"help\\": \\"yarn-tool --help\\",\\n  \\"ncu\\": \\"ynpx yarn-tool -- ncu -u\\",\\n  \\"sort-package-json\\": \\"ynpx yarn-tool -- sort\\"\\n}"
+`;

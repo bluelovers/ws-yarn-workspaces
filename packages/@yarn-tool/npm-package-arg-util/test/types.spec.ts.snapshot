@@ -1,0 +1,41 @@
+exports[`packageNameToTypes > @next/typescript@^1.3.1 1`] = `
+{
+  "type": "range",
+  "name": "@types/next__typescript",
+  "scope": "@types",
+  "subname": "next__typescript",
+  "semver": "^1.3.1",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "@next/typescript@^1.3.1",
+    "name": "@next/typescript",
+    "escapedName": "@next%2ftypescript",
+    "scope": "@next",
+    "rawSpec": "^1.3.1",
+    "saveSpec": null,
+    "fetchSpec": "^1.3.1"
+  }
+}
+`;
+
+exports[`packageNameToTypes > @types/typescript@^1.3.1 1`] = `
+{
+  "type": "range",
+  "name": "@types/typescript",
+  "scope": "@types",
+  "subname": "typescript",
+  "semver": "^1.3.1",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "@types/typescript@^1.3.1",
+    "name": "@types/typescript",
+    "escapedName": "@types%2ftypescript",
+    "scope": "@types",
+    "rawSpec": "^1.3.1",
+    "saveSpec": null,
+    "fetchSpec": "^1.3.1"
+  }
+}
+`;

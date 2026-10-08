@@ -1,0 +1,108 @@
+exports[`Version Style Generator > _handleVersionStyleOptions > should handle Date input 1`] = `
+{
+  "date": "2025-12-31T16:00:00.000Z",
+  "dailyIncrement": 1,
+  "disableDailyVersionSuffix": false
+}
+`;
+
+exports[`Version Style Generator > _handleVersionStyleOptions > should handle IVersionStyleOptions with date 1`] = `
+{
+  "date": "2025-12-31T16:00:00.000Z",
+  "dailyIncrement": 5,
+  "disableDailyVersionSuffix": true
+}
+`;
+
+exports[`Version Style Generator > _handleVersionStyleOptions > should handle empty object 1`] = `
+{
+  "date": "2026-10-08T04:48:48.713Z",
+  "dailyIncrement": 1,
+  "disableDailyVersionSuffix": false
+}
+`;
+
+exports[`Version Style Generator > _handleVersionStyleOptions > should use default values when no input 1`] = `
+{
+  "date": "2026-10-08T04:48:48.711Z",
+  "dailyIncrement": 1,
+  "disableDailyVersionSuffix": false
+}
+`;
+
+exports[`Version Style Generator > parseVersion > should parse 2026.1.1 1`] = `
+{
+  "year": 2026,
+  "month": 1,
+  "day": 1,
+  "dailyVersion": 1,
+  "isJetbrainsShort": false,
+  "isMDCombined": false
+}
+`;
+
+exports[`Version Style Generator > parseVersion > should parse 2026.1.1-1 1`] = `
+{
+  "year": 2026,
+  "month": 1,
+  "day": 1,
+  "dailyVersion": 1,
+  "isJetbrainsShort": false,
+  "isMDCombined": false
+}
+`;
+
+exports[`Version Style Generator > parseVersion > should parse 2026.101.1 1`] = `
+{
+  "year": 2026,
+  "month": 1,
+  "day": 1,
+  "dailyVersion": 1,
+  "isJetbrainsShort": false,
+  "isMDCombined": true
+}
+`;
+
+exports[`Version Style Generator > parseVersion > should parse 261.1.1-1 1`] = `
+{
+  "year": 2026,
+  "month": 1,
+  "day": 1,
+  "dailyVersion": 1,
+  "isJetbrainsShort": true,
+  "isMDCombined": false
+}
+`;
+
+exports[`Version Style Generator > parseVersion > should parse 261.101.1 1`] = `
+{
+  "year": 2026,
+  "month": 1,
+  "day": 1,
+  "dailyVersion": 1,
+  "isJetbrainsShort": true,
+  "isMDCombined": true
+}
+`;
+
+exports[`Version Style Generator > parseVersion > should parse 262.615.1 1`] = `
+{
+  "year": 2026,
+  "month": 6,
+  "day": 15,
+  "dailyVersion": 1,
+  "isJetbrainsShort": true,
+  "isMDCombined": true
+}
+`;
+
+exports[`Version Style Generator > parseVersion > should parse JetbrainsShort style with full details 1`] = `
+{
+  "year": 2026,
+  "month": 1,
+  "day": 1,
+  "dailyVersion": 1,
+  "isJetbrainsShort": true,
+  "isMDCombined": false
+}
+`;

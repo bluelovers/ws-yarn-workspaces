@@ -1,0 +1,11 @@
+exports[`deps.spec > addDependenciesIfNotExists 1`] = `
+{
+  "pkg": {
+    "dependencies": {
+      "tslib": "^2",
+      "tslib2": "^2.3.1"
+    }
+  },
+  "bool": 2
+}
+`;

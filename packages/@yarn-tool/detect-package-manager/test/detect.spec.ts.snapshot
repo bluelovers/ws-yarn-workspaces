@@ -1,0 +1,7 @@
+exports[`whichPackageManagerAsync > should match snapshot for async detection result 1`] = `
+"pnpm"
+`;
+
+exports[`whichPackageManagerSync > should match snapshot for detection result 1`] = `
+"pnpm"
+`;

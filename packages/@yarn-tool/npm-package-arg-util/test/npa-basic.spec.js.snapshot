@@ -1,0 +1,1617 @@
+exports[`basic > /path/to/foo 1`] = `
+{
+  "inputSpec": "/path/to/foo",
+  "result": {
+    "type": "directory",
+    "where": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\npm-package-arg-util",
+    "raw": "/path/to/foo",
+    "rawSpec": "/path/to/foo",
+    "saveSpec": "file:D:/path/to/foo",
+    "fetchSpec": "D:\\\\path\\\\to\\\\foo"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "/path/to/foo",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > /path/to/foo.tar 1`] = `
+{
+  "inputSpec": "/path/to/foo.tar",
+  "result": {
+    "type": "file",
+    "where": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\npm-package-arg-util",
+    "raw": "/path/to/foo.tar",
+    "rawSpec": "/path/to/foo.tar",
+    "saveSpec": "file:D:/path/to/foo.tar",
+    "fetchSpec": "D:\\\\path\\\\to\\\\foo.tar"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "/path/to/foo.tar",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > /path/to/foo.tgz 1`] = `
+{
+  "inputSpec": "/path/to/foo.tgz",
+  "result": {
+    "type": "file",
+    "where": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\npm-package-arg-util",
+    "raw": "/path/to/foo.tgz",
+    "rawSpec": "/path/to/foo.tgz",
+    "saveSpec": "file:D:/path/to/foo.tgz",
+    "fetchSpec": "D:\\\\path\\\\to\\\\foo.tgz"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "/path/to/foo.tgz",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > @f fo o al/ a d s ;f 1`] = `
+{
+  "inputSpec": "@f fo o al/ a d s ;f",
+  "result": {
+    "type": "directory",
+    "where": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\npm-package-arg-util",
+    "raw": "@f fo o al/ a d s ;f",
+    "rawSpec": "@f fo o al/ a d s ;f",
+    "saveSpec": "file:@f fo o al/ a d s ;f",
+    "fetchSpec": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\npm-package-arg-util\\\\@f fo o al\\\\ a d s ;f"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "@f fo o al/ a d s ;f",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > @foo/bar 1`] = `
+{
+  "inputSpec": "@foo/bar",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "@foo/bar",
+    "name": "@foo/bar",
+    "escapedName": "@foo%2fbar",
+    "scope": "@foo",
+    "rawSpec": "*",
+    "saveSpec": null,
+    "fetchSpec": "*"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "*",
+  "_parsePackageNameCore": {
+    "type": "range",
+    "name": "@foo/bar",
+    "scope": "@foo",
+    "subname": "bar",
+    "semver": "*",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "@foo/bar",
+      "name": "@foo/bar",
+      "escapedName": "@foo%2fbar",
+      "scope": "@foo",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": true,
+  "isInputSpecIsStar": true
+}
+`;
+
+exports[`basic > @foo/bar@ 1`] = `
+{
+  "inputSpec": "@foo/bar@",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "@foo/bar@",
+    "name": "@foo/bar",
+    "escapedName": "@foo%2fbar",
+    "scope": "@foo",
+    "rawSpec": "*",
+    "saveSpec": null,
+    "fetchSpec": "*"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "*",
+  "_parsePackageNameCore": {
+    "type": "range",
+    "name": "@foo/bar",
+    "scope": "@foo",
+    "subname": "bar",
+    "semver": "*",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "@foo/bar@",
+      "name": "@foo/bar",
+      "escapedName": "@foo%2fbar",
+      "scope": "@foo",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": true,
+  "isNameSameAsRaw": true,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > @foo/bar@baz 1`] = `
+{
+  "inputSpec": "@foo/bar@baz",
+  "result": {
+    "type": "tag",
+    "registry": true,
+    "raw": "@foo/bar@baz",
+    "name": "@foo/bar",
+    "escapedName": "@foo%2fbar",
+    "scope": "@foo",
+    "rawSpec": "baz",
+    "saveSpec": null,
+    "fetchSpec": "baz"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "baz",
+  "_parsePackageNameCore": {
+    "type": "tag",
+    "name": "@foo/bar",
+    "scope": "@foo",
+    "subname": "bar",
+    "semver": "baz",
+    "result": {
+      "type": "tag",
+      "registry": true,
+      "raw": "@foo/bar@baz",
+      "name": "@foo/bar",
+      "escapedName": "@foo%2fbar",
+      "scope": "@foo",
+      "rawSpec": "baz",
+      "saveSpec": null,
+      "fetchSpec": "baz"
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > @foo/bar@git+ssh://notgithub.com/user/foo 1`] = `
+{
+  "inputSpec": "@foo/bar@git+ssh://notgithub.com/user/foo",
+  "result": {
+    "type": "git",
+    "raw": "@foo/bar@git+ssh://notgithub.com/user/foo",
+    "name": "@foo/bar",
+    "escapedName": "@foo%2fbar",
+    "scope": "@foo",
+    "rawSpec": "git+ssh://notgithub.com/user/foo",
+    "saveSpec": "git+ssh://notgithub.com/user/foo",
+    "fetchSpec": "ssh://notgithub.com/user/foo",
+    "gitCommittish": null
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "git+ssh://notgithub.com/user/foo",
+  "_parsePackageNameCore": {
+    "type": "git",
+    "name": "@foo/bar",
+    "scope": "@foo",
+    "subname": "bar",
+    "semver": "git+ssh://notgithub.com/user/foo",
+    "result": {
+      "type": "git",
+      "raw": "@foo/bar@git+ssh://notgithub.com/user/foo",
+      "name": "@foo/bar",
+      "escapedName": "@foo%2fbar",
+      "scope": "@foo",
+      "rawSpec": "git+ssh://notgithub.com/user/foo",
+      "saveSpec": "git+ssh://notgithub.com/user/foo",
+      "fetchSpec": "ssh://notgithub.com/user/foo",
+      "gitCommittish": null
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > file:../path/to/foo 1`] = `
+{
+  "inputSpec": "file:../path/to/foo",
+  "result": {
+    "type": "directory",
+    "where": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\npm-package-arg-util",
+    "raw": "file:../path/to/foo",
+    "rawSpec": "file:../path/to/foo",
+    "saveSpec": "file:../path/to/foo",
+    "fetchSpec": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\path\\\\to\\\\foo"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "file:../path/to/foo",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > file:./path/to/foo 1`] = `
+{
+  "inputSpec": "file:./path/to/foo",
+  "result": {
+    "type": "directory",
+    "where": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\npm-package-arg-util",
+    "raw": "file:./path/to/foo",
+    "rawSpec": "file:./path/to/foo",
+    "saveSpec": "file:path/to/foo",
+    "fetchSpec": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\npm-package-arg-util\\\\path\\\\to\\\\foo"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "file:./path/to/foo",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > file:/../path/to/foo 1`] = `
+{
+  "inputSpec": "file:/../path/to/foo",
+  "result": {
+    "type": "directory",
+    "where": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\npm-package-arg-util",
+    "raw": "file:/../path/to/foo",
+    "rawSpec": "file:/../path/to/foo",
+    "saveSpec": "file:../path/to/foo",
+    "fetchSpec": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\path\\\\to\\\\foo"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "file:/../path/to/foo",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > file:/./path/to/foo 1`] = `
+{
+  "inputSpec": "file:/./path/to/foo",
+  "result": {
+    "type": "directory",
+    "where": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\npm-package-arg-util",
+    "raw": "file:/./path/to/foo",
+    "rawSpec": "file:/./path/to/foo",
+    "saveSpec": "file:path/to/foo",
+    "fetchSpec": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\npm-package-arg-util\\\\path\\\\to\\\\foo"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "file:/./path/to/foo",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > file:/.path/to/foo 1`] = `
+{
+  "inputSpec": "file:/.path/to/foo",
+  "result": {
+    "type": "directory",
+    "where": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\npm-package-arg-util",
+    "raw": "file:/.path/to/foo",
+    "rawSpec": "file:/.path/to/foo",
+    "saveSpec": "file:D:/.path/to/foo",
+    "fetchSpec": "D:\\\\.path\\\\to\\\\foo"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "file:/.path/to/foo",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > file://. 1`] = `
+{
+  "inputSpec": "file://.",
+  "result": {
+    "type": "directory",
+    "where": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\npm-package-arg-util",
+    "raw": "file://.",
+    "rawSpec": "file://.",
+    "saveSpec": "file:",
+    "fetchSpec": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\npm-package-arg-util"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "file://.",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > file://../path/to/foo 1`] = `
+{
+  "inputSpec": "file://../path/to/foo",
+  "result": {
+    "type": "directory",
+    "where": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\npm-package-arg-util",
+    "raw": "file://../path/to/foo",
+    "rawSpec": "file://../path/to/foo",
+    "saveSpec": "file:../path/to/foo",
+    "fetchSpec": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\path\\\\to\\\\foo"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "file://../path/to/foo",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > file://./path/to/foo 1`] = `
+{
+  "inputSpec": "file://./path/to/foo",
+  "result": {
+    "type": "directory",
+    "where": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\npm-package-arg-util",
+    "raw": "file://./path/to/foo",
+    "rawSpec": "file://./path/to/foo",
+    "saveSpec": "file:path/to/foo",
+    "fetchSpec": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\npm-package-arg-util\\\\path\\\\to\\\\foo"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "file://./path/to/foo",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > file:////path/to/foo 1`] = `
+{
+  "inputSpec": "file:////path/to/foo",
+  "result": {
+    "type": "directory",
+    "where": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\npm-package-arg-util",
+    "raw": "file:////path/to/foo",
+    "rawSpec": "file:////path/to/foo",
+    "saveSpec": "file:/path/to/foo",
+    "fetchSpec": "\\\\\\\\path\\\\to\\\\foo"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "file:////path/to/foo",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > file:///path/to/foo 1`] = `
+{
+  "inputSpec": "file:///path/to/foo",
+  "result": {
+    "type": "directory",
+    "where": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\npm-package-arg-util",
+    "raw": "file:///path/to/foo",
+    "rawSpec": "file:///path/to/foo",
+    "saveSpec": "file:D:/path/to/foo",
+    "fetchSpec": "D:\\\\path\\\\to\\\\foo"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "file:///path/to/foo",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > file://path/to/foo 1`] = `
+{
+  "inputSpec": "file://path/to/foo",
+  "result": {
+    "type": "directory",
+    "where": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\npm-package-arg-util",
+    "raw": "file://path/to/foo",
+    "rawSpec": "file://path/to/foo",
+    "saveSpec": "file:D:/path/to/foo",
+    "fetchSpec": "D:\\\\path\\\\to\\\\foo"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "file://path/to/foo",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > file:/path/to/foo 1`] = `
+{
+  "inputSpec": "file:/path/to/foo",
+  "result": {
+    "type": "directory",
+    "where": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\npm-package-arg-util",
+    "raw": "file:/path/to/foo",
+    "rawSpec": "file:/path/to/foo",
+    "saveSpec": "file:D:/path/to/foo",
+    "fetchSpec": "D:\\\\path\\\\to\\\\foo"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "file:/path/to/foo",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > file:/~/path/to/foo 1`] = `
+{
+  "inputSpec": "file:/~/path/to/foo",
+  "result": {
+    "type": "directory",
+    "where": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\npm-package-arg-util",
+    "raw": "file:/~/path/to/foo",
+    "rawSpec": "file:/~/path/to/foo",
+    "saveSpec": "file:~/path/to/foo",
+    "fetchSpec": "C:\\\\Users\\\\user\\\\path\\\\to\\\\foo"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "file:/~/path/to/foo",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > file:/~path/to/foo 1`] = `
+{
+  "inputSpec": "file:/~path/to/foo",
+  "result": {
+    "type": "directory",
+    "where": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\npm-package-arg-util",
+    "raw": "file:/~path/to/foo",
+    "rawSpec": "file:/~path/to/foo",
+    "saveSpec": "file:D:/~path/to/foo",
+    "fetchSpec": "D:\\\\~path\\\\to\\\\foo"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "file:/~path/to/foo",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > file:path/to/foo 1`] = `
+{
+  "inputSpec": "file:path/to/foo",
+  "result": {
+    "type": "directory",
+    "where": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\npm-package-arg-util",
+    "raw": "file:path/to/foo",
+    "rawSpec": "file:path/to/foo",
+    "saveSpec": "file:path/to/foo",
+    "fetchSpec": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\npm-package-arg-util\\\\path\\\\to\\\\foo"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "file:path/to/foo",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > file:path/to/foo.tar.gz 1`] = `
+{
+  "inputSpec": "file:path/to/foo.tar.gz",
+  "result": {
+    "type": "file",
+    "where": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\npm-package-arg-util",
+    "raw": "file:path/to/foo.tar.gz",
+    "rawSpec": "file:path/to/foo.tar.gz",
+    "saveSpec": "file:path/to/foo.tar.gz",
+    "fetchSpec": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\npm-package-arg-util\\\\path\\\\to\\\\foo.tar.gz"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "file:path/to/foo.tar.gz",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > file:~/path/to/foo 1`] = `
+{
+  "inputSpec": "file:~/path/to/foo",
+  "result": {
+    "type": "directory",
+    "where": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\npm-package-arg-util",
+    "raw": "file:~/path/to/foo",
+    "rawSpec": "file:~/path/to/foo",
+    "saveSpec": "file:~/path/to/foo",
+    "fetchSpec": "C:\\\\Users\\\\user\\\\path\\\\to\\\\foo"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "file:~/path/to/foo",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > foo 1`] = `
+{
+  "inputSpec": "foo",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "foo",
+    "name": "foo",
+    "escapedName": "foo",
+    "rawSpec": "*",
+    "saveSpec": null,
+    "fetchSpec": "*"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "*",
+  "_parsePackageNameCore": {
+    "type": "range",
+    "name": "foo",
+    "subname": "foo",
+    "semver": "*",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "foo",
+      "name": "foo",
+      "escapedName": "foo",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": true,
+  "isInputSpecIsStar": true
+}
+`;
+
+exports[`basic > foo@ 1.2  1`] = `
+{
+  "inputSpec": "foo@ 1.2 ",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "foo@ 1.2 ",
+    "name": "foo",
+    "escapedName": "foo",
+    "rawSpec": " 1.2 ",
+    "saveSpec": null,
+    "fetchSpec": "1.2"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": " 1.2 ",
+  "_parsePackageNameCore": {
+    "type": "range",
+    "name": "foo",
+    "subname": "foo",
+    "semver": " 1.2 ",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "foo@ 1.2 ",
+      "name": "foo",
+      "escapedName": "foo",
+      "rawSpec": " 1.2 ",
+      "saveSpec": null,
+      "fetchSpec": "1.2"
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > foo@ 1.2.3  1`] = `
+{
+  "inputSpec": "foo@ 1.2.3 ",
+  "result": {
+    "type": "version",
+    "registry": true,
+    "raw": "foo@ 1.2.3 ",
+    "name": "foo",
+    "escapedName": "foo",
+    "rawSpec": " 1.2.3 ",
+    "saveSpec": null,
+    "fetchSpec": "1.2.3"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": " 1.2.3 ",
+  "_parsePackageNameCore": {
+    "type": "version",
+    "name": "foo",
+    "subname": "foo",
+    "semver": " 1.2.3 ",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "foo@ 1.2.3 ",
+      "name": "foo",
+      "escapedName": "foo",
+      "rawSpec": " 1.2.3 ",
+      "saveSpec": null,
+      "fetchSpec": "1.2.3"
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > foo@ 1.2.3 1`] = `
+{
+  "inputSpec": "foo@ 1.2.3",
+  "result": {
+    "type": "version",
+    "registry": true,
+    "raw": "foo@ 1.2.3",
+    "name": "foo",
+    "escapedName": "foo",
+    "rawSpec": " 1.2.3",
+    "saveSpec": null,
+    "fetchSpec": "1.2.3"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": " 1.2.3",
+  "_parsePackageNameCore": {
+    "type": "version",
+    "name": "foo",
+    "subname": "foo",
+    "semver": " 1.2.3",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "foo@ 1.2.3",
+      "name": "foo",
+      "escapedName": "foo",
+      "rawSpec": " 1.2.3",
+      "saveSpec": null,
+      "fetchSpec": "1.2.3"
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > foo@1.2 1`] = `
+{
+  "inputSpec": "foo@1.2",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "foo@1.2",
+    "name": "foo",
+    "escapedName": "foo",
+    "rawSpec": "1.2",
+    "saveSpec": null,
+    "fetchSpec": "1.2"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "1.2",
+  "_parsePackageNameCore": {
+    "type": "range",
+    "name": "foo",
+    "subname": "foo",
+    "semver": "1.2",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "foo@1.2",
+      "name": "foo",
+      "escapedName": "foo",
+      "rawSpec": "1.2",
+      "saveSpec": null,
+      "fetchSpec": "1.2"
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > foo@1.2.3  1`] = `
+{
+  "inputSpec": "foo@1.2.3 ",
+  "result": {
+    "type": "version",
+    "registry": true,
+    "raw": "foo@1.2.3 ",
+    "name": "foo",
+    "escapedName": "foo",
+    "rawSpec": "1.2.3 ",
+    "saveSpec": null,
+    "fetchSpec": "1.2.3"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "1.2.3 ",
+  "_parsePackageNameCore": {
+    "type": "version",
+    "name": "foo",
+    "subname": "foo",
+    "semver": "1.2.3 ",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "foo@1.2.3 ",
+      "name": "foo",
+      "escapedName": "foo",
+      "rawSpec": "1.2.3 ",
+      "saveSpec": null,
+      "fetchSpec": "1.2.3"
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > foo@1.2.3 1`] = `
+{
+  "inputSpec": "foo@1.2.3",
+  "result": {
+    "type": "version",
+    "registry": true,
+    "raw": "foo@1.2.3",
+    "name": "foo",
+    "escapedName": "foo",
+    "rawSpec": "1.2.3",
+    "saveSpec": null,
+    "fetchSpec": "1.2.3"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "1.2.3",
+  "_parsePackageNameCore": {
+    "type": "version",
+    "name": "foo",
+    "subname": "foo",
+    "semver": "1.2.3",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "foo@1.2.3",
+      "name": "foo",
+      "escapedName": "foo",
+      "rawSpec": "1.2.3",
+      "saveSpec": null,
+      "fetchSpec": "1.2.3"
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > foo@=v1.2.3 1`] = `
+{
+  "inputSpec": "foo@=v1.2.3",
+  "result": {
+    "type": "version",
+    "registry": true,
+    "raw": "foo@=v1.2.3",
+    "name": "foo",
+    "escapedName": "foo",
+    "rawSpec": "=v1.2.3",
+    "saveSpec": null,
+    "fetchSpec": "=v1.2.3"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "=v1.2.3",
+  "_parsePackageNameCore": {
+    "type": "version",
+    "name": "foo",
+    "subname": "foo",
+    "semver": "=v1.2.3",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "foo@=v1.2.3",
+      "name": "foo",
+      "escapedName": "foo",
+      "rawSpec": "=v1.2.3",
+      "saveSpec": null,
+      "fetchSpec": "=v1.2.3"
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > foo@latest 1`] = `
+{
+  "inputSpec": "foo@latest",
+  "result": {
+    "type": "tag",
+    "registry": true,
+    "raw": "foo@latest",
+    "name": "foo",
+    "escapedName": "foo",
+    "rawSpec": "latest",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "latest",
+  "_parsePackageNameCore": {
+    "type": "tag",
+    "name": "foo",
+    "subname": "foo",
+    "semver": "latest",
+    "result": {
+      "type": "tag",
+      "registry": true,
+      "raw": "foo@latest",
+      "name": "foo",
+      "escapedName": "foo",
+      "rawSpec": "latest",
+      "saveSpec": null,
+      "fetchSpec": "latest"
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > foo@npm:bar 1`] = `
+{
+  "inputSpec": "foo@npm:bar",
+  "result": {
+    "type": "alias",
+    "registry": true,
+    "raw": "foo@npm:bar",
+    "name": "foo",
+    "escapedName": "foo",
+    "rawSpec": "npm:bar",
+    "saveSpec": null,
+    "fetchSpec": null,
+    "subSpec": {
+      "type": "range",
+      "registry": true,
+      "raw": "bar",
+      "name": "bar",
+      "escapedName": "bar",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "*",
+  "_parsePackageNameCore": {
+    "type": "alias",
+    "name": "foo",
+    "subname": "foo",
+    "semver": "*",
+    "result": {
+      "type": "alias",
+      "registry": true,
+      "raw": "foo@npm:bar",
+      "name": "foo",
+      "escapedName": "foo",
+      "rawSpec": "npm:bar",
+      "saveSpec": null,
+      "fetchSpec": null,
+      "subSpec": {
+        "type": "range",
+        "registry": true,
+        "raw": "bar",
+        "name": "bar",
+        "escapedName": "bar",
+        "rawSpec": "*",
+        "saveSpec": null,
+        "fetchSpec": "*"
+      }
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > foo@~1.2 1`] = `
+{
+  "inputSpec": "foo@~1.2",
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "foo@~1.2",
+    "name": "foo",
+    "escapedName": "foo",
+    "rawSpec": "~1.2",
+    "saveSpec": null,
+    "fetchSpec": "~1.2"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "~1.2",
+  "_parsePackageNameCore": {
+    "type": "range",
+    "name": "foo",
+    "subname": "foo",
+    "semver": "~1.2",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "foo@~1.2",
+      "name": "foo",
+      "escapedName": "foo",
+      "rawSpec": "~1.2",
+      "saveSpec": null,
+      "fetchSpec": "~1.2"
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > git+file://path/to/repo#1.2.3 1`] = `
+{
+  "inputSpec": "git+file://path/to/repo#1.2.3",
+  "result": {
+    "type": "git",
+    "raw": "git+file://path/to/repo#1.2.3",
+    "rawSpec": "git+file://path/to/repo#1.2.3",
+    "saveSpec": "git+file://path/to/repo#1.2.3",
+    "fetchSpec": "file://path/to/repo",
+    "gitCommittish": "1.2.3"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "git+file://path/to/repo#1.2.3",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > git+ssh://git@github.com/user/foo#1.2.3 1`] = `
+{
+  "inputSpec": "git+ssh://git@github.com/user/foo#1.2.3",
+  "result": {
+    "type": "git",
+    "raw": "git+ssh://git@github.com/user/foo#1.2.3",
+    "rawSpec": "git+ssh://git@github.com/user/foo#1.2.3",
+    "saveSpec": "git+ssh://git@github.com/user/foo.git#1.2.3",
+    "fetchSpec": "ssh://git@github.com/user/foo.git",
+    "gitCommittish": "1.2.3"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "git+ssh://git@github.com/user/foo#1.2.3",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > git+ssh://git@github.com/user/foo#semver:^1.2.3 1`] = `
+{
+  "inputSpec": "git+ssh://git@github.com/user/foo#semver:^1.2.3",
+  "result": {
+    "type": "git",
+    "raw": "git+ssh://git@github.com/user/foo#semver:^1.2.3",
+    "rawSpec": "git+ssh://git@github.com/user/foo#semver:^1.2.3",
+    "saveSpec": "git+ssh://git@github.com/user/foo.git#semver:^1.2.3",
+    "fetchSpec": "ssh://git@github.com/user/foo.git",
+    "gitRange": "^1.2.3"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "git+ssh://git@github.com/user/foo#semver:^1.2.3",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > git+ssh://git@github.com:user/foo#semver:^1.2.3 1`] = `
+{
+  "inputSpec": "git+ssh://git@github.com:user/foo#semver:^1.2.3",
+  "result": {
+    "type": "git",
+    "raw": "git+ssh://git@github.com:user/foo#semver:^1.2.3",
+    "rawSpec": "git+ssh://git@github.com:user/foo#semver:^1.2.3",
+    "saveSpec": "git+ssh://git@github.com/user/foo.git#semver:^1.2.3",
+    "fetchSpec": "ssh://git@github.com/user/foo.git",
+    "gitRange": "^1.2.3"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "git+ssh://git@github.com:user/foo#semver:^1.2.3",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > git+ssh://git@notgithub.com/user/foo 1`] = `
+{
+  "inputSpec": "git+ssh://git@notgithub.com/user/foo",
+  "result": {
+    "type": "git",
+    "raw": "git+ssh://git@notgithub.com/user/foo",
+    "rawSpec": "git+ssh://git@notgithub.com/user/foo",
+    "saveSpec": "git+ssh://git@notgithub.com/user/foo",
+    "fetchSpec": "ssh://git@notgithub.com/user/foo",
+    "gitCommittish": null
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "git+ssh://git@notgithub.com/user/foo",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > git+ssh://git@notgithub.com/user/foo#0d7bd85a85fa2571fa532d2fc842ed099b236ad2 1`] = `
+{
+  "inputSpec": "git+ssh://git@notgithub.com/user/foo#0d7bd85a85fa2571fa532d2fc842ed099b236ad2",
+  "result": {
+    "type": "git",
+    "raw": "git+ssh://git@notgithub.com/user/foo#0d7bd85a85fa2571fa532d2fc842ed099b236ad2",
+    "rawSpec": "git+ssh://git@notgithub.com/user/foo#0d7bd85a85fa2571fa532d2fc842ed099b236ad2",
+    "saveSpec": "git+ssh://git@notgithub.com/user/foo#0d7bd85a85fa2571fa532d2fc842ed099b236ad2",
+    "fetchSpec": "ssh://git@notgithub.com/user/foo",
+    "gitCommittish": "0d7bd85a85fa2571fa532d2fc842ed099b236ad2"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "git+ssh://git@notgithub.com/user/foo#0d7bd85a85fa2571fa532d2fc842ed099b236ad2",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > git+ssh://git@notgithub.com/user/foo#1.2.3 1`] = `
+{
+  "inputSpec": "git+ssh://git@notgithub.com/user/foo#1.2.3",
+  "result": {
+    "type": "git",
+    "raw": "git+ssh://git@notgithub.com/user/foo#1.2.3",
+    "rawSpec": "git+ssh://git@notgithub.com/user/foo#1.2.3",
+    "saveSpec": "git+ssh://git@notgithub.com/user/foo#1.2.3",
+    "fetchSpec": "ssh://git@notgithub.com/user/foo",
+    "gitCommittish": "1.2.3"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "git+ssh://git@notgithub.com/user/foo#1.2.3",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > git+ssh://git@notgithub.com/user/foo#8e3a9b3579ab330238c06b761e7f1b5dc5b4ac6e5a96da4dd2fb3b7411009df8 1`] = `
+{
+  "inputSpec": "git+ssh://git@notgithub.com/user/foo#8e3a9b3579ab330238c06b761e7f1b5dc5b4ac6e5a96da4dd2fb3b7411009df8",
+  "result": {
+    "type": "git",
+    "raw": "git+ssh://git@notgithub.com/user/foo#8e3a9b3579ab330238c06b761e7f1b5dc5b4ac6e5a96da4dd2fb3b7411009df8",
+    "rawSpec": "git+ssh://git@notgithub.com/user/foo#8e3a9b3579ab330238c06b761e7f1b5dc5b4ac6e5a96da4dd2fb3b7411009df8",
+    "saveSpec": "git+ssh://git@notgithub.com/user/foo#8e3a9b3579ab330238c06b761e7f1b5dc5b4ac6e5a96da4dd2fb3b7411009df8",
+    "fetchSpec": "ssh://git@notgithub.com/user/foo",
+    "gitCommittish": "8e3a9b3579ab330238c06b761e7f1b5dc5b4ac6e5a96da4dd2fb3b7411009df8"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "git+ssh://git@notgithub.com/user/foo#8e3a9b3579ab330238c06b761e7f1b5dc5b4ac6e5a96da4dd2fb3b7411009df8",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > git+ssh://git@notgithub.com/user/foo#semver:^1.2.3 1`] = `
+{
+  "inputSpec": "git+ssh://git@notgithub.com/user/foo#semver:^1.2.3",
+  "result": {
+    "type": "git",
+    "raw": "git+ssh://git@notgithub.com/user/foo#semver:^1.2.3",
+    "rawSpec": "git+ssh://git@notgithub.com/user/foo#semver:^1.2.3",
+    "saveSpec": "git+ssh://git@notgithub.com/user/foo#semver:^1.2.3",
+    "fetchSpec": "ssh://git@notgithub.com/user/foo",
+    "gitRange": "^1.2.3"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "git+ssh://git@notgithub.com/user/foo#semver:^1.2.3",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > git+ssh://git@notgithub.com:user/foo 1`] = `
+{
+  "inputSpec": "git+ssh://git@notgithub.com:user/foo",
+  "result": {
+    "type": "git",
+    "raw": "git+ssh://git@notgithub.com:user/foo",
+    "rawSpec": "git+ssh://git@notgithub.com:user/foo",
+    "saveSpec": "git+ssh://git@notgithub.com:user/foo",
+    "fetchSpec": "git@notgithub.com:user/foo",
+    "gitCommittish": null
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "git+ssh://git@notgithub.com:user/foo",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > git+ssh://git@notgithub.com:user/foo#1.2.3 1`] = `
+{
+  "inputSpec": "git+ssh://git@notgithub.com:user/foo#1.2.3",
+  "result": {
+    "type": "git",
+    "raw": "git+ssh://git@notgithub.com:user/foo#1.2.3",
+    "rawSpec": "git+ssh://git@notgithub.com:user/foo#1.2.3",
+    "saveSpec": "git+ssh://git@notgithub.com:user/foo#1.2.3",
+    "fetchSpec": "git@notgithub.com:user/foo",
+    "gitCommittish": "1.2.3"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "git+ssh://git@notgithub.com:user/foo#1.2.3",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > git+ssh://git@notgithub.com:user/foo#semver:^1.2.3 1`] = `
+{
+  "inputSpec": "git+ssh://git@notgithub.com:user/foo#semver:^1.2.3",
+  "result": {
+    "type": "git",
+    "raw": "git+ssh://git@notgithub.com:user/foo#semver:^1.2.3",
+    "rawSpec": "git+ssh://git@notgithub.com:user/foo#semver:^1.2.3",
+    "saveSpec": "git+ssh://git@notgithub.com:user/foo#semver:^1.2.3",
+    "fetchSpec": "git@notgithub.com:user/foo",
+    "gitRange": "^1.2.3"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "git+ssh://git@notgithub.com:user/foo#semver:^1.2.3",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > git+ssh://mydomain.com:1234#1.2.3 1`] = `
+{
+  "inputSpec": "git+ssh://mydomain.com:1234#1.2.3",
+  "result": {
+    "type": "git",
+    "raw": "git+ssh://mydomain.com:1234#1.2.3",
+    "rawSpec": "git+ssh://mydomain.com:1234#1.2.3",
+    "saveSpec": "git+ssh://mydomain.com:1234#1.2.3",
+    "fetchSpec": "ssh://mydomain.com:1234",
+    "gitCommittish": "1.2.3"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "git+ssh://mydomain.com:1234#1.2.3",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > git+ssh://mydomain.com:1234/hey 1`] = `
+{
+  "inputSpec": "git+ssh://mydomain.com:1234/hey",
+  "result": {
+    "type": "git",
+    "raw": "git+ssh://mydomain.com:1234/hey",
+    "rawSpec": "git+ssh://mydomain.com:1234/hey",
+    "saveSpec": "git+ssh://mydomain.com:1234/hey",
+    "fetchSpec": "ssh://mydomain.com:1234/hey",
+    "gitCommittish": null
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "git+ssh://mydomain.com:1234/hey",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > git+ssh://mydomain.com:1234/hey#1.2.3 1`] = `
+{
+  "inputSpec": "git+ssh://mydomain.com:1234/hey#1.2.3",
+  "result": {
+    "type": "git",
+    "raw": "git+ssh://mydomain.com:1234/hey#1.2.3",
+    "rawSpec": "git+ssh://mydomain.com:1234/hey#1.2.3",
+    "saveSpec": "git+ssh://mydomain.com:1234/hey#1.2.3",
+    "fetchSpec": "ssh://mydomain.com:1234/hey",
+    "gitCommittish": "1.2.3"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "git+ssh://mydomain.com:1234/hey#1.2.3",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > git+ssh://mydomain.com:foo 1`] = `
+{
+  "inputSpec": "git+ssh://mydomain.com:foo",
+  "result": {
+    "type": "git",
+    "raw": "git+ssh://mydomain.com:foo",
+    "rawSpec": "git+ssh://mydomain.com:foo",
+    "saveSpec": "git+ssh://mydomain.com:foo",
+    "fetchSpec": "mydomain.com:foo",
+    "gitCommittish": null
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "git+ssh://mydomain.com:foo",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > git+ssh://mydomain.com:foo#1.2.3 1`] = `
+{
+  "inputSpec": "git+ssh://mydomain.com:foo#1.2.3",
+  "result": {
+    "type": "git",
+    "raw": "git+ssh://mydomain.com:foo#1.2.3",
+    "rawSpec": "git+ssh://mydomain.com:foo#1.2.3",
+    "saveSpec": "git+ssh://mydomain.com:foo#1.2.3",
+    "fetchSpec": "mydomain.com:foo",
+    "gitCommittish": "1.2.3"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "git+ssh://mydomain.com:foo#1.2.3",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > git+ssh://mydomain.com:foo/bar#1.2.3 1`] = `
+{
+  "inputSpec": "git+ssh://mydomain.com:foo/bar#1.2.3",
+  "result": {
+    "type": "git",
+    "raw": "git+ssh://mydomain.com:foo/bar#1.2.3",
+    "rawSpec": "git+ssh://mydomain.com:foo/bar#1.2.3",
+    "saveSpec": "git+ssh://mydomain.com:foo/bar#1.2.3",
+    "fetchSpec": "mydomain.com:foo/bar",
+    "gitCommittish": "1.2.3"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "git+ssh://mydomain.com:foo/bar#1.2.3",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > git+ssh://username:password@mydomain.com:1234/hey#1.2.3 1`] = `
+{
+  "inputSpec": "git+ssh://username:password@mydomain.com:1234/hey#1.2.3",
+  "result": {
+    "type": "git",
+    "raw": "git+ssh://username:password@mydomain.com:1234/hey#1.2.3",
+    "rawSpec": "git+ssh://username:password@mydomain.com:1234/hey#1.2.3",
+    "saveSpec": "git+ssh://username:password@mydomain.com:1234/hey#1.2.3",
+    "fetchSpec": "ssh://username:password@mydomain.com:1234/hey",
+    "gitCommittish": "1.2.3"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "git+ssh://username:password@mydomain.com:1234/hey#1.2.3",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > git://notgithub.com/user/foo 1`] = `
+{
+  "inputSpec": "git://notgithub.com/user/foo",
+  "result": {
+    "type": "git",
+    "raw": "git://notgithub.com/user/foo",
+    "rawSpec": "git://notgithub.com/user/foo",
+    "saveSpec": "git://notgithub.com/user/foo",
+    "fetchSpec": "git://notgithub.com/user/foo",
+    "gitCommittish": null
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "git://notgithub.com/user/foo",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > git@npm:not-git 1`] = `
+{
+  "inputSpec": "git@npm:not-git",
+  "result": {
+    "type": "alias",
+    "registry": true,
+    "raw": "git@npm:not-git",
+    "name": "git",
+    "escapedName": "git",
+    "rawSpec": "npm:not-git",
+    "saveSpec": null,
+    "fetchSpec": null,
+    "subSpec": {
+      "type": "range",
+      "registry": true,
+      "raw": "not-git",
+      "name": "not-git",
+      "escapedName": "not-git",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "*",
+  "_parsePackageNameCore": {
+    "type": "alias",
+    "name": "git",
+    "subname": "git",
+    "semver": "*",
+    "result": {
+      "type": "alias",
+      "registry": true,
+      "raw": "git@npm:not-git",
+      "name": "git",
+      "escapedName": "git",
+      "rawSpec": "npm:not-git",
+      "saveSpec": null,
+      "fetchSpec": null,
+      "subSpec": {
+        "type": "range",
+        "registry": true,
+        "raw": "not-git",
+        "name": "not-git",
+        "escapedName": "not-git",
+        "rawSpec": "*",
+        "saveSpec": null,
+        "fetchSpec": "*"
+      }
+    }
+  },
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > http://insecure.com/foo.tgz 1`] = `
+{
+  "inputSpec": "http://insecure.com/foo.tgz",
+  "result": {
+    "type": "remote",
+    "raw": "http://insecure.com/foo.tgz",
+    "rawSpec": "http://insecure.com/foo.tgz",
+    "saveSpec": "http://insecure.com/foo.tgz",
+    "fetchSpec": "http://insecure.com/foo.tgz"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "http://insecure.com/foo.tgz",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > https://server.com/foo.tgz 1`] = `
+{
+  "inputSpec": "https://server.com/foo.tgz",
+  "result": {
+    "type": "remote",
+    "raw": "https://server.com/foo.tgz",
+    "rawSpec": "https://server.com/foo.tgz",
+    "saveSpec": "https://server.com/foo.tgz",
+    "fetchSpec": "https://server.com/foo.tgz"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "https://server.com/foo.tgz",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > not-git@hostname.com:some/repo 1`] = `
+{
+  "inputSpec": "not-git@hostname.com:some/repo",
+  "result": {
+    "type": "git",
+    "raw": "not-git@hostname.com:some/repo",
+    "rawSpec": "git+ssh://not-git@hostname.com:some/repo",
+    "saveSpec": "git+ssh://not-git@hostname.com:some/repo",
+    "fetchSpec": "not-git@hostname.com:some/repo",
+    "gitCommittish": null
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "git+ssh://not-git@hostname.com:some/repo",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > user/foo#1234::path:dist 1`] = `
+{
+  "inputSpec": "user/foo#1234::path:dist",
+  "result": {
+    "type": "git",
+    "raw": "user/foo#1234::path:dist",
+    "rawSpec": "user/foo#1234::path:dist",
+    "saveSpec": "github:user/foo#1234::path:dist",
+    "fetchSpec": null,
+    "gitCommittish": "1234",
+    "gitSubdir": "/dist"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "user/foo#1234::path:dist",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > user/foo#notimplemented:value 1`] = `
+{
+  "inputSpec": "user/foo#notimplemented:value",
+  "result": {
+    "type": "git",
+    "raw": "user/foo#notimplemented:value",
+    "rawSpec": "user/foo#notimplemented:value",
+    "saveSpec": "github:user/foo#notimplemented:value",
+    "fetchSpec": null
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "user/foo#notimplemented:value",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > user/foo#path:dist 1`] = `
+{
+  "inputSpec": "user/foo#path:dist",
+  "result": {
+    "type": "git",
+    "raw": "user/foo#path:dist",
+    "rawSpec": "user/foo#path:dist",
+    "saveSpec": "github:user/foo#path:dist",
+    "fetchSpec": null,
+    "gitSubdir": "/dist"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "user/foo#path:dist",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;
+
+exports[`basic > user/foo#semver:^1.2.3 1`] = `
+{
+  "inputSpec": "user/foo#semver:^1.2.3",
+  "result": {
+    "type": "git",
+    "raw": "user/foo#semver:^1.2.3",
+    "rawSpec": "user/foo#semver:^1.2.3",
+    "saveSpec": "github:user/foo#semver:^1.2.3",
+    "fetchSpec": null,
+    "gitRange": "^1.2.3"
+  },
+  "actual": true,
+  "getSemverFromNpaResult": "user/foo#semver:^1.2.3",
+  "isRawSpecIsEmpty": false,
+  "isInputSpecIsEmpty": false,
+  "isNameSameAsRaw": false,
+  "isInputSpecIsStar": false
+}
+`;

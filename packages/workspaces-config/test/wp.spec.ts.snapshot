@@ -1,0 +1,39 @@
+exports[`should parseStaticPackagesPaths 1`] = `
+{
+  "static": [],
+  "prefixRoot": [
+    "packages",
+    "packages"
+  ],
+  "prefix": [
+    "packages/@yarn-tool",
+    "packages"
+  ],
+  "prefixSub": [
+    "@yarn-tool",
+    ""
+  ],
+  "all": [
+    "packages/@yarn-tool/*",
+    "packages/*"
+  ]
+}
+`;
+
+exports[`should parseWorkspaces 1`] = `
+{
+  "packages": [
+    "packages/@yarn-tool/*",
+    "packages/*"
+  ]
+}
+`;
+
+exports[`should parseWorkspaces v2 1`] = `
+{
+  "packages": [
+    "packages/@yarn-tool/*",
+    "packages/*"
+  ]
+}
+`;

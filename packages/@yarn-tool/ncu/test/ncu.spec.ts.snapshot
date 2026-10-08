@@ -1,0 +1,209 @@
+exports[`should not update > * 1`] = `
+{
+  "json_old": {
+    "devDependencies": {
+      "@types/node": "*"
+    }
+  },
+  "packageManager": "npm",
+  "packageData": "{\\"devDependencies\\":{\\"@types/node\\":\\"*\\"}}",
+  "jsonUpgraded": true,
+  "json_new": {
+    "devDependencies": {
+      "@types/node": "*"
+    }
+  },
+  "list_updated": {},
+  "json_changed": false,
+  "current": {}
+}
+`;
+
+exports[`should not update > < 1 1`] = `
+{
+  "json_old": {
+    "devDependencies": {
+      "@types/node": "< 1"
+    }
+  },
+  "packageManager": "npm",
+  "packageData": "{\\"devDependencies\\":{\\"@types/node\\":\\"< 1\\"}}",
+  "jsonUpgraded": true,
+  "json_new": {
+    "devDependencies": {
+      "@types/node": "< 1"
+    }
+  },
+  "list_updated": {},
+  "json_changed": false,
+  "current": {}
+}
+`;
+
+exports[`should not update > <= 1 1`] = `
+{
+  "json_old": {
+    "devDependencies": {
+      "@types/node": "<= 1"
+    }
+  },
+  "packageManager": "npm",
+  "packageData": "{\\"devDependencies\\":{\\"@types/node\\":\\"<= 1\\"}}",
+  "jsonUpgraded": true,
+  "json_new": {
+    "devDependencies": {
+      "@types/node": "<= 1"
+    }
+  },
+  "list_updated": {},
+  "json_changed": false,
+  "current": {}
+}
+`;
+
+exports[`should not update > = 1 1`] = `
+{
+  "json_old": {
+    "devDependencies": {
+      "@types/node": "= 1"
+    }
+  },
+  "packageManager": "npm",
+  "packageData": "{\\"devDependencies\\":{\\"@types/node\\":\\"= 1\\"}}",
+  "jsonUpgraded": true,
+  "json_new": {
+    "devDependencies": {
+      "@types/node": "= 1"
+    }
+  },
+  "list_updated": {},
+  "json_changed": false,
+  "current": {}
+}
+`;
+
+exports[`should not update > > 1 1`] = `
+{
+  "json_old": {
+    "devDependencies": {
+      "@types/node": "> 1"
+    }
+  },
+  "packageManager": "npm",
+  "packageData": "{\\"devDependencies\\":{\\"@types/node\\":\\"> 1\\"}}",
+  "jsonUpgraded": true,
+  "json_new": {
+    "devDependencies": {
+      "@types/node": "> 1"
+    }
+  },
+  "list_updated": {},
+  "json_changed": false,
+  "current": {}
+}
+`;
+
+exports[`should not update > >= 1 1`] = `
+{
+  "json_old": {
+    "devDependencies": {
+      "@types/node": ">= 1"
+    }
+  },
+  "packageManager": "npm",
+  "packageData": "{\\"devDependencies\\":{\\"@types/node\\":\\">= 1\\"}}",
+  "jsonUpgraded": true,
+  "json_new": {
+    "devDependencies": {
+      "@types/node": ">= 1"
+    }
+  },
+  "list_updated": {},
+  "json_changed": false,
+  "current": {}
+}
+`;
+
+exports[`should not update > ^1 & ^2 1`] = `
+{
+  "json_old": {
+    "devDependencies": {
+      "@types/node": "^1 & ^2"
+    }
+  },
+  "packageManager": "npm",
+  "packageData": "{\\"devDependencies\\":{\\"@types/node\\":\\"^1 & ^2\\"}}",
+  "jsonUpgraded": true,
+  "json_new": {
+    "devDependencies": {
+      "@types/node": "^1 & ^2"
+    }
+  },
+  "list_updated": {},
+  "json_changed": false,
+  "current": {}
+}
+`;
+
+exports[`should not update > ^1 | ^2 1`] = `
+{
+  "json_old": {
+    "devDependencies": {
+      "@types/node": "^1 | ^2"
+    }
+  },
+  "packageManager": "npm",
+  "packageData": "{\\"devDependencies\\":{\\"@types/node\\":\\"^1 | ^2\\"}}",
+  "jsonUpgraded": true,
+  "json_new": {
+    "devDependencies": {
+      "@types/node": "^1 | ^2"
+    }
+  },
+  "list_updated": {},
+  "json_changed": false,
+  "current": {}
+}
+`;
+
+exports[`should not update > latest 1`] = `
+{
+  "json_old": {
+    "devDependencies": {
+      "@types/node": "latest"
+    }
+  },
+  "packageManager": "npm",
+  "packageData": "{\\"devDependencies\\":{\\"@types/node\\":\\"latest\\"}}",
+  "jsonUpgraded": true,
+  "json_new": {
+    "devDependencies": {
+      "@types/node": "latest"
+    }
+  },
+  "list_updated": {},
+  "json_changed": false,
+  "current": {}
+}
+`;
+
+exports[`should not update > next 1`] = `
+{
+  "json_old": {
+    "devDependencies": {
+      "@types/node": "next"
+    }
+  },
+  "packageManager": "npm",
+  "packageData": "{\\"devDependencies\\":{\\"@types/node\\":\\"next\\"}}",
+  "jsonUpgraded": true,
+  "json_new": {
+    "devDependencies": {
+      "@types/node": "next"
+    }
+  },
+  "list_updated": {},
+  "json_changed": false,
+  "current": {}
+}
+`;

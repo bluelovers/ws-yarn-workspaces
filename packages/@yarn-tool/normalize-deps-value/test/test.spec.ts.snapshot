@@ -1,0 +1,408 @@
+exports[`normalizeDepsValue > * 1`] = `
+{
+  "type": "range",
+  "registry": true,
+  "raw": "@fake/fake@*",
+  "name": "@fake/fake",
+  "escapedName": "@fake%2ffake",
+  "scope": "@fake",
+  "rawSpec": "*",
+  "saveSpec": null,
+  "fetchSpec": "*"
+}
+`;
+
+exports[`normalizeDepsValue > * 2`] = `
+"*"
+`;
+
+exports[`normalizeDepsValue > . 1`] = `
+{
+  "type": "directory",
+  "where": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\normalize-deps-value",
+  "raw": "@fake/fake@.",
+  "name": "@fake/fake",
+  "escapedName": "@fake%2ffake",
+  "scope": "@fake",
+  "rawSpec": ".",
+  "saveSpec": "file:",
+  "fetchSpec": "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\normalize-deps-value"
+}
+`;
+
+exports[`normalizeDepsValue > . 2`] = `
+"."
+`;
+
+exports[`normalizeDepsValue > 0 1`] = `
+{
+  "type": "range",
+  "registry": true,
+  "raw": "@fake/fake@0",
+  "name": "@fake/fake",
+  "escapedName": "@fake%2ffake",
+  "scope": "@fake",
+  "rawSpec": "0",
+  "saveSpec": null,
+  "fetchSpec": "0"
+}
+`;
+
+exports[`normalizeDepsValue > 0 2`] = `
+"0"
+`;
+
+exports[`normalizeDepsValue > 1 1`] = `
+{
+  "type": "range",
+  "registry": true,
+  "raw": "@fake/fake@1",
+  "name": "@fake/fake",
+  "escapedName": "@fake%2ffake",
+  "scope": "@fake",
+  "rawSpec": "1",
+  "saveSpec": null,
+  "fetchSpec": "1"
+}
+`;
+
+exports[`normalizeDepsValue > 1 2`] = `
+"1"
+`;
+
+exports[`normalizeDepsValue > 1.0 && (2.0    || 3.1) 1`] = `
+{
+  "type": "range",
+  "registry": true,
+  "raw": "@fake/fake@1.0 && (2.0    || 3.1)",
+  "name": "@fake/fake",
+  "escapedName": "@fake%2ffake",
+  "scope": "@fake",
+  "rawSpec": "1.0 && (2.0    || 3.1)",
+  "saveSpec": null,
+  "fetchSpec": "1.0 && (2.0    || 3.1)"
+}
+`;
+
+exports[`normalizeDepsValue > 1.0 && (2.0    || 3.1) 2`] = `
+"1.0 (2.0 || 3.1)"
+`;
+
+exports[`normalizeDepsValue > 1.0 (2.0 || 3.1) 1`] = `
+{
+  "type": "range",
+  "registry": true,
+  "raw": "@fake/fake@1.0 (2.0 || 3.1)",
+  "name": "@fake/fake",
+  "escapedName": "@fake%2ffake",
+  "scope": "@fake",
+  "rawSpec": "1.0 (2.0 || 3.1)",
+  "saveSpec": null,
+  "fetchSpec": "1.0 (2.0 || 3.1)"
+}
+`;
+
+exports[`normalizeDepsValue > 1.0 (2.0 || 3.1) 2`] = `
+"1.0 (2.0 || 3.1)"
+`;
+
+exports[`normalizeDepsValue > >x 2.x || * || <x || ~1.2.3beta ^4.0.0-dev.20200615 && 4.0.0-dev.20200615 < 4.0.0-dev.20200800 || 4.0.x - 4.0.2 || (4.0.x - 4.0.2) || >= 1 || =1 || ~> 2.0.0 || 1.2.3 - 1.2.4 - 1.2.5 || >=1.2.3 <=1.2.4 1`] = `
+{
+  "type": "range",
+  "registry": true,
+  "raw": "@fake/fake@>x 2.x || * || <x || ~1.2.3beta ^4.0.0-dev.20200615 && 4.0.0-dev.20200615 < 4.0.0-dev.20200800 || 4.0.x - 4.0.2 || (4.0.x - 4.0.2) || >= 1 || =1 || ~> 2.0.0 || 1.2.3 - 1.2.4 - 1.2.5 || >=1.2.3 <=1.2.4",
+  "name": "@fake/fake",
+  "escapedName": "@fake%2ffake",
+  "scope": "@fake",
+  "rawSpec": ">x 2.x || * || <x || ~1.2.3beta ^4.0.0-dev.20200615 && 4.0.0-dev.20200615 < 4.0.0-dev.20200800 || 4.0.x - 4.0.2 || (4.0.x - 4.0.2) || >= 1 || =1 || ~> 2.0.0 || 1.2.3 - 1.2.4 - 1.2.5 || >=1.2.3 <=1.2.4",
+  "saveSpec": null,
+  "fetchSpec": ">x 2.x || * || <x || ~1.2.3beta ^4.0.0-dev.20200615 && 4.0.0-dev.20200615 < 4.0.0-dev.20200800 || 4.0.x - 4.0.2 || (4.0.x - 4.0.2) || >= 1 || =1 || ~> 2.0.0 || 1.2.3 - 1.2.4 - 1.2.5 || >=1.2.3 <=1.2.4"
+}
+`;
+
+exports[`normalizeDepsValue > >x 2.x || * || <x || ~1.2.3beta ^4.0.0-dev.20200615 && 4.0.0-dev.20200615 < 4.0.0-dev.20200800 || 4.0.x - 4.0.2 || (4.0.x - 4.0.2) || >= 1 || =1 || ~> 2.0.0 || 1.2.3 - 1.2.4 - 1.2.5 || >=1.2.3 <=1.2.4 2`] = `
+">x 2.x || * || <x || ~1.2.3beta ^4.0.0-dev.20200615 4.0.0-dev.20200615 <4.0.0-dev.20200800 || >=4.0.0 <=4.0.2 || (4.0.x - 4.0.2) || >=1 || =1 || ~>2.0.0 || 1.2.3 - 1.2.4 - 1.2.5 || >=1.2.3 <=1.2.4"
+`;
+
+exports[`normalizeDepsValue > @foo/bar@git+ssh://gitlab.com/user/foo 1`] = `
+{
+  "type": "git",
+  "raw": "@foo/bar@git+ssh://gitlab.com/user/foo",
+  "name": "@foo/bar",
+  "escapedName": "@foo%2fbar",
+  "scope": "@foo",
+  "rawSpec": "git+ssh://gitlab.com/user/foo",
+  "saveSpec": "git+ssh://git@gitlab.com/user/foo.git",
+  "fetchSpec": "ssh://git@gitlab.com/user/foo.git",
+  "gitCommittish": null
+}
+`;
+
+exports[`normalizeDepsValue > @foo/bar@git+ssh://gitlab.com/user/foo 2`] = `
+"git+ssh://gitlab.com/user/foo"
+`;
+
+exports[`normalizeDepsValue > empty 1`] = `
+{
+  "type": "range",
+  "registry": true,
+  "raw": "@fake/fake@",
+  "name": "@fake/fake",
+  "escapedName": "@fake%2ffake",
+  "scope": "@fake",
+  "rawSpec": "*",
+  "saveSpec": null,
+  "fetchSpec": "*"
+}
+`;
+
+exports[`normalizeDepsValue > empty 2`] = `
+"*"
+`;
+
+exports[`normalizeDepsValue > foo@gitlab:user/foo-js 1`] = `
+{
+  "type": "git",
+  "raw": "foo@gitlab:user/foo-js",
+  "name": "foo",
+  "escapedName": "foo",
+  "rawSpec": "gitlab:user/foo-js",
+  "saveSpec": "gitlab:user/foo-js",
+  "fetchSpec": null,
+  "gitCommittish": null
+}
+`;
+
+exports[`normalizeDepsValue > foo@gitlab:user/foo-js 2`] = `
+"gitlab:user/foo-js"
+`;
+
+exports[`normalizeDepsValue > git+ssh://git@gitlab.com/user/foo#1.2.3 1`] = `
+{
+  "type": "git",
+  "raw": "@fake/fake@git+ssh://git@gitlab.com/user/foo#1.2.3",
+  "name": "@fake/fake",
+  "escapedName": "@fake%2ffake",
+  "scope": "@fake",
+  "rawSpec": "git+ssh://git@gitlab.com/user/foo#1.2.3",
+  "saveSpec": "git+ssh://git@gitlab.com/user/foo.git#1.2.3",
+  "fetchSpec": "ssh://git@gitlab.com/user/foo.git",
+  "gitCommittish": "1.2.3"
+}
+`;
+
+exports[`normalizeDepsValue > git+ssh://git@gitlab.com/user/foo#1.2.3 2`] = `
+"git+ssh://git@gitlab.com/user/foo#1.2.3"
+`;
+
+exports[`normalizeDepsValue > gitlab:user..blerg--/..foo-js# . . . . . some . tags / / / 1`] = `
+{
+  "type": "git",
+  "raw": "@fake/fake@gitlab:user..blerg--/..foo-js# . . . . . some . tags / / /",
+  "name": "@fake/fake",
+  "escapedName": "@fake%2ffake",
+  "scope": "@fake",
+  "rawSpec": "gitlab:user..blerg--/..foo-js# . . . . . some . tags / / /",
+  "saveSpec": "gitlab:user..blerg--/..foo-js# . . . . . some . tags / / /",
+  "fetchSpec": null,
+  "gitCommittish": " . . . . . some . tags / / /"
+}
+`;
+
+exports[`normalizeDepsValue > gitlab:user..blerg--/..foo-js# . . . . . some . tags / / / 2`] = `
+"gitlab:user..blerg--/..foo-js# . . . . . some . tags / / /"
+`;
+
+exports[`normalizeDepsValue > gitlab:user/foo-js 1`] = `
+{
+  "type": "git",
+  "raw": "@fake/fake@gitlab:user/foo-js",
+  "name": "@fake/fake",
+  "escapedName": "@fake%2ffake",
+  "scope": "@fake",
+  "rawSpec": "gitlab:user/foo-js",
+  "saveSpec": "gitlab:user/foo-js",
+  "fetchSpec": null,
+  "gitCommittish": null
+}
+`;
+
+exports[`normalizeDepsValue > gitlab:user/foo-js 2`] = `
+"gitlab:user/foo-js"
+`;
+
+exports[`normalizeDepsValue > gitlab:user/foo-js#bar/baz 1`] = `
+{
+  "type": "git",
+  "raw": "@fake/fake@gitlab:user/foo-js#bar/baz",
+  "name": "@fake/fake",
+  "escapedName": "@fake%2ffake",
+  "scope": "@fake",
+  "rawSpec": "gitlab:user/foo-js#bar/baz",
+  "saveSpec": "gitlab:user/foo-js#bar/baz",
+  "fetchSpec": null,
+  "gitCommittish": "bar/baz"
+}
+`;
+
+exports[`normalizeDepsValue > gitlab:user/foo-js#bar/baz 2`] = `
+"gitlab:user/foo-js#bar/baz"
+`;
+
+exports[`normalizeDepsValue > gitlab:user/foo-js#bar/baz/bin 1`] = `
+{
+  "type": "git",
+  "raw": "@fake/fake@gitlab:user/foo-js#bar/baz/bin",
+  "name": "@fake/fake",
+  "escapedName": "@fake%2ffake",
+  "scope": "@fake",
+  "rawSpec": "gitlab:user/foo-js#bar/baz/bin",
+  "saveSpec": "gitlab:user/foo-js#bar/baz/bin",
+  "fetchSpec": null,
+  "gitCommittish": "bar/baz/bin"
+}
+`;
+
+exports[`normalizeDepsValue > gitlab:user/foo-js#bar/baz/bin 2`] = `
+"gitlab:user/foo-js#bar/baz/bin"
+`;
+
+exports[`normalizeDepsValue > https://gitlab.com/user/foo.git 1`] = `
+{
+  "type": "git",
+  "raw": "@fake/fake@https://gitlab.com/user/foo.git",
+  "name": "@fake/fake",
+  "escapedName": "@fake%2ffake",
+  "scope": "@fake",
+  "rawSpec": "https://gitlab.com/user/foo.git",
+  "saveSpec": "git+https://gitlab.com/user/foo.git",
+  "fetchSpec": "https://gitlab.com/user/foo.git",
+  "gitCommittish": null
+}
+`;
+
+exports[`normalizeDepsValue > https://gitlab.com/user/foo.git 2`] = `
+"https://gitlab.com/user/foo.git"
+`;
+
+exports[`normalizeDepsValue > npm:@foo/bar@1.2 1`] = `
+{
+  "type": "alias",
+  "registry": true,
+  "raw": "@fake/fake@npm:@foo/bar@1.2",
+  "name": "@fake/fake",
+  "escapedName": "@fake%2ffake",
+  "scope": "@fake",
+  "rawSpec": "npm:@foo/bar@1.2",
+  "saveSpec": null,
+  "fetchSpec": null,
+  "subSpec": {
+    "type": "range",
+    "registry": true,
+    "raw": "@foo/bar@1.2",
+    "name": "@foo/bar",
+    "escapedName": "@foo%2fbar",
+    "scope": "@foo",
+    "rawSpec": "1.2",
+    "saveSpec": null,
+    "fetchSpec": "1.2"
+  }
+}
+`;
+
+exports[`normalizeDepsValue > npm:@foo/bar@1.2 2`] = `
+"npm:@foo/bar@1.2"
+`;
+
+exports[`normalizeDepsValue > npm:@foo/bar@next 1`] = `
+{
+  "type": "alias",
+  "registry": true,
+  "raw": "@fake/fake@npm:@foo/bar@next",
+  "name": "@fake/fake",
+  "escapedName": "@fake%2ffake",
+  "scope": "@fake",
+  "rawSpec": "npm:@foo/bar@next",
+  "saveSpec": null,
+  "fetchSpec": null,
+  "subSpec": {
+    "type": "tag",
+    "registry": true,
+    "raw": "@foo/bar@next",
+    "name": "@foo/bar",
+    "escapedName": "@foo%2fbar",
+    "scope": "@foo",
+    "rawSpec": "next",
+    "saveSpec": null,
+    "fetchSpec": "next"
+  }
+}
+`;
+
+exports[`normalizeDepsValue > npm:@foo/bar@next 2`] = `
+"npm:@foo/bar@next"
+`;
+
+exports[`normalizeDepsValue > npm:bar@1.2 1`] = `
+{
+  "type": "alias",
+  "registry": true,
+  "raw": "@fake/fake@npm:bar@1.2",
+  "name": "@fake/fake",
+  "escapedName": "@fake%2ffake",
+  "scope": "@fake",
+  "rawSpec": "npm:bar@1.2",
+  "saveSpec": null,
+  "fetchSpec": null,
+  "subSpec": {
+    "type": "range",
+    "registry": true,
+    "raw": "bar@1.2",
+    "name": "bar",
+    "escapedName": "bar",
+    "rawSpec": "1.2",
+    "saveSpec": null,
+    "fetchSpec": "1.2"
+  }
+}
+`;
+
+exports[`normalizeDepsValue > npm:bar@1.2 2`] = `
+"npm:bar@1.2"
+`;
+
+exports[`normalizeDepsValue > space 1`] = `
+{
+  "type": "range",
+  "registry": true,
+  "raw": "@fake/fake@ ",
+  "name": "@fake/fake",
+  "escapedName": "@fake%2ffake",
+  "scope": "@fake",
+  "rawSpec": " ",
+  "saveSpec": null,
+  "fetchSpec": ""
+}
+`;
+
+exports[`normalizeDepsValue > space 2`] = `
+"*"
+`;
+
+exports[`normalizeDepsValue > x 1`] = `
+{
+  "type": "range",
+  "registry": true,
+  "raw": "@fake/fake@x",
+  "name": "@fake/fake",
+  "escapedName": "@fake%2ffake",
+  "scope": "@fake",
+  "rawSpec": "x",
+  "saveSpec": null,
+  "fetchSpec": "x"
+}
+`;
+
+exports[`normalizeDepsValue > x 2`] = `
+"x"
+`;

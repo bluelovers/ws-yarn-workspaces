@@ -1,0 +1,282 @@
+exports[`parseSimpleSemVer > 12 1`] = `
+{
+  "input": "12",
+  "originalSemver": {
+    "input": "12",
+    "err": {}
+  },
+  "parseSimpleSemVer": {
+    "input": "12",
+    "result": {
+      "semver": "12",
+      "version": "12",
+      "major": "12"
+    }
+  },
+  "parseSimpleSemVerRange": {
+    "input": "12",
+    "result": [
+      {
+        "semver": "12",
+        "major": "12"
+      }
+    ]
+  }
+}
+`;
+
+exports[`parseSimpleSemVer > 12.0 1`] = `
+{
+  "input": "12.0",
+  "originalSemver": {
+    "input": "12.0",
+    "err": {}
+  },
+  "parseSimpleSemVer": {
+    "input": "12.0",
+    "result": {
+      "semver": "12.0",
+      "version": "12.0",
+      "major": "12",
+      "minor": "0"
+    }
+  },
+  "parseSimpleSemVerRange": {
+    "input": "12.0",
+    "result": [
+      {
+        "semver": "12.0",
+        "major": "12",
+        "minor": "0"
+      }
+    ]
+  }
+}
+`;
+
+exports[`parseSimpleSemVer > 12.0.0 1`] = `
+{
+  "input": "12.0.0",
+  "originalSemver": {
+    "input": "12.0.0",
+    "result": {
+      "options": {},
+      "loose": false,
+      "includePrerelease": false,
+      "raw": "12.0.0",
+      "major": 12,
+      "minor": 0,
+      "patch": 0,
+      "prerelease": [],
+      "build": [],
+      "version": "12.0.0"
+    }
+  },
+  "parseSimpleSemVer": {
+    "input": "12.0.0",
+    "result": {
+      "semver": "12.0.0",
+      "version": "12.0.0",
+      "major": "12",
+      "minor": "0",
+      "patch": "0"
+    }
+  },
+  "parseSimpleSemVerRange": {
+    "input": "12.0.0",
+    "result": [
+      {
+        "semver": "12.0.0",
+        "major": "12",
+        "minor": "0",
+        "patch": "0"
+      }
+    ]
+  }
+}
+`;
+
+exports[`parseSimpleSemVer > 12.0.x 1`] = `
+{
+  "input": "12.0.x",
+  "originalSemver": {
+    "input": "12.0.x",
+    "err": {}
+  },
+  "parseSimpleSemVer": {
+    "input": "12.0.x",
+    "result": {
+      "semver": "12.0.x",
+      "version": "12.0.x",
+      "major": "12",
+      "minor": "0",
+      "patch": "x"
+    }
+  },
+  "parseSimpleSemVerRange": {
+    "input": "12.0.x",
+    "result": [
+      {
+        "semver": "12.0.x",
+        "major": "12",
+        "minor": "0",
+        "patch": "x"
+      }
+    ]
+  }
+}
+`;
+
+exports[`parseSimpleSemVer > 12.x 1`] = `
+{
+  "input": "12.x",
+  "originalSemver": {
+    "input": "12.x",
+    "err": {}
+  },
+  "parseSimpleSemVer": {
+    "input": "12.x",
+    "result": {
+      "semver": "12.x",
+      "version": "12.x",
+      "major": "12",
+      "minor": "x"
+    }
+  },
+  "parseSimpleSemVerRange": {
+    "input": "12.x",
+    "result": [
+      {
+        "semver": "12.x",
+        "major": "12",
+        "minor": "x"
+      }
+    ]
+  }
+}
+`;
+
+exports[`parseSimpleSemVer > 12.x.0 1`] = `
+{
+  "input": "12.x.0",
+  "originalSemver": {
+    "input": "12.x.0",
+    "err": {}
+  },
+  "parseSimpleSemVer": {
+    "input": "12.x.0",
+    "result": {
+      "semver": "12.x.0",
+      "version": "12.x.0",
+      "major": "12",
+      "minor": "x",
+      "patch": "0"
+    }
+  },
+  "parseSimpleSemVerRange": {
+    "input": "12.x.0",
+    "result": [
+      {
+        "semver": "12.x.0",
+        "major": "12",
+        "minor": "x",
+        "patch": "0"
+      }
+    ]
+  }
+}
+`;
+
+exports[`parseSimpleSemVer > 4.0.0-dev.20200615 1`] = `
+{
+  "input": "4.0.0-dev.20200615",
+  "originalSemver": {
+    "input": "4.0.0-dev.20200615",
+    "result": {
+      "options": {},
+      "loose": false,
+      "includePrerelease": false,
+      "raw": "4.0.0-dev.20200615",
+      "major": 4,
+      "minor": 0,
+      "patch": 0,
+      "prerelease": [
+        "dev",
+        20200615
+      ],
+      "build": [],
+      "version": "4.0.0-dev.20200615"
+    }
+  },
+  "parseSimpleSemVer": {
+    "input": "4.0.0-dev.20200615",
+    "result": {
+      "semver": "4.0.0-dev.20200615",
+      "version": "4.0.0",
+      "major": "4",
+      "minor": "0",
+      "patch": "0",
+      "release": "dev.20200615"
+    }
+  },
+  "parseSimpleSemVerRange": {
+    "input": "4.0.0-dev.20200615",
+    "result": [
+      {
+        "semver": "4.0.0-dev.20200615",
+        "major": "4",
+        "minor": "0",
+        "patch": "0",
+        "release": "dev.20200615"
+      }
+    ]
+  }
+}
+`;
+
+exports[`parseSimpleSemVer > ^4.0.0-dev.20200615 1`] = `
+{
+  "semver": "^4.0.0-dev.20200615",
+  "operator": "^",
+  "version": "4.0.0",
+  "major": "4",
+  "minor": "0",
+  "patch": "0",
+  "release": "dev.20200615"
+}
+`;
+
+exports[`parseSimpleSemVer > ^4.0.0-dev.20200615 2`] = `
+{
+  "input": "^4.0.0-dev.20200615",
+  "originalSemver": {
+    "input": "^4.0.0-dev.20200615",
+    "err": {}
+  },
+  "parseSimpleSemVer": {
+    "input": "^4.0.0-dev.20200615",
+    "result": {
+      "semver": "^4.0.0-dev.20200615",
+      "operator": "^",
+      "version": "4.0.0",
+      "major": "4",
+      "minor": "0",
+      "patch": "0",
+      "release": "dev.20200615"
+    }
+  },
+  "parseSimpleSemVerRange": {
+    "input": "^4.0.0-dev.20200615",
+    "result": [
+      {
+        "semver": "^4.0.0-dev.20200615",
+        "operator": "^",
+        "major": "4",
+        "minor": "0",
+        "patch": "0",
+        "release": "dev.20200615"
+      }
+    ]
+  }
+}
+`;

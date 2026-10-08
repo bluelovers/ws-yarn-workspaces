@@ -1,0 +1,4663 @@
+exports[`buildDiff > v1.iconv.lock 1`] = `
+[
+  {
+    "kind": "E",
+    "path": [
+      "@babel/core",
+      0
+    ],
+    "lhs": "7.12.16",
+    "rhs": "7.14.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@babel/generator",
+      0
+    ],
+    "lhs": "7.12.15",
+    "rhs": "7.14.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@babel/helper-function-name",
+      0
+    ],
+    "lhs": "7.12.13",
+    "rhs": "7.14.2"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@babel/helper-member-expression-to-functions",
+      0
+    ],
+    "lhs": "7.12.16",
+    "rhs": "7.13.12"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@babel/helper-module-imports",
+      0
+    ],
+    "lhs": "7.12.13",
+    "rhs": "7.13.12"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@babel/helper-module-transforms",
+      0
+    ],
+    "lhs": "7.12.13",
+    "rhs": "7.14.2"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@babel/helper-plugin-utils",
+      0
+    ],
+    "lhs": "7.12.13",
+    "rhs": "7.13.0"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@babel/helper-replace-supers",
+      0
+    ],
+    "lhs": "7.12.13",
+    "rhs": "7.14.4"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@babel/helper-simple-access",
+      0
+    ],
+    "lhs": "7.12.13",
+    "rhs": "7.13.12"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@babel/helper-validator-identifier",
+      0
+    ],
+    "lhs": "7.12.11",
+    "rhs": "7.14.0"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@babel/helpers",
+      0
+    ],
+    "lhs": "7.12.13",
+    "rhs": "7.14.0"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@babel/highlight",
+      0
+    ],
+    "lhs": "7.12.13",
+    "rhs": "7.14.0"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@babel/parser",
+      0
+    ],
+    "lhs": "7.12.16",
+    "rhs": "7.14.4"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@babel/traverse",
+      0
+    ],
+    "lhs": "7.12.13",
+    "rhs": "7.14.2"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@babel/types",
+      0
+    ],
+    "lhs": "7.12.13",
+    "rhs": "7.14.4"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "@cnakazawa/watch"
+    ],
+    "lhs": [
+      "1.0.4"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@istanbuljs/schema",
+      0
+    ],
+    "lhs": "0.1.2",
+    "rhs": "0.1.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@jest/console",
+      0
+    ],
+    "lhs": "26.6.2",
+    "rhs": "27.0.2"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@jest/core",
+      0
+    ],
+    "lhs": "26.6.3",
+    "rhs": "27.0.4"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@jest/environment",
+      0
+    ],
+    "lhs": "26.6.2",
+    "rhs": "27.0.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@jest/fake-timers",
+      0
+    ],
+    "lhs": "26.6.2",
+    "rhs": "27.0.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@jest/globals",
+      0
+    ],
+    "lhs": "26.6.2",
+    "rhs": "27.0.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@jest/reporters",
+      0
+    ],
+    "lhs": "26.6.2",
+    "rhs": "27.0.4"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@jest/source-map",
+      0
+    ],
+    "lhs": "26.6.2",
+    "rhs": "27.0.1"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@jest/test-result",
+      0
+    ],
+    "lhs": "26.6.2",
+    "rhs": "27.0.2"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@jest/test-sequencer",
+      0
+    ],
+    "lhs": "26.6.3",
+    "rhs": "27.0.4"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@jest/transform",
+      0
+    ],
+    "lhs": "26.6.2",
+    "rhs": "27.0.2"
+  },
+  {
+    "kind": "A",
+    "path": [
+      "@jest/types"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "N",
+      "rhs": "27.0.2"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@sinonjs/commons",
+      0
+    ],
+    "lhs": "1.8.2",
+    "rhs": "1.8.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@sinonjs/fake-timers",
+      0
+    ],
+    "lhs": "6.0.1",
+    "rhs": "7.1.2"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@types/babel__core",
+      0
+    ],
+    "lhs": "7.1.12",
+    "rhs": "7.1.14"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@types/babel__traverse",
+      0
+    ],
+    "lhs": "7.11.0",
+    "rhs": "7.11.1"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@types/bluebird",
+      0
+    ],
+    "lhs": "3.5.33",
+    "rhs": "3.5.35"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@types/fs-extra",
+      0
+    ],
+    "lhs": "9.0.7",
+    "rhs": "9.0.11"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@types/istanbul-reports",
+      0
+    ],
+    "lhs": "3.0.0",
+    "rhs": "3.0.1"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@types/jest",
+      0
+    ],
+    "lhs": "26.0.20",
+    "rhs": "26.0.23"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@types/lodash",
+      0
+    ],
+    "lhs": "4.14.168",
+    "rhs": "4.14.170"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@types/luxon",
+      0
+    ],
+    "lhs": "1.25.1",
+    "rhs": "1.26.5"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@types/node",
+      0
+    ],
+    "lhs": "14.14.26",
+    "rhs": "15.12.1"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "@types/normalize-package-data"
+    ],
+    "lhs": [
+      "2.4.0"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@types/prettier",
+      0
+    ],
+    "lhs": "2.2.0",
+    "rhs": "2.2.3"
+  },
+  {
+    "kind": "A",
+    "path": [
+      "@types/yargs"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "N",
+      "rhs": "16.0.3"
+    }
+  },
+  {
+    "kind": "A",
+    "path": [
+      "acorn"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "N",
+      "rhs": "8.3.0"
+    }
+  },
+  {
+    "kind": "D",
+    "path": [
+      "ajv"
+    ],
+    "lhs": [
+      "6.12.6"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "ansi-escapes",
+      0
+    ],
+    "lhs": "4.3.1",
+    "rhs": "4.3.2"
+  },
+  {
+    "kind": "A",
+    "path": [
+      "ansi-styles"
+    ],
+    "index": 2,
+    "item": {
+      "kind": "N",
+      "rhs": "5.2.0"
+    }
+  },
+  {
+    "kind": "A",
+    "path": [
+      "anymatch"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "3.1.1"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "anymatch",
+      0
+    ],
+    "lhs": "2.0.0",
+    "rhs": "3.1.2"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "arr-diff"
+    ],
+    "lhs": [
+      "4.0.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "arr-flatten"
+    ],
+    "lhs": [
+      "1.1.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "arr-union"
+    ],
+    "lhs": [
+      "3.1.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "array-unique"
+    ],
+    "lhs": [
+      "0.3.2"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "asn1"
+    ],
+    "lhs": [
+      "0.2.4"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "assert-plus"
+    ],
+    "lhs": [
+      "1.0.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "assign-symbols"
+    ],
+    "lhs": [
+      "1.0.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "at-least-node"
+    ],
+    "lhs": [
+      "1.0.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "atob"
+    ],
+    "lhs": [
+      "2.1.2"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "aws-sign2"
+    ],
+    "lhs": [
+      "0.7.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "aws4"
+    ],
+    "lhs": [
+      "1.11.0"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "babel-jest",
+      0
+    ],
+    "lhs": "26.6.3",
+    "rhs": "27.0.2"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "babel-plugin-jest-hoist",
+      0
+    ],
+    "lhs": "26.6.2",
+    "rhs": "27.0.1"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "babel-preset-jest",
+      0
+    ],
+    "lhs": "26.6.2",
+    "rhs": "27.0.1"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "balanced-match",
+      0
+    ],
+    "lhs": "1.0.0",
+    "rhs": "1.0.2"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "base"
+    ],
+    "lhs": [
+      "0.11.2"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "bcrypt-pbkdf"
+    ],
+    "lhs": [
+      "1.0.2"
+    ]
+  },
+  {
+    "kind": "A",
+    "path": [
+      "braces"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "3.0.2"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "braces",
+      0
+    ],
+    "lhs": "2.3.2",
+    "rhs": "3.0.2"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "cache-base"
+    ],
+    "lhs": [
+      "1.0.1"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "capture-exit"
+    ],
+    "lhs": [
+      "2.0.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "caseless"
+    ],
+    "lhs": [
+      "0.12.0"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "chalk",
+      1
+    ],
+    "lhs": "4.1.0",
+    "rhs": "4.1.1"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "ci-info",
+      0
+    ],
+    "lhs": "2.0.0",
+    "rhs": "3.2.0"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "cjs-module-lexer",
+      0
+    ],
+    "lhs": "0.6.0",
+    "rhs": "1.2.1"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "class-utils"
+    ],
+    "lhs": [
+      "0.3.6"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "cliui",
+      0
+    ],
+    "lhs": "6.0.0",
+    "rhs": "7.0.4"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "collection-visit"
+    ],
+    "lhs": [
+      "1.0.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "component-emitter"
+    ],
+    "lhs": [
+      "1.3.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "copy-descriptor"
+    ],
+    "lhs": [
+      "0.1.1"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "core-util-is"
+    ],
+    "lhs": [
+      "1.0.2"
+    ]
+  },
+  {
+    "kind": "A",
+    "path": [
+      "cross-spawn"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "7.0.3"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "cross-spawn",
+      0
+    ],
+    "lhs": "6.0.5",
+    "rhs": "7.0.3"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "dashdash"
+    ],
+    "lhs": [
+      "1.14.1"
+    ]
+  },
+  {
+    "kind": "A",
+    "path": [
+      "debug"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "4.3.1"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "debug",
+      0
+    ],
+    "lhs": "2.6.9",
+    "rhs": "4.3.1"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "decamelize"
+    ],
+    "lhs": [
+      "1.2.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "decode-uri-component"
+    ],
+    "lhs": [
+      "0.2.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "define-property"
+    ],
+    "lhs": [
+      "0.2.5",
+      "1.0.0",
+      "2.0.2"
+    ]
+  },
+  {
+    "kind": "A",
+    "path": [
+      "diff-sequences"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "N",
+      "rhs": "27.0.1"
+    }
+  },
+  {
+    "kind": "D",
+    "path": [
+      "ecc-jsbn"
+    ],
+    "lhs": [
+      "0.1.2"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "emittery",
+      0
+    ],
+    "lhs": "0.7.2",
+    "rhs": "0.8.1"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "end-of-stream"
+    ],
+    "lhs": [
+      "1.4.4"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "error-ex"
+    ],
+    "lhs": [
+      "1.3.2"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "escodegen",
+      0
+    ],
+    "lhs": "1.14.3",
+    "rhs": "2.0.0"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "estraverse",
+      0
+    ],
+    "lhs": "4.3.0",
+    "rhs": "5.2.0"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "exec-sh"
+    ],
+    "lhs": [
+      "0.3.4"
+    ]
+  },
+  {
+    "kind": "A",
+    "path": [
+      "execa"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "4.1.0"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "execa",
+      0
+    ],
+    "lhs": "1.0.0",
+    "rhs": "5.1.1"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "expand-brackets"
+    ],
+    "lhs": [
+      "2.1.4"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "expect",
+      0
+    ],
+    "lhs": "26.6.2",
+    "rhs": "27.0.2"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "extend-shallow"
+    ],
+    "lhs": [
+      "2.0.1",
+      "3.0.2"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "extend"
+    ],
+    "lhs": [
+      "3.0.2"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "extglob"
+    ],
+    "lhs": [
+      "2.0.4"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "extsprintf"
+    ],
+    "lhs": [
+      "1.3.0",
+      "1.4.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "fast-deep-equal"
+    ],
+    "lhs": [
+      "3.1.3"
+    ]
+  },
+  {
+    "kind": "A",
+    "path": [
+      "fill-range"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "7.0.1"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "fill-range",
+      0
+    ],
+    "lhs": "4.0.0",
+    "rhs": "7.0.1"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "for-in"
+    ],
+    "lhs": [
+      "1.0.2"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "forever-agent"
+    ],
+    "lhs": [
+      "0.6.1"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "form-data",
+      0
+    ],
+    "lhs": "2.3.3",
+    "rhs": "3.0.1"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "fragment-cache"
+    ],
+    "lhs": [
+      "0.2.1"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "fs-extra",
+      0
+    ],
+    "lhs": "9.1.0",
+    "rhs": "10.0.0"
+  },
+  {
+    "kind": "A",
+    "path": [
+      "get-stream"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "5.2.0"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "get-stream",
+      0
+    ],
+    "lhs": "4.1.0",
+    "rhs": "6.0.1"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "get-value"
+    ],
+    "lhs": [
+      "2.0.6"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "getpass"
+    ],
+    "lhs": [
+      "0.1.7"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "glob",
+      0
+    ],
+    "lhs": "7.1.6",
+    "rhs": "7.1.7"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "growly"
+    ],
+    "lhs": [
+      "1.3.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "har-schema"
+    ],
+    "lhs": [
+      "2.0.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "har-validator"
+    ],
+    "lhs": [
+      "5.1.5"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "has-value"
+    ],
+    "lhs": [
+      "0.3.1",
+      "1.0.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "has-values"
+    ],
+    "lhs": [
+      "0.1.4",
+      "1.0.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "hosted-git-info"
+    ],
+    "lhs": [
+      "2.8.8"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "http-signature"
+    ],
+    "lhs": [
+      "1.2.0"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "human-signals",
+      0
+    ],
+    "lhs": "1.1.1",
+    "rhs": "2.1.0"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "iconv-lite",
+      1
+    ],
+    "lhs": "0.6.2",
+    "rhs": "0.6.3"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "ip-regex"
+    ],
+    "lhs": [
+      "2.1.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "is-accessor-descriptor"
+    ],
+    "lhs": [
+      "0.1.6",
+      "1.0.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "is-arrayish"
+    ],
+    "lhs": [
+      "0.2.1"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "is-buffer"
+    ],
+    "lhs": [
+      "1.1.6"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "is-ci",
+      0
+    ],
+    "lhs": "2.0.0",
+    "rhs": "3.0.0"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "is-core-module",
+      0
+    ],
+    "lhs": "2.2.0",
+    "rhs": "2.4.0"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "is-data-descriptor"
+    ],
+    "lhs": [
+      "0.1.4",
+      "1.0.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "is-descriptor"
+    ],
+    "lhs": [
+      "0.1.6",
+      "1.0.2"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "is-docker"
+    ],
+    "lhs": [
+      "2.1.1"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "is-extendable"
+    ],
+    "lhs": [
+      "0.1.1",
+      "1.0.1"
+    ]
+  },
+  {
+    "kind": "A",
+    "path": [
+      "is-number"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "7.0.0"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "is-number",
+      0
+    ],
+    "lhs": "3.0.0",
+    "rhs": "7.0.0"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "is-plain-object"
+    ],
+    "lhs": [
+      "2.0.4"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "is-potential-custom-element-name",
+      0
+    ],
+    "lhs": "1.0.0",
+    "rhs": "1.0.1"
+  },
+  {
+    "kind": "A",
+    "path": [
+      "is-stream"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "2.0.0"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "is-stream",
+      0
+    ],
+    "lhs": "1.1.0",
+    "rhs": "2.0.0"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "is-windows"
+    ],
+    "lhs": [
+      "1.0.2"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "is-wsl"
+    ],
+    "lhs": [
+      "2.2.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "isarray"
+    ],
+    "lhs": [
+      "1.0.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "isobject"
+    ],
+    "lhs": [
+      "2.1.0",
+      "3.0.1"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "isstream"
+    ],
+    "lhs": [
+      "0.1.2"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-changed-files",
+      0
+    ],
+    "lhs": "26.6.2",
+    "rhs": "27.0.2"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-cli",
+      0
+    ],
+    "lhs": "26.6.3",
+    "rhs": "27.0.4"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-config",
+      0
+    ],
+    "lhs": "26.6.3",
+    "rhs": "27.0.4"
+  },
+  {
+    "kind": "A",
+    "path": [
+      "jest-diff"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "N",
+      "rhs": "27.0.2"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-docblock",
+      0
+    ],
+    "lhs": "26.0.0",
+    "rhs": "27.0.1"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-each",
+      0
+    ],
+    "lhs": "26.6.2",
+    "rhs": "27.0.2"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-environment-jsdom",
+      0
+    ],
+    "lhs": "26.6.2",
+    "rhs": "27.0.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-environment-node",
+      0
+    ],
+    "lhs": "26.6.2",
+    "rhs": "27.0.3"
+  },
+  {
+    "kind": "A",
+    "path": [
+      "jest-get-type"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "N",
+      "rhs": "27.0.1"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-haste-map",
+      0
+    ],
+    "lhs": "26.6.2",
+    "rhs": "27.0.2"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-jasmine2",
+      0
+    ],
+    "lhs": "26.6.3",
+    "rhs": "27.0.4"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-leak-detector",
+      0
+    ],
+    "lhs": "26.6.2",
+    "rhs": "27.0.2"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-matcher-utils",
+      0
+    ],
+    "lhs": "26.6.2",
+    "rhs": "27.0.2"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-message-util",
+      0
+    ],
+    "lhs": "26.6.2",
+    "rhs": "27.0.2"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-mock",
+      0
+    ],
+    "lhs": "26.6.2",
+    "rhs": "27.0.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-regex-util",
+      0
+    ],
+    "lhs": "26.0.0",
+    "rhs": "27.0.1"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-resolve-dependencies",
+      0
+    ],
+    "lhs": "26.6.3",
+    "rhs": "27.0.4"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-resolve",
+      0
+    ],
+    "lhs": "26.6.2",
+    "rhs": "27.0.4"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-runner",
+      0
+    ],
+    "lhs": "26.6.3",
+    "rhs": "27.0.4"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-runtime",
+      0
+    ],
+    "lhs": "26.6.3",
+    "rhs": "27.0.4"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-serializer",
+      0
+    ],
+    "lhs": "26.6.2",
+    "rhs": "27.0.1"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-snapshot",
+      0
+    ],
+    "lhs": "26.6.2",
+    "rhs": "27.0.4"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-util",
+      0
+    ],
+    "lhs": "26.6.2",
+    "rhs": "27.0.2"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-validate",
+      0
+    ],
+    "lhs": "26.6.2",
+    "rhs": "27.0.2"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-watcher",
+      0
+    ],
+    "lhs": "26.6.2",
+    "rhs": "27.0.2"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-worker",
+      0
+    ],
+    "lhs": "26.6.2",
+    "rhs": "27.0.2"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest",
+      0
+    ],
+    "lhs": "26.6.3",
+    "rhs": "27.0.4"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "jsbn"
+    ],
+    "lhs": [
+      "0.1.1"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jschardet",
+      0
+    ],
+    "lhs": "2.2.1",
+    "rhs": "3.0.0"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jsdom",
+      0
+    ],
+    "lhs": "16.4.0",
+    "rhs": "16.6.0"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "json-parse-even-better-errors"
+    ],
+    "lhs": [
+      "2.3.1"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "json-schema-traverse"
+    ],
+    "lhs": [
+      "0.4.1"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "json-schema"
+    ],
+    "lhs": [
+      "0.2.3"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "json-stringify-safe"
+    ],
+    "lhs": [
+      "5.0.1"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "jsprim"
+    ],
+    "lhs": [
+      "1.4.1"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "kind-of"
+    ],
+    "lhs": [
+      "3.2.2",
+      "4.0.0",
+      "5.1.0",
+      "6.0.3"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "lines-and-columns"
+    ],
+    "lhs": [
+      "1.1.6"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "lodash.sortby"
+    ],
+    "lhs": [
+      "4.7.0"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "lodash",
+      0
+    ],
+    "lhs": "4.17.20",
+    "rhs": "4.17.21"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "luxon",
+      0
+    ],
+    "lhs": "1.25.0",
+    "rhs": "1.27.0"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "map-cache"
+    ],
+    "lhs": [
+      "0.2.2"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "map-visit"
+    ],
+    "lhs": [
+      "1.0.0"
+    ]
+  },
+  {
+    "kind": "A",
+    "path": [
+      "micromatch"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "4.0.2"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "micromatch",
+      0
+    ],
+    "lhs": "3.1.10",
+    "rhs": "4.0.4"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "mime-db",
+      0
+    ],
+    "lhs": "1.45.0",
+    "rhs": "1.48.0"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "mime-types",
+      0
+    ],
+    "lhs": "2.1.28",
+    "rhs": "2.1.31"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "mixin-deep"
+    ],
+    "lhs": [
+      "1.3.2"
+    ]
+  },
+  {
+    "kind": "A",
+    "path": [
+      "ms"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "2.1.2"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "ms",
+      0
+    ],
+    "lhs": "2.0.0",
+    "rhs": "2.1.2"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "nanomatch"
+    ],
+    "lhs": [
+      "1.2.13"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "nice-try"
+    ],
+    "lhs": [
+      "1.0.5"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "node-notifier"
+    ],
+    "lhs": [
+      "8.0.1"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "normalize-package-data"
+    ],
+    "lhs": [
+      "2.5.0"
+    ]
+  },
+  {
+    "kind": "A",
+    "path": [
+      "normalize-path"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "3.0.0"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "normalize-path",
+      0
+    ],
+    "lhs": "2.1.1",
+    "rhs": "3.0.0"
+  },
+  {
+    "kind": "A",
+    "path": [
+      "npm-run-path"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "4.0.1"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "npm-run-path",
+      0
+    ],
+    "lhs": "2.0.2",
+    "rhs": "4.0.1"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "oauth-sign"
+    ],
+    "lhs": [
+      "0.9.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "object-copy"
+    ],
+    "lhs": [
+      "0.1.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "object-visit"
+    ],
+    "lhs": [
+      "1.0.1"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "object.pick"
+    ],
+    "lhs": [
+      "1.3.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "p-finally"
+    ],
+    "lhs": [
+      "1.0.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "parse-json"
+    ],
+    "lhs": [
+      "5.2.0"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "parse5",
+      0
+    ],
+    "lhs": "5.1.1",
+    "rhs": "6.0.1"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "pascalcase"
+    ],
+    "lhs": [
+      "0.1.1"
+    ]
+  },
+  {
+    "kind": "A",
+    "path": [
+      "path-key"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "3.1.1"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "path-key",
+      0
+    ],
+    "lhs": "2.0.1",
+    "rhs": "3.1.1"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "path-parse",
+      0
+    ],
+    "lhs": "1.0.6",
+    "rhs": "1.0.7"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "performance-now"
+    ],
+    "lhs": [
+      "2.1.0"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "picomatch",
+      0
+    ],
+    "lhs": "2.2.2",
+    "rhs": "2.3.0"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "posix-character-classes"
+    ],
+    "lhs": [
+      "0.1.1"
+    ]
+  },
+  {
+    "kind": "A",
+    "path": [
+      "pretty-format"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "N",
+      "rhs": "27.0.2"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "prompts",
+      0
+    ],
+    "lhs": "2.4.0",
+    "rhs": "2.4.1"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "pump"
+    ],
+    "lhs": [
+      "3.0.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "qs"
+    ],
+    "lhs": [
+      "6.5.2"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "react-is",
+      0
+    ],
+    "lhs": "17.0.1",
+    "rhs": "17.0.2"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "read-pkg-up"
+    ],
+    "lhs": [
+      "7.0.1"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "read-pkg"
+    ],
+    "lhs": [
+      "5.2.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "regex-not"
+    ],
+    "lhs": [
+      "1.0.2"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "remove-trailing-separator"
+    ],
+    "lhs": [
+      "1.1.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "repeat-element"
+    ],
+    "lhs": [
+      "1.1.3"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "repeat-string"
+    ],
+    "lhs": [
+      "1.6.1"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "request-promise-core"
+    ],
+    "lhs": [
+      "1.1.4"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "request-promise-native"
+    ],
+    "lhs": [
+      "1.0.9"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "request"
+    ],
+    "lhs": [
+      "2.88.2"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "require-main-filename"
+    ],
+    "lhs": [
+      "2.0.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "resolve-url"
+    ],
+    "lhs": [
+      "0.2.1"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "ret"
+    ],
+    "lhs": [
+      "0.1.15"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "rsvp"
+    ],
+    "lhs": [
+      "4.8.5"
+    ]
+  },
+  {
+    "kind": "A",
+    "path": [
+      "safe-buffer"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "5.2.1"
+    }
+  },
+  {
+    "kind": "D",
+    "path": [
+      "safe-regex"
+    ],
+    "lhs": [
+      "1.1.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "sane"
+    ],
+    "lhs": [
+      "4.1.0"
+    ]
+  },
+  {
+    "kind": "A",
+    "path": [
+      "semver"
+    ],
+    "index": 2,
+    "item": {
+      "kind": "D",
+      "lhs": "7.3.4"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "semver",
+      1
+    ],
+    "lhs": "6.3.0",
+    "rhs": "7.3.5"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "semver",
+      0
+    ],
+    "lhs": "5.7.1",
+    "rhs": "6.3.0"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "set-blocking"
+    ],
+    "lhs": [
+      "2.0.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "set-value"
+    ],
+    "lhs": [
+      "2.0.1"
+    ]
+  },
+  {
+    "kind": "A",
+    "path": [
+      "shebang-command"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "2.0.0"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "shebang-command",
+      0
+    ],
+    "lhs": "1.2.0",
+    "rhs": "2.0.0"
+  },
+  {
+    "kind": "A",
+    "path": [
+      "shebang-regex"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "3.0.0"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "shebang-regex",
+      0
+    ],
+    "lhs": "1.0.0",
+    "rhs": "3.0.0"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "shellwords"
+    ],
+    "lhs": [
+      "0.1.1"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "snapdragon-node"
+    ],
+    "lhs": [
+      "2.1.1"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "snapdragon-util"
+    ],
+    "lhs": [
+      "3.0.1"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "snapdragon"
+    ],
+    "lhs": [
+      "0.8.2"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "source-map-resolve"
+    ],
+    "lhs": [
+      "0.5.3"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "source-map-url"
+    ],
+    "lhs": [
+      "0.4.1"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "spdx-correct"
+    ],
+    "lhs": [
+      "3.1.1"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "spdx-exceptions"
+    ],
+    "lhs": [
+      "2.3.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "spdx-expression-parse"
+    ],
+    "lhs": [
+      "3.0.1"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "spdx-license-ids"
+    ],
+    "lhs": [
+      "3.0.7"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "split-string"
+    ],
+    "lhs": [
+      "3.1.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "sshpk"
+    ],
+    "lhs": [
+      "1.16.1"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "static-extend"
+    ],
+    "lhs": [
+      "0.1.2"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "stealthy-require"
+    ],
+    "lhs": [
+      "1.1.1"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "string-length",
+      0
+    ],
+    "lhs": "4.0.1",
+    "rhs": "4.0.2"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "string-width",
+      0
+    ],
+    "lhs": "4.2.0",
+    "rhs": "4.2.2"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "strip-eof"
+    ],
+    "lhs": [
+      "1.0.0"
+    ]
+  },
+  {
+    "kind": "A",
+    "path": [
+      "supports-color"
+    ],
+    "index": 2,
+    "item": {
+      "kind": "N",
+      "rhs": "8.1.1"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "supports-hyperlinks",
+      0
+    ],
+    "lhs": "2.1.0",
+    "rhs": "2.2.0"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "throat",
+      0
+    ],
+    "lhs": "5.0.0",
+    "rhs": "6.0.1"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "to-object-path"
+    ],
+    "lhs": [
+      "0.3.0"
+    ]
+  },
+  {
+    "kind": "A",
+    "path": [
+      "to-regex-range"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "5.0.1"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "to-regex-range",
+      0
+    ],
+    "lhs": "2.1.1",
+    "rhs": "5.0.1"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "to-regex"
+    ],
+    "lhs": [
+      "3.0.2"
+    ]
+  },
+  {
+    "kind": "A",
+    "path": [
+      "tough-cookie"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "3.0.1"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "tough-cookie",
+      0
+    ],
+    "lhs": "2.5.0",
+    "rhs": "4.0.0"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "tr46",
+      0
+    ],
+    "lhs": "2.0.2",
+    "rhs": "2.1.0"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "ts-jest",
+      0
+    ],
+    "lhs": "26.5.1",
+    "rhs": "27.0.2"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "tunnel-agent"
+    ],
+    "lhs": [
+      "0.6.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "tweetnacl"
+    ],
+    "lhs": [
+      "0.14.5"
+    ]
+  },
+  {
+    "kind": "A",
+    "path": [
+      "type-fest"
+    ],
+    "index": 2,
+    "item": {
+      "kind": "D",
+      "lhs": "0.11.0"
+    }
+  },
+  {
+    "kind": "A",
+    "path": [
+      "type-fest"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "0.8.1"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "type-fest",
+      0
+    ],
+    "lhs": "0.6.0",
+    "rhs": "0.21.3"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "union-value"
+    ],
+    "lhs": [
+      "1.0.1"
+    ]
+  },
+  {
+    "kind": "A",
+    "path": [
+      "universalify"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "N",
+      "rhs": "2.0.0"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "universalify",
+      0
+    ],
+    "lhs": "2.0.0",
+    "rhs": "0.1.2"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "unset-value"
+    ],
+    "lhs": [
+      "1.0.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "uri-js"
+    ],
+    "lhs": [
+      "4.4.1"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "urix"
+    ],
+    "lhs": [
+      "0.1.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "use"
+    ],
+    "lhs": [
+      "3.1.1"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "uuid"
+    ],
+    "lhs": [
+      "3.4.0",
+      "8.3.2"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "v8-to-istanbul",
+      0
+    ],
+    "lhs": "7.1.0",
+    "rhs": "7.1.2"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "validate-npm-package-license"
+    ],
+    "lhs": [
+      "3.0.4"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "verror"
+    ],
+    "lhs": [
+      "1.10.0"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "whatwg-url",
+      0
+    ],
+    "lhs": "8.4.0",
+    "rhs": "8.5.0"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "which-module"
+    ],
+    "lhs": [
+      "2.0.0"
+    ]
+  },
+  {
+    "kind": "A",
+    "path": [
+      "which"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "2.0.2"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "which",
+      0
+    ],
+    "lhs": "1.3.1",
+    "rhs": "2.0.2"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "wrap-ansi",
+      0
+    ],
+    "lhs": "6.2.0",
+    "rhs": "7.0.0"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "ws",
+      0
+    ],
+    "lhs": "7.4.3",
+    "rhs": "7.4.6"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "y18n",
+      0
+    ],
+    "lhs": "4.0.1",
+    "rhs": "5.0.8"
+  },
+  {
+    "kind": "A",
+    "path": [
+      "yargs-parser"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "20.2.4"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "yargs-parser",
+      0
+    ],
+    "lhs": "18.1.3",
+    "rhs": "20.2.7"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "yargs",
+      0
+    ],
+    "lhs": "15.4.1",
+    "rhs": "16.2.0"
+  },
+  {
+    "kind": "N",
+    "path": [
+      "@babel/compat-data"
+    ],
+    "rhs": [
+      "7.14.4"
+    ]
+  },
+  {
+    "kind": "N",
+    "path": [
+      "@babel/helper-compilation-targets"
+    ],
+    "rhs": [
+      "7.14.4"
+    ]
+  },
+  {
+    "kind": "N",
+    "path": [
+      "@babel/helper-validator-option"
+    ],
+    "rhs": [
+      "7.12.17"
+    ]
+  },
+  {
+    "kind": "N",
+    "path": [
+      "@babel/plugin-syntax-typescript"
+    ],
+    "rhs": [
+      "7.12.13"
+    ]
+  },
+  {
+    "kind": "N",
+    "path": [
+      "@tootallnate/once"
+    ],
+    "rhs": [
+      "1.1.2"
+    ]
+  },
+  {
+    "kind": "N",
+    "path": [
+      "agent-base"
+    ],
+    "rhs": [
+      "6.0.2"
+    ]
+  },
+  {
+    "kind": "N",
+    "path": [
+      "browserslist"
+    ],
+    "rhs": [
+      "4.16.6"
+    ]
+  },
+  {
+    "kind": "N",
+    "path": [
+      "caniuse-lite"
+    ],
+    "rhs": [
+      "1.0.30001234"
+    ]
+  },
+  {
+    "kind": "N",
+    "path": [
+      "colorette"
+    ],
+    "rhs": [
+      "1.2.2"
+    ]
+  },
+  {
+    "kind": "N",
+    "path": [
+      "dedent"
+    ],
+    "rhs": [
+      "0.7.0"
+    ]
+  },
+  {
+    "kind": "N",
+    "path": [
+      "electron-to-chromium"
+    ],
+    "rhs": [
+      "1.3.749"
+    ]
+  },
+  {
+    "kind": "N",
+    "path": [
+      "escalade"
+    ],
+    "rhs": [
+      "3.1.1"
+    ]
+  },
+  {
+    "kind": "N",
+    "path": [
+      "http-proxy-agent"
+    ],
+    "rhs": [
+      "4.0.1"
+    ]
+  },
+  {
+    "kind": "N",
+    "path": [
+      "https-proxy-agent"
+    ],
+    "rhs": [
+      "5.0.0"
+    ]
+  },
+  {
+    "kind": "N",
+    "path": [
+      "jest-circus"
+    ],
+    "rhs": [
+      "27.0.4"
+    ]
+  },
+  {
+    "kind": "N",
+    "path": [
+      "node-releases"
+    ],
+    "rhs": [
+      "1.1.72"
+    ]
+  }
+]
+`;
+
+exports[`buildDiff > v2.lock 1`] = `
+[
+  {
+    "kind": "A",
+    "path": [
+      "@bluelovers/tsconfig"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "1.0.20"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@bluelovers/tsconfig",
+      0
+    ],
+    "lhs": "1.0.19",
+    "rhs": "1.0.20"
+  }
+]
+`;
+
+exports[`buildDiff > v3/yarn-2.lock 1`] = `
+[
+  {
+    "kind": "E",
+    "path": [
+      "@babel/helper-plugin-utils",
+      0
+    ],
+    "lhs": "7.14.5",
+    "rhs": "7.18.9"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@babel/plugin-syntax-typescript",
+      0
+    ],
+    "lhs": "7.14.5",
+    "rhs": "7.18.6"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@types/babel__core",
+      0
+    ],
+    "lhs": "7.1.14",
+    "rhs": "7.1.19"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@types/babel__generator",
+      0
+    ],
+    "lhs": "7.6.2",
+    "rhs": "7.6.4"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@types/babel__template",
+      0
+    ],
+    "lhs": "7.4.0",
+    "rhs": "7.4.1"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@types/babel__traverse",
+      0
+    ],
+    "lhs": "7.14.0",
+    "rhs": "7.18.0"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@types/istanbul-lib-coverage",
+      0
+    ],
+    "lhs": "2.0.3",
+    "rhs": "2.0.4"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@types/node",
+      0
+    ],
+    "lhs": "15.12.5",
+    "rhs": "18.7.1"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@types/prettier",
+      0
+    ],
+    "lhs": "2.3.0",
+    "rhs": "2.7.0"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@types/stack-utils",
+      0
+    ],
+    "lhs": "2.0.0",
+    "rhs": "2.0.1"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@types/yargs-parser",
+      0
+    ],
+    "lhs": "20.2.0",
+    "rhs": "21.0.0"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "buffer-from",
+      0
+    ],
+    "lhs": "1.1.1",
+    "rhs": "1.1.2"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "camelcase",
+      1
+    ],
+    "lhs": "6.2.0",
+    "rhs": "6.3.0"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "chalk",
+      1
+    ],
+    "lhs": "4.1.1",
+    "rhs": "4.1.2"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "cjs-module-lexer",
+      0
+    ],
+    "lhs": "1.2.1",
+    "rhs": "1.2.2"
+  },
+  {
+    "kind": "A",
+    "path": [
+      "debug"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "4.3.4"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "debug",
+      0
+    ],
+    "lhs": "4.3.1",
+    "rhs": "4.3.4"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "glob",
+      0
+    ],
+    "lhs": "7.1.7",
+    "rhs": "7.2.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "import-local",
+      0
+    ],
+    "lhs": "3.0.2",
+    "rhs": "3.1.0"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "is-core-module",
+      0
+    ],
+    "lhs": "2.4.0",
+    "rhs": "2.10.0"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "is-stream",
+      0
+    ],
+    "lhs": "2.0.0",
+    "rhs": "2.0.1"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "istanbul-lib-source-maps",
+      0
+    ],
+    "lhs": "4.0.0",
+    "rhs": "4.0.1"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "micromatch",
+      0
+    ],
+    "lhs": "4.0.4",
+    "rhs": "4.0.5"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "minimatch",
+      0
+    ],
+    "lhs": "3.0.4",
+    "rhs": "3.1.2"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "picomatch",
+      0
+    ],
+    "lhs": "2.3.0",
+    "rhs": "2.3.1"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "prompts",
+      0
+    ],
+    "lhs": "2.4.1",
+    "rhs": "2.4.2"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "resolve",
+      0
+    ],
+    "lhs": "1.20.0",
+    "rhs": "1.22.1"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "resolve>::version=1.20.0&hash=07638b"
+    ],
+    "lhs": [
+      "1.20.0"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "stack-utils",
+      0
+    ],
+    "lhs": "2.0.3",
+    "rhs": "2.0.5"
+  },
+  {
+    "kind": "N",
+    "path": [
+      "resolve>::version=1.22.1&hash=07638b"
+    ],
+    "rhs": [
+      "1.22.1"
+    ]
+  },
+  {
+    "kind": "N",
+    "path": [
+      "supports-preserve-symlinks-flag"
+    ],
+    "rhs": [
+      "1.0.0"
+    ]
+  }
+]
+`;
+
+exports[`buildDiff > v3/yarn.lock 1`] = `
+[
+  {
+    "kind": "E",
+    "path": [
+      "@jest/console",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@jest/core",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@jest/environment",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@jest/fake-timers",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@jest/globals",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@jest/reporters",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@jest/source-map",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.2"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@jest/test-result",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@jest/test-sequencer",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@jest/transform",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "A",
+    "path": [
+      "@jest/types"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "27.5.1"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@jest/types",
+      0
+    ],
+    "lhs": "26.6.2",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@sinonjs/fake-timers",
+      0
+    ],
+    "lhs": "8.1.0",
+    "rhs": "9.1.2"
+  },
+  {
+    "kind": "A",
+    "path": [
+      "@tootallnate/once"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "2.0.0"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@tootallnate/once",
+      0
+    ],
+    "lhs": "1.1.2",
+    "rhs": "2.0.0"
+  },
+  {
+    "kind": "A",
+    "path": [
+      "@types/babel__core"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "7.1.19"
+    }
+  },
+  {
+    "kind": "A",
+    "path": [
+      "@types/babel__traverse"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "7.18.0"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@types/jest",
+      0
+    ],
+    "lhs": "26.0.24",
+    "rhs": "28.1.6"
+  },
+  {
+    "kind": "A",
+    "path": [
+      "@types/yargs"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "16.0.4"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@types/yargs",
+      0
+    ],
+    "lhs": "15.0.14",
+    "rhs": "17.0.11"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "abab"
+    ],
+    "lhs": [
+      "2.0.6"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "acorn-globals"
+    ],
+    "lhs": [
+      "6.0.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "acorn-walk"
+    ],
+    "lhs": [
+      "7.2.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "acorn"
+    ],
+    "lhs": [
+      "7.4.1",
+      "8.8.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "asynckit"
+    ],
+    "lhs": [
+      "0.4.0"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "babel-jest",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "babel-plugin-jest-hoist",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "babel-preset-jest",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "browser-process-hrtime"
+    ],
+    "lhs": [
+      "1.0.0"
+    ]
+  },
+  {
+    "kind": "A",
+    "path": [
+      "cliui"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "7.0.4"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "cliui",
+      0
+    ],
+    "lhs": "6.0.0",
+    "rhs": "7.0.4"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "combined-stream"
+    ],
+    "lhs": [
+      "1.0.8"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "cssom"
+    ],
+    "lhs": [
+      "0.3.8",
+      "0.4.4"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "cssstyle"
+    ],
+    "lhs": [
+      "2.3.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "data-urls"
+    ],
+    "lhs": [
+      "2.0.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "decamelize"
+    ],
+    "lhs": [
+      "1.2.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "decimal.js"
+    ],
+    "lhs": [
+      "10.3.1"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "deep-is"
+    ],
+    "lhs": [
+      "0.1.4"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "delayed-stream"
+    ],
+    "lhs": [
+      "1.0.0"
+    ]
+  },
+  {
+    "kind": "A",
+    "path": [
+      "diff-sequences"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "27.5.1"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "diff-sequences",
+      0
+    ],
+    "lhs": "26.6.2",
+    "rhs": "28.1.1"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "domexception"
+    ],
+    "lhs": [
+      "2.0.1"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "dts-bundle-generator"
+    ],
+    "lhs": [
+      "5.9.0"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "emittery",
+      0
+    ],
+    "lhs": "0.8.1",
+    "rhs": "0.10.2"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "escodegen"
+    ],
+    "lhs": [
+      "2.0.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "estraverse"
+    ],
+    "lhs": [
+      "5.3.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "esutils"
+    ],
+    "lhs": [
+      "2.0.3"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "expect",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "fast-levenshtein"
+    ],
+    "lhs": [
+      "2.0.6"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "form-data"
+    ],
+    "lhs": [
+      "3.0.1"
+    ]
+  },
+  {
+    "kind": "A",
+    "path": [
+      "glob"
+    ],
+    "index": 2,
+    "item": {
+      "kind": "D",
+      "lhs": "8.0.3"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "glob",
+      1
+    ],
+    "lhs": "7.2.3",
+    "rhs": "8.0.3"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "html-encoding-sniffer"
+    ],
+    "lhs": [
+      "2.0.1"
+    ]
+  },
+  {
+    "kind": "A",
+    "path": [
+      "http-proxy-agent"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "5.0.0"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "http-proxy-agent",
+      0
+    ],
+    "lhs": "4.0.1",
+    "rhs": "5.0.0"
+  },
+  {
+    "kind": "A",
+    "path": [
+      "iconv-lite"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "0.6.3"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "iconv-lite",
+      0
+    ],
+    "lhs": "0.4.24",
+    "rhs": "0.6.3"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "is-potential-custom-element-name"
+    ],
+    "lhs": [
+      "1.0.1"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "is-typedarray"
+    ],
+    "lhs": [
+      "1.0.0"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-changed-files",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-circus",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-cli",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-config",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "A",
+    "path": [
+      "jest-diff"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "27.5.1"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-diff",
+      0
+    ],
+    "lhs": "26.6.2",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-docblock",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.1"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-each",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "jest-environment-jsdom"
+    ],
+    "lhs": [
+      "27.5.1"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-environment-node",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "A",
+    "path": [
+      "jest-get-type"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "27.5.1"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-get-type",
+      0
+    ],
+    "lhs": "26.3.0",
+    "rhs": "28.0.2"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-haste-map",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "jest-jasmine2"
+    ],
+    "lhs": [
+      "27.5.1"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-leak-detector",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-matcher-utils",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-message-util",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-mock",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-regex-util",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.0.2"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-resolve-dependencies",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-resolve",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-runner",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-runtime",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "jest-serializer"
+    ],
+    "lhs": [
+      "27.5.1"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-snapshot",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-util",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-validate",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-watcher",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest-worker",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "jest",
+      0
+    ],
+    "lhs": "27.5.1",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "jsdom"
+    ],
+    "lhs": [
+      "16.7.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "levn"
+    ],
+    "lhs": [
+      "0.3.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "lodash"
+    ],
+    "lhs": [
+      "4.17.21"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "mime-db"
+    ],
+    "lhs": [
+      "1.52.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "mime-types"
+    ],
+    "lhs": [
+      "2.1.35"
+    ]
+  },
+  {
+    "kind": "A",
+    "path": [
+      "minimatch"
+    ],
+    "index": 2,
+    "item": {
+      "kind": "D",
+      "lhs": "5.1.0"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "minimatch",
+      1
+    ],
+    "lhs": "3.1.2",
+    "rhs": "5.1.0"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "nwsapi"
+    ],
+    "lhs": [
+      "2.2.1"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "optionator"
+    ],
+    "lhs": [
+      "0.8.3"
+    ]
+  },
+  {
+    "kind": "A",
+    "path": [
+      "p-limit"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "N",
+      "rhs": "3.1.0"
+    }
+  },
+  {
+    "kind": "D",
+    "path": [
+      "parse5"
+    ],
+    "lhs": [
+      "6.0.1"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "prelude-ls"
+    ],
+    "lhs": [
+      "1.1.2"
+    ]
+  },
+  {
+    "kind": "A",
+    "path": [
+      "pretty-format"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "27.5.1"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "pretty-format",
+      0
+    ],
+    "lhs": "26.6.2",
+    "rhs": "28.1.3"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "psl"
+    ],
+    "lhs": [
+      "1.9.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "punycode"
+    ],
+    "lhs": [
+      "2.1.1"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "react-is",
+      0
+    ],
+    "lhs": "17.0.2",
+    "rhs": "18.2.0"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "require-main-filename"
+    ],
+    "lhs": [
+      "2.0.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "saxes"
+    ],
+    "lhs": [
+      "5.0.1"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "source-map-support",
+      0
+    ],
+    "lhs": "0.5.21",
+    "rhs": "0.5.13"
+  },
+  {
+    "kind": "A",
+    "path": [
+      "source-map"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "0.7.4"
+    }
+  },
+  {
+    "kind": "D",
+    "path": [
+      "symbol-tree"
+    ],
+    "lhs": [
+      "3.2.4"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "throat"
+    ],
+    "lhs": [
+      "6.0.1"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "tough-cookie"
+    ],
+    "lhs": [
+      "4.0.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "tr46"
+    ],
+    "lhs": [
+      "2.1.0"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "ts-type",
+      0
+    ],
+    "lhs": "1.2.40",
+    "rhs": "2.1.10"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "type-check"
+    ],
+    "lhs": [
+      "0.3.2"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "typedarray-to-buffer"
+    ],
+    "lhs": [
+      "3.1.5"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "typescript"
+    ],
+    "lhs": [
+      "4.7.4"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "typescript>::version=4.7.4&hash=f456af"
+    ],
+    "lhs": [
+      "4.7.4"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "universalify"
+    ],
+    "lhs": [
+      "0.1.2"
+    ]
+  },
+  {
+    "kind": "E",
+    "path": [
+      "v8-to-istanbul",
+      0
+    ],
+    "lhs": "8.1.1",
+    "rhs": "9.0.1"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "w3c-hr-time"
+    ],
+    "lhs": [
+      "1.0.2"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "w3c-xmlserializer"
+    ],
+    "lhs": [
+      "2.0.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "webidl-conversions"
+    ],
+    "lhs": [
+      "5.0.0",
+      "6.1.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "whatwg-encoding"
+    ],
+    "lhs": [
+      "1.0.5"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "whatwg-mimetype"
+    ],
+    "lhs": [
+      "2.3.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "whatwg-url"
+    ],
+    "lhs": [
+      "8.7.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "which-module"
+    ],
+    "lhs": [
+      "2.0.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "word-wrap"
+    ],
+    "lhs": [
+      "1.2.3"
+    ]
+  },
+  {
+    "kind": "A",
+    "path": [
+      "wrap-ansi"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "7.0.0"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "wrap-ansi",
+      0
+    ],
+    "lhs": "6.2.0",
+    "rhs": "7.0.0"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "write-file-atomic",
+      0
+    ],
+    "lhs": "3.0.3",
+    "rhs": "4.0.1"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "ws"
+    ],
+    "lhs": [
+      "7.5.9"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "xml-name-validator"
+    ],
+    "lhs": [
+      "3.0.0"
+    ]
+  },
+  {
+    "kind": "D",
+    "path": [
+      "xmlchars"
+    ],
+    "lhs": [
+      "2.2.0"
+    ]
+  },
+  {
+    "kind": "A",
+    "path": [
+      "y18n"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "5.0.8"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "y18n",
+      0
+    ],
+    "lhs": "4.0.3",
+    "rhs": "5.0.8"
+  },
+  {
+    "kind": "A",
+    "path": [
+      "yargs-parser"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "20.2.9"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "yargs-parser",
+      0
+    ],
+    "lhs": "18.1.3",
+    "rhs": "21.1.1"
+  },
+  {
+    "kind": "A",
+    "path": [
+      "yargs"
+    ],
+    "index": 1,
+    "item": {
+      "kind": "D",
+      "lhs": "16.2.0"
+    }
+  },
+  {
+    "kind": "E",
+    "path": [
+      "yargs",
+      0
+    ],
+    "lhs": "15.4.1",
+    "rhs": "17.5.1"
+  },
+  {
+    "kind": "N",
+    "path": [
+      "@jest/expect-utils"
+    ],
+    "rhs": [
+      "28.1.3"
+    ]
+  },
+  {
+    "kind": "N",
+    "path": [
+      "@jest/expect"
+    ],
+    "rhs": [
+      "28.1.3"
+    ]
+  },
+  {
+    "kind": "N",
+    "path": [
+      "@jest/schemas"
+    ],
+    "rhs": [
+      "28.1.3"
+    ]
+  },
+  {
+    "kind": "N",
+    "path": [
+      "@sinclair/typebox"
+    ],
+    "rhs": [
+      "0.24.27"
+    ]
+  },
+  {
+    "kind": "N",
+    "path": [
+      "yocto-queue"
+    ],
+    "rhs": [
+      "0.1.0"
+    ]
+  }
+]
+`;
+
+exports[`buildDiff > yarn.lock 1`] = `
+[
+  {
+    "kind": "E",
+    "path": [
+      "@babel/code-frame",
+      0
+    ],
+    "lhs": "7.0.2",
+    "rhs": "7.0.0"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@babel/generator",
+      1
+    ],
+    "lhs": "7.3.5",
+    "rhs": "7.3.4"
+  },
+  {
+    "kind": "E",
+    "path": [
+      "@babel/generator",
+      0
+    ],
+    "lhs": "6.3.7",
+    "rhs": "6.3.4"
+  },
+  {
+    "kind": "D",
+    "path": [
+      "@babel/types"
+    ],
+    "lhs": [
+      "7.3.4"
+    ]
+  },
+  {
+    "kind": "N",
+    "path": [
+      "@babel/parser"
+    ],
+    "rhs": [
+      "7.3.4"
+    ]
+  }
+]
+`;

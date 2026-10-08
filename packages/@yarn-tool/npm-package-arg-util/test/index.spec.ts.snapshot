@@ -1,0 +1,1937 @@
+exports[`_parseArgvPkgNameCore > 核心邏輯 / Core logic > 應該處理有效的 npa 結果 / should handle valid npa result 1`] = `
+{
+  "parsePackageName": {
+    "type": "version",
+    "name": "lodash",
+    "subname": "lodash",
+    "semver": "4.17.21",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "lodash@4.17.21",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "4.17.21",
+      "saveSpec": null,
+      "fetchSpec": "4.17.21"
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "lodash@4.17.21",
+    "name": "lodash",
+    "version": "4.17.21",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "lodash@4.17.21",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "4.17.21",
+      "saveSpec": null,
+      "fetchSpec": "4.17.21"
+    }
+  },
+  "npaTry2": {
+    "type": "version",
+    "registry": true,
+    "raw": "lodash@4.17.21",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "4.17.21",
+    "saveSpec": null,
+    "fetchSpec": "4.17.21"
+  }
+}
+`;
+
+exports[`_parseArgvPkgNameCore > 核心邏輯 / Core logic > 應該處理有效的 npa 結果 / should handle valid npa result 2`] = `
+{
+  "parsePackageName": {
+    "type": "version",
+    "name": "lodash",
+    "subname": "lodash",
+    "semver": "4.17.21",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "lodash@4.17.21",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "4.17.21",
+      "saveSpec": null,
+      "fetchSpec": "4.17.21"
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "lodash@4.17.21",
+    "name": "lodash",
+    "version": "4.17.21",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "lodash@4.17.21",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "4.17.21",
+      "saveSpec": null,
+      "fetchSpec": "4.17.21"
+    }
+  },
+  "npaTry2": {
+    "type": "version",
+    "registry": true,
+    "raw": "lodash@4.17.21",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "4.17.21",
+    "saveSpec": null,
+    "fetchSpec": "4.17.21"
+  }
+}
+`;
+
+exports[`_parseArgvPkgNameCore > 核心邏輯 / Core logic > 應該處理範圍套件的 npa 結果 / should handle scoped package npa result 1`] = `
+{
+  "parsePackageName": {
+    "type": "version",
+    "name": "@types/node",
+    "scope": "@types",
+    "subname": "node",
+    "semver": "18.0.0",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "@types/node@18.0.0",
+      "name": "@types/node",
+      "escapedName": "@types%2fnode",
+      "scope": "@types",
+      "rawSpec": "18.0.0",
+      "saveSpec": null,
+      "fetchSpec": "18.0.0"
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "@types/node@18.0.0",
+    "namespace": "@types",
+    "name": "node",
+    "version": "18.0.0",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "@types/node@18.0.0",
+      "name": "@types/node",
+      "escapedName": "@types%2fnode",
+      "scope": "@types",
+      "rawSpec": "18.0.0",
+      "saveSpec": null,
+      "fetchSpec": "18.0.0"
+    }
+  },
+  "npaTry2": {
+    "type": "version",
+    "registry": true,
+    "raw": "@types/node@18.0.0",
+    "name": "@types/node",
+    "escapedName": "@types%2fnode",
+    "scope": "@types",
+    "rawSpec": "18.0.0",
+    "saveSpec": null,
+    "fetchSpec": "18.0.0"
+  }
+}
+`;
+
+exports[`_parseArgvPkgNameCore > 核心邏輯 / Core logic > 應該處理範圍套件的 npa 結果 / should handle scoped package npa result 2`] = `
+{
+  "parsePackageName": {
+    "type": "version",
+    "name": "@types/node",
+    "scope": "@types",
+    "subname": "node",
+    "semver": "18.0.0",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "@types/node@18.0.0",
+      "name": "@types/node",
+      "escapedName": "@types%2fnode",
+      "scope": "@types",
+      "rawSpec": "18.0.0",
+      "saveSpec": null,
+      "fetchSpec": "18.0.0"
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "@types/node@18.0.0",
+    "namespace": "@types",
+    "name": "node",
+    "version": "18.0.0",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "@types/node@18.0.0",
+      "name": "@types/node",
+      "escapedName": "@types%2fnode",
+      "scope": "@types",
+      "rawSpec": "18.0.0",
+      "saveSpec": null,
+      "fetchSpec": "18.0.0"
+    }
+  },
+  "npaTry2": {
+    "type": "version",
+    "registry": true,
+    "raw": "@types/node@18.0.0",
+    "name": "@types/node",
+    "escapedName": "@types%2fnode",
+    "scope": "@types",
+    "rawSpec": "18.0.0",
+    "saveSpec": null,
+    "fetchSpec": "18.0.0"
+  }
+}
+`;
+
+exports[`_parsePackageNameCore > 核心邏輯 / Core logic > 應該處理別名套件的 npa 結果 / should handle alias package npa result 1`] = `
+{
+  "parsePackageName": {
+    "type": "alias",
+    "name": "my-lodash",
+    "subname": "my-lodash",
+    "semver": "4.17.21",
+    "result": {
+      "type": "alias",
+      "registry": true,
+      "raw": "my-lodash@npm:lodash@4.17.21",
+      "name": "my-lodash",
+      "escapedName": "my-lodash",
+      "rawSpec": "npm:lodash@4.17.21",
+      "saveSpec": null,
+      "fetchSpec": null,
+      "subSpec": {
+        "type": "version",
+        "registry": true,
+        "raw": "lodash@4.17.21",
+        "name": "lodash",
+        "escapedName": "lodash",
+        "rawSpec": "4.17.21",
+        "saveSpec": null,
+        "fetchSpec": "4.17.21"
+      }
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "my-lodash@npm:lodash@4.17.21",
+    "name": "my-lodash",
+    "version": "4.17.21",
+    "result": {
+      "type": "alias",
+      "registry": true,
+      "raw": "my-lodash@npm:lodash@4.17.21",
+      "name": "my-lodash",
+      "escapedName": "my-lodash",
+      "rawSpec": "npm:lodash@4.17.21",
+      "saveSpec": null,
+      "fetchSpec": null,
+      "subSpec": {
+        "type": "version",
+        "registry": true,
+        "raw": "lodash@4.17.21",
+        "name": "lodash",
+        "escapedName": "lodash",
+        "rawSpec": "4.17.21",
+        "saveSpec": null,
+        "fetchSpec": "4.17.21"
+      }
+    }
+  },
+  "npaTry2": {
+    "type": "alias",
+    "registry": true,
+    "raw": "my-lodash@npm:lodash@4.17.21",
+    "name": "my-lodash",
+    "escapedName": "my-lodash",
+    "rawSpec": "npm:lodash@4.17.21",
+    "saveSpec": null,
+    "fetchSpec": null,
+    "subSpec": {
+      "type": "version",
+      "registry": true,
+      "raw": "lodash@4.17.21",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "4.17.21",
+      "saveSpec": null,
+      "fetchSpec": "4.17.21"
+    }
+  }
+}
+`;
+
+exports[`_parsePackageNameCore > 核心邏輯 / Core logic > 應該處理別名套件的 npa 結果 / should handle alias package npa result 2`] = `
+{
+  "parsePackageName": {
+    "type": "alias",
+    "name": "my-lodash",
+    "subname": "my-lodash",
+    "semver": "4.17.21",
+    "result": {
+      "type": "alias",
+      "registry": true,
+      "raw": "my-lodash@npm:lodash@4.17.21",
+      "name": "my-lodash",
+      "escapedName": "my-lodash",
+      "rawSpec": "npm:lodash@4.17.21",
+      "saveSpec": null,
+      "fetchSpec": null,
+      "subSpec": {
+        "type": "version",
+        "registry": true,
+        "raw": "lodash@4.17.21",
+        "name": "lodash",
+        "escapedName": "lodash",
+        "rawSpec": "4.17.21",
+        "saveSpec": null,
+        "fetchSpec": "4.17.21"
+      }
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "my-lodash@npm:lodash@4.17.21",
+    "name": "my-lodash",
+    "version": "4.17.21",
+    "result": {
+      "type": "alias",
+      "registry": true,
+      "raw": "my-lodash@npm:lodash@4.17.21",
+      "name": "my-lodash",
+      "escapedName": "my-lodash",
+      "rawSpec": "npm:lodash@4.17.21",
+      "saveSpec": null,
+      "fetchSpec": null,
+      "subSpec": {
+        "type": "version",
+        "registry": true,
+        "raw": "lodash@4.17.21",
+        "name": "lodash",
+        "escapedName": "lodash",
+        "rawSpec": "4.17.21",
+        "saveSpec": null,
+        "fetchSpec": "4.17.21"
+      }
+    }
+  },
+  "npaTry2": {
+    "type": "alias",
+    "registry": true,
+    "raw": "my-lodash@npm:lodash@4.17.21",
+    "name": "my-lodash",
+    "escapedName": "my-lodash",
+    "rawSpec": "npm:lodash@4.17.21",
+    "saveSpec": null,
+    "fetchSpec": null,
+    "subSpec": {
+      "type": "version",
+      "registry": true,
+      "raw": "lodash@4.17.21",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "4.17.21",
+      "saveSpec": null,
+      "fetchSpec": "4.17.21"
+    }
+  }
+}
+`;
+
+exports[`_parsePackageNameCore > 核心邏輯 / Core logic > 應該處理無版本套件的 npa 結果 / should handle package without version 1`] = `
+{
+  "parsePackageName": {
+    "type": "range",
+    "name": "lodash",
+    "subname": "lodash",
+    "semver": "*",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "lodash",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "lodash",
+    "name": "lodash",
+    "version": "*",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "lodash",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "npaTry2": {
+    "type": "range",
+    "registry": true,
+    "raw": "lodash",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "*",
+    "saveSpec": null,
+    "fetchSpec": "*"
+  }
+}
+`;
+
+exports[`_parsePackageNameCore > 核心邏輯 / Core logic > 應該處理無版本套件的 npa 結果 / should handle package without version 2`] = `
+{
+  "parsePackageName": {
+    "type": "range",
+    "name": "lodash",
+    "subname": "lodash",
+    "semver": "*",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "lodash",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "lodash",
+    "name": "lodash",
+    "version": "*",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "lodash",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "npaTry2": {
+    "type": "range",
+    "registry": true,
+    "raw": "lodash",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "*",
+    "saveSpec": null,
+    "fetchSpec": "*"
+  }
+}
+`;
+
+exports[`_parsePackageNameCore > 核心邏輯 / Core logic > 應該處理範圍套件的 npa 結果 / should handle scoped package npa result 1`] = `
+{
+  "parsePackageName": {
+    "type": "version",
+    "name": "@types/node",
+    "scope": "@types",
+    "subname": "node",
+    "semver": "18.0.0",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "@types/node@18.0.0",
+      "name": "@types/node",
+      "escapedName": "@types%2fnode",
+      "scope": "@types",
+      "rawSpec": "18.0.0",
+      "saveSpec": null,
+      "fetchSpec": "18.0.0"
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "@types/node@18.0.0",
+    "namespace": "@types",
+    "name": "node",
+    "version": "18.0.0",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "@types/node@18.0.0",
+      "name": "@types/node",
+      "escapedName": "@types%2fnode",
+      "scope": "@types",
+      "rawSpec": "18.0.0",
+      "saveSpec": null,
+      "fetchSpec": "18.0.0"
+    }
+  },
+  "npaTry2": {
+    "type": "version",
+    "registry": true,
+    "raw": "@types/node@18.0.0",
+    "name": "@types/node",
+    "escapedName": "@types%2fnode",
+    "scope": "@types",
+    "rawSpec": "18.0.0",
+    "saveSpec": null,
+    "fetchSpec": "18.0.0"
+  }
+}
+`;
+
+exports[`_parsePackageNameCore > 核心邏輯 / Core logic > 應該處理範圍套件的 npa 結果 / should handle scoped package npa result 2`] = `
+{
+  "parsePackageName": {
+    "type": "version",
+    "name": "@types/node",
+    "scope": "@types",
+    "subname": "node",
+    "semver": "18.0.0",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "@types/node@18.0.0",
+      "name": "@types/node",
+      "escapedName": "@types%2fnode",
+      "scope": "@types",
+      "rawSpec": "18.0.0",
+      "saveSpec": null,
+      "fetchSpec": "18.0.0"
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "@types/node@18.0.0",
+    "namespace": "@types",
+    "name": "node",
+    "version": "18.0.0",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "@types/node@18.0.0",
+      "name": "@types/node",
+      "escapedName": "@types%2fnode",
+      "scope": "@types",
+      "rawSpec": "18.0.0",
+      "saveSpec": null,
+      "fetchSpec": "18.0.0"
+    }
+  },
+  "npaTry2": {
+    "type": "version",
+    "registry": true,
+    "raw": "@types/node@18.0.0",
+    "name": "@types/node",
+    "escapedName": "@types%2fnode",
+    "scope": "@types",
+    "rawSpec": "18.0.0",
+    "saveSpec": null,
+    "fetchSpec": "18.0.0"
+  }
+}
+`;
+
+exports[`_parsePackageNameCore > 核心邏輯 / Core logic > 應該處理簡單套件的 npa 結果 / should handle simple package npa result 1`] = `
+{
+  "parsePackageName": {
+    "type": "version",
+    "name": "lodash",
+    "subname": "lodash",
+    "semver": "4.17.21",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "lodash@4.17.21",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "4.17.21",
+      "saveSpec": null,
+      "fetchSpec": "4.17.21"
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "lodash@4.17.21",
+    "name": "lodash",
+    "version": "4.17.21",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "lodash@4.17.21",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "4.17.21",
+      "saveSpec": null,
+      "fetchSpec": "4.17.21"
+    }
+  },
+  "npaTry2": {
+    "type": "version",
+    "registry": true,
+    "raw": "lodash@4.17.21",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "4.17.21",
+    "saveSpec": null,
+    "fetchSpec": "4.17.21"
+  }
+}
+`;
+
+exports[`_parsePackageNameCore > 核心邏輯 / Core logic > 應該處理簡單套件的 npa 結果 / should handle simple package npa result 2`] = `
+{
+  "parsePackageName": {
+    "type": "version",
+    "name": "lodash",
+    "subname": "lodash",
+    "semver": "4.17.21",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "lodash@4.17.21",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "4.17.21",
+      "saveSpec": null,
+      "fetchSpec": "4.17.21"
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "lodash@4.17.21",
+    "name": "lodash",
+    "version": "4.17.21",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "lodash@4.17.21",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "4.17.21",
+      "saveSpec": null,
+      "fetchSpec": "4.17.21"
+    }
+  },
+  "npaTry2": {
+    "type": "version",
+    "registry": true,
+    "raw": "lodash@4.17.21",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "4.17.21",
+    "saveSpec": null,
+    "fetchSpec": "4.17.21"
+  }
+}
+`;
+
+exports[`parseArgvPkgName > 基本功能 / Basic functionality > 應該解析帶版本的套件 / should parse package with version 1`] = `
+{
+  "parsePackageName": {
+    "type": "version",
+    "name": "lodash",
+    "subname": "lodash",
+    "semver": "4.17.21",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "lodash@4.17.21",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "4.17.21",
+      "saveSpec": null,
+      "fetchSpec": "4.17.21"
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "lodash@4.17.21",
+    "name": "lodash",
+    "version": "4.17.21",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "lodash@4.17.21",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "4.17.21",
+      "saveSpec": null,
+      "fetchSpec": "4.17.21"
+    }
+  },
+  "npaTry2": {
+    "type": "version",
+    "registry": true,
+    "raw": "lodash@4.17.21",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "4.17.21",
+    "saveSpec": null,
+    "fetchSpec": "4.17.21"
+  }
+}
+`;
+
+exports[`parseArgvPkgName > 基本功能 / Basic functionality > 應該解析帶版本的套件 / should parse package with version 2`] = `
+{
+  "parsePackageName": {
+    "type": "version",
+    "name": "lodash",
+    "subname": "lodash",
+    "semver": "4.17.21",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "lodash@4.17.21",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "4.17.21",
+      "saveSpec": null,
+      "fetchSpec": "4.17.21"
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "lodash@4.17.21",
+    "name": "lodash",
+    "version": "4.17.21",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "lodash@4.17.21",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "4.17.21",
+      "saveSpec": null,
+      "fetchSpec": "4.17.21"
+    }
+  },
+  "npaTry2": {
+    "type": "version",
+    "registry": true,
+    "raw": "lodash@4.17.21",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "4.17.21",
+    "saveSpec": null,
+    "fetchSpec": "4.17.21"
+  }
+}
+`;
+
+exports[`parseArgvPkgName > 基本功能 / Basic functionality > 應該解析帶版本範圍的套件 / should parse package with version range 1`] = `
+{
+  "parsePackageName": {
+    "type": "range",
+    "name": "lodash",
+    "subname": "lodash",
+    "semver": "^4.17.0",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "lodash@^4.17.0",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "^4.17.0",
+      "saveSpec": null,
+      "fetchSpec": "^4.17.0"
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "lodash@^4.17.0",
+    "name": "lodash",
+    "version": "^4.17.0",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "lodash@^4.17.0",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "^4.17.0",
+      "saveSpec": null,
+      "fetchSpec": "^4.17.0"
+    }
+  },
+  "npaTry2": {
+    "type": "range",
+    "registry": true,
+    "raw": "lodash@^4.17.0",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "^4.17.0",
+    "saveSpec": null,
+    "fetchSpec": "^4.17.0"
+  }
+}
+`;
+
+exports[`parseArgvPkgName > 基本功能 / Basic functionality > 應該解析帶版本範圍的套件 / should parse package with version range 2`] = `
+{
+  "parsePackageName": {
+    "type": "range",
+    "name": "lodash",
+    "subname": "lodash",
+    "semver": "^4.17.0",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "lodash@^4.17.0",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "^4.17.0",
+      "saveSpec": null,
+      "fetchSpec": "^4.17.0"
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "lodash@^4.17.0",
+    "name": "lodash",
+    "version": "^4.17.0",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "lodash@^4.17.0",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "^4.17.0",
+      "saveSpec": null,
+      "fetchSpec": "^4.17.0"
+    }
+  },
+  "npaTry2": {
+    "type": "range",
+    "registry": true,
+    "raw": "lodash@^4.17.0",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "^4.17.0",
+    "saveSpec": null,
+    "fetchSpec": "^4.17.0"
+  }
+}
+`;
+
+exports[`parseArgvPkgName > 基本功能 / Basic functionality > 應該解析簡單套件名稱 / should parse simple package name 1`] = `
+{
+  "parsePackageName": {
+    "type": "range",
+    "name": "lodash",
+    "subname": "lodash",
+    "semver": "*",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "lodash",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "lodash",
+    "name": "lodash",
+    "version": "*",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "lodash",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "npaTry2": {
+    "type": "range",
+    "registry": true,
+    "raw": "lodash",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "*",
+    "saveSpec": null,
+    "fetchSpec": "*"
+  }
+}
+`;
+
+exports[`parseArgvPkgName > 基本功能 / Basic functionality > 應該解析簡單套件名稱 / should parse simple package name 2`] = `
+{
+  "parsePackageName": {
+    "type": "range",
+    "name": "lodash",
+    "subname": "lodash",
+    "semver": "*",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "lodash",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "lodash",
+    "name": "lodash",
+    "version": "*",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "lodash",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "npaTry2": {
+    "type": "range",
+    "registry": true,
+    "raw": "lodash",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "*",
+    "saveSpec": null,
+    "fetchSpec": "*"
+  }
+}
+`;
+
+exports[`parseArgvPkgName > 範圍套件 / Scoped packages > 應該解析帶版本的範圍套件 / should parse scoped package with version 1`] = `
+{
+  "parsePackageName": {
+    "type": "version",
+    "name": "@types/node",
+    "scope": "@types",
+    "subname": "node",
+    "semver": "18.0.0",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "@types/node@18.0.0",
+      "name": "@types/node",
+      "escapedName": "@types%2fnode",
+      "scope": "@types",
+      "rawSpec": "18.0.0",
+      "saveSpec": null,
+      "fetchSpec": "18.0.0"
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "@types/node@18.0.0",
+    "namespace": "@types",
+    "name": "node",
+    "version": "18.0.0",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "@types/node@18.0.0",
+      "name": "@types/node",
+      "escapedName": "@types%2fnode",
+      "scope": "@types",
+      "rawSpec": "18.0.0",
+      "saveSpec": null,
+      "fetchSpec": "18.0.0"
+    }
+  },
+  "npaTry2": {
+    "type": "version",
+    "registry": true,
+    "raw": "@types/node@18.0.0",
+    "name": "@types/node",
+    "escapedName": "@types%2fnode",
+    "scope": "@types",
+    "rawSpec": "18.0.0",
+    "saveSpec": null,
+    "fetchSpec": "18.0.0"
+  }
+}
+`;
+
+exports[`parseArgvPkgName > 範圍套件 / Scoped packages > 應該解析帶版本的範圍套件 / should parse scoped package with version 2`] = `
+{
+  "parsePackageName": {
+    "type": "version",
+    "name": "@types/node",
+    "scope": "@types",
+    "subname": "node",
+    "semver": "18.0.0",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "@types/node@18.0.0",
+      "name": "@types/node",
+      "escapedName": "@types%2fnode",
+      "scope": "@types",
+      "rawSpec": "18.0.0",
+      "saveSpec": null,
+      "fetchSpec": "18.0.0"
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "@types/node@18.0.0",
+    "namespace": "@types",
+    "name": "node",
+    "version": "18.0.0",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "@types/node@18.0.0",
+      "name": "@types/node",
+      "escapedName": "@types%2fnode",
+      "scope": "@types",
+      "rawSpec": "18.0.0",
+      "saveSpec": null,
+      "fetchSpec": "18.0.0"
+    }
+  },
+  "npaTry2": {
+    "type": "version",
+    "registry": true,
+    "raw": "@types/node@18.0.0",
+    "name": "@types/node",
+    "escapedName": "@types%2fnode",
+    "scope": "@types",
+    "rawSpec": "18.0.0",
+    "saveSpec": null,
+    "fetchSpec": "18.0.0"
+  }
+}
+`;
+
+exports[`parseArgvPkgName > 範圍套件 / Scoped packages > 應該解析範圍套件 / should parse scoped package 1`] = `
+{
+  "parsePackageName": {
+    "type": "range",
+    "name": "@types/node",
+    "scope": "@types",
+    "subname": "node",
+    "semver": "*",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "@types/node",
+      "name": "@types/node",
+      "escapedName": "@types%2fnode",
+      "scope": "@types",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "@types/node",
+    "namespace": "@types",
+    "name": "node",
+    "version": "*",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "@types/node",
+      "name": "@types/node",
+      "escapedName": "@types%2fnode",
+      "scope": "@types",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "npaTry2": {
+    "type": "range",
+    "registry": true,
+    "raw": "@types/node",
+    "name": "@types/node",
+    "escapedName": "@types%2fnode",
+    "scope": "@types",
+    "rawSpec": "*",
+    "saveSpec": null,
+    "fetchSpec": "*"
+  }
+}
+`;
+
+exports[`parseArgvPkgName > 範圍套件 / Scoped packages > 應該解析範圍套件 / should parse scoped package 2`] = `
+{
+  "parsePackageName": {
+    "type": "range",
+    "name": "@types/node",
+    "scope": "@types",
+    "subname": "node",
+    "semver": "*",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "@types/node",
+      "name": "@types/node",
+      "escapedName": "@types%2fnode",
+      "scope": "@types",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "@types/node",
+    "namespace": "@types",
+    "name": "node",
+    "version": "*",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "@types/node",
+      "name": "@types/node",
+      "escapedName": "@types%2fnode",
+      "scope": "@types",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "npaTry2": {
+    "type": "range",
+    "registry": true,
+    "raw": "@types/node",
+    "name": "@types/node",
+    "escapedName": "@types%2fnode",
+    "scope": "@types",
+    "rawSpec": "*",
+    "saveSpec": null,
+    "fetchSpec": "*"
+  }
+}
+`;
+
+exports[`parsePackageName > 基本功能 / Basic functionality > 應該解析帶標籤的套件 / should parse package with tag 1`] = `
+{
+  "parsePackageName": {
+    "type": "tag",
+    "name": "lodash",
+    "subname": "lodash",
+    "semver": "latest",
+    "result": {
+      "type": "tag",
+      "registry": true,
+      "raw": "lodash@latest",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "latest",
+      "saveSpec": null,
+      "fetchSpec": "latest"
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "lodash@latest",
+    "name": "lodash",
+    "version": "latest",
+    "result": {
+      "type": "tag",
+      "registry": true,
+      "raw": "lodash@latest",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "latest",
+      "saveSpec": null,
+      "fetchSpec": "latest"
+    }
+  },
+  "npaTry2": {
+    "type": "tag",
+    "registry": true,
+    "raw": "lodash@latest",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "latest",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  }
+}
+`;
+
+exports[`parsePackageName > 基本功能 / Basic functionality > 應該解析帶標籤的套件 / should parse package with tag 2`] = `
+{
+  "parsePackageName": {
+    "type": "tag",
+    "name": "lodash",
+    "subname": "lodash",
+    "semver": "latest",
+    "result": {
+      "type": "tag",
+      "registry": true,
+      "raw": "lodash@latest",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "latest",
+      "saveSpec": null,
+      "fetchSpec": "latest"
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "lodash@latest",
+    "name": "lodash",
+    "version": "latest",
+    "result": {
+      "type": "tag",
+      "registry": true,
+      "raw": "lodash@latest",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "latest",
+      "saveSpec": null,
+      "fetchSpec": "latest"
+    }
+  },
+  "npaTry2": {
+    "type": "tag",
+    "registry": true,
+    "raw": "lodash@latest",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "latest",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  }
+}
+`;
+
+exports[`parsePackageName > 基本功能 / Basic functionality > 應該解析帶版本的套件 / should parse package with version 1`] = `
+{
+  "parsePackageName": {
+    "type": "version",
+    "name": "lodash",
+    "subname": "lodash",
+    "semver": "4.17.21",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "lodash@4.17.21",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "4.17.21",
+      "saveSpec": null,
+      "fetchSpec": "4.17.21"
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "lodash@4.17.21",
+    "name": "lodash",
+    "version": "4.17.21",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "lodash@4.17.21",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "4.17.21",
+      "saveSpec": null,
+      "fetchSpec": "4.17.21"
+    }
+  },
+  "npaTry2": {
+    "type": "version",
+    "registry": true,
+    "raw": "lodash@4.17.21",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "4.17.21",
+    "saveSpec": null,
+    "fetchSpec": "4.17.21"
+  }
+}
+`;
+
+exports[`parsePackageName > 基本功能 / Basic functionality > 應該解析帶版本的套件 / should parse package with version 2`] = `
+{
+  "parsePackageName": {
+    "type": "version",
+    "name": "lodash",
+    "subname": "lodash",
+    "semver": "4.17.21",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "lodash@4.17.21",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "4.17.21",
+      "saveSpec": null,
+      "fetchSpec": "4.17.21"
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "lodash@4.17.21",
+    "name": "lodash",
+    "version": "4.17.21",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "lodash@4.17.21",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "4.17.21",
+      "saveSpec": null,
+      "fetchSpec": "4.17.21"
+    }
+  },
+  "npaTry2": {
+    "type": "version",
+    "registry": true,
+    "raw": "lodash@4.17.21",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "4.17.21",
+    "saveSpec": null,
+    "fetchSpec": "4.17.21"
+  }
+}
+`;
+
+exports[`parsePackageName > 基本功能 / Basic functionality > 應該解析帶版本範圍的套件 / should parse package with version range 1`] = `
+{
+  "parsePackageName": {
+    "type": "range",
+    "name": "lodash",
+    "subname": "lodash",
+    "semver": "^4.17.0",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "lodash@^4.17.0",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "^4.17.0",
+      "saveSpec": null,
+      "fetchSpec": "^4.17.0"
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "lodash@^4.17.0",
+    "name": "lodash",
+    "version": "^4.17.0",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "lodash@^4.17.0",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "^4.17.0",
+      "saveSpec": null,
+      "fetchSpec": "^4.17.0"
+    }
+  },
+  "npaTry2": {
+    "type": "range",
+    "registry": true,
+    "raw": "lodash@^4.17.0",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "^4.17.0",
+    "saveSpec": null,
+    "fetchSpec": "^4.17.0"
+  }
+}
+`;
+
+exports[`parsePackageName > 基本功能 / Basic functionality > 應該解析帶版本範圍的套件 / should parse package with version range 2`] = `
+{
+  "parsePackageName": {
+    "type": "range",
+    "name": "lodash",
+    "subname": "lodash",
+    "semver": "^4.17.0",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "lodash@^4.17.0",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "^4.17.0",
+      "saveSpec": null,
+      "fetchSpec": "^4.17.0"
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "lodash@^4.17.0",
+    "name": "lodash",
+    "version": "^4.17.0",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "lodash@^4.17.0",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "^4.17.0",
+      "saveSpec": null,
+      "fetchSpec": "^4.17.0"
+    }
+  },
+  "npaTry2": {
+    "type": "range",
+    "registry": true,
+    "raw": "lodash@^4.17.0",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "^4.17.0",
+    "saveSpec": null,
+    "fetchSpec": "^4.17.0"
+  }
+}
+`;
+
+exports[`parsePackageName > 基本功能 / Basic functionality > 應該解析簡單套件名稱 / should parse simple package name 1`] = `
+{
+  "parsePackageName": {
+    "type": "range",
+    "name": "lodash",
+    "subname": "lodash",
+    "semver": "*",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "lodash",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "lodash",
+    "name": "lodash",
+    "version": "*",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "lodash",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "npaTry2": {
+    "type": "range",
+    "registry": true,
+    "raw": "lodash",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "*",
+    "saveSpec": null,
+    "fetchSpec": "*"
+  }
+}
+`;
+
+exports[`parsePackageName > 基本功能 / Basic functionality > 應該解析簡單套件名稱 / should parse simple package name 2`] = `
+{
+  "parsePackageName": {
+    "type": "range",
+    "name": "lodash",
+    "subname": "lodash",
+    "semver": "*",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "lodash",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "lodash",
+    "name": "lodash",
+    "version": "*",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "lodash",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "npaTry2": {
+    "type": "range",
+    "registry": true,
+    "raw": "lodash",
+    "name": "lodash",
+    "escapedName": "lodash",
+    "rawSpec": "*",
+    "saveSpec": null,
+    "fetchSpec": "*"
+  }
+}
+`;
+
+exports[`parsePackageName > 範圍套件 / Scoped packages > 應該解析帶版本的範圍套件 / should parse scoped package with version 1`] = `
+{
+  "parsePackageName": {
+    "type": "version",
+    "name": "@types/node",
+    "scope": "@types",
+    "subname": "node",
+    "semver": "18.0.0",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "@types/node@18.0.0",
+      "name": "@types/node",
+      "escapedName": "@types%2fnode",
+      "scope": "@types",
+      "rawSpec": "18.0.0",
+      "saveSpec": null,
+      "fetchSpec": "18.0.0"
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "@types/node@18.0.0",
+    "namespace": "@types",
+    "name": "node",
+    "version": "18.0.0",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "@types/node@18.0.0",
+      "name": "@types/node",
+      "escapedName": "@types%2fnode",
+      "scope": "@types",
+      "rawSpec": "18.0.0",
+      "saveSpec": null,
+      "fetchSpec": "18.0.0"
+    }
+  },
+  "npaTry2": {
+    "type": "version",
+    "registry": true,
+    "raw": "@types/node@18.0.0",
+    "name": "@types/node",
+    "escapedName": "@types%2fnode",
+    "scope": "@types",
+    "rawSpec": "18.0.0",
+    "saveSpec": null,
+    "fetchSpec": "18.0.0"
+  }
+}
+`;
+
+exports[`parsePackageName > 範圍套件 / Scoped packages > 應該解析帶版本的範圍套件 / should parse scoped package with version 2`] = `
+{
+  "parsePackageName": {
+    "type": "version",
+    "name": "@types/node",
+    "scope": "@types",
+    "subname": "node",
+    "semver": "18.0.0",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "@types/node@18.0.0",
+      "name": "@types/node",
+      "escapedName": "@types%2fnode",
+      "scope": "@types",
+      "rawSpec": "18.0.0",
+      "saveSpec": null,
+      "fetchSpec": "18.0.0"
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "@types/node@18.0.0",
+    "namespace": "@types",
+    "name": "node",
+    "version": "18.0.0",
+    "result": {
+      "type": "version",
+      "registry": true,
+      "raw": "@types/node@18.0.0",
+      "name": "@types/node",
+      "escapedName": "@types%2fnode",
+      "scope": "@types",
+      "rawSpec": "18.0.0",
+      "saveSpec": null,
+      "fetchSpec": "18.0.0"
+    }
+  },
+  "npaTry2": {
+    "type": "version",
+    "registry": true,
+    "raw": "@types/node@18.0.0",
+    "name": "@types/node",
+    "escapedName": "@types%2fnode",
+    "scope": "@types",
+    "rawSpec": "18.0.0",
+    "saveSpec": null,
+    "fetchSpec": "18.0.0"
+  }
+}
+`;
+
+exports[`parsePackageName > 範圍套件 / Scoped packages > 應該解析帶版本範圍的範圍套件 / should parse scoped package with version range 1`] = `
+{
+  "parsePackageName": {
+    "type": "range",
+    "name": "@types/node",
+    "scope": "@types",
+    "subname": "node",
+    "semver": "^18.0.0",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "@types/node@^18.0.0",
+      "name": "@types/node",
+      "escapedName": "@types%2fnode",
+      "scope": "@types",
+      "rawSpec": "^18.0.0",
+      "saveSpec": null,
+      "fetchSpec": "^18.0.0"
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "@types/node@^18.0.0",
+    "namespace": "@types",
+    "name": "node",
+    "version": "^18.0.0",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "@types/node@^18.0.0",
+      "name": "@types/node",
+      "escapedName": "@types%2fnode",
+      "scope": "@types",
+      "rawSpec": "^18.0.0",
+      "saveSpec": null,
+      "fetchSpec": "^18.0.0"
+    }
+  },
+  "npaTry2": {
+    "type": "range",
+    "registry": true,
+    "raw": "@types/node@^18.0.0",
+    "name": "@types/node",
+    "escapedName": "@types%2fnode",
+    "scope": "@types",
+    "rawSpec": "^18.0.0",
+    "saveSpec": null,
+    "fetchSpec": "^18.0.0"
+  }
+}
+`;
+
+exports[`parsePackageName > 範圍套件 / Scoped packages > 應該解析帶版本範圍的範圍套件 / should parse scoped package with version range 2`] = `
+{
+  "parsePackageName": {
+    "type": "range",
+    "name": "@types/node",
+    "scope": "@types",
+    "subname": "node",
+    "semver": "^18.0.0",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "@types/node@^18.0.0",
+      "name": "@types/node",
+      "escapedName": "@types%2fnode",
+      "scope": "@types",
+      "rawSpec": "^18.0.0",
+      "saveSpec": null,
+      "fetchSpec": "^18.0.0"
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "@types/node@^18.0.0",
+    "namespace": "@types",
+    "name": "node",
+    "version": "^18.0.0",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "@types/node@^18.0.0",
+      "name": "@types/node",
+      "escapedName": "@types%2fnode",
+      "scope": "@types",
+      "rawSpec": "^18.0.0",
+      "saveSpec": null,
+      "fetchSpec": "^18.0.0"
+    }
+  },
+  "npaTry2": {
+    "type": "range",
+    "registry": true,
+    "raw": "@types/node@^18.0.0",
+    "name": "@types/node",
+    "escapedName": "@types%2fnode",
+    "scope": "@types",
+    "rawSpec": "^18.0.0",
+    "saveSpec": null,
+    "fetchSpec": "^18.0.0"
+  }
+}
+`;
+
+exports[`parsePackageName > 範圍套件 / Scoped packages > 應該解析範圍套件 / should parse scoped package 1`] = `
+{
+  "parsePackageName": {
+    "type": "range",
+    "name": "@types/node",
+    "scope": "@types",
+    "subname": "node",
+    "semver": "*",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "@types/node",
+      "name": "@types/node",
+      "escapedName": "@types%2fnode",
+      "scope": "@types",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "@types/node",
+    "namespace": "@types",
+    "name": "node",
+    "version": "*",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "@types/node",
+      "name": "@types/node",
+      "escapedName": "@types%2fnode",
+      "scope": "@types",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "npaTry2": {
+    "type": "range",
+    "registry": true,
+    "raw": "@types/node",
+    "name": "@types/node",
+    "escapedName": "@types%2fnode",
+    "scope": "@types",
+    "rawSpec": "*",
+    "saveSpec": null,
+    "fetchSpec": "*"
+  }
+}
+`;
+
+exports[`parsePackageName > 範圍套件 / Scoped packages > 應該解析範圍套件 / should parse scoped package 2`] = `
+{
+  "parsePackageName": {
+    "type": "range",
+    "name": "@types/node",
+    "scope": "@types",
+    "subname": "node",
+    "semver": "*",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "@types/node",
+      "name": "@types/node",
+      "escapedName": "@types%2fnode",
+      "scope": "@types",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "@types/node",
+    "namespace": "@types",
+    "name": "node",
+    "version": "*",
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "@types/node",
+      "name": "@types/node",
+      "escapedName": "@types%2fnode",
+      "scope": "@types",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "npaTry2": {
+    "type": "range",
+    "registry": true,
+    "raw": "@types/node",
+    "name": "@types/node",
+    "escapedName": "@types%2fnode",
+    "scope": "@types",
+    "rawSpec": "*",
+    "saveSpec": null,
+    "fetchSpec": "*"
+  }
+}
+`;
+
+exports[`parsePackageName > 複雜案例 / Complex cases > 應該解析別名套件 / should parse alias package 1`] = `
+{
+  "parsePackageName": {
+    "type": "alias",
+    "name": "my-lodash",
+    "subname": "my-lodash",
+    "semver": "4.17.21",
+    "result": {
+      "type": "alias",
+      "registry": true,
+      "raw": "my-lodash@npm:lodash@4.17.21",
+      "name": "my-lodash",
+      "escapedName": "my-lodash",
+      "rawSpec": "npm:lodash@4.17.21",
+      "saveSpec": null,
+      "fetchSpec": null,
+      "subSpec": {
+        "type": "version",
+        "registry": true,
+        "raw": "lodash@4.17.21",
+        "name": "lodash",
+        "escapedName": "lodash",
+        "rawSpec": "4.17.21",
+        "saveSpec": null,
+        "fetchSpec": "4.17.21"
+      }
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "my-lodash@npm:lodash@4.17.21",
+    "name": "my-lodash",
+    "version": "4.17.21",
+    "result": {
+      "type": "alias",
+      "registry": true,
+      "raw": "my-lodash@npm:lodash@4.17.21",
+      "name": "my-lodash",
+      "escapedName": "my-lodash",
+      "rawSpec": "npm:lodash@4.17.21",
+      "saveSpec": null,
+      "fetchSpec": null,
+      "subSpec": {
+        "type": "version",
+        "registry": true,
+        "raw": "lodash@4.17.21",
+        "name": "lodash",
+        "escapedName": "lodash",
+        "rawSpec": "4.17.21",
+        "saveSpec": null,
+        "fetchSpec": "4.17.21"
+      }
+    }
+  },
+  "npaTry2": {
+    "type": "alias",
+    "registry": true,
+    "raw": "my-lodash@npm:lodash@4.17.21",
+    "name": "my-lodash",
+    "escapedName": "my-lodash",
+    "rawSpec": "npm:lodash@4.17.21",
+    "saveSpec": null,
+    "fetchSpec": null,
+    "subSpec": {
+      "type": "version",
+      "registry": true,
+      "raw": "lodash@4.17.21",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "4.17.21",
+      "saveSpec": null,
+      "fetchSpec": "4.17.21"
+    }
+  }
+}
+`;
+
+exports[`parsePackageName > 複雜案例 / Complex cases > 應該解析別名套件 / should parse alias package 2`] = `
+{
+  "parsePackageName": {
+    "type": "alias",
+    "name": "my-lodash",
+    "subname": "my-lodash",
+    "semver": "4.17.21",
+    "result": {
+      "type": "alias",
+      "registry": true,
+      "raw": "my-lodash@npm:lodash@4.17.21",
+      "name": "my-lodash",
+      "escapedName": "my-lodash",
+      "rawSpec": "npm:lodash@4.17.21",
+      "saveSpec": null,
+      "fetchSpec": null,
+      "subSpec": {
+        "type": "version",
+        "registry": true,
+        "raw": "lodash@4.17.21",
+        "name": "lodash",
+        "escapedName": "lodash",
+        "rawSpec": "4.17.21",
+        "saveSpec": null,
+        "fetchSpec": "4.17.21"
+      }
+    }
+  },
+  "parseArgvPkgName": {
+    "input": "my-lodash@npm:lodash@4.17.21",
+    "name": "my-lodash",
+    "version": "4.17.21",
+    "result": {
+      "type": "alias",
+      "registry": true,
+      "raw": "my-lodash@npm:lodash@4.17.21",
+      "name": "my-lodash",
+      "escapedName": "my-lodash",
+      "rawSpec": "npm:lodash@4.17.21",
+      "saveSpec": null,
+      "fetchSpec": null,
+      "subSpec": {
+        "type": "version",
+        "registry": true,
+        "raw": "lodash@4.17.21",
+        "name": "lodash",
+        "escapedName": "lodash",
+        "rawSpec": "4.17.21",
+        "saveSpec": null,
+        "fetchSpec": "4.17.21"
+      }
+    }
+  },
+  "npaTry2": {
+    "type": "alias",
+    "registry": true,
+    "raw": "my-lodash@npm:lodash@4.17.21",
+    "name": "my-lodash",
+    "escapedName": "my-lodash",
+    "rawSpec": "npm:lodash@4.17.21",
+    "saveSpec": null,
+    "fetchSpec": null,
+    "subSpec": {
+      "type": "version",
+      "registry": true,
+      "raw": "lodash@4.17.21",
+      "name": "lodash",
+      "escapedName": "lodash",
+      "rawSpec": "4.17.21",
+      "saveSpec": null,
+      "fetchSpec": "4.17.21"
+    }
+  }
+}
+`;

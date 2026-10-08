@@ -1,0 +1,56 @@
+exports[`getTargetDir > 作用域套件 / Scoped packages > 應該將作用域套件轉換為子套件名稱 / should convert scoped package to subname 1`] = `
+{
+  "targetDir": "D:\\\\current\\\\dir\\\\my-package",
+  "targetName": "@org/my-package",
+  "cwd": "/current/dir",
+  "scopedPackagePattern": true
+}
+`;
+
+exports[`getTargetDir > 作用域套件 / Scoped packages > 應該正確處理作用域套件名稱 / should handle scoped package name correctly 1`] = `
+{
+  "targetDir": "D:\\\\current\\\\dir\\\\package-name",
+  "targetName": "@scope/package-name",
+  "cwd": "/current/dir",
+  "scopedPackagePattern": true
+}
+`;
+
+exports[`getTargetDir > 基本功能 / Basic functionality > 應該正確處理一般套件名稱 / should handle regular package name correctly 1`] = `
+{
+  "targetDir": "D:\\\\current\\\\dir\\\\my-package",
+  "targetName": "my-package",
+  "cwd": "/current/dir",
+  "scopedPackagePattern": true
+}
+`;
+
+exports[`getTargetDir > 基本功能 / Basic functionality > 當無輸入名稱時應該使用 cwd / should use cwd when no input name 1`] = `
+{
+  "targetDir": "/current/dir",
+  "targetName": null,
+  "cwd": "/current/dir"
+}
+`;
+
+exports[`getTargetDir > 工作區環境 / Workspace environment > 應該在工作區中處理作用域套件 / should handle scoped package in workspace 1`] = `
+{
+  "targetDir": "D:\\\\workspace\\\\packages\\\\mypackage",
+  "targetName": "@scope/mypackage",
+  "cwd": "/current/dir",
+  "scopedPackagePattern": true
+}
+`;
+
+exports[`getTargetDir > 工作區環境 / Workspace environment > 應該在工作區中解析正確路徑 / should resolve correct path in workspace 1`] = `
+{
+  "targetDir": "D:\\\\workspace\\\\packages\\\\my-package",
+  "targetName": "my-package",
+  "cwd": "/current/dir",
+  "scopedPackagePattern": true
+}
+`;
+
+exports[`getTargetDir > 錯誤處理 / Error handling > 當找不到工作區前綴時應該拋出錯誤 / should throw error when workspace prefix not found 1`] = `
+"can't found workspace prefix"
+`;

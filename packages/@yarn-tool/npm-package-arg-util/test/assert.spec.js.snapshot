@@ -1,0 +1,3 @@
+exports[`should throw an error 1`] = `
+"Invalid input: jonchurch/botkit#multi-hears. name is required for git type"
+`;

@@ -1,0 +1,28 @@
+exports[`check.spec > test 1`] = `
+{
+  "_exists": true,
+  "_field": [
+    "dependencies",
+    "devDependencies",
+    "peerDependencies",
+    "optionalDependencies"
+  ],
+  "dependencies": true,
+  "devDependencies": true,
+  "peerDependencies": true,
+  "optionalDependencies": true
+}
+`;
+
+exports[`check.spec > test 2`] = `
+{
+  "_exists": true,
+  "_field": [
+    "devDependencies"
+  ],
+  "dependencies": false,
+  "devDependencies": true,
+  "peerDependencies": false,
+  "optionalDependencies": false
+}
+`;

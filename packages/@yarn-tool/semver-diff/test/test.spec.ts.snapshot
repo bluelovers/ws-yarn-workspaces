@@ -1,0 +1,28 @@
+exports[`parseVersionsDiffCore 1`] = `
+{
+  "versionOld": "42.6.7.9.3-alpha",
+  "versionNew": "42.6.7.9.3-prealpha",
+  "partsOld": [
+    "42",
+    "6",
+    "7.9.3-alpha"
+  ],
+  "partsNew": [
+    "42",
+    "6",
+    "7.9.3-prealpha"
+  ],
+  "index": 2,
+  "comp": -1,
+  "_colors": [
+    "red",
+    "cyan",
+    "green"
+  ],
+  "color": "green",
+  "leadingWildcard": "",
+  "result": "42.6",
+  "middot": ".",
+  "resultAppend": "7.9.3-prealpha"
+}
+`;

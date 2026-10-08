@@ -1,0 +1,135 @@
+exports[`install 1`] = `
+{
+  "name": "install",
+  "ignoreSelf": false,
+  "before": [
+    "preinstall"
+  ],
+  "after": [
+    "postinstall",
+    "prepublish",
+    "prepare",
+    "preshrinkwrap",
+    "shrinkwrap",
+    "postshrinkwrap"
+  ]
+}
+`;
+
+exports[`install 2`] = `
+[
+  "preinstall",
+  "install",
+  "postinstall",
+  "prepublish",
+  "prepare",
+  "preshrinkwrap",
+  "shrinkwrap",
+  "postshrinkwrap"
+]
+`;
+
+exports[`pack 1`] = `
+{
+  "name": "pack",
+  "ignoreSelf": true,
+  "before": [
+    "prepublish",
+    "prepare",
+    "prepack"
+  ],
+  "after": [
+    "postpack"
+  ]
+}
+`;
+
+exports[`pack 2`] = `
+[
+  "prepublish",
+  "prepare",
+  "prepack",
+  "postpack"
+]
+`;
+
+exports[`pack 3`] = `
+[
+  "prepublish",
+  "prepare",
+  "prepack",
+  "pack",
+  "postpack"
+]
+`;
+
+exports[`publish 1`] = `
+{
+  "name": "publish",
+  "ignoreSelf": false,
+  "before": [
+    "prepublish",
+    "prepare",
+    "prepublishOnly",
+    "prepack",
+    "postpack"
+  ],
+  "after": [
+    "postpublish"
+  ]
+}
+`;
+
+exports[`publish 2`] = `
+[
+  "prepublish",
+  "prepare",
+  "prepublishOnly",
+  "prepack",
+  "postpack",
+  "publish",
+  "postpublish"
+]
+`;
+
+exports[`should lifecycle any script name > pretitter 1`] = `
+{
+  "name": "pretitter",
+  "ignoreSelf": false,
+  "before": [
+    "prepretitter"
+  ],
+  "after": [
+    "postpretitter"
+  ]
+}
+`;
+
+exports[`should lifecycle any script name > pretitter 2`] = `
+[
+  "prepretitter",
+  "pretitter",
+  "postpretitter"
+]
+`;
+
+exports[`should lifecycle any script name > yy 1`] = `
+{
+  "name": "yy",
+  "ignoreSelf": false,
+  "before": [
+    "preyy"
+  ],
+  "after": [
+    "postyy"
+  ]
+}
+`;
+
+exports[`should lifecycle any script name > yy 2`] = `
+[
+  "preyy",
+  "yy",
+  "postyy"
+]
+`;

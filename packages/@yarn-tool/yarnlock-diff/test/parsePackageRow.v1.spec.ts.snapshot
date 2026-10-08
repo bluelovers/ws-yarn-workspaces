@@ -1,0 +1,19 @@
+exports[`@babel/parser@* 1`] = `
+{
+  "name": "@babel/parser",
+  "version": "1.0.0",
+  "type": "range",
+  "raw": "@babel/parser@*",
+  "semver": "*"
+}
+`;
+
+exports[`@babel/parser@next 1`] = `
+{
+  "name": "@babel/parser",
+  "version": "1.0.0",
+  "type": "tag",
+  "raw": "@babel/parser@next",
+  "semver": "next"
+}
+`;

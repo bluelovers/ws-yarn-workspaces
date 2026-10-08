@@ -1,0 +1,26 @@
+exports[`@yarn-tool/is-npx > handleOptionsDetectNpx > 應該為缺失的選項提供預設值 / should provide defaults for missing options 1`] = `
+{
+  "__dirname": "/test",
+  "env": {
+    "TEST": "value"
+  },
+  "argv": [
+    "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\fnm_multishells\\\\96436_1791434683307\\\\node.exe",
+    "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\is-npx\\\\test\\\\index.spec.ts"
+  ]
+}
+`;
+
+exports[`@yarn-tool/is-npx > isNpx > 正常案例 / Normal Cases > 應該在 env._ 以 /npx 結尾時檢測為 true / should detect true when env._ ends with /npx 1`] = `
+{
+  "opts": {
+    "__dirname": "/normal/path",
+    "env": {
+      "_": "/usr/local/bin/npx"
+    },
+    "argv": []
+  },
+  "isNpx": true,
+  "_isNpx": true
+}
+`;

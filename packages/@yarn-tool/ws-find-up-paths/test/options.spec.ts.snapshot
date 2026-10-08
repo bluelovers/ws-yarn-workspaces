@@ -1,0 +1,27 @@
+exports[`ignoreCurrentPackage 1`] = `
+{
+  "cwd": "D:/Users/WebstormProjects/nodejs-yarn/ws-yarn-workspaces/packages/@yarn-tool/ws-find-up-paths",
+  "opts": {
+    "ignoreCurrentPackage": true,
+    "cwd": "D:/Users/WebstormProjects/nodejs-yarn/ws-yarn-workspaces/packages/@yarn-tool/ws-find-up-paths",
+    "stopPath": [
+      "D:/Users/WebstormProjects/nodejs-yarn/ws-yarn-workspaces"
+    ],
+    "limit": null,
+    "includeCurrentDirectory": false
+  },
+  "stopPath": [
+    "D:/Users/WebstormProjects/nodejs-yarn/ws-yarn-workspaces"
+  ],
+  "limit": null,
+  "rootData": {
+    "cwd": "D:/Users/WebstormProjects/nodejs-yarn/ws-yarn-workspaces/packages/@yarn-tool/ws-find-up-paths",
+    "pkg": "D:/Users/WebstormProjects/nodejs-yarn/ws-yarn-workspaces/packages/@yarn-tool/ws-find-up-paths",
+    "ws": "D:/Users/WebstormProjects/nodejs-yarn/ws-yarn-workspaces",
+    "hasWorkspace": true,
+    "isWorkspace": false,
+    "root": "D:/Users/WebstormProjects/nodejs-yarn/ws-yarn-workspaces",
+    "isRoot": false
+  }
+}
+`;

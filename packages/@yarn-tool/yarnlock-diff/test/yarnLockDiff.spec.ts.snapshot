@@ -1,0 +1,5553 @@
+exports[`yarnLockDiff > v1.iconv.lock 1`] = `
+{
+  "_ok": true,
+  "table": [
+    [
+      "@babel/core",
+      "7.12.16",
+      "→",
+      "7.14.3"
+    ],
+    [
+      "@babel/generator",
+      "7.12.15",
+      "→",
+      "7.14.3"
+    ],
+    [
+      "@babel/helper-function-name",
+      "7.12.13",
+      "→",
+      "7.14.2"
+    ],
+    [
+      "@babel/helper-member-expression-to-functions",
+      "7.12.16",
+      "→",
+      "7.13.12"
+    ],
+    [
+      "@babel/helper-module-imports",
+      "7.12.13",
+      "→",
+      "7.13.12"
+    ],
+    [
+      "@babel/helper-module-transforms",
+      "7.12.13",
+      "→",
+      "7.14.2"
+    ],
+    [
+      "@babel/helper-plugin-utils",
+      "7.12.13",
+      "→",
+      "7.13.0"
+    ],
+    [
+      "@babel/helper-replace-supers",
+      "7.12.13",
+      "→",
+      "7.14.4"
+    ],
+    [
+      "@babel/helper-simple-access",
+      "7.12.13",
+      "→",
+      "7.13.12"
+    ],
+    [
+      "@babel/helper-validator-identifier",
+      "7.12.11",
+      "→",
+      "7.14.0"
+    ],
+    [
+      "@babel/helpers",
+      "7.12.13",
+      "→",
+      "7.14.0"
+    ],
+    [
+      "@babel/highlight",
+      "7.12.13",
+      "→",
+      "7.14.0"
+    ],
+    [
+      "@babel/parser",
+      "7.12.16",
+      "→",
+      "7.14.4"
+    ],
+    [
+      "@babel/traverse",
+      "7.12.13",
+      "→",
+      "7.14.2"
+    ],
+    [
+      "@babel/types",
+      "7.12.13",
+      "→",
+      "7.14.4"
+    ],
+    [
+      "@cnakazawa/watch",
+      "1.0.4",
+      "→",
+      "-"
+    ],
+    [
+      "@istanbuljs/schema",
+      "0.1.2",
+      "→",
+      "0.1.3"
+    ],
+    [
+      "@jest/console",
+      "26.6.2",
+      "→",
+      "27.0.2"
+    ],
+    [
+      "@jest/core",
+      "26.6.3",
+      "→",
+      "27.0.4"
+    ],
+    [
+      "@jest/environment",
+      "26.6.2",
+      "→",
+      "27.0.3"
+    ],
+    [
+      "@jest/fake-timers",
+      "26.6.2",
+      "→",
+      "27.0.3"
+    ],
+    [
+      "@jest/globals",
+      "26.6.2",
+      "→",
+      "27.0.3"
+    ],
+    [
+      "@jest/reporters",
+      "26.6.2",
+      "→",
+      "27.0.4"
+    ],
+    [
+      "@jest/source-map",
+      "26.6.2",
+      "→",
+      "27.0.1"
+    ],
+    [
+      "@jest/test-result",
+      "26.6.2",
+      "→",
+      "27.0.2"
+    ],
+    [
+      "@jest/test-sequencer",
+      "26.6.3",
+      "→",
+      "27.0.4"
+    ],
+    [
+      "@jest/transform",
+      "26.6.2",
+      "→",
+      "27.0.2"
+    ],
+    [
+      "@jest/types",
+      "[...]",
+      "→",
+      "[..., 27.0.2]"
+    ],
+    [
+      "@sinonjs/commons",
+      "1.8.2",
+      "→",
+      "1.8.3"
+    ],
+    [
+      "@sinonjs/fake-timers",
+      "6.0.1",
+      "→",
+      "7.1.2"
+    ],
+    [
+      "@types/babel__core",
+      "7.1.12",
+      "→",
+      "7.1.14"
+    ],
+    [
+      "@types/babel__traverse",
+      "7.11.0",
+      "→",
+      "7.11.1"
+    ],
+    [
+      "@types/bluebird",
+      "3.5.33",
+      "→",
+      "3.5.35"
+    ],
+    [
+      "@types/fs-extra",
+      "9.0.7",
+      "→",
+      "9.0.11"
+    ],
+    [
+      "@types/istanbul-reports",
+      "3.0.0",
+      "→",
+      "3.0.1"
+    ],
+    [
+      "@types/jest",
+      "26.0.20",
+      "→",
+      "26.0.23"
+    ],
+    [
+      "@types/lodash",
+      "4.14.168",
+      "→",
+      "4.14.170"
+    ],
+    [
+      "@types/luxon",
+      "1.25.1",
+      "→",
+      "1.26.5"
+    ],
+    [
+      "@types/node",
+      "14.14.26",
+      "→",
+      "15.12.1"
+    ],
+    [
+      "@types/normalize-package-data",
+      "2.4.0",
+      "→",
+      "-"
+    ],
+    [
+      "@types/prettier",
+      "2.2.0",
+      "→",
+      "2.2.3"
+    ],
+    [
+      "@types/yargs",
+      "[...]",
+      "→",
+      "[..., 16.0.3]"
+    ],
+    [
+      "acorn",
+      "[...]",
+      "→",
+      "[..., 8.3.0]"
+    ],
+    [
+      "ajv",
+      "6.12.6",
+      "→",
+      "-"
+    ],
+    [
+      "ansi-escapes",
+      "4.3.1",
+      "→",
+      "4.3.2"
+    ],
+    [
+      "ansi-styles",
+      "[...]",
+      "→",
+      "[..., 5.2.0]"
+    ],
+    [
+      "anymatch",
+      "2.0.0",
+      "→",
+      "3.1.2"
+    ],
+    [
+      "arr-diff",
+      "4.0.0",
+      "→",
+      "-"
+    ],
+    [
+      "arr-flatten",
+      "1.1.0",
+      "→",
+      "-"
+    ],
+    [
+      "arr-union",
+      "3.1.0",
+      "→",
+      "-"
+    ],
+    [
+      "array-unique",
+      "0.3.2",
+      "→",
+      "-"
+    ],
+    [
+      "asn1",
+      "0.2.4",
+      "→",
+      "-"
+    ],
+    [
+      "assert-plus",
+      "1.0.0",
+      "→",
+      "-"
+    ],
+    [
+      "assign-symbols",
+      "1.0.0",
+      "→",
+      "-"
+    ],
+    [
+      "at-least-node",
+      "1.0.0",
+      "→",
+      "-"
+    ],
+    [
+      "atob",
+      "2.1.2",
+      "→",
+      "-"
+    ],
+    [
+      "aws-sign2",
+      "0.7.0",
+      "→",
+      "-"
+    ],
+    [
+      "aws4",
+      "1.11.0",
+      "→",
+      "-"
+    ],
+    [
+      "babel-jest",
+      "26.6.3",
+      "→",
+      "27.0.2"
+    ],
+    [
+      "babel-plugin-jest-hoist",
+      "26.6.2",
+      "→",
+      "27.0.1"
+    ],
+    [
+      "babel-preset-jest",
+      "26.6.2",
+      "→",
+      "27.0.1"
+    ],
+    [
+      "balanced-match",
+      "1.0.0",
+      "→",
+      "1.0.2"
+    ],
+    [
+      "base",
+      "0.11.2",
+      "→",
+      "-"
+    ],
+    [
+      "bcrypt-pbkdf",
+      "1.0.2",
+      "→",
+      "-"
+    ],
+    [
+      "braces",
+      "2.3.2",
+      "→",
+      "3.0.2"
+    ],
+    [
+      "cache-base",
+      "1.0.1",
+      "→",
+      "-"
+    ],
+    [
+      "capture-exit",
+      "2.0.0",
+      "→",
+      "-"
+    ],
+    [
+      "caseless",
+      "0.12.0",
+      "→",
+      "-"
+    ],
+    [
+      "chalk",
+      "4.1.0",
+      "→",
+      "4.1.1"
+    ],
+    [
+      "ci-info",
+      "2.0.0",
+      "→",
+      "3.2.0"
+    ],
+    [
+      "cjs-module-lexer",
+      "0.6.0",
+      "→",
+      "1.2.1"
+    ],
+    [
+      "class-utils",
+      "0.3.6",
+      "→",
+      "-"
+    ],
+    [
+      "cliui",
+      "6.0.0",
+      "→",
+      "7.0.4"
+    ],
+    [
+      "collection-visit",
+      "1.0.0",
+      "→",
+      "-"
+    ],
+    [
+      "component-emitter",
+      "1.3.0",
+      "→",
+      "-"
+    ],
+    [
+      "copy-descriptor",
+      "0.1.1",
+      "→",
+      "-"
+    ],
+    [
+      "core-util-is",
+      "1.0.2",
+      "→",
+      "-"
+    ],
+    [
+      "cross-spawn",
+      "6.0.5",
+      "→",
+      "7.0.3"
+    ],
+    [
+      "dashdash",
+      "1.14.1",
+      "→",
+      "-"
+    ],
+    [
+      "debug",
+      "2.6.9",
+      "→",
+      "4.3.1"
+    ],
+    [
+      "decamelize",
+      "1.2.0",
+      "→",
+      "-"
+    ],
+    [
+      "decode-uri-component",
+      "0.2.0",
+      "→",
+      "-"
+    ],
+    [
+      "define-property",
+      "0.2.5, 1.0.0, 2.0.2",
+      "→",
+      "-"
+    ],
+    [
+      "diff-sequences",
+      "[...]",
+      "→",
+      "[..., 27.0.1]"
+    ],
+    [
+      "ecc-jsbn",
+      "0.1.2",
+      "→",
+      "-"
+    ],
+    [
+      "emittery",
+      "0.7.2",
+      "→",
+      "0.8.1"
+    ],
+    [
+      "end-of-stream",
+      "1.4.4",
+      "→",
+      "-"
+    ],
+    [
+      "error-ex",
+      "1.3.2",
+      "→",
+      "-"
+    ],
+    [
+      "escodegen",
+      "1.14.3",
+      "→",
+      "2.0.0"
+    ],
+    [
+      "estraverse",
+      "4.3.0",
+      "→",
+      "5.2.0"
+    ],
+    [
+      "exec-sh",
+      "0.3.4",
+      "→",
+      "-"
+    ],
+    [
+      "execa",
+      "1.0.0",
+      "→",
+      "5.1.1"
+    ],
+    [
+      "expand-brackets",
+      "2.1.4",
+      "→",
+      "-"
+    ],
+    [
+      "expect",
+      "26.6.2",
+      "→",
+      "27.0.2"
+    ],
+    [
+      "extend-shallow",
+      "2.0.1, 3.0.2",
+      "→",
+      "-"
+    ],
+    [
+      "extend",
+      "3.0.2",
+      "→",
+      "-"
+    ],
+    [
+      "extglob",
+      "2.0.4",
+      "→",
+      "-"
+    ],
+    [
+      "extsprintf",
+      "1.3.0, 1.4.0",
+      "→",
+      "-"
+    ],
+    [
+      "fast-deep-equal",
+      "3.1.3",
+      "→",
+      "-"
+    ],
+    [
+      "fill-range",
+      "4.0.0",
+      "→",
+      "7.0.1"
+    ],
+    [
+      "for-in",
+      "1.0.2",
+      "→",
+      "-"
+    ],
+    [
+      "forever-agent",
+      "0.6.1",
+      "→",
+      "-"
+    ],
+    [
+      "form-data",
+      "2.3.3",
+      "→",
+      "3.0.1"
+    ],
+    [
+      "fragment-cache",
+      "0.2.1",
+      "→",
+      "-"
+    ],
+    [
+      "fs-extra",
+      "9.1.0",
+      "→",
+      "10.0.0"
+    ],
+    [
+      "get-stream",
+      "4.1.0",
+      "→",
+      "6.0.1"
+    ],
+    [
+      "get-value",
+      "2.0.6",
+      "→",
+      "-"
+    ],
+    [
+      "getpass",
+      "0.1.7",
+      "→",
+      "-"
+    ],
+    [
+      "glob",
+      "7.1.6",
+      "→",
+      "7.1.7"
+    ],
+    [
+      "growly",
+      "1.3.0",
+      "→",
+      "-"
+    ],
+    [
+      "har-schema",
+      "2.0.0",
+      "→",
+      "-"
+    ],
+    [
+      "har-validator",
+      "5.1.5",
+      "→",
+      "-"
+    ],
+    [
+      "has-value",
+      "0.3.1, 1.0.0",
+      "→",
+      "-"
+    ],
+    [
+      "has-values",
+      "0.1.4, 1.0.0",
+      "→",
+      "-"
+    ],
+    [
+      "hosted-git-info",
+      "2.8.8",
+      "→",
+      "-"
+    ],
+    [
+      "http-signature",
+      "1.2.0",
+      "→",
+      "-"
+    ],
+    [
+      "human-signals",
+      "1.1.1",
+      "→",
+      "2.1.0"
+    ],
+    [
+      "iconv-lite",
+      "0.6.2",
+      "→",
+      "0.6.3"
+    ],
+    [
+      "ip-regex",
+      "2.1.0",
+      "→",
+      "-"
+    ],
+    [
+      "is-accessor-descriptor",
+      "0.1.6, 1.0.0",
+      "→",
+      "-"
+    ],
+    [
+      "is-arrayish",
+      "0.2.1",
+      "→",
+      "-"
+    ],
+    [
+      "is-buffer",
+      "1.1.6",
+      "→",
+      "-"
+    ],
+    [
+      "is-ci",
+      "2.0.0",
+      "→",
+      "3.0.0"
+    ],
+    [
+      "is-core-module",
+      "2.2.0",
+      "→",
+      "2.4.0"
+    ],
+    [
+      "is-data-descriptor",
+      "0.1.4, 1.0.0",
+      "→",
+      "-"
+    ],
+    [
+      "is-descriptor",
+      "0.1.6, 1.0.2",
+      "→",
+      "-"
+    ],
+    [
+      "is-docker",
+      "2.1.1",
+      "→",
+      "-"
+    ],
+    [
+      "is-extendable",
+      "0.1.1, 1.0.1",
+      "→",
+      "-"
+    ],
+    [
+      "is-number",
+      "3.0.0",
+      "→",
+      "7.0.0"
+    ],
+    [
+      "is-plain-object",
+      "2.0.4",
+      "→",
+      "-"
+    ],
+    [
+      "is-potential-custom-element-name",
+      "1.0.0",
+      "→",
+      "1.0.1"
+    ],
+    [
+      "is-stream",
+      "1.1.0",
+      "→",
+      "2.0.0"
+    ],
+    [
+      "is-windows",
+      "1.0.2",
+      "→",
+      "-"
+    ],
+    [
+      "is-wsl",
+      "2.2.0",
+      "→",
+      "-"
+    ],
+    [
+      "isarray",
+      "1.0.0",
+      "→",
+      "-"
+    ],
+    [
+      "isobject",
+      "2.1.0, 3.0.1",
+      "→",
+      "-"
+    ],
+    [
+      "isstream",
+      "0.1.2",
+      "→",
+      "-"
+    ],
+    [
+      "jest-changed-files",
+      "26.6.2",
+      "→",
+      "27.0.2"
+    ],
+    [
+      "jest-cli",
+      "26.6.3",
+      "→",
+      "27.0.4"
+    ],
+    [
+      "jest-config",
+      "26.6.3",
+      "→",
+      "27.0.4"
+    ],
+    [
+      "jest-diff",
+      "[...]",
+      "→",
+      "[..., 27.0.2]"
+    ],
+    [
+      "jest-docblock",
+      "26.0.0",
+      "→",
+      "27.0.1"
+    ],
+    [
+      "jest-each",
+      "26.6.2",
+      "→",
+      "27.0.2"
+    ],
+    [
+      "jest-environment-jsdom",
+      "26.6.2",
+      "→",
+      "27.0.3"
+    ],
+    [
+      "jest-environment-node",
+      "26.6.2",
+      "→",
+      "27.0.3"
+    ],
+    [
+      "jest-get-type",
+      "[...]",
+      "→",
+      "[..., 27.0.1]"
+    ],
+    [
+      "jest-haste-map",
+      "26.6.2",
+      "→",
+      "27.0.2"
+    ],
+    [
+      "jest-jasmine2",
+      "26.6.3",
+      "→",
+      "27.0.4"
+    ],
+    [
+      "jest-leak-detector",
+      "26.6.2",
+      "→",
+      "27.0.2"
+    ],
+    [
+      "jest-matcher-utils",
+      "26.6.2",
+      "→",
+      "27.0.2"
+    ],
+    [
+      "jest-message-util",
+      "26.6.2",
+      "→",
+      "27.0.2"
+    ],
+    [
+      "jest-mock",
+      "26.6.2",
+      "→",
+      "27.0.3"
+    ],
+    [
+      "jest-regex-util",
+      "26.0.0",
+      "→",
+      "27.0.1"
+    ],
+    [
+      "jest-resolve-dependencies",
+      "26.6.3",
+      "→",
+      "27.0.4"
+    ],
+    [
+      "jest-resolve",
+      "26.6.2",
+      "→",
+      "27.0.4"
+    ],
+    [
+      "jest-runner",
+      "26.6.3",
+      "→",
+      "27.0.4"
+    ],
+    [
+      "jest-runtime",
+      "26.6.3",
+      "→",
+      "27.0.4"
+    ],
+    [
+      "jest-serializer",
+      "26.6.2",
+      "→",
+      "27.0.1"
+    ],
+    [
+      "jest-snapshot",
+      "26.6.2",
+      "→",
+      "27.0.4"
+    ],
+    [
+      "jest-util",
+      "26.6.2",
+      "→",
+      "27.0.2"
+    ],
+    [
+      "jest-validate",
+      "26.6.2",
+      "→",
+      "27.0.2"
+    ],
+    [
+      "jest-watcher",
+      "26.6.2",
+      "→",
+      "27.0.2"
+    ],
+    [
+      "jest-worker",
+      "26.6.2",
+      "→",
+      "27.0.2"
+    ],
+    [
+      "jest",
+      "26.6.3",
+      "→",
+      "27.0.4"
+    ],
+    [
+      "jsbn",
+      "0.1.1",
+      "→",
+      "-"
+    ],
+    [
+      "jschardet",
+      "2.2.1",
+      "→",
+      "3.0.0"
+    ],
+    [
+      "jsdom",
+      "16.4.0",
+      "→",
+      "16.6.0"
+    ],
+    [
+      "json-parse-even-better-errors",
+      "2.3.1",
+      "→",
+      "-"
+    ],
+    [
+      "json-schema-traverse",
+      "0.4.1",
+      "→",
+      "-"
+    ],
+    [
+      "json-schema",
+      "0.2.3",
+      "→",
+      "-"
+    ],
+    [
+      "json-stringify-safe",
+      "5.0.1",
+      "→",
+      "-"
+    ],
+    [
+      "jsprim",
+      "1.4.1",
+      "→",
+      "-"
+    ],
+    [
+      "kind-of",
+      "3.2.2, 4.0.0, 5.1.0, 6.0.3",
+      "→",
+      "-"
+    ],
+    [
+      "lines-and-columns",
+      "1.1.6",
+      "→",
+      "-"
+    ],
+    [
+      "lodash.sortby",
+      "4.7.0",
+      "→",
+      "-"
+    ],
+    [
+      "lodash",
+      "4.17.20",
+      "→",
+      "4.17.21"
+    ],
+    [
+      "luxon",
+      "1.25.0",
+      "→",
+      "1.27.0"
+    ],
+    [
+      "map-cache",
+      "0.2.2",
+      "→",
+      "-"
+    ],
+    [
+      "map-visit",
+      "1.0.0",
+      "→",
+      "-"
+    ],
+    [
+      "micromatch",
+      "3.1.10",
+      "→",
+      "4.0.4"
+    ],
+    [
+      "mime-db",
+      "1.45.0",
+      "→",
+      "1.48.0"
+    ],
+    [
+      "mime-types",
+      "2.1.28",
+      "→",
+      "2.1.31"
+    ],
+    [
+      "mixin-deep",
+      "1.3.2",
+      "→",
+      "-"
+    ],
+    [
+      "ms",
+      "2.0.0",
+      "→",
+      "2.1.2"
+    ],
+    [
+      "nanomatch",
+      "1.2.13",
+      "→",
+      "-"
+    ],
+    [
+      "nice-try",
+      "1.0.5",
+      "→",
+      "-"
+    ],
+    [
+      "node-notifier",
+      "8.0.1",
+      "→",
+      "-"
+    ],
+    [
+      "normalize-package-data",
+      "2.5.0",
+      "→",
+      "-"
+    ],
+    [
+      "normalize-path",
+      "2.1.1",
+      "→",
+      "3.0.0"
+    ],
+    [
+      "npm-run-path",
+      "2.0.2",
+      "→",
+      "4.0.1"
+    ],
+    [
+      "oauth-sign",
+      "0.9.0",
+      "→",
+      "-"
+    ],
+    [
+      "object-copy",
+      "0.1.0",
+      "→",
+      "-"
+    ],
+    [
+      "object-visit",
+      "1.0.1",
+      "→",
+      "-"
+    ],
+    [
+      "object.pick",
+      "1.3.0",
+      "→",
+      "-"
+    ],
+    [
+      "p-finally",
+      "1.0.0",
+      "→",
+      "-"
+    ],
+    [
+      "parse-json",
+      "5.2.0",
+      "→",
+      "-"
+    ],
+    [
+      "parse5",
+      "5.1.1",
+      "→",
+      "6.0.1"
+    ],
+    [
+      "pascalcase",
+      "0.1.1",
+      "→",
+      "-"
+    ],
+    [
+      "path-key",
+      "2.0.1",
+      "→",
+      "3.1.1"
+    ],
+    [
+      "path-parse",
+      "1.0.6",
+      "→",
+      "1.0.7"
+    ],
+    [
+      "performance-now",
+      "2.1.0",
+      "→",
+      "-"
+    ],
+    [
+      "picomatch",
+      "2.2.2",
+      "→",
+      "2.3.0"
+    ],
+    [
+      "posix-character-classes",
+      "0.1.1",
+      "→",
+      "-"
+    ],
+    [
+      "pretty-format",
+      "[...]",
+      "→",
+      "[..., 27.0.2]"
+    ],
+    [
+      "prompts",
+      "2.4.0",
+      "→",
+      "2.4.1"
+    ],
+    [
+      "pump",
+      "3.0.0",
+      "→",
+      "-"
+    ],
+    [
+      "qs",
+      "6.5.2",
+      "→",
+      "-"
+    ],
+    [
+      "react-is",
+      "17.0.1",
+      "→",
+      "17.0.2"
+    ],
+    [
+      "read-pkg-up",
+      "7.0.1",
+      "→",
+      "-"
+    ],
+    [
+      "read-pkg",
+      "5.2.0",
+      "→",
+      "-"
+    ],
+    [
+      "regex-not",
+      "1.0.2",
+      "→",
+      "-"
+    ],
+    [
+      "remove-trailing-separator",
+      "1.1.0",
+      "→",
+      "-"
+    ],
+    [
+      "repeat-element",
+      "1.1.3",
+      "→",
+      "-"
+    ],
+    [
+      "repeat-string",
+      "1.6.1",
+      "→",
+      "-"
+    ],
+    [
+      "request-promise-core",
+      "1.1.4",
+      "→",
+      "-"
+    ],
+    [
+      "request-promise-native",
+      "1.0.9",
+      "→",
+      "-"
+    ],
+    [
+      "request",
+      "2.88.2",
+      "→",
+      "-"
+    ],
+    [
+      "require-main-filename",
+      "2.0.0",
+      "→",
+      "-"
+    ],
+    [
+      "resolve-url",
+      "0.2.1",
+      "→",
+      "-"
+    ],
+    [
+      "ret",
+      "0.1.15",
+      "→",
+      "-"
+    ],
+    [
+      "rsvp",
+      "4.8.5",
+      "→",
+      "-"
+    ],
+    [
+      "safe-buffer",
+      "[..., 5.2.1]",
+      "→",
+      "[...]"
+    ],
+    [
+      "safe-regex",
+      "1.1.0",
+      "→",
+      "-"
+    ],
+    [
+      "sane",
+      "4.1.0",
+      "→",
+      "-"
+    ],
+    [
+      "semver",
+      "5.7.1",
+      "→",
+      "6.3.0"
+    ],
+    [
+      "set-blocking",
+      "2.0.0",
+      "→",
+      "-"
+    ],
+    [
+      "set-value",
+      "2.0.1",
+      "→",
+      "-"
+    ],
+    [
+      "shebang-command",
+      "1.2.0",
+      "→",
+      "2.0.0"
+    ],
+    [
+      "shebang-regex",
+      "1.0.0",
+      "→",
+      "3.0.0"
+    ],
+    [
+      "shellwords",
+      "0.1.1",
+      "→",
+      "-"
+    ],
+    [
+      "snapdragon-node",
+      "2.1.1",
+      "→",
+      "-"
+    ],
+    [
+      "snapdragon-util",
+      "3.0.1",
+      "→",
+      "-"
+    ],
+    [
+      "snapdragon",
+      "0.8.2",
+      "→",
+      "-"
+    ],
+    [
+      "source-map-resolve",
+      "0.5.3",
+      "→",
+      "-"
+    ],
+    [
+      "source-map-url",
+      "0.4.1",
+      "→",
+      "-"
+    ],
+    [
+      "spdx-correct",
+      "3.1.1",
+      "→",
+      "-"
+    ],
+    [
+      "spdx-exceptions",
+      "2.3.0",
+      "→",
+      "-"
+    ],
+    [
+      "spdx-expression-parse",
+      "3.0.1",
+      "→",
+      "-"
+    ],
+    [
+      "spdx-license-ids",
+      "3.0.7",
+      "→",
+      "-"
+    ],
+    [
+      "split-string",
+      "3.1.0",
+      "→",
+      "-"
+    ],
+    [
+      "sshpk",
+      "1.16.1",
+      "→",
+      "-"
+    ],
+    [
+      "static-extend",
+      "0.1.2",
+      "→",
+      "-"
+    ],
+    [
+      "stealthy-require",
+      "1.1.1",
+      "→",
+      "-"
+    ],
+    [
+      "string-length",
+      "4.0.1",
+      "→",
+      "4.0.2"
+    ],
+    [
+      "string-width",
+      "4.2.0",
+      "→",
+      "4.2.2"
+    ],
+    [
+      "strip-eof",
+      "1.0.0",
+      "→",
+      "-"
+    ],
+    [
+      "supports-color",
+      "[...]",
+      "→",
+      "[..., 8.1.1]"
+    ],
+    [
+      "supports-hyperlinks",
+      "2.1.0",
+      "→",
+      "2.2.0"
+    ],
+    [
+      "throat",
+      "5.0.0",
+      "→",
+      "6.0.1"
+    ],
+    [
+      "to-object-path",
+      "0.3.0",
+      "→",
+      "-"
+    ],
+    [
+      "to-regex-range",
+      "2.1.1",
+      "→",
+      "5.0.1"
+    ],
+    [
+      "to-regex",
+      "3.0.2",
+      "→",
+      "-"
+    ],
+    [
+      "tough-cookie",
+      "2.5.0",
+      "→",
+      "4.0.0"
+    ],
+    [
+      "tr46",
+      "2.0.2",
+      "→",
+      "2.1.0"
+    ],
+    [
+      "ts-jest",
+      "26.5.1",
+      "→",
+      "27.0.2"
+    ],
+    [
+      "tunnel-agent",
+      "0.6.0",
+      "→",
+      "-"
+    ],
+    [
+      "tweetnacl",
+      "0.14.5",
+      "→",
+      "-"
+    ],
+    [
+      "type-fest",
+      "0.6.0",
+      "→",
+      "0.21.3"
+    ],
+    [
+      "union-value",
+      "1.0.1",
+      "→",
+      "-"
+    ],
+    [
+      "universalify",
+      "2.0.0",
+      "→",
+      "0.1.2"
+    ],
+    [
+      "unset-value",
+      "1.0.0",
+      "→",
+      "-"
+    ],
+    [
+      "uri-js",
+      "4.4.1",
+      "→",
+      "-"
+    ],
+    [
+      "urix",
+      "0.1.0",
+      "→",
+      "-"
+    ],
+    [
+      "use",
+      "3.1.1",
+      "→",
+      "-"
+    ],
+    [
+      "uuid",
+      "3.4.0, 8.3.2",
+      "→",
+      "-"
+    ],
+    [
+      "v8-to-istanbul",
+      "7.1.0",
+      "→",
+      "7.1.2"
+    ],
+    [
+      "validate-npm-package-license",
+      "3.0.4",
+      "→",
+      "-"
+    ],
+    [
+      "verror",
+      "1.10.0",
+      "→",
+      "-"
+    ],
+    [
+      "whatwg-url",
+      "8.4.0",
+      "→",
+      "8.5.0"
+    ],
+    [
+      "which-module",
+      "2.0.0",
+      "→",
+      "-"
+    ],
+    [
+      "which",
+      "1.3.1",
+      "→",
+      "2.0.2"
+    ],
+    [
+      "wrap-ansi",
+      "6.2.0",
+      "→",
+      "7.0.0"
+    ],
+    [
+      "ws",
+      "7.4.3",
+      "→",
+      "7.4.6"
+    ],
+    [
+      "y18n",
+      "4.0.1",
+      "→",
+      "5.0.8"
+    ],
+    [
+      "yargs-parser",
+      "18.1.3",
+      "→",
+      "20.2.7"
+    ],
+    [
+      "yargs",
+      "15.4.1",
+      "→",
+      "16.2.0"
+    ],
+    [
+      "@babel/compat-data",
+      "-",
+      "→",
+      "7.14.4"
+    ],
+    [
+      "@babel/helper-compilation-targets",
+      "-",
+      "→",
+      "7.14.4"
+    ],
+    [
+      "@babel/helper-validator-option",
+      "-",
+      "→",
+      "7.12.17"
+    ],
+    [
+      "@babel/plugin-syntax-typescript",
+      "-",
+      "→",
+      "7.12.13"
+    ],
+    [
+      "@tootallnate/once",
+      "-",
+      "→",
+      "1.1.2"
+    ],
+    [
+      "agent-base",
+      "-",
+      "→",
+      "6.0.2"
+    ],
+    [
+      "browserslist",
+      "-",
+      "→",
+      "4.16.6"
+    ],
+    [
+      "caniuse-lite",
+      "-",
+      "→",
+      "1.0.30001234"
+    ],
+    [
+      "colorette",
+      "-",
+      "→",
+      "1.2.2"
+    ],
+    [
+      "dedent",
+      "-",
+      "→",
+      "0.7.0"
+    ],
+    [
+      "electron-to-chromium",
+      "-",
+      "→",
+      "1.3.749"
+    ],
+    [
+      "escalade",
+      "-",
+      "→",
+      "3.1.1"
+    ],
+    [
+      "http-proxy-agent",
+      "-",
+      "→",
+      "4.0.1"
+    ],
+    [
+      "https-proxy-agent",
+      "-",
+      "→",
+      "5.0.0"
+    ],
+    [
+      "jest-circus",
+      "-",
+      "→",
+      "27.0.4"
+    ],
+    [
+      "node-releases",
+      "-",
+      "→",
+      "1.1.72"
+    ]
+  ],
+  "formatedDiff": {
+    "@babel/core": [
+      "@babel/core",
+      "7.12.16",
+      "→",
+      "7.14.3"
+    ],
+    "@babel/generator": [
+      "@babel/generator",
+      "7.12.15",
+      "→",
+      "7.14.3"
+    ],
+    "@babel/helper-function-name": [
+      "@babel/helper-function-name",
+      "7.12.13",
+      "→",
+      "7.14.2"
+    ],
+    "@babel/helper-member-expression-to-functions": [
+      "@babel/helper-member-expression-to-functions",
+      "7.12.16",
+      "→",
+      "7.13.12"
+    ],
+    "@babel/helper-module-imports": [
+      "@babel/helper-module-imports",
+      "7.12.13",
+      "→",
+      "7.13.12"
+    ],
+    "@babel/helper-module-transforms": [
+      "@babel/helper-module-transforms",
+      "7.12.13",
+      "→",
+      "7.14.2"
+    ],
+    "@babel/helper-plugin-utils": [
+      "@babel/helper-plugin-utils",
+      "7.12.13",
+      "→",
+      "7.13.0"
+    ],
+    "@babel/helper-replace-supers": [
+      "@babel/helper-replace-supers",
+      "7.12.13",
+      "→",
+      "7.14.4"
+    ],
+    "@babel/helper-simple-access": [
+      "@babel/helper-simple-access",
+      "7.12.13",
+      "→",
+      "7.13.12"
+    ],
+    "@babel/helper-validator-identifier": [
+      "@babel/helper-validator-identifier",
+      "7.12.11",
+      "→",
+      "7.14.0"
+    ],
+    "@babel/helpers": [
+      "@babel/helpers",
+      "7.12.13",
+      "→",
+      "7.14.0"
+    ],
+    "@babel/highlight": [
+      "@babel/highlight",
+      "7.12.13",
+      "→",
+      "7.14.0"
+    ],
+    "@babel/parser": [
+      "@babel/parser",
+      "7.12.16",
+      "→",
+      "7.14.4"
+    ],
+    "@babel/traverse": [
+      "@babel/traverse",
+      "7.12.13",
+      "→",
+      "7.14.2"
+    ],
+    "@babel/types": [
+      "@babel/types",
+      "7.12.13",
+      "→",
+      "7.14.4"
+    ],
+    "@cnakazawa/watch": [
+      "@cnakazawa/watch",
+      "1.0.4",
+      "→",
+      "-"
+    ],
+    "@istanbuljs/schema": [
+      "@istanbuljs/schema",
+      "0.1.2",
+      "→",
+      "0.1.3"
+    ],
+    "@jest/console": [
+      "@jest/console",
+      "26.6.2",
+      "→",
+      "27.0.2"
+    ],
+    "@jest/core": [
+      "@jest/core",
+      "26.6.3",
+      "→",
+      "27.0.4"
+    ],
+    "@jest/environment": [
+      "@jest/environment",
+      "26.6.2",
+      "→",
+      "27.0.3"
+    ],
+    "@jest/fake-timers": [
+      "@jest/fake-timers",
+      "26.6.2",
+      "→",
+      "27.0.3"
+    ],
+    "@jest/globals": [
+      "@jest/globals",
+      "26.6.2",
+      "→",
+      "27.0.3"
+    ],
+    "@jest/reporters": [
+      "@jest/reporters",
+      "26.6.2",
+      "→",
+      "27.0.4"
+    ],
+    "@jest/source-map": [
+      "@jest/source-map",
+      "26.6.2",
+      "→",
+      "27.0.1"
+    ],
+    "@jest/test-result": [
+      "@jest/test-result",
+      "26.6.2",
+      "→",
+      "27.0.2"
+    ],
+    "@jest/test-sequencer": [
+      "@jest/test-sequencer",
+      "26.6.3",
+      "→",
+      "27.0.4"
+    ],
+    "@jest/transform": [
+      "@jest/transform",
+      "26.6.2",
+      "→",
+      "27.0.2"
+    ],
+    "@jest/types": [
+      "@jest/types",
+      "[...]",
+      "→",
+      "[..., 27.0.2]"
+    ],
+    "@sinonjs/commons": [
+      "@sinonjs/commons",
+      "1.8.2",
+      "→",
+      "1.8.3"
+    ],
+    "@sinonjs/fake-timers": [
+      "@sinonjs/fake-timers",
+      "6.0.1",
+      "→",
+      "7.1.2"
+    ],
+    "@types/babel__core": [
+      "@types/babel__core",
+      "7.1.12",
+      "→",
+      "7.1.14"
+    ],
+    "@types/babel__traverse": [
+      "@types/babel__traverse",
+      "7.11.0",
+      "→",
+      "7.11.1"
+    ],
+    "@types/bluebird": [
+      "@types/bluebird",
+      "3.5.33",
+      "→",
+      "3.5.35"
+    ],
+    "@types/fs-extra": [
+      "@types/fs-extra",
+      "9.0.7",
+      "→",
+      "9.0.11"
+    ],
+    "@types/istanbul-reports": [
+      "@types/istanbul-reports",
+      "3.0.0",
+      "→",
+      "3.0.1"
+    ],
+    "@types/jest": [
+      "@types/jest",
+      "26.0.20",
+      "→",
+      "26.0.23"
+    ],
+    "@types/lodash": [
+      "@types/lodash",
+      "4.14.168",
+      "→",
+      "4.14.170"
+    ],
+    "@types/luxon": [
+      "@types/luxon",
+      "1.25.1",
+      "→",
+      "1.26.5"
+    ],
+    "@types/node": [
+      "@types/node",
+      "14.14.26",
+      "→",
+      "15.12.1"
+    ],
+    "@types/normalize-package-data": [
+      "@types/normalize-package-data",
+      "2.4.0",
+      "→",
+      "-"
+    ],
+    "@types/prettier": [
+      "@types/prettier",
+      "2.2.0",
+      "→",
+      "2.2.3"
+    ],
+    "@types/yargs": [
+      "@types/yargs",
+      "[...]",
+      "→",
+      "[..., 16.0.3]"
+    ],
+    "acorn": [
+      "acorn",
+      "[...]",
+      "→",
+      "[..., 8.3.0]"
+    ],
+    "ajv": [
+      "ajv",
+      "6.12.6",
+      "→",
+      "-"
+    ],
+    "ansi-escapes": [
+      "ansi-escapes",
+      "4.3.1",
+      "→",
+      "4.3.2"
+    ],
+    "ansi-styles": [
+      "ansi-styles",
+      "[...]",
+      "→",
+      "[..., 5.2.0]"
+    ],
+    "anymatch": [
+      "anymatch",
+      "2.0.0",
+      "→",
+      "3.1.2"
+    ],
+    "arr-diff": [
+      "arr-diff",
+      "4.0.0",
+      "→",
+      "-"
+    ],
+    "arr-flatten": [
+      "arr-flatten",
+      "1.1.0",
+      "→",
+      "-"
+    ],
+    "arr-union": [
+      "arr-union",
+      "3.1.0",
+      "→",
+      "-"
+    ],
+    "array-unique": [
+      "array-unique",
+      "0.3.2",
+      "→",
+      "-"
+    ],
+    "asn1": [
+      "asn1",
+      "0.2.4",
+      "→",
+      "-"
+    ],
+    "assert-plus": [
+      "assert-plus",
+      "1.0.0",
+      "→",
+      "-"
+    ],
+    "assign-symbols": [
+      "assign-symbols",
+      "1.0.0",
+      "→",
+      "-"
+    ],
+    "at-least-node": [
+      "at-least-node",
+      "1.0.0",
+      "→",
+      "-"
+    ],
+    "atob": [
+      "atob",
+      "2.1.2",
+      "→",
+      "-"
+    ],
+    "aws-sign2": [
+      "aws-sign2",
+      "0.7.0",
+      "→",
+      "-"
+    ],
+    "aws4": [
+      "aws4",
+      "1.11.0",
+      "→",
+      "-"
+    ],
+    "babel-jest": [
+      "babel-jest",
+      "26.6.3",
+      "→",
+      "27.0.2"
+    ],
+    "babel-plugin-jest-hoist": [
+      "babel-plugin-jest-hoist",
+      "26.6.2",
+      "→",
+      "27.0.1"
+    ],
+    "babel-preset-jest": [
+      "babel-preset-jest",
+      "26.6.2",
+      "→",
+      "27.0.1"
+    ],
+    "balanced-match": [
+      "balanced-match",
+      "1.0.0",
+      "→",
+      "1.0.2"
+    ],
+    "base": [
+      "base",
+      "0.11.2",
+      "→",
+      "-"
+    ],
+    "bcrypt-pbkdf": [
+      "bcrypt-pbkdf",
+      "1.0.2",
+      "→",
+      "-"
+    ],
+    "braces": [
+      "braces",
+      "2.3.2",
+      "→",
+      "3.0.2"
+    ],
+    "cache-base": [
+      "cache-base",
+      "1.0.1",
+      "→",
+      "-"
+    ],
+    "capture-exit": [
+      "capture-exit",
+      "2.0.0",
+      "→",
+      "-"
+    ],
+    "caseless": [
+      "caseless",
+      "0.12.0",
+      "→",
+      "-"
+    ],
+    "chalk": [
+      "chalk",
+      "4.1.0",
+      "→",
+      "4.1.1"
+    ],
+    "ci-info": [
+      "ci-info",
+      "2.0.0",
+      "→",
+      "3.2.0"
+    ],
+    "cjs-module-lexer": [
+      "cjs-module-lexer",
+      "0.6.0",
+      "→",
+      "1.2.1"
+    ],
+    "class-utils": [
+      "class-utils",
+      "0.3.6",
+      "→",
+      "-"
+    ],
+    "cliui": [
+      "cliui",
+      "6.0.0",
+      "→",
+      "7.0.4"
+    ],
+    "collection-visit": [
+      "collection-visit",
+      "1.0.0",
+      "→",
+      "-"
+    ],
+    "component-emitter": [
+      "component-emitter",
+      "1.3.0",
+      "→",
+      "-"
+    ],
+    "copy-descriptor": [
+      "copy-descriptor",
+      "0.1.1",
+      "→",
+      "-"
+    ],
+    "core-util-is": [
+      "core-util-is",
+      "1.0.2",
+      "→",
+      "-"
+    ],
+    "cross-spawn": [
+      "cross-spawn",
+      "6.0.5",
+      "→",
+      "7.0.3"
+    ],
+    "dashdash": [
+      "dashdash",
+      "1.14.1",
+      "→",
+      "-"
+    ],
+    "debug": [
+      "debug",
+      "2.6.9",
+      "→",
+      "4.3.1"
+    ],
+    "decamelize": [
+      "decamelize",
+      "1.2.0",
+      "→",
+      "-"
+    ],
+    "decode-uri-component": [
+      "decode-uri-component",
+      "0.2.0",
+      "→",
+      "-"
+    ],
+    "define-property": [
+      "define-property",
+      "0.2.5, 1.0.0, 2.0.2",
+      "→",
+      "-"
+    ],
+    "diff-sequences": [
+      "diff-sequences",
+      "[...]",
+      "→",
+      "[..., 27.0.1]"
+    ],
+    "ecc-jsbn": [
+      "ecc-jsbn",
+      "0.1.2",
+      "→",
+      "-"
+    ],
+    "emittery": [
+      "emittery",
+      "0.7.2",
+      "→",
+      "0.8.1"
+    ],
+    "end-of-stream": [
+      "end-of-stream",
+      "1.4.4",
+      "→",
+      "-"
+    ],
+    "error-ex": [
+      "error-ex",
+      "1.3.2",
+      "→",
+      "-"
+    ],
+    "escodegen": [
+      "escodegen",
+      "1.14.3",
+      "→",
+      "2.0.0"
+    ],
+    "estraverse": [
+      "estraverse",
+      "4.3.0",
+      "→",
+      "5.2.0"
+    ],
+    "exec-sh": [
+      "exec-sh",
+      "0.3.4",
+      "→",
+      "-"
+    ],
+    "execa": [
+      "execa",
+      "1.0.0",
+      "→",
+      "5.1.1"
+    ],
+    "expand-brackets": [
+      "expand-brackets",
+      "2.1.4",
+      "→",
+      "-"
+    ],
+    "expect": [
+      "expect",
+      "26.6.2",
+      "→",
+      "27.0.2"
+    ],
+    "extend-shallow": [
+      "extend-shallow",
+      "2.0.1, 3.0.2",
+      "→",
+      "-"
+    ],
+    "extend": [
+      "extend",
+      "3.0.2",
+      "→",
+      "-"
+    ],
+    "extglob": [
+      "extglob",
+      "2.0.4",
+      "→",
+      "-"
+    ],
+    "extsprintf": [
+      "extsprintf",
+      "1.3.0, 1.4.0",
+      "→",
+      "-"
+    ],
+    "fast-deep-equal": [
+      "fast-deep-equal",
+      "3.1.3",
+      "→",
+      "-"
+    ],
+    "fill-range": [
+      "fill-range",
+      "4.0.0",
+      "→",
+      "7.0.1"
+    ],
+    "for-in": [
+      "for-in",
+      "1.0.2",
+      "→",
+      "-"
+    ],
+    "forever-agent": [
+      "forever-agent",
+      "0.6.1",
+      "→",
+      "-"
+    ],
+    "form-data": [
+      "form-data",
+      "2.3.3",
+      "→",
+      "3.0.1"
+    ],
+    "fragment-cache": [
+      "fragment-cache",
+      "0.2.1",
+      "→",
+      "-"
+    ],
+    "fs-extra": [
+      "fs-extra",
+      "9.1.0",
+      "→",
+      "10.0.0"
+    ],
+    "get-stream": [
+      "get-stream",
+      "4.1.0",
+      "→",
+      "6.0.1"
+    ],
+    "get-value": [
+      "get-value",
+      "2.0.6",
+      "→",
+      "-"
+    ],
+    "getpass": [
+      "getpass",
+      "0.1.7",
+      "→",
+      "-"
+    ],
+    "glob": [
+      "glob",
+      "7.1.6",
+      "→",
+      "7.1.7"
+    ],
+    "growly": [
+      "growly",
+      "1.3.0",
+      "→",
+      "-"
+    ],
+    "har-schema": [
+      "har-schema",
+      "2.0.0",
+      "→",
+      "-"
+    ],
+    "har-validator": [
+      "har-validator",
+      "5.1.5",
+      "→",
+      "-"
+    ],
+    "has-value": [
+      "has-value",
+      "0.3.1, 1.0.0",
+      "→",
+      "-"
+    ],
+    "has-values": [
+      "has-values",
+      "0.1.4, 1.0.0",
+      "→",
+      "-"
+    ],
+    "hosted-git-info": [
+      "hosted-git-info",
+      "2.8.8",
+      "→",
+      "-"
+    ],
+    "http-signature": [
+      "http-signature",
+      "1.2.0",
+      "→",
+      "-"
+    ],
+    "human-signals": [
+      "human-signals",
+      "1.1.1",
+      "→",
+      "2.1.0"
+    ],
+    "iconv-lite": [
+      "iconv-lite",
+      "0.6.2",
+      "→",
+      "0.6.3"
+    ],
+    "ip-regex": [
+      "ip-regex",
+      "2.1.0",
+      "→",
+      "-"
+    ],
+    "is-accessor-descriptor": [
+      "is-accessor-descriptor",
+      "0.1.6, 1.0.0",
+      "→",
+      "-"
+    ],
+    "is-arrayish": [
+      "is-arrayish",
+      "0.2.1",
+      "→",
+      "-"
+    ],
+    "is-buffer": [
+      "is-buffer",
+      "1.1.6",
+      "→",
+      "-"
+    ],
+    "is-ci": [
+      "is-ci",
+      "2.0.0",
+      "→",
+      "3.0.0"
+    ],
+    "is-core-module": [
+      "is-core-module",
+      "2.2.0",
+      "→",
+      "2.4.0"
+    ],
+    "is-data-descriptor": [
+      "is-data-descriptor",
+      "0.1.4, 1.0.0",
+      "→",
+      "-"
+    ],
+    "is-descriptor": [
+      "is-descriptor",
+      "0.1.6, 1.0.2",
+      "→",
+      "-"
+    ],
+    "is-docker": [
+      "is-docker",
+      "2.1.1",
+      "→",
+      "-"
+    ],
+    "is-extendable": [
+      "is-extendable",
+      "0.1.1, 1.0.1",
+      "→",
+      "-"
+    ],
+    "is-number": [
+      "is-number",
+      "3.0.0",
+      "→",
+      "7.0.0"
+    ],
+    "is-plain-object": [
+      "is-plain-object",
+      "2.0.4",
+      "→",
+      "-"
+    ],
+    "is-potential-custom-element-name": [
+      "is-potential-custom-element-name",
+      "1.0.0",
+      "→",
+      "1.0.1"
+    ],
+    "is-stream": [
+      "is-stream",
+      "1.1.0",
+      "→",
+      "2.0.0"
+    ],
+    "is-windows": [
+      "is-windows",
+      "1.0.2",
+      "→",
+      "-"
+    ],
+    "is-wsl": [
+      "is-wsl",
+      "2.2.0",
+      "→",
+      "-"
+    ],
+    "isarray": [
+      "isarray",
+      "1.0.0",
+      "→",
+      "-"
+    ],
+    "isobject": [
+      "isobject",
+      "2.1.0, 3.0.1",
+      "→",
+      "-"
+    ],
+    "isstream": [
+      "isstream",
+      "0.1.2",
+      "→",
+      "-"
+    ],
+    "jest-changed-files": [
+      "jest-changed-files",
+      "26.6.2",
+      "→",
+      "27.0.2"
+    ],
+    "jest-cli": [
+      "jest-cli",
+      "26.6.3",
+      "→",
+      "27.0.4"
+    ],
+    "jest-config": [
+      "jest-config",
+      "26.6.3",
+      "→",
+      "27.0.4"
+    ],
+    "jest-diff": [
+      "jest-diff",
+      "[...]",
+      "→",
+      "[..., 27.0.2]"
+    ],
+    "jest-docblock": [
+      "jest-docblock",
+      "26.0.0",
+      "→",
+      "27.0.1"
+    ],
+    "jest-each": [
+      "jest-each",
+      "26.6.2",
+      "→",
+      "27.0.2"
+    ],
+    "jest-environment-jsdom": [
+      "jest-environment-jsdom",
+      "26.6.2",
+      "→",
+      "27.0.3"
+    ],
+    "jest-environment-node": [
+      "jest-environment-node",
+      "26.6.2",
+      "→",
+      "27.0.3"
+    ],
+    "jest-get-type": [
+      "jest-get-type",
+      "[...]",
+      "→",
+      "[..., 27.0.1]"
+    ],
+    "jest-haste-map": [
+      "jest-haste-map",
+      "26.6.2",
+      "→",
+      "27.0.2"
+    ],
+    "jest-jasmine2": [
+      "jest-jasmine2",
+      "26.6.3",
+      "→",
+      "27.0.4"
+    ],
+    "jest-leak-detector": [
+      "jest-leak-detector",
+      "26.6.2",
+      "→",
+      "27.0.2"
+    ],
+    "jest-matcher-utils": [
+      "jest-matcher-utils",
+      "26.6.2",
+      "→",
+      "27.0.2"
+    ],
+    "jest-message-util": [
+      "jest-message-util",
+      "26.6.2",
+      "→",
+      "27.0.2"
+    ],
+    "jest-mock": [
+      "jest-mock",
+      "26.6.2",
+      "→",
+      "27.0.3"
+    ],
+    "jest-regex-util": [
+      "jest-regex-util",
+      "26.0.0",
+      "→",
+      "27.0.1"
+    ],
+    "jest-resolve-dependencies": [
+      "jest-resolve-dependencies",
+      "26.6.3",
+      "→",
+      "27.0.4"
+    ],
+    "jest-resolve": [
+      "jest-resolve",
+      "26.6.2",
+      "→",
+      "27.0.4"
+    ],
+    "jest-runner": [
+      "jest-runner",
+      "26.6.3",
+      "→",
+      "27.0.4"
+    ],
+    "jest-runtime": [
+      "jest-runtime",
+      "26.6.3",
+      "→",
+      "27.0.4"
+    ],
+    "jest-serializer": [
+      "jest-serializer",
+      "26.6.2",
+      "→",
+      "27.0.1"
+    ],
+    "jest-snapshot": [
+      "jest-snapshot",
+      "26.6.2",
+      "→",
+      "27.0.4"
+    ],
+    "jest-util": [
+      "jest-util",
+      "26.6.2",
+      "→",
+      "27.0.2"
+    ],
+    "jest-validate": [
+      "jest-validate",
+      "26.6.2",
+      "→",
+      "27.0.2"
+    ],
+    "jest-watcher": [
+      "jest-watcher",
+      "26.6.2",
+      "→",
+      "27.0.2"
+    ],
+    "jest-worker": [
+      "jest-worker",
+      "26.6.2",
+      "→",
+      "27.0.2"
+    ],
+    "jest": [
+      "jest",
+      "26.6.3",
+      "→",
+      "27.0.4"
+    ],
+    "jsbn": [
+      "jsbn",
+      "0.1.1",
+      "→",
+      "-"
+    ],
+    "jschardet": [
+      "jschardet",
+      "2.2.1",
+      "→",
+      "3.0.0"
+    ],
+    "jsdom": [
+      "jsdom",
+      "16.4.0",
+      "→",
+      "16.6.0"
+    ],
+    "json-parse-even-better-errors": [
+      "json-parse-even-better-errors",
+      "2.3.1",
+      "→",
+      "-"
+    ],
+    "json-schema-traverse": [
+      "json-schema-traverse",
+      "0.4.1",
+      "→",
+      "-"
+    ],
+    "json-schema": [
+      "json-schema",
+      "0.2.3",
+      "→",
+      "-"
+    ],
+    "json-stringify-safe": [
+      "json-stringify-safe",
+      "5.0.1",
+      "→",
+      "-"
+    ],
+    "jsprim": [
+      "jsprim",
+      "1.4.1",
+      "→",
+      "-"
+    ],
+    "kind-of": [
+      "kind-of",
+      "3.2.2, 4.0.0, 5.1.0, 6.0.3",
+      "→",
+      "-"
+    ],
+    "lines-and-columns": [
+      "lines-and-columns",
+      "1.1.6",
+      "→",
+      "-"
+    ],
+    "lodash.sortby": [
+      "lodash.sortby",
+      "4.7.0",
+      "→",
+      "-"
+    ],
+    "lodash": [
+      "lodash",
+      "4.17.20",
+      "→",
+      "4.17.21"
+    ],
+    "luxon": [
+      "luxon",
+      "1.25.0",
+      "→",
+      "1.27.0"
+    ],
+    "map-cache": [
+      "map-cache",
+      "0.2.2",
+      "→",
+      "-"
+    ],
+    "map-visit": [
+      "map-visit",
+      "1.0.0",
+      "→",
+      "-"
+    ],
+    "micromatch": [
+      "micromatch",
+      "3.1.10",
+      "→",
+      "4.0.4"
+    ],
+    "mime-db": [
+      "mime-db",
+      "1.45.0",
+      "→",
+      "1.48.0"
+    ],
+    "mime-types": [
+      "mime-types",
+      "2.1.28",
+      "→",
+      "2.1.31"
+    ],
+    "mixin-deep": [
+      "mixin-deep",
+      "1.3.2",
+      "→",
+      "-"
+    ],
+    "ms": [
+      "ms",
+      "2.0.0",
+      "→",
+      "2.1.2"
+    ],
+    "nanomatch": [
+      "nanomatch",
+      "1.2.13",
+      "→",
+      "-"
+    ],
+    "nice-try": [
+      "nice-try",
+      "1.0.5",
+      "→",
+      "-"
+    ],
+    "node-notifier": [
+      "node-notifier",
+      "8.0.1",
+      "→",
+      "-"
+    ],
+    "normalize-package-data": [
+      "normalize-package-data",
+      "2.5.0",
+      "→",
+      "-"
+    ],
+    "normalize-path": [
+      "normalize-path",
+      "2.1.1",
+      "→",
+      "3.0.0"
+    ],
+    "npm-run-path": [
+      "npm-run-path",
+      "2.0.2",
+      "→",
+      "4.0.1"
+    ],
+    "oauth-sign": [
+      "oauth-sign",
+      "0.9.0",
+      "→",
+      "-"
+    ],
+    "object-copy": [
+      "object-copy",
+      "0.1.0",
+      "→",
+      "-"
+    ],
+    "object-visit": [
+      "object-visit",
+      "1.0.1",
+      "→",
+      "-"
+    ],
+    "object.pick": [
+      "object.pick",
+      "1.3.0",
+      "→",
+      "-"
+    ],
+    "p-finally": [
+      "p-finally",
+      "1.0.0",
+      "→",
+      "-"
+    ],
+    "parse-json": [
+      "parse-json",
+      "5.2.0",
+      "→",
+      "-"
+    ],
+    "parse5": [
+      "parse5",
+      "5.1.1",
+      "→",
+      "6.0.1"
+    ],
+    "pascalcase": [
+      "pascalcase",
+      "0.1.1",
+      "→",
+      "-"
+    ],
+    "path-key": [
+      "path-key",
+      "2.0.1",
+      "→",
+      "3.1.1"
+    ],
+    "path-parse": [
+      "path-parse",
+      "1.0.6",
+      "→",
+      "1.0.7"
+    ],
+    "performance-now": [
+      "performance-now",
+      "2.1.0",
+      "→",
+      "-"
+    ],
+    "picomatch": [
+      "picomatch",
+      "2.2.2",
+      "→",
+      "2.3.0"
+    ],
+    "posix-character-classes": [
+      "posix-character-classes",
+      "0.1.1",
+      "→",
+      "-"
+    ],
+    "pretty-format": [
+      "pretty-format",
+      "[...]",
+      "→",
+      "[..., 27.0.2]"
+    ],
+    "prompts": [
+      "prompts",
+      "2.4.0",
+      "→",
+      "2.4.1"
+    ],
+    "pump": [
+      "pump",
+      "3.0.0",
+      "→",
+      "-"
+    ],
+    "qs": [
+      "qs",
+      "6.5.2",
+      "→",
+      "-"
+    ],
+    "react-is": [
+      "react-is",
+      "17.0.1",
+      "→",
+      "17.0.2"
+    ],
+    "read-pkg-up": [
+      "read-pkg-up",
+      "7.0.1",
+      "→",
+      "-"
+    ],
+    "read-pkg": [
+      "read-pkg",
+      "5.2.0",
+      "→",
+      "-"
+    ],
+    "regex-not": [
+      "regex-not",
+      "1.0.2",
+      "→",
+      "-"
+    ],
+    "remove-trailing-separator": [
+      "remove-trailing-separator",
+      "1.1.0",
+      "→",
+      "-"
+    ],
+    "repeat-element": [
+      "repeat-element",
+      "1.1.3",
+      "→",
+      "-"
+    ],
+    "repeat-string": [
+      "repeat-string",
+      "1.6.1",
+      "→",
+      "-"
+    ],
+    "request-promise-core": [
+      "request-promise-core",
+      "1.1.4",
+      "→",
+      "-"
+    ],
+    "request-promise-native": [
+      "request-promise-native",
+      "1.0.9",
+      "→",
+      "-"
+    ],
+    "request": [
+      "request",
+      "2.88.2",
+      "→",
+      "-"
+    ],
+    "require-main-filename": [
+      "require-main-filename",
+      "2.0.0",
+      "→",
+      "-"
+    ],
+    "resolve-url": [
+      "resolve-url",
+      "0.2.1",
+      "→",
+      "-"
+    ],
+    "ret": [
+      "ret",
+      "0.1.15",
+      "→",
+      "-"
+    ],
+    "rsvp": [
+      "rsvp",
+      "4.8.5",
+      "→",
+      "-"
+    ],
+    "safe-buffer": [
+      "safe-buffer",
+      "[..., 5.2.1]",
+      "→",
+      "[...]"
+    ],
+    "safe-regex": [
+      "safe-regex",
+      "1.1.0",
+      "→",
+      "-"
+    ],
+    "sane": [
+      "sane",
+      "4.1.0",
+      "→",
+      "-"
+    ],
+    "semver": [
+      "semver",
+      "5.7.1",
+      "→",
+      "6.3.0"
+    ],
+    "set-blocking": [
+      "set-blocking",
+      "2.0.0",
+      "→",
+      "-"
+    ],
+    "set-value": [
+      "set-value",
+      "2.0.1",
+      "→",
+      "-"
+    ],
+    "shebang-command": [
+      "shebang-command",
+      "1.2.0",
+      "→",
+      "2.0.0"
+    ],
+    "shebang-regex": [
+      "shebang-regex",
+      "1.0.0",
+      "→",
+      "3.0.0"
+    ],
+    "shellwords": [
+      "shellwords",
+      "0.1.1",
+      "→",
+      "-"
+    ],
+    "snapdragon-node": [
+      "snapdragon-node",
+      "2.1.1",
+      "→",
+      "-"
+    ],
+    "snapdragon-util": [
+      "snapdragon-util",
+      "3.0.1",
+      "→",
+      "-"
+    ],
+    "snapdragon": [
+      "snapdragon",
+      "0.8.2",
+      "→",
+      "-"
+    ],
+    "source-map-resolve": [
+      "source-map-resolve",
+      "0.5.3",
+      "→",
+      "-"
+    ],
+    "source-map-url": [
+      "source-map-url",
+      "0.4.1",
+      "→",
+      "-"
+    ],
+    "spdx-correct": [
+      "spdx-correct",
+      "3.1.1",
+      "→",
+      "-"
+    ],
+    "spdx-exceptions": [
+      "spdx-exceptions",
+      "2.3.0",
+      "→",
+      "-"
+    ],
+    "spdx-expression-parse": [
+      "spdx-expression-parse",
+      "3.0.1",
+      "→",
+      "-"
+    ],
+    "spdx-license-ids": [
+      "spdx-license-ids",
+      "3.0.7",
+      "→",
+      "-"
+    ],
+    "split-string": [
+      "split-string",
+      "3.1.0",
+      "→",
+      "-"
+    ],
+    "sshpk": [
+      "sshpk",
+      "1.16.1",
+      "→",
+      "-"
+    ],
+    "static-extend": [
+      "static-extend",
+      "0.1.2",
+      "→",
+      "-"
+    ],
+    "stealthy-require": [
+      "stealthy-require",
+      "1.1.1",
+      "→",
+      "-"
+    ],
+    "string-length": [
+      "string-length",
+      "4.0.1",
+      "→",
+      "4.0.2"
+    ],
+    "string-width": [
+      "string-width",
+      "4.2.0",
+      "→",
+      "4.2.2"
+    ],
+    "strip-eof": [
+      "strip-eof",
+      "1.0.0",
+      "→",
+      "-"
+    ],
+    "supports-color": [
+      "supports-color",
+      "[...]",
+      "→",
+      "[..., 8.1.1]"
+    ],
+    "supports-hyperlinks": [
+      "supports-hyperlinks",
+      "2.1.0",
+      "→",
+      "2.2.0"
+    ],
+    "throat": [
+      "throat",
+      "5.0.0",
+      "→",
+      "6.0.1"
+    ],
+    "to-object-path": [
+      "to-object-path",
+      "0.3.0",
+      "→",
+      "-"
+    ],
+    "to-regex-range": [
+      "to-regex-range",
+      "2.1.1",
+      "→",
+      "5.0.1"
+    ],
+    "to-regex": [
+      "to-regex",
+      "3.0.2",
+      "→",
+      "-"
+    ],
+    "tough-cookie": [
+      "tough-cookie",
+      "2.5.0",
+      "→",
+      "4.0.0"
+    ],
+    "tr46": [
+      "tr46",
+      "2.0.2",
+      "→",
+      "2.1.0"
+    ],
+    "ts-jest": [
+      "ts-jest",
+      "26.5.1",
+      "→",
+      "27.0.2"
+    ],
+    "tunnel-agent": [
+      "tunnel-agent",
+      "0.6.0",
+      "→",
+      "-"
+    ],
+    "tweetnacl": [
+      "tweetnacl",
+      "0.14.5",
+      "→",
+      "-"
+    ],
+    "type-fest": [
+      "type-fest",
+      "0.6.0",
+      "→",
+      "0.21.3"
+    ],
+    "union-value": [
+      "union-value",
+      "1.0.1",
+      "→",
+      "-"
+    ],
+    "universalify": [
+      "universalify",
+      "2.0.0",
+      "→",
+      "0.1.2"
+    ],
+    "unset-value": [
+      "unset-value",
+      "1.0.0",
+      "→",
+      "-"
+    ],
+    "uri-js": [
+      "uri-js",
+      "4.4.1",
+      "→",
+      "-"
+    ],
+    "urix": [
+      "urix",
+      "0.1.0",
+      "→",
+      "-"
+    ],
+    "use": [
+      "use",
+      "3.1.1",
+      "→",
+      "-"
+    ],
+    "uuid": [
+      "uuid",
+      "3.4.0, 8.3.2",
+      "→",
+      "-"
+    ],
+    "v8-to-istanbul": [
+      "v8-to-istanbul",
+      "7.1.0",
+      "→",
+      "7.1.2"
+    ],
+    "validate-npm-package-license": [
+      "validate-npm-package-license",
+      "3.0.4",
+      "→",
+      "-"
+    ],
+    "verror": [
+      "verror",
+      "1.10.0",
+      "→",
+      "-"
+    ],
+    "whatwg-url": [
+      "whatwg-url",
+      "8.4.0",
+      "→",
+      "8.5.0"
+    ],
+    "which-module": [
+      "which-module",
+      "2.0.0",
+      "→",
+      "-"
+    ],
+    "which": [
+      "which",
+      "1.3.1",
+      "→",
+      "2.0.2"
+    ],
+    "wrap-ansi": [
+      "wrap-ansi",
+      "6.2.0",
+      "→",
+      "7.0.0"
+    ],
+    "ws": [
+      "ws",
+      "7.4.3",
+      "→",
+      "7.4.6"
+    ],
+    "y18n": [
+      "y18n",
+      "4.0.1",
+      "→",
+      "5.0.8"
+    ],
+    "yargs-parser": [
+      "yargs-parser",
+      "18.1.3",
+      "→",
+      "20.2.7"
+    ],
+    "yargs": [
+      "yargs",
+      "15.4.1",
+      "→",
+      "16.2.0"
+    ],
+    "@babel/compat-data": [
+      "@babel/compat-data",
+      "-",
+      "→",
+      "7.14.4"
+    ],
+    "@babel/helper-compilation-targets": [
+      "@babel/helper-compilation-targets",
+      "-",
+      "→",
+      "7.14.4"
+    ],
+    "@babel/helper-validator-option": [
+      "@babel/helper-validator-option",
+      "-",
+      "→",
+      "7.12.17"
+    ],
+    "@babel/plugin-syntax-typescript": [
+      "@babel/plugin-syntax-typescript",
+      "-",
+      "→",
+      "7.12.13"
+    ],
+    "@tootallnate/once": [
+      "@tootallnate/once",
+      "-",
+      "→",
+      "1.1.2"
+    ],
+    "agent-base": [
+      "agent-base",
+      "-",
+      "→",
+      "6.0.2"
+    ],
+    "browserslist": [
+      "browserslist",
+      "-",
+      "→",
+      "4.16.6"
+    ],
+    "caniuse-lite": [
+      "caniuse-lite",
+      "-",
+      "→",
+      "1.0.30001234"
+    ],
+    "colorette": [
+      "colorette",
+      "-",
+      "→",
+      "1.2.2"
+    ],
+    "dedent": [
+      "dedent",
+      "-",
+      "→",
+      "0.7.0"
+    ],
+    "electron-to-chromium": [
+      "electron-to-chromium",
+      "-",
+      "→",
+      "1.3.749"
+    ],
+    "escalade": [
+      "escalade",
+      "-",
+      "→",
+      "3.1.1"
+    ],
+    "http-proxy-agent": [
+      "http-proxy-agent",
+      "-",
+      "→",
+      "4.0.1"
+    ],
+    "https-proxy-agent": [
+      "https-proxy-agent",
+      "-",
+      "→",
+      "5.0.0"
+    ],
+    "jest-circus": [
+      "jest-circus",
+      "-",
+      "→",
+      "27.0.4"
+    ],
+    "node-releases": [
+      "node-releases",
+      "-",
+      "→",
+      "1.1.72"
+    ]
+  }
+}
+`;
+
+exports[`yarnLockDiff > v1.iconv.lock 2`] = `
+" package name                                        old version(s)           new version(s) \\n @babel/core                                            7.12.16            →      7.14.3     \\n @babel/generator                                       7.12.15            →      7.14.3     \\n @babel/helper-function-name                            7.12.13            →      7.14.2     \\n @babel/helper-member-expression-to-functions           7.12.16            →     7.13.12     \\n @babel/helper-module-imports                           7.12.13            →     7.13.12     \\n @babel/helper-module-transforms                        7.12.13            →      7.14.2     \\n @babel/helper-plugin-utils                             7.12.13            →      7.13.0     \\n @babel/helper-replace-supers                           7.12.13            →      7.14.4     \\n @babel/helper-simple-access                            7.12.13            →     7.13.12     \\n @babel/helper-validator-identifier                     7.12.11            →      7.14.0     \\n @babel/helpers                                         7.12.13            →      7.14.0     \\n @babel/highlight                                       7.12.13            →      7.14.0     \\n @babel/parser                                          7.12.16            →      7.14.4     \\n @babel/traverse                                        7.12.13            →      7.14.2     \\n @babel/types                                           7.12.13            →      7.14.4     \\n @cnakazawa/watch                                        1.0.4             →        -        \\n @istanbuljs/schema                                      0.1.2             →      0.1.3      \\n @jest/console                                           26.6.2            →      27.0.2     \\n @jest/core                                              26.6.3            →      27.0.4     \\n @jest/environment                                       26.6.2            →      27.0.3     \\n @jest/fake-timers                                       26.6.2            →      27.0.3     \\n @jest/globals                                           26.6.2            →      27.0.3     \\n @jest/reporters                                         26.6.2            →      27.0.4     \\n @jest/source-map                                        26.6.2            →      27.0.1     \\n @jest/test-result                                       26.6.2            →      27.0.2     \\n @jest/test-sequencer                                    26.6.3            →      27.0.4     \\n @jest/transform                                         26.6.2            →      27.0.2     \\n @jest/types                                             [...]             →  [..., 27.0.2]  \\n @sinonjs/commons                                        1.8.2             →      1.8.3      \\n @sinonjs/fake-timers                                    6.0.1             →      7.1.2      \\n @types/babel__core                                      7.1.12            →      7.1.14     \\n @types/babel__traverse                                  7.11.0            →      7.11.1     \\n @types/bluebird                                         3.5.33            →      3.5.35     \\n @types/fs-extra                                         9.0.7             →      9.0.11     \\n @types/istanbul-reports                                 3.0.0             →      3.0.1      \\n @types/jest                                            26.0.20            →     26.0.23     \\n @types/lodash                                          4.14.168           →     4.14.170    \\n @types/luxon                                            1.25.1            →      1.26.5     \\n @types/node                                            14.14.26           →     15.12.1     \\n @types/normalize-package-data                           2.4.0             →        -        \\n @types/prettier                                         2.2.0             →      2.2.3      \\n @types/yargs                                            [...]             →  [..., 16.0.3]  \\n acorn                                                   [...]             →   [..., 8.3.0]  \\n ajv                                                     6.12.6            →        -        \\n ansi-escapes                                            4.3.1             →      4.3.2      \\n ansi-styles                                             [...]             →   [..., 5.2.0]  \\n anymatch                                                2.0.0             →      3.1.2      \\n arr-diff                                                4.0.0             →        -        \\n arr-flatten                                             1.1.0             →        -        \\n arr-union                                               3.1.0             →        -        \\n array-unique                                            0.3.2             →        -        \\n asn1                                                    0.2.4             →        -        \\n assert-plus                                             1.0.0             →        -        \\n assign-symbols                                          1.0.0             →        -        \\n at-least-node                                           1.0.0             →        -        \\n atob                                                    2.1.2             →        -        \\n aws-sign2                                               0.7.0             →        -        \\n aws4                                                    1.11.0            →        -        \\n babel-jest                                              26.6.3            →      27.0.2     \\n babel-plugin-jest-hoist                                 26.6.2            →      27.0.1     \\n babel-preset-jest                                       26.6.2            →      27.0.1     \\n balanced-match                                          1.0.0             →      1.0.2      \\n base                                                    0.11.2            →        -        \\n bcrypt-pbkdf                                            1.0.2             →        -        \\n braces                                                  2.3.2             →      3.0.2      \\n cache-base                                              1.0.1             →        -        \\n capture-exit                                            2.0.0             →        -        \\n caseless                                                0.12.0            →        -        \\n chalk                                                   4.1.0             →      4.1.1      \\n ci-info                                                 2.0.0             →      3.2.0      \\n cjs-module-lexer                                        0.6.0             →      1.2.1      \\n class-utils                                             0.3.6             →        -        \\n cliui                                                   6.0.0             →      7.0.4      \\n collection-visit                                        1.0.0             →        -        \\n component-emitter                                       1.3.0             →        -        \\n copy-descriptor                                         0.1.1             →        -        \\n core-util-is                                            1.0.2             →        -        \\n cross-spawn                                             6.0.5             →      7.0.3      \\n dashdash                                                1.14.1            →        -        \\n debug                                                   2.6.9             →      4.3.1      \\n decamelize                                              1.2.0             →        -        \\n decode-uri-component                                    0.2.0             →        -        \\n define-property                                  0.2.5, 1.0.0, 2.0.2      →        -        \\n diff-sequences                                          [...]             →  [..., 27.0.1]  \\n ecc-jsbn                                                0.1.2             →        -        \\n emittery                                                0.7.2             →      0.8.1      \\n end-of-stream                                           1.4.4             →        -        \\n error-ex                                                1.3.2             →        -        \\n escodegen                                               1.14.3            →      2.0.0      \\n estraverse                                              4.3.0             →      5.2.0      \\n exec-sh                                                 0.3.4             →        -        \\n execa                                                   1.0.0             →      5.1.1      \\n expand-brackets                                         2.1.4             →        -        \\n expect                                                  26.6.2            →      27.0.2     \\n extend-shallow                                       2.0.1, 3.0.2         →        -        \\n extend                                                  3.0.2             →        -        \\n extglob                                                 2.0.4             →        -        \\n extsprintf                                           1.3.0, 1.4.0         →        -        \\n fast-deep-equal                                         3.1.3             →        -        \\n fill-range                                              4.0.0             →      7.0.1      \\n for-in                                                  1.0.2             →        -        \\n forever-agent                                           0.6.1             →        -        \\n form-data                                               2.3.3             →      3.0.1      \\n fragment-cache                                          0.2.1             →        -        \\n fs-extra                                                9.1.0             →      10.0.0     \\n get-stream                                              4.1.0             →      6.0.1      \\n get-value                                               2.0.6             →        -        \\n getpass                                                 0.1.7             →        -        \\n glob                                                    7.1.6             →      7.1.7      \\n growly                                                  1.3.0             →        -        \\n har-schema                                              2.0.0             →        -        \\n har-validator                                           5.1.5             →        -        \\n has-value                                            0.3.1, 1.0.0         →        -        \\n has-values                                           0.1.4, 1.0.0         →        -        \\n hosted-git-info                                         2.8.8             →        -        \\n http-signature                                          1.2.0             →        -        \\n human-signals                                           1.1.1             →      2.1.0      \\n iconv-lite                                              0.6.2             →      0.6.3      \\n ip-regex                                                2.1.0             →        -        \\n is-accessor-descriptor                               0.1.6, 1.0.0         →        -        \\n is-arrayish                                             0.2.1             →        -        \\n is-buffer                                               1.1.6             →        -        \\n is-ci                                                   2.0.0             →      3.0.0      \\n is-core-module                                          2.2.0             →      2.4.0      \\n is-data-descriptor                                   0.1.4, 1.0.0         →        -        \\n is-descriptor                                        0.1.6, 1.0.2         →        -        \\n is-docker                                               2.1.1             →        -        \\n is-extendable                                        0.1.1, 1.0.1         →        -        \\n is-number                                               3.0.0             →      7.0.0      \\n is-plain-object                                         2.0.4             →        -        \\n is-potential-custom-element-name                        1.0.0             →      1.0.1      \\n is-stream                                               1.1.0             →      2.0.0      \\n is-windows                                              1.0.2             →        -        \\n is-wsl                                                  2.2.0             →        -        \\n isarray                                                 1.0.0             →        -        \\n isobject                                             2.1.0, 3.0.1         →        -        \\n isstream                                                0.1.2             →        -        \\n jest-changed-files                                      26.6.2            →      27.0.2     \\n jest-cli                                                26.6.3            →      27.0.4     \\n jest-config                                             26.6.3            →      27.0.4     \\n jest-diff                                               [...]             →  [..., 27.0.2]  \\n jest-docblock                                           26.0.0            →      27.0.1     \\n jest-each                                               26.6.2            →      27.0.2     \\n jest-environment-jsdom                                  26.6.2            →      27.0.3     \\n jest-environment-node                                   26.6.2            →      27.0.3     \\n jest-get-type                                           [...]             →  [..., 27.0.1]  \\n jest-haste-map                                          26.6.2            →      27.0.2     \\n jest-jasmine2                                           26.6.3            →      27.0.4     \\n jest-leak-detector                                      26.6.2            →      27.0.2     \\n jest-matcher-utils                                      26.6.2            →      27.0.2     \\n jest-message-util                                       26.6.2            →      27.0.2     \\n jest-mock                                               26.6.2            →      27.0.3     \\n jest-regex-util                                         26.0.0            →      27.0.1     \\n jest-resolve-dependencies                               26.6.3            →      27.0.4     \\n jest-resolve                                            26.6.2            →      27.0.4     \\n jest-runner                                             26.6.3            →      27.0.4     \\n jest-runtime                                            26.6.3            →      27.0.4     \\n jest-serializer                                         26.6.2            →      27.0.1     \\n jest-snapshot                                           26.6.2            →      27.0.4     \\n jest-util                                               26.6.2            →      27.0.2     \\n jest-validate                                           26.6.2            →      27.0.2     \\n jest-watcher                                            26.6.2            →      27.0.2     \\n jest-worker                                             26.6.2            →      27.0.2     \\n jest                                                    26.6.3            →      27.0.4     \\n jsbn                                                    0.1.1             →        -        \\n jschardet                                               2.2.1             →      3.0.0      \\n jsdom                                                   16.4.0            →      16.6.0     \\n json-parse-even-better-errors                           2.3.1             →        -        \\n json-schema-traverse                                    0.4.1             →        -        \\n json-schema                                             0.2.3             →        -        \\n json-stringify-safe                                     5.0.1             →        -        \\n jsprim                                                  1.4.1             →        -        \\n kind-of                                       3.2.2, 4.0.0, 5.1.0, 6.0.3  →        -        \\n lines-and-columns                                       1.1.6             →        -        \\n lodash.sortby                                           4.7.0             →        -        \\n lodash                                                 4.17.20            →     4.17.21     \\n luxon                                                   1.25.0            →      1.27.0     \\n map-cache                                               0.2.2             →        -        \\n map-visit                                               1.0.0             →        -        \\n micromatch                                              3.1.10            →      4.0.4      \\n mime-db                                                 1.45.0            →      1.48.0     \\n mime-types                                              2.1.28            →      2.1.31     \\n mixin-deep                                              1.3.2             →        -        \\n ms                                                      2.0.0             →      2.1.2      \\n nanomatch                                               1.2.13            →        -        \\n nice-try                                                1.0.5             →        -        \\n node-notifier                                           8.0.1             →        -        \\n normalize-package-data                                  2.5.0             →        -        \\n normalize-path                                          2.1.1             →      3.0.0      \\n npm-run-path                                            2.0.2             →      4.0.1      \\n oauth-sign                                              0.9.0             →        -        \\n object-copy                                             0.1.0             →        -        \\n object-visit                                            1.0.1             →        -        \\n object.pick                                             1.3.0             →        -        \\n p-finally                                               1.0.0             →        -        \\n parse-json                                              5.2.0             →        -        \\n parse5                                                  5.1.1             →      6.0.1      \\n pascalcase                                              0.1.1             →        -        \\n path-key                                                2.0.1             →      3.1.1      \\n path-parse                                              1.0.6             →      1.0.7      \\n performance-now                                         2.1.0             →        -        \\n picomatch                                               2.2.2             →      2.3.0      \\n posix-character-classes                                 0.1.1             →        -        \\n pretty-format                                           [...]             →  [..., 27.0.2]  \\n prompts                                                 2.4.0             →      2.4.1      \\n pump                                                    3.0.0             →        -        \\n qs                                                      6.5.2             →        -        \\n react-is                                                17.0.1            →      17.0.2     \\n read-pkg-up                                             7.0.1             →        -        \\n read-pkg                                                5.2.0             →        -        \\n regex-not                                               1.0.2             →        -        \\n remove-trailing-separator                               1.1.0             →        -        \\n repeat-element                                          1.1.3             →        -        \\n repeat-string                                           1.6.1             →        -        \\n request-promise-core                                    1.1.4             →        -        \\n request-promise-native                                  1.0.9             →        -        \\n request                                                 2.88.2            →        -        \\n require-main-filename                                   2.0.0             →        -        \\n resolve-url                                             0.2.1             →        -        \\n ret                                                     0.1.15            →        -        \\n rsvp                                                    4.8.5             →        -        \\n safe-buffer                                          [..., 5.2.1]         →      [...]      \\n safe-regex                                              1.1.0             →        -        \\n sane                                                    4.1.0             →        -        \\n semver                                                  5.7.1             →      6.3.0      \\n set-blocking                                            2.0.0             →        -        \\n set-value                                               2.0.1             →        -        \\n shebang-command                                         1.2.0             →      2.0.0      \\n shebang-regex                                           1.0.0             →      3.0.0      \\n shellwords                                              0.1.1             →        -        \\n snapdragon-node                                         2.1.1             →        -        \\n snapdragon-util                                         3.0.1             →        -        \\n snapdragon                                              0.8.2             →        -        \\n source-map-resolve                                      0.5.3             →        -        \\n source-map-url                                          0.4.1             →        -        \\n spdx-correct                                            3.1.1             →        -        \\n spdx-exceptions                                         2.3.0             →        -        \\n spdx-expression-parse                                   3.0.1             →        -        \\n spdx-license-ids                                        3.0.7             →        -        \\n split-string                                            3.1.0             →        -        \\n sshpk                                                   1.16.1            →        -        \\n static-extend                                           0.1.2             →        -        \\n stealthy-require                                        1.1.1             →        -        \\n string-length                                           4.0.1             →      4.0.2      \\n string-width                                            4.2.0             →      4.2.2      \\n strip-eof                                               1.0.0             →        -        \\n supports-color                                          [...]             →   [..., 8.1.1]  \\n supports-hyperlinks                                     2.1.0             →      2.2.0      \\n throat                                                  5.0.0             →      6.0.1      \\n to-object-path                                          0.3.0             →        -        \\n to-regex-range                                          2.1.1             →      5.0.1      \\n to-regex                                                3.0.2             →        -        \\n tough-cookie                                            2.5.0             →      4.0.0      \\n tr46                                                    2.0.2             →      2.1.0      \\n ts-jest                                                 26.5.1            →      27.0.2     \\n tunnel-agent                                            0.6.0             →        -        \\n tweetnacl                                               0.14.5            →        -        \\n type-fest                                               0.6.0             →      0.21.3     \\n union-value                                             1.0.1             →        -        \\n universalify                                            2.0.0             →      0.1.2      \\n unset-value                                             1.0.0             →        -        \\n uri-js                                                  4.4.1             →        -        \\n urix                                                    0.1.0             →        -        \\n use                                                     3.1.1             →        -        \\n uuid                                                 3.4.0, 8.3.2         →        -        \\n v8-to-istanbul                                          7.1.0             →      7.1.2      \\n validate-npm-package-license                            3.0.4             →        -        \\n verror                                                  1.10.0            →        -        \\n whatwg-url                                              8.4.0             →      8.5.0      \\n which-module                                            2.0.0             →        -        \\n which                                                   1.3.1             →      2.0.2      \\n wrap-ansi                                               6.2.0             →      7.0.0      \\n ws                                                      7.4.3             →      7.4.6      \\n y18n                                                    4.0.1             →      5.0.8      \\n yargs-parser                                            18.1.3            →      20.2.7     \\n yargs                                                   15.4.1            →      16.2.0     \\n @babel/compat-data                                        -               →      7.14.4     \\n @babel/helper-compilation-targets                         -               →      7.14.4     \\n @babel/helper-validator-option                            -               →     7.12.17     \\n @babel/plugin-syntax-typescript                           -               →     7.12.13     \\n @tootallnate/once                                         -               →      1.1.2      \\n agent-base                                                -               →      6.0.2      \\n browserslist                                              -               →      4.16.6     \\n caniuse-lite                                              -               →   1.0.30001234  \\n colorette                                                 -               →      1.2.2      \\n dedent                                                    -               →      0.7.0      \\n electron-to-chromium                                      -               →     1.3.749     \\n escalade                                                  -               →      3.1.1      \\n http-proxy-agent                                          -               →      4.0.1      \\n https-proxy-agent                                         -               →      5.0.0      \\n jest-circus                                               -               →      27.0.4     \\n node-releases                                             -               →      1.1.72     "
+`;
+
+exports[`yarnLockDiff > v2.lock 1`] = `
+{
+  "_ok": true,
+  "table": [
+    [
+      "@bluelovers/tsconfig",
+      "1.0.19",
+      "→",
+      "1.0.20"
+    ]
+  ],
+  "formatedDiff": {
+    "@bluelovers/tsconfig": [
+      "@bluelovers/tsconfig",
+      "1.0.19",
+      "→",
+      "1.0.20"
+    ]
+  }
+}
+`;
+
+exports[`yarnLockDiff > v2.lock 2`] = `
+" package name          old version(s)     new version(s) \\n @bluelovers/tsconfig      1.0.19      →      1.0.20     "
+`;
+
+exports[`yarnLockDiff > v3/yarn-2.lock 1`] = `
+{
+  "_ok": true,
+  "table": [
+    [
+      "@babel/helper-plugin-utils",
+      "7.14.5",
+      "→",
+      "7.18.9"
+    ],
+    [
+      "@babel/plugin-syntax-typescript",
+      "7.14.5",
+      "→",
+      "7.18.6"
+    ],
+    [
+      "@types/babel__core",
+      "7.1.14",
+      "→",
+      "7.1.19"
+    ],
+    [
+      "@types/babel__generator",
+      "7.6.2",
+      "→",
+      "7.6.4"
+    ],
+    [
+      "@types/babel__template",
+      "7.4.0",
+      "→",
+      "7.4.1"
+    ],
+    [
+      "@types/babel__traverse",
+      "7.14.0",
+      "→",
+      "7.18.0"
+    ],
+    [
+      "@types/istanbul-lib-coverage",
+      "2.0.3",
+      "→",
+      "2.0.4"
+    ],
+    [
+      "@types/node",
+      "15.12.5",
+      "→",
+      "18.7.1"
+    ],
+    [
+      "@types/prettier",
+      "2.3.0",
+      "→",
+      "2.7.0"
+    ],
+    [
+      "@types/stack-utils",
+      "2.0.0",
+      "→",
+      "2.0.1"
+    ],
+    [
+      "@types/yargs-parser",
+      "20.2.0",
+      "→",
+      "21.0.0"
+    ],
+    [
+      "buffer-from",
+      "1.1.1",
+      "→",
+      "1.1.2"
+    ],
+    [
+      "camelcase",
+      "6.2.0",
+      "→",
+      "6.3.0"
+    ],
+    [
+      "chalk",
+      "4.1.1",
+      "→",
+      "4.1.2"
+    ],
+    [
+      "cjs-module-lexer",
+      "1.2.1",
+      "→",
+      "1.2.2"
+    ],
+    [
+      "debug",
+      "4.3.1",
+      "→",
+      "4.3.4"
+    ],
+    [
+      "glob",
+      "7.1.7",
+      "→",
+      "7.2.3"
+    ],
+    [
+      "import-local",
+      "3.0.2",
+      "→",
+      "3.1.0"
+    ],
+    [
+      "is-core-module",
+      "2.4.0",
+      "→",
+      "2.10.0"
+    ],
+    [
+      "is-stream",
+      "2.0.0",
+      "→",
+      "2.0.1"
+    ],
+    [
+      "istanbul-lib-source-maps",
+      "4.0.0",
+      "→",
+      "4.0.1"
+    ],
+    [
+      "micromatch",
+      "4.0.4",
+      "→",
+      "4.0.5"
+    ],
+    [
+      "minimatch",
+      "3.0.4",
+      "→",
+      "3.1.2"
+    ],
+    [
+      "picomatch",
+      "2.3.0",
+      "→",
+      "2.3.1"
+    ],
+    [
+      "prompts",
+      "2.4.1",
+      "→",
+      "2.4.2"
+    ],
+    [
+      "resolve",
+      "1.20.0",
+      "→",
+      "1.22.1"
+    ],
+    [
+      "resolve>::version=1.20.0&hash=07638b",
+      "1.20.0",
+      "→",
+      "-"
+    ],
+    [
+      "stack-utils",
+      "2.0.3",
+      "→",
+      "2.0.5"
+    ],
+    [
+      "resolve>::version=1.22.1&hash=07638b",
+      "-",
+      "→",
+      "1.22.1"
+    ],
+    [
+      "supports-preserve-symlinks-flag",
+      "-",
+      "→",
+      "1.0.0"
+    ]
+  ],
+  "formatedDiff": {
+    "@babel/helper-plugin-utils": [
+      "@babel/helper-plugin-utils",
+      "7.14.5",
+      "→",
+      "7.18.9"
+    ],
+    "@babel/plugin-syntax-typescript": [
+      "@babel/plugin-syntax-typescript",
+      "7.14.5",
+      "→",
+      "7.18.6"
+    ],
+    "@types/babel__core": [
+      "@types/babel__core",
+      "7.1.14",
+      "→",
+      "7.1.19"
+    ],
+    "@types/babel__generator": [
+      "@types/babel__generator",
+      "7.6.2",
+      "→",
+      "7.6.4"
+    ],
+    "@types/babel__template": [
+      "@types/babel__template",
+      "7.4.0",
+      "→",
+      "7.4.1"
+    ],
+    "@types/babel__traverse": [
+      "@types/babel__traverse",
+      "7.14.0",
+      "→",
+      "7.18.0"
+    ],
+    "@types/istanbul-lib-coverage": [
+      "@types/istanbul-lib-coverage",
+      "2.0.3",
+      "→",
+      "2.0.4"
+    ],
+    "@types/node": [
+      "@types/node",
+      "15.12.5",
+      "→",
+      "18.7.1"
+    ],
+    "@types/prettier": [
+      "@types/prettier",
+      "2.3.0",
+      "→",
+      "2.7.0"
+    ],
+    "@types/stack-utils": [
+      "@types/stack-utils",
+      "2.0.0",
+      "→",
+      "2.0.1"
+    ],
+    "@types/yargs-parser": [
+      "@types/yargs-parser",
+      "20.2.0",
+      "→",
+      "21.0.0"
+    ],
+    "buffer-from": [
+      "buffer-from",
+      "1.1.1",
+      "→",
+      "1.1.2"
+    ],
+    "camelcase": [
+      "camelcase",
+      "6.2.0",
+      "→",
+      "6.3.0"
+    ],
+    "chalk": [
+      "chalk",
+      "4.1.1",
+      "→",
+      "4.1.2"
+    ],
+    "cjs-module-lexer": [
+      "cjs-module-lexer",
+      "1.2.1",
+      "→",
+      "1.2.2"
+    ],
+    "debug": [
+      "debug",
+      "4.3.1",
+      "→",
+      "4.3.4"
+    ],
+    "glob": [
+      "glob",
+      "7.1.7",
+      "→",
+      "7.2.3"
+    ],
+    "import-local": [
+      "import-local",
+      "3.0.2",
+      "→",
+      "3.1.0"
+    ],
+    "is-core-module": [
+      "is-core-module",
+      "2.4.0",
+      "→",
+      "2.10.0"
+    ],
+    "is-stream": [
+      "is-stream",
+      "2.0.0",
+      "→",
+      "2.0.1"
+    ],
+    "istanbul-lib-source-maps": [
+      "istanbul-lib-source-maps",
+      "4.0.0",
+      "→",
+      "4.0.1"
+    ],
+    "micromatch": [
+      "micromatch",
+      "4.0.4",
+      "→",
+      "4.0.5"
+    ],
+    "minimatch": [
+      "minimatch",
+      "3.0.4",
+      "→",
+      "3.1.2"
+    ],
+    "picomatch": [
+      "picomatch",
+      "2.3.0",
+      "→",
+      "2.3.1"
+    ],
+    "prompts": [
+      "prompts",
+      "2.4.1",
+      "→",
+      "2.4.2"
+    ],
+    "resolve": [
+      "resolve",
+      "1.20.0",
+      "→",
+      "1.22.1"
+    ],
+    "resolve>::version=1.20.0&hash=07638b": [
+      "resolve>::version=1.20.0&hash=07638b",
+      "1.20.0",
+      "→",
+      "-"
+    ],
+    "stack-utils": [
+      "stack-utils",
+      "2.0.3",
+      "→",
+      "2.0.5"
+    ],
+    "resolve>::version=1.22.1&hash=07638b": [
+      "resolve>::version=1.22.1&hash=07638b",
+      "-",
+      "→",
+      "1.22.1"
+    ],
+    "supports-preserve-symlinks-flag": [
+      "supports-preserve-symlinks-flag",
+      "-",
+      "→",
+      "1.0.0"
+    ]
+  }
+}
+`;
+
+exports[`yarnLockDiff > v3/yarn-2.lock 2`] = `
+" package name                          old version(s)     new version(s) \\n @babel/helper-plugin-utils                7.14.5      →      7.18.9     \\n @babel/plugin-syntax-typescript           7.14.5      →      7.18.6     \\n @types/babel__core                        7.1.14      →      7.1.19     \\n @types/babel__generator                   7.6.2       →      7.6.4      \\n @types/babel__template                    7.4.0       →      7.4.1      \\n @types/babel__traverse                    7.14.0      →      7.18.0     \\n @types/istanbul-lib-coverage              2.0.3       →      2.0.4      \\n @types/node                              15.12.5      →      18.7.1     \\n @types/prettier                           2.3.0       →      2.7.0      \\n @types/stack-utils                        2.0.0       →      2.0.1      \\n @types/yargs-parser                       20.2.0      →      21.0.0     \\n buffer-from                               1.1.1       →      1.1.2      \\n camelcase                                 6.2.0       →      6.3.0      \\n chalk                                     4.1.1       →      4.1.2      \\n cjs-module-lexer                          1.2.1       →      1.2.2      \\n debug                                     4.3.1       →      4.3.4      \\n glob                                      7.1.7       →      7.2.3      \\n import-local                              3.0.2       →      3.1.0      \\n is-core-module                            2.4.0       →      2.10.0     \\n is-stream                                 2.0.0       →      2.0.1      \\n istanbul-lib-source-maps                  4.0.0       →      4.0.1      \\n micromatch                                4.0.4       →      4.0.5      \\n minimatch                                 3.0.4       →      3.1.2      \\n picomatch                                 2.3.0       →      2.3.1      \\n prompts                                   2.4.1       →      2.4.2      \\n resolve                                   1.20.0      →      1.22.1     \\n resolve>::version=1.20.0&hash=07638b      1.20.0      →        -        \\n stack-utils                               2.0.3       →      2.0.5      \\n resolve>::version=1.22.1&hash=07638b        -         →      1.22.1     \\n supports-preserve-symlinks-flag             -         →      1.0.0      "
+`;
+
+exports[`yarnLockDiff > v3/yarn.lock 1`] = `
+{
+  "_ok": true,
+  "table": [
+    [
+      "@jest/console",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "@jest/core",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "@jest/environment",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "@jest/fake-timers",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "@jest/globals",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "@jest/reporters",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "@jest/source-map",
+      "27.5.1",
+      "→",
+      "28.1.2"
+    ],
+    [
+      "@jest/test-result",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "@jest/test-sequencer",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "@jest/transform",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "@jest/types",
+      "26.6.2",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "@sinonjs/fake-timers",
+      "8.1.0",
+      "→",
+      "9.1.2"
+    ],
+    [
+      "@tootallnate/once",
+      "1.1.2",
+      "→",
+      "2.0.0"
+    ],
+    [
+      "@types/babel__core",
+      "[..., 7.1.19]",
+      "→",
+      "[...]"
+    ],
+    [
+      "@types/babel__traverse",
+      "[..., 7.18.0]",
+      "→",
+      "[...]"
+    ],
+    [
+      "@types/jest",
+      "26.0.24",
+      "→",
+      "28.1.6"
+    ],
+    [
+      "@types/yargs",
+      "15.0.14",
+      "→",
+      "17.0.11"
+    ],
+    [
+      "abab",
+      "2.0.6",
+      "→",
+      "-"
+    ],
+    [
+      "acorn-globals",
+      "6.0.0",
+      "→",
+      "-"
+    ],
+    [
+      "acorn-walk",
+      "7.2.0",
+      "→",
+      "-"
+    ],
+    [
+      "acorn",
+      "7.4.1, 8.8.0",
+      "→",
+      "-"
+    ],
+    [
+      "asynckit",
+      "0.4.0",
+      "→",
+      "-"
+    ],
+    [
+      "babel-jest",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "babel-plugin-jest-hoist",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "babel-preset-jest",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "browser-process-hrtime",
+      "1.0.0",
+      "→",
+      "-"
+    ],
+    [
+      "cliui",
+      "6.0.0",
+      "→",
+      "7.0.4"
+    ],
+    [
+      "combined-stream",
+      "1.0.8",
+      "→",
+      "-"
+    ],
+    [
+      "cssom",
+      "0.3.8, 0.4.4",
+      "→",
+      "-"
+    ],
+    [
+      "cssstyle",
+      "2.3.0",
+      "→",
+      "-"
+    ],
+    [
+      "data-urls",
+      "2.0.0",
+      "→",
+      "-"
+    ],
+    [
+      "decamelize",
+      "1.2.0",
+      "→",
+      "-"
+    ],
+    [
+      "decimal.js",
+      "10.3.1",
+      "→",
+      "-"
+    ],
+    [
+      "deep-is",
+      "0.1.4",
+      "→",
+      "-"
+    ],
+    [
+      "delayed-stream",
+      "1.0.0",
+      "→",
+      "-"
+    ],
+    [
+      "diff-sequences",
+      "26.6.2",
+      "→",
+      "28.1.1"
+    ],
+    [
+      "domexception",
+      "2.0.1",
+      "→",
+      "-"
+    ],
+    [
+      "dts-bundle-generator",
+      "5.9.0",
+      "→",
+      "-"
+    ],
+    [
+      "emittery",
+      "0.8.1",
+      "→",
+      "0.10.2"
+    ],
+    [
+      "escodegen",
+      "2.0.0",
+      "→",
+      "-"
+    ],
+    [
+      "estraverse",
+      "5.3.0",
+      "→",
+      "-"
+    ],
+    [
+      "esutils",
+      "2.0.3",
+      "→",
+      "-"
+    ],
+    [
+      "expect",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "fast-levenshtein",
+      "2.0.6",
+      "→",
+      "-"
+    ],
+    [
+      "form-data",
+      "3.0.1",
+      "→",
+      "-"
+    ],
+    [
+      "glob",
+      "7.2.3",
+      "→",
+      "8.0.3"
+    ],
+    [
+      "html-encoding-sniffer",
+      "2.0.1",
+      "→",
+      "-"
+    ],
+    [
+      "http-proxy-agent",
+      "4.0.1",
+      "→",
+      "5.0.0"
+    ],
+    [
+      "iconv-lite",
+      "0.4.24",
+      "→",
+      "0.6.3"
+    ],
+    [
+      "is-potential-custom-element-name",
+      "1.0.1",
+      "→",
+      "-"
+    ],
+    [
+      "is-typedarray",
+      "1.0.0",
+      "→",
+      "-"
+    ],
+    [
+      "jest-changed-files",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "jest-circus",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "jest-cli",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "jest-config",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "jest-diff",
+      "26.6.2",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "jest-docblock",
+      "27.5.1",
+      "→",
+      "28.1.1"
+    ],
+    [
+      "jest-each",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "jest-environment-jsdom",
+      "27.5.1",
+      "→",
+      "-"
+    ],
+    [
+      "jest-environment-node",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "jest-get-type",
+      "26.3.0",
+      "→",
+      "28.0.2"
+    ],
+    [
+      "jest-haste-map",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "jest-jasmine2",
+      "27.5.1",
+      "→",
+      "-"
+    ],
+    [
+      "jest-leak-detector",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "jest-matcher-utils",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "jest-message-util",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "jest-mock",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "jest-regex-util",
+      "27.5.1",
+      "→",
+      "28.0.2"
+    ],
+    [
+      "jest-resolve-dependencies",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "jest-resolve",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "jest-runner",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "jest-runtime",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "jest-serializer",
+      "27.5.1",
+      "→",
+      "-"
+    ],
+    [
+      "jest-snapshot",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "jest-util",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "jest-validate",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "jest-watcher",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "jest-worker",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "jest",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "jsdom",
+      "16.7.0",
+      "→",
+      "-"
+    ],
+    [
+      "levn",
+      "0.3.0",
+      "→",
+      "-"
+    ],
+    [
+      "lodash",
+      "4.17.21",
+      "→",
+      "-"
+    ],
+    [
+      "mime-db",
+      "1.52.0",
+      "→",
+      "-"
+    ],
+    [
+      "mime-types",
+      "2.1.35",
+      "→",
+      "-"
+    ],
+    [
+      "minimatch",
+      "3.1.2",
+      "→",
+      "5.1.0"
+    ],
+    [
+      "nwsapi",
+      "2.2.1",
+      "→",
+      "-"
+    ],
+    [
+      "optionator",
+      "0.8.3",
+      "→",
+      "-"
+    ],
+    [
+      "p-limit",
+      "[...]",
+      "→",
+      "[..., 3.1.0]"
+    ],
+    [
+      "parse5",
+      "6.0.1",
+      "→",
+      "-"
+    ],
+    [
+      "prelude-ls",
+      "1.1.2",
+      "→",
+      "-"
+    ],
+    [
+      "pretty-format",
+      "26.6.2",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "psl",
+      "1.9.0",
+      "→",
+      "-"
+    ],
+    [
+      "punycode",
+      "2.1.1",
+      "→",
+      "-"
+    ],
+    [
+      "react-is",
+      "17.0.2",
+      "→",
+      "18.2.0"
+    ],
+    [
+      "require-main-filename",
+      "2.0.0",
+      "→",
+      "-"
+    ],
+    [
+      "saxes",
+      "5.0.1",
+      "→",
+      "-"
+    ],
+    [
+      "source-map-support",
+      "0.5.21",
+      "→",
+      "0.5.13"
+    ],
+    [
+      "source-map",
+      "[..., 0.7.4]",
+      "→",
+      "[...]"
+    ],
+    [
+      "symbol-tree",
+      "3.2.4",
+      "→",
+      "-"
+    ],
+    [
+      "throat",
+      "6.0.1",
+      "→",
+      "-"
+    ],
+    [
+      "tough-cookie",
+      "4.0.0",
+      "→",
+      "-"
+    ],
+    [
+      "tr46",
+      "2.1.0",
+      "→",
+      "-"
+    ],
+    [
+      "ts-type",
+      "1.2.40",
+      "→",
+      "2.1.10"
+    ],
+    [
+      "type-check",
+      "0.3.2",
+      "→",
+      "-"
+    ],
+    [
+      "typedarray-to-buffer",
+      "3.1.5",
+      "→",
+      "-"
+    ],
+    [
+      "typescript",
+      "4.7.4",
+      "→",
+      "-"
+    ],
+    [
+      "typescript>::version=4.7.4&hash=f456af",
+      "4.7.4",
+      "→",
+      "-"
+    ],
+    [
+      "universalify",
+      "0.1.2",
+      "→",
+      "-"
+    ],
+    [
+      "v8-to-istanbul",
+      "8.1.1",
+      "→",
+      "9.0.1"
+    ],
+    [
+      "w3c-hr-time",
+      "1.0.2",
+      "→",
+      "-"
+    ],
+    [
+      "w3c-xmlserializer",
+      "2.0.0",
+      "→",
+      "-"
+    ],
+    [
+      "webidl-conversions",
+      "5.0.0, 6.1.0",
+      "→",
+      "-"
+    ],
+    [
+      "whatwg-encoding",
+      "1.0.5",
+      "→",
+      "-"
+    ],
+    [
+      "whatwg-mimetype",
+      "2.3.0",
+      "→",
+      "-"
+    ],
+    [
+      "whatwg-url",
+      "8.7.0",
+      "→",
+      "-"
+    ],
+    [
+      "which-module",
+      "2.0.0",
+      "→",
+      "-"
+    ],
+    [
+      "word-wrap",
+      "1.2.3",
+      "→",
+      "-"
+    ],
+    [
+      "wrap-ansi",
+      "6.2.0",
+      "→",
+      "7.0.0"
+    ],
+    [
+      "write-file-atomic",
+      "3.0.3",
+      "→",
+      "4.0.1"
+    ],
+    [
+      "ws",
+      "7.5.9",
+      "→",
+      "-"
+    ],
+    [
+      "xml-name-validator",
+      "3.0.0",
+      "→",
+      "-"
+    ],
+    [
+      "xmlchars",
+      "2.2.0",
+      "→",
+      "-"
+    ],
+    [
+      "y18n",
+      "4.0.3",
+      "→",
+      "5.0.8"
+    ],
+    [
+      "yargs-parser",
+      "18.1.3",
+      "→",
+      "21.1.1"
+    ],
+    [
+      "yargs",
+      "15.4.1",
+      "→",
+      "17.5.1"
+    ],
+    [
+      "@jest/expect-utils",
+      "-",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "@jest/expect",
+      "-",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "@jest/schemas",
+      "-",
+      "→",
+      "28.1.3"
+    ],
+    [
+      "@sinclair/typebox",
+      "-",
+      "→",
+      "0.24.27"
+    ],
+    [
+      "yocto-queue",
+      "-",
+      "→",
+      "0.1.0"
+    ]
+  ],
+  "formatedDiff": {
+    "@jest/console": [
+      "@jest/console",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    "@jest/core": [
+      "@jest/core",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    "@jest/environment": [
+      "@jest/environment",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    "@jest/fake-timers": [
+      "@jest/fake-timers",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    "@jest/globals": [
+      "@jest/globals",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    "@jest/reporters": [
+      "@jest/reporters",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    "@jest/source-map": [
+      "@jest/source-map",
+      "27.5.1",
+      "→",
+      "28.1.2"
+    ],
+    "@jest/test-result": [
+      "@jest/test-result",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    "@jest/test-sequencer": [
+      "@jest/test-sequencer",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    "@jest/transform": [
+      "@jest/transform",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    "@jest/types": [
+      "@jest/types",
+      "26.6.2",
+      "→",
+      "28.1.3"
+    ],
+    "@sinonjs/fake-timers": [
+      "@sinonjs/fake-timers",
+      "8.1.0",
+      "→",
+      "9.1.2"
+    ],
+    "@tootallnate/once": [
+      "@tootallnate/once",
+      "1.1.2",
+      "→",
+      "2.0.0"
+    ],
+    "@types/babel__core": [
+      "@types/babel__core",
+      "[..., 7.1.19]",
+      "→",
+      "[...]"
+    ],
+    "@types/babel__traverse": [
+      "@types/babel__traverse",
+      "[..., 7.18.0]",
+      "→",
+      "[...]"
+    ],
+    "@types/jest": [
+      "@types/jest",
+      "26.0.24",
+      "→",
+      "28.1.6"
+    ],
+    "@types/yargs": [
+      "@types/yargs",
+      "15.0.14",
+      "→",
+      "17.0.11"
+    ],
+    "abab": [
+      "abab",
+      "2.0.6",
+      "→",
+      "-"
+    ],
+    "acorn-globals": [
+      "acorn-globals",
+      "6.0.0",
+      "→",
+      "-"
+    ],
+    "acorn-walk": [
+      "acorn-walk",
+      "7.2.0",
+      "→",
+      "-"
+    ],
+    "acorn": [
+      "acorn",
+      "7.4.1, 8.8.0",
+      "→",
+      "-"
+    ],
+    "asynckit": [
+      "asynckit",
+      "0.4.0",
+      "→",
+      "-"
+    ],
+    "babel-jest": [
+      "babel-jest",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    "babel-plugin-jest-hoist": [
+      "babel-plugin-jest-hoist",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    "babel-preset-jest": [
+      "babel-preset-jest",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    "browser-process-hrtime": [
+      "browser-process-hrtime",
+      "1.0.0",
+      "→",
+      "-"
+    ],
+    "cliui": [
+      "cliui",
+      "6.0.0",
+      "→",
+      "7.0.4"
+    ],
+    "combined-stream": [
+      "combined-stream",
+      "1.0.8",
+      "→",
+      "-"
+    ],
+    "cssom": [
+      "cssom",
+      "0.3.8, 0.4.4",
+      "→",
+      "-"
+    ],
+    "cssstyle": [
+      "cssstyle",
+      "2.3.0",
+      "→",
+      "-"
+    ],
+    "data-urls": [
+      "data-urls",
+      "2.0.0",
+      "→",
+      "-"
+    ],
+    "decamelize": [
+      "decamelize",
+      "1.2.0",
+      "→",
+      "-"
+    ],
+    "decimal.js": [
+      "decimal.js",
+      "10.3.1",
+      "→",
+      "-"
+    ],
+    "deep-is": [
+      "deep-is",
+      "0.1.4",
+      "→",
+      "-"
+    ],
+    "delayed-stream": [
+      "delayed-stream",
+      "1.0.0",
+      "→",
+      "-"
+    ],
+    "diff-sequences": [
+      "diff-sequences",
+      "26.6.2",
+      "→",
+      "28.1.1"
+    ],
+    "domexception": [
+      "domexception",
+      "2.0.1",
+      "→",
+      "-"
+    ],
+    "dts-bundle-generator": [
+      "dts-bundle-generator",
+      "5.9.0",
+      "→",
+      "-"
+    ],
+    "emittery": [
+      "emittery",
+      "0.8.1",
+      "→",
+      "0.10.2"
+    ],
+    "escodegen": [
+      "escodegen",
+      "2.0.0",
+      "→",
+      "-"
+    ],
+    "estraverse": [
+      "estraverse",
+      "5.3.0",
+      "→",
+      "-"
+    ],
+    "esutils": [
+      "esutils",
+      "2.0.3",
+      "→",
+      "-"
+    ],
+    "expect": [
+      "expect",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    "fast-levenshtein": [
+      "fast-levenshtein",
+      "2.0.6",
+      "→",
+      "-"
+    ],
+    "form-data": [
+      "form-data",
+      "3.0.1",
+      "→",
+      "-"
+    ],
+    "glob": [
+      "glob",
+      "7.2.3",
+      "→",
+      "8.0.3"
+    ],
+    "html-encoding-sniffer": [
+      "html-encoding-sniffer",
+      "2.0.1",
+      "→",
+      "-"
+    ],
+    "http-proxy-agent": [
+      "http-proxy-agent",
+      "4.0.1",
+      "→",
+      "5.0.0"
+    ],
+    "iconv-lite": [
+      "iconv-lite",
+      "0.4.24",
+      "→",
+      "0.6.3"
+    ],
+    "is-potential-custom-element-name": [
+      "is-potential-custom-element-name",
+      "1.0.1",
+      "→",
+      "-"
+    ],
+    "is-typedarray": [
+      "is-typedarray",
+      "1.0.0",
+      "→",
+      "-"
+    ],
+    "jest-changed-files": [
+      "jest-changed-files",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    "jest-circus": [
+      "jest-circus",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    "jest-cli": [
+      "jest-cli",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    "jest-config": [
+      "jest-config",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    "jest-diff": [
+      "jest-diff",
+      "26.6.2",
+      "→",
+      "28.1.3"
+    ],
+    "jest-docblock": [
+      "jest-docblock",
+      "27.5.1",
+      "→",
+      "28.1.1"
+    ],
+    "jest-each": [
+      "jest-each",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    "jest-environment-jsdom": [
+      "jest-environment-jsdom",
+      "27.5.1",
+      "→",
+      "-"
+    ],
+    "jest-environment-node": [
+      "jest-environment-node",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    "jest-get-type": [
+      "jest-get-type",
+      "26.3.0",
+      "→",
+      "28.0.2"
+    ],
+    "jest-haste-map": [
+      "jest-haste-map",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    "jest-jasmine2": [
+      "jest-jasmine2",
+      "27.5.1",
+      "→",
+      "-"
+    ],
+    "jest-leak-detector": [
+      "jest-leak-detector",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    "jest-matcher-utils": [
+      "jest-matcher-utils",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    "jest-message-util": [
+      "jest-message-util",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    "jest-mock": [
+      "jest-mock",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    "jest-regex-util": [
+      "jest-regex-util",
+      "27.5.1",
+      "→",
+      "28.0.2"
+    ],
+    "jest-resolve-dependencies": [
+      "jest-resolve-dependencies",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    "jest-resolve": [
+      "jest-resolve",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    "jest-runner": [
+      "jest-runner",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    "jest-runtime": [
+      "jest-runtime",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    "jest-serializer": [
+      "jest-serializer",
+      "27.5.1",
+      "→",
+      "-"
+    ],
+    "jest-snapshot": [
+      "jest-snapshot",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    "jest-util": [
+      "jest-util",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    "jest-validate": [
+      "jest-validate",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    "jest-watcher": [
+      "jest-watcher",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    "jest-worker": [
+      "jest-worker",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    "jest": [
+      "jest",
+      "27.5.1",
+      "→",
+      "28.1.3"
+    ],
+    "jsdom": [
+      "jsdom",
+      "16.7.0",
+      "→",
+      "-"
+    ],
+    "levn": [
+      "levn",
+      "0.3.0",
+      "→",
+      "-"
+    ],
+    "lodash": [
+      "lodash",
+      "4.17.21",
+      "→",
+      "-"
+    ],
+    "mime-db": [
+      "mime-db",
+      "1.52.0",
+      "→",
+      "-"
+    ],
+    "mime-types": [
+      "mime-types",
+      "2.1.35",
+      "→",
+      "-"
+    ],
+    "minimatch": [
+      "minimatch",
+      "3.1.2",
+      "→",
+      "5.1.0"
+    ],
+    "nwsapi": [
+      "nwsapi",
+      "2.2.1",
+      "→",
+      "-"
+    ],
+    "optionator": [
+      "optionator",
+      "0.8.3",
+      "→",
+      "-"
+    ],
+    "p-limit": [
+      "p-limit",
+      "[...]",
+      "→",
+      "[..., 3.1.0]"
+    ],
+    "parse5": [
+      "parse5",
+      "6.0.1",
+      "→",
+      "-"
+    ],
+    "prelude-ls": [
+      "prelude-ls",
+      "1.1.2",
+      "→",
+      "-"
+    ],
+    "pretty-format": [
+      "pretty-format",
+      "26.6.2",
+      "→",
+      "28.1.3"
+    ],
+    "psl": [
+      "psl",
+      "1.9.0",
+      "→",
+      "-"
+    ],
+    "punycode": [
+      "punycode",
+      "2.1.1",
+      "→",
+      "-"
+    ],
+    "react-is": [
+      "react-is",
+      "17.0.2",
+      "→",
+      "18.2.0"
+    ],
+    "require-main-filename": [
+      "require-main-filename",
+      "2.0.0",
+      "→",
+      "-"
+    ],
+    "saxes": [
+      "saxes",
+      "5.0.1",
+      "→",
+      "-"
+    ],
+    "source-map-support": [
+      "source-map-support",
+      "0.5.21",
+      "→",
+      "0.5.13"
+    ],
+    "source-map": [
+      "source-map",
+      "[..., 0.7.4]",
+      "→",
+      "[...]"
+    ],
+    "symbol-tree": [
+      "symbol-tree",
+      "3.2.4",
+      "→",
+      "-"
+    ],
+    "throat": [
+      "throat",
+      "6.0.1",
+      "→",
+      "-"
+    ],
+    "tough-cookie": [
+      "tough-cookie",
+      "4.0.0",
+      "→",
+      "-"
+    ],
+    "tr46": [
+      "tr46",
+      "2.1.0",
+      "→",
+      "-"
+    ],
+    "ts-type": [
+      "ts-type",
+      "1.2.40",
+      "→",
+      "2.1.10"
+    ],
+    "type-check": [
+      "type-check",
+      "0.3.2",
+      "→",
+      "-"
+    ],
+    "typedarray-to-buffer": [
+      "typedarray-to-buffer",
+      "3.1.5",
+      "→",
+      "-"
+    ],
+    "typescript": [
+      "typescript",
+      "4.7.4",
+      "→",
+      "-"
+    ],
+    "typescript>::version=4.7.4&hash=f456af": [
+      "typescript>::version=4.7.4&hash=f456af",
+      "4.7.4",
+      "→",
+      "-"
+    ],
+    "universalify": [
+      "universalify",
+      "0.1.2",
+      "→",
+      "-"
+    ],
+    "v8-to-istanbul": [
+      "v8-to-istanbul",
+      "8.1.1",
+      "→",
+      "9.0.1"
+    ],
+    "w3c-hr-time": [
+      "w3c-hr-time",
+      "1.0.2",
+      "→",
+      "-"
+    ],
+    "w3c-xmlserializer": [
+      "w3c-xmlserializer",
+      "2.0.0",
+      "→",
+      "-"
+    ],
+    "webidl-conversions": [
+      "webidl-conversions",
+      "5.0.0, 6.1.0",
+      "→",
+      "-"
+    ],
+    "whatwg-encoding": [
+      "whatwg-encoding",
+      "1.0.5",
+      "→",
+      "-"
+    ],
+    "whatwg-mimetype": [
+      "whatwg-mimetype",
+      "2.3.0",
+      "→",
+      "-"
+    ],
+    "whatwg-url": [
+      "whatwg-url",
+      "8.7.0",
+      "→",
+      "-"
+    ],
+    "which-module": [
+      "which-module",
+      "2.0.0",
+      "→",
+      "-"
+    ],
+    "word-wrap": [
+      "word-wrap",
+      "1.2.3",
+      "→",
+      "-"
+    ],
+    "wrap-ansi": [
+      "wrap-ansi",
+      "6.2.0",
+      "→",
+      "7.0.0"
+    ],
+    "write-file-atomic": [
+      "write-file-atomic",
+      "3.0.3",
+      "→",
+      "4.0.1"
+    ],
+    "ws": [
+      "ws",
+      "7.5.9",
+      "→",
+      "-"
+    ],
+    "xml-name-validator": [
+      "xml-name-validator",
+      "3.0.0",
+      "→",
+      "-"
+    ],
+    "xmlchars": [
+      "xmlchars",
+      "2.2.0",
+      "→",
+      "-"
+    ],
+    "y18n": [
+      "y18n",
+      "4.0.3",
+      "→",
+      "5.0.8"
+    ],
+    "yargs-parser": [
+      "yargs-parser",
+      "18.1.3",
+      "→",
+      "21.1.1"
+    ],
+    "yargs": [
+      "yargs",
+      "15.4.1",
+      "→",
+      "17.5.1"
+    ],
+    "@jest/expect-utils": [
+      "@jest/expect-utils",
+      "-",
+      "→",
+      "28.1.3"
+    ],
+    "@jest/expect": [
+      "@jest/expect",
+      "-",
+      "→",
+      "28.1.3"
+    ],
+    "@jest/schemas": [
+      "@jest/schemas",
+      "-",
+      "→",
+      "28.1.3"
+    ],
+    "@sinclair/typebox": [
+      "@sinclair/typebox",
+      "-",
+      "→",
+      "0.24.27"
+    ],
+    "yocto-queue": [
+      "yocto-queue",
+      "-",
+      "→",
+      "0.1.0"
+    ]
+  }
+}
+`;
+
+exports[`yarnLockDiff > v3/yarn.lock 2`] = `
+" package name                            old version(s)     new version(s) \\n @jest/console                               27.5.1      →      28.1.3     \\n @jest/core                                  27.5.1      →      28.1.3     \\n @jest/environment                           27.5.1      →      28.1.3     \\n @jest/fake-timers                           27.5.1      →      28.1.3     \\n @jest/globals                               27.5.1      →      28.1.3     \\n @jest/reporters                             27.5.1      →      28.1.3     \\n @jest/source-map                            27.5.1      →      28.1.2     \\n @jest/test-result                           27.5.1      →      28.1.3     \\n @jest/test-sequencer                        27.5.1      →      28.1.3     \\n @jest/transform                             27.5.1      →      28.1.3     \\n @jest/types                                 26.6.2      →      28.1.3     \\n @sinonjs/fake-timers                        8.1.0       →      9.1.2      \\n @tootallnate/once                           1.1.2       →      2.0.0      \\n @types/babel__core                      [..., 7.1.19]   →      [...]      \\n @types/babel__traverse                  [..., 7.18.0]   →      [...]      \\n @types/jest                                26.0.24      →      28.1.6     \\n @types/yargs                               15.0.14      →     17.0.11     \\n abab                                        2.0.6       →        -        \\n acorn-globals                               6.0.0       →        -        \\n acorn-walk                                  7.2.0       →        -        \\n acorn                                    7.4.1, 8.8.0   →        -        \\n asynckit                                    0.4.0       →        -        \\n babel-jest                                  27.5.1      →      28.1.3     \\n babel-plugin-jest-hoist                     27.5.1      →      28.1.3     \\n babel-preset-jest                           27.5.1      →      28.1.3     \\n browser-process-hrtime                      1.0.0       →        -        \\n cliui                                       6.0.0       →      7.0.4      \\n combined-stream                             1.0.8       →        -        \\n cssom                                    0.3.8, 0.4.4   →        -        \\n cssstyle                                    2.3.0       →        -        \\n data-urls                                   2.0.0       →        -        \\n decamelize                                  1.2.0       →        -        \\n decimal.js                                  10.3.1      →        -        \\n deep-is                                     0.1.4       →        -        \\n delayed-stream                              1.0.0       →        -        \\n diff-sequences                              26.6.2      →      28.1.1     \\n domexception                                2.0.1       →        -        \\n dts-bundle-generator                        5.9.0       →        -        \\n emittery                                    0.8.1       →      0.10.2     \\n escodegen                                   2.0.0       →        -        \\n estraverse                                  5.3.0       →        -        \\n esutils                                     2.0.3       →        -        \\n expect                                      27.5.1      →      28.1.3     \\n fast-levenshtein                            2.0.6       →        -        \\n form-data                                   3.0.1       →        -        \\n glob                                        7.2.3       →      8.0.3      \\n html-encoding-sniffer                       2.0.1       →        -        \\n http-proxy-agent                            4.0.1       →      5.0.0      \\n iconv-lite                                  0.4.24      →      0.6.3      \\n is-potential-custom-element-name            1.0.1       →        -        \\n is-typedarray                               1.0.0       →        -        \\n jest-changed-files                          27.5.1      →      28.1.3     \\n jest-circus                                 27.5.1      →      28.1.3     \\n jest-cli                                    27.5.1      →      28.1.3     \\n jest-config                                 27.5.1      →      28.1.3     \\n jest-diff                                   26.6.2      →      28.1.3     \\n jest-docblock                               27.5.1      →      28.1.1     \\n jest-each                                   27.5.1      →      28.1.3     \\n jest-environment-jsdom                      27.5.1      →        -        \\n jest-environment-node                       27.5.1      →      28.1.3     \\n jest-get-type                               26.3.0      →      28.0.2     \\n jest-haste-map                              27.5.1      →      28.1.3     \\n jest-jasmine2                               27.5.1      →        -        \\n jest-leak-detector                          27.5.1      →      28.1.3     \\n jest-matcher-utils                          27.5.1      →      28.1.3     \\n jest-message-util                           27.5.1      →      28.1.3     \\n jest-mock                                   27.5.1      →      28.1.3     \\n jest-regex-util                             27.5.1      →      28.0.2     \\n jest-resolve-dependencies                   27.5.1      →      28.1.3     \\n jest-resolve                                27.5.1      →      28.1.3     \\n jest-runner                                 27.5.1      →      28.1.3     \\n jest-runtime                                27.5.1      →      28.1.3     \\n jest-serializer                             27.5.1      →        -        \\n jest-snapshot                               27.5.1      →      28.1.3     \\n jest-util                                   27.5.1      →      28.1.3     \\n jest-validate                               27.5.1      →      28.1.3     \\n jest-watcher                                27.5.1      →      28.1.3     \\n jest-worker                                 27.5.1      →      28.1.3     \\n jest                                        27.5.1      →      28.1.3     \\n jsdom                                       16.7.0      →        -        \\n levn                                        0.3.0       →        -        \\n lodash                                     4.17.21      →        -        \\n mime-db                                     1.52.0      →        -        \\n mime-types                                  2.1.35      →        -        \\n minimatch                                   3.1.2       →      5.1.0      \\n nwsapi                                      2.2.1       →        -        \\n optionator                                  0.8.3       →        -        \\n p-limit                                     [...]       →   [..., 3.1.0]  \\n parse5                                      6.0.1       →        -        \\n prelude-ls                                  1.1.2       →        -        \\n pretty-format                               26.6.2      →      28.1.3     \\n psl                                         1.9.0       →        -        \\n punycode                                    2.1.1       →        -        \\n react-is                                    17.0.2      →      18.2.0     \\n require-main-filename                       2.0.0       →        -        \\n saxes                                       5.0.1       →        -        \\n source-map-support                          0.5.21      →      0.5.13     \\n source-map                               [..., 0.7.4]   →      [...]      \\n symbol-tree                                 3.2.4       →        -        \\n throat                                      6.0.1       →        -        \\n tough-cookie                                4.0.0       →        -        \\n tr46                                        2.1.0       →        -        \\n ts-type                                     1.2.40      →      2.1.10     \\n type-check                                  0.3.2       →        -        \\n typedarray-to-buffer                        3.1.5       →        -        \\n typescript                                  4.7.4       →        -        \\n typescript>::version=4.7.4&hash=f456af      4.7.4       →        -        \\n universalify                                0.1.2       →        -        \\n v8-to-istanbul                              8.1.1       →      9.0.1      \\n w3c-hr-time                                 1.0.2       →        -        \\n w3c-xmlserializer                           2.0.0       →        -        \\n webidl-conversions                       5.0.0, 6.1.0   →        -        \\n whatwg-encoding                             1.0.5       →        -        \\n whatwg-mimetype                             2.3.0       →        -        \\n whatwg-url                                  8.7.0       →        -        \\n which-module                                2.0.0       →        -        \\n word-wrap                                   1.2.3       →        -        \\n wrap-ansi                                   6.2.0       →      7.0.0      \\n write-file-atomic                           3.0.3       →      4.0.1      \\n ws                                          7.5.9       →        -        \\n xml-name-validator                          3.0.0       →        -        \\n xmlchars                                    2.2.0       →        -        \\n y18n                                        4.0.3       →      5.0.8      \\n yargs-parser                                18.1.3      →      21.1.1     \\n yargs                                       15.4.1      →      17.5.1     \\n @jest/expect-utils                            -         →      28.1.3     \\n @jest/expect                                  -         →      28.1.3     \\n @jest/schemas                                 -         →      28.1.3     \\n @sinclair/typebox                             -         →     0.24.27     \\n yocto-queue                                   -         →      0.1.0      "
+`;
+
+exports[`yarnLockDiff > yarn.lock 1`] = `
+{
+  "_ok": true,
+  "table": [
+    [
+      "@babel/code-frame",
+      "7.0.2",
+      "→",
+      "7.0.0"
+    ],
+    [
+      "@babel/generator",
+      "6.3.7",
+      "→",
+      "6.3.4"
+    ],
+    [
+      "@babel/types",
+      "7.3.4",
+      "→",
+      "-"
+    ],
+    [
+      "@babel/parser",
+      "-",
+      "→",
+      "7.3.4"
+    ]
+  ],
+  "formatedDiff": {
+    "@babel/code-frame": [
+      "@babel/code-frame",
+      "7.0.2",
+      "→",
+      "7.0.0"
+    ],
+    "@babel/generator": [
+      "@babel/generator",
+      "6.3.7",
+      "→",
+      "6.3.4"
+    ],
+    "@babel/types": [
+      "@babel/types",
+      "7.3.4",
+      "→",
+      "-"
+    ],
+    "@babel/parser": [
+      "@babel/parser",
+      "-",
+      "→",
+      "7.3.4"
+    ]
+  }
+}
+`;
+
+exports[`yarnLockDiff > yarn.lock 2`] = `
+" package name       old version(s)     new version(s) \\n @babel/code-frame      7.0.2       →      7.0.0      \\n @babel/generator       6.3.7       →      6.3.4      \\n @babel/types           7.3.4       →        -        \\n @babel/parser            -         →      7.3.4      "
+`;

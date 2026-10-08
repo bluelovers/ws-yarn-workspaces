@@ -1,0 +1,338 @@
+exports[`alias > botkit@npm:foo 1`] = `
+{
+  "name": "botkit",
+  "result": {
+    "type": "alias",
+    "registry": true,
+    "raw": "botkit@npm:foo",
+    "name": "botkit",
+    "escapedName": "botkit",
+    "rawSpec": "npm:foo",
+    "saveSpec": null,
+    "fetchSpec": null,
+    "subSpec": {
+      "type": "range",
+      "registry": true,
+      "raw": "foo",
+      "name": "foo",
+      "escapedName": "foo",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  }
+}
+`;
+
+exports[`alias > botkit@npm:foo@12 1`] = `
+{
+  "name": "botkit",
+  "result": {
+    "type": "alias",
+    "registry": true,
+    "raw": "botkit@npm:foo@12",
+    "name": "botkit",
+    "escapedName": "botkit",
+    "rawSpec": "npm:foo@12",
+    "saveSpec": null,
+    "fetchSpec": null,
+    "subSpec": {
+      "type": "range",
+      "registry": true,
+      "raw": "foo@12",
+      "name": "foo",
+      "escapedName": "foo",
+      "rawSpec": "12",
+      "saveSpec": null,
+      "fetchSpec": "12"
+    }
+  }
+}
+`;
+
+exports[`alias > botkit@npm:foo@^12 1`] = `
+{
+  "name": "botkit",
+  "result": {
+    "type": "alias",
+    "registry": true,
+    "raw": "botkit@npm:foo@^12",
+    "name": "botkit",
+    "escapedName": "botkit",
+    "rawSpec": "npm:foo@^12",
+    "saveSpec": null,
+    "fetchSpec": null,
+    "subSpec": {
+      "type": "range",
+      "registry": true,
+      "raw": "foo@^12",
+      "name": "foo",
+      "escapedName": "foo",
+      "rawSpec": "^12",
+      "saveSpec": null,
+      "fetchSpec": "^12"
+    }
+  }
+}
+`;
+
+exports[`alias > botkit@npm:foo@next 1`] = `
+{
+  "name": "botkit",
+  "result": {
+    "type": "alias",
+    "registry": true,
+    "raw": "botkit@npm:foo@next",
+    "name": "botkit",
+    "escapedName": "botkit",
+    "rawSpec": "npm:foo@next",
+    "saveSpec": null,
+    "fetchSpec": null,
+    "subSpec": {
+      "type": "tag",
+      "registry": true,
+      "raw": "foo@next",
+      "name": "foo",
+      "escapedName": "foo",
+      "rawSpec": "next",
+      "saveSpec": null,
+      "fetchSpec": "next"
+    }
+  }
+}
+`;
+
+exports[`should return semver > botkit@12 1`] = `
+{
+  "depsResult": {
+    "name": "botkit",
+    "semver": "12",
+    "fetchQuery": true,
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "botkit@12",
+      "name": "botkit",
+      "escapedName": "botkit",
+      "rawSpec": "12",
+      "saveSpec": null,
+      "fetchSpec": "12"
+    }
+  },
+  "npaOriginal": {
+    "type": "range",
+    "registry": true,
+    "raw": "botkit@12",
+    "name": "botkit",
+    "escapedName": "botkit",
+    "rawSpec": "12",
+    "saveSpec": null,
+    "fetchSpec": "12"
+  },
+  "parseSimpleSemVerRange": [
+    {
+      "semver": "12",
+      "major": "12"
+    }
+  ],
+  "re": [
+    "12",
+    "12",
+    null,
+    "12",
+    "",
+    null,
+    "12",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}
+`;
+
+exports[`should return semver > botkit@github:jonchurch/botkit#multi-hears 1`] = `
+{
+  "depsResult": {
+    "name": "botkit",
+    "semver": "github:jonchurch/botkit#multi-hears",
+    "result": {
+      "type": "git",
+      "raw": "botkit@github:jonchurch/botkit#multi-hears",
+      "name": "botkit",
+      "escapedName": "botkit",
+      "rawSpec": "github:jonchurch/botkit#multi-hears",
+      "saveSpec": "github:jonchurch/botkit#multi-hears",
+      "fetchSpec": null,
+      "gitCommittish": "multi-hears"
+    }
+  },
+  "npaOriginal": {
+    "type": "git",
+    "raw": "botkit@github:jonchurch/botkit#multi-hears",
+    "name": "botkit",
+    "escapedName": "botkit",
+    "rawSpec": "github:jonchurch/botkit#multi-hears",
+    "saveSpec": "github:jonchurch/botkit#multi-hears",
+    "fetchSpec": null,
+    "gitCommittish": "multi-hears"
+  }
+}
+`;
+
+exports[`should return semver > botkit@jonchurch/botkit#multi-hears 1`] = `
+{
+  "depsResult": {
+    "name": "botkit",
+    "semver": "github:jonchurch/botkit#multi-hears",
+    "result": {
+      "type": "git",
+      "raw": "botkit@jonchurch/botkit#multi-hears",
+      "name": "botkit",
+      "escapedName": "botkit",
+      "rawSpec": "jonchurch/botkit#multi-hears",
+      "saveSpec": "github:jonchurch/botkit#multi-hears",
+      "fetchSpec": null,
+      "gitCommittish": "multi-hears"
+    }
+  },
+  "npaOriginal": {
+    "type": "git",
+    "raw": "botkit@jonchurch/botkit#multi-hears",
+    "name": "botkit",
+    "escapedName": "botkit",
+    "rawSpec": "jonchurch/botkit#multi-hears",
+    "saveSpec": "github:jonchurch/botkit#multi-hears",
+    "fetchSpec": null,
+    "gitCommittish": "multi-hears"
+  }
+}
+`;
+
+exports[`should return undefined > botkit 1`] = `
+{
+  "depsResult": {
+    "name": "botkit",
+    "fetchQuery": true,
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "botkit",
+      "name": "botkit",
+      "escapedName": "botkit",
+      "rawSpec": "*",
+      "saveSpec": null,
+      "fetchSpec": "*"
+    }
+  },
+  "npaOriginal": {
+    "type": "range",
+    "registry": true,
+    "raw": "botkit",
+    "name": "botkit",
+    "escapedName": "botkit",
+    "rawSpec": "*",
+    "saveSpec": null,
+    "fetchSpec": "*"
+  },
+  "parseSimpleSemVerRange": [
+    {
+      "semver": "*"
+    }
+  ],
+  "re": null
+}
+`;
+
+exports[`should return undefined > botkit 2`] = `
+{
+  "name": "botkit",
+  "fetchQuery": true,
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "botkit",
+    "name": "botkit",
+    "escapedName": "botkit",
+    "rawSpec": "*",
+    "saveSpec": null,
+    "fetchSpec": "*"
+  }
+}
+`;
+
+exports[`should return undefined > botkit@^12 1`] = `
+{
+  "depsResult": {
+    "name": "botkit",
+    "operator": "^",
+    "fetchQuery": true,
+    "result": {
+      "type": "range",
+      "registry": true,
+      "raw": "botkit@^12",
+      "name": "botkit",
+      "escapedName": "botkit",
+      "rawSpec": "^12",
+      "saveSpec": null,
+      "fetchSpec": "^12"
+    }
+  },
+  "npaOriginal": {
+    "type": "range",
+    "registry": true,
+    "raw": "botkit@^12",
+    "name": "botkit",
+    "escapedName": "botkit",
+    "rawSpec": "^12",
+    "saveSpec": null,
+    "fetchSpec": "^12"
+  },
+  "parseSimpleSemVerRange": [
+    {
+      "semver": "^12",
+      "operator": "^",
+      "major": "12"
+    }
+  ],
+  "re": [
+    "^12",
+    "^12",
+    null,
+    "^12",
+    "^",
+    null,
+    "12",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}
+`;
+
+exports[`should return undefined > botkit@^12 2`] = `
+{
+  "name": "botkit",
+  "operator": "^",
+  "fetchQuery": true,
+  "result": {
+    "type": "range",
+    "registry": true,
+    "raw": "botkit@^12",
+    "name": "botkit",
+    "escapedName": "botkit",
+    "rawSpec": "^12",
+    "saveSpec": null,
+    "fetchSpec": "^12"
+  }
+}
+`;

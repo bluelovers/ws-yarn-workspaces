@@ -1,0 +1,24 @@
+exports[`pnpm-workspace.yaml > reads saveWorkspaceProtocol while keeping the original comments 1`] = `
+{
+  "saveWorkspaceProtocol": "false",
+  "comments": [
+    "  # exclude packages that are inside test/ directories",
+    "  # all packages in subdirs of packages/ and components/",
+    "  # exclude packages that are inside test/ directories",
+    "# publicHoistPattern:",
+    "#   - \\"ts-type\\"",
+    "#   - \\"yargs\\"",
+    "#   - \\"@yarn-tool/*\\"",
+    "#   - \\"@lazy-node/*\\"",
+    "#   - \\"path-is-same\\"",
+    "#   - \\"bluebird\\"",
+    "#   - \\"@ts-type/*\\"",
+    "#   - \\"upath2\\"",
+    "#   - \\"fs-extra\\"",
+    "#   - \\"micromatch\\"",
+    "#   - \\"strip-ansi\\"",
+    "#   - \\"@types/expect\\""
+  ],
+  "source": "packages:\\n  # exclude packages that are inside test/ directories\\n  - '!**/test/**'\\n  - packages/@yarn-tool/*\\n  - packages/@lazy-node/*\\n  # all packages in subdirs of packages/ and components/\\n  - packages/*\\n  # exclude packages that are inside test/ directories\\n  - '!**/test/**'\\n\\n# publicHoistPattern:\\n#   - \\"ts-type\\"\\n#   - \\"yargs\\"\\n#   - \\"@yarn-tool/*\\"\\n#   - \\"@lazy-node/*\\"\\n#   - \\"path-is-same\\"\\n#   - \\"bluebird\\"\\n#   - \\"@ts-type/*\\"\\n#   - \\"upath2\\"\\n#   - \\"fs-extra\\"\\n#   - \\"micromatch\\"\\n#   - \\"strip-ansi\\"\\n#   - \\"@types/expect\\"\\n\\nlinkWorkspacePackages: true\\nsaveWorkspaceProtocol: false\\npreferWorkspacePackages: true\\n\\nallowBuilds:\\n  '@parcel/watcher': true\\n  classic-level: true\\n  core-js-pure: true\\n  unrs-resolver: true\\n"
+}
+`;
