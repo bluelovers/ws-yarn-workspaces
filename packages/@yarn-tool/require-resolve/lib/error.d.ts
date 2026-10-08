@@ -40,4 +40,3 @@ export declare function isErrorModuleNotFound<T extends Error>(error: T): error 
  * isErrorModuleNotFound and matches Node's native error shape.
  */
 export declare function createModuleNotFoundError(moduleName: string, basePath?: string): IErrorModuleNotFound;
-export type { IErrorModuleNotFound, };

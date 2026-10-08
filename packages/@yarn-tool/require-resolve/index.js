@@ -10,7 +10,7 @@
  * @license ISC
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = exports.resolvePackage = exports.readModulePackageJson = exports.createResolveLocationFn = exports.resolvePackageJsonLocation = exports.resolvePackageRoot = exports.resolvePackageCore = exports.tryImportExtra = exports.tryRequireExtra = exports.importExtra = exports.requireExtra = exports.buildResolvePaths = exports.requireResolveExtra = exports.requireResolveCore = exports.createModuleNotFoundError = exports.isErrorModuleNotFound = exports._unshiftArray = exports.getTargetName = exports.handleOptionsPaths = exports.defaultMap = void 0;
+exports.default = exports.resolvePackage = exports.readModulePackageJson = exports.createResolveLocationFn = exports.resolvePackageJsonLocation = exports.resolvePackageRoot = exports.resolvePackageCore = exports.tryImportExtra = exports.importExtra = exports.tryRequireExtra = exports.requireExtra = exports.buildResolvePaths = exports.requireResolveExtra = exports.requireResolveCore = exports.createModuleNotFoundError = exports.isErrorModuleNotFound = exports._unshiftArray = exports.getTargetName = exports.handleOptionsPaths = exports.defaultMap = void 0;
 var util_1 = require("./lib/util");
 Object.defineProperty(exports, "defaultMap", { enumerable: true, get: function () { return util_1.defaultMap; } });
 Object.defineProperty(exports, "handleOptionsPaths", { enumerable: true, get: function () { return util_1.handleOptionsPaths; } });
@@ -25,9 +25,10 @@ Object.defineProperty(exports, "requireResolveExtra", { enumerable: true, get: f
 Object.defineProperty(exports, "buildResolvePaths", { enumerable: true, get: function () { return core_1.buildResolvePaths; } });
 var loader_1 = require("./lib/loader");
 Object.defineProperty(exports, "requireExtra", { enumerable: true, get: function () { return loader_1.requireExtra; } });
-Object.defineProperty(exports, "importExtra", { enumerable: true, get: function () { return loader_1.importExtra; } });
 Object.defineProperty(exports, "tryRequireExtra", { enumerable: true, get: function () { return loader_1.tryRequireExtra; } });
-Object.defineProperty(exports, "tryImportExtra", { enumerable: true, get: function () { return loader_1.tryImportExtra; } });
+var loader_import_try_1 = require("./lib/loader-import-try");
+Object.defineProperty(exports, "importExtra", { enumerable: true, get: function () { return loader_import_try_1.importExtra; } });
+Object.defineProperty(exports, "tryImportExtra", { enumerable: true, get: function () { return loader_import_try_1.tryImportExtra; } });
 var package_1 = require("./lib/package");
 Object.defineProperty(exports, "resolvePackageCore", { enumerable: true, get: function () { return package_1.resolvePackageCore; } });
 Object.defineProperty(exports, "resolvePackageRoot", { enumerable: true, get: function () { return package_1.resolvePackageRoot; } });

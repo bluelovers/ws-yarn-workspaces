@@ -6,7 +6,7 @@ exports._isPackageExportsEntry = _isPackageExportsEntry;
 exports.pkgExportsVerify = pkgExportsVerify;
 const fs_extra_1 = require("fs-extra");
 const find_root_1 = require("@yarn-tool/find-root");
-const resolve_package_1 = require("@yarn-tool/resolve-package");
+const require_resolve_1 = require("@yarn-tool/require-resolve");
 /**
  * 在 exports 物件中添加 package.json entry 的核心函數
  * Core function to add package.json entry in exports object
@@ -94,7 +94,7 @@ function pkgExportsVerify(pkg, options) {
                      * Build a resolver from the package root so `./xxx` relative
                      * paths can be resolved to their real file locations
                      */
-                    const _ = (0, resolve_package_1.resolvePackage)(rootData.pkg);
+                    const _ = (0, require_resolve_1.resolvePackage)(rootData.pkg);
                     /**
                      * 將值轉換為陣列並檢查每個檔案路徑
                      * Convert value to array and check each file path

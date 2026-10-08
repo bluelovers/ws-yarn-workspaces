@@ -1,5 +1,7 @@
 import type { IOptionsRequireResolve, IPackageCoreInfo, IPackageInfo } from './types';
 import type { IPackageJson } from '@ts-type/package-dts';
+export declare function _nodeRequireResolveLazyForPkgDir(moduleName: string, processedPaths?: string[]): string;
+export declare function _handleResolvePackageCoreOptions(options?: IOptionsRequireResolve): IOptionsRequireResolve;
 /**
  * 解析套件的核心函數
  * Core function for package resolution

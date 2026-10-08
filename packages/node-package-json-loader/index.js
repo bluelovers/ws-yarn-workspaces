@@ -15,7 +15,7 @@ const fs_extra_1 = require("fs-extra");
 const sort_package_json3_1 = require("sort-package-json3");
 const bind_decorator_1 = tslib_1.__importDefault(require("bind-decorator"));
 const path_1 = tslib_1.__importDefault(require("path"));
-const resolve_package_1 = require("@yarn-tool/resolve-package");
+const require_resolve_1 = require("@yarn-tool/require-resolve");
 const exports_1 = require("@yarn-tool/pkg-entry-util/lib/field/exports");
 const fs_json_1 = require("@bluelovers/fs-json");
 const publishConfig_1 = require("@yarn-tool/pkg-entry-util/lib/field/publishConfig");
@@ -73,7 +73,7 @@ class PackageJsonLoader {
      * @returns {string} package.json 的絕對路徑 / Absolute path to package.json
      */
     static findPackageJsonPath(name) {
-        return (0, resolve_package_1.resolvePackageJsonLocation)(name);
+        return (0, require_resolve_1.resolvePackageJsonLocation)(name);
     }
     /**
      * 透過模組名稱載入 package.json

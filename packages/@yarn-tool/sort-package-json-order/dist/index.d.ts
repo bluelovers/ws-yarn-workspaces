@@ -1,3 +1,6 @@
+/**
+ * This file/list is auto generate, do not edit
+ */
 export declare const sortOrder: readonly [
 	"$schema",
 	"name",

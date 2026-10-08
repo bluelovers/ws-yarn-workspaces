@@ -45,6 +45,9 @@ function packlist(options) {
 function packTargetDirectory({ packageDir, packageTarball, }) {
     return packlist({ path: packageDir })
         .then(async (files) => {
+        /**
+         * @todo 修正類型錯誤 來支援 新版 tar
+         */
         //console.dir(files)
         await (0, tar_1.create)({
             prefix: 'package/',

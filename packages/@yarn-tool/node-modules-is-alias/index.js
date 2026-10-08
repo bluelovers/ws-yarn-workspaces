@@ -16,7 +16,7 @@ exports.parseModulePathIsAliasUnsafe = parseModulePathIsAliasUnsafe;
 exports.modulePathIsAlias = modulePathIsAlias;
 const pkg_dir_1 = require("pkg-dir");
 const parseArgvPkgName_1 = require("@yarn-tool/npm-package-arg-util/lib/parseArgvPkgName");
-const resolve_package_1 = require("@yarn-tool/resolve-package");
+const require_resolve_1 = require("@yarn-tool/require-resolve");
 const upath2_1 = require("upath2");
 /**
  * 驗證輸入為絕對路徑 (Absolute Path)
@@ -83,7 +83,7 @@ function parseModulePath(absolutePath) {
  */
 function parseModulePathIsAlias(absolutePath) {
     const data = parseModulePath(absolutePath);
-    const resolveData = (0, resolve_package_1.resolvePackage)(absolutePath);
+    const resolveData = (0, require_resolve_1.resolvePackage)(absolutePath);
     const parsed = (0, parseArgvPkgName_1.parsePackageName)(resolveData.pkg.name);
     /**
      * 三個條件以 OR 串接，任一成立即視為別名：
@@ -122,7 +122,7 @@ function parseModulePathIsAlias(absolutePath) {
  * directly without prior validation, which is what "Unsafe" means here.
  */
 function parseModulePathIsAliasUnsafe(absolutePath) {
-    return parseModulePathIsAlias((0, resolve_package_1.resolvePackageCore)(absolutePath).pkgRoot);
+    return parseModulePathIsAlias((0, require_resolve_1.resolvePackageCore)(absolutePath).pkgRoot);
 }
 /**
  * 判斷指定路徑是否為別名的布林值捷徑

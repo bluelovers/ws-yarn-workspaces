@@ -17,7 +17,8 @@ export type { IOptionsRequireResolveCore, IOptionsRequireResolve, IErrorModuleNo
 export { defaultMap, handleOptionsPaths, getTargetName, _unshiftArray, } from './lib/util';
 export { isErrorModuleNotFound, createModuleNotFoundError, } from './lib/error';
 export { requireResolveCore, requireResolveExtra, buildResolvePaths, } from './lib/core';
-export { requireExtra, importExtra, tryRequireExtra, tryImportExtra, } from './lib/loader';
+export { requireExtra, tryRequireExtra, } from './lib/loader';
+export { importExtra, tryImportExtra, } from './lib/loader-import-try';
 export { resolvePackageCore, resolvePackageRoot, resolvePackageJsonLocation, createResolveLocationFn, readModulePackageJson, resolvePackage, } from './lib/package';
 /**
  * ============================================================================

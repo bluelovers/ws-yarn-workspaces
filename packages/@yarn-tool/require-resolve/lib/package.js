@@ -1,5 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports._nodeRequireResolveLazyForPkgDir = _nodeRequireResolveLazyForPkgDir;
+exports._handleResolvePackageCoreOptions = _handleResolvePackageCoreOptions;
 exports.resolvePackageCore = resolvePackageCore;
 exports.resolvePackageRoot = resolvePackageRoot;
 exports.resolvePackageJsonLocation = resolvePackageJsonLocation;
@@ -10,6 +12,49 @@ const upath2_1 = require("upath2");
 const pkg_dir_1 = require("pkg-dir");
 const core_1 = require("./core");
 const util_1 = require("./util");
+function _nodeRequireResolveLazyForPkgDir(moduleName, processedPaths) {
+    /**
+     * 由 try/catch 決定賦值；若兩者皆未執行，TypeScript 會視其為未初始化
+     * Assigned by the try/catch; if neither branch runs, TypeScript treats it as unassigned
+     */
+    let entryPointLocation;
+    /**
+     * 嘗試解析模組入口點
+     * Try to resolve module entry point
+     *
+     * 這是最常見的情況，成功即可直接取得入口點路徑。
+     * This is the common case; on success the entry point path is available directly.
+     */
+    try {
+        entryPointLocation = require.resolve(moduleName, {
+            paths: processedPaths,
+        });
+    }
+    catch (e) {
+        /**
+         * 若失敗則解析 package.json 作為替代
+         * Fallback to resolving package.json
+         *
+         * 入口點可能無法解析（例如套件未定義入口或 exports 限制），
+         * 但 package.json 仍可用來定位套件位置，故改以它作為退路。
+         * The entry point may be unresolvable (missing entry or exports
+         * restrictions), but package.json still locates the package, so it
+         * serves as the fallback.
+         */
+        entryPointLocation = require.resolve(moduleName + '/package.json', {
+            paths: processedPaths,
+        });
+    }
+    return entryPointLocation;
+}
+function _handleResolvePackageCoreOptions(options) {
+    var _a;
+    options !== null && options !== void 0 ? options : (options = {});
+    if (!options.includeGlobal) {
+        (_a = options.includeCurrentDirectory) !== null && _a !== void 0 ? _a : (options.includeCurrentDirectory = true);
+    }
+    return options;
+}
 /**
  * 解析套件的核心函數
  * Core function for package resolution
@@ -45,6 +90,7 @@ const util_1 = require("./util");
  * ```
  */
 function resolvePackageCore(moduleName, options) {
+    options = _handleResolvePackageCoreOptions(options);
     /**
      * 建構解析路徑
      * Build resolution paths
@@ -52,40 +98,9 @@ function resolvePackageCore(moduleName, options) {
      * 展開符號並以 cwd 為基準，取得實際的搜尋路徑清單。
      * Symbols are expanded against cwd to produce the real search path list.
      */
-    const paths = (0, core_1.buildResolvePaths)(options !== null && options !== void 0 ? options : {});
+    const paths = (0, core_1.buildResolvePaths)(options);
     const processedPaths = (0, util_1.handleOptionsPaths)(paths, options === null || options === void 0 ? void 0 : options.cwd);
-    /**
-     * 由 try/catch 決定賦值；若兩者皆未執行，TypeScript 會視其為未初始化
-     * Assigned by the try/catch; if neither branch runs, TypeScript treats it as unassigned
-     */
-    let entryPointLocation;
-    /**
-     * 嘗試解析模組入口點
-     * Try to resolve module entry point
-     *
-     * 這是最常見的情況，成功即可直接取得入口點路徑。
-     * This is the common case; on success the entry point path is available directly.
-     */
-    try {
-        entryPointLocation = require.resolve(moduleName, {
-            paths: processedPaths,
-        });
-    }
-    catch (e) {
-        /**
-         * 若失敗則解析 package.json 作為替代
-         * Fallback to resolving package.json
-         *
-         * 入口點可能無法解析（例如套件未定義入口或 exports 限制），
-         * 但 package.json 仍可用來定位套件位置，故改以它作為退路。
-         * The entry point may be unresolvable (missing entry or exports
-         * restrictions), but package.json still locates the package, so it
-         * serves as the fallback.
-         */
-        entryPointLocation = require.resolve(moduleName + '/package.json', {
-            paths: processedPaths,
-        });
-    }
+    const entryPointLocation = _nodeRequireResolveLazyForPkgDir(moduleName, processedPaths);
     /**
      * 從入口點位置找到套件根目錄
      * Find package root from entry point location
@@ -101,6 +116,7 @@ function resolvePackageCore(moduleName, options) {
         name: moduleName,
         pkgRoot: (pkgRoot === null || pkgRoot === void 0 ? void 0 : pkgRoot.length) && (0, upath2_1.normalize)(pkgRoot),
         entryPointLocation,
+        processedPaths,
     };
 }
 /**

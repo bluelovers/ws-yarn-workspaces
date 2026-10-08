@@ -13,7 +13,7 @@ exports.getPackageInfo = getPackageInfo;
 exports._handleDefaultKey = _handleDefaultKey;
 const tslib_1 = require("tslib");
 const upath2_1 = require("upath2");
-const resolve_package_1 = require("@yarn-tool/resolve-package");
+const require_resolve_1 = require("@yarn-tool/require-resolve");
 tslib_1.__exportStar(require("./lib/types"), exports);
 /**
  * 從 package.json 取得 bin 定義
@@ -226,7 +226,7 @@ function getPackageInfo(options) {
     else if (name) {
         // 若有提供 name，解析套件資訊 / If name is provided, resolve package info
         // 使用擴充選項 / Use extended options
-        let data = (0, resolve_package_1.resolvePackage)(options.name, {
+        let data = (0, require_resolve_1.resolvePackage)(options.name, {
             paths,
             includeGlobal,
             includeCurrentDirectory,
