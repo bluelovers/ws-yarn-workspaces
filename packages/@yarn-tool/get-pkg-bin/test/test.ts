@@ -3,9 +3,9 @@
  */
 
 import { normalizePackageBins} from '../index';
-import { resolvePackage } from '@yarn-tool/resolve-package';
+import { resolvePackage } from '@yarn-tool/require-resolve';
 
-const _ts_node = resolvePackage('ts-node', {
+const _ts_node = resolvePackage('tsx', {
 	includeGlobal: true,
 });
 
@@ -32,7 +32,7 @@ bins = normalizePackageBins({
 console.dir(bins)
 
 bins = normalizePackageBins({
-	name: 'ts-node',
+	name: 'tsx',
 	usePathResolve: true,
 	includeGlobal: true,
 });

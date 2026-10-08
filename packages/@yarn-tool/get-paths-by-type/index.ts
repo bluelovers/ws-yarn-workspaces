@@ -166,19 +166,19 @@ export function getPathsByType(valueType: IPathItem, cwd?: string)
 
 			break;
 		case SymbolCurrentDirectory:
-			// 當前目錄：使用傳入的 cwd 或 process.cwd()
-			// Current directory: use provided cwd or process.cwd()
+			/** 當前目錄：使用傳入的 cwd 或 process.cwd() */
 			paths.push(cwd ?? process.cwd())
 			break;
 		case SymbolGlobalYarn:
-			// 全域 Yarn 套件目錄 / Global Yarn package directory
+			/** 全域 Yarn 套件目錄 / Global Yarn package directory */
 			paths.push(yarn.packages)
 			break;
 		case SymbolGlobalPnpm:
-			// 全域 Pnpm 套件目錄 / Global Pnpm package directory
+			/** 全域 Pnpm 套件目錄 / Global Pnpm package directory */
 			paths.push(pnpm.packages);
 			/**
-			 * 修正 sindresorhus/global-directory 的 BUG
+			 * 修正 sindresorhus/global-directory 的 BUG (於 v11, v12 已無效，但仍保留此邏輯)
+			 * @deprecated
 			 */
 			pnpm.prefix && paths.push(join(pnpm.prefix, 'store', '5\\node_modules'));
 			break;

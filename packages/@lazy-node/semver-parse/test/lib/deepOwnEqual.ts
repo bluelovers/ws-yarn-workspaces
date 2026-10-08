@@ -1,3 +1,5 @@
+import assert from 'node:assert/strict';
+
 /**
  * 深度比較兩個物件是否具有相同的自有屬性
  * Deep compare two objects for equal own properties
@@ -24,7 +26,7 @@ export function deepOwnEqual(a, b)
 	if (Array.isArray(a) && Array.isArray(b))
 	{
 		// 先比較陣列長度 / First compare array lengths
-		expect(a.length).toStrictEqual(b.length);
+		assert.strictEqual(a.length, b.length);
 
 		// 遞迴比較每個元素 / Recursively compare each element
 		for (let i = 0; i < a.length; i++)
@@ -42,7 +44,22 @@ export function deepOwnEqual(a, b)
 		// 使用 toMatchObject 進行部分匹配比較
 		// Use toMatchObject for partial match comparison
 		// expect(aKeys).toStrictEqual(bKeys);
-		expect(a).toMatchObject(b)
+		// 逐欄遞迴比對（等效於 toMatchObject 的部分匹配語意）
+		// Compare each key recursively (equivalent to toMatchObject partial-match semantics)
+		for (const key of bKeys)
+		{
+			const av = a[key];
+			const bv = b[key];
+
+			if (av !== null && bv !== null && typeof av === 'object' && typeof bv === 'object')
+			{
+				deepOwnEqual(av, bv)
+			}
+			else
+			{
+				assert.strictEqual(av, bv)
+			}
+		}
 
 		/*
 		// 替代方案：逐一比較每個屬性

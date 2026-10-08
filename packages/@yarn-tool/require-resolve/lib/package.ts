@@ -50,6 +50,17 @@ export function _nodeRequireResolveLazyForPkgDir(moduleName: string, processedPa
 	return entryPointLocation;
 }
 
+export function _handleResolvePackageCoreOptions(options?: IOptionsRequireResolve)
+{
+	options ??= {};
+	if (!options.includeGlobal)
+	{
+		options.includeCurrentDirectory ??= true;
+	}
+
+	return options;
+}
+
 /**
  * 解析套件的核心函數
  * Core function for package resolution
@@ -86,6 +97,8 @@ export function _nodeRequireResolveLazyForPkgDir(moduleName: string, processedPa
  */
 export function resolvePackageCore(moduleName: string, options?: IOptionsRequireResolve): IPackageCoreInfo
 {
+	options = _handleResolvePackageCoreOptions(options);
+
 	/**
 	 * 建構解析路徑
 	 * Build resolution paths
@@ -93,7 +106,7 @@ export function resolvePackageCore(moduleName: string, options?: IOptionsRequire
 	 * 展開符號並以 cwd 為基準，取得實際的搜尋路徑清單。
 	 * Symbols are expanded against cwd to produce the real search path list.
 	 */
-	const paths = buildResolvePaths(options ?? {});
+	const paths = buildResolvePaths(options);
 	const processedPaths = handleOptionsPaths(paths, options?.cwd);
 
 	const entryPointLocation = _nodeRequireResolveLazyForPkgDir(moduleName, processedPaths);

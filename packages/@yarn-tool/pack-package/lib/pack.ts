@@ -4,11 +4,13 @@
 
 import { IPackageJson } from '@ts-type/package-dts';
 import _packlist from 'npm-packlist';
-import { CreateOptions, FileOptions, create } from 'tar';
+import { create } from 'tar';
 import { realpathSync, readFileSync } from "fs";
 import { join, resolve } from "path";
 import { getTarballName } from './util';
 import Arborist from '@npmcli/arborist';
+
+type ICreateOptions = Parameters<typeof create>[0];
 
 /**
  * 以 npm 的打包規則計算欲收錄的檔案清單。
@@ -54,6 +56,9 @@ export function packTargetDirectory({
 	return packlist({ path: packageDir })
 		.then(async (files) =>
 		{
+			/**
+			 * @todo 修正類型錯誤 來支援 新版 tar
+			 */
 			//console.dir(files)
 			await create({
 				prefix: 'package/',
@@ -62,7 +67,7 @@ export function packTargetDirectory({
 				gzip: true,
 				portable: true,
 				mtime: new Date("1985-10-26T08:15:00.000Z"),
-			} as CreateOptions & FileOptions, files.map(f => `./${f}`))
+			} as any, files.map(f => `./${f}`))
 			return files as readonly string[]
 		})
 		;

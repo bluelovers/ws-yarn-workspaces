@@ -1,5 +1,5 @@
 import { buildResolvePaths } from "../../lib/core";
-import { _nodeRequireResolveLazyForPkgDir, resolvePackageCore } from "../../lib/package";
+import { _handleResolvePackageCoreOptions, _nodeRequireResolveLazyForPkgDir, resolvePackageCore } from "../../lib/package";
 import { handleOptionsPaths } from "../../lib/util";
 import { sync as pkgDir } from 'pkg-dir';
 
@@ -11,7 +11,9 @@ import { sync as pkgDir } from 'pkg-dir';
  */
 export function _testHelperLazyDebugResolvePackage(...argv: Parameters<typeof resolvePackageCore>)
 {
-	const [moduleName, options] = argv;
+	let [moduleName, options] = argv;
+
+	options = _handleResolvePackageCoreOptions(options);
 
 	let cwd = options?.cwd ?? process.cwd();
 

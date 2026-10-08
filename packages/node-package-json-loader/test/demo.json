@@ -63,7 +63,6 @@
     "@types/validate-npm-package-name": "^3.0.0",
     "@types/yargs": "^15.0.4"
   },
-  "bundleDependencies": [],
   "preferGlobal": true,
   "publishConfig": {},
   "gitHead": "764afbf30c0505cf214354e8f7efe703ce30ae98"
