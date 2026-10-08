@@ -18,7 +18,8 @@
     "yarnlock",
     "node-modules",
     "packages",
-    "package"
+    "package",
+    "create-by-yarn-tool"
   ],
   "homepage": "https://github.com/bluelovers/ws-yarn-workspaces#readme",
   "bugs": {
@@ -28,6 +29,7 @@
     "type": "git",
     "url": "git+https://github.com/bluelovers/ws-yarn-workspaces.git"
   },
+  "sideEffects": false,
   "workspaces": [
     "packages/@yarn-tool/*",
     "packages/@lazy-node/*",
@@ -86,6 +88,7 @@
     "postpublish:subrepo": "git subrepo push --all & git push",
     "postpublishOnly": "node --run postpublishOnly:ws-root-changelog & echo postpublishOnly",
     "postpublishOnly:ws-root-changelog": "ynpx ws-root-changelog & git commit ./CHANGELOG.md -m \"chore(changelog): update changelog toc in workspaces root\" & echo update changelog toc in workspaces root",
+    "bin:npm-init": "pnpm --filter npm-init2 run bin:self",
     "ncu": "node --run ncu:ws",
     "ncu:ws": "yarn-tool ncu -u --AA",
     "ncu:root": "yarn-tool ncu -u",
