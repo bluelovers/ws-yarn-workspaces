@@ -30,7 +30,7 @@
   "scripts": {
     "coverage": "pnpm run test -- --coverage",
     "lint": "ynpx --quiet eslint -- **/*.ts",
-    "test": "node --run test:jest --",
+    "test": "node --run test:node",
     "test:jest": "ynpx --quiet jest -- --coverage",
     "test:jest:coverage": "pnpm run test:jest -- --coverage",
     "test:jest:snapshot": "pnpm run test:jest -- -u",

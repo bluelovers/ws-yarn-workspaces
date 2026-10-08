@@ -33,7 +33,7 @@
   },
   "scripts": {
     "coverage": "pnpm run test -- --coverage",
-    "test": "ynpx mocha test/*.test.js test/**/*.test.js && echo test",
+    "test": "node --run test:node",
     "test:jest": "jest --passWithNoTests",
     "test:jest:coverage": "pnpm run test:jest",
     "test:jest:snapshot": "pnpm run test -u",

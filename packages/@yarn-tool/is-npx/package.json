@@ -28,7 +28,7 @@
   "main": "index.js",
   "scripts": {
     "coverage": "pnpm run test -- --coverage",
-    "test": "node --run test:jest --",
+    "test": "node --run test:node",
     "test:jest": "jest --passWithNoTests",
     "test:jest:coverage": "node --run test:jest -- --coverage",
     "test:jest:snapshot": "node --run test:jest -- -u",

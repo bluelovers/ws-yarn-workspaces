@@ -31,7 +31,7 @@
   "scripts": {
     "coverage": "npx nyc pnpm run test",
     "lint": "npx eslint **/*.ts",
-    "test": "echo ts-node ./test/demo.ts",
+    "test": "node --run test:node",
     "test:jest": "jest --coverage",
     "test:jest:coverage": "pnpm run test:jest -- --coverage",
     "test:jest:snapshot": "pnpm run test:jest -- -u",
