@@ -1,0 +1,227 @@
+exports[`IgnoreFile.from 讀取後保留註解與空行 1`] = `
+{
+  "actual": {
+    "path": "D:/Users/WebstormProjects/nodejs-yarn/ws-yarn-workspaces/packages/@yarn-tool/ignore/test/fixtures/ignore-files/.gitignore",
+    "options": {
+      "startCount": 0,
+      "endCount": 1
+    },
+    "_lines": [
+      "# ignore misc",
+      "*.log",
+      "",
+      "# exception rules",
+      "!keep.log"
+    ]
+  },
+  "snapshot": {
+    "lines": [
+      "# ignore misc",
+      "*.log",
+      "",
+      "# exception rules",
+      "!keep.log"
+    ],
+    "patterns": [
+      "*.log",
+      "!keep.log"
+    ],
+    "content": "# ignore misc\\n*.log\\n\\n# exception rules\\n!keep.log\\n"
+  }
+}
+`;
+
+exports[`add/remove 編輯後註解與空行仍在 1`] = `
+{
+  "actual": {
+    "path": "D:/Users/WebstormProjects/nodejs-yarn/ws-yarn-workspaces/packages/@yarn-tool/ignore/test/fixtures/ignore-files/.gitignore",
+    "options": {
+      "startCount": 0,
+      "endCount": 1
+    },
+    "_lines": [
+      "# ignore misc",
+      "",
+      "# exception rules",
+      "!keep.log",
+      "*.tmp"
+    ]
+  },
+  "snapshot": {
+    "lines": [
+      "# ignore misc",
+      "",
+      "# exception rules",
+      "!keep.log",
+      "*.tmp"
+    ],
+    "patterns": [
+      "!keep.log",
+      "*.tmp"
+    ],
+    "content": "# ignore misc\\n\\n# exception rules\\n!keep.log\\n*.tmp\\n"
+  }
+}
+`;
+
+exports[`options.optimizations 是 stringify() / finalize() 的預設設定 1`] = `
+{
+  "actual": {
+    "path": "virtual/.gitignore",
+    "options": {
+      "optimizations": {
+        "collapseBlankLines": false
+      },
+      "startCount": 0,
+      "endCount": 4
+    },
+    "_lines": [
+      "*.log"
+    ]
+  },
+  "snapshot": {
+    "lines": [
+      "*.log"
+    ],
+    "patterns": [
+      "*.log"
+    ],
+    "content": "*.log\\n\\n\\n"
+  }
+}
+`;
+
+exports[`stringify 可選擇是否在輸出前執行優化 1`] = `
+{
+  "actual": {
+    "path": "virtual/.gitignore",
+    "options": {
+      "startCount": 0,
+      "endCount": 4
+    },
+    "_lines": [
+      "# note",
+      "*.log"
+    ]
+  },
+  "snapshot": {
+    "lines": [
+      "# note",
+      "*.log"
+    ],
+    "patterns": [
+      "*.log"
+    ],
+    "content": "# note\\n*.log\\n\\n\\n"
+  }
+}
+`;
+
+exports[`stringify 可選擇是否在輸出前執行優化 2`] = `
+{
+  "actual": {
+    "path": "virtual/.gitignore",
+    "options": {
+      "startCount": 0,
+      "endCount": 4
+    },
+    "_lines": [
+      "# note",
+      "*.log",
+      "*.log"
+    ]
+  },
+  "snapshot": {
+    "lines": [
+      "# note",
+      "*.log",
+      "*.log"
+    ],
+    "patterns": [
+      "*.log",
+      "*.log"
+    ],
+    "content": "# note\\n*.log\\n*.log\\n\\n\\n"
+  }
+}
+`;
+
+exports[`stringify 可選擇是否在輸出前執行優化 3`] = `
+{
+  "actual": {
+    "path": "virtual/.gitignore",
+    "options": {
+      "optimizations": {
+        "collapseBlankLines": false
+      },
+      "startCount": 0,
+      "endCount": 4
+    },
+    "_lines": [
+      "# note",
+      "*.log"
+    ]
+  },
+  "snapshot": {
+    "lines": [
+      "# note",
+      "*.log"
+    ],
+    "patterns": [
+      "*.log"
+    ],
+    "content": "# note\\n*.log\\n\\n\\n"
+  }
+}
+`;
+
+exports[`stringify 輸出後重新載入，內容一致 1`] = `
+{
+  "actual": {
+    "path": "virtual/.gitignore",
+    "options": {
+      "startCount": 0,
+      "endCount": 1
+    },
+    "_lines": [
+      "# ignore misc",
+      "*.log",
+      "",
+      "# exception rules",
+      "*.tmp"
+    ]
+  },
+  "snapshot": {
+    "lines": [
+      "# ignore misc",
+      "*.log",
+      "",
+      "# exception rules",
+      "*.tmp"
+    ],
+    "patterns": [
+      "*.log",
+      "*.tmp"
+    ],
+    "content": "# ignore misc\\n*.log\\n\\n# exception rules\\n*.tmp\\n"
+  }
+}
+`;
+
+exports[`檔案不存在時視為空白檔案 1`] = `
+{
+  "actual": {
+    "path": "D:/Users/WebstormProjects/nodejs-yarn/ws-yarn-workspaces/packages/@yarn-tool/ignore/test/fixtures/ignore-files/.not-exist-ignore-file",
+    "options": {
+      "startCount": 0,
+      "endCount": 0
+    },
+    "_lines": []
+  },
+  "snapshot": {
+    "lines": [],
+    "patterns": [],
+    "content": ""
+  }
+}
+`;

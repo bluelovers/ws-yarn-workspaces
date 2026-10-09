@@ -1,0 +1,15 @@
+exports[`finalizeIgnoreLines 可個別關閉整理項目 > 預設行為 1`] = `
+{
+  "lines": [
+    "*.log",
+    "*.log",
+    "",
+    "",
+    "",
+    "",
+    "*.123"
+  ],
+  "startCount": 2,
+  "endCount": 3
+}
+`;

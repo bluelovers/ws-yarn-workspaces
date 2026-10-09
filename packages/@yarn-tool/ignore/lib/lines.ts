@@ -41,6 +41,11 @@ export interface IFinalizeIgnoreLinesOptions
 	 * Whether to shrink runs of blank lines beyond the upper bound, defaults to true
 	 */
 	collapseBlankLines?: boolean,
+	/**
+	 * 是否移除檔案開頭與結尾的空白行，預設 true
+	 * Whether to strip blank lines at the start and the end of the file, defaults to true
+	 */
+	omitBlankLines?: boolean,
 }
 
 export type IExcludeReadonlyArray<T extends ITSValueOrArrayMaybeReadonly<any>> = Extract<T, string | any[]>
@@ -80,6 +85,12 @@ export function processToLines(content: ITSValueOrArrayMaybeReadonly<string>): s
 		: value));
 }
 
+/**
+ * 處理內容為行陣列並移除重複行（先出現者被移除）
+ * Process content into a line array and drop duplicated lines (earlier ones removed)
+ *
+ * @param content - 檔案內容
+ */
 export function processToLinesDedupe(content: ITSValueOrArrayMaybeReadonly<string>): string[]
 {
 	return array_unique_overwrite(processToLines(content), {
@@ -114,11 +125,13 @@ export function listPatternsOnly(lines: ITSArrayListMaybeReadonly<string>): stri
  * 只與「插入位置前方最近的一條規則」比對，相同即略過；
  * 不走訪整份行陣列去重——遠處的重複由 {@link finalizeIgnoreLines} 在輸出前處理。
  *
- * 註解與空行維持原位不動，新規則一律插在規則區塊的尾端；
- * 若內容以換行結尾（行陣列最後一項為空字串），則插在它之前，
- * 讓「檔案結尾換行」維持在最後一項。
+ * 註解與空行維持原位不動，新規則一律接在行陣列的最後；
+ * 檔案結尾換行不依賴行陣列末項，而由 `IgnoreFile` 的 `endCount` 還原。
+ * Comments and blank lines stay in place; new rules are appended at the very end
+ * of the array. The end-of-file newline does not rely on the last entry but is
+ * restored from the `IgnoreFile`'s `endCount`.
  *
- * @param lines - 行陣列
+ * @param inputLines - 行陣列
  * @param patterns - 一條或多條規則
  */
 export function addPatterns(inputLines: ITSArrayListMaybeReadonly<string>,
@@ -179,10 +192,11 @@ export function removePatterns(inputLines: ITSArrayListMaybeReadonly<string>,
  * 移除重複的規則，只保留最後一筆；註解與空行不受影響
  * Remove duplicate rules, keeping only the last occurrence; comments and blank lines are unaffected
  *
- * 以 `findLastIndex` 找出每條規則最後出現的位置，
- * 只有該位置的那一筆會被保留，其餘同名規則列一律捨棄。
- * `findLastIndex` locates the last occurrence of each rule; only the entry at
- * that position survives and every other line with the same rule is dropped.
+ * 以「遇到重複時移除先出現者」的方式達成：同名規則只會留下最後出現的那一列，
+ * 其餘同名規則列一律捨棄；註解與空行允許重複（`allowDuplicate`），數量與位置都不變。
+ * Achieved by removing the earlier entry whenever a duplicate shows up: only the
+ * last line of a duplicated rule survives. Comments and blank lines may repeat
+ * (`allowDuplicate`), so their count and positions never change.
  *
  * @param lines - 行陣列
  */
@@ -201,10 +215,16 @@ export function dedupeIgnorePatterns(lines: ITSArrayListMaybeReadonly<string>)
  * 將超過上限的連續空行縮減到上限
  * Shrink runs of blank lines beyond the upper bound down to the bound
  *
- * 末項若是空字串，代表「檔案結尾換行」而非空行，
- * 會先取出再收合，避免把結尾換行誤刪。
- * A trailing empty entry means the end-of-file newline rather than a blank line,
- * so it is taken out first and re-appended to avoid being removed.
+ * 每一段連續空行各自計算：被註解或規則分隔的空行不會跨段收合；
+ * 超過 {@link EnumConst.MAX_BLANK_LINES} 的部分一律丟棄，包含末項的空字串。
+ * 檔案結尾換行不存於行陣列，而由 `IgnoreFile` 的 `endCount` 還原，
+ * 因此收合末項空行不會影響實際輸出的結尾換行。
+ * Each run of blank lines is counted on its own — a run separated by a comment
+ * or a rule never merges with another. Everything beyond
+ * {@link EnumConst.MAX_BLANK_LINES} is dropped, including a trailing empty entry.
+ * The end-of-file newline is not stored in the line array but restored from the
+ * `IgnoreFile`'s `endCount`, so collapsing a trailing blank run does not change
+ * the newlines actually written out.
  *
  * @param lines - 行陣列
  */
@@ -235,37 +255,51 @@ export function collapseIgnoreBlankLines(lines: ITSArrayListMaybeReadonly<string
 	return next
 }
 
+/**
+ * {@link collapseIgnoreBlankLines} 的字串版本：直接對內容收合連續換行
+ * String counterpart of {@link collapseIgnoreBlankLines}: collapses blank runs in place
+ *
+ * 上限與 {@link EnumConst.MAX_BLANK_LINES} 一致（收合成 3 個換行）；
+ * 行模型版本較精確，一般情況優先使用 {@link collapseIgnoreBlankLines}。
+ * The bound matches {@link EnumConst.MAX_BLANK_LINES} (3 newlines); the line-model
+ * version is the more precise one, so prefer {@link collapseIgnoreBlankLines}.
+ */
 export function collapseIgnoreBlankLinesFromString(content: string): string
 {
 	return content.replace(/\n{4,}/g, '\n\n\n')
 }
 
 /**
- * 輸出前整理：移除重複規則（只保留最後一筆）並收合超過上限的空行
- * Finalize before output: drop duplicate rules (keep the last one) and collapse blank lines beyond the bound
+ * 輸出前整理：移除重複規則（只保留最後一筆）、收合超過上限的空行並移除首尾空行
+ * Finalize before output: drop duplicate rules (keep the last one), collapse blank lines beyond the bound and strip leading/trailing blank lines
  *
  * 註解不參與去重，位置與數量都不會被更動。
  * Comments take no part in deduplication, so their position and count never change.
  *
  * @param lines - 行陣列
- * @param options - 整理選項，兩項皆預設啟用 / Finalization options, both enabled by default
+ * @param options - 整理選項，三項皆預設啟用 / Finalization options, all enabled by default
  */
 export function finalizeIgnoreLines(lines: ITSArrayListMaybeReadonly<string>,
 	options?: IFinalizeIgnoreLinesOptions,
 ): string[]
 {
-	const { dedupePatterns = true, collapseBlankLines = true } = options ?? {}
+	const { dedupePatterns, collapseBlankLines, omitBlankLines } = options ?? {}
 
 	let next = [...lines]
 
-	if (dedupePatterns)
+	if (dedupePatterns ?? true)
 	{
 		next = dedupeIgnorePatterns(next)
 	}
 
-	if (collapseBlankLines)
+	if (collapseBlankLines ?? true)
 	{
 		next = collapseIgnoreBlankLines(next)
+	}
+
+	if (!(omitBlankLines ?? true))
+	{
+		return next
 	}
 
 	return _omitBlankLines(next).lines

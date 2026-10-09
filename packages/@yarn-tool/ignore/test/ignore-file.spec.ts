@@ -1,11 +1,11 @@
 //@noUnusedParameters:false
 
-import { test, after, before, type TestContext } from 'node:test'
-import { existsSync, readFileSync, removeSync } from 'fs-extra'
+import { test, type TestContext } from 'node:test'
 import path from 'upath2'
 import { IgnoreFile } from '../lib/IgnoreFile'
-import { EnumLineType, lineType, serializeLines } from '../lib/lines'
-import { __TEST_FIXTURES, __TEST_TEMP } from './__root'
+import { EnumLineType, lineType } from '../lib/lines'
+import { __TEST_FIXTURES } from './__root'
+import { snapshotIgnoreFile } from './lib/test-helper'
 
 /**
  * 起點：資料夾內有 nested/.dockerignore，可驗證「指定檔名」的搜尋
@@ -16,15 +16,22 @@ const __FIXTURE_DIR = path.join(__TEST_FIXTURES, 'ignore-files')
 const __FIXTURE_GITIGNORE = path.join(__FIXTURE_DIR, '.gitignore')
 
 /**
- * 可寫的臨時目錄，每個測試前清空
- * Writable temp directory, cleaned before each run
+ * 虛擬路徑：內容斷言一律以 stringify() 的回傳值比對，
+ * 不建立、不寫入任何檔案，也就沒有清理臨時檔案的必要
+ * Virtual path: every content assertion compares the value returned by
+ * stringify(); no file is ever created or written, so there is nothing to clean up
  */
-const __TEMP_DIR = path.join(__TEST_TEMP, 'ignore-file')
-const __TEMP_GITIGNORE = path.join(__TEMP_DIR, '.gitignore')
+const __VIRTUAL_GITIGNORE = 'virtual/.gitignore'
 
 /**
  * 與 fixture 內容同步的期望值，作為內容斷言的單一事實來源
- * Expectation kept in sync with the fixture, as the single source of truth for content assertions
+ *
+ * 建構子會移除首尾空行（結尾換行記入 options.endCount），
+ * 因此行模型不含結尾的空字串，fixture 的 `!keep.log\n` 也算一行結尾換行。
+ * Expectation kept in sync with the fixture, as the single source of truth for
+ * content assertions; the constructor strips leading/trailing blank lines (the
+ * end-of-file newline is recorded as options.endCount), so the line model has no
+ * trailing empty entry.
  */
 const FIXTURE_LINES = [
 	'# ignore misc',
@@ -32,33 +39,37 @@ const FIXTURE_LINES = [
 	'',
 	'# exception rules',
 	'!keep.log',
-	'',
 ]
 
 const countType = (lines: readonly string[], type: EnumLineType) =>
 	lines.filter(v => lineType(v) === type).length
-
-before(() =>
-{
-	removeSync(__TEMP_DIR)
-})
-
-/**
- * 清除測試產生的臨時檔案，避免殘留 / Remove generated temp files so nothing is left behind
- */
-after(() =>
-{
-	removeSync(__TEMP_DIR)
-})
 
 test(`IgnoreFile.from 讀取後保留註解與空行`, (t: TestContext) =>
 {
 	const file = IgnoreFile.from(__FIXTURE_GITIGNORE)
 
 	t.assert.strictEqual(file.path, __FIXTURE_GITIGNORE)
-	t.assert.deepStrictEqual([...file.lines], FIXTURE_LINES, `註解與空行原樣保留 / comments and blank lines are kept as-is`)
-	t.assert.deepStrictEqual(file.patterns, ['*.log', '!keep.log'], `只列出規則 / only rules are listed`)
-	t.assert.strictEqual(file.content, serializeLines(FIXTURE_LINES), `content 與行模型一致 / content matches the line model`)
+
+	/**
+	 * 以快照記錄實際的行模型、規則與輸出內容（不優化時原樣還原含結尾換行），
+	 * 並對這三個 getter 欄位做部分比對；
+	 * `options` 是自有屬性（非 getter），走「直接比對實例」的另一半，
+	 * 用來驗證結尾換行被記入 endCount
+	 * The snapshot records the actual line model, rules and output (un-optimized,
+	 * with the end-of-file newline restored as-is), and those getter fields are
+	 * partially compared. `options` is an own property rather than a getter, so it
+	 * takes the other comparison path (against the instance itself) and verifies
+	 * that the end-of-file newline was recorded as endCount
+	 */
+	snapshotIgnoreFile(t, file, {
+		lines: FIXTURE_LINES,
+		patterns: ['*.log', '!keep.log'],
+		content: [
+			...FIXTURE_LINES,
+			'',
+		].join('\n'),
+		options: { startCount: 0, endCount: 1 },
+	})
 })
 
 test(`add/remove 編輯後註解與空行仍在`, (t: TestContext) =>
@@ -69,35 +80,54 @@ test(`add/remove 編輯後註解與空行仍在`, (t: TestContext) =>
 	file.remove('*.log', '*.css')
 
 	t.assert.strictEqual(file.has('*.tmp'), true)
-	t.assert.strictEqual(file.has('*.css'), false, `同批內新增後又移除 / removed within the same batch`)
+	t.assert.strictEqual(file.has('*.css'), false, `同批內新增後又移除`)
 	t.assert.strictEqual(file.has('*.log'), false)
 
 	/**
 	 * 整批只重建一次行陣列，結果與逐條處理一致
 	 * The whole batch rebuilds the lines once, with the same result as per-item processing
 	 */
-	t.assert.deepStrictEqual(file.patterns, ['!keep.log', '*.tmp'])
 	t.assert.strictEqual(countType(file.lines, EnumLineType.Comment), countType(FIXTURE_LINES, EnumLineType.Comment))
 	t.assert.strictEqual(countType(file.lines, EnumLineType.Blank), countType(FIXTURE_LINES, EnumLineType.Blank))
+
+	/**
+	 * 快照記錄編輯後的實際行模型，只對規則欄位做部分比對
+	 * The snapshot records the actual line model after editing; only the rules are partially compared
+	 */
+	snapshotIgnoreFile(t, file, {
+		patterns: ['!keep.log', '*.tmp'],
+	})
 })
 
-test(`save 保存後重新讀取內容一致`, (t: TestContext) =>
+test(`stringify 輸出後重新載入，內容一致`, (t: TestContext) =>
 {
-	const file = new IgnoreFile(__TEMP_GITIGNORE, IgnoreFile.from(__FIXTURE_GITIGNORE).content)
+	const file = IgnoreFile.from(__FIXTURE_GITIGNORE)
 
 	file.add('*.tmp')
 	file.remove('!keep.log')
-	file.save()
 
-	t.assert.strictEqual(existsSync(__TEMP_GITIGNORE), true, `檔案已保存 / file is saved`)
+	/**
+	 * stringify() 預設先優化再輸出；以虛擬路徑重新載入同一份輸出，不寫入磁碟
+	 * stringify() optimizes before output by default; the same output is reloaded
+	 * through a virtual path, without touching the disk
+	 */
+	const saved = file.stringify()
+	const reloaded = new IgnoreFile(__VIRTUAL_GITIGNORE, saved)
 
-	const reloaded = IgnoreFile.from(__TEMP_GITIGNORE)
+	t.assert.strictEqual(reloaded.stringify({ disableOptimize: false }), saved, `輸出與重新載入一致`)
+	t.assert.strictEqual(countType(reloaded.lines, EnumLineType.Comment), countType(FIXTURE_LINES, EnumLineType.Comment), `輸出後仍有註解`)
+	t.assert.strictEqual(countType(reloaded.lines, EnumLineType.Blank), countType(FIXTURE_LINES, EnumLineType.Blank), `輸出後仍有空行`)
 
-	t.assert.strictEqual(reloaded.content, file.content, `保存與讀取一致 / saved content round-trips`)
-	t.assert.strictEqual(readFileSync(__TEMP_GITIGNORE, 'utf8'), file.content, `磁碟內容與行模型一致 / disk content matches the line model`)
-	t.assert.strictEqual(countType(reloaded.lines, EnumLineType.Comment), countType(FIXTURE_LINES, EnumLineType.Comment), `保存後仍有註解 / comments survive the save`)
-	t.assert.strictEqual(countType(reloaded.lines, EnumLineType.Blank), 2, `保存後仍有空行 / blank lines survive the save`)
-	t.assert.deepStrictEqual(reloaded.patterns, ['*.log', '*.tmp'])
+	/**
+	 * 快照記錄重新載入後的實際狀態：行模型與原實例一致，內容即當初的輸出
+	 * The snapshot records the actual state after reloading: the line model matches
+	 * the original instance and the content is the earlier output
+	 */
+	snapshotIgnoreFile(t, reloaded, {
+		lines: [...file.lines],
+		patterns: ['*.log', '*.tmp'],
+		content: saved,
+	})
 })
 
 test(`find 必須指定檔名，回傳對應的 ignore 檔案`, (t: TestContext) =>
@@ -106,16 +136,16 @@ test(`find 必須指定檔名，回傳對應的 ignore 檔案`, (t: TestContext)
 	const gitignore = IgnoreFile.find('.gitignore', __NESTED_DIR)
 
 	t.assert.ok(docker instanceof IgnoreFile)
-	t.assert.strictEqual(docker?.path, path.join(__NESTED_DIR, '.dockerignore'), `最近的 .dockerignore / the nearest .dockerignore`)
-	t.assert.strictEqual(gitignore?.path, path.join(__FIXTURE_DIR, '.gitignore'), `最近的 .gitignore / the nearest .gitignore`)
-	t.assert.notStrictEqual(docker?.path, gitignore?.path, `指定不同檔名應回傳不同檔案 / different file names must resolve to different files`)
+	t.assert.strictEqual(docker?.path, path.join(__NESTED_DIR, '.dockerignore'), `最近的 .dockerignore`)
+	t.assert.strictEqual(gitignore?.path, path.join(__FIXTURE_DIR, '.gitignore'), `最近的 .gitignore`)
+	t.assert.notStrictEqual(docker?.path, gitignore?.path, `指定不同檔名應回傳不同檔案`)
 
 	const missing = IgnoreFile.find('.not-exist-ignore-file', __NESTED_DIR)
 
-	t.assert.strictEqual(missing, undefined, `範圍內沒有該檔案時回傳 undefined / undefined when nothing is found`)
+	t.assert.strictEqual(missing, undefined, `範圍內沒有該檔案時回傳 undefined`)
 })
 
-test(`save 可選擇是否在寫入前執行優化`, (t: TestContext) =>
+test(`stringify 可選擇是否在輸出前執行優化`, (t: TestContext) =>
 {
 	const raw = [
 		'# note',
@@ -127,15 +157,16 @@ test(`save 可選擇是否在寫入前執行優化`, (t: TestContext) =>
 		'',
 	]
 
-	const optimized = new IgnoreFile(path.join(__TEMP_DIR, 'finalized.gitignore'), raw.join('\n'))
-	optimized.save()
+	const optimized = new IgnoreFile(__VIRTUAL_GITIGNORE, raw.join('\n'))
 
 	/**
-	 * 預設寫入前執行優化：重複規則只留最後一筆、連續空行收合到 2 個
-	 * By default the content is optimized before writing: the duplicate rule
-	 * keeps only its last occurrence and the blank run shrinks to 2
+	 * 預設輸出前執行優化：重複規則只留最後一筆，
+	 * 建構時記錄的 endCount 只負責還原結尾換行，仍會收合成上限
+	 * By default the content is optimized before output: the duplicate rule keeps
+	 * only its last occurrence; the endCount recorded by the constructor restores
+	 * the end-of-file newline, which is still clamped to the upper bound
 	 */
-	t.assert.deepStrictEqual(readFileSync(optimized.path, 'utf8'), [
+	t.assert.strictEqual(optimized.stringify(), [
 		'# note',
 		'*.log',
 		'',
@@ -143,24 +174,63 @@ test(`save 可選擇是否在寫入前執行優化`, (t: TestContext) =>
 		'',
 	].join('\n'))
 
-	const kept = new IgnoreFile(path.join(__TEMP_DIR, 'kept.gitignore'), raw.join('\n'))
-	kept.save({ disableOptimize: false })
+	/**
+	 * 快照記錄優化後的實際行模型與內容
+	 * The snapshot records the actual line model and content after optimizing
+	 */
+	snapshotIgnoreFile(t, optimized, {
+		lines: [
+			'# note',
+			'*.log',
+		],
+		content: [
+			'# note',
+			'*.log',
+			'',
+			'',
+			'',
+		].join('\n'),
+	})
 
-	t.assert.deepStrictEqual(readFileSync(kept.path, 'utf8'), raw.join('\n'), `optimize:false 寫入未優化的內容 / optimize:false writes the un-optimized content`)
+	const kept = new IgnoreFile(__VIRTUAL_GITIGNORE, raw)
+	const keptContent = kept.stringify({ disableOptimize: false })
+
+	t.assert.strictEqual(keptContent, [
+		'# note',
+		'*.log',
+		'*.log',
+		'',
+		'',
+		'',
+	].join('\n'), `disableOptimize:false 跳過優化，重複規則原樣保留`)
 
 	/**
-	 * save() 的 optimizations 覆寫實例設定：本次收合空行、但不影響實例上的預設值
-	 * The save() optimizations override the instance settings for this call only
+	 * 快照記錄未優化的實際行模型：重複規則仍在；
+	 * 一併驗證非 getter 欄位 options：跳過優化不影響建構時記錄的結尾換行數
+	 * The snapshot records the actual line model without optimization: the
+	 * duplicate is still there; the non-getter field options is verified as well:
+	 * skipping the optimization leaves the recorded end-of-file newline count intact
 	 */
-	const overridden = new IgnoreFile(path.join(__TEMP_DIR, 'overridden.gitignore'), raw.join('\n'), {
+	snapshotIgnoreFile(t, kept, {
+		lines: [
+			'# note',
+			'*.log',
+			'*.log',
+		],
+		options: { startCount: 0, endCount: 4 },
+	})
+
+	/**
+	 * stringify() 的 optimizations 覆寫實例設定：本次收合空行、但不影響實例上的預設值
+	 * The stringify() optimizations override the instance settings for this call only
+	 */
+	const overridden = new IgnoreFile(__VIRTUAL_GITIGNORE, raw.join('\n'), {
 		optimizations: {
 			collapseBlankLines: false,
 		},
 	})
 
-	overridden.save({ optimizations: { collapseBlankLines: true } })
-
-	t.assert.deepStrictEqual(readFileSync(overridden.path, 'utf8'), [
+	t.assert.strictEqual(overridden.stringify({ optimizations: { collapseBlankLines: true } }), [
 		'# note',
 		'*.log',
 		'',
@@ -168,17 +238,29 @@ test(`save 可選擇是否在寫入前執行優化`, (t: TestContext) =>
 		'',
 	].join('\n'))
 
-	t.assert.deepStrictEqual(overridden.options.optimizations, { collapseBlankLines: false }, `實例設定不被 save() 改動 / instance settings are not mutated by save()`)
-	t.assert.deepStrictEqual([...overridden.lines], [
-		'# note',
-		'*.log',
-		'',
-		'',
-		'',
-	])
+	t.assert.deepStrictEqual(overridden.options.optimizations, { collapseBlankLines: false }, `實例設定不被 stringify() 改動`)
+
+	/**
+	 * 快照記錄覆寫選項後的實際結果：本次照常收合，行陣列已被 finalize() 更新
+	 * The snapshot records the actual result after overriding the options: the
+	 * call still collapses, and the lines have been updated by finalize()
+	 */
+	snapshotIgnoreFile(t, overridden, {
+		lines: [
+			'# note',
+			'*.log',
+		],
+		content: [
+			'# note',
+			'*.log',
+			'',
+			'',
+			'',
+		].join('\n'),
+	})
 })
 
-test(`options.optimizations 是 finalize() 的預設設定`, (t: TestContext) =>
+test(`options.optimizations 是 stringify() / finalize() 的預設設定`, (t: TestContext) =>
 {
 	const raw = [
 		'*.log',
@@ -190,27 +272,36 @@ test(`options.optimizations 是 finalize() 的預設設定`, (t: TestContext) =>
 	]
 
 	/**
-	 * 以實例設定關掉空行收合，finalize() 不帶參數時應沿用它
-	 * The instance setting disables blank collapsing, which finalize() without
+	 * 以實例設定關掉空行收合，stringify() 不帶參數時應沿用它
+	 * The instance setting disables blank collapsing, which stringify() without
 	 * arguments honours
 	 */
-	const file = new IgnoreFile(path.join(__TEMP_DIR, 'opts.gitignore'), raw.join('\n'), {
+	const file = new IgnoreFile(__VIRTUAL_GITIGNORE, raw.join('\n'), {
 		optimizations: {
 			collapseBlankLines: false,
 		},
 	})
 
-	t.assert.deepStrictEqual(file.options.optimizations, { collapseBlankLines: false })
+	t.assert.strictEqual(file.stringify(), '*.log\n\n\n')
 
-	file.finalize()
-
-	t.assert.deepStrictEqual([...file.lines], [
-		'*.log',
-		'',
-		'',
-		'',
-		'',
-	])
+	/**
+	 * 快照記錄實際的行模型與內容：去重已執行、收合依實例設定關閉；
+	 * 非 getter 欄位 options 一併驗證——實例設定維持 collapseBlankLines:false，
+	 * 建構時記錄的結尾換行數也不會被 stringify() 改寫
+	 * The snapshot records the actual line model and content: dedupe ran, while
+	 * collapsing is off per the instance settings; the non-getter field options is
+	 * verified as well — the instance setting keeps collapseBlankLines:false, and
+	 * the recorded end-of-file newline count is not rewritten by stringify()
+	 */
+	snapshotIgnoreFile(t, file, {
+		lines: ['*.log'],
+		content: '*.log\n\n\n',
+		options: {
+			optimizations: { collapseBlankLines: false },
+			startCount: 0,
+			endCount: 4,
+		},
+	})
 
 	/**
 	 * 傳入的選項優先於實例設定
@@ -218,12 +309,12 @@ test(`options.optimizations 是 finalize() 的預設設定`, (t: TestContext) =>
 	 */
 	file.finalize({ collapseBlankLines: true })
 
-	t.assert.deepStrictEqual([...file.lines], ['*.log', '', '', ''])
+	t.assert.deepStrictEqual([...file.lines], ['*.log'])
 })
 
 test(`isIgnored / filter 依規則比對路徑`, (t: TestContext) =>
 {
-	const file = new IgnoreFile('virtual/.gitignore', [
+	const file = new IgnoreFile(__VIRTUAL_GITIGNORE, [
 		'*.log',
 		'',
 		'# 只保留 keep.log / keep keep.log only',
@@ -234,17 +325,24 @@ test(`isIgnored / filter 依規則比對路徑`, (t: TestContext) =>
 	t.assert.strictEqual(file.isIgnored('a.log'), true)
 	t.assert.strictEqual(file.isIgnored('keep.log'), false)
 	t.assert.strictEqual(file.isIgnored('a.js'), false)
-	t.assert.strictEqual(file.ignores('a.log'), true, `ignores 為 isIgnored 的別名 / ignores is an alias of isIgnored`)
+	t.assert.strictEqual(file.ignores('a.log'), true, `ignores 為 isIgnored 的別名`)
 	t.assert.deepStrictEqual(file.filter(['a.log', 'keep.log', 'a.js']), ['keep.log', 'a.js'])
 })
 
 test(`檔案不存在時視為空白檔案`, (t: TestContext) =>
 {
-	const missing = path.join(__TEMP_DIR, 'not-exist.gitignore')
+	const missing = path.join(__FIXTURE_DIR, '.not-exist-ignore-file')
 	const file = IgnoreFile.from(missing)
 
-	t.assert.strictEqual(existsSync(missing), false)
-	t.assert.deepStrictEqual([...file.lines], [''])
-	t.assert.deepStrictEqual(file.patterns, [])
-	t.assert.strictEqual(file.content, '')
+	/**
+	 * 三個 getter 欄位皆為空；非 getter 欄位 options 驗證空白檔案的 startCount / endCount 為 0
+	 * All three getter fields are empty; the non-getter field options verifies that
+	 * an empty file yields a zero startCount / endCount
+	 */
+	snapshotIgnoreFile(t, file, {
+		lines: [],
+		patterns: [],
+		content: '',
+		options: { startCount: 0, endCount: 0 },
+	})
 })

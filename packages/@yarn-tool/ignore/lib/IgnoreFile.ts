@@ -16,7 +16,7 @@ import {
 	ICwdOrFindIgnoreFilesOptions,
 	IFindIgnoreFilesOptions,
 } from './find';
-import { ITSArrayListMaybeReadonly } from 'ts-type';
+import { ITSArrayListMaybeReadonly, ITSValueOrArrayMaybeReadonly } from 'ts-type';
 import { _omitBlankLines, _stringifyEndOfLine } from './normalize';
 import { LF } from 'crlf-normalize';
 
@@ -34,8 +34,8 @@ const ENCODING = 'utf8'
 export interface IIgnoreFileOptions
 {
 	/**
-	 * 輸出前優化的設定（移除重複規則、收合空行）
-	 * Optimization settings applied before output (drop duplicate rules, collapse blank lines)
+	 * 輸出前優化的設定（移除重複規則、收合空行、移除首尾空行）
+	 * Optimization settings applied before output (drop duplicate rules, collapse blank lines, strip leading/trailing blank lines)
 	 *
 	 * 實例上的這份設定是 {@link IgnoreFile.finalize} 的預設值，
 	 * `finalize()` 傳入的選項會覆寫它們。
@@ -44,17 +44,37 @@ export interface IIgnoreFileOptions
 
 	ignoreOptions?: Parameters<typeof ignore>[0];
 
+	/**
+	 * 檔案開頭的換行數，輸出時還原為 LF
+	 * Number of newlines at the start of the file, restored as LF on output
+	 *
+	 * 未指定時由建構子以實際內容記錄（見建構子說明）；
+	 * 傳 `false` 表示不還原，數字則會收合到 MAX_BLANK_LINES 上限。
+	 * When omitted the constructor records it from the actual content (see the
+	 * constructor); pass `false` to restore nothing, and a number is clamped to
+	 * the MAX_BLANK_LINES bound
+	 */
 	startCount?: boolean | number;
 
 	/**
-	 * 結尾是否添加換行符
-	 * 如果是 number，則添加指定數量的換行符
+	 * 檔案結尾的換行數，輸出時還原為 LF
+	 * Number of newlines at the end of the file, restored as LF on output
+	 *
+	 * 行為同 {@link startCount}：未指定時由建構子記錄、`false` 不還原、
+	 * 數字收合到 MAX_BLANK_LINES 上限。
+	 * Behaves like {@link startCount}: recorded by the constructor when omitted,
+	 * `false` restores nothing, and a number is clamped to the MAX_BLANK_LINES bound
 	 */
 	endCount?: boolean | number;
 
 	/**
-	 * 寫入前是否停用執行優化
-	 * `optimizations` 決定優化的內容，`disableOptimize` 只決定這次保存要不要執行。
+	 * 這次輸出是否停用優化（只有明確傳入 `false` 才會停用）
+	 * Whether to skip the optimization for this output (only an explicit `false` skips)
+	 *
+	 * `optimizations` 決定「優化哪些項目」，`disableOptimize` 只決定「這次輸出要不要做」；
+	 * 省略或傳 `true` 皆會執行優化。
+	 * `optimizations` decides which steps run, while `disableOptimize` only decides
+	 * whether this output performs them; omitting it or passing `true` optimizes
 	 */
 	disableOptimize?: boolean,
 }
@@ -150,11 +170,27 @@ export class IgnoreFile
 
 	protected _ignore: ReturnType<typeof ignore>;
 
-	constructor(path: string, content = '', options?: IIgnoreFileOptions)
+	/**
+	 * 以內容與路徑建立實例
+	 *
+	 * 建構時會先剝除首尾的空行，
+	 * 並把剝除數量記錄到 {@link options} 的 `startCount` / `endCount`，
+	 * 之後由 {@link content} / {@link stringify} 依數量還原結尾換行；
+	 * 傳入 `false` 的一項表示該側不自動記錄。
+	 * Leading/trailing blank lines are stripped at construction and the counts are
+	 * recorded as `startCount` / `endCount` in {@link options}, so {@link content} /
+	 * {@link stringify} can restore the newlines; passing `false` for one of them
+	 * disables the automatic recording on that side.
+	 *
+	 * @param path - ignore 檔案路徑
+	 * @param content - 檔案內容或行陣列，省略時視為空白檔案
+	 * @param options - 實例設定，控管 {@link finalize}
+	 */
+	constructor(path: string, content?: ITSValueOrArrayMaybeReadonly<string>, options?: IIgnoreFileOptions)
 	{
 		this.path = path
 		this.options = options ?? {}
-		this._lines = processToLines(content)
+		this._lines = processToLines(content ?? '')
 
 		if (typeof this.options.endCount !== 'number' || typeof this.options.startCount !== 'number')
 		{
@@ -232,10 +268,16 @@ export class IgnoreFile
 	}
 
 	/**
-	 * 輸出前優化：移除重複規則（只保留最後一筆）並收合超過上限的空行
+	 * 輸出前優化（就地更新行陣列）
+	 * Optimize before output (updates the lines in place)
+	 *
+	 * 依序執行：移除重複規則（只保留最後一筆）、收合超過上限的連續空行、
+	 * 移除首尾空行；三項皆可個別關閉。
+	 * Runs in order: drop duplicate rules (keep the last one), collapse blank runs
+	 * beyond the bound, and strip leading/trailing blank lines; each step can be
+	 * disabled individually.
 	 *
 	 * 註解不參與去重，位置與數量都不會被更動。
-	 *
 	 * 以 {@link this.options.optimizations} 為預設值，`options` 參數覆寫之。
 	 *
 	 * @param options - 優化選項
@@ -253,13 +295,19 @@ export class IgnoreFile
 	}
 
 	/**
-	 * 保存到檔案
+	 * 取得目前內容（LF 行尾），預設先執行優化再輸出
+	 * Get the current content (LF line endings), optimizing before output by default
 	 *
-	 * 預設先執行優化再寫入；`optimize: false` 可保留未優化的行陣列。
+	 * 優化會就地更新行陣列（同 {@link finalize}）；
+	 * `disableOptimize: false` 可取得未優化的輸出，
+	 * `optimizations` 則覆寫實例上的設定（見 {@link IIgnoreFileOptions}）。
+	 * Optimizing updates the lines in place (same as {@link finalize}); pass
+	 * `disableOptimize: false` for the un-optimized output, and `optimizations`
+	 * overrides the instance settings (see {@link IIgnoreFileOptions})
 	 *
-	 * @param opts - 保存選項，見 {@link IIgnoreFileOptions}
+	 * @param opts - 輸出選項，見 {@link IIgnoreFileOptions}
 	 */
-	save(opts?: IIgnoreFileOptions): this
+	stringify(opts?: IIgnoreFileOptions): string
 	{
 		const { disableOptimize: optimize = true, optimizations } = opts ?? {}
 
@@ -268,7 +316,23 @@ export class IgnoreFile
 			this.finalize(optimizations)
 		}
 
-		outputFileSync(this.path, this.content, {
+		return this.content
+	}
+
+	/**
+	 * 保存到檔案
+	 * Save to the file
+	 *
+	 * 內容來自 {@link stringify}：預設先執行優化再寫入；
+	 * `disableOptimize: false` 可寫入未優化的內容。
+	 * The content comes from {@link stringify}: it optimizes before writing by
+	 * default; pass `disableOptimize: false` to write the un-optimized content
+	 *
+	 * @param opts - 保存選項，見 {@link IIgnoreFileOptions}
+	 */
+	save(opts?: IIgnoreFileOptions): this
+	{
+		outputFileSync(this.path, this.stringify(opts), {
 			encoding: ENCODING,
 		})
 
@@ -298,11 +362,33 @@ export class IgnoreFile
 		return this.toIgnore().ignores(pathname)
 	}
 
+	/**
+	 * 判斷路徑是否被忽略（`isIgnored` 的別名）
+	 * Whether the path is ignored (an alias of isIgnored)
+	 *
+	 * 刻意沿用 `import ignore from 'ignore'` 的 `ignores()` 名稱：
+	 * 如此一來，只要求 `{ ignores(pathname: string): boolean }` 的型別
+	 * 可以同時接受 IgnoreFile 與 ignore 套件建立的實例，兩者可互換使用。
+	 * The `ignores()` name deliberately matches `import ignore from 'ignore'`:
+	 * any type that only requires `{ ignores(pathname: string): boolean }` accepts
+	 * both an IgnoreFile and an instance created by the ignore package, so the two
+	 * are interchangeable.
+	 *
+	 * @param pathname - 相對路徑（需為正斜線）/ Relative path (forward slashes required)
+	 */
 	ignores(pathname: string)
 	{
 		return this.isIgnored(pathname);
 	}
 
+	/**
+	 * 回傳路徑的比對結果，同名相容 `ignore` 套件的 `test()`
+	 * The matching result of the path, name-compatible with the ignore package's `test()`
+	 *
+	 * 與 `ignores()` 相同的理由：同名同回傳值，讓接受 ignore 實例的程式碼也能直接傳入 IgnoreFile。
+	 * For the same reason as `ignores()`: identical name and return value, so code
+	 * accepting an ignore instance also accepts an IgnoreFile directly.
+	 */
 	test(pathname: string): ICheckIgnoreResult
 	{
 		return this.toIgnore().test(pathname);
@@ -311,6 +397,10 @@ export class IgnoreFile
 	/**
 	 * Debugs gitignore / exclude files, which is equivalent to git check-ignore -v.
 	 * Usually this method is used for other packages to implement the function of git check-ignore -v upon node-ignore
+	 *
+	 * 同名相容 `ignore` 套件的 `checkIgnore()`，回傳值也相同（{@link ICheckIgnoreResult}）。
+	 * Name-compatible with the ignore package's `checkIgnore()`, returning the same
+	 * {@link ICheckIgnoreResult}.
 	 */
 	checkIgnore(pathname: string): ICheckIgnoreResult
 	{
@@ -319,6 +409,11 @@ export class IgnoreFile
 
 	/**
 	 * 過濾出被忽略的路徑 / Filter out the ignored paths
+	 *
+	 * 同名相容 `ignore` 套件的 `filter()`；與 `ignores()` 相同的理由，
+	 * 接受 ignore 實例的型別也能直接接受 IgnoreFile。
+	 * Name-compatible with the ignore package's `filter()`; for the same reason as
+	 * `ignores()`, a type accepting an ignore instance also accepts an IgnoreFile.
 	 *
 	 * @param paths - 相對路徑列表 / List of relative paths
 	 */

@@ -8,11 +8,7 @@ import {
 	finalizeIgnoreLines,
 } from '../lib/lines'
 import { EnumConst } from '../lib/types'
-
-before(() =>
-{
-
-})
+import { _omitBlankLines } from '../lib/normalize'
 
 test(`addPatterns 只比對插入點前方最近的規則`, (t: TestContext) =>
 {
@@ -37,8 +33,8 @@ test(`addPatterns 只比對插入點前方最近的規則`, (t: TestContext) =>
 		'*.log',
 		'',
 		'*.tmp',
-		'*.log',
 		'',
+		'*.log',
 	])
 
 	/**
@@ -53,7 +49,7 @@ test(`addPatterns 插入位置維持在檔案結尾換行之前`, (t: TestContex
 {
 	const next = addPatterns(['*.log', ''], ['*.tmp'])
 
-	t.assert.deepStrictEqual(next, ['*.log', '*.tmp', ''])
+	t.assert.deepStrictEqual(next, ['*.log', '', '*.tmp'])
 
 	/**
 	 * 內容不以換行結尾時，直接接在最後
@@ -91,7 +87,7 @@ test(`finalizeIgnoreLines 去重只保留最後一筆，註解不受影響`, (t:
 	 * duplicated rule lines are dropped
 	 */
 	t.assert.strictEqual(next.filter(v => v.startsWith('#')).length, 2)
-	t.assert.strictEqual(next.filter(v => v === '').length, 3)
+	t.assert.strictEqual(next.filter(v => v === '').length, 2)
 	t.assert.deepStrictEqual(next.filter(v => !v.startsWith('#') && v !== ''), ['*.log'])
 })
 
@@ -158,7 +154,7 @@ test(`finalizeIgnoreLines 收合超過 ${EnumConst.MAX_BLANK_LINES} 個的連續
 	])
 })
 
-test(`finalizeIgnoreLines 可個別關閉整理項目`, (t: TestContext) =>
+test(`finalizeIgnoreLines 可個別關閉整理項目`, () =>
 {
 	const lines = [
 		'',
@@ -168,29 +164,159 @@ test(`finalizeIgnoreLines 可個別關閉整理項目`, (t: TestContext) =>
 		'',
 		'',
 		'',
+		'',
 		'*.123',
 		'',
 		'',
 		'',
 	]
 
-	t.assert.deepStrictEqual(finalizeIgnoreLines(lines, { dedupePatterns: false }), [
-		'*.log',
-		'*.log',
-		'',
-		'',
-		'',
-		'*.123',
-	])
+	test(`{ dedupePatterns: false }`, (t: TestContext) => {
 
-	t.assert.deepStrictEqual(finalizeIgnoreLines(lines, { collapseBlankLines: false }), [
-		'*.log',
-		'',
-		'',
-		'',
-		'',
-		'*.123',
-	])
+		/**
+		 * 個別執行 dedupeIgnorePatterns：重複的 `*.log` 只保留最後一筆，
+		 * 前導與結尾的空行維持原樣，不做任何收合
+		 * Running dedupeIgnorePatterns on its own keeps only the last `*.log`;
+		 * leading and trailing blank lines stay exactly as they were
+		 */
+		t.assert.deepStrictEqual(dedupeIgnorePatterns(lines), [
+			'',
+			'',
+			'*.log',
+			'',
+			'',
+			'',
+			'',
+			'*.123',
+			'',
+			'',
+			'',
+		])
 
-	t.assert.deepStrictEqual(dedupeIgnorePatterns(lines), ['*.log', '', '', '', ''])
+		/**
+		 * 對照：關掉 `dedupePatterns` 後，兩行 `*.log` 都保留，
+		 * 其餘整理（收合空行、移除首尾空行）照常執行
+		 * For comparison: with `dedupePatterns` off both `*.log` lines survive,
+		 * while the other steps (collapse, strip ends) still run
+		 */
+		t.assert.deepStrictEqual(finalizeIgnoreLines(lines, { dedupePatterns: false }), [
+			'*.log',
+			'*.log',
+			'',
+			'',
+			'',
+			'*.123',
+		])
+	});
+
+	test(`{ collapseBlankLines: false }`, (t: TestContext) => {
+
+		/**
+		 * 個別執行 collapseIgnoreBlankLines：中段 4 個空行收合成上限
+		 * ${EnumConst.MAX_BLANK_LINES} 個，前導與結尾的空行維持原樣
+		 * Running collapseIgnoreBlankLines on its own shrinks the middle run of
+		 * 4 blank lines to the ${EnumConst.MAX_BLANK_LINES}-line bound; the leading
+		 * and trailing blanks stay exactly as they were
+		 */
+		t.assert.deepStrictEqual(collapseIgnoreBlankLines(lines), [
+			'',
+			'',
+			'*.log',
+			'*.log',
+			'',
+			'',
+			'',
+			'*.123',
+			'',
+			'',
+			'',
+		])
+
+		/**
+		 * 對照：關掉 `collapseBlankLines` 後，中段 4 個空行原樣保留，
+		 * 但去重與移除首尾空行照常執行
+		 * For comparison: with `collapseBlankLines` off the middle run of 4 blank
+		 * lines is untouched, while dedupe and stripping still run
+		 */
+		t.assert.deepStrictEqual(finalizeIgnoreLines(lines, { collapseBlankLines: false }), [
+			'*.log',
+			'',
+			'',
+			'',
+			'',
+			'*.123',
+		])
+	});
+
+	test(`{ omitBlankLines: false }`, (t: TestContext) => {
+
+		/**
+		 * 個別執行 _omitBlankLines：只移除開頭與結尾的空行，
+		 * 並回報 startCount / endCount 供還原用；會直接修改傳入的陣列，故傳入副本
+		 * Running _omitBlankLines on its own only strips the leading and trailing
+		 * blanks and reports startCount / endCount for restoration; it mutates the
+		 * input array, so a copy is passed in
+		 */
+		t.assert.deepStrictEqual(_omitBlankLines([...lines]), {
+			lines: [
+				'*.log',
+				'*.log',
+				'',
+				'',
+				'',
+				'',
+				'*.123',
+			],
+			startCount: 2,
+			endCount: 3,
+		})
+
+		/**
+		 * 對照：關掉 `omitBlankLines` 後，去重與收合的結果不再被裁掉首尾空行
+		 * For comparison: with `omitBlankLines` off the result of dedupe plus
+		 * collapse keeps its leading and trailing blank lines
+		 */
+		t.assert.deepStrictEqual(finalizeIgnoreLines(lines, { omitBlankLines: false }), [
+			'',
+			'',
+			'*.log',
+			'',
+			'',
+			'',
+			'*.123',
+			'',
+			'',
+			'',
+		])
+	});
+
+	test(`預設行為`, (t: TestContext) => {
+
+		t.assert.deepStrictEqual(finalizeIgnoreLines(lines), [
+			'*.log',
+			'',
+			'',
+			'',
+			'*.123',
+		])
+
+		/**
+		 * 三項個別整理依序套用（去重 → 收合 → 移除首尾空行）與預設行為一致
+		 * Applying the three steps in sequence (dedupe → collapse → strip ends)
+		 * matches the default behaviour
+		 */
+		t.assert.deepStrictEqual(finalizeIgnoreLines(lines),
+			_omitBlankLines(collapseIgnoreBlankLines(dedupeIgnorePatterns([...lines]))).lines)
+
+		/**
+		 * 關掉全部三項整理時，行陣列完全不變
+		 * With all three steps disabled the lines come back unchanged
+		 */
+		t.assert.deepStrictEqual(finalizeIgnoreLines(lines, {
+			dedupePatterns: false,
+			collapseBlankLines: false,
+			omitBlankLines: false,
+		}), [...lines])
+	});
+
 })
