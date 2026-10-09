@@ -1,0 +1,19 @@
+{
+  "extends": "@bluelovers/tsconfig/esm/mapfile.json",
+  "compilerOptions": {
+    "importHelpers": true,
+    "target": "ES2023",
+    "types": [
+      "jest",
+      "node"
+    ]
+  },
+  "exclude": [
+    "dist",
+    "node_modules",
+    "__fixtures__",
+    "__snapshots__",
+    "coverage",
+    "test"
+  ]
+}

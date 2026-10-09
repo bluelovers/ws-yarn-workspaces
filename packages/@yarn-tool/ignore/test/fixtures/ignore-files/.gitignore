@@ -1,0 +1,5 @@
+# ignore misc
+*.log
+
+# exception rules
+!keep.log
