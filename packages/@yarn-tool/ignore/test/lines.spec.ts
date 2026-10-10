@@ -171,7 +171,7 @@ test(`finalizeIgnoreLines 可個別關閉整理項目`, () =>
 		'',
 	]
 
-	test(`{ dedupePatterns: false }`, (t: TestContext) => {
+	test(`{ disableDedupePatterns: true }`, (t: TestContext) => {
 
 		/**
 		 * 個別執行 dedupeIgnorePatterns：重複的 `*.log` 只保留最後一筆，
@@ -194,12 +194,12 @@ test(`finalizeIgnoreLines 可個別關閉整理項目`, () =>
 		])
 
 		/**
-		 * 對照：關掉 `dedupePatterns` 後，兩行 `*.log` 都保留，
+		 * 對照：傳 `disableDedupePatterns: true` 停用去重後，兩行 `*.log` 都保留，
 		 * 其餘整理（收合空行、移除首尾空行）照常執行
-		 * For comparison: with `dedupePatterns` off both `*.log` lines survive,
-		 * while the other steps (collapse, strip ends) still run
+		 * For comparison: with `disableDedupePatterns: true` both `*.log` lines
+		 * survive, while the other steps (collapse, strip ends) still run
 		 */
-		t.assert.deepStrictEqual(finalizeIgnoreLines(lines, { dedupePatterns: false }), [
+		t.assert.deepStrictEqual(finalizeIgnoreLines(lines, { disableDedupePatterns: true }), [
 			'*.log',
 			'*.log',
 			'',
@@ -209,7 +209,7 @@ test(`finalizeIgnoreLines 可個別關閉整理項目`, () =>
 		])
 	});
 
-	test(`{ collapseBlankLines: false }`, (t: TestContext) => {
+	test(`{ disableCollapseBlankLines: true }`, (t: TestContext) => {
 
 		/**
 		 * 個別執行 collapseIgnoreBlankLines：中段 4 個空行收合成上限
@@ -233,12 +233,12 @@ test(`finalizeIgnoreLines 可個別關閉整理項目`, () =>
 		])
 
 		/**
-		 * 對照：關掉 `collapseBlankLines` 後，中段 4 個空行原樣保留，
+		 * 對照：傳 `disableCollapseBlankLines: true` 停用收合後，中段 4 個空行原樣保留，
 		 * 但去重與移除首尾空行照常執行
-		 * For comparison: with `collapseBlankLines` off the middle run of 4 blank
-		 * lines is untouched, while dedupe and stripping still run
+		 * For comparison: with `disableCollapseBlankLines: true` the middle run of 4
+		 * blank lines is untouched, while dedupe and stripping still run
 		 */
-		t.assert.deepStrictEqual(finalizeIgnoreLines(lines, { collapseBlankLines: false }), [
+		t.assert.deepStrictEqual(finalizeIgnoreLines(lines, { disableCollapseBlankLines: true }), [
 			'*.log',
 			'',
 			'',
@@ -248,7 +248,7 @@ test(`finalizeIgnoreLines 可個別關閉整理項目`, () =>
 		])
 	});
 
-	test(`{ omitBlankLines: false }`, (t: TestContext) => {
+	test(`{ disableOmitBlankLines: true }`, (t: TestContext) => {
 
 		/**
 		 * 個別執行 _omitBlankLines：只移除開頭與結尾的空行，
@@ -272,11 +272,11 @@ test(`finalizeIgnoreLines 可個別關閉整理項目`, () =>
 		})
 
 		/**
-		 * 對照：關掉 `omitBlankLines` 後，去重與收合的結果不再被裁掉首尾空行
-		 * For comparison: with `omitBlankLines` off the result of dedupe plus
-		 * collapse keeps its leading and trailing blank lines
+		 * 對照：傳 `disableOmitBlankLines: true` 停用移除後，去重與收合的結果不再被裁掉首尾空行
+		 * For comparison: with `disableOmitBlankLines: true` the result of dedupe
+		 * plus collapse keeps its leading and trailing blank lines
 		 */
-		t.assert.deepStrictEqual(finalizeIgnoreLines(lines, { omitBlankLines: false }), [
+		t.assert.deepStrictEqual(finalizeIgnoreLines(lines, { disableOmitBlankLines: true }), [
 			'',
 			'',
 			'*.log',
@@ -309,13 +309,13 @@ test(`finalizeIgnoreLines 可個別關閉整理項目`, () =>
 			_omitBlankLines(collapseIgnoreBlankLines(dedupeIgnorePatterns([...lines]))).lines)
 
 		/**
-		 * 關掉全部三項整理時，行陣列完全不變
+		 * 傳入全部三項 disable 時，行陣列完全不變
 		 * With all three steps disabled the lines come back unchanged
 		 */
 		t.assert.deepStrictEqual(finalizeIgnoreLines(lines, {
-			dedupePatterns: false,
-			collapseBlankLines: false,
-			omitBlankLines: false,
+			disableDedupePatterns: true,
+			disableCollapseBlankLines: true,
+			disableOmitBlankLines: true,
 		}), [...lines])
 	});
 

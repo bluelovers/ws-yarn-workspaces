@@ -70,7 +70,7 @@ exports[`options.optimizations 是 stringify() / finalize() 的預設設定 1`] 
     "path": "virtual/.gitignore",
     "options": {
       "optimizations": {
-        "collapseBlankLines": false
+        "disableCollapseBlankLines": true
       },
       "startCount": 0,
       "endCount": 4
@@ -152,7 +152,7 @@ exports[`stringify 可選擇是否在輸出前執行優化 3`] = `
     "path": "virtual/.gitignore",
     "options": {
       "optimizations": {
-        "collapseBlankLines": false
+        "disableCollapseBlankLines": true
       },
       "startCount": 0,
       "endCount": 4

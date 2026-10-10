@@ -27,25 +27,30 @@ export enum EnumLineType
 /**
  * 輸出前整理的選項
  * Options for finalizing before output
+ *
+ * 一律以 `disable` 前綴命名（同 `IgnoreFile` 的 `disableOptimize`）：
+ * 省略或傳 `false` 皆會執行該步驟，只有明確傳入 `true` 才停用。
+ * Every option is named with a `disable` prefix (like `IgnoreFile`'s `disableOptimize`):
+ * omitting it or passing `false` runs the step, and only an explicit `true` turns it off.
  */
 export interface IFinalizeIgnoreLinesOptions
 {
 	/**
-	 * 是否移除重複的規則，只保留最後一筆；註解不受影響，預設 true
-	 * Whether to remove duplicate rules, keeping only the last one; comments are
-	 * unaffected. Defaults to true
+	 * 是否停用「移除重複的規則，只保留最後一筆」；註解不受影響，預設執行
+	 * Whether to skip removing duplicate rules (keeping only the last one);
+	 * comments are unaffected. Runs by default
 	 */
-	dedupePatterns?: boolean,
+	disableDedupePatterns?: boolean,
 	/**
-	 * 是否將超過上限的連續空行縮減到上限，預設 true
-	 * Whether to shrink runs of blank lines beyond the upper bound, defaults to true
+	 * 是否停用「將超過上限的連續空行縮減到上限」，預設執行
+	 * Whether to skip shrinking runs of blank lines beyond the upper bound. Runs by default
 	 */
-	collapseBlankLines?: boolean,
+	disableCollapseBlankLines?: boolean,
 	/**
-	 * 是否移除檔案開頭與結尾的空白行，預設 true
-	 * Whether to strip blank lines at the start and the end of the file, defaults to true
+	 * 是否停用「移除檔案開頭與結尾的空白行」，預設執行
+	 * Whether to skip stripping blank lines at the start and the end of the file. Runs by default
 	 */
-	omitBlankLines?: boolean,
+	disableOmitBlankLines?: boolean,
 }
 
 export type IExcludeReadonlyArray<T extends ITSValueOrArrayMaybeReadonly<any>> = Extract<T, string | any[]>
@@ -277,27 +282,28 @@ export function collapseIgnoreBlankLinesFromString(content: string): string
  * Comments take no part in deduplication, so their position and count never change.
  *
  * @param lines - 行陣列
- * @param options - 整理選項，三項皆預設啟用 / Finalization options, all enabled by default
+ * @param options - 整理選項，三項皆預設執行，傳 `true` 才停用個別項目 /
+ * Finalization options; all three run by default, an explicit `true` disables that step
  */
 export function finalizeIgnoreLines(lines: ITSArrayListMaybeReadonly<string>,
 	options?: IFinalizeIgnoreLinesOptions,
 ): string[]
 {
-	const { dedupePatterns, collapseBlankLines, omitBlankLines } = options ?? {}
+	const { disableDedupePatterns, disableCollapseBlankLines, disableOmitBlankLines } = options ?? {}
 
 	let next = [...lines]
 
-	if (dedupePatterns ?? true)
+	if (!disableDedupePatterns)
 	{
 		next = dedupeIgnorePatterns(next)
 	}
 
-	if (collapseBlankLines ?? true)
+	if (!disableCollapseBlankLines)
 	{
 		next = collapseIgnoreBlankLines(next)
 	}
 
-	if (!(omitBlankLines ?? true))
+	if (disableOmitBlankLines)
 	{
 		return next
 	}

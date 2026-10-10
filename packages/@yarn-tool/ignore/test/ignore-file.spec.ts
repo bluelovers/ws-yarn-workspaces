@@ -226,11 +226,11 @@ test(`stringify 可選擇是否在輸出前執行優化`, (t: TestContext) =>
 	 */
 	const overridden = new IgnoreFile(__VIRTUAL_GITIGNORE, raw.join('\n'), {
 		optimizations: {
-			collapseBlankLines: false,
+			disableCollapseBlankLines: true,
 		},
 	})
 
-	t.assert.strictEqual(overridden.stringify({ optimizations: { collapseBlankLines: true } }), [
+	t.assert.strictEqual(overridden.stringify({ optimizations: { disableCollapseBlankLines: false } }), [
 		'# note',
 		'*.log',
 		'',
@@ -238,7 +238,7 @@ test(`stringify 可選擇是否在輸出前執行優化`, (t: TestContext) =>
 		'',
 	].join('\n'))
 
-	t.assert.deepStrictEqual(overridden.options.optimizations, { collapseBlankLines: false }, `實例設定不被 stringify() 改動`)
+	t.assert.deepStrictEqual(overridden.options.optimizations, { disableCollapseBlankLines: true }, `實例設定不被 stringify() 改動`)
 
 	/**
 	 * 快照記錄覆寫選項後的實際結果：本次照常收合，行陣列已被 finalize() 更新
@@ -272,32 +272,32 @@ test(`options.optimizations 是 stringify() / finalize() 的預設設定`, (t: T
 	]
 
 	/**
-	 * 以實例設定關掉空行收合，stringify() 不帶參數時應沿用它
+	 * 以實例設定停用空行收合，stringify() 不帶參數時應沿用它
 	 * The instance setting disables blank collapsing, which stringify() without
 	 * arguments honours
 	 */
 	const file = new IgnoreFile(__VIRTUAL_GITIGNORE, raw.join('\n'), {
 		optimizations: {
-			collapseBlankLines: false,
+			disableCollapseBlankLines: true,
 		},
 	})
 
 	t.assert.strictEqual(file.stringify(), '*.log\n\n\n')
 
 	/**
-	 * 快照記錄實際的行模型與內容：去重已執行、收合依實例設定關閉；
-	 * 非 getter 欄位 options 一併驗證——實例設定維持 collapseBlankLines:false，
+	 * 快照記錄實際的行模型與內容：去重已執行、收合依實例設定停用；
+	 * 非 getter 欄位 options 一併驗證——實例設定維持 disableCollapseBlankLines:true，
 	 * 建構時記錄的結尾換行數也不會被 stringify() 改寫
 	 * The snapshot records the actual line model and content: dedupe ran, while
 	 * collapsing is off per the instance settings; the non-getter field options is
-	 * verified as well — the instance setting keeps collapseBlankLines:false, and
-	 * the recorded end-of-file newline count is not rewritten by stringify()
+	 * verified as well — the instance setting keeps disableCollapseBlankLines:true,
+	 * and the recorded end-of-file newline count is not rewritten by stringify()
 	 */
 	snapshotIgnoreFile(t, file, {
 		lines: ['*.log'],
 		content: '*.log\n\n\n',
 		options: {
-			optimizations: { collapseBlankLines: false },
+			optimizations: { disableCollapseBlankLines: true },
 			startCount: 0,
 			endCount: 4,
 		},
@@ -307,7 +307,7 @@ test(`options.optimizations 是 stringify() / finalize() 的預設設定`, (t: T
 	 * 傳入的選項優先於實例設定
 	 * Options passed at call time take precedence over the instance settings
 	 */
-	file.finalize({ collapseBlankLines: true })
+	file.finalize({ disableCollapseBlankLines: false })
 
 	t.assert.deepStrictEqual([...file.lines], ['*.log'])
 })

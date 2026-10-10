@@ -168,6 +168,12 @@ export class IgnoreFile
 	 */
 	protected _lines: string[]
 
+	/**
+	 * ignore 比對實例的快取，由 {@link toIgnore} 建立；
+	 * 行陣列變動後的處置見各操作方法內部的說明
+	 * Cache of the ignore instance built by {@link toIgnore};
+	 * see the comment inside each mutating method for how it is handled after the lines change
+	 */
 	protected _ignore: ReturnType<typeof ignore>;
 
 	/**
@@ -248,6 +254,14 @@ export class IgnoreFile
 	add(...patterns: string[]): this
 	{
 		this._lines = addPatterns(this._lines, patterns);
+
+		/**
+		 * 內部快取：新增只會加入規則，而 ignore 實例只能 add、不能刪除，
+		 * 與快取可直接併入，不必像 remove / finalize 那樣清空重建
+		 * Internal cache: adding only inserts rules, and an ignore instance can add
+		 * but never remove, so it is merged into the cache directly instead of
+		 * being cleared and rebuilt as in remove / finalize
+		 */
 		this._ignore?.add(patterns);
 
 		return this
@@ -262,6 +276,13 @@ export class IgnoreFile
 	remove(...patterns: string[]): this
 	{
 		this._lines = removePatterns(this._lines, patterns);
+
+		/**
+		 * 內部快取：ignore 實例只能 add、不能刪除，
+		 * 清空後由 toIgnore() 依新的行陣列重建，確保比對同步
+		 * Internal cache: an ignore instance can only add, never remove, so it is
+		 * cleared and toIgnore() rebuilds it from the new lines to stay in sync
+		 */
 		this._ignore = void 0;
 
 		return this
@@ -289,6 +310,14 @@ export class IgnoreFile
 			...options,
 		});
 
+		/**
+		 * 內部快取：整理可能移除規則行（去重、收合、裁掉首尾空行），
+		 * 而 ignore 實例只能 add、不能刪除，
+		 * 故清空後由 toIgnore() 依新的行陣列重建
+		 * Internal cache: optimizing may remove rule lines (dedupe, collapse,
+		 * stripping) and an ignore instance can only add, so it is cleared and
+		 * toIgnore() rebuilds it from the new line array
+		 */
 		this._ignore = void 0;
 
 		return this
@@ -341,6 +370,13 @@ export class IgnoreFile
 
 	/**
 	 * 建立比對 (matching) 用的 ignore 實例
+	 * Build the ignore instance used for matching
+	 *
+	 * 預設回傳快取以避免重複建立；`force` 為 `true` 時改以目前行陣列重建。
+	 * Returns the cached instance by default to avoid rebuilding; pass `force` as
+	 * `true` to rebuild from the current lines.
+	 *
+	 * @param force - 強制以目前行陣列重建 / Force a rebuild from the current lines
 	 */
 	toIgnore(force?: boolean): ReturnType<typeof ignore>
 	{
