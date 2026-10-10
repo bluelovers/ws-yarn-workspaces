@@ -1,0 +1,10 @@
+# 未分類 / unclassified · 兩類共用 / shared
+~ci.list.txt
+~ci.log.txt
+~ci.errors.txt
+*.stackdump
+*.bak
+*.old
+*.stat
+.codenomad
+.logs

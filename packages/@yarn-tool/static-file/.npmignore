@@ -178,6 +178,9 @@ openspec/
 !/README.md
 !/CHANGELOG.md
 
+!test/fixtures/out
+!test/fixtures/split
+
 # Static files from const.ts
 !file/npmignore
 !file/gitignore
@@ -218,4 +221,8 @@ openspec/
 !file/ws-root/jest.config.js
 !file/ws-root/jest-preset.js
 !file/ws-root/.run/lerna_publish_yes.run.xml
+!test/fixtures/out/
+!test/fixtures/split/
+!test/fixtures/out/**
+!test/fixtures/split/**
 # END Static files from const.ts

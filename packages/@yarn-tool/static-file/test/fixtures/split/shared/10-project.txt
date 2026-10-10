@@ -1,0 +1,38 @@
+# 專案檔 / project files · 兩類共用 / shared
+# dependencies
+node_modules
+/.pnp
+.pnp.js
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+/.*/
+package-lock.json
+/src/**/*.d.ts
+/src/**/*.js
+/src/**/*.d.cts
+/src/**/*.d.mts
+/src/**/*.cjs
+/src/**/*.mjs
+*.tgz
+/tsconfig.json.tpl
+yarn-error.log
+*.log
+.git
+yarn.lock
+*.vue.js
+*.vue.d.ts
+*.vue.js.map
+/*.tpl
+*.tsbuildinfo
+tsconfig.esm.json.tpl
+/package.d.ts
+/report.*.json
+/report.json
+/_*/
+_snowpack
+web_modules
+tsc-multi.json.tpl
+.turbo
+.next

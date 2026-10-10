@@ -1,0 +1,2 @@
+# 根目錄隱藏檔 / root hidden files · npm 發布專用 / npm publish only
+/.*

@@ -1,0 +1,6 @@
+# 未分類 / unclassified · git 專用 / git only
+# misc
+.DS_Store
+.opt-in
+.opt-out
+.agentbridge

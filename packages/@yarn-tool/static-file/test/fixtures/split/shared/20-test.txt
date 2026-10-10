@@ -1,0 +1,7 @@
+# 測試檔 / test files · 兩類共用 / shared
+# testing
+.nyc_output
+coverage
+.mocharc.yml
+*.spec.d.ts
+*.spec.js

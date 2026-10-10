@@ -1,0 +1,2 @@
+# 檔案頭 / file header · git 專用 / git only
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.

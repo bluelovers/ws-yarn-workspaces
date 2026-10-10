@@ -1,0 +1,8 @@
+# IDE 與編輯器設定 / IDE & editor settings · 兩類共用 / shared
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

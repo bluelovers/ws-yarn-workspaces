@@ -140,6 +140,11 @@ function main(): void
 
 	const staticFiles = extractStaticFiles();
 
+	staticFiles.push('test/fixtures/out/');
+	staticFiles.push('test/fixtures/split/');
+	staticFiles.push('test/fixtures/out/**');
+	staticFiles.push('test/fixtures/split/**');
+
 	console.log(`Found ${staticFiles.length} static files:`);
 	staticFiles.forEach(f => console.log(`  !${f}`));
 

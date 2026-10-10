@@ -1,0 +1,2 @@
+# IDE 與編輯器設定 / IDE & editor settings · npm 發布專用 / npm publish only
+intellij-style-guide.xml

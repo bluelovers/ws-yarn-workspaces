@@ -1,0 +1,7 @@
+# npm 來源檔規則 / npm source rules · npm 發布專用 / npm publish only
+*.ts
+# %gen:npm-source-declarations%
+!/src/**/*.ts
+!/src/**/*.cts
+!/src/**/*.mts
+!/src/**/*.tsx

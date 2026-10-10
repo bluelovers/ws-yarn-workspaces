@@ -1,0 +1,20 @@
+# 測試檔 / test files · npm 發布專用 / npm publish only
+test
+.gitkeep
+tests
+__test__
+__tests__
+/jestconfig.json
+karma.conf.js
+jest.config.*
+/jest-preset.*
+# %gen:spec-files%
+__mocks__
+__snapshots__
+*.snap
+*.snapshot
+__file_snapshots__
+__fixtures__
+/fixture/
+*.stories.*
+./stories/

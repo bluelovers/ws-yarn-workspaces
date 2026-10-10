@@ -4,7 +4,7 @@ import { test, type TestContext } from 'node:test'
 import path from 'upath2'
 import { IgnoreFile } from '../lib/IgnoreFile'
 import { EnumLineType, lineType } from '../lib/lines'
-import { __TEST_FIXTURES } from './__root'
+import { __TEST_FIXTURES, __TEST_TEMP } from './__root'
 import { snapshotIgnoreFile } from './lib/test-helper'
 
 /**
@@ -21,7 +21,7 @@ const __FIXTURE_GITIGNORE = path.join(__FIXTURE_DIR, '.gitignore')
  * Virtual path: every content assertion compares the value returned by
  * stringify(); no file is ever created or written, so there is nothing to clean up
  */
-const __VIRTUAL_GITIGNORE = 'virtual/.gitignore'
+const __VIRTUAL_GITIGNORE = path.join(__TEST_TEMP, 'virtual/.gitignore')
 
 /**
  * 與 fixture 內容同步的期望值，作為內容斷言的單一事實來源

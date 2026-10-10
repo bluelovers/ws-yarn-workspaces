@@ -1,0 +1,10 @@
+# 環境設定 / environment settings · git 專用 / git only
+*.pem
+.env.development.local
+.env.test.local
+.env.production.local
+.nvmrc
+.node-version
+/now.json
+.nowignore
+/certificates
