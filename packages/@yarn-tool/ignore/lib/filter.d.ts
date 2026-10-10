@@ -34,6 +34,10 @@ export declare function precedingPattern2(lines: readonly string[], index: numbe
 /**
  * 檢查是否已存在相同規則（忽略前後空白）
  *
+ * 逐行轉成 {@link ILineToken} 後比對 `token.line`：
+ * 空白只在轉換時處理一次，且只有規則行才算數——
+ * 內容與規則相同的註解行不算已存在。
+ *
  * @param lines - 行陣列
  * @param pattern - 規則
  */

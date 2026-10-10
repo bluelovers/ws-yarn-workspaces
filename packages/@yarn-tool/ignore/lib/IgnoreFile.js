@@ -26,6 +26,11 @@ class IgnoreFile {
      *
      * @param path - ignore 檔案路徑
      * @param options - 實例設定，控管 {@link finalize}
+     *
+     * @example
+     * const file = IgnoreFile.from('/path/to/.gitignore')
+     * file.patterns // 只含規則行，例如 ['*.log', '!keep.log']
+     * IgnoreFile.from('/not/exist/.gitignore').lines // [] —— 檔案不存在視為空白檔案
      */
     static from = (path, options) => {
         const content = (0, fs_extra_1.pathExistsSync)(path) ? (0, fs_iconv_1.readFileSync)(path).toString() : '';
@@ -43,6 +48,11 @@ class IgnoreFile {
      * @param fileName - 要搜尋的 ignore 檔名
      * @param cwd - 目前工作目錄或搜尋選項
      * @param opts - 搜尋選項與實例設定，見 {@link IFindIgnoreFileOptions}
+     *
+     * @example
+     * const file = IgnoreFile.find('.gitignore', '/path/to/dir')
+     * file?.path // 由近至遠找到的第一個 .gitignore 路徑
+     * IgnoreFile.find('.no-such-ignore', '/path/to/dir') // undefined —— 範圍內沒有該檔案
      */
     static find(fileName, cwd, opts) {
         /**
@@ -99,6 +109,12 @@ class IgnoreFile {
      * @param path - ignore 檔案路徑
      * @param content - 檔案內容或行陣列，省略時視為空白檔案
      * @param options - 實例設定，控管 {@link finalize}
+     *
+     * @example
+     * const file = new IgnoreFile('/path/to/.gitignore', '# notes\n*.log\n\n!keep.log\n')
+     * file.lines // ['# notes', '*.log', '', '!keep.log'] —— 註解與空行原樣保留
+     * file.patterns // ['*.log', '!keep.log'] —— 只有規則行
+     * file.content // '# notes\n*.log\n\n!keep.log\n' —— 結尾換行由 endCount 還原
      */
     constructor(path, content, options) {
         this.path = path;
@@ -137,6 +153,11 @@ class IgnoreFile {
      * 是否已存在指定規則
      *
      * @param pattern - 規則
+     *
+     * @example
+     * const file = new IgnoreFile('/path/to/.gitignore', '# notes\n*.log\n\n!keep.log\n')
+     * file.has('*.log') // true
+     * file.has('# notes') // false —— 註解不算規則
      */
     has(pattern) {
         return (0, filter_1.hasPattern)(this._lines, pattern);
@@ -149,10 +170,35 @@ class IgnoreFile {
      * 遠處的重複交由 {@link finalize} 在輸出前統一處理。
      *
      * @param patterns - 一條或多條規則
+     *
+     * @example
+     * const file = new IgnoreFile('/path/to/.gitignore', '# notes\n*.log\n\n!keep.log\n')
+     * file.add('*.tmp', '!keep.tmp').lines
+     * // ['# notes', '*.log', '', '!keep.log', '*.tmp', '!keep.tmp']
+     * // 註解與空行原位不動，新規則接在最後
      */
     add(...patterns) {
         return this.addList(patterns);
     }
+    /**
+     * 批次新增規則（{@link add} 的底層實作），回傳 `this` 可繼續串接
+     *
+     * 同批次的重複項先收斂成一條，再逐條與「插入位置前方最近的一條規則」比對：
+     * - 未帶 `force`：前方已是同一條規則、或是空字串時略過，不產生重複列
+     * - `force: true`：跳過該比對直接插入（連空字串也會插入），
+     *   因此可能出現重複列；遠處的重複仍交由 {@link finalize} 在輸出前統一處理
+     *
+     * 註解與空行維持原位不動，新規則一律接在行陣列的最後。
+     *
+     * @param patterns - 一條或多條規則
+     * @param force - 跳過前方規則比對直接插入
+     *
+     * @example
+     * const file = new IgnoreFile('/path/to/.gitignore', '# notes\n*.log\n')
+     * file.addList(['*.tmp', '*.tmp']).lines // 同批次重複項收斂：['# notes', '*.log', '*.tmp']
+     * file.addList(['*.tmp']).lines // 最後一列已是 '*.tmp'，略過 → 維持不變
+     * file.addList(['*.tmp'], true).lines // force 直接插入 → ['# notes', '*.log', '*.tmp', '*.tmp']
+     */
     addList(patterns, force) {
         this._lines = (0, lines_1.addPatterns)(this._lines, patterns, force);
         /**
@@ -170,6 +216,10 @@ class IgnoreFile {
      * Remove rules (comments and blank lines are kept)
      *
      * @param patterns - 一條或多條規則
+     *
+     * @example
+     * const file = new IgnoreFile('/path/to/.gitignore', '# notes\n*.log\n\n!keep.log\n')
+     * file.remove('*.log').lines // ['# notes', '', '!keep.log'] —— 註解與空行保留
      */
     remove(...patterns) {
         this._lines = (0, lines_1.removePatterns)(this._lines, patterns);
@@ -186,16 +236,26 @@ class IgnoreFile {
      * 輸出前優化（就地更新行陣列）
      * Optimize before output (updates the lines in place)
      *
-     * 依序執行：移除重複規則（只保留最後一筆）、收合超過上限的連續空行、
-     * 移除首尾空行；三項皆可個別關閉。
-     * Runs in order: drop duplicate rules (keep the last one), collapse blank runs
-     * beyond the bound, and strip leading/trailing blank lines; each step can be
-     * disabled individually.
+     * 依序執行：移除重複的規則與重複的註解（皆只保留最後一筆）、
+     * 收合超過上限的連續空行、移除首尾空行；四項皆可個別關閉。
+     * Runs in order: drop duplicate rules and duplicate comments (both keep only
+     * the last one), collapse blank runs beyond the bound, and strip
+     * leading/trailing blank lines; all four steps can be disabled individually.
      *
-     * 註解不參與去重，位置與數量都不會被更動。
+     * 規則行與註解行預設一起去重，傳 `disableDedupePatternsComment: true`
+     * 可只對規則行去重，讓重複的註解原樣保留；空行永遠允許重複。
+     * Rule and comment lines are deduplicated together by default; passing
+     * `disableDedupePatternsComment: true` keeps duplicated comments as they are,
+     * while blank lines may always repeat.
      * 以 {@link this.options.optimizations} 為預設值，`options` 參數覆寫之。
      *
      * @param options - 優化選項
+     *
+     * @example
+     * const file = new IgnoreFile('/path/to/.gitignore', '# notes\n*.log\n*.log\n\n\n!keep.log\n')
+     * file.finalize().lines // ['# notes', '*.log', '', '', '!keep.log']
+     * // 重複規則只留最後一筆；2 個連續空行未超過上限，原樣保留
+     * file.finalize({ disableCollapseBlankLines: true }) // 傳選項覆寫實例設定
      */
     finalize(options) {
         this._lines = (0, lines_1.finalizeIgnoreLines)(this._lines, {
@@ -225,6 +285,13 @@ class IgnoreFile {
      * overrides the instance settings (see {@link IIgnoreFileOptions})
      *
      * @param opts - 輸出選項，見 {@link IIgnoreFileOptions}
+     *
+     * @example
+     * const file = new IgnoreFile('/path/to/.gitignore', '# notes\n*.log\n*.log\n\n\n!keep.log\n')
+     * file.stringify({ disableOptimize: false }) // 原樣輸出，重複規則保留
+     * // '# notes\n*.log\n*.log\n\n\n!keep.log\n'
+     * file.stringify() // 預設先優化（就地更新行陣列），重複規則只留最後一筆
+     * // '# notes\n*.log\n\n\n!keep.log\n'
      */
     stringify(opts) {
         const { disableOptimize: optimize = true, optimizations } = opts ?? {};
@@ -243,10 +310,28 @@ class IgnoreFile {
      * default; pass `disableOptimize: false` to write the un-optimized content
      *
      * @param opts - 保存選項，見 {@link IIgnoreFileOptions}
+     *
+     * @example
+     * const file = IgnoreFile.from('/path/to/.gitignore')
+     * file.add('*.tmp')
+     * file.save() // 優化後寫回 file.path
+     * file.save({ disableOptimize: false }) // 寫入未優化的內容
+     * // 改寫到其他路徑見 outputFile()
      */
     save(opts) {
         return this.outputFile(this.path, opts);
     }
+    /**
+     * 將目前內容寫入指定路徑（內容來自 {@link stringify}）
+     *
+     * @param path - 要寫入的 ignore 檔案路徑
+     * @param opts - 輸出選項，見 {@link IIgnoreFileOptions}
+     *
+     * @example
+     * const file = IgnoreFile.from('/path/to/.gitignore')
+     * file.outputFile('/path/to/other/.npmignore') // 優化後寫入指定路徑
+     * file.outputFile('/path/to/other/.gitignore', { disableOptimize: false }) // 寫入未優化的內容
+     */
     outputFile(path, opts) {
         (0, fs_extra_1.outputFileSync)(path, this.stringify(opts), {
             encoding: ENCODING,
@@ -262,6 +347,11 @@ class IgnoreFile {
      * `true` to rebuild from the current lines.
      *
      * @param force - 強制以目前行陣列重建 / Force a rebuild from the current lines
+     *
+     * @example
+     * const file = new IgnoreFile('/path/to/.gitignore', '*.log\n\n!keep.log\n')
+     * file.toIgnore().ignores('a.log') // true —— 重複呼叫回傳同一份快取
+     * file.toIgnore(true) // 行陣列變動後強制以目前內容重建
      */
     toIgnore(force) {
         if (!this._ignore || force) {
@@ -273,6 +363,11 @@ class IgnoreFile {
      * 判斷路徑是否被忽略
      *
      * @param pathname - 相對路徑（需為正斜線）/ Relative path (forward slashes required)
+     *
+     * @example
+     * const file = new IgnoreFile('/path/to/.gitignore', '*.log\n\n!keep.log\n')
+     * file.isIgnored('a.log') // true
+     * file.isIgnored('keep.log') // false —— 被負規則 `!keep.log` 救回
      */
     isIgnored(pathname) {
         return this.toIgnore().ignores(pathname);
@@ -301,6 +396,11 @@ class IgnoreFile {
      * 與 `ignores()` 相同的理由：同名同回傳值，讓接受 ignore 實例的程式碼也能直接傳入 IgnoreFile。
      * For the same reason as `ignores()`: identical name and return value, so code
      * accepting an ignore instance also accepts an IgnoreFile directly.
+     *
+     * @example
+     * const file = new IgnoreFile('/path/to/.gitignore', '# notes\n*.log\n\n!keep.log\n')
+     * file.test('a.log') // { ignored: true, unignored: false, rule: { pattern: '*.log', negative: false } }
+     * file.test('a.js') // { ignored: false, unignored: false } —— 未命中任何規則
      */
     test(pathname) {
         return this.toIgnore().test(pathname);
@@ -312,6 +412,18 @@ class IgnoreFile {
      * 同名相容 `ignore` 套件的 `checkIgnore()`，回傳值也相同（{@link ICheckIgnoreResult}）。
      * Name-compatible with the ignore package's `checkIgnore()`, returning the same
      * {@link ICheckIgnoreResult}.
+     *
+     * 一次只接受單一路徑，回傳 `{ ignored, unignored, rule }`：
+     * - 被忽略：`ignored: true`，`rule` 為命中的規則（`pattern` 與 `negative`）
+     * - 被負規則救回：`unignored: true`，沒有 `rule`
+     * - 未命中任何規則：兩者皆為 `false`
+     *
+     * @param pathname - 相對路徑（需為正斜線）
+     *
+     * @example
+     * const file = new IgnoreFile('/path/to/.gitignore', '# notes\n*.log\n\n!keep.log\n')
+     * file.checkIgnore('a.log') // { ignored: true, unignored: false, rule: { pattern: '*.log', negative: false } }
+     * file.checkIgnore('keep.log') // { ignored: false, unignored: true } —— 被負規則救回，沒有 rule
      */
     checkIgnore(pathname) {
         return this.toIgnore().checkIgnore(pathname);
@@ -325,10 +437,28 @@ class IgnoreFile {
      * `ignores()`, a type accepting an ignore instance also accepts an IgnoreFile.
      *
      * @param paths - 相對路徑列表 / List of relative paths
+     *
+     * @example
+     * const file = new IgnoreFile('/path/to/.gitignore', '# notes\n*.log\n\n!keep.log\n')
+     * file.filter(['a.log', 'keep.log', 'a.js']) // ['keep.log', 'a.js'] —— 回傳未被忽略的路徑
      */
     filter(pathnames) {
         return this.toIgnore().filter(pathnames);
     }
+    /**
+     * 產生可直接交給 `Array.filter()` 使用的判斷函式
+     *
+     * 回傳的函式對「未被忽略」的路徑回傳 `true`，
+     * 因此 `paths.filter(file.createFilter())` 與 {@link filter} 結果一致。
+     *
+     * 同名相容 `ignore` 套件的 `createFilter()`；與 {@link ignores} 相同的理由，
+     * 接受 ignore 實例的型別也能直接接受 IgnoreFile。
+     *
+     * @example
+     * const file = new IgnoreFile('/path/to/.gitignore', '# notes\n*.log\n\n!keep.log\n')
+     * const keep = file.createFilter()
+     * ['a.log', 'keep.log', 'a.js'].filter(keep) // ['keep.log', 'a.js'] —— 同 file.filter()
+     */
     createFilter() {
         return this.toIgnore().createFilter();
     }

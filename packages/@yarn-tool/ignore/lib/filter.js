@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.precedingPattern = precedingPattern;
 exports.precedingPattern2 = precedingPattern2;
 exports.hasPattern = hasPattern;
-const lines_1 = require("./lines");
+const line_token_1 = require("./line-token");
 const normalize_1 = require("./normalize");
 const types_1 = require("./types");
 /**
@@ -17,9 +17,9 @@ const types_1 = require("./types");
  */
 function precedingPattern(lines, index) {
     for (let i = index - 1; i >= 0; i--) {
-        const type = (0, lines_1.lineType)(lines[i]);
-        if (type === types_1.EnumLineType.Pattern) {
-            return lines[i].trim();
+        const token = (0, line_token_1.lineToToken)(lines[i]);
+        if ((0, line_token_1._lineTypeIsPattern)(token.type)) {
+            return token.line;
         }
     }
     return undefined;
@@ -48,7 +48,7 @@ function precedingPattern(lines, index) {
 function precedingPattern2(lines, index, patterns, value) {
     for (let i = index - 1; i >= 0; i--) {
         const line = lines[i];
-        const type = (0, lines_1.lineType)(line);
+        const type = (0, line_token_1.lineType)(line);
         if (type !== types_1.EnumLineType.Blank) {
             if (line === value) {
                 return true;
@@ -63,14 +63,20 @@ function precedingPattern2(lines, index, patterns, value) {
 /**
  * 檢查是否已存在相同規則（忽略前後空白）
  *
+ * 逐行轉成 {@link ILineToken} 後比對 `token.line`：
+ * 空白只在轉換時處理一次，且只有規則行才算數——
+ * 內容與規則相同的註解行不算已存在。
+ *
  * @param lines - 行陣列
  * @param pattern - 規則
  */
 function hasPattern(lines, pattern) {
     const value = (0, normalize_1._normalize)(pattern);
-    /**
-     * 直接走訪行陣列，避免先以 {@link listPatternsOnly} 建立中間陣列
-     */
-    return lines.some(v => (0, lines_1.lineType)(v) === types_1.EnumLineType.Pattern && v.trim() === value);
+    for (const token of (0, line_token_1.linesToTokenListGenerator)(lines)) {
+        if (token.line === value && (0, line_token_1._lineTypeIsPattern)(token.type)) {
+            return true;
+        }
+    }
+    return false;
 }
 //# sourceMappingURL=filter.js.map
