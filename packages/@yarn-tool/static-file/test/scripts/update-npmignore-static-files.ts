@@ -89,14 +89,6 @@ function updateIgnoreFile(filePath: string, staticFiles: string[]): void
 	const newEntries = staticFiles.map(f => `!${f}`);
 
 	/**
-	 * 本次會產生的條目集合：先前區段殘留的同名列一併納入移除條件，
-	 * 讓重複執行維持冪等而不斷累加
-	 * The set of entries generated this run: leftovers from a previous section
-	 * are removed as well, so repeated runs stay idempotent instead of piling up
-	 */
-	const generatedEntries = new Set(newEntries);
-
-	/**
 	 * 以 IgnoreFile 讀取：內容統一為行陣列，結尾空白行已由建構處理
 	 * Read via IgnoreFile: content is normalized into a line array, with the trailing blanks already handled at construction
 	 */
@@ -104,28 +96,7 @@ function updateIgnoreFile(filePath: string, staticFiles: string[]): void
 		endCount: true,
 	});
 
-	/**
-	 * 過濾掉舊的白名單條目與標記行，
-	 * 保留使用者自行撰寫的其他規則
-	 * Filter out stale whitelist entries and marker lines,
-	 * keeping the user-written rules intact
-	 */
-	const lines = ignoreFile.lines.filter((line) =>
-	{
-		const trimmed = line.trim();
-
-		if (trimmed.startsWith('!file/') || trimmed === '!file/*.tpl')
-		{
-			return false;
-		}
-
-		if (generatedEntries.has(trimmed))
-		{
-			return false;
-		}
-
-		return trimmed !== HEADER && trimmed !== FOOTER;
-	});
+	const lines: string[] = [];
 
 	lines.push('');
 	lines.push(HEADER);
@@ -133,13 +104,9 @@ function updateIgnoreFile(filePath: string, staticFiles: string[]): void
 	lines.push(FOOTER);
 	lines.push('');
 
-	/**
-	 * 行陣列直接交給 IgnoreFile 保存（支援陣列內容，EOF 換行自動還原）
-	 * Save the line array through IgnoreFile directly (array content is supported and the EOF newline is restored automatically)
-	 */
-	new IgnoreFile(filePath, lines, {
-		endCount: true,
-	}).save();
+	ignoreFile.addList(lines)
+
+	ignoreFile.outputFile(filePath);
 }
 
 /**

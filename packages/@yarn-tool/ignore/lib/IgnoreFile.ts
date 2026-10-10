@@ -30,7 +30,7 @@ const ENCODING = 'utf8'
  * 組合「搜尋 / 讀取 / 編輯 / 保存 / 比對」各項邏輯，但只負責一個檔案。
  * composes find / read / edit / save / match logic, while handling only one file.
  */
-export class IgnoreFile
+export class IgnoreFile implements ignore.Ignore
 {
 	/**
 	 * 以檔案路徑建立實例（檔案不存在時視為空白檔案）
@@ -192,23 +192,12 @@ export class IgnoreFile
 	 */
 	add(...patterns: string[]): this
 	{
-		this._lines = addPatterns(this._lines, patterns);
-
-		/**
-		 * 內部快取：新增只會加入規則，而 ignore 實例只能 add、不能刪除，
-		 * 與快取可直接併入，不必像 remove / finalize 那樣清空重建
-		 * Internal cache: adding only inserts rules, and an ignore instance can add
-		 * but never remove, so it is merged into the cache directly instead of
-		 * being cleared and rebuilt as in remove / finalize
-		 */
-		this._ignore?.add(patterns);
-
-		return this
+		return this.addList(patterns)
 	}
 
-	addForce(...patterns: string[]): this
+	addList(patterns: string[], force?: boolean): this
 	{
-		this._lines = addPatterns(this._lines, patterns, true);
+		this._lines = addPatterns(this._lines, patterns, force);
 
 		/**
 		 * 內部快取：新增只會加入規則，而 ignore 實例只能 add、不能刪除，
@@ -316,7 +305,12 @@ export class IgnoreFile
 	 */
 	save(opts?: IIgnoreFileOptions): this
 	{
-		outputFileSync(this.path, this.stringify(opts), {
+		return this.outputFile(this.path, opts)
+	}
+
+	outputFile(path: string, opts?: IIgnoreFileOptions): this
+	{
+		outputFileSync(path, this.stringify(opts), {
 			encoding: ENCODING,
 		})
 
@@ -411,5 +405,10 @@ export class IgnoreFile
 	filter(pathnames: ITSArrayListMaybeReadonly<string>): string[]
 	{
 		return this.toIgnore().filter(pathnames)
+	}
+
+	createFilter()
+	{
+		return this.toIgnore().createFilter()
 	}
 }

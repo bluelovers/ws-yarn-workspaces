@@ -61,7 +61,7 @@ export function precedingPattern2(lines: readonly string[],
 		const line = lines[i];
 		const type = lineType(line);
 
-		if (type === EnumLineType.Pattern)
+		if (type !== EnumLineType.Blank)
 		{
 			if (line === value)
 			{
