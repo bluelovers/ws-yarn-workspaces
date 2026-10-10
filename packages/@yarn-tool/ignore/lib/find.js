@@ -17,7 +17,7 @@ exports.findIgnoreFiles = findIgnoreFiles;
  */
 const fast_glob_1 = require("fast-glob");
 const ws_find_up_paths_1 = require("@yarn-tool/ws-find-up-paths");
-const names_1 = require("./names");
+const types_1 = require("./types");
 /**
  * 整理搜尋選項，套用「預設停止於目前套件」
  * Normalize search options, applying "stop at current package" by default
@@ -86,7 +86,7 @@ function* findIgnoreFilesGenerator(cwd, opts) {
      * `fileNames` accepts a single string or an array; flattening it first keeps
      * fast-glob's input a real array instead of hiding the two input shapes behind a cast
      */
-    const raw = options.fileNames ?? names_1.DEFAULT_IGNORE_FILE_NAMES;
+    const raw = options.fileNames ?? types_1.DEFAULT_IGNORE_FILE_NAMES;
     const fileNames = typeof raw === 'string' ? [raw] : [...raw];
     for (const dir of findIgnoreFileDirsGenerator(options)) {
         /**

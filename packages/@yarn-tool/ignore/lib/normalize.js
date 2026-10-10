@@ -3,11 +3,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports._normalize = _normalize;
 exports._normalizeLines = _normalizeLines;
 exports._normalizeValueOrArray = _normalizeValueOrArray;
-exports._omitBlankLines = _omitBlankLines;
 exports._stringifyEndOfLine = _stringifyEndOfLine;
 const util_1 = require("./util");
 const crlf_normalize_1 = require("crlf-normalize");
 const types_1 = require("./types");
+const options_1 = require("./options");
 function _normalize(line) {
     return line.trim();
 }
@@ -26,37 +26,8 @@ function _normalizeValueOrArray(patterns, overwrite) {
     }
     return patterns.map(_normalize);
 }
-function _omitBlankLines(lines) {
-    let startCount = 0;
-    let endCount = 0;
-    let len = lines.length;
-    for (let i = len - 1; i >= 0; i--) {
-        if (lines[i].trim() === '') {
-            lines.pop();
-            endCount++;
-        }
-        else {
-            break;
-        }
-    }
-    for (let i = 0; i < lines.length; i++) {
-        if (lines[i].trim() === '') {
-            startCount++;
-        }
-        else {
-            break;
-        }
-    }
-    return {
-        lines: lines.slice(startCount),
-        startCount,
-        endCount,
-    };
-}
-function _stringifyEndOfLine(count) {
-    if (typeof count !== 'number') {
-        count = count ? types_1.EnumConst.MAX_BLANK_LINES : 0;
-    }
+function _stringifyEndOfLine(count, defaultCount) {
+    count = (0, options_1._normalizeEndCount)(count, defaultCount);
     return crlf_normalize_1.LF.repeat(Math.min(types_1.EnumConst.MAX_BLANK_LINES, Math.max(0, count)));
 }
 //# sourceMappingURL=normalize.js.map
