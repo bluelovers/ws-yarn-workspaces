@@ -1,3 +1,37 @@
+exports[`finalizeIgnoreLines 預設連同重複註解一起去重，可用選項保留註解 1`] = `
+[
+  {
+    "label": "預設：規則與註解一起去重",
+    "lines": [
+      "# dup",
+      "",
+      "*.log"
+    ]
+  },
+  {
+    "label": "disableDedupePatternsComment: true：只保留重複的註解",
+    "lines": [
+      "# dup",
+      "",
+      "# dup",
+      "",
+      "*.log"
+    ]
+  },
+  {
+    "label": "disableDedupePatterns: true：整項去重停用",
+    "lines": [
+      "# dup",
+      "",
+      "# dup",
+      "",
+      "*.log",
+      "*.log"
+    ]
+  }
+]
+`;
+
 exports[`stringifyLines 的 startCount 收斂、endCount 回歸預設值 1`] = `
 [
   {

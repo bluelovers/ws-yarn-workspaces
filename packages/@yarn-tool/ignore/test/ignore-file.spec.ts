@@ -4,7 +4,7 @@ import { test, type TestContext } from 'node:test'
 import path from 'upath2'
 import { LF } from 'crlf-normalize'
 import { IgnoreFile } from '../lib/IgnoreFile'
-import { lineType } from '../lib/lines'
+import { lineType } from '../lib/line-token'
 import { __TEST_FIXTURES, __TEST_TEMP } from './__root'
 import { snapshotIgnoreFile } from './lib/test-helper'
 import { EnumConst, EnumLineType } from '../lib/types';
@@ -98,6 +98,77 @@ test(`add/remove 編輯後註解與空行仍在`, (t: TestContext) =>
 	 */
 	snapshotIgnoreFile(t, file, {
 		patterns: ['!keep.log', '*.tmp'],
+	})
+})
+
+test(`addList 批次新增規則，force 可跳過前方規則比對`, (t: TestContext) =>
+{
+	const file = IgnoreFile.from(__FIXTURE_GITIGNORE)
+
+	/**
+	 * 回傳 `this` 可繼續串接；同批次的重複項先收斂成一條，
+	 * 再逐條與「插入位置前方最近的規則」比對，註解與空行維持原位不動
+	 */
+	t.assert.strictEqual(file.addList(['*.tmp', '*.tmp', 'lib/**/*.ts']), file)
+
+	t.assert.deepStrictEqual([...file.lines], [
+		'# ignore misc',
+		'*.log',
+		'',
+		'# exception rules',
+		'!keep.log',
+		'*.tmp',
+		'lib/**/*.ts',
+	])
+
+	/**
+	 * 不帶 `force`：前方（最後一列）已是同一條規則，重複項被略過，
+	 * 行陣列不變、仍是同一列
+	 */
+	file.addList(['lib/**/*.ts'])
+
+	t.assert.strictEqual([...file.lines].filter(v => v === 'lib/**/*.ts').length, 1)
+
+	/**
+	 * `force: true`：跳過前方規則比對直接插入，因此出現重複列
+	 */
+	file.addList(['lib/**/*.ts'], true)
+
+	t.assert.strictEqual([...file.lines].filter(v => v === 'lib/**/*.ts').length, 2)
+
+	/**
+	 * 快照記錄編輯後的實際行模型、規則與內容：
+	 * 規則列照實記錄（含重複插入的那一列），內容為未優化的原樣輸出
+	 */
+	snapshotIgnoreFile(t, file, {
+		lines: [
+			'# ignore misc',
+			'*.log',
+			'',
+			'# exception rules',
+			'!keep.log',
+			'*.tmp',
+			'lib/**/*.ts',
+			'lib/**/*.ts',
+		],
+		patterns: [
+			'*.log',
+			'!keep.log',
+			'*.tmp',
+			'lib/**/*.ts',
+			'lib/**/*.ts',
+		],
+		content: [
+			'# ignore misc',
+			'*.log',
+			'',
+			'# exception rules',
+			'!keep.log',
+			'*.tmp',
+			'lib/**/*.ts',
+			'lib/**/*.ts',
+			'',
+		].join('\n'),
 	})
 })
 
@@ -314,6 +385,81 @@ test(`options.optimizations 是 stringify() / finalize() 的預設設定`, (t: T
 	t.assert.deepStrictEqual([...file.lines], ['*.log'])
 })
 
+test(`optimizations.disableDedupePatternsComment 保留重複的註解`, (t: TestContext) =>
+{
+	const raw = [
+		'# note',
+		'*.log',
+		'*.log',
+		'# note',
+		'',
+	]
+
+	/**
+	 * 以實例設定停用「對註解也去重」：stringify() 優化後，
+	 * 重複的 `# note` 兩列都在，重複的 `*.log` 仍只留最後一筆
+	 */
+	const commented = new IgnoreFile(__VIRTUAL_GITIGNORE, raw.join('\n'), {
+		optimizations: {
+			disableDedupePatternsComment: true,
+		},
+	})
+
+	t.assert.strictEqual(commented.stringify(), [
+		'# note',
+		'*.log',
+		'# note',
+		'',
+	].join('\n'))
+
+	/**
+	 * 快照記錄選項生效後的實際行模型與內容：
+	 * 規則行照常去重，註解則保留兩列
+	 */
+	snapshotIgnoreFile(t, commented, {
+		lines: [
+			'# note',
+			'*.log',
+			'# note',
+		],
+		patterns: ['*.log'],
+		content: [
+			'# note',
+			'*.log',
+			'# note',
+			'',
+		].join('\n'),
+	})
+
+	/**
+	 * 對照：未指定該選項時，預設連同重複註解一起去重，
+	 * 先出現的 `# note` 被移除，只留下最後一筆
+	 */
+	const optimized = new IgnoreFile(__VIRTUAL_GITIGNORE, raw.join('\n'))
+
+	t.assert.strictEqual(optimized.stringify(), [
+		'*.log',
+		'# note',
+		'',
+	].join('\n'))
+
+	/**
+	 * 快照記錄預設行為的實際行模型與內容，與上一份對照
+	 */
+	snapshotIgnoreFile(t, optimized, {
+		lines: [
+			'*.log',
+			'# note',
+		],
+		patterns: ['*.log'],
+		content: [
+			'*.log',
+			'# note',
+			'',
+		].join('\n'),
+	})
+})
+
 test(`isIgnored / filter 依規則比對路徑`, (t: TestContext) =>
 {
 	const file = new IgnoreFile(__VIRTUAL_GITIGNORE, [
@@ -329,6 +475,71 @@ test(`isIgnored / filter 依規則比對路徑`, (t: TestContext) =>
 	t.assert.strictEqual(file.isIgnored('a.js'), false)
 	t.assert.strictEqual(file.ignores('a.log'), true, `ignores 為 isIgnored 的別名`)
 	t.assert.deepStrictEqual(file.filter(['a.log', 'keep.log', 'a.js']), ['keep.log', 'a.js'])
+})
+
+test(`createFilter 產生可用於 array.filter() 的函式`, (t: TestContext) =>
+{
+	const file = new IgnoreFile(__VIRTUAL_GITIGNORE, [
+		'*.log',
+		'',
+		'# 只保留 keep.log / keep keep.log only',
+		'!keep.log',
+		'',
+	].join('\n'))
+
+	const filter = file.createFilter()
+
+	const paths = ['a.log', 'keep.log', 'a.js', 'docs/readme.md']
+
+	/**
+	 * 回傳的函式直接交給 Array.filter：
+	 * 被忽略的路徑（`a.log`）被濾掉，其餘原樣保留，結果同 `file.filter()`
+	 */
+	t.assert.deepStrictEqual(paths.filter(filter), ['keep.log', 'a.js', 'docs/readme.md'])
+	t.assert.deepStrictEqual(paths.filter(filter), file.filter(paths))
+
+	/**
+	 * 快照保存逐筆判斷（`true` 保留、`false` 被忽略），
+	 * 藉此看出 `!keep.log` 讓 `keep.log` 得以保留
+	 */
+	t.assert.snapshot(paths.map(pathname => ({
+		pathname,
+		keep: filter(pathname),
+	})))
+})
+
+test(`checkIgnore 回傳比對命中的規則`, (t: TestContext) =>
+{
+	const file = new IgnoreFile(__VIRTUAL_GITIGNORE, [
+		'*.log',
+		'',
+		'# 只保留 keep.log / keep keep.log only',
+		'!keep.log',
+		'',
+	].join('\n'))
+
+	const ignored = file.checkIgnore('a.log')
+	const kept = file.checkIgnore('keep.log')
+
+	/**
+	 * 被忽略的路徑回傳命中的規則（`rule.pattern` 即命中的模式）；
+	 * 被負規則救回的路徑只回傳判斷結果、沒有 `rule`
+	 */
+	t.assert.strictEqual(ignored.ignored, true)
+	t.assert.strictEqual(ignored.rule?.pattern, '*.log')
+	t.assert.strictEqual(ignored.rule?.negative, false)
+	t.assert.strictEqual(kept.ignored, false)
+	t.assert.strictEqual(kept.unignored, true)
+	t.assert.strictEqual('rule' in kept, false)
+
+	/**
+	 * 快照保存三種路徑的實際回傳結構，供事後對照 `ignore` 套件的回傳格式
+	 */
+	t.assert.snapshot({
+		'a.log': ignored,
+		'keep.log': kept,
+		'a.js': file.checkIgnore('a.js'),
+	})
 })
 
 test(`檔案不存在時視為空白檔案`, (t: TestContext) =>

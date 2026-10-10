@@ -5,13 +5,12 @@ import { LF } from 'crlf-normalize'
 import {
 	addPatterns,
 	collapseIgnoreBlankLines,
-	dedupeIgnorePatterns,
 	finalizeIgnoreLines,
 	stringifyLines,
 } from '../lib/lines'
 import { EnumConst } from '../lib/types'
 
-import { _omitBlankLines } from '../lib/line-filter';
+import { _omitBlankLines, dedupeIgnorePatterns } from '../lib/line-filter';
 
 test(`addPatterns 只比對插入點前方最近的規則`, (t: TestContext) =>
 {
@@ -61,7 +60,7 @@ test(`addPatterns 插入位置維持在檔案結尾換行之前`, (t: TestContex
 	t.assert.deepStrictEqual(addPatterns(['*.log'], ['*.tmp']), ['*.log', '*.tmp'])
 })
 
-test(`finalizeIgnoreLines 去重只保留最後一筆，註解不受影響`, (t: TestContext) =>
+test(`finalizeIgnoreLines 去重只保留最後一筆，未重複的註解不受影響`, (t: TestContext) =>
 {
 	const lines = [
 		'# a',
@@ -85,13 +84,82 @@ test(`finalizeIgnoreLines 去重只保留最後一筆，註解不受影響`, (t:
 	])
 
 	/**
-	 * 註解與空行的數量、位置完全不變，只有重複的規則行被移除
-	 * The count and position of comments and blank lines are untouched; only
+	 * 本組輸入的兩則註解並不重複，因此數量與位置完全不變；
+	 * 空行永遠允許重複，也只有重複的規則行被移除
+	 * The two comments in this input are not duplicated, so their count and
+	 * position stay untouched; blank lines may always repeat, and only the
 	 * duplicated rule lines are dropped
 	 */
 	t.assert.strictEqual(next.filter(v => v.startsWith('#')).length, 2)
 	t.assert.strictEqual(next.filter(v => v === '').length, 2)
 	t.assert.deepStrictEqual(next.filter(v => !v.startsWith('#') && v !== ''), ['*.log'])
+})
+
+test(`finalizeIgnoreLines 預設連同重複註解一起去重，可用選項保留註解`, (t: TestContext) =>
+{
+	const lines = [
+		'# dup',
+		'',
+		'# dup',
+		'',
+		'*.log',
+		'*.log',
+		'',
+	]
+
+	/**
+	 * 快照保存三種選項組合的整理結果：
+	 * 預設連同重複註解一起去重、`disableDedupePatternsComment` 只停用註解去重、
+	 * `disableDedupePatterns` 停用整項去重（規則重複也保留）
+	 */
+	t.assert.snapshot([
+		{
+			label: '預設：規則與註解一起去重',
+			lines: finalizeIgnoreLines(lines),
+		},
+		{
+			label: 'disableDedupePatternsComment: true：只保留重複的註解',
+			lines: finalizeIgnoreLines(lines, { disableDedupePatternsComment: true }),
+		},
+		{
+			label: 'disableDedupePatterns: true：整項去重停用',
+			lines: finalizeIgnoreLines(lines, { disableDedupePatterns: true }),
+		},
+	])
+
+	/**
+	 * 預設連註解一起去重：重複的 `# dup` 與 `*.log` 都只留下最後一筆，
+	 * 空行則永遠允許重複、維持原樣；首尾空行照常被移除
+	 */
+	t.assert.deepStrictEqual(finalizeIgnoreLines(lines), [
+		'# dup',
+		'',
+		'*.log',
+	])
+
+	/**
+	 * 對照：傳 `disableDedupePatternsComment: true` 只對規則行去重，
+	 * 重複的註解原樣保留，空行仍允許重複
+	 */
+	t.assert.deepStrictEqual(finalizeIgnoreLines(lines, { disableDedupePatternsComment: true }), [
+		'# dup',
+		'',
+		'# dup',
+		'',
+		'*.log',
+	])
+
+	/**
+	 * `disableDedupePatterns: true` 停用整項去重，規則行的重複也一併保留
+	 */
+	t.assert.deepStrictEqual(finalizeIgnoreLines(lines, { disableDedupePatterns: true }), [
+		'# dup',
+		'',
+		'# dup',
+		'',
+		'*.log',
+		'*.log',
+	])
 })
 
 test(`finalizeIgnoreLines 收合超過 ${EnumConst.MAX_BLANK_LINES} 個的連續空行`, (t: TestContext) =>
@@ -304,16 +372,18 @@ test(`finalizeIgnoreLines 可個別關閉整理項目`, () =>
 		])
 
 		/**
-		 * 三項個別整理依序套用（去重 → 收合 → 移除首尾空行）與預設行為一致
-		 * Applying the three steps in sequence (dedupe → collapse → strip ends)
-		 * matches the default behaviour
+		 * 三項個別整理依序套用（規則與註解去重 → 收合 → 移除首尾空行）與預設行為一致；
+		 * 本組資料沒有註解，`disableDedupePatternsComment` 不影響結果
+		 * Applying the three steps in sequence (rule/comment dedupe → collapse →
+		 * strip ends) matches the default behaviour; this input holds no comments,
+		 * so `disableDedupePatternsComment` makes no difference here
 		 */
 		t.assert.deepStrictEqual(finalizeIgnoreLines(lines),
 			_omitBlankLines(collapseIgnoreBlankLines(dedupeIgnorePatterns([...lines]))).lines)
 
 		/**
-		 * 傳入全部三項 disable 時，行陣列完全不變
-		 * With all three steps disabled the lines come back unchanged
+		 * 傳入三個步驟各自的 disable 時，行陣列完全不變
+		 * With a disable flag for each of the three steps the lines come back unchanged
 		 */
 		t.assert.deepStrictEqual(finalizeIgnoreLines(lines, {
 			disableDedupePatterns: true,

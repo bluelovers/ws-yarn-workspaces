@@ -15,6 +15,17 @@ export enum EnumConst
 	 * Upper bound of consecutive blank lines; longer runs are shrunk to this size
 	 */
 	MAX_BLANK_LINES = 3,
+
+	/**
+	 * 註解的前綴
+	 */
+	COMMENT_PREFIX = '#',
+
+	/**
+	 * 負規則的前綴
+	 * Prefix for negative rules
+	 */
+	NEG_PREFIX = '!',
 }
 
 /**
@@ -143,11 +154,23 @@ export enum EnumLineType
 export interface IFinalizeIgnoreLinesOptions
 {
 	/**
-	 * 是否停用「移除重複的規則，只保留最後一筆」；註解不受影響，預設執行
-	 * Whether to skip removing duplicate rules (keeping only the last one);
-	 * comments are unaffected. Runs by default
+	 * 是否停用「移除重複的規則，只保留最後一筆」；預設執行
+	 * Whether to skip removing duplicate rules (keeping only the last one). Runs by default
+	 *
+	 * 停用整項去重時，重複的註解也一併保留（見 {@link disableDedupePatternsComment}）。
+	 * Turning the whole step off also keeps duplicated comments
+	 * (see {@link disableDedupePatternsComment})
 	 */
 	disableDedupePatterns?: boolean,
+
+	/**
+	 * 是否停用「對註解也進行去重」，預設執行
+	 *
+	 * 只影響註解行：預設連同重複的註解一起移除（保留最後一筆），
+	 * 傳 `true` 時註解的數量與位置完全不變；規則行與空行的行為不受影響。
+	 */
+	disableDedupePatternsComment?: boolean,
+
 	/**
 	 * 是否停用「將超過上限的連續空行縮減到上限」，預設執行
 	 * Whether to skip shrinking runs of blank lines beyond the upper bound. Runs by default
@@ -161,3 +184,15 @@ export interface IFinalizeIgnoreLinesOptions
 }
 
 export type IExcludeReadonlyArray<T extends ITSValueOrArrayMaybeReadonly<any>> = Extract<T, string | any[]>
+
+/**
+ * 單一行解析 (tokenize) 後的結果
+ *
+ * `line` 為去頭尾空白後的內容，因此比對規則只需比較 `line`，
+ * 不必再各自 trim()；`type` 則是依同一份內容判定的行類型。
+ */
+export interface ILineToken
+{
+	type: EnumLineType;
+	line: string;
+}

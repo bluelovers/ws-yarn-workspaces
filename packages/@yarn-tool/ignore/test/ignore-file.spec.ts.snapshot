@@ -64,6 +64,69 @@ exports[`add/remove 編輯後註解與空行仍在 1`] = `
 }
 `;
 
+exports[`addList 批次新增規則，force 可跳過前方規則比對 1`] = `
+{
+  "actual": {
+    "path": "D:/Users/WebstormProjects/nodejs-yarn/ws-yarn-workspaces/packages/@yarn-tool/ignore/test/fixtures/ignore-files/.gitignore",
+    "options": {
+      "startCount": 0,
+      "endCount": 1
+    },
+    "_lines": [
+      "# ignore misc",
+      "*.log",
+      "",
+      "# exception rules",
+      "!keep.log",
+      "*.tmp",
+      "lib/**/*.ts",
+      "lib/**/*.ts"
+    ]
+  },
+  "snapshot": {
+    "lines": [
+      "# ignore misc",
+      "*.log",
+      "",
+      "# exception rules",
+      "!keep.log",
+      "*.tmp",
+      "lib/**/*.ts",
+      "lib/**/*.ts"
+    ],
+    "patterns": [
+      "*.log",
+      "!keep.log",
+      "*.tmp",
+      "lib/**/*.ts",
+      "lib/**/*.ts"
+    ],
+    "content": "# ignore misc\\n*.log\\n\\n# exception rules\\n!keep.log\\n*.tmp\\nlib/**/*.ts\\nlib/**/*.ts\\n"
+  }
+}
+`;
+
+exports[`checkIgnore 回傳比對命中的規則 1`] = `
+{
+  "a.log": {
+    "ignored": true,
+    "unignored": false,
+    "rule": {
+      "pattern": "*.log",
+      "negative": false
+    }
+  },
+  "keep.log": {
+    "ignored": false,
+    "unignored": true
+  },
+  "a.js": {
+    "ignored": false,
+    "unignored": false
+  }
+}
+`;
+
 exports[`content 的 startCount 超出範圍時收斂 1`] = `
 [
   {
@@ -91,6 +154,84 @@ exports[`content 的 startCount 超出範圍時收斂 1`] = `
     "content": "\\n\\n\\n*.log"
   }
 ]
+`;
+
+exports[`createFilter 產生可用於 array.filter() 的函式 1`] = `
+[
+  {
+    "pathname": "a.log",
+    "keep": false
+  },
+  {
+    "pathname": "keep.log",
+    "keep": true
+  },
+  {
+    "pathname": "a.js",
+    "keep": true
+  },
+  {
+    "pathname": "docs/readme.md",
+    "keep": true
+  }
+]
+`;
+
+exports[`optimizations.disableDedupePatternsComment 保留重複的註解 1`] = `
+{
+  "actual": {
+    "path": "D:/Users/WebstormProjects/nodejs-yarn/ws-yarn-workspaces/packages/@yarn-tool/ignore/test/temp/virtual/.gitignore",
+    "options": {
+      "optimizations": {
+        "disableDedupePatternsComment": true
+      },
+      "startCount": 0,
+      "endCount": 1
+    },
+    "_lines": [
+      "# note",
+      "*.log",
+      "# note"
+    ]
+  },
+  "snapshot": {
+    "lines": [
+      "# note",
+      "*.log",
+      "# note"
+    ],
+    "patterns": [
+      "*.log"
+    ],
+    "content": "# note\\n*.log\\n# note\\n"
+  }
+}
+`;
+
+exports[`optimizations.disableDedupePatternsComment 保留重複的註解 2`] = `
+{
+  "actual": {
+    "path": "D:/Users/WebstormProjects/nodejs-yarn/ws-yarn-workspaces/packages/@yarn-tool/ignore/test/temp/virtual/.gitignore",
+    "options": {
+      "startCount": 0,
+      "endCount": 1
+    },
+    "_lines": [
+      "*.log",
+      "# note"
+    ]
+  },
+  "snapshot": {
+    "lines": [
+      "*.log",
+      "# note"
+    ],
+    "patterns": [
+      "*.log"
+    ],
+    "content": "*.log\\n# note\\n"
+  }
+}
 `;
 
 exports[`options.optimizations 是 stringify() / finalize() 的預設設定 1`] = `

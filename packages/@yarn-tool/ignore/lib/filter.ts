@@ -1,5 +1,5 @@
 import { ITSArrayListMaybeReadonly } from 'ts-type';
-import { lineType } from './lines';
+import { _lineTypeIsPattern, linesToTokenListGenerator, lineToToken, lineType } from './line-token';
 import { _normalize } from './normalize';
 import { EnumLineType } from './types';
 
@@ -12,16 +12,15 @@ import { EnumLineType } from './types';
  * @param lines - 行陣列
  * @param index - 插入位置（不含），由此向前搜尋
  */
-
 export function precedingPattern(lines: readonly string[], index: number): string | undefined
 {
 	for (let i = index - 1; i >= 0; i--)
 	{
-		const type = lineType(lines[i]!);
+		const token = lineToToken(lines[i]!);
 
-		if (type === EnumLineType.Pattern)
+		if (_lineTypeIsPattern(token.type))
 		{
-			return lines[i]!.trim();
+			return token.line;
 		}
 	}
 
@@ -49,7 +48,6 @@ export function precedingPattern(lines: readonly string[], index: number): strin
  * @param patterns - 本次批次的規則
  * @param value - 目前要插入的規則
  */
-
 export function precedingPattern2(lines: readonly string[],
 	index: number,
 	patterns: readonly string[],
@@ -80,17 +78,24 @@ export function precedingPattern2(lines: readonly string[],
 /**
  * 檢查是否已存在相同規則（忽略前後空白）
  *
+ * 逐行轉成 {@link ILineToken} 後比對 `token.line`：
+ * 空白只在轉換時處理一次，且只有規則行才算數——
+ * 內容與規則相同的註解行不算已存在。
+ *
  * @param lines - 行陣列
  * @param pattern - 規則
  */
-
 export function hasPattern(lines: ITSArrayListMaybeReadonly<string>, pattern: string): boolean
 {
 	const value = _normalize(pattern);
 
-	/**
-	 * 直接走訪行陣列，避免先以 {@link listPatternsOnly} 建立中間陣列
-	 */
-	return lines.some(v => lineType(v) === EnumLineType.Pattern && v.trim() === value);
-}
+	for (const token of linesToTokenListGenerator(lines))
+	{
+		if (token.line === value && _lineTypeIsPattern(token.type))
+		{
+			return true;
+		}
+	}
 
+	return false;
+}

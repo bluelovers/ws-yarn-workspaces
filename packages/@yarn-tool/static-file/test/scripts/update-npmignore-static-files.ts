@@ -86,7 +86,6 @@ function extractStaticFiles(): string[]
  */
 function updateIgnoreFile(filePath: string, staticFiles: string[]): void
 {
-	const newEntries = staticFiles.map(f => `!${f}`);
 
 	/**
 	 * 以 IgnoreFile 讀取：內容統一為行陣列，結尾空白行已由建構處理
@@ -100,11 +99,11 @@ function updateIgnoreFile(filePath: string, staticFiles: string[]): void
 
 	lines.push('');
 	lines.push(HEADER);
-	lines.push(...newEntries);
+	lines.push(...staticFiles);
 	lines.push(FOOTER);
 	lines.push('');
 
-	ignoreFile.addList(lines)
+	ignoreFile.addList(lines, true);
 
 	ignoreFile.outputFile(filePath);
 }
@@ -125,7 +124,12 @@ function main(): void
 	staticFiles.push('test/fixtures/split/**');
 
 	console.log(`Found ${staticFiles.length} static files:`);
-	staticFiles.forEach(f => console.log(`  !${f}`));
+
+	const entries = staticFiles.sort().map(f => {
+		const entry = `!${f}`
+		console.log(`  ${entry}`)
+		return entry
+	});
 
 	const npmIgnore = path.join(__ROOT, '.npmignore');
 	const gitIgnore = path.join(__ROOT, '.gitignore');
@@ -134,10 +138,10 @@ function main(): void
 	 * 兩個檔案採用同一套生成規則，先 npmignore 再 gitignore
 	 * Both files share the same generated rules, npmignore first then gitignore
 	 */
-	updateIgnoreFile(npmIgnore, staticFiles);
+	updateIgnoreFile(npmIgnore, entries);
 	console.log(`\nUpdated ${npmIgnore}`);
 
-	updateIgnoreFile(gitIgnore, staticFiles);
+	updateIgnoreFile(gitIgnore, entries);
 	console.log(`Updated ${gitIgnore}`);
 }
 
