@@ -18,7 +18,6 @@ test
 tests
 /~*
 __test__
-__tests__
 node_modules
 /node_modules/
 **/node_modules/
@@ -51,7 +50,6 @@ node_modules
 *.tgz
 /tsconfig.json.tpl
 yarn-error.log
-.git
 yarn.lock
 .env.local
 .env.*.local
@@ -82,7 +80,6 @@ webpack.*.config.ts
 karma.conf.js
 /_config.yml
 intellij-style-guide.xml
-jest.config.js
 *.tsbuildinfo
 tsconfig.*.json
 tsconfig.esm.json.tpl
@@ -124,7 +121,6 @@ now.json
 *.test.d.tsx
 *.test.tsx
 
-__mocks__
 __tests__
 __snapshots__
 *.snap
@@ -180,6 +176,7 @@ openspec/
 
 !test/fixtures/out
 !test/fixtures/split
+
 
 # Static files from const.ts
 !file/npmignore

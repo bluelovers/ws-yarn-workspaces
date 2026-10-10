@@ -4,9 +4,13 @@
  *
  * 腳本從 const.ts 提取 staticFile 值
  * 並將它們作為 !<file> 條目加入 .npmignore 和 .gitignore
+ *
+ * 讀取與保存皆透過 IgnoreFile（行陣列模型：支援陣列內容，EOF 換行自動還原）
+ * Reading and saving both go through IgnoreFile (the line model: array content
+ * is supported and the EOF newline is restored automatically)
  */
-import * as fs from 'fs';
 import * as path from 'path';
+import { IgnoreFile } from '@yarn-tool/ignore/lib/IgnoreFile';
 import { __ROOT } from '../__root';
 import {
 	defaultCopyStaticFiles,
@@ -82,9 +86,23 @@ function extractStaticFiles(): string[]
  */
 function updateIgnoreFile(filePath: string, staticFiles: string[]): void
 {
-	let content = fs.readFileSync(filePath, 'utf-8');
+	const newEntries = staticFiles.map(f => `!${f}`);
 
-	const lines = content.split('\n');
+	/**
+	 * 本次會產生的條目集合：先前區段殘留的同名列一併納入移除條件，
+	 * 讓重複執行維持冪等而不斷累加
+	 * The set of entries generated this run: leftovers from a previous section
+	 * are removed as well, so repeated runs stay idempotent instead of piling up
+	 */
+	const generatedEntries = new Set(newEntries);
+
+	/**
+	 * 以 IgnoreFile 讀取：內容統一為行陣列，結尾空白行已由建構處理
+	 * Read via IgnoreFile: content is normalized into a line array, with the trailing blanks already handled at construction
+	 */
+	const ignoreFile = IgnoreFile.from(filePath, {
+		endCount: true,
+	});
 
 	/**
 	 * 過濾掉舊的白名單條目與標記行，
@@ -92,42 +110,36 @@ function updateIgnoreFile(filePath: string, staticFiles: string[]): void
 	 * Filter out stale whitelist entries and marker lines,
 	 * keeping the user-written rules intact
 	 */
-	const filteredLines = lines.filter(line =>
+	const lines = ignoreFile.lines.filter((line) =>
 	{
 		const trimmed = line.trim();
+
 		if (trimmed.startsWith('!file/') || trimmed === '!file/*.tpl')
 		{
 			return false;
 		}
-		if (trimmed === HEADER)
+
+		if (generatedEntries.has(trimmed))
 		{
 			return false;
 		}
-		if (trimmed === FOOTER)
-		{
-			return false;
-		}
-		return true;
+
+		return trimmed !== HEADER && trimmed !== FOOTER;
 	});
 
-	const newEntries = staticFiles.map(f => `!${f}`);
+	lines.push('');
+	lines.push(HEADER);
+	lines.push(...newEntries);
+	lines.push(FOOTER);
+	lines.push('');
 
 	/**
-	 * 移除結尾空白行，確保標記區段緊接在既有規則之後
-	 * Drop trailing blank lines so the generated section follows the existing rules directly
+	 * 行陣列直接交給 IgnoreFile 保存（支援陣列內容，EOF 換行自動還原）
+	 * Save the line array through IgnoreFile directly (array content is supported and the EOF newline is restored automatically)
 	 */
-	while (filteredLines.length > 0 && filteredLines[filteredLines.length - 1].trim() === '')
-	{
-		filteredLines.pop();
-	}
-
-	filteredLines.push('');
-	filteredLines.push(HEADER);
-	filteredLines.push(...newEntries);
-	filteredLines.push(FOOTER);
-	filteredLines.push('');
-
-	fs.writeFileSync(filePath, filteredLines.join('\n'), 'utf-8');
+	new IgnoreFile(filePath, lines, {
+		endCount: true,
+	}).save();
 }
 
 /**

@@ -1,6 +1,7 @@
 /**
- * 忽略規則分割片段的主題定義與組合輔助函式
- * Topic definitions and composition helpers for the split ignore-rule fragments
+ * 忽略規則分割片段的主題定義與共用輔助（分割與組合腳本的單一事實來源）
+ * Topic definitions and shared helpers of the split ignore-rule fragments
+ * (the single source of truth for the split and compose scripts)
  *
  * 片段檔案位於 test/fixtures/split/{git,npm,shared,other}/NN-topic.txt，
  * 依「第一層 git 專用 / npm 發布專用 / 兩類共用 / 其他、第二層主題分類」保存。
@@ -17,9 +18,16 @@
  * hand-copied: fragments only carry a `# %gen:NAME%` placeholder line, which the
  * generators below expand at composition time — a single source of truth instead
  * of drifting manual copies.
+ *
+ * 本檔是「分割（split-ignore-files.ts）」與「組合（compose-split-ignore-files.ts）」
+ * 兩支腳本的共用事實來源：主題、分類 ↔ 檔名、片段路徑慣例與輔助區塊定義都只存在於此。
+ * This file is the shared source of truth for both scripts (split-ignore-files.ts
+ * and compose-split-ignore-files.ts): topics, the bucket ↔ file name mapping, the
+ * fragment path convention, and the generator blocks are all defined here only.
  */
 import { existsSync, readFileSync } from 'fs';
 import { join } from 'path';
+import { __ROOT } from '../../__root';
 
 /**
  * 二層分類主題，陣列順序即全域組合順序
@@ -40,6 +48,67 @@ export const TOPICS = [
 	{ id: '90-misc', zh: '未分類', en: 'unclassified' },
 	{ id: '99-whitelist', zh: '白名單例外', en: 'whitelist exceptions' },
 ] as const;
+
+/**
+ * 主題 id 的聯合型別，由 {@link TOPICS} 派生
+ * Union of topic ids, derived from {@link TOPICS}
+ */
+export type IIgnoreSplitTopicId = typeof TOPICS[number]['id'];
+
+/**
+ * 會輸出到組合結果的分類（other 永不輸出）
+ * Buckets emitted into the composed output (other is never emitted)
+ */
+export const EMITTED_BUCKETS = ['git', 'npm', 'shared'] as const;
+
+/**
+ * 輸出分類的聯合型別，由 {@link EMITTED_BUCKETS} 派生
+ * Union of emitted buckets, derived from {@link EMITTED_BUCKETS}
+ */
+export type IIgnoreSplitEmittedBucket = typeof EMITTED_BUCKETS[number];
+
+/**
+ * 全部分類的聯合型別（含永不輸出的 other）
+ * Union of all buckets (including the never-emitted other)
+ */
+export type IIgnoreSplitBucket = IIgnoreSplitEmittedBucket | 'other';
+
+/**
+ * 組合目標：分類與對應的 ignore 檔名，為「分類 ↔ 檔名」的單一事實來源
+ * Composition targets: the bucket and its ignore file name — the single source
+ * of truth for the bucket ↔ file-name mapping
+ */
+export const IGNORE_SPLIT_TARGETS = [
+	{ bucket: 'git', fileName: 'gitignore' },
+	{ bucket: 'npm', fileName: 'npmignore' },
+] as const;
+
+/**
+ * 可作為組合目標的分類，由 {@link IGNORE_SPLIT_TARGETS} 派生
+ * Buckets usable as composition targets, derived from {@link IGNORE_SPLIT_TARGETS}
+ */
+export type IIgnoreSplitTargetBucket = typeof IGNORE_SPLIT_TARGETS[number]['bucket'];
+
+/**
+ * 分類片段的根目錄 / Root directory of the classified fragments
+ */
+export const SPLIT_ROOT = join(__ROOT, 'test', 'fixtures', 'split');
+
+/**
+ * 取得片段檔案路徑，命名慣例為 `<分類>/<主題>.txt`
+ * Get a fragment file path, following the `<bucket>/<topic>.txt` naming convention
+ *
+ * 分割腳本與組合腳本共用此函式，避免各自拼出不同的存放位置。
+ * Shared by the split and compose scripts so neither builds its own location.
+ *
+ * @param bucket - 分類 / Bucket
+ * @param topic - 主題編號 / Topic id
+ * @returns 片段檔案的絕對路徑 / The absolute path of the fragment file
+ */
+export function getSplitFragmentPath(bucket: string, topic: string): string
+{
+	return join(SPLIT_ROOT, bucket, `${topic}.txt`);
+}
 
 /**
  * 片段中的佔位行：`# %gen:<名稱>%`
@@ -216,15 +285,42 @@ export function genNpmSourceDeclarations(): string[]
 }
 
 /**
+ * 共用輔助區塊的註冊資料：產生函式、所屬主題與所屬分類都登记在此，
+ * 分割腳本據此決定佔位行寫入哪個片段，組合腳本據此展開佔位內容
+ * Registration of a shared generator: the generate function, its topic, and its
+ * bucket all live here, so the split script knows which fragment receives the
+ * placeholder line and the compose script knows what to expand it into
+ */
+export interface IIgnoreSplitGenerator
+{
+	/**
+	 * 產生區塊內容（含說明註解與組內空行）
+	 * Produce the block content (including its description comment and intra-group blanks)
+	 */
+	generate: () => string[];
+
+	/**
+	 * 區塊所屬主題 / The topic this block belongs to
+	 */
+	topic: IIgnoreSplitTopicId;
+
+	/**
+	 * 區塊所屬分類；只有目標分類（git / npm）會以輔助產生
+	 * Bucket of the block; only target buckets (git / npm) are produced by helpers
+	 */
+	bucket: IIgnoreSplitTargetBucket;
+}
+
+/**
  * 產生器註冊表：鍵名對應片段中的 `# %gen:NAME%` 佔位名稱
  * Generator registry: keys match the `# %gen:NAME%` placeholder names in fragments
  */
-export const IGNORE_SPLIT_GENERATORS = {
-	'test-build-artifacts': genTestBuildArtifacts,
-	'source-maps': genSourceMaps,
-	'spec-files': genSpecFiles,
-	'npm-source-declarations': genNpmSourceDeclarations,
-} as const;
+export const IGNORE_SPLIT_GENERATORS: Record<string, IIgnoreSplitGenerator> = {
+	'test-build-artifacts': { generate: genTestBuildArtifacts, topic: '20-test', bucket: 'git' },
+	'source-maps': { generate: genSourceMaps, topic: '10-project', bucket: 'git' },
+	'spec-files': { generate: genSpecFiles, topic: '20-test', bucket: 'npm' },
+	'npm-source-declarations': { generate: genNpmSourceDeclarations, topic: '05-source', bucket: 'npm' },
+};
 
 /**
  * 讀取單一分類片段的所有行
@@ -236,14 +332,13 @@ export const IGNORE_SPLIT_GENERATORS = {
  * section marker of the composed output; a missing file (no fragment for that
  * bucket × topic combination) yields an empty array.
  *
- * @param splitRoot - split 片段的根目錄 / Root directory of the split fragments
  * @param bucket - 分類：git、npm 或 shared / Bucket: git, npm, or shared
  * @param topic - 主題編號（{@link TOPICS} 的 id）/ Topic id (see {@link TOPICS})
  * @returns 片段行陣列（已去除結尾空行）/ Fragment lines (trailing blanks removed)
  */
-export function readSplitFragment(splitRoot: string, bucket: string, topic: string): string[]
+export function readSplitFragment(bucket: string, topic: string): string[]
 {
-	const path = join(splitRoot, bucket, `${topic}.txt`);
+	const path = getSplitFragmentPath(bucket, topic);
 
 	if (!existsSync(path))
 	{
@@ -289,6 +384,6 @@ export function expandGenPlaceholders(lines: readonly string[]): string[]
 			throw new Error(`unknown ignore split generator placeholder: ${line}`);
 		}
 
-		return generator();
+		return generator.generate();
 	});
 }

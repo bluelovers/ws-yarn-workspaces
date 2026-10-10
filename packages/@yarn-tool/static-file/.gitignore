@@ -1,7 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-node_modules
 /.pnp
 .pnp.js
 
@@ -13,25 +12,19 @@ node_modules
 /out/
 
 # production
-/build
 
 # misc
 .DS_Store
 *.pem
 
 # debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 
 # local env files
-.env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
 # vercel
-.vercel
 
 /.*/
 .idea
@@ -47,14 +40,10 @@ test/**/*.js
 test/**/*.d.ts
 test/*.js
 test/*.d.ts
-test/temp*
-test/**/*.map
 tests/**/*.js
 tests/**/*.d.ts
 tests/*.js
 tests/*.d.ts
-tests/temp*
-tests/**/*.map
 bin/*.d.ts
 bin/**/*.d.ts
 /packages/*/bin/*.d.ts
@@ -62,25 +51,19 @@ bin/**/*.d.ts
 /packages/*/test/**/*.d.ts
 /packages/*/test/*.js
 /packages/*/test/*.d.ts
-/packages/*/test/temp*
 /packages/*/tests/**/*.js
 /packages/*/tests/**/*.d.ts
 /packages/*/tests/*.js
 /packages/*/tests/*.d.ts
-/packages/*/tests/temp*
 
 test/**/*.mjs
 test/**/*.d.mts
 test/*.mjs
 test/*.d.mts
-test/temp*
-test/**/*.map
 tests/**/*.mjs
 tests/**/*.d.mts
 tests/*.mjs
 tests/*.d.mts
-tests/temp*
-tests/**/*.map
 bin/*.d.mts
 bin/**/*.d.mts
 /packages/*/bin/*.d.mts
@@ -88,12 +71,10 @@ bin/**/*.d.mts
 /packages/*/test/**/*.d.mts
 /packages/*/test/*.mjs
 /packages/*/test/*.d.mts
-/packages/*/test/temp*
 /packages/*/tests/**/*.mjs
 /packages/*/tests/**/*.d.mts
 /packages/*/tests/*.mjs
 /packages/*/tests/*.d.mts
-/packages/*/tests/temp*
 
 test/**/*.cjs
 test/**/*.d.cts
@@ -137,7 +118,6 @@ bin/**/*.d.cts
 !.eslintrc.json
 yarn-error.log
 *.log
-.git
 yarn.lock
 .env.local
 .env.*.local
@@ -155,9 +135,7 @@ yarn-error.log*
 *.vue.js.map
 vue.config.d.ts
 vue.config.js.map
-.nyc_output
 coverage
-/*.tpl
 !.forestry
 !.vuepress
 !.github
@@ -278,6 +256,7 @@ test/temp*/
 
 !test/fixtures/out
 !test/fixtures/split
+
 
 # Static files from const.ts
 !file/npmignore
