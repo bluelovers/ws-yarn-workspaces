@@ -28,14 +28,13 @@ import { EnumScriptsEntry } from '../../field/scripts';
 export function defaultPkgScripts()
 {
 	return {
-		"test": "node --run test:node --",
+		"test": EnumScriptsEntry.DEFAULT_TEST,
 		"coverage": "pnpm run test --coverage",
 		"test:jest": EnumScriptsEntry.JEST_TEST,
 		"test:node": EnumScriptsEntry.NODE_TEST,
 		"test:tsc": EnumScriptsEntry.TSC_TEST,
 		"test:snapshot": "pnpm run test -u",
-		"test:jest:snapshot": "node --run test:jest -- -u",
-		"test:jest:coverage": "node --run test:jest -- --coverage",
+
 		"test:tsd": "ynpx tsd",
 		"tsc:showConfig": "ynpx get-current-tsconfig -p",
 	}
@@ -72,6 +71,8 @@ export function defaultPkgNotOldExists()
 	return {
 		...defaultPkgScripts(),
 		"test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
+		"test:jest:snapshot": "node --run test:jest -- -u",
+		"test:jest:coverage": "node --run test:jest -- --coverage",
 		"test:tsdx": "ynpx @bluelovers/tsdx test --passWithNoTests",
 		"build:dts:bundle": EnumScriptsEntry.BUILD_DTS_BUNDLE,
 		"build:dts:copy": EnumScriptsEntry.BUILD_DTS_COPY,

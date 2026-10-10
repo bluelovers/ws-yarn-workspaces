@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.handleOptions = handleOptions;
+exports.pathParentsWorkspacesGenerator = pathParentsWorkspacesGenerator;
 exports.pathParentsWorkspaces = pathParentsWorkspaces;
 exports.findUpPathsWorkspaces = findUpPathsWorkspaces;
 exports.findUpPathsWorkspacesAsync = findUpPathsWorkspacesAsync;
@@ -48,6 +49,20 @@ function handleOptions(cwd, opts) {
      */
     runtime.stopPath.push(runtime.rootData.root);
     /**
+     * 處理 stopAtCurrentPackage 選項：將當前套件根目錄加入停止路徑，
+     * 讓向上搜尋停止於 runtime.rootData.pkg
+     * Handle stopAtCurrentPackage: add current package directory to stop paths,
+     * so the upward search stops at runtime.rootData.pkg
+     *
+     * 當套件根目錄與工作區根目錄相同（例如位於 workspace 根目錄時），
+     * 不重複加入相同路徑。
+     * Skip duplicate entries when the package directory is the same as the
+     * workspace root (e.g. when located at the workspace root).
+     */
+    if (runtime.opts.stopAtCurrentPackage && !runtime.stopPath.includes(runtime.rootData.pkg)) {
+        runtime.stopPath.push(runtime.rootData.pkg);
+    }
+    /**
      * 處理 ignoreCurrentPackage 選項：若不在 workspace 中則從套件目錄開始
      * Handle ignoreCurrentPackage: if not in workspace, start from package directory
      */
@@ -75,13 +90,16 @@ function handleOptions(cwd, opts) {
  * @param opts - 額外的選項 / Additional options
  * @returns 父層路徑陣列 / Array of parent paths
  */
-function pathParentsWorkspaces(cwd, opts) {
+function pathParentsWorkspacesGenerator(cwd, opts) {
     const runtime = handleOptions(cwd, opts);
     /**
      * 使用 pathParentsGeneratorRuntime 產生所有父層路徑
      * Generate all parent paths using pathParentsGeneratorRuntime
      */
-    return [...(0, path_parents_1.pathParentsGeneratorRuntime)(runtime)];
+    return (0, path_parents_1.pathParentsGeneratorRuntime)(runtime);
+}
+function pathParentsWorkspaces(cwd, opts) {
+    return [...pathParentsWorkspacesGenerator(cwd, opts)];
 }
 /**
  * 在工作區中向上搜尋符合條件的路徑（同步版本）

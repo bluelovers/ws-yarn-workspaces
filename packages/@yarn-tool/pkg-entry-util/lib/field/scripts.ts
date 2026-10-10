@@ -15,6 +15,9 @@ export const enum EnumScriptsEntry
 	/** 以 Node.js 原生 test runner（經 tsx）執行測試並更新快照 / Run tests via Node's native runner (through tsx) and update snapshots */
 	NODE_TEST = "tsx --test --test-update-snapshots **/*.node-spec.ts **/*.node-test.ts **/*.spec.ts **/*.test.ts",
 
+	/** 預設測試命令 / Default test command */
+	DEFAULT_TEST = "node --run test:node --",
+
 	/**
 	 * TypeScript 型別檢查：以 `&` 連結 echo，讓檢查完成後仍有成功訊息
 	 * Type check: chained with `&` so a completion message is printed afterward

@@ -160,7 +160,7 @@ export function handleOptions<T extends IOptionsFindUpPathsWorkspaces = IOptions
  * @param opts - 額外的選項 / Additional options
  * @returns 父層路徑陣列 / Array of parent paths
  */
-export function pathParentsWorkspaces(cwd?: string | IOptionsFindUpPathsWorkspaces,
+export function pathParentsWorkspacesGenerator(cwd?: string | IOptionsFindUpPathsWorkspaces,
 	opts?: IOptionsFindUpPathsWorkspaces,
 )
 {
@@ -170,7 +170,14 @@ export function pathParentsWorkspaces(cwd?: string | IOptionsFindUpPathsWorkspac
 	 * 使用 pathParentsGeneratorRuntime 產生所有父層路徑
 	 * Generate all parent paths using pathParentsGeneratorRuntime
 	 */
-	return [...pathParentsGeneratorRuntime(runtime)]
+	return pathParentsGeneratorRuntime(runtime)
+}
+
+export function pathParentsWorkspaces(cwd?: string | IOptionsFindUpPathsWorkspaces,
+	opts?: IOptionsFindUpPathsWorkspaces,
+)
+{
+	return [...pathParentsWorkspacesGenerator(cwd, opts)]
 }
 
 /**

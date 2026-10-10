@@ -64,10 +64,6 @@ export function updatePackageJson<P extends IPackageJson>(pkg: P, config?: ISetu
 		pkg.scripts["test"] = void 0;
 	}
 
-	/**
-	 * 設定預設的 test 腳本為 jest
-	 * Set default test script to jest
-	 */
 	pkg.scripts["test"] ??= EnumScriptsEntry.NODE_TEST;
 
 	pkg.scripts["test:node"] ??= EnumScriptsEntry.NODE_TEST;

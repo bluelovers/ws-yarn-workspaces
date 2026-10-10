@@ -33,6 +33,17 @@ export interface IOptionsFindUpPathsWorkspaces extends IOptionsFindUpPaths {
      * If true, search upward starts from the package root directory.
      */
     startFromCurrentPackage?: boolean;
+    /**
+     * 是否停止向上搜尋於當前套件根目錄
+     * Whether to stop the upward search at the current package directory
+     *
+     * 若設為 true，則將 runtime.rootData.pkg 加入停止路徑，
+     * 使向上搜尋不會超過當前套件根目錄（仍保留 workspace 根目錄的停止點）。
+     * If true, runtime.rootData.pkg is added to the stop paths, so the upward
+     * search never goes above the current package directory
+     * (the workspace root stop point is still kept).
+     */
+    stopAtCurrentPackage?: boolean;
 }
 /**
  * 工作區向上搜尋執行時期介面
@@ -75,6 +86,7 @@ export declare function handleOptions<T extends IOptionsFindUpPathsWorkspaces = 
  * @param opts - 額外的選項 / Additional options
  * @returns 父層路徑陣列 / Array of parent paths
  */
+export declare function pathParentsWorkspacesGenerator(cwd?: string | IOptionsFindUpPathsWorkspaces, opts?: IOptionsFindUpPathsWorkspaces): Generator<string, void, unknown>;
 export declare function pathParentsWorkspaces(cwd?: string | IOptionsFindUpPathsWorkspaces, opts?: IOptionsFindUpPathsWorkspaces): string[];
 /**
  * 在工作區中向上搜尋符合條件的路徑（同步版本）

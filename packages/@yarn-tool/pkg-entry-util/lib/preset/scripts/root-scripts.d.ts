@@ -56,14 +56,12 @@ export declare function defaultRootScripts(): {
     "ws:fix-all": string;
     "ws:fix-all:addStaticFiles": string;
     "ws:fix-all:resetStaticFiles": string;
-    test: string;
+    test: import("../../field/scripts").EnumScriptsEntry;
     coverage: string;
     "test:jest": import("../../field/scripts").EnumScriptsEntry;
     "test:node": import("../../field/scripts").EnumScriptsEntry;
     "test:tsc": import("../../field/scripts").EnumScriptsEntry;
     "test:snapshot": string;
-    "test:jest:snapshot": string;
-    "test:jest:coverage": string;
     "test:tsd": string;
     "tsc:showConfig": string;
 };

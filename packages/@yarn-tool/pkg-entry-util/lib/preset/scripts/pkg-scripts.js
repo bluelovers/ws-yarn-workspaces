@@ -28,14 +28,12 @@ exports.defaultPkgNotOldExists = defaultPkgNotOldExists;
  */
 function defaultPkgScripts() {
     return {
-        "test": "node --run test:node --",
+        "test": "node --run test:node --" /* EnumScriptsEntry.DEFAULT_TEST */,
         "coverage": "pnpm run test --coverage",
         "test:jest": "jest --passWithNoTests" /* EnumScriptsEntry.JEST_TEST */,
-        "test:node": "tsx --test --test-update-snapshots test/**/*.node-spec.ts test/**/*.node-test.ts test/**/*.spec.ts test/**/*.test.ts" /* EnumScriptsEntry.NODE_TEST */,
+        "test:node": "tsx --test --test-update-snapshots **/*.node-spec.ts **/*.node-test.ts **/*.spec.ts **/*.test.ts" /* EnumScriptsEntry.NODE_TEST */,
         "test:tsc": "tsc --noEmit & echo typescript check done" /* EnumScriptsEntry.TSC_TEST */,
         "test:snapshot": "pnpm run test -u",
-        "test:jest:snapshot": "node --run test:jest -- -u",
-        "test:jest:coverage": "node --run test:jest -- --coverage",
         "test:tsd": "ynpx tsd",
         "tsc:showConfig": "ynpx get-current-tsconfig -p",
     };
@@ -70,6 +68,8 @@ function defaultPkgNotOldExists() {
     return {
         ...defaultPkgScripts(),
         "test:mocha": "ynpx --quiet -p ts-node -p mocha mocha -- --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
+        "test:jest:snapshot": "node --run test:jest -- -u",
+        "test:jest:coverage": "node --run test:jest -- --coverage",
         "test:tsdx": "ynpx @bluelovers/tsdx test --passWithNoTests",
         "build:dts:bundle": "ynpx @bluelovers/dts-bundle-generator -o ./dist/index.d.ts ./src/index.ts --no-banner --inline-declare-global & echo build:dts:bundle" /* EnumScriptsEntry.BUILD_DTS_BUNDLE */,
         "build:dts:copy": "copy .\\src\\index.d.ts .\\dist\\index.d.ts & echo build:dts" /* EnumScriptsEntry.BUILD_DTS_COPY */,

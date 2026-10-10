@@ -24,14 +24,12 @@ import { EnumScriptsEntry } from '../../field/scripts';
  * - tsc:showConfig: 顯示 TypeScript 設定 / Show TypeScript config
  */
 export declare function defaultPkgScripts(): {
-    test: string;
+    test: EnumScriptsEntry;
     coverage: string;
     "test:jest": EnumScriptsEntry;
     "test:node": EnumScriptsEntry;
     "test:tsc": EnumScriptsEntry;
     "test:snapshot": string;
-    "test:jest:snapshot": string;
-    "test:jest:coverage": string;
     "test:tsd": string;
     "tsc:showConfig": string;
 };
@@ -63,6 +61,8 @@ export declare function defaultPkgScripts(): {
  */
 export declare function defaultPkgNotOldExists(): {
     "test:mocha": string;
+    "test:jest:snapshot": string;
+    "test:jest:coverage": string;
     "test:tsdx": string;
     "build:dts:bundle": EnumScriptsEntry;
     "build:dts:copy": EnumScriptsEntry;
@@ -73,14 +73,12 @@ export declare function defaultPkgNotOldExists(): {
     "sort-package-json": string;
     "tsc:default": string;
     "tsc:esm": string;
-    test: string;
+    test: EnumScriptsEntry;
     coverage: string;
     "test:jest": EnumScriptsEntry;
     "test:node": EnumScriptsEntry;
     "test:tsc": EnumScriptsEntry;
     "test:snapshot": string;
-    "test:jest:snapshot": string;
-    "test:jest:coverage": string;
     "test:tsd": string;
     "tsc:showConfig": string;
 };
