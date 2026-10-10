@@ -1,0 +1,231 @@
+exports[`_handleOptionsEndCount 由行陣列推算首尾空行 1`] = `
+[
+  {
+    "label": "前後空行 → startCount/endCount",
+    "startCount": 2,
+    "endCount": 2,
+    "lines": [
+      "*.log"
+    ]
+  },
+  {
+    "label": "沒有空行 → 兩側皆 0",
+    "startCount": 0,
+    "endCount": 0,
+    "lines": [
+      "*.log"
+    ]
+  },
+  {
+    "label": "超出範圍的 startCount 收斂到上限",
+    "startCount": 3,
+    "endCount": 0,
+    "lines": [
+      "*.log"
+    ]
+  }
+]
+`;
+
+exports[`_handleOptionsEndCountCore start 收斂、end 回歸預設值 1`] = `
+[
+  {
+    "label": "無參數",
+    "result": {
+      "startCount": 0,
+      "endCount": 3
+    }
+  },
+  {
+    "label": "空物件",
+    "result": {
+      "startCount": 0,
+      "endCount": 3
+    }
+  },
+  {
+    "label": "兩側皆已指定",
+    "result": {
+      "startCount": 1,
+      "endCount": 2
+    }
+  },
+  {
+    "label": "endCount:false → 0",
+    "result": {
+      "startCount": 1,
+      "endCount": 0
+    }
+  },
+  {
+    "label": "兩側皆等於上限 → 原樣保留",
+    "result": {
+      "startCount": 3,
+      "endCount": 3
+    }
+  },
+  {
+    "label": "兩側皆超出範圍 → start 收斂、end 回歸上限",
+    "result": {
+      "startCount": 3,
+      "endCount": 3
+    }
+  },
+  {
+    "label": "只缺 endCount 時採用 optionsEndCount",
+    "result": {
+      "startCount": 1,
+      "endCount": 2
+    }
+  },
+  {
+    "label": "兩側皆已指定時忽略 optionsEndCount",
+    "result": {
+      "startCount": 2,
+      "endCount": 2
+    }
+  }
+]
+`;
+
+exports[`_isEndCount 預設檢查範圍，clamp 時只檢查可用數字 1`] = `
+[
+  {
+    "input": "undefined",
+    "result": false
+  },
+  {
+    "input": "false",
+    "result": false
+  },
+  {
+    "input": "true",
+    "result": false
+  },
+  {
+    "input": "0",
+    "result": true
+  },
+  {
+    "input": "2",
+    "result": true
+  },
+  {
+    "input": "3 = MAX_BLANK_LINES",
+    "result": true
+  },
+  {
+    "input": "99",
+    "result": false
+  },
+  {
+    "input": "-1",
+    "result": false
+  },
+  {
+    "input": "NaN",
+    "result": false
+  },
+  {
+    "input": "'2'",
+    "result": false
+  },
+  {
+    "input": "99 + clamp",
+    "result": true
+  },
+  {
+    "input": "-1 + clamp",
+    "result": true
+  },
+  {
+    "input": "NaN + clamp",
+    "result": false
+  },
+  {
+    "input": "false + clamp",
+    "result": false
+  }
+]
+`;
+
+exports[`_normalizeEndCount 預設回歸預設值，clamp 時收斂到範圍內 1`] = `
+[
+  {
+    "label": "未指定 → 上限",
+    "result": 3
+  },
+  {
+    "label": "false → 0",
+    "result": 0
+  },
+  {
+    "label": "0 → 0",
+    "result": 0
+  },
+  {
+    "label": "2 → 2",
+    "result": 2
+  },
+  {
+    "label": "3 = 上限 → 3",
+    "result": 3
+  },
+  {
+    "label": "99 超出範圍 → 上限",
+    "result": 3
+  },
+  {
+    "label": "-1 超出範圍 → 上限",
+    "result": 3
+  },
+  {
+    "label": "NaN → 視為未指定",
+    "result": 3
+  },
+  {
+    "label": "未指定 + 預設 2 → 2",
+    "result": 2
+  },
+  {
+    "label": "未指定 + 預設 false → 上限",
+    "result": 3
+  },
+  {
+    "label": "未指定 + 預設 99 也超出範圍 → 上限",
+    "result": 3
+  },
+  {
+    "label": "已指定時忽略預設值",
+    "result": 3
+  },
+  {
+    "label": "false 時不回頭採用預設值",
+    "result": 0
+  },
+  {
+    "label": "clamp：99 → 收斂到上限",
+    "result": 3
+  },
+  {
+    "label": "clamp：-1 → 收斂到 0",
+    "result": 0
+  },
+  {
+    "label": "clamp：7 → 收斂到上限、忽略預設 0",
+    "result": 3
+  },
+  {
+    "label": "clamp：未指定 → 仍採用預設 2",
+    "result": 2
+  },
+  {
+    "label": "clamp：false → 仍歸 0",
+    "result": 0
+  },
+  {
+    "label": "clamp：範圍內 → 原值",
+    "result": 2
+  }
+]
+`;

@@ -8,52 +8,15 @@
  * and blank lines are ordinary entries; reading, editing and saving only
  * operate on that array, which guarantees comments and blank lines survive.
  */
-import { R_CRLF, LF } from 'crlf-normalize';
+import { LF, R_CRLF } from 'crlf-normalize';
 import { ITSArrayListMaybeReadonly, ITSValueOrArrayMaybeReadonly } from 'ts-type';
-import { _normalizeValueOrArray, _omitBlankLines } from './normalize';
+import { _normalizeValueOrArray, _stringifyEndOfLine } from './normalize';
 import { _handleValueOrArrayCore, _handleValueOrArrayToMutable } from './util';
-import { array_unique, array_unique_overwrite, equals } from 'array-hyper-unique';
+import { array_unique, array_unique_overwrite } from 'array-hyper-unique';
 import { precedingPattern2 } from './filter';
-import { EnumConst } from './types';
-
-/** 單一行的類型 */
-export enum EnumLineType
-{
-	Comment = 'comment',
-	Blank = 'blank',
-	Pattern = 'pattern',
-}
-
-/**
- * 輸出前整理的選項
- * Options for finalizing before output
- *
- * 一律以 `disable` 前綴命名（同 `IgnoreFile` 的 `disableOptimize`）：
- * 省略或傳 `false` 皆會執行該步驟，只有明確傳入 `true` 才停用。
- * Every option is named with a `disable` prefix (like `IgnoreFile`'s `disableOptimize`):
- * omitting it or passing `false` runs the step, and only an explicit `true` turns it off.
- */
-export interface IFinalizeIgnoreLinesOptions
-{
-	/**
-	 * 是否停用「移除重複的規則，只保留最後一筆」；註解不受影響，預設執行
-	 * Whether to skip removing duplicate rules (keeping only the last one);
-	 * comments are unaffected. Runs by default
-	 */
-	disableDedupePatterns?: boolean,
-	/**
-	 * 是否停用「將超過上限的連續空行縮減到上限」，預設執行
-	 * Whether to skip shrinking runs of blank lines beyond the upper bound. Runs by default
-	 */
-	disableCollapseBlankLines?: boolean,
-	/**
-	 * 是否停用「移除檔案開頭與結尾的空白行」，預設執行
-	 * Whether to skip stripping blank lines at the start and the end of the file. Runs by default
-	 */
-	disableOmitBlankLines?: boolean,
-}
-
-export type IExcludeReadonlyArray<T extends ITSValueOrArrayMaybeReadonly<any>> = Extract<T, string | any[]>
+import { EnumConst, EnumLineType, IFinalizeIgnoreLinesOptions, IIgnoreFileOptions } from './types';
+import { _handleOptionsEndCountCore } from './options';
+import { _omitBlankLines } from './line-filter';
 
 /**
  * 分析單一行的類型
@@ -114,6 +77,28 @@ export function serializeLines(lines: ITSArrayListMaybeReadonly<string>): string
 }
 
 /**
+ * 將行陣列還原為內容，並在添加指定數量的換行
+ *
+ * @param lines - 行陣列
+ * @param endCount - 結尾換行數量
+ */
+export function stringifyLines(lines: ITSArrayListMaybeReadonly<string>, options?: IIgnoreFileOptions): string
+{
+	_handleOptionsEndCountCore(options, {
+		lines,
+	})
+
+	/**
+	 * 兩側刻意不同：`startCount` 收斂（超出範圍的數字夾進範圍），
+	 * `endCount` 維持回歸預設值（`_normalizeEndCount` 內建的上限）
+	 * The two sides differ on purpose: `startCount` converges (an out-of-range
+	 * number is clamped into range) while `endCount` keeps falling back to the
+	 * default built into `_normalizeEndCount` (the upper bound)
+	 */
+	return _stringifyEndOfLine(options?.startCount, EnumConst.DEFAULT_START_COUNT, true) + serializeLines(lines) + _stringifyEndOfLine(options?.endCount)
+}
+
+/**
  * 取得所有規則行（過濾註解與空行）
  *
  * @param lines - 行陣列
@@ -141,6 +126,7 @@ export function listPatternsOnly(lines: ITSArrayListMaybeReadonly<string>): stri
  */
 export function addPatterns(inputLines: ITSArrayListMaybeReadonly<string>,
 	patterns: ITSValueOrArrayMaybeReadonly<string>,
+	force?: boolean,
 ): string[]
 {
 	const lines = _handleValueOrArrayToMutable(inputLines);
@@ -150,7 +136,7 @@ export function addPatterns(inputLines: ITSArrayListMaybeReadonly<string>,
 	{
 		const value = pattern;
 
-		if (value === '' || precedingPattern2(lines, lines.length, patterns, value))
+		if (!force && (value === '' || precedingPattern2(lines, lines.length, patterns, value)))
 		{
 			continue
 		}
@@ -158,11 +144,11 @@ export function addPatterns(inputLines: ITSArrayListMaybeReadonly<string>,
 		lines.push(value)
 	}
 
-	console.dir({
-		fn: 'addPatterns',
-		patterns,
-		lines,
-	}, { depth: null })
+	// console.dir({
+	// 	fn: 'addPatterns',
+	// 	patterns,
+	// 	lines,
+	// }, { depth: null })
 
 	return lines
 }

@@ -1,6 +1,7 @@
 import { ITSArrayListMaybeReadonly } from 'ts-type';
-import { lineType, EnumLineType } from './lines';
+import { lineType } from './lines';
 import { _normalize } from './normalize';
+import { EnumLineType } from './types';
 
 /**
  * 取得插入位置前方最近的一條規則，沒有則回傳 `undefined`

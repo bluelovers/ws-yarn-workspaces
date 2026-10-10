@@ -64,16 +64,45 @@ exports[`add/remove 編輯後註解與空行仍在 1`] = `
 }
 `;
 
+exports[`content 的 startCount 超出範圍時收斂 1`] = `
+[
+  {
+    "label": "建構後原樣還原",
+    "options": {
+      "startCount": 2,
+      "endCount": 0
+    },
+    "content": "\\n\\n*.log"
+  },
+  {
+    "label": "startCount = -1 → 收斂到 0",
+    "options": {
+      "startCount": -1,
+      "endCount": 0
+    },
+    "content": "*.log"
+  },
+  {
+    "label": "startCount = 上限 + 1 → 收斂到上限",
+    "options": {
+      "startCount": 4,
+      "endCount": 0
+    },
+    "content": "\\n\\n\\n*.log"
+  }
+]
+`;
+
 exports[`options.optimizations 是 stringify() / finalize() 的預設設定 1`] = `
 {
   "actual": {
-    "path": "virtual/.gitignore",
+    "path": "D:/Users/WebstormProjects/nodejs-yarn/ws-yarn-workspaces/packages/@yarn-tool/ignore/test/temp/virtual/.gitignore",
     "options": {
       "optimizations": {
         "disableCollapseBlankLines": true
       },
       "startCount": 0,
-      "endCount": 4
+      "endCount": 3
     },
     "_lines": [
       "*.log"
@@ -94,10 +123,10 @@ exports[`options.optimizations 是 stringify() / finalize() 的預設設定 1`] 
 exports[`stringify 可選擇是否在輸出前執行優化 1`] = `
 {
   "actual": {
-    "path": "virtual/.gitignore",
+    "path": "D:/Users/WebstormProjects/nodejs-yarn/ws-yarn-workspaces/packages/@yarn-tool/ignore/test/temp/virtual/.gitignore",
     "options": {
       "startCount": 0,
-      "endCount": 4
+      "endCount": 3
     },
     "_lines": [
       "# note",
@@ -120,10 +149,10 @@ exports[`stringify 可選擇是否在輸出前執行優化 1`] = `
 exports[`stringify 可選擇是否在輸出前執行優化 2`] = `
 {
   "actual": {
-    "path": "virtual/.gitignore",
+    "path": "D:/Users/WebstormProjects/nodejs-yarn/ws-yarn-workspaces/packages/@yarn-tool/ignore/test/temp/virtual/.gitignore",
     "options": {
       "startCount": 0,
-      "endCount": 4
+      "endCount": 3
     },
     "_lines": [
       "# note",
@@ -149,13 +178,13 @@ exports[`stringify 可選擇是否在輸出前執行優化 2`] = `
 exports[`stringify 可選擇是否在輸出前執行優化 3`] = `
 {
   "actual": {
-    "path": "virtual/.gitignore",
+    "path": "D:/Users/WebstormProjects/nodejs-yarn/ws-yarn-workspaces/packages/@yarn-tool/ignore/test/temp/virtual/.gitignore",
     "options": {
       "optimizations": {
         "disableCollapseBlankLines": true
       },
       "startCount": 0,
-      "endCount": 4
+      "endCount": 3
     },
     "_lines": [
       "# note",
@@ -178,7 +207,7 @@ exports[`stringify 可選擇是否在輸出前執行優化 3`] = `
 exports[`stringify 輸出後重新載入，內容一致 1`] = `
 {
   "actual": {
-    "path": "virtual/.gitignore",
+    "path": "D:/Users/WebstormProjects/nodejs-yarn/ws-yarn-workspaces/packages/@yarn-tool/ignore/test/temp/virtual/.gitignore",
     "options": {
       "startCount": 0,
       "endCount": 1

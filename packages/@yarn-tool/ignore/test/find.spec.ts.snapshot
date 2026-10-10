@@ -1,0 +1,29 @@
+exports[`handleFindIgnoreFilesOptions 各種輸入形態整理後的選項 1`] = `
+{
+  "無參數": {
+    "stopAtCurrentPackage": true
+  },
+  "字串 cwd": {
+    "cwd": "D:/Users/WebstormProjects/nodejs-yarn/ws-yarn-workspaces/packages/@yarn-tool/ignore/test/fixtures/ignore-files/nested",
+    "stopAtCurrentPackage": true
+  },
+  "字串 cwd + opts": {
+    "stopAtCurrentPackage": false,
+    "fileNames": [
+      ".gitignore"
+    ],
+    "cwd": "D:/Users/WebstormProjects/nodejs-yarn/ws-yarn-workspaces/packages/@yarn-tool/ignore/test/fixtures/ignore-files/nested"
+  },
+  "物件 cwd": {
+    "cwd": "D:/Users/WebstormProjects/nodejs-yarn/ws-yarn-workspaces/packages/@yarn-tool/ignore/test/fixtures/ignore-files/nested",
+    "stopAtCurrentPackage": false
+  },
+  "opts 覆寫物件 cwd": {
+    "cwd": "D:/Users/WebstormProjects/nodejs-yarn/ws-yarn-workspaces/packages/@yarn-tool/ignore/test/fixtures/ignore-files",
+    "fileNames": [
+      ".dockerignore"
+    ],
+    "stopAtCurrentPackage": true
+  }
+}
+`;

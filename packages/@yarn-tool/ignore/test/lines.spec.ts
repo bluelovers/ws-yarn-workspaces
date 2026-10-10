@@ -1,14 +1,17 @@
 //@noUnusedParameters:false
 
 import { test, before, type TestContext } from 'node:test'
+import { LF } from 'crlf-normalize'
 import {
 	addPatterns,
 	collapseIgnoreBlankLines,
 	dedupeIgnorePatterns,
 	finalizeIgnoreLines,
+	stringifyLines,
 } from '../lib/lines'
 import { EnumConst } from '../lib/types'
-import { _omitBlankLines } from '../lib/normalize'
+
+import { _omitBlankLines } from '../lib/line-filter';
 
 test(`addPatterns 只比對插入點前方最近的規則`, (t: TestContext) =>
 {
@@ -319,4 +322,66 @@ test(`finalizeIgnoreLines 可個別關閉整理項目`, () =>
 		}), [...lines])
 	});
 
+})
+
+test(`stringifyLines 的 startCount 收斂、endCount 回歸預設值`, (t: TestContext) =>
+{
+	const __cases: [
+		label: string,
+		startCount: number,
+		endCount?: number,
+	][] = [
+		['startCount/endCount 皆 -1', -1, -1],
+		['startCount 超出上限', EnumConst.MAX_BLANK_LINES + 1],
+		['兩側皆在範圍內', 2, 1],
+	];
+
+	/**
+	 * 快照保存三種輸入的實際輸出（`output` 含換行、`length` 為字元數），
+	 * 用來留存「收斂」與「回歸預設值」兩種整理方式的結果
+	 * The snapshot preserves the actual output of the three inputs (`output`
+	 * includes the newlines, `length` is the character count), keeping the results
+	 * of both ways of normalizing: converging and falling back to the default
+	 */
+	t.assert.snapshot(__cases.map(([
+		label,
+		startCount,
+		endCount,
+	]) => {
+		const output = stringifyLines(['*.log'], { startCount, endCount });
+
+		return {
+			label,
+			output,
+			length: output.length,
+		}
+	}))
+
+	/**
+	 * 兩個都超出範圍的計數走不同規則：`startCount` 收斂到範圍內
+	 * （`-1` → 0 行、`99` → 上限），`endCount` 則回歸 `_normalizeEndCount`
+	 * 內建的預設上限，因此結尾仍有 ${EnumConst.MAX_BLANK_LINES} 個換行
+	 * The two out-of-range counts follow different rules: `startCount` converges
+	 * into the range (`-1` → 0 lines, `99` → the bound) while `endCount` falls
+	 * back to the default bound built into `_normalizeEndCount`, so the tail still
+	 * gets ${EnumConst.MAX_BLANK_LINES} newlines
+	 */
+	t.assert.strictEqual(
+		stringifyLines(['*.log'], { startCount: -1, endCount: -1 }),
+		'*.log' + LF.repeat(EnumConst.MAX_BLANK_LINES),
+	)
+	t.assert.strictEqual(
+		stringifyLines(['*.log'], { startCount: EnumConst.MAX_BLANK_LINES + 1 }),
+		LF.repeat(EnumConst.MAX_BLANK_LINES) + '*.log' + LF.repeat(EnumConst.MAX_BLANK_LINES),
+	)
+
+	/**
+	 * 對照：兩側原本就在範圍內時原樣保留，不受收斂影響
+	 * For comparison: when both sides are already in range they are kept as given
+	 * and are unaffected by the convergence
+	 */
+	t.assert.strictEqual(
+		stringifyLines(['*.log'], { startCount: 2, endCount: 1 }),
+		LF.repeat(2) + '*.log' + LF,
+	)
 })

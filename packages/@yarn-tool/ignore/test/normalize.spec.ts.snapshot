@@ -1,0 +1,69 @@
+exports[`_stringifyEndOfLine 依計數還原 LF 1`] = `
+[
+  {
+    "label": "未指定 → 上限",
+    "output": "\\n\\n\\n",
+    "length": 3
+  },
+  {
+    "label": "0 → 無換行",
+    "output": "",
+    "length": 0
+  },
+  {
+    "label": "1 → 一行",
+    "output": "\\n",
+    "length": 1
+  },
+  {
+    "label": "false → 無換行",
+    "output": "",
+    "length": 0
+  },
+  {
+    "label": "99 → 改採預設上限",
+    "output": "\\n\\n\\n",
+    "length": 3
+  },
+  {
+    "label": "未指定 + 預設 2 → 兩行",
+    "output": "\\n\\n",
+    "length": 2
+  },
+  {
+    "label": "false + 預設 2 → 無換行",
+    "output": "",
+    "length": 0
+  },
+  {
+    "label": "99 + 預設 0 → 改採預設值 0",
+    "output": "",
+    "length": 0
+  },
+  {
+    "label": "clamp：99 → 收合到上限",
+    "output": "\\n\\n\\n",
+    "length": 3
+  },
+  {
+    "label": "clamp：-1 → 無換行",
+    "output": "",
+    "length": 0
+  },
+  {
+    "label": "clamp：未指定 + 預設 2 → 兩行",
+    "output": "\\n\\n",
+    "length": 2
+  },
+  {
+    "label": "clamp：false + 預設 2 → 無換行",
+    "output": "",
+    "length": 0
+  },
+  {
+    "label": "clamp：99 + 預設 0 → 仍收合到上限",
+    "output": "\\n\\n\\n",
+    "length": 3
+  }
+]
+`;

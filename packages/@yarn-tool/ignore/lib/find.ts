@@ -9,33 +9,8 @@
  * independent and can be tested separately.
  */
 import { sync as globSync } from 'fast-glob';
-import {
-	pathParentsWorkspacesGenerator,
-	IOptionsFindUpPathsWorkspaces,
-} from '@yarn-tool/ws-find-up-paths';
-import { DEFAULT_IGNORE_FILE_NAMES } from './names';
-import { ITSValueOrArrayMaybeReadonly } from 'ts-type';
-
-/**
- * ignore 檔案搜尋選項
- * Options for searching ignore files
- *
- * 擴展自 {@link IOptionsFindUpPathsWorkspaces}，
- * 因此可直接使用 `stopAtCurrentPackage` 控制搜尋範圍。
- */
-export interface IFindIgnoreFilesOptions extends IOptionsFindUpPathsWorkspaces
-{
-	/**
-	 * 要搜尋的 ignore 檔名（可為 glob 模式）
-	 * Ignore file names (or glob patterns) to search for
-	 *
-	 * 預設 {@link DEFAULT_IGNORE_FILE_NAMES}
-	 */
-	fileNames?: ITSValueOrArrayMaybeReadonly<string>,
-}
-
-/** `cwd` 可直接傳入路徑字串或搜尋選項物件 */
-export type ICwdOrFindIgnoreFilesOptions = string | IFindIgnoreFilesOptions;
+import { pathParentsWorkspacesGenerator } from '@yarn-tool/ws-find-up-paths';
+import { DEFAULT_IGNORE_FILE_NAMES, ICwdOrFindIgnoreFilesOptions, IFindIgnoreFilesOptions } from './types';
 
 /**
  * 整理搜尋選項，套用「預設停止於目前套件」

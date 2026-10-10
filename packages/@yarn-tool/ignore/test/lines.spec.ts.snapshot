@@ -1,15 +1,19 @@
-exports[`finalizeIgnoreLines 可個別關閉整理項目 > 預設行為 1`] = `
-{
-  "lines": [
-    "*.log",
-    "*.log",
-    "",
-    "",
-    "",
-    "",
-    "*.123"
-  ],
-  "startCount": 2,
-  "endCount": 3
-}
+exports[`stringifyLines 的 startCount 收斂、endCount 回歸預設值 1`] = `
+[
+  {
+    "label": "startCount/endCount 皆 -1",
+    "output": "*.log\\n\\n\\n",
+    "length": 8
+  },
+  {
+    "label": "startCount 超出上限",
+    "output": "\\n\\n\\n*.log\\n\\n\\n",
+    "length": 11
+  },
+  {
+    "label": "兩側皆在範圍內",
+    "output": "\\n\\n*.log\\n",
+    "length": 8
+  }
+]
 `;

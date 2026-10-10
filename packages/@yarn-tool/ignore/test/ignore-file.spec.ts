@@ -2,10 +2,12 @@
 
 import { test, type TestContext } from 'node:test'
 import path from 'upath2'
+import { LF } from 'crlf-normalize'
 import { IgnoreFile } from '../lib/IgnoreFile'
-import { EnumLineType, lineType } from '../lib/lines'
+import { lineType } from '../lib/lines'
 import { __TEST_FIXTURES, __TEST_TEMP } from './__root'
 import { snapshotIgnoreFile } from './lib/test-helper'
+import { EnumConst, EnumLineType } from '../lib/types';
 
 /**
  * 起點：資料夾內有 nested/.dockerignore，可驗證「指定檔名」的搜尋
@@ -345,4 +347,56 @@ test(`檔案不存在時視為空白檔案`, (t: TestContext) =>
 		content: '',
 		options: { startCount: 0, endCount: 0 },
 	})
+})
+
+test(`content 的 startCount 超出範圍時收斂`, (t: TestContext) =>
+{
+	const file = new IgnoreFile(__VIRTUAL_GITIGNORE, '\n\n*.log')
+
+	const __constructed = { options: { ...file.options }, content: file.content }
+
+	file.options.startCount = -1
+
+	const __negative = { options: { ...file.options }, content: file.content }
+
+	file.options.startCount = EnumConst.MAX_BLANK_LINES + 1
+
+	const __aboveBound = { options: { ...file.options }, content: file.content }
+
+	/**
+	 * 快照保存三個階段的 `options` 與實際輸出：建構後原樣還原、
+	 * 以及 `startCount` 被改成 `-1` 與上限 + 1 時輸出如何收斂；
+	 * `options` 保留原值（收斂只發生在輸出階段）
+	 * The snapshot preserves `options` and the actual output of three stages:
+	 * restored as-is after construction, then how the output converges once
+	 * `startCount` is written out of range as `-1` and one past the bound; note
+	 * that `options` keeps the raw value and the convergence only happens on
+	 * output
+	 */
+	t.assert.snapshot([
+		{ label: '建構後原樣還原', ...__constructed },
+		{ label: 'startCount = -1 → 收斂到 0', ...__negative },
+		{ label: 'startCount = 上限 + 1 → 收斂到上限', ...__aboveBound },
+	])
+
+	/**
+	 * 建構時剝除的 2 個前導空行記入 startCount 並原樣還原，
+	 * 結尾沒有換行因此 endCount 為 0
+	 * The 2 leading blanks stripped at construction are recorded as startCount and
+	 * restored as-is; there is no trailing newline, so endCount is 0
+	 */
+	t.assert.deepStrictEqual(__constructed.options, { startCount: 2, endCount: 0 })
+	t.assert.strictEqual(__constructed.content, LF.repeat(2) + '*.log')
+
+	/**
+	 * 事後被改寫成範圍外的 startCount 在輸出時收斂：
+	 * `-1` → 0 行（沒有前導換行）、上限 + 1 → 上限，
+	 * 而不是回歸預設上限（兩者皆 3 行）；endCount 維持回歸預設值的規則
+	 * A startCount written out of range after construction converges on output:
+	 * `-1` → 0 lines (no leading newlines) and one past the bound → the bound,
+	 * instead of falling back to the default bound (3 lines in both cases);
+	 * endCount keeps its fall-back rule
+	 */
+	t.assert.strictEqual(__negative.content, '*.log')
+	t.assert.strictEqual(__aboveBound.content, LF.repeat(EnumConst.MAX_BLANK_LINES) + '*.log')
 })

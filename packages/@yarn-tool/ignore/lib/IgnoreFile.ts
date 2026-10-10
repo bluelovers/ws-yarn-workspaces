@@ -3,7 +3,6 @@ import { readFileSync } from 'fs-iconv';
 import ignore from 'ignore';
 import {
 	addPatterns,
-	IFinalizeIgnoreLinesOptions,
 	finalizeIgnoreLines,
 	listPatternsOnly,
 	processToLines,
@@ -11,82 +10,19 @@ import {
 	serializeLines,
 } from './lines';
 import { hasPattern } from './filter';
-import {
-	findIgnoreFilesGenerator,
-	ICwdOrFindIgnoreFilesOptions,
-	IFindIgnoreFilesOptions,
-} from './find';
+import { findIgnoreFilesGenerator } from './find';
 import { ITSArrayListMaybeReadonly, ITSValueOrArrayMaybeReadonly } from 'ts-type';
-import { _omitBlankLines, _stringifyEndOfLine } from './normalize';
-import { LF } from 'crlf-normalize';
+import { _stringifyEndOfLine } from './normalize';
+import { _handleOptionsEndCount } from './options';
+import {
+	ICheckIgnoreResult,
+	ICwdOrFindIgnoreFilesOptions, IFinalizeIgnoreLinesOptions, IFindIgnoreFileOptions, IIgnoreFileOptions,
+} from './types';
 
 /**
  * ignore 檔案編碼 (Encoding)，預設 utf8
  */
 const ENCODING = 'utf8'
-
-/**
- * IgnoreFile 的設定值，以物件形式保留並據此控管 {@link IgnoreFile.finalize}
- *
- * 選項命名為 `optimizations`（優化項目）而非 `finalize`：
- * 它描述「要做哪些優化」，而 `finalize` 是「執行這些優化的時機」。
- */
-export interface IIgnoreFileOptions
-{
-	/**
-	 * 輸出前優化的設定（移除重複規則、收合空行、移除首尾空行）
-	 * Optimization settings applied before output (drop duplicate rules, collapse blank lines, strip leading/trailing blank lines)
-	 *
-	 * 實例上的這份設定是 {@link IgnoreFile.finalize} 的預設值，
-	 * `finalize()` 傳入的選項會覆寫它們。
-	 */
-	optimizations?: IFinalizeIgnoreLinesOptions;
-
-	ignoreOptions?: Parameters<typeof ignore>[0];
-
-	/**
-	 * 檔案開頭的換行數，輸出時還原為 LF
-	 * Number of newlines at the start of the file, restored as LF on output
-	 *
-	 * 未指定時由建構子以實際內容記錄（見建構子說明）；
-	 * 傳 `false` 表示不還原，數字則會收合到 MAX_BLANK_LINES 上限。
-	 * When omitted the constructor records it from the actual content (see the
-	 * constructor); pass `false` to restore nothing, and a number is clamped to
-	 * the MAX_BLANK_LINES bound
-	 */
-	startCount?: boolean | number;
-
-	/**
-	 * 檔案結尾的換行數，輸出時還原為 LF
-	 * Number of newlines at the end of the file, restored as LF on output
-	 *
-	 * 行為同 {@link startCount}：未指定時由建構子記錄、`false` 不還原、
-	 * 數字收合到 MAX_BLANK_LINES 上限。
-	 * Behaves like {@link startCount}: recorded by the constructor when omitted,
-	 * `false` restores nothing, and a number is clamped to the MAX_BLANK_LINES bound
-	 */
-	endCount?: boolean | number;
-
-	/**
-	 * 這次輸出是否停用優化（只有明確傳入 `false` 才會停用）
-	 * Whether to skip the optimization for this output (only an explicit `false` skips)
-	 *
-	 * `optimizations` 決定「優化哪些項目」，`disableOptimize` 只決定「這次輸出要不要做」；
-	 * 省略或傳 `true` 皆會執行優化。
-	 * `optimizations` decides which steps run, while `disableOptimize` only decides
-	 * whether this output performs them; omitting it or passing `true` optimizes
-	 */
-	disableOptimize?: boolean,
-}
-
-/**
- * 搜尋並建立 IgnoreFile 時的選項：搜尋選項與實例設定合為一袋
- */
-export interface IFindIgnoreFileOptions extends IFindIgnoreFilesOptions, IIgnoreFileOptions
-{
-}
-
-export type ICheckIgnoreResult = ReturnType<ReturnType<typeof ignore>['checkIgnore']>
 
 /**
  * 單一 ignore 檔案的封裝類別
@@ -198,14 +134,11 @@ export class IgnoreFile
 		this.options = options ?? {}
 		this._lines = processToLines(content ?? '')
 
-		if (typeof this.options.endCount !== 'number' || typeof this.options.startCount !== 'number')
-		{
-			const { lines, startCount, endCount } = _omitBlankLines(this._lines)
+		const { lines, startCount, endCount } = _handleOptionsEndCount(this.options, { lines: this._lines });
 
-			this._lines = lines
-			if (this.options.startCount !== false) this.options.startCount = startCount
-			if (this.options.endCount !== false) this.options.endCount = endCount
-		}
+		this.options.startCount = startCount;
+		this.options.endCount = endCount;
+		this._lines = lines;
 	}
 
 	/**
@@ -218,10 +151,16 @@ export class IgnoreFile
 
 	/**
 	 * 目前的內容（LF 行尾）
+	 *
+	 * 兩側刻意不同：`startCount` 收斂（超出範圍的數字夾進範圍），
+	 * `endCount` 維持回歸預設值（`_normalizeEndCount` 內建的上限）
+	 * The two sides differ on purpose: `startCount` converges (an out-of-range
+	 * number is clamped into range) while `endCount` keeps falling back to the
+	 * default built into `_normalizeEndCount` (the upper bound)
 	 */
 	get content(): string
 	{
-		return _stringifyEndOfLine(this.options.startCount) + serializeLines(this._lines) + _stringifyEndOfLine(this.options.endCount)
+		return _stringifyEndOfLine(this.options.startCount, void 0, true) + serializeLines(this._lines) + _stringifyEndOfLine(this.options.endCount)
 	}
 
 	/**
@@ -254,6 +193,22 @@ export class IgnoreFile
 	add(...patterns: string[]): this
 	{
 		this._lines = addPatterns(this._lines, patterns);
+
+		/**
+		 * 內部快取：新增只會加入規則，而 ignore 實例只能 add、不能刪除，
+		 * 與快取可直接併入，不必像 remove / finalize 那樣清空重建
+		 * Internal cache: adding only inserts rules, and an ignore instance can add
+		 * but never remove, so it is merged into the cache directly instead of
+		 * being cleared and rebuilt as in remove / finalize
+		 */
+		this._ignore?.add(patterns);
+
+		return this
+	}
+
+	addForce(...patterns: string[]): this
+	{
+		this._lines = addPatterns(this._lines, patterns, true);
 
 		/**
 		 * 內部快取：新增只會加入規則，而 ignore 實例只能 add、不能刪除，
