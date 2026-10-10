@@ -45,16 +45,9 @@
     "test:snapshot": "pnpm run test -u",
     "test:tsc": "tsc --noEmit & echo typescript check done",
     "test:tsd": "ynpx tsd",
-    "prebuild:lockfile": "npx sync-lockfile .",
     "npm:publish": "npm publish",
     "preversion": "pnpm run test",
-    "prepublish:lockfile": "npx sync-lockfile .",
-    "prepublishOnly": "echo prepublishOnly",
-    "prepublishOnly_": "pnpm run ncu && pnpm run sort-package-json && pnpm run test",
-    "postpublish_": "git commit -m \"chore(release): publish\" . & git push & echo postpublish",
-    "ncu": "npx yarn-tool ncu -u",
-    "sort-package-json": "npx yarn-tool sort",
-    "tsc:showConfig": "ynpx get-current-tsconfig -p"
+    "prepublishOnly": "echo prepublishOnly"
   },
   "config": {},
   "dependencies": {
@@ -92,7 +85,7 @@
   },
   "devDependencies": {
     "@bluelovers/tsconfig": "^2.0.3",
-    "@types/node": "^26.6.4",
+    "@types/node": "^26.6.5",
     "@yarn-tool/require-resolve": "^4.0.9",
     "@yarn-tool/ws-find-up-paths": "^1.0.22"
   },

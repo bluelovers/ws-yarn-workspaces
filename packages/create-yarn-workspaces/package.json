@@ -58,7 +58,7 @@
     "@bluelovers/tsconfig": "^2.0.3",
     "@ts-type/package-dts": "^3.0.14",
     "@types/jest": "^30.0.0",
-    "@types/node": "^26.6.4",
+    "@types/node": "^26.6.5",
     "@yarn-tool/find-root": "^2.0.25",
     "@yarn-tool/pkg-entry-util": "^3.0.14",
     "@yarn-tool/require-resolve": "^4.0.9",
