@@ -46,7 +46,7 @@ export function _snapshotIgnoreFileCore<T extends Partial<IgnoreFile>>(actual: T
 	if (expected)
 	{
 		keys = Object.keys(expected) as (keyof T)[];
-		keys = keys.filter((key) => !__GETTER_KEYS.includes(key as string));
+		keys = keys.filter((key) => !__GETTER_KEYS.includes(key as any));
 	}
 
 	return {
@@ -136,21 +136,23 @@ export function _partialDeepStrictEqualIgnoreFileCore<T extends Partial<IgnoreFi
 	if (snapshot.actual)
 	{
 		__expected.actual = __keys
-			.filter((key) => !__GETTER_KEYS.includes(key as string))
+			.filter((key) => !__GETTER_KEYS.includes(key as any))
 			.reduce((acc, key) => {
 				acc[key] = expected[key];
 				return acc;
-			}, {} as Partial<NoInfer<T>>);
+			}, {} as Partial<T>);
 	}
 
-	if (__keys.some((key) => __GETTER_KEYS.includes(key as string)))
+	if (__keys.some((key) => __GETTER_KEYS.includes(key as any)))
 	{
 		__expected.snapshot = __keys
-			.filter((key) => __GETTER_KEYS.includes(key as string))
 			.reduce((acc, key) => {
-				acc[key] = expected[key];
+				if (__GETTER_KEYS.includes(key as any))
+				{
+					acc[key] = expected[key];
+				}
 				return acc;
-			}, {} as Partial<NoInfer<T>>);
+			}, {} as Partial<T>);
 	}
 
 	t.assert.partialDeepStrictEqual({

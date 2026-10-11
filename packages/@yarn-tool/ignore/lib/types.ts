@@ -45,7 +45,7 @@ export interface IIgnoreFileOptions
 	 */
 	optimizations?: IFinalizeIgnoreLinesOptions;
 
-	ignoreOptions?: Parameters<typeof ignore>[0];
+	ignoreOptions?: Parameters<typeof ignore>[0] & ignore.Options;
 
 	/**
 	 * 檔案開頭的換行數，輸出時還原為 LF

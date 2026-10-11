@@ -1,0 +1,94 @@
+exports[`_extractRules 只在 _isLibIgnore 為 true 時才驗證後續邏輯 1`] = `
+[
+  {
+    "label": "ignore 實例",
+    "isLibIgnore": true,
+    "rules": [
+      {
+        "pattern": "*.log",
+        "negative": false
+      },
+      {
+        "pattern": "!keep.log",
+        "negative": true
+      },
+      {
+        "pattern": "node_modules/",
+        "negative": false
+      }
+    ]
+  },
+  {
+    "label": "一般物件",
+    "isLibIgnore": false,
+    "rules": "(skipped)"
+  }
+]
+`;
+
+exports[`_extractRules 的規則不含空白行與註解 1`] = `
+[
+  {
+    "pattern": "*.log",
+    "negative": false
+  },
+  {
+    "pattern": "!keep.log",
+    "negative": true
+  },
+  {
+    "pattern": "node_modules/",
+    "negative": false
+  }
+]
+`;
+
+exports[`_isLibIgnore 判斷是否為 ignore 套件實例 1`] = `
+[
+  {
+    "label": "ignore 實例",
+    "result": true
+  },
+  {
+    "label": "自帶 KEY_IGNORE 標記的物件",
+    "result": true
+  },
+  {
+    "label": "一般物件",
+    "result": false
+  },
+  {
+    "label": "ignore 工廠函式",
+    "result": false
+  },
+  {
+    "label": "字串 node-ignore",
+    "result": false
+  },
+  {
+    "label": "null",
+    "result": false
+  },
+  {
+    "label": "undefined",
+    "result": false
+  }
+]
+`;
+
+exports[`ignore 套件對空白與註解的認定邊界 1`] = `
+[
+  {
+    "pattern": "\\t",
+    "negative": false
+  },
+  {
+    "pattern": " #c",
+    "negative": false
+  },
+  {
+    "pattern": "  a  ",
+    "negative": false
+  }
+]
+`;
