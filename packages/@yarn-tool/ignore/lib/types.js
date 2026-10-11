@@ -13,6 +13,15 @@ var EnumConst;
      * Upper bound of consecutive blank lines; longer runs are shrunk to this size
      */
     EnumConst[EnumConst["MAX_BLANK_LINES"] = 3] = "MAX_BLANK_LINES";
+    /**
+     * 註解的前綴
+     */
+    EnumConst["COMMENT_PREFIX"] = "#";
+    /**
+     * 負規則的前綴
+     * Prefix for negative rules
+     */
+    EnumConst["NEG_PREFIX"] = "!";
 })(EnumConst || (exports.EnumConst = EnumConst = {}));
 /**
  * 常見 ignore 檔案名稱的單一事實來源

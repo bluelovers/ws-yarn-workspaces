@@ -278,6 +278,30 @@ export declare class IgnoreFile implements ignore.Ignore {
      */
     ignores(pathname: string): boolean;
     /**
+     * Debugs gitignore / exclude files, which is equivalent to git check-ignore -v.
+     * Usually this method is used for other packages to implement the function of `git check-ignore -v` upon node-ignore
+     *
+     * 與 {@link ignores} 幾乎總是同結果：`checkIgnore(path).ignored` 等於 `ignores(path)`
+     * （被忽略為 `true`、未被忽略為 `false`）。差別在於 `checkIgnore` 除了「是否被忽略」，
+     * 還會回傳「是被哪一條規則命中」的 `rule`，因此比 `ignores()` 更接近模擬
+     * `git check-ignore -v` —— 後者同樣會指出命中的模式與其是否為負規則。
+     *
+     * 一次只接受單一路徑，回傳 `{ ignored, unignored, rule }`：
+     * - 被忽略：`ignored: true`，`rule` 為命中的規則（`pattern` 與 `negative`）
+     * - 被負規則救回：`unignored: true`，沒有 `rule`
+     * - 未命中任何規則：兩者皆為 `false`
+     *
+     * @param pathname - 相對路徑（需為正斜線）
+     *
+     * @example
+     * const file = new IgnoreFile('/path/to/.gitignore', '# notes\n*.log\n\n!keep.log\n')
+     * file.checkIgnore('a.log').ignored // true —— 同 file.ignores('a.log') 的結果
+     * file.checkIgnore('a.log') // { ignored: true, unignored: false, rule: { pattern: '*.log', negative: false } }
+     * // 比 ignores() 多出 rule，即「命中的規則」，因此較接近模擬 git check-ignore -v
+     * file.checkIgnore('keep.log') // { ignored: false, unignored: true } —— 被負規則救回，沒有 rule
+     */
+    checkIgnore(pathname: string): ICheckIgnoreResult;
+    /**
      * 回傳路徑的比對結果，同名相容 `ignore` 套件的 `test()`
      * The matching result of the path, name-compatible with the ignore package's `test()`
      *
@@ -291,27 +315,6 @@ export declare class IgnoreFile implements ignore.Ignore {
      * file.test('a.js') // { ignored: false, unignored: false } —— 未命中任何規則
      */
     test(pathname: string): ICheckIgnoreResult;
-    /**
-     * Debugs gitignore / exclude files, which is equivalent to git check-ignore -v.
-     * Usually this method is used for other packages to implement the function of git check-ignore -v upon node-ignore
-     *
-     * 同名相容 `ignore` 套件的 `checkIgnore()`，回傳值也相同（{@link ICheckIgnoreResult}）。
-     * Name-compatible with the ignore package's `checkIgnore()`, returning the same
-     * {@link ICheckIgnoreResult}.
-     *
-     * 一次只接受單一路徑，回傳 `{ ignored, unignored, rule }`：
-     * - 被忽略：`ignored: true`，`rule` 為命中的規則（`pattern` 與 `negative`）
-     * - 被負規則救回：`unignored: true`，沒有 `rule`
-     * - 未命中任何規則：兩者皆為 `false`
-     *
-     * @param pathname - 相對路徑（需為正斜線）
-     *
-     * @example
-     * const file = new IgnoreFile('/path/to/.gitignore', '# notes\n*.log\n\n!keep.log\n')
-     * file.checkIgnore('a.log') // { ignored: true, unignored: false, rule: { pattern: '*.log', negative: false } }
-     * file.checkIgnore('keep.log') // { ignored: false, unignored: true } —— 被負規則救回，沒有 rule
-     */
-    checkIgnore(pathname: string): ICheckIgnoreResult;
     /**
      * 過濾出被忽略的路徑 / Filter out the ignored paths
      *
