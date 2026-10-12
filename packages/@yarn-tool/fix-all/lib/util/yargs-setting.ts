@@ -31,19 +31,28 @@ export function setupToYargs<T>(yargs: Argv<T>)
 		.option('overwriteHostedGitInfo', {
 			boolean: true,
 			alias: ['O', 'overwrite'],
+			describe: 'Overwrite hosted git info (homepage / repository / bugs)',
 		})
 		.option('branch', {
 			string: true,
+			describe: 'Git branch name',
 		})
 		.option('resetStaticFiles', {
 			boolean: true,
 			alias: ['S'],
+			describe: 'Delete existing static files, copy them again, and force the static file add',
 		})
 		.option('addStaticFiles', {
 			boolean: true,
+			describe: 'Auto-detect and add static files (disabled by default)',
 		})
 		.option('noStaticFiles', {
 			boolean: true,
+			describe: 'Skip adding static files, taking precedence over addStaticFiles; resetStaticFiles still forces the add',
+		})
+		.option('noMergeIgnoreFiles', {
+			boolean: true,
+			describe: 'Disable auto-merging ignore files; when unset, existing rules are captured before the reset and merged back after the copy',
 		})
 	;
 

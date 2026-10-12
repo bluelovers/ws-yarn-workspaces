@@ -19,13 +19,14 @@ import { consoleLogger } from 'debug-color2/logger';
 import { console } from 'debug-color2';
 import { ProgressEstimator } from 'progress-estimator';
 import { fillPkgHostedInfo, IFillPkgHostedInfoOptions } from '@yarn-tool/pkg-hosted-info';
-import { ITSRequiredPick } from 'ts-type/lib/type/record';
+import { ITSPickExtra, ITSRequiredPick } from 'ts-type/lib/type/record';
 import { sortPackageJson } from 'sort-package-json3';
 import { fixPkgDepsVersionsCore, ICache, ICacheInput } from '@yarn-tool/fix-ws-versions';
 import { packageJsonDependenciesFields } from '@ts-type/package-dts/lib/package-json/types';
 import { normalizeDepsValue } from '@yarn-tool/normalize-deps-value';
 import { getRootCopyStaticFilesAuto } from '@yarn-tool/static-file/lib/root/getRootCopyStaticFiles';
 import { copyStaticFiles } from '@yarn-tool/static-file';
+import { _readIgnoreFilesSnapshot } from '@yarn-tool/static-file/lib/mergeIgnoreFiles';
 import { defaultPkgScripts } from '@yarn-tool/pkg-entry-util/lib/preset/scripts/pkg-scripts';
 import { pathIsSame } from 'path-is-same';
 import { isDummyEchoMaybeOrEmpty } from '@yarn-tool/pkg-entry-util/lib/util/scripts/dummy';
@@ -70,7 +71,7 @@ export type IEntry = ReturnType<typeof _handler>
  *
  * @extends {ITSRequiredPick<IFillPkgHostedInfoOptions & INpmAutoFixAll, ...>}
  */
-export interface IOptionsRunEachPackages extends ITSRequiredPick<IFillPkgHostedInfoOptions & INpmAutoFixAll, 'overwriteHostedGitInfo' | 'branch' | 'rootData' | 'hostedGitInfo' | 'resetStaticFiles' | 'addStaticFiles' | 'noStaticFiles'>
+export interface IOptionsRunEachPackages extends ITSPickExtra<IFillPkgHostedInfoOptions & INpmAutoFixAll, 'overwriteHostedGitInfo' | 'branch' | 'rootData' | 'hostedGitInfo' | 'resetStaticFiles' | 'addStaticFiles' | 'noStaticFiles' | 'noMergeIgnoreFiles'>
 {
 
 }
@@ -125,6 +126,19 @@ export function _runFixPackagesCore(row: IEntry, options: IOptionsRunEachPackage
 	// 載入 package.json / Load package.json
 	const pkg = new PackageJsonLoader(row.manifestLocation);
 
+	/**
+	 * 在 reset 之前讀取現有 ignore 檔案並建立快照
+	 * Read the existing ignore files and build a snapshot before the reset
+	 *
+	 * resetStaticFiles 會刪除 .gitignore / .npmignore 等檔案，
+	 * 因此必須先取樣，稍後複製完成時才能把既有規則合併回去。
+	 * resetStaticFiles deletes .gitignore / .npmignore and the like, so they must be captured
+	 * first in order to merge the existing rules back once the copy is done.
+	 */
+	const ignoreFilesSnapshot = options.noMergeIgnoreFiles
+		? undefined
+		: _readIgnoreFilesSnapshot(row.location);
+
 	// 若選項啟用則重置靜態檔案 / Reset static files if option enabled
 	if (resetStaticFiles)
 	{
@@ -165,6 +179,7 @@ export function _runFixPackagesCore(row: IEntry, options: IOptionsRunEachPackage
 		copyStaticFiles({
 			cwd: row.location,
 			file_map: getRootCopyStaticFilesAuto(_rootDataFake),
+			ignoreFilesSnapshot,
 		});
 	}
 

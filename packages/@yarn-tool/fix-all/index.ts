@@ -14,6 +14,7 @@ import { _initPkgListableByRootData, _runEachPackagesAsync } from './lib/pkg/ind
 import { consoleLogger } from 'debug-color2/logger';
 import Bluebird from 'bluebird';
 import { copyStaticFiles } from '@yarn-tool/static-file';
+import { _readIgnoreFilesSnapshot } from '@yarn-tool/static-file/lib/mergeIgnoreFiles';
 import { getWsCopyStaticFiles } from '@yarn-tool/static-file/lib/ws/wsCopyStaticFiles';
 import { getRootCopyStaticFilesAuto } from '@yarn-tool/static-file/lib/root/getRootCopyStaticFiles';
 import { _fixLernaJson } from './lib/ws/lerna';
@@ -70,6 +71,20 @@ export interface INpmAutoFixAll
 	 * Note: static files are still force-added when resetStaticFiles is true
 	 */
 	noStaticFiles?: boolean;
+
+	/**
+	 * 是否停用自動合併 ignore 檔案
+	 * Whether to disable auto-merging ignore files
+	 *
+	 * 未設定（false）時，會在 reset 之前先讀取現有的 .gitignore / .npmignore 等檔案，
+	 * 並在複製完成後把這些既有規則合併回複製出的檔案，使其不因 reset 而遺失。
+	 * When not set (false), the existing .gitignore / .npmignore files are read before the reset and
+	 * their rules are merged back into the freshly copied files afterwards, so a reset does not lose them.
+	 *
+	 * 注意：不論是 resetStaticFiles 或單純的 addStaticFiles 觸發，都會執行此合併。
+	 * Note: the merge runs for both the resetStaticFiles and the plain addStaticFiles trigger.
+	 */
+	noMergeIgnoreFiles?: boolean;
 }
 
 /**
@@ -158,9 +173,26 @@ export function npmAutoFixAll(cwd: string, options?: INpmAutoFixAll)
 			resetStaticFiles,
 			addStaticFiles,
 			noStaticFiles,
+			noMergeIgnoreFiles,
 		} = options ?? {};
 
 		cwd = rootData.cwd;
+
+		/**
+		 * 在 reset 之前讀取現有 ignore 檔案並建立快照
+		 * Read the existing ignore files and build a snapshot before the reset
+		 *
+		 * resetStaticFiles 會刪除 .gitignore / .npmignore 等檔案，
+		 * 因此必須先取樣，稍後複製完成時才能把既有規則合併回去。
+		 * resetStaticFiles deletes .gitignore / .npmignore and the like, so they must be captured
+		 * first in order to merge the existing rules back once the copy is done.
+		 *
+		 * 取樣目錄與後續複製的目標一致（workspace 取 ws，單一套件取 root）。
+		 * The captured directory matches the later copy target (ws for a workspace, root for a single package).
+		 */
+		const ignoreFilesSnapshot = noMergeIgnoreFiles
+			? undefined
+			: _readIgnoreFilesSnapshot(rootData.hasWorkspace ? rootData.ws : rootData.root);
 
 		/**
 		 * 重置靜態檔案（若選項啟用）/ Reset static files (if option enabled)
@@ -204,6 +236,7 @@ export function npmAutoFixAll(cwd: string, options?: INpmAutoFixAll)
 				copyStaticFiles({
 					cwd: rootData.ws,
 					file_map,
+					ignoreFilesSnapshot,
 				});
 			}
 			else if (rootData.root)
@@ -220,6 +253,7 @@ export function npmAutoFixAll(cwd: string, options?: INpmAutoFixAll)
 				copyStaticFiles({
 					cwd: rootData.root,
 					file_map,
+					ignoreFilesSnapshot,
 				});
 			}
 		}
@@ -295,6 +329,7 @@ export function npmAutoFixAll(cwd: string, options?: INpmAutoFixAll)
 			resetStaticFiles,
 			addStaticFiles,
 			noStaticFiles,
+			noMergeIgnoreFiles,
 		})
 	}).then(() => void 0 as void)
 }

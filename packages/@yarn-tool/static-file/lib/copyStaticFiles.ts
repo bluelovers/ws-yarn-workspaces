@@ -12,6 +12,7 @@ import { dirname, resolve } from 'path';
 import { defaultCopyStaticFiles } from './const';
 import { parseStaticMap } from './parseStaticMap';
 import { _copyStaticFilesEntryCore, _copyStaticFilesEntryCoreCopy, copyStaticFilesEntry } from './copyStaticFilesEntry';
+import { mergeIgnoreFiles } from './mergeIgnoreFiles';
 import { __STATIC_ROOT } from '../__root';
 
 /**
@@ -27,12 +28,15 @@ import { __STATIC_ROOT } from '../__root';
  * @param options.staticRoot - Root directory of static files (defaults to package root) / 靜態檔案根目錄（預設為套件根目錄）
  * @param options.overwrite - Whether to overwrite existing files / 是否覆蓋已存在的檔案
  * @param options.file_map - Custom file mapping configuration / 自訂檔案映射配置
+ * @param options.ignoreFilesSnapshot - Snapshot of existing ignore files; enables auto-merge when given / reset 前建立的既有 ignore 檔快照；提供時啟用自動合併
  *
  * @returns Array of entries that were successfully copied / 成功複製的條目陣列
  *
  * @throws {TypeError} When options.cwd is not a valid string / 當 options.cwd 不是有效的字串時
  * @throws {TypeError} When options.cwd directory does not exist / 當 options.cwd 目錄不存在時
  * @throws {TypeError} When file_map is invalid / 當 file_map 無效時
+ *
+ * @see mergeIgnoreFiles
  *
  * @example
  * ```typescript
@@ -58,7 +62,7 @@ import { __STATIC_ROOT } from '../__root';
  */
 export function copyStaticFiles<K extends string>(options: ICopyStaticFilesOptions<K>)
 {
-	options = _handleCopyStaticFilesOptions(options);
+	const opts = _handleCopyStaticFilesOptions(options);
 
 	/**
 	 * 已實際複製的條目，作為回傳值交給呼叫端 / Entries actually copied, collected as the return value
@@ -72,12 +76,28 @@ export function copyStaticFiles<K extends string>(options: ICopyStaticFilesOptio
 	 * 被 detectFile 跳過的條目不會被產出，因此也不會出現在回傳值中
 	 * Entries skipped by detectFile are never yielded, so they are absent from the result
 	 */
-	for (const result of _copyStaticFilesCoreListGenerator(options))
+	for (const result of _copyStaticFilesCoreListGenerator(opts))
 	{
 		result.copy();
 
 		copied.push(result.entry);
 	}
+
+	/**
+	 * 合併既有 ignore 檔內容 / Merge existing ignore file content
+	 *
+	 * resetStaticFiles 會先刪除正式 ignore 檔再重新複製樣板，
+	 * 呼叫端在 reset 前建立的快照在此併回複製後的檔案，使既有規則不因 reset 遺失。
+	 * resetStaticFiles deletes the real ignore files before copying the templates back;
+	 * the snapshot taken by the caller before the reset is folded into the post-copy files here,
+	 * so existing rules survive the reset.
+	 *
+	 * 未提供快照時 mergeIgnoreFiles 直接返回，不做任何寫入。
+	 * mergeIgnoreFiles returns immediately when no snapshot is given, so nothing is written.
+	 *
+	 * @see mergeIgnoreFiles
+	 */
+	mergeIgnoreFiles(opts.cwd, opts.file_map, opts.ignoreFilesSnapshot);
 
 	return copied;
 }

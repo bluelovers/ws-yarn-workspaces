@@ -5,6 +5,18 @@
  * 從靜態檔案映射陣列中提取所有可能的檔案 ID 聯合類型。
  */
 import { defaultCopyStaticFiles, defaultCopyStaticFilesRootOnly } from './const';
+import type { IgnoreFile } from '@yarn-tool/ignore/lib/IgnoreFile';
+
+/**
+ * 既有 ignore 檔案的快照 / Snapshot of existing ignore files
+ *
+ * 以相對目標路徑（如 `.gitignore`）為鍵，保存 reset 前讀取到的內容。
+ * Keyed by the relative target path (e.g. `.gitignore`), holding the content read before the reset.
+ *
+ * @see _readIgnoreFilesSnapshot
+ * @see mergeIgnoreFiles
+ */
+export type IIgnoreFilesSnapshot = Map<string, IgnoreFile>;
 
 export type IStaticFilesID<T = typeof defaultCopyStaticFiles & typeof defaultCopyStaticFilesRootOnly> =
 	T extends ({
@@ -101,11 +113,30 @@ export interface ICopyStaticFilesOptionsBase<K extends string = string>
 export interface ICopyStaticFilesOptions<K extends string = string> extends ICopyStaticFilesOptionsBase<K>
 {
 	file_map?: IStaticFiles<K>;
+
+	/**
+	 * reset 前建立的既有 ignore 檔快照
+	 * Snapshot of existing ignore files taken before the reset
+	 *
+	 * 提供時會在複製完成後自動合併 ignore 檔案；未提供則不做任何合併。
+	 * When provided, ignore files are auto-merged after the copy; when omitted nothing is merged.
+	 *
+	 * @see mergeIgnoreFiles
+	 */
+	ignoreFilesSnapshot?: IIgnoreFilesSnapshot;
 }
 
-export interface ICopyStaticFilesOptionsRuntime<K extends string = string> extends Omit<Required<ICopyStaticFilesOptions<K>>, 'file_map'>
+export interface ICopyStaticFilesOptionsRuntime<K extends string = string> extends Omit<Required<ICopyStaticFilesOptions<K>>, 'file_map' | 'ignoreFilesSnapshot'>
 {
 	file_map: IStaticFilesMapArray<K>;
+
+	/**
+	 * reset 前建立的既有 ignore 檔快照；未提供時不執行任何合併
+	 * Snapshot of existing ignore files taken before the reset; nothing is merged when omitted
+	 *
+	 * @see mergeIgnoreFiles
+	 */
+	ignoreFilesSnapshot?: IIgnoreFilesSnapshot;
 }
 
 /**
