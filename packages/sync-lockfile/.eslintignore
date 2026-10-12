@@ -10,16 +10,12 @@ tests
 .idea
 .nyc_output
 coverage
-
 *.js
 *.d.ts
-
 *.spec.js
 *.test.js
-
 *.spec.ts
 *.test.ts
-
 bin/**/*
 
 *.tsbuildinfo
