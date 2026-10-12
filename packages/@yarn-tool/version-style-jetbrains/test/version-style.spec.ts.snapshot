@@ -16,7 +16,6 @@ exports[`Version Style Generator > _handleVersionStyleOptions > should handle IV
 
 exports[`Version Style Generator > _handleVersionStyleOptions > should handle empty object 1`] = `
 {
-  "date": "2026-10-08T04:48:48.713Z",
   "dailyIncrement": 1,
   "disableDailyVersionSuffix": false
 }
@@ -24,7 +23,6 @@ exports[`Version Style Generator > _handleVersionStyleOptions > should handle em
 
 exports[`Version Style Generator > _handleVersionStyleOptions > should use default values when no input 1`] = `
 {
-  "date": "2026-10-08T04:48:48.711Z",
   "dailyIncrement": 1,
   "disableDailyVersionSuffix": false
 }

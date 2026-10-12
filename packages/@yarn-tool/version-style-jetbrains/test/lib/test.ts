@@ -49,6 +49,12 @@ export function _lazyParseVersion(version: string)
 export function _expectHandleVersionStyleOptions(t: TestContext,
 	optionsOrDate?: IVersionStyleOptions | Date,
 	propertyMatchers?: Record<string, any>,
+	opts?: {
+		/**
+		 * 在使用使用真實時間測試時，忽略日期欄位的快照
+		 */
+		snapshotIgnoreDate?: boolean;
+	}
 )
 {
 	const result = _handleVersionStyleOptions(optionsOrDate);
@@ -71,13 +77,20 @@ export function _expectHandleVersionStyleOptions(t: TestContext,
 		assert.deepStrictEqual((result as any)[key], value);
 	}
 
-	/** 快照記錄驗證過的欄位 / Snapshot the validated fields */
-	t.assert.snapshot({
+	const snap = {
 		date: result.date,
 		dailyIncrement: result.dailyIncrement,
 		disableDailyVersionSuffix: result.disableDailyVersionSuffix,
 		...propertyMatchers,
-	});
+	};
+
+	if (opts?.snapshotIgnoreDate)
+	{
+		delete snap.date;
+	}
+
+	/** 快照記錄驗證過的欄位 / Snapshot the validated fields */
+	t.assert.snapshot(snap);
 
 	return result;
 }

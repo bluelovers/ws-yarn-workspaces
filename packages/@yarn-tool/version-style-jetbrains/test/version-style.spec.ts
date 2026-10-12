@@ -222,7 +222,9 @@ describe('Version Style Generator', () => {
 
 		it('should use default values when no input', (t) => {
 			const before = new Date();
-			const result = _expectHandleVersionStyleOptions(t);
+			const result = _expectHandleVersionStyleOptions(t, undefined, undefined, {
+				snapshotIgnoreDate: true,
+			});
 			const after = new Date();
 
 			// 日期應該在調用前後的時間範圍內
@@ -234,7 +236,9 @@ describe('Version Style Generator', () => {
 
 		it('should handle empty object', (t) => {
 			const before = new Date();
-			const result = _expectHandleVersionStyleOptions(t, {});
+			const result = _expectHandleVersionStyleOptions(t, {}, undefined, {
+				snapshotIgnoreDate: true,
+			});
 			const after = new Date();
 
 			// 日期應該在調用前後的時間範圍內

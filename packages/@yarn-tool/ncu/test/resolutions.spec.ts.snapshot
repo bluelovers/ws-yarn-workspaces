@@ -16896,18 +16896,18 @@ exports[`checkResolutionsUpdate > v1 1`] = `
       "name": "@types/node",
       "versionTarget": "latest",
       "version_old": "^1.0.10",
-      "version_new": "26.6.4"
+      "version_new": "26.6.5"
     }
   ],
   "deps2": {
-    "@types/node": "26.6.4"
+    "@types/node": "26.6.5"
   },
   "deps3": {
     "@types/node": {
       "name": "@types/node",
       "versionTarget": "latest",
       "version_old": "^1.0.10",
-      "version_new": "26.6.4"
+      "version_new": "26.6.5"
     }
   }
 }
@@ -16971,18 +16971,18 @@ exports[`checkResolutionsUpdate > v3 1`] = `
       "name": "@types/node",
       "versionTarget": "latest",
       "version_old": "^1.0.10",
-      "version_new": "26.6.4"
+      "version_new": "26.6.5"
     }
   ],
   "deps2": {
-    "@types/node": "26.6.4"
+    "@types/node": "26.6.5"
   },
   "deps3": {
     "@types/node": {
       "name": "@types/node",
       "versionTarget": "latest",
       "version_old": "^1.0.10",
-      "version_new": "26.6.4"
+      "version_new": "26.6.5"
     }
   }
 }
