@@ -33,7 +33,7 @@ import { EnumScriptsEntry, scriptsEntryIsNoTestSpecified } from '@yarn-tool/pkg-
 import { isTsdxPackage } from '@yarn-tool/setup-module-env/lib/preset/tsdx/is-tsdx';
 import { fixTsdxPackage } from '@yarn-tool/setup-module-env/lib/preset/tsdx/fix';
 import { _resetStaticFiles } from '../file/reset';
-import { _isAddStaticFilesWithReset } from '../file/staticFiles';
+import { _isAddStaticFilesOrReset } from '../file/staticFiles';
 import { INpmAutoFixAll } from '../../index';
 import { join } from 'upath2';
 import { existsSync, statSync } from 'fs-extra';
@@ -113,7 +113,7 @@ export function _runFixPackagesCore(row: IEntry, options: IOptionsRunEachPackage
 	 * 統一由底層公用邏輯判定 noStaticFiles / addStaticFiles / resetStaticFiles
 	 * Resolved by the shared low-level logic for noStaticFiles / addStaticFiles / resetStaticFiles
 	 */
-	const _addStaticFiles = _isAddStaticFilesWithReset(options);
+	const _addStaticFiles = _isAddStaticFilesOrReset(options);
 
 	// 為套件建立假的根資料 / Create fake root data for the package
 	const _rootDataFake = newFakeRootData(rootData, {

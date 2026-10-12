@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.lineType = lineType;
 exports.processToLines = processToLines;
 exports.processToLinesDedupe = processToLinesDedupe;
 exports.serializeLines = serializeLines;
@@ -8,7 +7,6 @@ exports.stringifyLines = stringifyLines;
 exports.listPatternsOnly = listPatternsOnly;
 exports.addPatterns = addPatterns;
 exports.removePatterns = removePatterns;
-exports.dedupeIgnorePatterns = dedupeIgnorePatterns;
 exports.collapseIgnoreBlankLines = collapseIgnoreBlankLines;
 exports.collapseIgnoreBlankLinesFromString = collapseIgnoreBlankLinesFromString;
 exports.finalizeIgnoreLines = finalizeIgnoreLines;
@@ -30,21 +28,7 @@ const filter_1 = require("./filter");
 const types_1 = require("./types");
 const options_1 = require("./options");
 const line_filter_1 = require("./line-filter");
-/**
- * 分析單一行的類型
- *
- * @param line - 不含行尾符號的一行
- * @returns 行的類型，見 {@link EnumLineType}
- */
-function lineType(line) {
-    if (line.trim() === '') {
-        return types_1.EnumLineType.Blank;
-    }
-    if (line.trimStart().startsWith('#')) {
-        return types_1.EnumLineType.Comment;
-    }
-    return types_1.EnumLineType.Pattern;
-}
+const line_token_1 = require("./line-token");
 /**
  * 處理內容為行陣列
  *
@@ -100,7 +84,7 @@ function stringifyLines(lines, options) {
  * @param lines - 行陣列
  */
 function listPatternsOnly(lines) {
-    return lines.filter(v => lineType(v) === types_1.EnumLineType.Pattern);
+    return lines.filter(line_token_1.lineIsPattern);
 }
 /**
  * 新增多條規則並回傳新陣列
@@ -154,26 +138,6 @@ function removePatterns(inputLines, patterns) {
     return lines;
 }
 /**
- * 移除重複的規則，只保留最後一筆；註解與空行不受影響
- * Remove duplicate rules, keeping only the last occurrence; comments and blank lines are unaffected
- *
- * 以「遇到重複時移除先出現者」的方式達成：同名規則只會留下最後出現的那一列，
- * 其餘同名規則列一律捨棄；註解與空行允許重複（`allowDuplicate`），數量與位置都不變。
- * Achieved by removing the earlier entry whenever a duplicate shows up: only the
- * last line of a duplicated rule survives. Comments and blank lines may repeat
- * (`allowDuplicate`), so their count and positions never change.
- *
- * @param lines - 行陣列
- */
-function dedupeIgnorePatterns(lines) {
-    return (0, array_hyper_unique_1.array_unique)(lines, {
-        removeFromFirst: true,
-        allowDuplicate(v) {
-            return lineType(v) !== types_1.EnumLineType.Pattern;
-        },
-    });
-}
-/**
  * 將超過上限的連續空行縮減到上限
  * Shrink runs of blank lines beyond the upper bound down to the bound
  *
@@ -189,12 +153,14 @@ function dedupeIgnorePatterns(lines) {
  * the newlines actually written out.
  *
  * @param lines - 行陣列
+ * @param options - 預留參數：本函式不依賴任何選項，
+ * 型別與其他整理步驟一致，只是為了能整袋 {@link IFinalizeIgnoreLinesOptions} 直接傳入
  */
-function collapseIgnoreBlankLines(lines) {
+function collapseIgnoreBlankLines(lines, options) {
     const next = [];
     let run = 0;
     for (const line of lines) {
-        if (lineType(line) === types_1.EnumLineType.Blank) {
+        if ((0, line_token_1.lineIsBlank)(line)) {
             run++;
             if (run > types_1.EnumConst.MAX_BLANK_LINES) {
                 continue;
@@ -220,28 +186,33 @@ function collapseIgnoreBlankLinesFromString(content) {
     return content.replace(/\n{4,}/g, '\n\n\n');
 }
 /**
- * 輸出前整理：移除重複規則（只保留最後一筆）、收合超過上限的空行並移除首尾空行
- * Finalize before output: drop duplicate rules (keep the last one), collapse blank lines beyond the bound and strip leading/trailing blank lines
+ * 輸出前整理：移除重複的規則與重複的註解（皆只保留最後一筆）、收合超過上限的空行並移除首尾空行
+ * Finalize before output: drop duplicate rules and duplicate comments (both keep only the last one), collapse blank lines beyond the bound and strip leading/trailing blank lines
  *
- * 註解不參與去重，位置與數量都不會被更動。
- * Comments take no part in deduplication, so their position and count never change.
+ * 規則行與註解行預設一起去重（重複的註解只留下最後一筆），
+ * 傳 `disableDedupePatternsComment: true` 可只對規則行去重；
+ * 空行永遠允許重複，其收合與移除首尾各自獨立處理。
+ * Rule and comment lines are deduplicated together by default (a duplicated
+ * comment keeps only its last occurrence); passing `disableDedupePatternsComment`
+ * as `true` deduplicates rule lines only. Blank lines may always repeat, and
+ * collapsing them plus stripping the ends are handled as separate steps.
  *
  * @param lines - 行陣列
- * @param options - 整理選項，三項皆預設執行，傳 `true` 才停用個別項目 /
- * Finalization options; all three run by default, an explicit `true` disables that step
+ * @param options - 整理選項，四項皆預設執行，傳 `true` 才停用個別項目 /
+ * Finalization options; all steps run by default, an explicit `true` disables that step
  */
 function finalizeIgnoreLines(lines, options) {
     const { disableDedupePatterns, disableCollapseBlankLines, disableOmitBlankLines } = options ?? {};
     let next = [...lines];
     if (!disableDedupePatterns) {
-        next = dedupeIgnorePatterns(next);
+        next = (0, line_filter_1.dedupeIgnorePatterns)(next, options);
     }
     if (!disableCollapseBlankLines) {
-        next = collapseIgnoreBlankLines(next);
+        next = collapseIgnoreBlankLines(next, options);
     }
     if (disableOmitBlankLines) {
         return next;
     }
-    return (0, line_filter_1._omitBlankLines)(next).lines;
+    return (0, line_filter_1._omitBlankLines)(next, options).lines;
 }
 //# sourceMappingURL=lines.js.map

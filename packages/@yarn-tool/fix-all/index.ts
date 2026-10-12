@@ -18,7 +18,7 @@ import { getWsCopyStaticFiles } from '@yarn-tool/static-file/lib/ws/wsCopyStatic
 import { getRootCopyStaticFilesAuto } from '@yarn-tool/static-file/lib/root/getRootCopyStaticFiles';
 import { _fixLernaJson } from './lib/ws/lerna';
 import { _resetStaticFiles } from './lib/file/reset';
-import { _isAddStaticFilesWithReset } from './lib/file/staticFiles';
+import { _isAddStaticFilesOrReset } from './lib/file/staticFiles';
 
 /**
  * npmAutoFixAll 的選項介面
@@ -162,7 +162,9 @@ export function npmAutoFixAll(cwd: string, options?: INpmAutoFixAll)
 
 		cwd = rootData.cwd;
 
-		// 重置靜態檔案（若選項啟用）/ Reset static files (if option enabled)
+		/**
+		 * 重置靜態檔案（若選項啟用）/ Reset static files (if option enabled)
+		 */
 		if (resetStaticFiles)
 		{
 			_resetStaticFiles(rootData.root, {
@@ -177,7 +179,7 @@ export function npmAutoFixAll(cwd: string, options?: INpmAutoFixAll)
 		 * 統一由底層公用邏輯判定 noStaticFiles / addStaticFiles / resetStaticFiles
 		 * Resolved by the shared low-level logic for noStaticFiles / addStaticFiles / resetStaticFiles
 		 */
-		const _addStaticFiles = _isAddStaticFilesWithReset(options);
+		const _addStaticFiles = _isAddStaticFilesOrReset(options);
 
 		/**
 		 * 複製靜態檔案到 workspace 或根目錄

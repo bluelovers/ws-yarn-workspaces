@@ -6,7 +6,6 @@ exports._normalizeValueOrArray = _normalizeValueOrArray;
 exports._stringifyEndOfLine = _stringifyEndOfLine;
 const util_1 = require("./util");
 const crlf_normalize_1 = require("crlf-normalize");
-const types_1 = require("./types");
 const options_1 = require("./options");
 function _normalize(line) {
     return line.trim();
@@ -26,8 +25,20 @@ function _normalizeValueOrArray(patterns, overwrite) {
     }
     return patterns.map(_normalize);
 }
-function _stringifyEndOfLine(count, defaultCount) {
-    count = (0, options_1._normalizeEndCount)(count, defaultCount);
-    return crlf_normalize_1.LF.repeat(Math.min(types_1.EnumConst.MAX_BLANK_LINES, Math.max(0, count)));
+/**
+ * 依計數還原行尾換行字串
+ * Restore end-of-line newlines from a count
+ *
+ * @param count - 要還原的換行數量 / How many newlines to restore
+ * @param defaultCount - `count` 不可用時採用的預設值 / Default used when `count` is unusable
+ * @param clamp - 內部參數，轉交 `_normalizeEndCount`：`true` 時超出範圍的數字
+ *   不改採預設值，而由 `_normalizeEndCount` 收斂到範圍內
+ * Internal parameter forwarded to `_normalizeEndCount`: when `true` an
+ *   out-of-range number does not take the default and is converged into the
+ *   range by `_normalizeEndCount` instead
+ */
+function _stringifyEndOfLine(count, defaultCount, clamp) {
+    count = (0, options_1._normalizeEndCount)(count, defaultCount, clamp);
+    return crlf_normalize_1.LF.repeat(count);
 }
 //# sourceMappingURL=normalize.js.map

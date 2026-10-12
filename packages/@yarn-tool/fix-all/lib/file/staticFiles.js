@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports._isAddStaticFiles = _isAddStaticFiles;
-exports._isAddStaticFilesWithReset = _isAddStaticFilesWithReset;
+exports._isAddStaticFilesOrReset = _isAddStaticFilesOrReset;
 /**
  * 判定 noStaticFiles 與 addStaticFiles 的結果
  * Resolve the result of noStaticFiles and addStaticFiles
@@ -33,7 +33,7 @@ function _isAddStaticFiles(options, defaultValue) {
  * @param {boolean} [defaultValue=false] - addStaticFiles 未指定時的預設值 / Default when addStaticFiles is not given
  * @returns {boolean} 是否要加入靜態檔案 / Whether to add static files
  */
-function _isAddStaticFilesWithReset(options, defaultValue = false) {
+function _isAddStaticFilesOrReset(options, defaultValue = false) {
     return !!(options === null || options === void 0 ? void 0 : options.resetStaticFiles) || _isAddStaticFiles(options, defaultValue);
 }
 //# sourceMappingURL=staticFiles.js.map

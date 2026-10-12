@@ -1,12 +1,5 @@
 import { ITSArrayListMaybeReadonly, ITSValueOrArrayMaybeReadonly } from 'ts-type';
-import { EnumLineType, IFinalizeIgnoreLinesOptions, IIgnoreFileOptions } from './types';
-/**
- * 分析單一行的類型
- *
- * @param line - 不含行尾符號的一行
- * @returns 行的類型，見 {@link EnumLineType}
- */
-export declare function lineType(line: string): EnumLineType;
+import { IFinalizeIgnoreLinesOptions, IIgnoreFileOptions } from './types';
 /**
  * 處理內容為行陣列
  *
@@ -65,19 +58,6 @@ export declare function addPatterns(inputLines: ITSArrayListMaybeReadonly<string
  */
 export declare function removePatterns(inputLines: ITSArrayListMaybeReadonly<string>, patterns: ITSValueOrArrayMaybeReadonly<string>): string[];
 /**
- * 移除重複的規則，只保留最後一筆；註解與空行不受影響
- * Remove duplicate rules, keeping only the last occurrence; comments and blank lines are unaffected
- *
- * 以「遇到重複時移除先出現者」的方式達成：同名規則只會留下最後出現的那一列，
- * 其餘同名規則列一律捨棄；註解與空行允許重複（`allowDuplicate`），數量與位置都不變。
- * Achieved by removing the earlier entry whenever a duplicate shows up: only the
- * last line of a duplicated rule survives. Comments and blank lines may repeat
- * (`allowDuplicate`), so their count and positions never change.
- *
- * @param lines - 行陣列
- */
-export declare function dedupeIgnorePatterns(lines: ITSArrayListMaybeReadonly<string>): string[];
-/**
  * 將超過上限的連續空行縮減到上限
  * Shrink runs of blank lines beyond the upper bound down to the bound
  *
@@ -93,8 +73,10 @@ export declare function dedupeIgnorePatterns(lines: ITSArrayListMaybeReadonly<st
  * the newlines actually written out.
  *
  * @param lines - 行陣列
+ * @param options - 預留參數：本函式不依賴任何選項，
+ * 型別與其他整理步驟一致，只是為了能整袋 {@link IFinalizeIgnoreLinesOptions} 直接傳入
  */
-export declare function collapseIgnoreBlankLines(lines: ITSArrayListMaybeReadonly<string>): string[];
+export declare function collapseIgnoreBlankLines(lines: ITSArrayListMaybeReadonly<string>, options?: IFinalizeIgnoreLinesOptions): string[];
 /**
  * {@link collapseIgnoreBlankLines} 的字串版本：直接對內容收合連續換行
  * String counterpart of {@link collapseIgnoreBlankLines}: collapses blank runs in place
@@ -106,14 +88,19 @@ export declare function collapseIgnoreBlankLines(lines: ITSArrayListMaybeReadonl
  */
 export declare function collapseIgnoreBlankLinesFromString(content: string): string;
 /**
- * 輸出前整理：移除重複規則（只保留最後一筆）、收合超過上限的空行並移除首尾空行
- * Finalize before output: drop duplicate rules (keep the last one), collapse blank lines beyond the bound and strip leading/trailing blank lines
+ * 輸出前整理：移除重複的規則與重複的註解（皆只保留最後一筆）、收合超過上限的空行並移除首尾空行
+ * Finalize before output: drop duplicate rules and duplicate comments (both keep only the last one), collapse blank lines beyond the bound and strip leading/trailing blank lines
  *
- * 註解不參與去重，位置與數量都不會被更動。
- * Comments take no part in deduplication, so their position and count never change.
+ * 規則行與註解行預設一起去重（重複的註解只留下最後一筆），
+ * 傳 `disableDedupePatternsComment: true` 可只對規則行去重；
+ * 空行永遠允許重複，其收合與移除首尾各自獨立處理。
+ * Rule and comment lines are deduplicated together by default (a duplicated
+ * comment keeps only its last occurrence); passing `disableDedupePatternsComment`
+ * as `true` deduplicates rule lines only. Blank lines may always repeat, and
+ * collapsing them plus stripping the ends are handled as separate steps.
  *
  * @param lines - 行陣列
- * @param options - 整理選項，三項皆預設執行，傳 `true` 才停用個別項目 /
- * Finalization options; all three run by default, an explicit `true` disables that step
+ * @param options - 整理選項，四項皆預設執行，傳 `true` 才停用個別項目 /
+ * Finalization options; all steps run by default, an explicit `true` disables that step
  */
 export declare function finalizeIgnoreLines(lines: ITSArrayListMaybeReadonly<string>, options?: IFinalizeIgnoreLinesOptions): string[];

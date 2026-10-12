@@ -95,7 +95,9 @@ function npmAutoFixAll(cwd, options) {
         // 解構選項 / Destructure options
         let { branch, overwriteHostedGitInfo, resetStaticFiles, addStaticFiles, noStaticFiles, } = options !== null && options !== void 0 ? options : {};
         cwd = rootData.cwd;
-        // 重置靜態檔案（若選項啟用）/ Reset static files (if option enabled)
+        /**
+         * 重置靜態檔案（若選項啟用）/ Reset static files (if option enabled)
+         */
         if (resetStaticFiles) {
             (0, reset_1._resetStaticFiles)(rootData.root, {
                 rootData,
@@ -108,7 +110,7 @@ function npmAutoFixAll(cwd, options) {
          * 統一由底層公用邏輯判定 noStaticFiles / addStaticFiles / resetStaticFiles
          * Resolved by the shared low-level logic for noStaticFiles / addStaticFiles / resetStaticFiles
          */
-        const _addStaticFiles = (0, staticFiles_1._isAddStaticFilesWithReset)(options);
+        const _addStaticFiles = (0, staticFiles_1._isAddStaticFilesOrReset)(options);
         /**
          * 複製靜態檔案到 workspace 或根目錄
          * Copy static files to workspace or root

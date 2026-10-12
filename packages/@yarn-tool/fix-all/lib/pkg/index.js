@@ -86,7 +86,7 @@ function _runFixPackagesCore(row, options, cache, err) {
      * 統一由底層公用邏輯判定 noStaticFiles / addStaticFiles / resetStaticFiles
      * Resolved by the shared low-level logic for noStaticFiles / addStaticFiles / resetStaticFiles
      */
-    const _addStaticFiles = (0, staticFiles_1._isAddStaticFilesWithReset)(options);
+    const _addStaticFiles = (0, staticFiles_1._isAddStaticFilesOrReset)(options);
     // 為套件建立假的根資料 / Create fake root data for the package
     const _rootDataFake = (0, find_root_1.newFakeRootData)(rootData, {
         pkg: row.location,

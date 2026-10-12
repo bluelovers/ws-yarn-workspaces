@@ -51,7 +51,7 @@ export function _isAddStaticFiles(options?: IStaticFilesOptionsLike, defaultValu
  * @param {boolean} [defaultValue=false] - addStaticFiles 未指定時的預設值 / Default when addStaticFiles is not given
  * @returns {boolean} 是否要加入靜態檔案 / Whether to add static files
  */
-export function _isAddStaticFilesWithReset(options?: IStaticFilesOptionsLike, defaultValue: boolean = false)
+export function _isAddStaticFilesOrReset(options?: IStaticFilesOptionsLike, defaultValue: boolean = false)
 {
 	return !!options?.resetStaticFiles || _isAddStaticFiles(options, defaultValue);
 }

@@ -40,4 +40,4 @@ export declare function _isAddStaticFiles(options?: IStaticFilesOptionsLike, def
  * @param {boolean} [defaultValue=false] - addStaticFiles 未指定時的預設值 / Default when addStaticFiles is not given
  * @returns {boolean} 是否要加入靜態檔案 / Whether to add static files
  */
-export declare function _isAddStaticFilesWithReset(options?: IStaticFilesOptionsLike, defaultValue?: boolean): boolean;
+export declare function _isAddStaticFilesOrReset(options?: IStaticFilesOptionsLike, defaultValue?: boolean): boolean;
