@@ -4,6 +4,7 @@
  */
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
+import { _isPathForSnapshot, _normalizePathForSnapshot } from '../../require-resolve/test/lib/test-helper';
 
 import {
 	isNpx,
@@ -223,6 +224,16 @@ describe('@yarn-tool/is-npx', () => {
 			 * `expect.any(Array)` has no node:test equivalent, expressed as an equivalent assertion.
 			 */
 			assert.ok(Array.isArray(result.argv));
+
+			result.argv.forEach((v, i, arr) => {
+
+				if (_isPathForSnapshot(v))
+				{
+					arr[i] = _normalizePathForSnapshot(arr[i], undefined);
+				}
+
+			});
+
 			t.assert.snapshot(result)
 		});
 

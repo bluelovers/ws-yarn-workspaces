@@ -4,6 +4,7 @@ import {
 } from '../index';
 import assert from 'node:assert/strict';
 import { describe, test } from 'node:test';
+import { _normalizePathForSnapshot } from './lib/test-helper';
 
 describe('整合測試', () =>
 {
@@ -14,26 +15,32 @@ describe('整合測試', () =>
 
 	test('ts-jest', (t) =>
 	{
-		let actual = requireResolveExtra('ts-jest', {
+		const name = 'ts-jest';
+		let actual = requireResolveExtra(name, {
 			includeGlobal: true,
 			includeCurrentDirectory: true,
 			paths: [
 				tsdx_path,
 			],
 		});
+
+		actual.result = _normalizePathForSnapshot(actual.result, name);
 
 		t.assert.snapshot(actual);
 	});
 
 	test('typescript', (t) =>
 	{
-		let actual = requireResolveExtra('typescript', {
+		const name = 'typescript';
+		let actual = requireResolveExtra(name, {
 			includeGlobal: true,
 			includeCurrentDirectory: true,
 			paths: [
 				tsdx_path,
 			],
 		});
+
+		actual.result = _normalizePathForSnapshot(actual.result, name);
 
 		t.assert.snapshot(actual);
 	});

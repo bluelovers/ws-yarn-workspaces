@@ -5,8 +5,8 @@ exports[`@yarn-tool/is-npx > handleOptionsDetectNpx > 應該為缺失的選項�
     "TEST": "value"
   },
   "argv": [
-    "C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\fnm_multishells\\\\96436_1791434683307\\\\node.exe",
-    "D:\\\\Users\\\\WebstormProjects\\\\nodejs-yarn\\\\ws-yarn-workspaces\\\\packages\\\\@yarn-tool\\\\is-npx\\\\test\\\\index.spec.ts"
+    "<fnm>/node.exe",
+    "<ws-yarn-workspaces>/packages/@yarn-tool/is-npx/test/index.spec.ts"
   ]
 }
 `;

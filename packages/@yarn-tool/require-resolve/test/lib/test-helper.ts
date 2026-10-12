@@ -2,6 +2,7 @@ import { buildResolvePaths } from "../../lib/core";
 import { _handleResolvePackageCoreOptions, _nodeRequireResolveLazyForPkgDir, resolvePackageCore } from "../../lib/package";
 import { handleOptionsPaths } from "../../lib/util";
 import { sync as pkgDir } from 'pkg-dir';
+import upath2 from 'upath2';
 
 /**
  * 複製內部邏輯用來除錯用
@@ -62,4 +63,29 @@ export function _testHelperLazyDebugResolvePackage(...argv: Parameters<typeof re
 	// console.dir(report, { depth: null });
 
 	return report;
+}
+
+export function _isPathForSnapshot(path: string)
+{
+	return typeof path === 'string' && /node_modules|fnm_multishells|node_modules|ws-yarn-workspaces/.test(path);
+}
+
+export function _normalizePathForSnapshot(path: string, name: string | undefined)
+{
+	path = upath2.normalize(path);
+
+	if (name?.length)
+	{
+		path = path
+			.replace(new RegExp(`^.+installation\\/node_modules\\/(?=${name})`, 'g'), '<global/node_modules>/')
+			.replace(new RegExp(`^.+node_modules\\/(?=${name})`, 'g'), '<node_modules>/')
+		;
+	}
+
+	path = path
+		.replace(/^.+fnm_multishells\/[\w_]+/, '<fnm>')
+		.replace(/^.+ws-yarn-workspaces\//, '<ws-yarn-workspaces>/')
+	;
+
+	return path;
 }
