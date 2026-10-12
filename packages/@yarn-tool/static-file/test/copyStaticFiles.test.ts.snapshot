@@ -1,0 +1,439 @@
+exports[`_copyStaticFilesCoreListGenerator > 預設值 + 必填參數 / defaults with only the required param 1`] = `
+[
+  {
+    "entry": [
+      ".npmignore",
+      "file/npmignore"
+    ],
+    "runtime": {
+      "targetFile": ".npmignore",
+      "staticFile": "file/npmignore",
+      "targetFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/test/.npmignore",
+      "staticFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/file/npmignore",
+      "overwrite": false
+    },
+    "copy": "function"
+  },
+  {
+    "entry": [
+      ".gitignore",
+      "file/gitignore"
+    ],
+    "runtime": {
+      "targetFile": ".gitignore",
+      "staticFile": "file/gitignore",
+      "targetFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/test/.gitignore",
+      "staticFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/file/gitignore",
+      "overwrite": false
+    },
+    "copy": "function"
+  },
+  {
+    "entry": [
+      ".eslintignore",
+      "file/eslintignore"
+    ],
+    "runtime": {
+      "targetFile": ".eslintignore",
+      "staticFile": "file/eslintignore",
+      "targetFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/test/.eslintignore",
+      "staticFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/file/eslintignore",
+      "overwrite": false
+    },
+    "copy": "function"
+  },
+  {
+    "entry": [
+      "tsconfig.json",
+      "file/tsconfig.json.tpl"
+    ],
+    "runtime": {
+      "targetFile": "tsconfig.json",
+      "staticFile": "file/tsconfig.json.tpl",
+      "targetFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/test/tsconfig.json",
+      "staticFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/file/tsconfig.json.tpl",
+      "overwrite": false
+    },
+    "copy": "function"
+  },
+  {
+    "entry": [
+      "tsconfig.json.tpl",
+      "file/tsconfig.json.tpl"
+    ],
+    "runtime": {
+      "targetFile": "tsconfig.json.tpl",
+      "staticFile": "file/tsconfig.json.tpl",
+      "targetFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/test/tsconfig.json.tpl",
+      "staticFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/file/tsconfig.json.tpl",
+      "overwrite": false
+    },
+    "copy": "function"
+  },
+  {
+    "entry": [
+      "test/tsconfig.json.tpl",
+      "file/test/tsconfig.json.tpl",
+      "test/tsconfig.json"
+    ],
+    "runtime": {
+      "targetFile": "test/tsconfig.json.tpl",
+      "staticFile": "file/test/tsconfig.json.tpl",
+      "targetFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/test/test/tsconfig.json.tpl",
+      "staticFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/file/test/tsconfig.json.tpl",
+      "overwrite": false
+    },
+    "copy": "function"
+  },
+  {
+    "entry": [
+      "tsconfig.esm.json.tpl",
+      "file/tsconfig.esm.json.tpl",
+      "tsconfig.esm.json"
+    ],
+    "runtime": {
+      "targetFile": "tsconfig.esm.json.tpl",
+      "staticFile": "file/tsconfig.esm.json.tpl",
+      "targetFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/test/tsconfig.esm.json.tpl",
+      "staticFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/file/tsconfig.esm.json.tpl",
+      "overwrite": false
+    },
+    "copy": "function"
+  },
+  {
+    "entry": [
+      "tsconfig.tsdx.json.tpl",
+      "file/tsconfig.tsdx.json.tpl",
+      "tsconfig.tsdx.json"
+    ],
+    "runtime": {
+      "targetFile": "tsconfig.tsdx.json.tpl",
+      "staticFile": "file/tsconfig.tsdx.json.tpl",
+      "targetFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/test/tsconfig.tsdx.json.tpl",
+      "staticFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/file/tsconfig.tsdx.json.tpl",
+      "overwrite": false
+    },
+    "copy": "function"
+  },
+  {
+    "entry": [
+      ".eslintrc.json.tpl",
+      "file/eslintrc.json.tpl",
+      ".eslintrc.json"
+    ],
+    "runtime": {
+      "targetFile": ".eslintrc.json.tpl",
+      "staticFile": "file/eslintrc.json.tpl",
+      "targetFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/test/.eslintrc.json.tpl",
+      "staticFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/file/eslintrc.json.tpl",
+      "overwrite": false
+    },
+    "copy": "function"
+  },
+  {
+    "entry": [
+      "README.md",
+      "file/README.md"
+    ],
+    "runtime": {
+      "targetFile": "README.md",
+      "staticFile": "file/README.md",
+      "targetFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/test/README.md",
+      "staticFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/file/README.md",
+      "overwrite": false
+    },
+    "copy": "function"
+  },
+  {
+    "entry": [
+      ".mocharc.yml.tpl",
+      "file/mocharc.yml"
+    ],
+    "runtime": {
+      "targetFile": ".mocharc.yml.tpl",
+      "staticFile": "file/mocharc.yml",
+      "targetFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/test/.mocharc.yml.tpl",
+      "staticFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/file/mocharc.yml",
+      "overwrite": false
+    },
+    "copy": "function"
+  },
+  {
+    "entry": [
+      "jest.config.js",
+      "file/jest.config.auto.js"
+    ],
+    "runtime": {
+      "targetFile": "jest.config.js",
+      "staticFile": "file/jest.config.auto.js",
+      "targetFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/test/jest.config.js",
+      "staticFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/file/jest.config.auto.js",
+      "overwrite": false
+    },
+    "copy": "function"
+  },
+  {
+    "entry": [
+      ".nowignore",
+      "file/nowignore"
+    ],
+    "runtime": {
+      "targetFile": ".nowignore",
+      "staticFile": "file/nowignore",
+      "targetFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/test/.nowignore",
+      "staticFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/file/nowignore",
+      "overwrite": false
+    },
+    "copy": "function"
+  },
+  {
+    "entry": [
+      "now.json.tpl",
+      "file/now.json.tpl",
+      "now.json"
+    ],
+    "runtime": {
+      "targetFile": "now.json.tpl",
+      "staticFile": "file/now.json.tpl",
+      "targetFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/test/now.json.tpl",
+      "staticFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/file/now.json.tpl",
+      "overwrite": false
+    },
+    "copy": "function"
+  },
+  {
+    "entry": [
+      "tsdx.config.js.tpl",
+      "file/tsdx.config.js",
+      "tsdx.config.js"
+    ],
+    "runtime": {
+      "targetFile": "tsdx.config.js.tpl",
+      "staticFile": "file/tsdx.config.js",
+      "targetFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/test/tsdx.config.js.tpl",
+      "staticFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/file/tsdx.config.js",
+      "overwrite": false
+    },
+    "copy": "function"
+  },
+  {
+    "entry": [
+      "test/temp.ts",
+      "file/test/temp.ts"
+    ],
+    "runtime": {
+      "targetFile": "test/temp.ts",
+      "staticFile": "file/test/temp.ts",
+      "targetFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/test/test/temp.ts",
+      "staticFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/file/test/temp.ts",
+      "overwrite": false
+    },
+    "copy": "function"
+  },
+  {
+    "entry": [
+      "test/__root.ts",
+      "file/test/__root.ts"
+    ],
+    "runtime": {
+      "targetFile": "test/__root.ts",
+      "staticFile": "file/test/__root.ts",
+      "targetFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/test/test/__root.ts",
+      "staticFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/file/test/__root.ts",
+      "overwrite": false
+    },
+    "copy": "function"
+  },
+  {
+    "entry": [
+      "test/__root-core.cjs",
+      "file/test/__root-core.cjs"
+    ],
+    "runtime": {
+      "targetFile": "test/__root-core.cjs",
+      "staticFile": "file/test/__root-core.cjs",
+      "targetFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/test/test/__root-core.cjs",
+      "staticFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/file/test/__root-core.cjs",
+      "overwrite": false
+    },
+    "copy": "function"
+  },
+  {
+    "entry": [
+      "test/__root-core.mjs",
+      "file/test/__root-core.mjs"
+    ],
+    "runtime": {
+      "targetFile": "test/__root-core.mjs",
+      "staticFile": "file/test/__root-core.mjs",
+      "targetFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/test/test/__root-core.mjs",
+      "staticFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/file/test/__root-core.mjs",
+      "overwrite": false
+    },
+    "copy": "function"
+  },
+  {
+    "entry": [
+      "test/__root-core.d.cts",
+      "file/test/__root-core.d.cts"
+    ],
+    "runtime": {
+      "targetFile": "test/__root-core.d.cts",
+      "staticFile": "file/test/__root-core.d.cts",
+      "targetFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/test/test/__root-core.d.cts",
+      "staticFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/file/test/__root-core.d.cts",
+      "overwrite": false
+    },
+    "copy": "function"
+  },
+  {
+    "entry": [
+      "test/__root-core.d.mts",
+      "file/test/__root-core.d.mts"
+    ],
+    "runtime": {
+      "targetFile": "test/__root-core.d.mts",
+      "staticFile": "file/test/__root-core.d.mts",
+      "targetFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/test/test/__root-core.d.mts",
+      "staticFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/file/test/__root-core.d.mts",
+      "overwrite": false
+    },
+    "copy": "function"
+  },
+  {
+    "entry": [
+      "test/__root-core.d.ts",
+      "file/test/__root-core.d.ts"
+    ],
+    "runtime": {
+      "targetFile": "test/__root-core.d.ts",
+      "staticFile": "file/test/__root-core.d.ts",
+      "targetFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/test/test/__root-core.d.ts",
+      "staticFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/file/test/__root-core.d.ts",
+      "overwrite": false
+    },
+    "copy": "function"
+  },
+  {
+    "entry": [
+      "test/fixtures/.gitkeep",
+      "file/test/fixtures/.gitkeep"
+    ],
+    "runtime": {
+      "targetFile": "test/fixtures/.gitkeep",
+      "staticFile": "file/test/fixtures/.gitkeep",
+      "targetFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/test/test/fixtures/.gitkeep",
+      "staticFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/file/test/fixtures/.gitkeep",
+      "overwrite": false
+    },
+    "copy": "function"
+  }
+]
+`;
+
+exports[`_handleCopyStaticFilesOptions > 預設值 + 必填參數 / defaults with only the required param 1`] = `
+{
+  "cwd": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/test",
+  "staticRoot": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file",
+  "file_map": [
+    [
+      ".npmignore",
+      "file/npmignore"
+    ],
+    [
+      ".gitignore",
+      "file/gitignore"
+    ],
+    [
+      ".eslintignore",
+      "file/eslintignore"
+    ],
+    [
+      "tsconfig.json",
+      "file/tsconfig.json.tpl"
+    ],
+    [
+      "tsconfig.json.tpl",
+      "file/tsconfig.json.tpl"
+    ],
+    [
+      "test/tsconfig.json.tpl",
+      "file/test/tsconfig.json.tpl",
+      "test/tsconfig.json"
+    ],
+    [
+      "tsconfig.esm.json.tpl",
+      "file/tsconfig.esm.json.tpl",
+      "tsconfig.esm.json"
+    ],
+    [
+      "tsconfig.tsdx.json.tpl",
+      "file/tsconfig.tsdx.json.tpl",
+      "tsconfig.tsdx.json"
+    ],
+    [
+      ".eslintrc.json.tpl",
+      "file/eslintrc.json.tpl",
+      ".eslintrc.json"
+    ],
+    [
+      "README.md",
+      "file/README.md"
+    ],
+    [
+      ".mocharc.yml.tpl",
+      "file/mocharc.yml"
+    ],
+    [
+      "jest.config.js",
+      "file/jest.config.auto.js"
+    ],
+    [
+      ".nowignore",
+      "file/nowignore"
+    ],
+    [
+      "now.json.tpl",
+      "file/now.json.tpl",
+      "now.json"
+    ],
+    [
+      "tsdx.config.js.tpl",
+      "file/tsdx.config.js",
+      "tsdx.config.js"
+    ],
+    [
+      "test/temp.ts",
+      "file/test/temp.ts"
+    ],
+    [
+      "test/__root.ts",
+      "file/test/__root.ts"
+    ],
+    [
+      "test/__root-core.cjs",
+      "file/test/__root-core.cjs"
+    ],
+    [
+      "test/__root-core.mjs",
+      "file/test/__root-core.mjs"
+    ],
+    [
+      "test/__root-core.d.cts",
+      "file/test/__root-core.d.cts"
+    ],
+    [
+      "test/__root-core.d.mts",
+      "file/test/__root-core.d.mts"
+    ],
+    [
+      "test/__root-core.d.ts",
+      "file/test/__root-core.d.ts"
+    ],
+    [
+      "test/fixtures/.gitkeep",
+      "file/test/fixtures/.gitkeep"
+    ]
+  ]
+}
+`;

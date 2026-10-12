@@ -100,7 +100,62 @@ export interface ICopyStaticFilesOptionsBase<K extends string = string>
  */
 export interface ICopyStaticFilesOptions<K extends string = string> extends ICopyStaticFilesOptionsBase<K>
 {
-	file_map?: IStaticFiles<K>,
+	file_map?: IStaticFiles<K>;
+}
+
+export interface ICopyStaticFilesOptionsRuntime<K extends string = string> extends Omit<Required<ICopyStaticFilesOptions<K>>, 'file_map'>
+{
+	file_map: IStaticFilesMapArray<K>;
+}
+
+/**
+ * 單個靜態檔案條目的執行期複製資訊 / Runtime copy info for a single static file entry
+ *
+ * 由 _copyStaticFilesEntryCore 解析產生；條目被 detectFile 跳過時該函式回傳 undefined，不會產生此物件。
+ * Produced by _copyStaticFilesEntryCore; when an entry is skipped by detectFile the function returns undefined and no such object is produced.
+ *
+ * @template K - 目標檔案路徑類型 / Target file path type
+ *
+ * @see _copyStaticFilesEntryCore
+ */
+export interface IStaticFilesEntryRuntime<K extends string = string>
+{
+	/** 目標檔案路徑（相對於 cwd）/ Target file path (relative to cwd) */
+	readonly targetFile: K;
+
+	/** 來源靜態檔案路徑（相對於 staticRoot）/ Source static file path (relative to staticRoot) */
+	readonly staticFile: string;
+
+	/** 以 cwd 為基準解析出的目標檔案完整路徑 / Fully resolved target file path against cwd */
+	readonly targetFileFull: string;
+
+	/** 以 staticRoot 為基準解析出的來源檔案完整路徑 / Fully resolved source file path against staticRoot */
+	readonly staticFileFull: string;
+
+	/** 是否覆蓋已存在的檔案，未指定選項時為 false / Whether to overwrite an existing file; false when the option is omitted */
+	readonly overwrite: boolean;
+}
+
+/**
+ * 靜態檔案清單產生器的產出項目 / Item yielded by the static file list generator
+ *
+ * 包含條目、其執行期複製資訊，以及由呼叫端決定是否執行的複製動作。
+ * Holds the entry, its runtime copy info, and the copy action whose execution is decided by the caller.
+ *
+ * @template K - 目標檔案路徑類型 / Target file path type
+ *
+ * @see _copyStaticFilesCoreListGenerator
+ */
+export interface IStaticFilesEntryGeneratorItem<K extends string = string>
+{
+	/** 靜態檔案條目 / Static file entry */
+	entry: IStaticFilesMapArrayEntry<K>;
+
+	/** 執行期複製資訊 / Runtime copy info */
+	runtime: IStaticFilesEntryRuntime<K>;
+
+	/** 執行實際複製；不呼叫即不寫入任何檔案 / Perform the actual copy; nothing is written unless it is called */
+	copy(): void;
 }
 
 /**

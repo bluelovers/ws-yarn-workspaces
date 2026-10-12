@@ -6,12 +6,12 @@
  *
  * @module copyStaticFiles
  */
-import { ICopyStaticFilesOptions, IStaticFilesMapArray, IStaticFilesMapArrayEntry } from './types';
+import { ICopyStaticFilesOptions, ICopyStaticFilesOptionsRuntime, IStaticFilesMapArray, IStaticFilesMapArrayEntry } from './types';
 import { CopyOptionsSync, copySync, ensureDirSync, existsSync, pathExistsSync } from 'fs-extra';
 import { dirname, resolve } from 'path';
 import { defaultCopyStaticFiles } from './const';
 import { parseStaticMap } from './parseStaticMap';
-import { copyStaticFilesEntry } from './copyStaticFilesEntry';
+import { _copyStaticFilesEntryCore, _copyStaticFilesEntryCoreCopy, copyStaticFilesEntry } from './copyStaticFilesEntry';
 import { __STATIC_ROOT } from '../__root';
 
 /**
@@ -58,10 +58,60 @@ import { __STATIC_ROOT } from '../__root';
  */
 export function copyStaticFiles<K extends string>(options: ICopyStaticFilesOptions<K>)
 {
+	options = _handleCopyStaticFilesOptions(options);
+
+	/**
+	 * 已實際複製的條目，作為回傳值交給呼叫端 / Entries actually copied, collected as the return value
+	 */
+	const copied = [] as IStaticFilesMapArray<K>;
+
+	/**
+	 * 逐項複製並收集實際產出的條目
+	 * Copy each yielded entry and collect the results
+	 *
+	 * 被 detectFile 跳過的條目不會被產出，因此也不會出現在回傳值中
+	 * Entries skipped by detectFile are never yielded, so they are absent from the result
+	 */
+	for (const result of _copyStaticFilesCoreListGenerator(options))
+	{
+		result.copy();
+
+		copied.push(result.entry);
+	}
+
+	return copied;
+}
+
+/**
+ * 驗證並補齊複製選項 / Validate and fill in copy options
+ *
+ * 回傳的選項保證 cwd 為已存在的字串、file_map 已解析成陣列、staticRoot 已有明確值。
+ * The returned options guarantee an existing string cwd, an array-form file_map, and a resolved staticRoot.
+ *
+ * @template K - 目標檔案路徑類型 / Target file path type
+ *
+ * @param options - 呼叫端傳入的原始選項 / Raw options passed by the caller
+ * @returns 補齊預設值後的選項 / Options with defaults resolved
+ *
+ * @throws {TypeError} 當 cwd 不是字串或目錄不存在、或 file_map 解析結果為空時 / When cwd is not a string or does not exist, or the parsed file map is empty
+ *
+ * @example
+ * ```typescript
+ * import { _handleCopyStaticFilesOptions } from '@yarn-tool/static-file/lib/copyStaticFiles';
+ *
+ * // 只需傳入必填的 cwd，其餘取預設值 / Only the required cwd is passed; the rest use defaults
+ * const options = _handleCopyStaticFilesOptions({ cwd: '/path/to/project' });
+ *
+ * console.log(options.staticRoot); // 本套件的 file/ 目錄 / this package's file/ directory
+ * console.log(options.file_map);   // 預設靜態檔案清單 / default static file list
+ * ```
+ */
+export function _handleCopyStaticFilesOptions<K extends string>(options: ICopyStaticFilesOptions<K>): ICopyStaticFilesOptionsRuntime<K>
+{
 	/**
 	 * 驗證 cwd 參數
 	 * Validate cwd parameter
-	 *
+	*
 	 * 空字串與 undefined 都會在後續 resolve 時產生錯誤的根路徑，故先行攔截
 	 * Empty string and undefined would produce a wrong base path during resolve, so intercept early
 	 */
@@ -114,15 +164,69 @@ export function copyStaticFiles<K extends string>(options: ICopyStaticFilesOptio
 	const { cwd, overwrite } = options;
 
 	/**
-	 * 過濾並複製檔案
-	 * Filter and copy files
-	 *
-	 * 以 filter 收集實際複製成功的條目，被 detectFile 跳過的項目不會出現在回傳值中
-	 * Uses filter to collect the entries actually copied; items skipped by detectFile are absent from the result
+	 * 展開原始選項並以解析後的值覆寫，確保 file_map 固定回傳陣列型別，呼叫端無需再判斷格式
+	 * Spread the raw options and overwrite with resolved values so file_map is always an array and callers need no format check
 	 */
-	return ls.filter((entry) =>
-		{
-			return copyStaticFilesEntry(entry, cwd, staticRoot, overwrite)
-		})
-		;
+	return {
+		...options,
+		staticRoot,
+		cwd,
+		overwrite,
+
+		file_map: ls as IStaticFilesMapArray<K>,
+	}
 }
+
+/**
+ * 逐項產出可複製的靜態檔案 / Yield each static file ready to be copied
+*
+ * 只負責驗證、解析與過濾，本身不寫入任何檔案；是否複製由呼叫端決定（執行 yield 出來的 copy()）。
+ * Only validates, resolves and filters — it never writes files; the caller decides whether to run the yielded copy().
+ *
+ * @template K - 目標檔案路徑類型 / Target file path type
+ *
+ * @param options - 複製選項 / Copy options
+ * @yields 解析完成的條目、其複製資訊與複製動作 / The resolved entry, its copy info, and the copy action
+ *
+ * @throws {TypeError} 當選項驗證失敗時 / When option validation fails
+ * @throws {Error} 當來源靜態檔案不存在時 / When the source static file does not exist
+ *
+ * @example
+ * ```typescript
+ * import { _copyStaticFilesCoreListGenerator } from '@yarn-tool/static-file/lib/copyStaticFiles';
+ *
+ * for (const { entry, runtime, copy } of _copyStaticFilesCoreListGenerator({ cwd: '/path/to/project' }))
+ * {
+ *   console.log(entry[0], '=>', runtime.targetFileFull);
+ *
+ *   // 決定權交給呼叫端；不呼叫 copy() 就不會寫入任何檔案 / The caller decides; without copy() nothing is written
+ *   copy();
+ * }
+ * ```
+ */
+export function* _copyStaticFilesCoreListGenerator<K extends string>(options: ICopyStaticFilesOptions<K>)
+{
+	const opts = _handleCopyStaticFilesOptions(options);
+
+	for (const entry of opts.file_map)
+	{
+		const runtime = _copyStaticFilesEntryCore(entry, opts.cwd, opts.staticRoot, opts.overwrite);
+
+		/**
+		 * 被 detectFile 跳過的條目解析結果為 undefined，直接略過不產出
+		 * An entry skipped by detectFile resolves to undefined and is therefore not yielded
+		 */
+		if (runtime)
+		{
+			yield {
+				entry,
+				runtime,
+				copy()
+				{
+					return _copyStaticFilesEntryCoreCopy(runtime);
+				},
+			};
+		}
+	}
+}
+
