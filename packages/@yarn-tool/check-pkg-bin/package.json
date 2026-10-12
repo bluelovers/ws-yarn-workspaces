@@ -29,13 +29,12 @@
     "test": "test"
   },
   "scripts": {
-    "coverage": "npx nyc pnpm run test",
-    "lint": "npx eslint **/*.ts",
+    "bin:self": "tsx bin/check-pkg-bin.ts --workspaces",
     "test": "node --run test:node",
     "test:jest": "jest --coverage",
     "test:jest:coverage": "pnpm run test:jest -- --coverage",
     "test:jest:snapshot": "pnpm run test:jest -- -u",
-    "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
+    "test:mocha": "ynpx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
     "test:node": "tsx --test --test-update-snapshots **/*.node-spec.ts **/*.node-test.ts **/*.spec.ts **/*.test.ts",
     "test:snapshot": "pnpm run test -u",
     "test:tsc": "tsc --noEmit & echo typescript check done",
@@ -43,17 +42,10 @@
     "npm:publish": "npm publish",
     "npm:publish:lerna": "lerna publish --yes --bump patch",
     "preversion": "pnpm run test",
-    "prepublish:lockfile": "npx sync-lockfile .",
-    "prepublishOnly_": "pnpm run ncu && pnpm run sort-package-json && pnpm run test",
-    "postpublish_": "git commit -m \"chore(release): publish & git push & echo postpublish\" .",
-    "ncu": "npx yarn-tool ncu -u",
-    "sort-package-json": "npx yarn-tool sort",
-    "tsc:default": "tsc -p tsconfig.json",
-    "tsc:esm": "tsc -p tsconfig.esm.json",
-    "tsc:showConfig": "ynpx get-current-tsconfig -p"
+    "sort-package-json": "npx yarn-tool sort"
   },
   "dependencies": {
-    "@bluelovers/string-natural-compare": "^2.0.16",
+    "@bluelovers/string-natural-compare": "^2.0.17",
     "@ts-type/package-dts": "^3.0.14",
     "@yarn-tool/find-root": "^2.0.25",
     "@yarn-tool/get-pkg-bin": "^3.0.11",
@@ -63,6 +55,7 @@
     "debug-color2": "^1.3.2",
     "fs-extra": "^11.4.1",
     "pkg-dir": "<6 >=5",
+    "string-natural-compare2": "^3.0.1",
     "tslib": ">=2.8.1",
     "upath2": "^3.1.25",
     "ws-pkg-list": "^3.0.11",

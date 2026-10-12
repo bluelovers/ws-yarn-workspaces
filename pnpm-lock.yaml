@@ -295,8 +295,8 @@ importers:
   packages/@yarn-tool/check-pkg-bin:
     dependencies:
       '@bluelovers/string-natural-compare':
-        specifier: ^2.0.16
-        version: 2.0.16
+        specifier: ^2.0.17
+        version: 2.0.17
       '@ts-type/package-dts':
         specifier: ^3.0.14
         version: 3.0.14(ts-toolbelt@9.6.0)
@@ -324,6 +324,9 @@ importers:
       pkg-dir:
         specifier: <6 >=5
         version: 5.0.0
+      string-natural-compare2:
+        specifier: ^3.0.1
+        version: 3.0.1
       tslib:
         specifier: '>=2.8.1'
         version: 2.8.1
@@ -635,8 +638,8 @@ importers:
         specifier: ^11.4.1
         version: 11.4.1
       sort-object-keys2:
-        specifier: ^3.0.9
-        version: 3.0.9
+        specifier: ^3.0.10
+        version: 3.0.10
       ts-type:
         specifier: ^3.0.18
         version: 3.0.18(ts-toolbelt@9.6.0)
@@ -694,8 +697,8 @@ importers:
         version: 3.1.25(ts-toolbelt@9.6.0)
     devDependencies:
       sort-object-keys2:
-        specifier: ^3.0.9
-        version: 3.0.9
+        specifier: ^3.0.10
+        version: 3.0.10
 
   packages/@yarn-tool/ignore:
     dependencies:
@@ -1141,8 +1144,8 @@ importers:
         specifier: ^4.18.1
         version: 4.18.1
       sort-object-keys2:
-        specifier: ^3.0.9
-        version: 3.0.9
+        specifier: ^3.0.10
+        version: 3.0.10
       tslib:
         specifier: '>=2.8.1'
         version: 2.8.1
@@ -1415,8 +1418,8 @@ importers:
         specifier: ^11.4.1
         version: 11.4.1
       sort-object-keys2:
-        specifier: ^3.0.9
-        version: 3.0.9
+        specifier: ^3.0.10
+        version: 3.0.10
       tslib:
         specifier: '>=2.8.1'
         version: 2.8.1
@@ -1430,8 +1433,8 @@ importers:
         specifier: <4 >=3
         version: 3.0.0
       sort-object-keys2:
-        specifier: ^3.0.9
-        version: 3.0.9
+        specifier: ^3.0.10
+        version: 3.0.10
 
   packages/@yarn-tool/sort-package-json-order:
     devDependencies:
@@ -1595,8 +1598,8 @@ importers:
         specifier: ^1.0.33
         version: 1.0.33(ts-toolbelt@9.6.0)
       sort-object-keys2:
-        specifier: ^3.0.9
-        version: 3.0.9
+        specifier: ^3.0.10
+        version: 3.0.10
       ts-type:
         specifier: ^3.0.18
         version: 3.0.18(ts-toolbelt@9.6.0)
@@ -2336,8 +2339,8 @@ importers:
   packages/sort-package-json-scripts:
     dependencies:
       sort-object-keys2:
-        specifier: ^3.0.9
-        version: 3.0.9
+        specifier: ^3.0.10
+        version: 3.0.10
       tslib:
         specifier: '>=2.8.1'
         version: 2.8.1
@@ -2684,8 +2687,8 @@ packages:
   '@bluelovers/string-natural-compare@2.0.15':
     resolution: {integrity: sha512-k+VLJzFdcB2tM0N5l/NS9Ruy8JlOMLbTEJW0hIpVDZyB3YRKMtHDPYDNPooR18vJNSiKk60TdHcEvK1IjYg3Bw==}
 
-  '@bluelovers/string-natural-compare@2.0.16':
-    resolution: {integrity: sha512-ouSh0UCRiGK2L9/gx1Bt+oKCMxqepePq7Jo5gwf/mvjP79lV4BwzLLvgX01EKVkeoIYa1TjrSddKbDdi7OjueQ==}
+  '@bluelovers/string-natural-compare@2.0.17':
+    resolution: {integrity: sha512-bEfOtNoDfRPbyTSRpv1d5oiyMDkBsU3wZU3Dhy+o4AWtCQYkQ5YMSDg0GH+g7bYTJO/D8xivOqGdAljB7cx/FQ==}
 
   '@bluelovers/tsconfig@2.0.3':
     resolution: {integrity: sha512-bbGqvlH3SPDxm8omUjYq1zjhq3hyqPlx8lWeXPzXYzRAT03Wbi0ozzC8KSDUmE5Io9tuD4JSLv1d6Qloy72zMQ==}
@@ -2896,8 +2899,8 @@ packages:
   '@lazy-array/util-unique@1.0.7':
     resolution: {integrity: sha512-Qd3yR/Zpd+r7XvyTTjS11U2cNr5xLKttBlC2O2bMpugbxPK9vNE/Wo1zIQc59cIK9ksygCJB2PJZ2TrOjvS9Mw==}
 
-  '@lazy-array/util-unique@1.0.8':
-    resolution: {integrity: sha512-GXbpHu533nvXFBFo+oQ8K4k5bgcoCKxlGOeycDGiXyDf9XsFKEfPOuzF9Clt7OgUaz3m9FI5h9cOLPoH6aTrdg==}
+  '@lazy-array/util-unique@1.0.9':
+    resolution: {integrity: sha512-Wx8hBIkjIXCPKBfoLjXzlwktdlMA84qrSDE7xE0QLGRWGGbInl9+ZIWpy0Ny0tdL6S1qsT9P8ccqHuGsQ3tq2Q==}
 
   '@lazy-cjk/fullhalf-char-code@1.0.1':
     resolution: {integrity: sha512-PvQqO22KAZ0RdmctE/CVDwYUCJRpPh7El05tAAw0Rpbv6jwT7ry3LdA1ZP4n9D+Rn90vmyHWuyI9RHxASJAi3Q==}
@@ -7219,11 +7222,11 @@ packages:
     resolution: {integrity: sha512-aUYIEU/UviqPgc8mHR6IW1EGxkAXpeRETYcrzg8cLAvUPZcpAlleSXHV2mY7G12GphSH6Gzv+4MMVSSkbdteHg==}
     engines: {node: '>=8'}
 
+  sort-object-keys2@3.0.10:
+    resolution: {integrity: sha512-mfu38UKPFskypYrs4dnmZnlfkvO2Ztv5Vg2DC0PTCcKfGgug/5outCc1HDLhANrIgntZOI+tqDLc5qc4WCVwbw==}
+
   sort-object-keys2@3.0.8:
     resolution: {integrity: sha512-48gnNhe7RvUc6PNFI3IHfAxoqWzSCqmOat2VlTYnvf6QZU7hmiOa4FTnDt9wmq9NiWtLSla+0P2r0LHC8N213A==}
-
-  sort-object-keys2@3.0.9:
-    resolution: {integrity: sha512-5du6hsBpuFqgj9lAKeURPvHr26JWnjLOQWwJAhsMLByJWkBVS3W1dS7/IW49BtBmd+ZkTccR+MwJAukohHVsVA==}
 
   sort-object-keys@1.1.3:
     resolution: {integrity: sha512-855pvK+VkU7PaKYPc+Jjnmt4EzejQHyhhF33q31qG8x7maDzkeFhAAThdCYay11CISO+qAMwjOBP+fPZe0IPyg==}
@@ -8204,7 +8207,7 @@ snapshots:
     dependencies:
       string-natural-compare2: 3.0.1
 
-  '@bluelovers/string-natural-compare@2.0.16':
+  '@bluelovers/string-natural-compare@2.0.17':
     dependencies:
       string-natural-compare2: 3.0.1
 
@@ -8590,7 +8593,7 @@ snapshots:
 
   '@lazy-array/util-unique@1.0.7': {}
 
-  '@lazy-array/util-unique@1.0.8': {}
+  '@lazy-array/util-unique@1.0.9': {}
 
   '@lazy-cjk/fullhalf-char-code@1.0.1': {}
 
@@ -13910,13 +13913,13 @@ snapshots:
     dependencies:
       is-plain-obj: 2.1.0
 
+  sort-object-keys2@3.0.10:
+    dependencies:
+      '@lazy-array/util-unique': 1.0.9
+
   sort-object-keys2@3.0.8:
     dependencies:
       '@lazy-array/util-unique': 1.0.7
-
-  sort-object-keys2@3.0.9:
-    dependencies:
-      '@lazy-array/util-unique': 1.0.8
 
   sort-object-keys@1.1.3: {}
 

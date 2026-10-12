@@ -93,7 +93,7 @@
   "dependencies": {
     "@ts-type/package-dts": "^3.0.14",
     "is-plain-obj": "<4 >=3",
-    "sort-object-keys2": "^3.0.9"
+    "sort-object-keys2": "^3.0.10"
   },
   "publishConfig": {
     "access": "public"

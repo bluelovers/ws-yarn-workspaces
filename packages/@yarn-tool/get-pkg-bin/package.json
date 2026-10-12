@@ -57,7 +57,7 @@
     "upath2": "^3.1.25"
   },
   "devDependencies": {
-    "sort-object-keys2": "^3.0.9"
+    "sort-object-keys2": "^3.0.10"
   },
   "publishConfig": {
     "access": "public"

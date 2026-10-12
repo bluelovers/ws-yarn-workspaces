@@ -68,7 +68,7 @@
     "@ts-type/package-dts": "^3.0.14",
     "@yarn-tool/write-package-json": "^1.0.17",
     "fs-extra": "^11.4.1",
-    "sort-object-keys2": "^3.0.9",
+    "sort-object-keys2": "^3.0.10",
     "tslib": ">=2.8.1"
   },
   "publishConfig": {

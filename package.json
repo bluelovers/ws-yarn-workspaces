@@ -76,7 +76,7 @@
     "prepublish:lockfile": "ynpx sync-lockfile",
     "prepare:fix-ws-links": "echo ynpx @yarn-tool/fix-ws-links",
     "prepublishOnly": "echo prepublishOnly",
-    "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
+    "prepublishOnly:check-bin": "pnpm --filter @yarn-tool/check-pkg-bin run bin:self",
     "prepublishOnly:lockfile": "ynpx --quiet sync-lockfile",
     "prepublishOnly:root": "node --run prepublishOnly:check-bin && node --run prepare:fix-ws-links",
     "prepublishOnly:update": "pnpm run ncu && pnpm run sort-package-json",
