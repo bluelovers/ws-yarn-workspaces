@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.56](https://github.com/bluelovers/ws-yarn-workspaces/compare/find-yarn-workspace-root2@1.2.55...find-yarn-workspace-root2@1.2.56) (2026-10-12)
+
+
+
+### 📚　Documentation
+
+* add jsdoc ([9cb9b13](https://github.com/bluelovers/ws-yarn-workspaces/commit/9cb9b13eda8c357221ad1b754458aa9916eada22))
+
+
+### 🚨　Tests
+
+* **find-yarn-workspace-root2:** 重構測試架構並改用 node:test ([7a0ad3d](https://github.com/bluelovers/ws-yarn-workspaces/commit/7a0ad3d0999191c29942db1d379af4faba11bf26))
+
+
+### 🛠　Build System
+
+* update build ([3186340](https://github.com/bluelovers/ws-yarn-workspaces/commit/3186340758172427cb1e9b8955f6fd677abac625))
+
+
+### ♻️　Chores
+
+* **workspace:** 更新測試指令路徑與新增工作區搜尋選項 ([a80039d](https://github.com/bluelovers/ws-yarn-workspaces/commit/a80039dd8c691e047466966ffc8f8a4e2e31c03f))
+
+
+### 🔖　Miscellaneous
+
+* . ([e5788f8](https://github.com/bluelovers/ws-yarn-workspaces/commit/e5788f84551b870490a96d0a5d67d8d542481373))
+
+
+
 ## [1.2.55](https://github.com/bluelovers/ws-yarn-workspaces/compare/find-yarn-workspace-root2@1.2.54...find-yarn-workspace-root2@1.2.55) (2026-09-06)
 
 

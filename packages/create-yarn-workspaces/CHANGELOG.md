@@ -3,6 +3,56 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.23](https://github.com/bluelovers/ws-yarn-workspaces/compare/create-yarn-workspaces@3.0.22...create-yarn-workspaces@3.0.23) (2026-10-12)
+
+
+### BREAKING CHANGES
+
+* **fix-all:** 引入共用靜態檔案控制邏輯並優化多套件支援
+
+
+
+### ✨　Features
+
+* **fix-all:** 引入共用靜態檔案控制邏輯並優化多套件支援 ([e447590](https://github.com/bluelovers/ws-yarn-workspaces/commit/e447590f2dfd34a83f028db773a2f4c60e30dec2))
+
+
+### 📦　Code Refactoring
+
+* **core:** 統一靜態檔案控制邏輯並更新 package.json 腳本規範 ([12f5a56](https://github.com/bluelovers/ws-yarn-workspaces/commit/12f5a5623a6f19e33616a326c86a094c548a0436))
+* **create-yarn-workspaces:** 整合靜態檔案控制介面至 INpmAutoFixAll ([ff11830](https://github.com/bluelovers/ws-yarn-workspaces/commit/ff11830ed88492c8bd6624a5e14af5f78a33b504))
+
+
+### 📚　Documentation
+
+* add jsdoc ([9cb9b13](https://github.com/bluelovers/ws-yarn-workspaces/commit/9cb9b13eda8c357221ad1b754458aa9916eada22))
+
+
+### 🚨　Tests
+
+* **all:** 完善 node:test 遷移與測試案例優化 ([e38f263](https://github.com/bluelovers/ws-yarn-workspaces/commit/e38f26376a03520b39a54fea5794f27aecc4f424))
+* **test-helper:** 引入路徑正規化機制以解決快照測試的環境依賴問題 ([af390aa](https://github.com/bluelovers/ws-yarn-workspaces/commit/af390aac58733dd93d69cd47bab8034090641b2e))
+
+
+### 🛠　Build System
+
+* update build ([3186340](https://github.com/bluelovers/ws-yarn-workspaces/commit/3186340758172427cb1e9b8955f6fd677abac625))
+* **deps:** 更新測試腳本與依賴以支援 node:test ([f9c71c7](https://github.com/bluelovers/ws-yarn-workspaces/commit/f9c71c795c792c5c7ed9d613ce7e9c3c726c39d5))
+
+
+### ♻️　Chores
+
+* **deps:** 更新依賴版本並清理 npm-init2 腳本 ([82bf1e5](https://github.com/bluelovers/ws-yarn-workspaces/commit/82bf1e5d229759aa285205d81cf0651e4d3d9792))
+* **deps:** 更新各套件依賴版本 ([569f075](https://github.com/bluelovers/ws-yarn-workspaces/commit/569f0756189cdadf69955d8e388ac0a6a8988056))
+* **workspace:** 更新測試指令路徑與新增工作區搜尋選項 ([a80039d](https://github.com/bluelovers/ws-yarn-workspaces/commit/a80039dd8c691e047466966ffc8f8a4e2e31c03f))
+
+
+### 🔖　Miscellaneous
+
+* . ([e5788f8](https://github.com/bluelovers/ws-yarn-workspaces/commit/e5788f84551b870490a96d0a5d67d8d542481373))
+
+
+
 ## [3.0.22](https://github.com/bluelovers/ws-yarn-workspaces/compare/create-yarn-workspaces@3.0.21...create-yarn-workspaces@3.0.22) (2026-09-10)
 
 **Note:** Version bump only for package create-yarn-workspaces

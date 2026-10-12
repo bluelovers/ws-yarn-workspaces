@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.9](https://github.com/bluelovers/ws-yarn-workspaces/compare/@lazy-node/semver-simple-parse@4.0.8...@lazy-node/semver-simple-parse@4.0.9) (2026-10-12)
+
+
+
+### 📚　Documentation
+
+* add jsdoc ([9cb9b13](https://github.com/bluelovers/ws-yarn-workspaces/commit/9cb9b13eda8c357221ad1b754458aa9916eada22))
+
+
+### 🚨　Tests
+
+* **all:** 完善 node:test 遷移與測試案例優化 ([e38f263](https://github.com/bluelovers/ws-yarn-workspaces/commit/e38f26376a03520b39a54fea5794f27aecc4f424))
+* **snap:** update snapshots ([c9945a5](https://github.com/bluelovers/ws-yarn-workspaces/commit/c9945a5b9cd723d38ded2a69b83e2e83ecc3b524))
+* **test:** 將測試框架從 jest 遷移至 node:test ([3af9774](https://github.com/bluelovers/ws-yarn-workspaces/commit/3af9774964abc48083ec60b2021c1cec08874803))
+
+
+### 🛠　Build System
+
+* update build ([3186340](https://github.com/bluelovers/ws-yarn-workspaces/commit/3186340758172427cb1e9b8955f6fd677abac625))
+* **deps:** 更新測試腳本與依賴以支援 node:test ([f9c71c7](https://github.com/bluelovers/ws-yarn-workspaces/commit/f9c71c795c792c5c7ed9d613ce7e9c3c726c39d5))
+
+
+### ♻️　Chores
+
+* **config:** 更新自動生成腳本註解與忽略檔案規則 ([8428290](https://github.com/bluelovers/ws-yarn-workspaces/commit/84282900016fb9d5794dbe69d458c958f773b411))
+* **deps:** 更新各套件依賴版本 ([569f075](https://github.com/bluelovers/ws-yarn-workspaces/commit/569f0756189cdadf69955d8e388ac0a6a8988056))
+* **workspace:** 更新測試指令路徑與新增工作區搜尋選項 ([a80039d](https://github.com/bluelovers/ws-yarn-workspaces/commit/a80039dd8c691e047466966ffc8f8a4e2e31c03f))
+
+
+### 🔖　Miscellaneous
+
+* . ([e5788f8](https://github.com/bluelovers/ws-yarn-workspaces/commit/e5788f84551b870490a96d0a5d67d8d542481373))
+
+
+
 ## [4.0.8](https://github.com/bluelovers/ws-yarn-workspaces/compare/@lazy-node/semver-simple-parse@4.0.7...@lazy-node/semver-simple-parse@4.0.8) (2026-09-06)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarnlock-types",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "description": "TypeScript types for yarn.lock data, covering v1/v2 rows, parsed records and lockfile version detection",
   "keywords": [
     "types",

@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.20](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/get-paths-by-type@2.0.19...@yarn-tool/get-paths-by-type@2.0.20) (2026-10-12)
+
+
+
+### 📦　Code Refactoring
+
+* **require-resolve:** 重構模組載入邏輯並支援非同步導入 ([57f49ad](https://github.com/bluelovers/ws-yarn-workspaces/commit/57f49adf1e3b5d345d7d50aef24a6acb334fb39c))
+
+
+### 📚　Documentation
+
+* add jsdoc ([9cb9b13](https://github.com/bluelovers/ws-yarn-workspaces/commit/9cb9b13eda8c357221ad1b754458aa9916eada22))
+
+
+### 🚨　Tests
+
+* **all:** 完善 node:test 遷移與測試案例優化 ([e38f263](https://github.com/bluelovers/ws-yarn-workspaces/commit/e38f26376a03520b39a54fea5794f27aecc4f424))
+
+
+### 🛠　Build System
+
+* update build ([3186340](https://github.com/bluelovers/ws-yarn-workspaces/commit/3186340758172427cb1e9b8955f6fd677abac625))
+* **deps:** 更新測試腳本與依賴以支援 node:test ([f9c71c7](https://github.com/bluelovers/ws-yarn-workspaces/commit/f9c71c795c792c5c7ed9d613ce7e9c3c726c39d5))
+
+
+### ♻️　Chores
+
+* **workspace:** 更新測試指令路徑與新增工作區搜尋選項 ([a80039d](https://github.com/bluelovers/ws-yarn-workspaces/commit/a80039dd8c691e047466966ffc8f8a4e2e31c03f))
+
+
+### 🔖　Miscellaneous
+
+* . ([e5788f8](https://github.com/bluelovers/ws-yarn-workspaces/commit/e5788f84551b870490a96d0a5d67d8d542481373))
+
+
+
 ## [2.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/get-paths-by-type@2.0.18...@yarn-tool/get-paths-by-type@2.0.19) (2026-09-06)
 
 

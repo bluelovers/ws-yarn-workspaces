@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/pkg-git-info",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "description": "parse git remote url into hosted git info (homepage, bugs, repository) for package.json",
   "keywords": [
     "hosted-git-info",

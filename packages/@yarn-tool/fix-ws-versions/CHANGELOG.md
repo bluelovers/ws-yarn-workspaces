@@ -3,6 +3,50 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.12](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-ws-versions@3.0.11...@yarn-tool/fix-ws-versions@3.0.12) (2026-10-12)
+
+
+
+### ✨　Features
+
+* **@yarn-tool/fix-ws-versions:** 支援 Workspace protocol 解析與轉換 ([b0b4a13](https://github.com/bluelovers/ws-yarn-workspaces/commit/b0b4a135dbb44cc8134bf4515b6269d50723550e))
+
+
+### 📦　Code Refactoring
+
+* **core:** 統一靜態檔案控制邏輯並更新 package.json 腳本規範 ([12f5a56](https://github.com/bluelovers/ws-yarn-workspaces/commit/12f5a5623a6f19e33616a326c86a094c548a0436))
+
+
+### 📚　Documentation
+
+* **@yarn-tool/fix-ws-versions:** 完善 Workspace protocol 相關類型定義與文件 ([c6b2b54](https://github.com/bluelovers/ws-yarn-workspaces/commit/c6b2b54523ff7229735275e204d2497e55564679))
+* **@yarn-tool/fix-ws-versions:** 更新 README 與程式碼註解以說明 Workspace protocol 支援 ([cf04ceb](https://github.com/bluelovers/ws-yarn-workspaces/commit/cf04ceb161c0859bbe2910a8b4873bde1d240187))
+
+
+### 🚨　Tests
+
+* **@yarn-tool/fix-ws-versions:** 新增原生測試案例與快照 ([c0961ea](https://github.com/bluelovers/ws-yarn-workspaces/commit/c0961ea7f54935e741feadbb910e32073a17a418))
+
+
+### 🛠　Build System
+
+* update build ([3186340](https://github.com/bluelovers/ws-yarn-workspaces/commit/3186340758172427cb1e9b8955f6fd677abac625))
+* **deps:** 更新測試腳本與依賴以支援 node:test ([f9c71c7](https://github.com/bluelovers/ws-yarn-workspaces/commit/f9c71c795c792c5c7ed9d613ce7e9c3c726c39d5))
+
+
+### ♻️　Chores
+
+* **deps:** 更新各套件依賴版本 ([569f075](https://github.com/bluelovers/ws-yarn-workspaces/commit/569f0756189cdadf69955d8e388ac0a6a8988056))
+* **deps:** 更新依賴並調整 workspace 配置 ([06d46b5](https://github.com/bluelovers/ws-yarn-workspaces/commit/06d46b5a9ee7f1768c3a3bd87450d63e6c6bd2ef))
+* **workspace:** 更新測試指令路徑與新增工作區搜尋選項 ([a80039d](https://github.com/bluelovers/ws-yarn-workspaces/commit/a80039dd8c691e047466966ffc8f8a4e2e31c03f))
+
+
+### 🔖　Miscellaneous
+
+* . ([e5788f8](https://github.com/bluelovers/ws-yarn-workspaces/commit/e5788f84551b870490a96d0a5d67d8d542481373))
+
+
+
 ## [3.0.11](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-ws-versions@3.0.10...@yarn-tool/fix-ws-versions@3.0.11) (2026-09-06)
 
 

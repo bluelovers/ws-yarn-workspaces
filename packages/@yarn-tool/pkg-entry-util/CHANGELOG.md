@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.15](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-entry-util@3.0.14...@yarn-tool/pkg-entry-util@3.0.15) (2026-10-12)
+
+
+### BREAKING CHANGES
+
+* **deps:** 將套件解析依賴從 @yarn-tool/resolve-package 遷移至 @yarn-tool/require-resolve
+
+
+
+### 🐛　Bug Fixes
+
+* **pkg-entry-util:** 擴充 fixEmptyFields 可處理的依賴欄位 ([c78d169](https://github.com/bluelovers/ws-yarn-workspaces/commit/c78d169eda85a0095350b2c1979f1b6f20dbe76f))
+
+
+### 📦　Code Refactoring
+
+* **core:** 統一靜態檔案控制邏輯並更新 package.json 腳本規範 ([12f5a56](https://github.com/bluelovers/ws-yarn-workspaces/commit/12f5a5623a6f19e33616a326c86a094c548a0436))
+* **deps:** 將套件解析依賴從 @yarn-tool/resolve-package 遷移至 @yarn-tool/require-resolve ([0e146d7](https://github.com/bluelovers/ws-yarn-workspaces/commit/0e146d761964b8777d55483312799941aeceea1a))
+* **pkg-entry-util:** 優化與更新預設 package.json 腳本內容 ([f9bcc9b](https://github.com/bluelovers/ws-yarn-workspaces/commit/f9bcc9b7d2ec3397bcbdb28939bcded09ad3acfd))
+* **require-resolve:** 重構模組載入邏輯並支援非同步導入 ([57f49ad](https://github.com/bluelovers/ws-yarn-workspaces/commit/57f49adf1e3b5d345d7d50aef24a6acb334fb39c))
+* **utils:** 重構測試腳本配置與路徑搜尋工具 ([aeb410e](https://github.com/bluelovers/ws-yarn-workspaces/commit/aeb410e2103f62ce8e012f96115f095a06107ddf))
+
+
+### 📚　Documentation
+
+* add jsdoc ([9cb9b13](https://github.com/bluelovers/ws-yarn-workspaces/commit/9cb9b13eda8c357221ad1b754458aa9916eada22))
+
+
+### 🚨　Tests
+
+* **test:** 將測試框架從 jest 遷移至 node:test ([3af9774](https://github.com/bluelovers/ws-yarn-workspaces/commit/3af9774964abc48083ec60b2021c1cec08874803))
+
+
+### 🛠　Build System
+
+* update build ([3186340](https://github.com/bluelovers/ws-yarn-workspaces/commit/3186340758172427cb1e9b8955f6fd677abac625))
+* **deps:** 更新測試腳本與依賴以支援 node:test ([f9c71c7](https://github.com/bluelovers/ws-yarn-workspaces/commit/f9c71c795c792c5c7ed9d613ce7e9c3c726c39d5))
+
+
+### ♻️　Chores
+
+* **deps:** 更新各套件依賴版本 ([569f075](https://github.com/bluelovers/ws-yarn-workspaces/commit/569f0756189cdadf69955d8e388ac0a6a8988056))
+* **workspace:** 更新測試指令路徑與新增工作區搜尋選項 ([a80039d](https://github.com/bluelovers/ws-yarn-workspaces/commit/a80039dd8c691e047466966ffc8f8a4e2e31c03f))
+
+
+### 🔖　Miscellaneous
+
+* . ([e5788f8](https://github.com/bluelovers/ws-yarn-workspaces/commit/e5788f84551b870490a96d0a5d67d8d542481373))
+
+
+
 ## [3.0.14](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-entry-util@3.0.13...@yarn-tool/pkg-entry-util@3.0.14) (2026-09-06)
 
 

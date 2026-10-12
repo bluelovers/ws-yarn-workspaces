@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/static-file",
-  "version": "3.0.19",
+  "version": "3.0.20",
   "description": "用於將靜態設定檔案 (static configuration files) 複製到 yarn 工作區專案的工具 / A utility for copying static configuration files to yarn workspace projects",
   "keywords": [
     "static-file",
@@ -47,7 +47,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/ignore": "^1.0.0",
+    "@yarn-tool/ignore": "^1.0.1",
     "fs-extra": "^11.4.1",
     "tslib": ">=2.8.1"
   },

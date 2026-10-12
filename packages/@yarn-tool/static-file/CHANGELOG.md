@@ -3,6 +3,62 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.20](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.19...@yarn-tool/static-file@3.0.20) (2026-10-12)
+
+
+### BREAKING CHANGES
+
+* **static-file:** 支援在重置靜態檔案時自動合併既有的 ignore 規則
+* **ignore:** 重構內部架構並優化換行符號處理邏輯
+
+
+
+### ✨　Features
+
+* **ignore:** 引入行解析 (Tokenization) 機制並擴充去重控制選項 ([eaec5e4](https://github.com/bluelovers/ws-yarn-workspaces/commit/eaec5e439ebed6a50d23a54ce3f78e37dd6e1686))
+* **ignore:** 擴充 IgnoreFile API 並優化規則處理流程 ([496a0f5](https://github.com/bluelovers/ws-yarn-workspaces/commit/496a0f5455e55c60fec51999e42201af61dbd472))
+* **scripts:** 實作忽略規則分割流程並建立單一事實來源 ([d83d90d](https://github.com/bluelovers/ws-yarn-workspaces/commit/d83d90dde88efb6675ea6aa5c219a59d950901dd))
+* **static-file:** 支援在重置靜態檔案時自動合併既有的 ignore 規則 ([11ab7c6](https://github.com/bluelovers/ws-yarn-workspaces/commit/11ab7c6023e142b74694365fe9a0f78e3c000d92))
+
+
+### 📦　Code Refactoring
+
+* **@yarn-tool/static-file:** 優化測試路徑處理與 TypeScript 配置 ([280dea2](https://github.com/bluelovers/ws-yarn-workspaces/commit/280dea20072cf78bfc24426f3cad5c0f888d9b3e))
+* **ignore:** 重構內部架構並優化換行符號處理邏輯 ([2067ef8](https://github.com/bluelovers/ws-yarn-workspaces/commit/2067ef8fd69a054a040c77c759804c94ab20de8d))
+* **static-file:** 重構靜態檔案複製邏輯以分離路徑解析與檔案寫入 ([53a7e55](https://github.com/bluelovers/ws-yarn-workspaces/commit/53a7e558c6bc42e3565dce162097fb0b114f3243))
+
+
+### 📚　Documentation
+
+* add jsdoc ([9cb9b13](https://github.com/bluelovers/ws-yarn-workspaces/commit/9cb9b13eda8c357221ad1b754458aa9916eada22))
+
+
+### 🚨　Tests
+
+* **@yarn-tool/static-file:** 建立基於分類片段的忽略規則測試架構 ([f0a15c1](https://github.com/bluelovers/ws-yarn-workspaces/commit/f0a15c1f7306c5d61d0779be35e3635504190963))
+
+
+### 🛠　Build System
+
+* update build ([5fb6966](https://github.com/bluelovers/ws-yarn-workspaces/commit/5fb6966a57ec31ba89d8c20aa676c60755b7b286))
+* update build ([3186340](https://github.com/bluelovers/ws-yarn-workspaces/commit/3186340758172427cb1e9b8955f6fd677abac625))
+* **@yarn-tool/static-file:** 更新 tsconfig 範本以排除編譯與測試目錄 ([3286c71](https://github.com/bluelovers/ws-yarn-workspaces/commit/3286c714fa9ce2621abfac5514f54d2a0a8d9b1c))
+* **deps:** 更新測試腳本與依賴以支援 node:test ([f9c71c7](https://github.com/bluelovers/ws-yarn-workspaces/commit/f9c71c795c792c5c7ed9d613ce7e9c3c726c39d5))
+
+
+### ♻️　Chores
+
+* **config:** 更新自動生成腳本註解與忽略檔案規則 ([8428290](https://github.com/bluelovers/ws-yarn-workspaces/commit/84282900016fb9d5794dbe69d458c958f773b411))
+* **deps:** 更新各套件依賴版本 ([569f075](https://github.com/bluelovers/ws-yarn-workspaces/commit/569f0756189cdadf69955d8e388ac0a6a8988056))
+* **workspace:** 更新測試指令路徑與新增工作區搜尋選項 ([a80039d](https://github.com/bluelovers/ws-yarn-workspaces/commit/a80039dd8c691e047466966ffc8f8a4e2e31c03f))
+
+
+### 🔖　Miscellaneous
+
+* . ([e5788f8](https://github.com/bluelovers/ws-yarn-workspaces/commit/e5788f84551b870490a96d0a5d67d8d542481373))
+
+
+
 ## [3.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.18...@yarn-tool/static-file@3.0.19) (2026-09-10)
 
 

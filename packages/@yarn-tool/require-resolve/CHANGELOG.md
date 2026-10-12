@@ -3,6 +3,53 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.10](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/require-resolve@4.0.9...@yarn-tool/require-resolve@4.0.10) (2026-10-12)
+
+
+### BREAKING CHANGES
+
+* **@yarn-tool/require-resolve:** 支援 ESM 動態導入功能並遷移測試框架
+
+
+
+### 📦　Code Refactoring
+
+* **@yarn-tool/require-resolve:** 優化模組導入邏輯與類型定義 ([e155009](https://github.com/bluelovers/ws-yarn-workspaces/commit/e155009366a08af784900b5b871a05c4c3e17222))
+* **@yarn-tool/require-resolve:** 移除 lib 入口檔案並重新命名內部工具函數 ([2470d96](https://github.com/bluelovers/ws-yarn-workspaces/commit/2470d9629fc2241a92962f5a8f54411458d4bda3))
+* **require-resolve:** 重構模組載入邏輯並支援非同步導入 ([57f49ad](https://github.com/bluelovers/ws-yarn-workspaces/commit/57f49adf1e3b5d345d7d50aef24a6acb334fb39c))
+
+
+### 📚　Documentation
+
+* add jsdoc ([9cb9b13](https://github.com/bluelovers/ws-yarn-workspaces/commit/9cb9b13eda8c357221ad1b754458aa9916eada22))
+
+
+### 🚨　Tests
+
+* **@yarn-tool/require-resolve:** 提取模組解析邏輯並新增選項測試 ([effd8b0](https://github.com/bluelovers/ws-yarn-workspaces/commit/effd8b0499a0555edc4e1f87ac09242f4df06954))
+* **all:** 完善 node:test 遷移與測試案例優化 ([e38f263](https://github.com/bluelovers/ws-yarn-workspaces/commit/e38f26376a03520b39a54fea5794f27aecc4f424))
+* **snap:** update snapshots ([c9945a5](https://github.com/bluelovers/ws-yarn-workspaces/commit/c9945a5b9cd723d38ded2a69b83e2e83ecc3b524))
+* **test-helper:** 引入路徑正規化機制以解決快照測試的環境依賴問題 ([af390aa](https://github.com/bluelovers/ws-yarn-workspaces/commit/af390aac58733dd93d69cd47bab8034090641b2e))
+
+
+### 🛠　Build System
+
+* update build ([3186340](https://github.com/bluelovers/ws-yarn-workspaces/commit/3186340758172427cb1e9b8955f6fd677abac625))
+
+
+### ♻️　Chores
+
+* **deps:** 更新各套件依賴版本 ([569f075](https://github.com/bluelovers/ws-yarn-workspaces/commit/569f0756189cdadf69955d8e388ac0a6a8988056))
+* **workspace:** 更新測試指令路徑與新增工作區搜尋選項 ([a80039d](https://github.com/bluelovers/ws-yarn-workspaces/commit/a80039dd8c691e047466966ffc8f8a4e2e31c03f))
+
+
+### 🔖　Miscellaneous
+
+* . ([e5788f8](https://github.com/bluelovers/ws-yarn-workspaces/commit/e5788f84551b870490a96d0a5d67d8d542481373))
+* **@yarn-tool/require-resolve:** 支援 ESM 動態導入功能並遷移測試框架 ([b04b4f2](https://github.com/bluelovers/ws-yarn-workspaces/commit/b04b4f23c87289b8b761d29b5e44372c22dacac0))
+
+
+
 ## [4.0.9](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/require-resolve@4.0.8...@yarn-tool/require-resolve@4.0.9) (2026-09-06)
 
 
