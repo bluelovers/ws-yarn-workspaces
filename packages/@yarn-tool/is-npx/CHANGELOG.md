@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.29](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/is-npx@1.0.28...@yarn-tool/is-npx@1.0.29) (2026-10-12)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([2ce14fc](https://github.com/bluelovers/ws-yarn-workspaces/commit/2ce14fcf8272584c51c4ba43b87a488f105c2f63))
+
+
+
 ## [1.0.28](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/is-npx@1.0.27...@yarn-tool/is-npx@1.0.28) (2026-10-12)
 
 

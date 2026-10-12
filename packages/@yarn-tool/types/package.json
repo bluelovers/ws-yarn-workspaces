@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/types",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "Shared TypeScript types for use across yarn-tool packages",
   "keywords": [
     "types",

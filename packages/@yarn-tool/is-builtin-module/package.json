@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/is-builtin-module",
-  "version": "1.0.29",
+  "version": "1.0.30",
   "description": "檢查名稱是否為 Node.js 內建模組 (Builtin Module) / Check whether a module name is a Node.js builtin module",
   "keywords": [
     "builtin",

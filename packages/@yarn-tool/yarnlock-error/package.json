@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarnlock-error",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "description": "factory for yarn.lock version detection errors",
   "keywords": [
     "error",

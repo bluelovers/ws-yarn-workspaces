@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.26](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/shebang@1.0.25...@yarn-tool/shebang@1.0.26) (2026-10-12)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([2ce14fc](https://github.com/bluelovers/ws-yarn-workspaces/commit/2ce14fcf8272584c51c4ba43b87a488f105c2f63))
+
+
+
 ## [1.0.25](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/shebang@1.0.24...@yarn-tool/shebang@1.0.25) (2026-10-12)
 
 

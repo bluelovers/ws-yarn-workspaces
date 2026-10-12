@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yargs-util",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "description": "yargs 參數處理的實用工具，提供 Argv 型別解包與程序結束處理 / Utilities for yargs argument handling, providing Argv type unpacking and process exit handling",
   "keywords": [
     "yargs",

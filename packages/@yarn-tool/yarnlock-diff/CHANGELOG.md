@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.12](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-diff@3.0.11...@yarn-tool/yarnlock-diff@3.0.12) (2026-10-12)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([2ce14fc](https://github.com/bluelovers/ws-yarn-workspaces/commit/2ce14fcf8272584c51c4ba43b87a488f105c2f63))
+
+
+
 ## [3.0.11](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-diff@3.0.10...@yarn-tool/yarnlock-diff@3.0.11) (2026-10-12)
 
 

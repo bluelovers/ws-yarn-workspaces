@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.12](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarn-struct-utils@2.0.11...@yarn-tool/yarn-struct-utils@2.0.12) (2026-10-12)
+
+
+
+### 🐛　Bug Fixes
+
+* "@yarnpkg/core": ">=4.9.1 <4.9.2 || >4.9.2" ([bb9f2bf](https://github.com/bluelovers/ws-yarn-workspaces/commit/bb9f2bfb39d66122addddacf712e98e45661a055))
+
+
+### 🔖　Miscellaneous
+
+* . ([2ce14fc](https://github.com/bluelovers/ws-yarn-workspaces/commit/2ce14fcf8272584c51c4ba43b87a488f105c2f63))
+
+
+
 ## [2.0.11](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarn-struct-utils@2.0.10...@yarn-tool/yarn-struct-utils@2.0.11) (2026-10-12)
 
 

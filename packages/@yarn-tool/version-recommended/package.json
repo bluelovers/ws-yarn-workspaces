@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/version-recommended",
-  "version": "3.0.16",
+  "version": "3.0.17",
   "description": "Recommend the next semver version: auto-detect bump type and pre-release identifiers from an old version, with yarn workspaces / monorepo support",
   "keywords": [
     "semver",
@@ -53,9 +53,9 @@
   "dependencies": {
     "@ts-type/package-dts": "^3.0.14",
     "@types/semver": "*",
-    "@yarn-tool/find-root": "^2.0.26",
-    "@yarn-tool/types": "^1.0.22",
-    "@yarn-tool/workspaces-project": "^3.0.15",
+    "@yarn-tool/find-root": "^2.0.27",
+    "@yarn-tool/types": "^1.0.23",
+    "@yarn-tool/workspaces-project": "^3.0.16",
     "semver": "^7.8.5",
     "ts-type": "^3.0.18",
     "tslib": ">=2.8.1"

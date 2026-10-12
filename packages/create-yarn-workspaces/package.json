@@ -1,6 +1,6 @@
 {
   "name": "create-yarn-workspaces",
-  "version": "3.0.23",
+  "version": "3.0.24",
   "description": "Quickly initialize Yarn Workspaces project structure",
   "keywords": [
     "create",
@@ -59,25 +59,25 @@
     "@ts-type/package-dts": "^3.0.14",
     "@types/jest": "^30.0.0",
     "@types/node": "^26.6.5",
-    "@yarn-tool/find-root": "^2.0.26",
-    "@yarn-tool/pkg-entry-util": "^3.0.15",
-    "@yarn-tool/require-resolve": "^4.0.10",
-    "@yarn-tool/static-file": "^3.0.20",
-    "@yarn-tool/ws-find-up-paths": "^1.0.23",
+    "@yarn-tool/find-root": "^2.0.27",
+    "@yarn-tool/pkg-entry-util": "^3.0.16",
+    "@yarn-tool/require-resolve": "^4.0.11",
+    "@yarn-tool/static-file": "^3.0.21",
+    "@yarn-tool/ws-find-up-paths": "^1.0.24",
     "debug-color2": "^1.3.2",
-    "find-yarn-workspace-root2": "^1.2.56",
+    "find-yarn-workspace-root2": "^1.2.57",
     "fs-extra": "^11.4.1",
     "path-is-same": "^1.0.29",
     "pkg-dir": "<6 >=5",
-    "sort-package-json3": "^3.0.13",
+    "sort-package-json3": "^3.0.14",
     "ts-type": "^3.0.18",
     "tslib": "^2.8.1",
     "upath2": "^3.1.25",
     "yargs": "<18 >=17.7.2"
   },
   "devDependencies": {
-    "@yarn-tool/ncu": "^3.0.11",
-    "@yarn-tool/write-package-json": "^1.0.18"
+    "@yarn-tool/ncu": "^3.0.12",
+    "@yarn-tool/write-package-json": "^1.0.19"
   },
   "gitHead": "46d4d576f34d2d5218822811286119ea7a44d08b"
 }
