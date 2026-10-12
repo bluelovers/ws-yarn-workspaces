@@ -12,7 +12,7 @@ import { IFindRootReturnType } from '@yarn-tool/find-root';
 import { AggregateErrorExtra } from 'lazy-aggregate-error';
 import Bluebird from 'bluebird';
 import { IFillPkgHostedInfoOptions } from '@yarn-tool/pkg-hosted-info';
-import { ITSRequiredPick } from 'ts-type/lib/type/record';
+import { ITSPickExtra } from 'ts-type/lib/type/record';
 import { ICacheInput } from '@yarn-tool/fix-ws-versions';
 import { INpmAutoFixAll } from '../../index';
 /**
@@ -46,7 +46,7 @@ export type IEntry = ReturnType<typeof _handler>;
  *
  * @extends {ITSRequiredPick<IFillPkgHostedInfoOptions & INpmAutoFixAll, ...>}
  */
-export interface IOptionsRunEachPackages extends ITSRequiredPick<IFillPkgHostedInfoOptions & INpmAutoFixAll, 'overwriteHostedGitInfo' | 'branch' | 'rootData' | 'hostedGitInfo' | 'resetStaticFiles' | 'addStaticFiles' | 'noStaticFiles'> {
+export interface IOptionsRunEachPackages extends ITSPickExtra<IFillPkgHostedInfoOptions & INpmAutoFixAll, 'overwriteHostedGitInfo' | 'branch' | 'rootData' | 'hostedGitInfo' | 'resetStaticFiles' | 'addStaticFiles' | 'noStaticFiles' | 'noMergeIgnoreFiles'> {
 }
 /**
  * 執行單一套件修復的核心函數

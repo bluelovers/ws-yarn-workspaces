@@ -18,6 +18,7 @@ const index_2 = require("./lib/pkg/index");
 const logger_1 = require("debug-color2/logger");
 const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
 const static_file_1 = require("@yarn-tool/static-file");
+const mergeIgnoreFiles_1 = require("@yarn-tool/static-file/lib/mergeIgnoreFiles");
 const wsCopyStaticFiles_1 = require("@yarn-tool/static-file/lib/ws/wsCopyStaticFiles");
 const getRootCopyStaticFiles_1 = require("@yarn-tool/static-file/lib/root/getRootCopyStaticFiles");
 const lerna_1 = require("./lib/ws/lerna");
@@ -93,8 +94,23 @@ function npmAutoFixAll(cwd, options) {
         console.log(`root:`, rootData.root);
         console.log(`hasWorkspace:`, rootData.hasWorkspace);
         // 解構選項 / Destructure options
-        let { branch, overwriteHostedGitInfo, resetStaticFiles, addStaticFiles, noStaticFiles, } = options !== null && options !== void 0 ? options : {};
+        let { branch, overwriteHostedGitInfo, resetStaticFiles, addStaticFiles, noStaticFiles, noMergeIgnoreFiles, } = options !== null && options !== void 0 ? options : {};
         cwd = rootData.cwd;
+        /**
+         * 在 reset 之前讀取現有 ignore 檔案並建立快照
+         * Read the existing ignore files and build a snapshot before the reset
+         *
+         * resetStaticFiles 會刪除 .gitignore / .npmignore 等檔案，
+         * 因此必須先取樣，稍後複製完成時才能把既有規則合併回去。
+         * resetStaticFiles deletes .gitignore / .npmignore and the like, so they must be captured
+         * first in order to merge the existing rules back once the copy is done.
+         *
+         * 取樣目錄與後續複製的目標一致（workspace 取 ws，單一套件取 root）。
+         * The captured directory matches the later copy target (ws for a workspace, root for a single package).
+         */
+        const ignoreFilesSnapshot = noMergeIgnoreFiles
+            ? undefined
+            : (0, mergeIgnoreFiles_1._readIgnoreFilesSnapshot)(rootData.hasWorkspace ? rootData.ws : rootData.root);
         /**
          * 重置靜態檔案（若選項啟用）/ Reset static files (if option enabled)
          */
@@ -131,6 +147,7 @@ function npmAutoFixAll(cwd, options) {
                 (0, static_file_1.copyStaticFiles)({
                     cwd: rootData.ws,
                     file_map,
+                    ignoreFilesSnapshot,
                 });
             }
             else if (rootData.root) {
@@ -145,6 +162,7 @@ function npmAutoFixAll(cwd, options) {
                 (0, static_file_1.copyStaticFiles)({
                     cwd: rootData.root,
                     file_map,
+                    ignoreFilesSnapshot,
                 });
             }
         }
@@ -209,6 +227,7 @@ function npmAutoFixAll(cwd, options) {
             resetStaticFiles,
             addStaticFiles,
             noStaticFiles,
+            noMergeIgnoreFiles,
         });
     }).then(() => void 0);
 }

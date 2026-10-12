@@ -31,6 +31,7 @@ const types_1 = require("@ts-type/package-dts/lib/package-json/types");
 const normalize_deps_value_1 = require("@yarn-tool/normalize-deps-value");
 const getRootCopyStaticFiles_1 = require("@yarn-tool/static-file/lib/root/getRootCopyStaticFiles");
 const static_file_1 = require("@yarn-tool/static-file");
+const mergeIgnoreFiles_1 = require("@yarn-tool/static-file/lib/mergeIgnoreFiles");
 const pkg_scripts_1 = require("@yarn-tool/pkg-entry-util/lib/preset/scripts/pkg-scripts");
 const dummy_1 = require("@yarn-tool/pkg-entry-util/lib/util/scripts/dummy");
 const scripts_1 = require("@yarn-tool/pkg-entry-util/lib/field/scripts");
@@ -94,6 +95,18 @@ function _runFixPackagesCore(row, options, cache, err) {
     const { isRoot, isWorkspace } = _rootDataFake;
     // 載入 package.json / Load package.json
     const pkg = new npm_package_json_loader_1.PackageJsonLoader(row.manifestLocation);
+    /**
+     * 在 reset 之前讀取現有 ignore 檔案並建立快照
+     * Read the existing ignore files and build a snapshot before the reset
+     *
+     * resetStaticFiles 會刪除 .gitignore / .npmignore 等檔案，
+     * 因此必須先取樣，稍後複製完成時才能把既有規則合併回去。
+     * resetStaticFiles deletes .gitignore / .npmignore and the like, so they must be captured
+     * first in order to merge the existing rules back once the copy is done.
+     */
+    const ignoreFilesSnapshot = options.noMergeIgnoreFiles
+        ? undefined
+        : (0, mergeIgnoreFiles_1._readIgnoreFilesSnapshot)(row.location);
     // 若選項啟用則重置靜態檔案 / Reset static files if option enabled
     if (resetStaticFiles) {
         (0, reset_1._resetStaticFiles)(_rootDataFake.pkg, {
@@ -126,6 +139,7 @@ function _runFixPackagesCore(row, options, cache, err) {
         (0, static_file_1.copyStaticFiles)({
             cwd: row.location,
             file_map: (0, getRootCopyStaticFiles_1.getRootCopyStaticFilesAuto)(_rootDataFake),
+            ignoreFilesSnapshot,
         });
     }
     // 若 README.md 不存在或小於 1KB 則自動生成 / Auto-generate README.md if it doesn't exist or is smaller than 1KB

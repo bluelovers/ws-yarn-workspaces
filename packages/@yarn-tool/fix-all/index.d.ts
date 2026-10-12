@@ -44,6 +44,19 @@ export interface INpmAutoFixAll {
      * Note: static files are still force-added when resetStaticFiles is true
      */
     noStaticFiles?: boolean;
+    /**
+     * 是否停用自動合併 ignore 檔案
+     * Whether to disable auto-merging ignore files
+     *
+     * 未設定（false）時，會在 reset 之前先讀取現有的 .gitignore / .npmignore 等檔案，
+     * 並在複製完成後把這些既有規則合併回複製出的檔案，使其不因 reset 而遺失。
+     * When not set (false), the existing .gitignore / .npmignore files are read before the reset and
+     * their rules are merged back into the freshly copied files afterwards, so a reset does not lose them.
+     *
+     * 注意：不論是 resetStaticFiles 或單純的 addStaticFiles 觸發，都會執行此合併。
+     * Note: the merge runs for both the resetStaticFiles and the plain addStaticFiles trigger.
+     */
+    noMergeIgnoreFiles?: boolean;
 }
 /**
  * 自動修復 workspaces/package 的主要函數

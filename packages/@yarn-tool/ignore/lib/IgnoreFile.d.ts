@@ -145,7 +145,7 @@ export declare class IgnoreFile implements ignore.Ignore {
      * file.addList(['*.tmp']).lines // 最後一列已是 '*.tmp'，略過 → 維持不變
      * file.addList(['*.tmp'], true).lines // force 直接插入 → ['# notes', '*.log', '*.tmp', '*.tmp']
      */
-    addList(patterns: string[], force?: boolean): this;
+    addList(patterns: ITSArrayListMaybeReadonly<string>, force?: boolean): this;
     /**
      * 移除規則（保留註解與空行）
      * Remove rules (comments and blank lines are kept)
