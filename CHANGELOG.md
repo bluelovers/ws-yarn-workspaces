@@ -19,6 +19,7 @@ Please see the individual package changelogs for what's new:
 * 🌏 [`@yarn-tool/get-global-dirs`](./packages/@yarn-tool/get-global-dirs/CHANGELOG.md "packages/@yarn-tool/get-global-dirs") *packages/@yarn-tool/get-global-dirs*
 * 🌏 [`@yarn-tool/get-paths-by-type`](./packages/@yarn-tool/get-paths-by-type/CHANGELOG.md "packages/@yarn-tool/get-paths-by-type") *packages/@yarn-tool/get-paths-by-type*
 * 🌏 [`@yarn-tool/get-pkg-bin`](./packages/@yarn-tool/get-pkg-bin/CHANGELOG.md "packages/@yarn-tool/get-pkg-bin") *packages/@yarn-tool/get-pkg-bin*
+* 🌏 [`@yarn-tool/ignore`](./packages/@yarn-tool/ignore/CHANGELOG.md "packages/@yarn-tool/ignore") *packages/@yarn-tool/ignore*
 * 🌏 [`@yarn-tool/init-path`](./packages/@yarn-tool/init-path/CHANGELOG.md "packages/@yarn-tool/init-path") *packages/@yarn-tool/init-path*
 * 🌏 [`@yarn-tool/is-builtin-module`](./packages/@yarn-tool/is-builtin-module/CHANGELOG.md "packages/@yarn-tool/is-builtin-module") *packages/@yarn-tool/is-builtin-module*
 * 🌏 [`@yarn-tool/is-npx`](./packages/@yarn-tool/is-npx/CHANGELOG.md "packages/@yarn-tool/is-npx") *packages/@yarn-tool/is-npx*
