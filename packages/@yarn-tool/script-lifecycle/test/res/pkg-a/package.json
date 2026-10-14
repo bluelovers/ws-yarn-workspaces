@@ -55,7 +55,7 @@
     "prepublishOnly": "echo prepublishOnly",
     "postprepublishOnly": "echo postprepublishOnly",
     "preprepack": "echo preprepack",
-    "prepack": "echo prepack",
+
     "postprepack": "echo postprepack",
     "pack": "echo pack",
     "postpack": "echo postpack",

@@ -80,7 +80,6 @@
     "prepublishOnly:lockfile": "ynpx --quiet sync-lockfile",
     "prepublishOnly:root": "node --run prepublishOnly:check-bin && node --run prepare:fix-ws-links",
     "prepublishOnly:update": "pnpm run ncu && pnpm run sort-package-json",
-    "prepack": "echo prepack",
     "pack": "echo pack",
     "postpack": "echo postpack",
     "publish": "echo publish",

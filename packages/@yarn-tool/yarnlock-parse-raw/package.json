@@ -62,7 +62,6 @@
     "prepublish": "echo prepublish",
     "prepublishOnly": "echo prepublishOnly",
     "prepublishOnly:update": "pnpm run ncu && pnpm run sort-package-json",
-    "prepack": "echo prepack",
     "pack": "echo pack",
     "postpack": "echo postpack",
     "publish": "echo publish",

@@ -65,7 +65,6 @@
     "postversion": "echo postversion",
     "prepublish": "echo prepublish",
     "prepublishOnly": "echo prepublishOnly",
-    "prepack": "echo prepack",
     "pack": "echo pack",
     "postpack": "echo postpack",
     "publish": "echo publish",

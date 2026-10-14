@@ -35,7 +35,6 @@
     "lib": "lib"
   },
   "scripts": {
-    "bin:self": "tsx bin/npm-init2.ts",
     "coverage": "pnpm run test -- --coverage",
     "test": "node --run test:node",
     "test:jest": "jest --passWithNoTests",
@@ -47,7 +46,9 @@
     "test:tsd": "ynpx tsd",
     "npm:publish": "npm publish",
     "preversion": "pnpm run test",
-    "prepublishOnly": "echo prepublishOnly"
+    "prepublishOnly": "echo prepublishOnly",
+    "bin:self": "tsx bin/npm-init2.ts",
+    "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "config": {},
   "dependencies": {
