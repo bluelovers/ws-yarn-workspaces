@@ -41,7 +41,10 @@
     "npm:publish": "npm publish",
     "preversion": "pnpm run test",
     "prepublishOnly": "node --run fix:ignore",
-    "fix:ignore": "tsx test/scripts/update-npmignore-static-files.ts",
+    "fix:ignore": "node --run fix:ignore:build && node --run fix:ignore:copy && node --run fix:ignore:merge",
+    "fix:ignore:build": "tsx test/scripts/compose-split-ignore-files.ts",
+    "fix:ignore:copy": "copy test\\fixtures\\out\\gitignore file\\gitignore && copy test\\fixtures\\out\\npmignore file\\npmignore && echo ignore file copyed",
+    "fix:ignore:merge": "tsx test/scripts/update-npmignore-static-files.ts",
     "ncu": "yarn-tool ncu -u",
     "sort-package-json": "yarn-tool sort",
     "tsc:showConfig": "ynpx get-current-tsconfig -p"

@@ -29,6 +29,14 @@ import { existsSync, readFileSync } from 'fs';
 import { join } from 'path';
 import { __ROOT } from '../../__root';
 
+export enum EnumIgnoreSplitTargetBucket
+{
+	git = 'git',
+	npm = 'npm',
+	shared = 'shared',
+	other = 'other',
+}
+
 /**
  * 二層分類主題，陣列順序即全域組合順序
  * Second-level topics; the array order is the global assembly order
@@ -59,7 +67,7 @@ export type IIgnoreSplitTopicId = typeof TOPICS[number]['id'];
  * 會輸出到組合結果的分類（other 永不輸出）
  * Buckets emitted into the composed output (other is never emitted)
  */
-export const EMITTED_BUCKETS = ['git', 'npm', 'shared'] as const;
+export const EMITTED_BUCKETS = [EnumIgnoreSplitTargetBucket.git, EnumIgnoreSplitTargetBucket.npm, EnumIgnoreSplitTargetBucket.shared] as const;
 
 /**
  * 輸出分類的聯合型別，由 {@link EMITTED_BUCKETS} 派生
@@ -68,19 +76,13 @@ export const EMITTED_BUCKETS = ['git', 'npm', 'shared'] as const;
 export type IIgnoreSplitEmittedBucket = typeof EMITTED_BUCKETS[number];
 
 /**
- * 全部分類的聯合型別（含永不輸出的 other）
- * Union of all buckets (including the never-emitted other)
- */
-export type IIgnoreSplitBucket = IIgnoreSplitEmittedBucket | 'other';
-
-/**
  * 組合目標：分類與對應的 ignore 檔名，為「分類 ↔ 檔名」的單一事實來源
  * Composition targets: the bucket and its ignore file name — the single source
  * of truth for the bucket ↔ file-name mapping
  */
 export const IGNORE_SPLIT_TARGETS = [
-	{ bucket: 'git', fileName: 'gitignore' },
-	{ bucket: 'npm', fileName: 'npmignore' },
+	{ bucket: EnumIgnoreSplitTargetBucket.git, fileName: 'gitignore' },
+	{ bucket: EnumIgnoreSplitTargetBucket.npm, fileName: 'npmignore' },
 ] as const;
 
 /**
@@ -105,7 +107,7 @@ export const SPLIT_ROOT = join(__ROOT, 'test', 'fixtures', 'split');
  * @param topic - 主題編號 / Topic id
  * @returns 片段檔案的絕對路徑 / The absolute path of the fragment file
  */
-export function getSplitFragmentPath(bucket: string, topic: string): string
+export function getSplitFragmentPath(bucket: EnumIgnoreSplitTargetBucket, topic: IIgnoreSplitTopicId): string
 {
 	return join(SPLIT_ROOT, bucket, `${topic}.txt`);
 }
@@ -316,10 +318,10 @@ export interface IIgnoreSplitGenerator
  * Generator registry: keys match the `# %gen:NAME%` placeholder names in fragments
  */
 export const IGNORE_SPLIT_GENERATORS: Record<string, IIgnoreSplitGenerator> = {
-	'test-build-artifacts': { generate: genTestBuildArtifacts, topic: '20-test', bucket: 'git' },
-	'source-maps': { generate: genSourceMaps, topic: '10-project', bucket: 'git' },
-	'spec-files': { generate: genSpecFiles, topic: '20-test', bucket: 'npm' },
-	'npm-source-declarations': { generate: genNpmSourceDeclarations, topic: '05-source', bucket: 'npm' },
+	'test-build-artifacts': { generate: genTestBuildArtifacts, topic: '20-test', bucket: EnumIgnoreSplitTargetBucket.git },
+	'source-maps': { generate: genSourceMaps, topic: '10-project', bucket: EnumIgnoreSplitTargetBucket.git },
+	'spec-files': { generate: genSpecFiles, topic: '20-test', bucket: EnumIgnoreSplitTargetBucket.npm },
+	'npm-source-declarations': { generate: genNpmSourceDeclarations, topic: '05-source', bucket: EnumIgnoreSplitTargetBucket.npm },
 };
 
 /**
@@ -336,7 +338,7 @@ export const IGNORE_SPLIT_GENERATORS: Record<string, IIgnoreSplitGenerator> = {
  * @param topic - 主題編號（{@link TOPICS} 的 id）/ Topic id (see {@link TOPICS})
  * @returns 片段行陣列（已去除結尾空行）/ Fragment lines (trailing blanks removed)
  */
-export function readSplitFragment(bucket: string, topic: string): string[]
+export function readSplitFragment(bucket: EnumIgnoreSplitTargetBucket, topic: IIgnoreSplitTopicId): string[]
 {
 	const path = getSplitFragmentPath(bucket, topic);
 

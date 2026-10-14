@@ -32,6 +32,7 @@ import { IgnoreFile } from '@yarn-tool/ignore/lib/IgnoreFile';
 import { __ROOT } from '../__root';
 import type { IIgnoreSplitTargetBucket } from './lib/ignore-split';
 import {
+	EnumIgnoreSplitTargetBucket,
 	IGNORE_SPLIT_TARGETS,
 	TOPICS,
 	expandGenPlaceholders,
@@ -56,7 +57,7 @@ function compose(target: IIgnoreSplitTargetBucket): string[]
 
 	for (const topic of TOPICS)
 	{
-		for (const bucket of [target, 'shared'] as const)
+		for (const bucket of [target, EnumIgnoreSplitTargetBucket.shared] as const)
 		{
 			const fragment = readSplitFragment(bucket, topic.id);
 
