@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.20](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/write-package-json@1.0.19...@yarn-tool/write-package-json@1.0.20) (2026-10-14)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([b7b2549](https://github.com/bluelovers/ws-yarn-workspaces/commit/b7b2549f6cb7d5ebe5fd5432d489d0076a6307cc))
+
+
+
 ## [1.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/write-package-json@1.0.18...@yarn-tool/write-package-json@1.0.19) (2026-10-12)
 
 

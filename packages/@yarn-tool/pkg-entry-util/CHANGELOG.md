@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.17](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-entry-util@3.0.16...@yarn-tool/pkg-entry-util@3.0.17) (2026-10-14)
+
+
+### BREAKING CHANGES
+
+* update fillDummyScripts
+
+
+
+### ✨　Features
+
+* update fillDummyScripts ([cf57472](https://github.com/bluelovers/ws-yarn-workspaces/commit/cf57472570f408984c460c40566caaed3e10f16b))
+
+
+
 ## [3.0.16](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-entry-util@3.0.15...@yarn-tool/pkg-entry-util@3.0.16) (2026-10-12)
 
 

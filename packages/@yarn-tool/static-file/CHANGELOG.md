@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.23](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.22...@yarn-tool/static-file@3.0.23) (2026-10-14)
+
+
+
+### 🐛　Bug Fixes
+
+* enum ([52e8a4b](https://github.com/bluelovers/ws-yarn-workspaces/commit/52e8a4b47d59cecfef0ed6b8c1c9439fe97828ef))
+
+
+### 🛠　Build System
+
+* add .agentbridge ([0052706](https://github.com/bluelovers/ws-yarn-workspaces/commit/0052706344893facd483e6218737f1fea9358a8e))
+
+
+### 🔖　Miscellaneous
+
+* . ([e6c4a50](https://github.com/bluelovers/ws-yarn-workspaces/commit/e6c4a50f37ff7867d7b583717c14eaf065250368))
+* . ([9ed5c4f](https://github.com/bluelovers/ws-yarn-workspaces/commit/9ed5c4f55f5df7835c6899751a29a1ec9f619a20))
+
+
+
 ## [3.0.22](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.21...@yarn-tool/static-file@3.0.22) (2026-10-14)
 
 

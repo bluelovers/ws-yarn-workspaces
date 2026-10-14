@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarn-struct-utils",
-  "version": "2.0.12",
+  "version": "2.0.13",
   "description": "parse yarn resolution and descriptor strings into structured data",
   "keywords": [
     "parse",
@@ -75,8 +75,8 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/pkg-name-util": "^1.0.14",
-    "@yarn-tool/yarnlock-parse-raw": "^2.0.11",
+    "@yarn-tool/pkg-name-util": "^1.0.15",
+    "@yarn-tool/yarnlock-parse-raw": "^2.0.12",
     "@yarnpkg/core": ">=4.9.1 <4.9.2 || >4.9.2",
     "tslib": ">=2.8.1"
   },

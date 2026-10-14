@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/fix-ws-versions",
-  "version": "3.0.13",
+  "version": "3.0.14",
   "description": "自動同步和修復 monorepo workspace 中的套件版本依賴 (Auto sync and fix package version dependencies in monorepo workspaces)",
   "keywords": [
     "workspaces",

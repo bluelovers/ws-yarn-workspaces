@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/ws-find-up-paths",
-  "version": "1.0.24",
+  "version": "1.0.25",
   "description": "在工作區環境中向上搜尋檔案或目錄的工具 (Find files or directories by walking up parent directories in workspace environments)",
   "keywords": [
     "yarn",

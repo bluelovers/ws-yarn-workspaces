@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/detect-yarnlock-version",
-  "version": "2.0.12",
+  "version": "2.0.13",
   "description": "detect yarn.lock version",
   "keywords": [
     "yarn",
@@ -43,8 +43,8 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/yarnlock-parse-raw": "^2.0.11",
-    "@yarn-tool/yarnlock-types": "^2.0.10",
+    "@yarn-tool/yarnlock-parse-raw": "^2.0.12",
+    "@yarn-tool/yarnlock-types": "^2.0.11",
     "tslib": ">=2.8.1"
   },
   "publishConfig": {
