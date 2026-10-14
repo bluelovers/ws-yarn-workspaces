@@ -48,7 +48,7 @@ import { defaultPkgNotOldExists } from '@yarn-tool/pkg-entry-util/lib/preset/scr
 import { outputPackageJSONSync } from '@yarn-tool/write-package-json';
 import { getRootCopyStaticFilesAuto } from '@yarn-tool/static-file/lib/root/getRootCopyStaticFiles';
 import { EnumScriptsEntry, scriptsEntryIsNoTestSpecified } from '@yarn-tool/pkg-entry-util/lib/field/scripts';
-import { _isAddStaticFilesWithReset } from '@yarn-tool/fix-all/lib/file/staticFiles';
+import { _isAddStaticFilesOrReset } from '@yarn-tool/fix-all/lib/file/staticFiles';
 
 /**
  * 更新通知器（已停用）/ Update notifier (disabled)
@@ -700,7 +700,7 @@ if (!cp.error)
 		 * 此呼叫點 addStaticFiles 預設為 true，可用 --noStaticFiles 關閉
 		 * addStaticFiles defaults to true at this call site; disable it with --noStaticFiles
 		 */
-		if (_isAddStaticFilesWithReset(cli.argv, true))
+		if (_isAddStaticFilesOrReset(cli.argv, true))
 		{
 			copyStaticFiles({
 				cwd: targetDir,

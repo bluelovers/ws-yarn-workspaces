@@ -26,7 +26,7 @@ import { IPackageJson } from '@ts-type/package-dts/package-json';
 import { getWsCopyStaticFiles } from '@yarn-tool/static-file/lib/ws/wsCopyStaticFiles';
 import { findRootLazy } from '@yarn-tool/find-root';
 import { normalize as pathNormalize } from 'upath2';
-import { _isAddStaticFilesWithReset } from '@yarn-tool/fix-all/lib/file/staticFiles';
+import { _isAddStaticFilesOrReset } from '@yarn-tool/fix-all/lib/file/staticFiles';
 import { INpmAutoFixAll } from '@yarn-tool/fix-all';
 
 export * from './lib/index';
@@ -383,7 +383,7 @@ export function _createYarnWorkspaces(targetPath: string, options: IOptions = {}
 	 * 此呼叫點 addStaticFiles 預設為 true，可用 noStaticFiles 關閉
 	 * addStaticFiles defaults to true at this call site; disable it with noStaticFiles
 	 */
-	if (_isAddStaticFilesWithReset(options, true))
+	if (_isAddStaticFilesOrReset(options, true))
 	{
 		copyStaticFiles({
 			cwd: targetPath,

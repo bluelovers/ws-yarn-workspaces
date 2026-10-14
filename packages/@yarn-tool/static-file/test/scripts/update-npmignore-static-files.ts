@@ -17,6 +17,7 @@ import {
 	defaultCopyStaticFilesRootOnly,
 	defaultCopyStaticFilesWsRootOnly,
 } from '../../lib/const';
+import { defaultCopyStaticFilesTsdx } from '../../lib/const-tsdx';
 
 /**
  * 生成區段的起始標記，用於識別並替換上一次產生的內容
@@ -53,6 +54,7 @@ function extractStaticFiles(): string[]
 		...defaultCopyStaticFiles,
 		...defaultCopyStaticFilesRootOnly,
 		...defaultCopyStaticFilesWsRootOnly,
+		...defaultCopyStaticFilesTsdx,
 	];
 
 	for (const entry of allArrays)
