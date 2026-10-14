@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/static-file",
-  "version": "3.0.21",
+  "version": "3.0.22",
   "description": "用於將靜態設定檔案 (static configuration files) 複製到 yarn 工作區專案的工具 / A utility for copying static configuration files to yarn workspace projects",
   "keywords": [
     "static-file",

@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/setup-module-env@3.0.18...@yarn-tool/setup-module-env@3.0.19) (2026-10-14)
+
+
+### BREAKING CHANGES
+
+* 遷移 tsdx 靜態檔案配置並重新命名靜態檔案檢查函式
+
+
+
+### 📦　Code Refactoring
+
+* 遷移 tsdx 靜態檔案配置並重新命名靜態檔案檢查函式 ([f6aeade](https://github.com/bluelovers/ws-yarn-workspaces/commit/f6aeade629fae32306790eed2267a769ae665c84))
+
+
+### 🛠　Build System
+
+* update build ([f69d928](https://github.com/bluelovers/ws-yarn-workspaces/commit/f69d928cc6eaf0f7eaf385f47e3d7d1a07474a33))
+
+
+
 ## [3.0.18](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/setup-module-env@3.0.17...@yarn-tool/setup-module-env@3.0.18) (2026-10-12)
 
 

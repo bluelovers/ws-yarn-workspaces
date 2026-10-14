@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.22](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.21...@yarn-tool/static-file@3.0.22) (2026-10-14)
+
+
+### BREAKING CHANGES
+
+* 遷移 tsdx 靜態檔案配置並重新命名靜態檔案檢查函式
+
+
+
+### 📦　Code Refactoring
+
+* 遷移 tsdx 靜態檔案配置並重新命名靜態檔案檢查函式 ([f6aeade](https://github.com/bluelovers/ws-yarn-workspaces/commit/f6aeade629fae32306790eed2267a769ae665c84))
+
+
+### 🛠　Build System
+
+* update build ([f69d928](https://github.com/bluelovers/ws-yarn-workspaces/commit/f69d928cc6eaf0f7eaf385f47e3d7d1a07474a33))
+
+
+### 🔖　Miscellaneous
+
+* . ([4873a81](https://github.com/bluelovers/ws-yarn-workspaces/commit/4873a8119613137978831905ec13b7a86ce1c9b0))
+
+
+
 ## [3.0.21](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.20...@yarn-tool/static-file@3.0.21) (2026-10-12)
 
 
