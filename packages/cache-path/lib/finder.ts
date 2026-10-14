@@ -5,11 +5,13 @@
  * @module cache-path/lib/finder
  */
 
+import { findEnvCachePath } from './finder/findEnvCachePath';
 import { findPkgModuleCachePath, findPkgModulePath } from './finder/findPkgModuleCachePath';
 import { findYarnCachePath } from './finder/findYarnCachePath';
 import { findNpmCachePath } from './finder/findNpmCachePath';
 import { findOSTempPath } from './finder/findOSTempPath';
 
+export { findEnvCachePath }
 export { findPkgModuleCachePath }
 export { findPkgModulePath }
 export { findYarnCachePath }
@@ -23,14 +25,15 @@ export { findOSTempPath }
  * fn[] of any function return a string
  * stop when get first return
  *
- * 順序刻意把「專案內路徑」放在最前：
+ * 最前面的 findEnvCachePath 讀取 CACHE_DIR_DEV / TEMP_DEV / CACHE_DIR，
+ * 屬於呼叫端的明確指定，權限最高；
+ * 接著刻意把「專案內路徑」放在其餘來源之前：
  * 在專案中執行時優先使用 node_modules/.cache，離開專案才退回全域快取。
+ *
  * 為 useGlobalDefaultFailback 未啟用時的兜底順序（參見 defaultOrderGlobal）。
- * The order deliberately puts the in-project path first:
- * inside a project it prefers node_modules/.cache, and only falls back to global caches outside one.
- * This is the fallback order unless useGlobalDefaultFailback is enabled (see defaultOrderGlobal).
  */
 export const defaultOrder = Object.freeze([
+	findEnvCachePath,
 	findPkgModulePath,
 	findYarnCachePath,
 	findNpmCachePath,
@@ -42,11 +45,11 @@ export const defaultOrder = Object.freeze([
  * Global-first search order of cache sources
  *
  * useGlobalDefaultFailback 設為 true 時取代 defaultOrder 作為兜底順序：
- * 先嘗試 yarn / npm / tmp 等全域快取，最後才回到專案內的 node_modules。
- * Replaces defaultOrder as the fallback order when useGlobalDefaultFailback is true:
- * it tries the global caches (yarn / npm / tmp) first and only falls back to the in-project node_modules last.
+ * 先嘗試 yarn / npm / tmp 等全域快取，最後才回到專案內的 node_modules；
+ * 唯獨環境變數來源 findEnvCachePath 仍排最前，因為明確指定高於一切。
  */
 export const defaultOrderGlobal = Object.freeze([
+	findEnvCachePath,
 	findYarnCachePath,
 	findNpmCachePath,
 	findOSTempPath,

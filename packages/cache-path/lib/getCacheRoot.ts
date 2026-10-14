@@ -59,7 +59,7 @@ export function getCacheRoot(_options?: IOptions | string): string
 		 * Call location function to get candidate directory
 		 */
 		// @ts-ignore
-		dir = fn(cwd, processEnv);
+		dir = fn(cwd, processEnv, options);
 
 		/**
 		 * 若目錄路徑有效（來源可能回傳 undefined）
@@ -140,7 +140,7 @@ export function getCacheRootAsync(options?: IOptions | string): Bluebird<string>
 				 * Asynchronously call location function to get candidate directory
 				 */
 				// @ts-ignore
-				dir = await fn(cwd, processEnv);
+				dir = await fn(cwd, processEnv, options);
 
 				/**
 				 * 若目錄路徑有效（來源可能回傳 undefined）

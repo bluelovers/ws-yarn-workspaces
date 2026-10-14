@@ -11,6 +11,8 @@ import { ITSArrayListMaybeReadonly, ITSToWriteableArray } from 'ts-type';
  */
 export type ICachePathThunk = ((p1?: string, ...args: string[]) => string);
 
+export type IFindCachePathFn = ((cwd?: string, processEnv?: NodeJS.ProcessEnv, options?: IOptions) => string) | ((cwd?: string, processEnv?: NodeJS.ProcessEnv, options?: IOptions) => any);
+
 /**
  * 快取路徑查詢選項，延伸 tmp 的 DirOptions（隨機目錄需透傳給 tmp）
  * Cache path options, extends tmp's DirOptions (random dir options must be forwarded to tmp)
@@ -41,7 +43,7 @@ export interface IOptions extends DirOptions
 	 * 置於此處可自訂快取來源的優先順序，而不必修改套件原始碼。
 	 * Declared here so callers can reorder cache sources without patching the package.
 	 */
-	fnOrder?: ITSArrayListMaybeReadonly<((cwd?: string) => string) | ((cwd?: string) => any)>,
+	fnOrder?: ITSArrayListMaybeReadonly<IFindCachePathFn>,
 
 	/**
 	 * 目錄不存在時是否自動建立

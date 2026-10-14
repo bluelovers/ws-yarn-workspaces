@@ -1,0 +1,28 @@
+exports[`normalizeName > 一般名稱的轉換規則 / conversion rules for plain names 1`] = `
+[
+  "cache",
+  "my-cache",
+  "My_Cache",
+  "foo_bar_baz",
+  "a_b_c",
+  "_scope_package-name",
+  "_-_",
+  "a_b"
+]
+`;
+
+exports[`normalizeName > 不安全名稱拋錯 / unsafe names throw 1`] = `
+[
+  "unsafe normalizeName { !!! => _ }",
+  "unsafe normalizeName {     =>  }",
+  "unsafe normalizeName { ___ => _ }",
+  "unsafe normalizeName { @#/ => _ }"
+]
+`;
+
+exports[`normalizeName > 雜湊模式 / hash mode 1`] = `
+{
+  "builtIn": "577e0417",
+  "custom": "custom(8)"
+}
+`;

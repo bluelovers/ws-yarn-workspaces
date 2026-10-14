@@ -9,6 +9,7 @@ import {
 } from 'cache-path';
 import { ICachedVersionResult, IOptionsQueryVersion } from './types';
 import { Options } from 'package-json';
+import { defaultOrderGlobal } from 'cache-path/lib/finder';
 
 /**
  * 模組層級的快取單例 (Module-level Cache Singleton)；
@@ -40,12 +41,7 @@ export function initCache(options?: IOptionsQueryVersion<Options>)
 	 * avoids writing into a potentially read-only node_modules.
 	 */
 	let cwd = getCachePath(id, {
-		fnOrder: [
-			findYarnCachePath,
-			findNpmCachePath,
-			findOSTempPath,
-			findPkgModulePath,
-		],
+		fnOrder: defaultOrderGlobal,
 	});
 
 	let { cacheAgentOptions } = (options ??= {});

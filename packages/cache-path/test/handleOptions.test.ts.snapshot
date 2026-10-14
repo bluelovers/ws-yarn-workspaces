@@ -1,0 +1,123 @@
+exports[`handleOptions > create 布林化與 processEnv 透傳 / create coercion and processEnv passthrough 1`] = `
+{
+  "cwd": "<ws-yarn-workspaces>/packages/cache-path/test",
+  "create": true,
+  "processEnv": {
+    "FOO": "bar"
+  },
+  "fnOrder": [
+    "findEnvCachePath",
+    "findPkgModulePath",
+    "findYarnCachePath",
+    "findNpmCachePath",
+    "findOSTempPath"
+  ]
+}
+`;
+
+exports[`handleOptions > disableDefaultFailback 不接兜底順序 / no fallback order appended 1`] = `
+{
+  "cwd": "<ws-yarn-workspaces>/packages/cache-path/test",
+  "fnOrder": [
+    "customFirst",
+    "customSecond"
+  ],
+  "disableDefaultFailback": true,
+  "processEnv": "<process.env>",
+  "create": false
+}
+`;
+
+exports[`handleOptions > useGlobalDefaultFailback 改用全域優先順序 / global-first order when enabled 1`] = `
+{
+  "cwd": "<ws-yarn-workspaces>/packages/cache-path/test",
+  "useGlobalDefaultFailback": true,
+  "fnOrder": [
+    "findEnvCachePath",
+    "findYarnCachePath",
+    "findNpmCachePath",
+    "findOSTempPath",
+    "findPkgModulePath"
+  ],
+  "processEnv": "<process.env>",
+  "create": false
+}
+`;
+
+exports[`handleOptions > 字串參數視為 cwd / a string argument is treated as cwd 1`] = `
+{
+  "cwd": "<ws-yarn-workspaces>/packages/cache-path/some/dir",
+  "fnOrder": [
+    "findEnvCachePath",
+    "findPkgModulePath",
+    "findYarnCachePath",
+    "findNpmCachePath",
+    "findOSTempPath"
+  ],
+  "processEnv": "<process.env>",
+  "create": false
+}
+`;
+
+exports[`handleOptions > 未指定 cwd 時使用 process.cwd() / defaults cwd to process.cwd() 1`] = `
+{
+  "cwd": "<ws-yarn-workspaces>/packages/cache-path",
+  "fnOrder": [
+    "findEnvCachePath",
+    "findPkgModulePath",
+    "findYarnCachePath",
+    "findNpmCachePath",
+    "findOSTempPath"
+  ],
+  "processEnv": "<process.env>",
+  "create": false
+}
+`;
+
+exports[`handleOptions > 自訂順序 + useGlobalDefaultFailback 接全域順序 / custom order plus the global fallback 1`] = `
+{
+  "cwd": "<ws-yarn-workspaces>/packages/cache-path/test",
+  "fnOrder": [
+    "customFirst",
+    "findEnvCachePath",
+    "findYarnCachePath",
+    "findNpmCachePath",
+    "findOSTempPath",
+    "findPkgModulePath"
+  ],
+  "useGlobalDefaultFailback": true,
+  "processEnv": "<process.env>",
+  "create": false
+}
+`;
+
+exports[`handleOptions > 自訂順序後接預設順序並去重 / custom order followed by the deduped default order 1`] = `
+{
+  "cwd": "<ws-yarn-workspaces>/packages/cache-path/test",
+  "fnOrder": [
+    "customFirst",
+    "findEnvCachePath",
+    "findPkgModulePath",
+    "findYarnCachePath",
+    "findNpmCachePath",
+    "findOSTempPath"
+  ],
+  "processEnv": "<process.env>",
+  "create": false
+}
+`;
+
+exports[`handleOptions > 預設搜尋順序：環境變數與專案內優先 / default order: env var and in-project first 1`] = `
+{
+  "cwd": "<ws-yarn-workspaces>/packages/cache-path/test",
+  "fnOrder": [
+    "findEnvCachePath",
+    "findPkgModulePath",
+    "findYarnCachePath",
+    "findNpmCachePath",
+    "findOSTempPath"
+  ],
+  "processEnv": "<process.env>",
+  "create": false
+}
+`;

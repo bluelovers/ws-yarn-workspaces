@@ -1,11 +1,5 @@
 /**
  * Yarn 快取路徑尋找模組
- * Yarn Fast Cache Path Finder Module
- *
- * 此模組提供尋找 Yarn 快取路徑的功能，
- * This module provides functionality to find Yarn cache path,
- * 透過執行 yarn config current 指令或檢查環境變數取得。
- * by executing the yarn config current command or checking environment variables.
  *
  * @module cache-path/lib/finder/findYarnCachePath
  */
@@ -13,6 +7,7 @@
 import { join, normalize } from "upath2";
 import { pathExistsSync } from 'fs-extra';
 import { sync as crossSpawnExtra } from 'cross-spawn-extra';
+import { IOptions } from '../types';
 
 /**
  * 嘗試取得 Yarn 快取路徑
@@ -31,7 +26,7 @@ import { sync as crossSpawnExtra } from 'cross-spawn-extra';
  * const yarnCache = findYarnCachePath();
  * console.log(yarnCache); // 例如: '/Users/user/Library/Caches/Yarn' / e.g.: '/Users/user/Library/Caches/Yarn'
  */
-export function findYarnCachePath(cwd?: string, processEnv = process.env): string
+export function findYarnCachePath(cwd?: string, processEnv = process.env, options?: IOptions): string
 {
 	/**
 	 * 指令查詢包在 try/catch 內：
@@ -91,8 +86,8 @@ export function findYarnCachePath(cwd?: string, processEnv = process.env): strin
 	 * YARN_CACHE_FOLDER counts only when it exists both in the environment and on disk,
 	 * so a non-existent path is never returned and mistaken for a valid source
 	 */
-	if (processEnv.YARN_CACHE_FOLDER && pathExistsSync(processEnv.YARN_CACHE_FOLDER))
+	if (processEnv['YARN_CACHE_FOLDER'] && pathExistsSync(processEnv['YARN_CACHE_FOLDER']))
 	{
-		return normalize(processEnv.YARN_CACHE_FOLDER)
+		return normalize(processEnv['YARN_CACHE_FOLDER'])
 	}
 }

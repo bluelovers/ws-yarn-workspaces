@@ -1,0 +1,38 @@
+exports[`findEnvCachePath > 優先順序：專用在前、通用在後 / priority: specific before generic 1`] = `
+{
+  "allSet": "/dev/cache",
+  "noDev": "/temp/dev",
+  "onlyCache": "/cache"
+}
+`;
+
+exports[`findEnvCachePath > 完全未設定時回傳 undefined / undefined when nothing is set 1`] = `
+{
+  "emptyEnv": "<undefined>",
+  "unrelatedEnv": "<undefined>"
+}
+`;
+
+exports[`findEnvCachePath > 檢查順序宣告 / declared key order 1`] = `
+[
+  "CACHE_DIR_DEV",
+  "TEMP_DEV",
+  "CACHE_DIR"
+]
+`;
+
+exports[`findEnvCachePath > 空白值視為未設定 / blank values count as unset 1`] = `
+{
+  "emptyDev": "/temp/dev",
+  "blankDevAndTemp": "/cache",
+  "allBlank": "<undefined>"
+}
+`;
+
+exports[`findEnvCachePath > 路徑正規化與快照標準化 / path normalization and snapshot standardization 1`] = `
+{
+  "workspace": "<ws-yarn-workspaces>/packages/cache-path/node_modules/.cache",
+  "windowsStyle": "C:/dev/cache",
+  "relativeStyle": "tmp/dev"
+}
+`;

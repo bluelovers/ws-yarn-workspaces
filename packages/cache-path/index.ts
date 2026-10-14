@@ -10,10 +10,12 @@
  * @packageDocumentation
  */
 
-import { findNpmCachePath } from './lib/finder/findNpmCachePath';
-import { findOSTempPath } from './lib/finder/findOSTempPath';
-import { findPkgModuleCachePath, findPkgModulePath } from './lib/finder/findPkgModuleCachePath';
-import { findYarnCachePath } from './lib/finder/findYarnCachePath';
+export { findNpmCachePath } from './lib/finder/findNpmCachePath';
+export { findOSTempPath } from './lib/finder/findOSTempPath';
+export { findPkgModuleCachePath, findPkgModulePath } from './lib/finder/findPkgModuleCachePath';
+export { findYarnCachePath } from './lib/finder/findYarnCachePath';
+export { findEnvCachePath } from './lib/finder/findEnvCachePath';
+
 import { getCachePath } from './lib/getCachePath';
 
 /**
@@ -33,41 +35,6 @@ export { getCacheRoot, getCacheRootAsync } from './lib/getCacheRoot';
  * Export name normalization function, used to turn a package name into a file-system-safe directory name
  */
 export { normalizeName } from './lib/normalizeName';
-
-/**
- * 以下為各種快取來源的尋找函數，順序由 lib/finder 的 defaultOrder 決定
- * The following finders locate different cache sources; their order is defined by defaultOrder in lib/finder
- */
-
-/**
- * 尋找專案 node_modules/.cache 路徑
- * Find package module cache path (node_modules/.cache)
- */
-export { findPkgModuleCachePath }
-
-/**
- * 尋找專案 node_modules 路徑
- * Find package module path (node_modules)
- */
-export { findPkgModulePath }
-
-/**
- * 尋找 Yarn 快取路徑
- * Find Yarn cache path
- */
-export { findYarnCachePath }
-
-/**
- * 尋找 npm 快取路徑
- * Find npm cache path
- */
-export { findNpmCachePath }
-
-/**
- * 取得作業系統暫存目錄
- * Get OS temporary directory
- */
-export { findOSTempPath }
 
 /**
  * 匯出所有型別定義（IOptions、ICachePathThunk 等）
