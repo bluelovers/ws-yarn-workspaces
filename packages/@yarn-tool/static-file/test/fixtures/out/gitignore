@@ -187,7 +187,6 @@ coverage
 .DS_Store
 .opt-in
 .opt-out
-.agentbridge
 
 # 未分類 / unclassified · 兩類共用 / shared
 ~ci.list.txt
@@ -199,6 +198,7 @@ coverage
 *.stat
 .codenomad
 .logs
+.agentbridge
 
 # 白名單例外 / whitelist exceptions · git 專用 / git only
 !test/tsconfig.json

@@ -214,3 +214,4 @@ openspec/
 *.stat
 .codenomad
 .logs
+.agentbridge

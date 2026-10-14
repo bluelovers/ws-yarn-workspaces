@@ -8,3 +8,4 @@
 *.stat
 .codenomad
 .logs
+.agentbridge
