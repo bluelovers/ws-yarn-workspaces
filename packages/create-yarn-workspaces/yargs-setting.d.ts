@@ -41,6 +41,8 @@ export declare function setupWorkspacesInitToYargs<T extends any>(yargs: Argv<T>
     addStaticFiles: boolean;
 } & {
     noStaticFiles: boolean;
+} & {
+    noMergeIgnoreFiles: boolean;
 }, never> & {
     name: string;
 } & {

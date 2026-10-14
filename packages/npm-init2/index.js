@@ -584,7 +584,7 @@ if (!cp.error) {
          * 此呼叫點 addStaticFiles 預設為 true，可用 --noStaticFiles 關閉
          * addStaticFiles defaults to true at this call site; disable it with --noStaticFiles
          */
-        if ((0, staticFiles_1._isAddStaticFilesWithReset)(cli.argv, true)) {
+        if ((0, staticFiles_1._isAddStaticFilesOrReset)(cli.argv, true)) {
             (0, static_file_1.copyStaticFiles)({
                 cwd: targetDir,
                 file_map,

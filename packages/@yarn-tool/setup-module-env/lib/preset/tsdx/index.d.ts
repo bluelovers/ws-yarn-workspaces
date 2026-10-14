@@ -10,7 +10,7 @@
  */
 import { IPackageJson } from '@ts-type/package-dts/package-json';
 import { IFindRootReturnType } from '@yarn-tool/find-root';
-import { _Key, IStaticFilesMapArray } from '@yarn-tool/static-file/lib/types';
+import { IStaticFilesMapArray } from '@yarn-tool/static-file/lib/types';
 /**
  * 更新 package.json 以符合 tsdx 專案標準
  * Update package.json to conform to tsdx project standards
@@ -35,23 +35,6 @@ import { _Key, IStaticFilesMapArray } from '@yarn-tool/static-file/lib/types';
  * @returns 更新後的 package.json 物件 / Updated package.json object
  */
 export declare function updatePackageJson<P extends IPackageJson>(pkg: P, config?: ISetupTsdxOptions<P>): P;
-/**
- * 預設的靜態檔案複製映射表
- * Default static file copy mapping table
- *
- * 定義需要複製到目標專案的靜態檔案，每個項目為 [目標路徑, 來源路徑, ?來源檔名] 的格式。
- * Defines static files that need to be copied to the target project,
- * each entry follows [targetPath, sourcePath, ?sourceFileName] format.
- */
-declare const _defaultCopyStaticFilesTsdx: readonly [readonly ["tsconfig.json", "file/tsconfig.tsdx.json.tpl"], readonly ["test/tsconfig.json", "file/test/tsconfig.json.tpl"], readonly ["src/index.cts", "file/tsdx/index.cts"], readonly ["src/tsconfig.json", "file/tsdx/tsconfig.json.tpl"]];
-/**
- * 凍結的預設靜態檔案映射表
- * Frozen default static file mapping table
- *
- * 凍結是為了避免執行期意外改動全域預設值，影響其他套件的設定流程
- * Frozen to prevent accidental mutation of the global default, which would affect setup runs in other packages
- */
-export declare const defaultCopyStaticFilesTsdx: IStaticFilesMapArray<_Key<typeof _defaultCopyStaticFilesTsdx>>;
 /**
  * tsdx 設定選項介面
  * tsdx setup options interface
@@ -108,4 +91,3 @@ export declare function setup<P extends IPackageJson>(config: ISetupTsdxOptions<
     /** 是否為已存在的專案 / Whether it's an existing project */
     oldExists: boolean;
 };
-export {};

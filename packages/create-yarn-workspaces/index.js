@@ -282,7 +282,7 @@ function _createYarnWorkspaces(targetPath, options = {}) {
      * 此呼叫點 addStaticFiles 預設為 true，可用 noStaticFiles 關閉
      * addStaticFiles defaults to true at this call site; disable it with noStaticFiles
      */
-    if ((0, staticFiles_1._isAddStaticFilesWithReset)(options, true)) {
+    if ((0, staticFiles_1._isAddStaticFilesOrReset)(options, true)) {
         (0, static_file_1.copyStaticFiles)({
             cwd: targetPath,
             file_map,

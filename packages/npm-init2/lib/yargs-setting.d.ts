@@ -57,6 +57,8 @@ export declare function setupToYargs<T>(yargs: Argv<T>): import("@yarn-tool/type
     addStaticFiles: boolean;
 } & {
     noStaticFiles: boolean;
+} & {
+    noMergeIgnoreFiles: boolean;
 }>>;
 /**
  * 預設匯出 setupToYargs，讓 `import setupToYargs from '...'` 可直接使用
