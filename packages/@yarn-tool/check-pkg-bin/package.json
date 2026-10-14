@@ -29,7 +29,7 @@
     "test": "test"
   },
   "scripts": {
-    "bin:self": "tsx bin/check-pkg-bin.ts --workspaces",
+    "coverage": "pnpm run test --coverage",
     "test": "node --run test:node",
     "test:jest": "jest --coverage",
     "test:jest:coverage": "pnpm run test:jest -- --coverage",
@@ -42,7 +42,9 @@
     "npm:publish": "npm publish",
     "npm:publish:lerna": "lerna publish --yes --bump patch",
     "preversion": "pnpm run test",
-    "sort-package-json": "npx yarn-tool sort"
+    "bin:self": "tsx bin/check-pkg-bin.ts --workspaces",
+    "sort-package-json": "npx yarn-tool sort",
+    "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
     "@bluelovers/string-natural-compare": "^2.0.17",

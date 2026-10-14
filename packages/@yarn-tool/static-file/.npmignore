@@ -150,8 +150,6 @@ openspec/
 !test/fixtures/out
 !test/fixtures/split
 
-
-
 file/tsdx/index.d.ts
 file/tsdx/index.js
 # Static files from const.ts
