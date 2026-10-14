@@ -1,6 +1,6 @@
 {
   "name": "npm-package-json-loader",
-  "version": "3.0.18",
+  "version": "3.0.19",
   "private": false,
   "description": "用於載入、處理和寫入 package.json 的工具類別，支援自動修復、排序與驗證功能",
   "keywords": [
@@ -55,7 +55,7 @@
   "dependencies": {
     "@bluelovers/fs-json": "^1.0.17",
     "@ts-type/package-dts": "^3.0.14",
-    "@yarn-tool/pkg-entry-util": "^3.0.17",
+    "@yarn-tool/pkg-entry-util": "^3.0.18",
     "@yarn-tool/require-resolve": "^4.0.12",
     "@yarn-tool/write-package-json": "^1.0.20",
     "bind-decorator": "^1.0.11",

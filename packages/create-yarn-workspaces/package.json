@@ -1,6 +1,6 @@
 {
   "name": "create-yarn-workspaces",
-  "version": "3.0.26",
+  "version": "3.0.27",
   "description": "Quickly initialize Yarn Workspaces project structure",
   "keywords": [
     "create",
@@ -60,7 +60,7 @@
     "@types/jest": "^30.0.0",
     "@types/node": "^26.6.5",
     "@yarn-tool/find-root": "^2.0.27",
-    "@yarn-tool/pkg-entry-util": "^3.0.17",
+    "@yarn-tool/pkg-entry-util": "^3.0.18",
     "@yarn-tool/require-resolve": "^4.0.12",
     "@yarn-tool/static-file": "^3.0.23",
     "@yarn-tool/ws-find-up-paths": "^1.0.25",
@@ -76,7 +76,7 @@
     "yargs": "<18 >=17.7.2"
   },
   "devDependencies": {
-    "@yarn-tool/ncu": "^3.0.13",
+    "@yarn-tool/ncu": "^3.0.14",
     "@yarn-tool/write-package-json": "^1.0.20"
   },
   "gitHead": "46d4d576f34d2d5218822811286119ea7a44d08b"

@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.15](https://github.com/bluelovers/ws-yarn-workspaces/compare/cache-path@4.0.14...cache-path@4.0.15) (2026-10-14)
+
+
+### BREAKING CHANGES
+
+* **cache-path:** 新增 findEnvCachePath 環境變數快取來源並統一 finder 簽名
+
+
+
+### ✨　Features
+
+* **cache-path:** 新增 findEnvCachePath 環境變數快取來源並統一 finder 簽名 ([582b67c](https://github.com/bluelovers/ws-yarn-workspaces/commit/582b67c0052a3d5909fada92c3be177633dccf8e))
+* **cache-path:** 新增 useGlobalDefaultFailback 選項以支援全域優先的快取搜尋順序 ([de29292](https://github.com/bluelovers/ws-yarn-workspaces/commit/de29292946bb0d46b1b21532cb8560ab90fb29f0))
+
+
+### 🛠　Build System
+
+* update build ([d3b0f92](https://github.com/bluelovers/ws-yarn-workspaces/commit/d3b0f925ccaec35a2a4eb0929ddd145793a2f232))
+
+
+
 ## [4.0.14](https://github.com/bluelovers/ws-yarn-workspaces/compare/cache-path@4.0.13...cache-path@4.0.14) (2026-10-12)
 
 

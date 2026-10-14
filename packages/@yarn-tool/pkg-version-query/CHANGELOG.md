@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.14](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-version-query@3.0.13...@yarn-tool/pkg-version-query@3.0.14) (2026-10-14)
+
+
+### BREAKING CHANGES
+
+* **cache-path:** 新增 findEnvCachePath 環境變數快取來源並統一 finder 簽名
+
+
+
+### ✨　Features
+
+* **cache-path:** 新增 findEnvCachePath 環境變數快取來源並統一 finder 簽名 ([582b67c](https://github.com/bluelovers/ws-yarn-workspaces/commit/582b67c0052a3d5909fada92c3be177633dccf8e))
+
+
+### 🛠　Build System
+
+* update build ([d3b0f92](https://github.com/bluelovers/ws-yarn-workspaces/commit/d3b0f925ccaec35a2a4eb0929ddd145793a2f232))
+
+
+
 ## [3.0.13](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-version-query@3.0.12...@yarn-tool/pkg-version-query@3.0.13) (2026-10-14)
 
 **Note:** Version bump only for package @yarn-tool/pkg-version-query

@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.18](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-entry-util@3.0.17...@yarn-tool/pkg-entry-util@3.0.18) (2026-10-14)
+
+
+
+### 🛠　Build System
+
+* add test:node:bin ([98d0b8c](https://github.com/bluelovers/ws-yarn-workspaces/commit/98d0b8cb772a7f2e6b96fea2d1bd90b624cc1799))
+
+
+
 ## [3.0.17](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-entry-util@3.0.16...@yarn-tool/pkg-entry-util@3.0.17) (2026-10-14)
 
 

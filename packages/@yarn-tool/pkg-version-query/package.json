@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/pkg-version-query",
-  "version": "3.0.13",
+  "version": "3.0.14",
   "description": "Query package versions from npm registry with LRU cache support. Supports version ranges, npm: protocol, and semver syntax handling. 從 npm registry 查詢套件版本，支援 LRU 快取、版本範圍語法與 npm: 協議處理。",
   "keywords": [
     "npm",
@@ -55,7 +55,7 @@
   "dependencies": {
     "@lazy-node/semver-ampersand": "^3.0.13",
     "@yarn-tool/npm-package-arg-util": "^2.0.11",
-    "cache-path": "^4.0.14",
+    "cache-path": "^4.0.15",
     "lru-cache-fs2": "^2.0.8",
     "package-json": "<7 >=6.5",
     "semver": "^7.8.5",

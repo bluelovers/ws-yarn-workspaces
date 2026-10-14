@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarnlock-ncu",
-  "version": "3.0.15",
+  "version": "3.0.16",
   "description": "update yarnlock v1 and berry",
   "keywords": [
     "yarnlock",
@@ -52,7 +52,7 @@
     "@lazy-node/semver-ampersand": "^3.0.13",
     "@lazy-node/semver-simple-parse": "^4.0.10",
     "@yarn-tool/npm-package-arg-util": "^2.0.11",
-    "@yarn-tool/pkg-version-query": "^3.0.13",
+    "@yarn-tool/pkg-version-query": "^3.0.14",
     "@yarn-tool/semver-diff": "^2.0.23",
     "@yarn-tool/table": "^2.0.24",
     "@yarn-tool/yarnlock-diff": "^3.0.13",
