@@ -35,6 +35,9 @@ export function defaultPkgScripts()
 		"test:tsc": EnumScriptsEntry.TSC_TEST,
 		"test:snapshot": "pnpm run test -u",
 
+		"test:node:bin": "tsx --test --test-update-snapshots --",
+		"test:node:bin:coverage": "node --run test:node:bin -- --experimental-test-coverage --",
+
 		"test:tsd": "ynpx tsd",
 		"tsc:showConfig": "ynpx get-current-tsconfig -p",
 	}
@@ -74,6 +77,9 @@ export function defaultPkgNotOldExists()
 		"test:jest:snapshot": "node --run test:jest -- -u",
 		"test:jest:coverage": "node --run test:jest -- --coverage",
 		"test:tsdx": "ynpx @bluelovers/tsdx test --passWithNoTests",
+
+		"test:node:coverage": "node --run test:node:bin:coverage -- **/*.node-spec.ts **/*.node-test.ts **/*.spec.ts **/*.test.ts",
+
 		"build:dts:bundle": EnumScriptsEntry.BUILD_DTS_BUNDLE,
 		"build:dts:copy": EnumScriptsEntry.BUILD_DTS_COPY,
 		"build:dts:tsc:emit": EnumScriptsEntry.BUILD_DTS_TSC_EMIT,
