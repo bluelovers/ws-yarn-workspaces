@@ -150,6 +150,10 @@ openspec/
 !test/fixtures/out
 !test/fixtures/split
 
+
+
+file/tsdx/index.d.ts
+file/tsdx/index.js
 # Static files from const.ts
 !file/README.md
 !file/env
@@ -185,6 +189,9 @@ openspec/
 !file/tsconfig.json.tpl
 !file/tsconfig.tsdx.json.tpl
 !file/tsdx.config.js
+!file/tsdx/index.cts
+!file/tsdx/index.ts
+!file/tsdx/tsconfig.json.tpl
 !file/ws-root/.run/lerna_publish_yes.run.xml
 !file/ws-root/__root_ws.ts
 !file/ws-root/browserslistrc
