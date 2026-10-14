@@ -1,4 +1,4 @@
-import { defaultOrder, findPkgModuleCachePath } from './finder';
+import { defaultOrder, defaultOrderGlobal, findPkgModuleCachePath } from './finder';
 import { array_unique_overwrite } from 'array-hyper-unique';
 import { findPkgModulePath, findPkgPath } from './finder/findPkgModuleCachePath';
 import { existsSync } from "fs";
@@ -6,6 +6,7 @@ import { ensureDirSync } from 'fs-extra';
 import { isWritableDirectorySync } from '@lazy-node/is-writeable-path';
 import { resolve } from "upath2";
 import { IOptions } from './types';
+import { ITSToWriteableArray } from 'ts-type';
 
 /**
  * 整理並補齊快取選項，讓呼叫端可以只傳字串（視為 cwd）或部分選項
@@ -33,18 +34,30 @@ export function handleOptions(options?: IOptions | string): IOptions
 	 */
 	options ??= {};
 
+	/**
+	 * 依 useGlobalDefaultFailback 挑選兜底順序：
+	 * 預設為專案內優先的 defaultOrder，設為 true 時改用全域優先的 defaultOrderGlobal
+	 * Pick the fallback order from useGlobalDefaultFailback:
+	 * in-project-first defaultOrder by default, global-first defaultOrderGlobal when true
+	 */
+	const defaultOrderFailback = options.useGlobalDefaultFailback ? defaultOrderGlobal : defaultOrder;
+
 	let {
 		cwd = process.cwd(),
-		fnOrder = defaultOrder,
-	} = options;
+		fnOrder = defaultOrderFailback,
+	} = options as Omit<IOptions, "fnOrder"> & {
+		fnOrder: ITSToWriteableArray<IOptions["fnOrder"]>;
+	};
 
 	/**
-	 * 自訂順序找不到結果時仍需預設順序兜底，否則專案外的環境會直接失敗；
-	 * disableDefaultFailback 可關閉這個行為
-	 * Custom order still needs the default order as a fallback, otherwise non-project environments fail outright;
-	 * disableDefaultFailback turns that behavior off
+	 * 自訂順序找不到結果時仍需兜底順序（defaultOrderFailback），否則專案外的環境會直接失敗；
+	 * disableDefaultFailback 可關閉這個兜底行為，
+	 * 而兜底順序本身由 useGlobalDefaultFailback 決定（專案內優先或全域優先）
+	 * Custom order still needs the fallback order (defaultOrderFailback), otherwise non-project environments fail outright;
+	 * disableDefaultFailback turns that fallback off,
+	 * while useGlobalDefaultFailback selects which order is used (in-project first or global first)
 	 */
-	if (!options.disableDefaultFailback && options.fnOrder && fnOrder !== defaultOrder)
+	if (!options.disableDefaultFailback && options.fnOrder && fnOrder !== defaultOrderFailback)
 	{
 		/**
 		 * fnOrder 的型別為互斥的函式聯集，concat 會推導出不相容的陣列型別，
@@ -52,14 +65,13 @@ export function handleOptions(options?: IOptions | string): IOptions
 		 * fnOrder is a union of mutually exclusive function types, so concat infers an incompatible array type;
 		 * it is safe at runtime, hence the @ts-ignore
 		 */
-		// @ts-ignore
-		fnOrder = fnOrder.concat(defaultOrder);
+		fnOrder = fnOrder.concat(defaultOrderFailback);
 
 		/**
 		 * 重複來源只會浪費 spawn 呼叫，去重後保留首次出現的順序
 		 * Duplicated sources only waste spawn calls; dedupe while keeping first-seen order
 		 */
-		array_unique_overwrite(fnOrder);
+		fnOrder = array_unique_overwrite(fnOrder);
 	}
 
 	/**
