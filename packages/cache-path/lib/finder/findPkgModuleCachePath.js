@@ -3,11 +3,6 @@
  * 專案模組快取路徑尋找模組
  * Package Module Cache Path Finder Module
  *
- * 此模組提供尋找專案 node_modules 及其快取路徑的功能，
- * This module provides functionality to find package's node_modules and its cache path,
- * 適合在專案內尋找快取位置。
- * suitable for finding cache location within a project.
- *
  * @module cache-path/lib/finder/findPkgModuleCachePath
  */
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -50,7 +45,7 @@ function findPkgModulePathCore(root) {
  * @param {string} root - 專案根目錄 / Package root
  * @returns {string} node_modules 底下的快取目錄路徑 / Cache directory path under node_modules
  */
-function findPkgModuleCachePathCore(root) {
+function findPkgModuleCachePathCore(root, processEnv = process.env, options) {
     return (0, path_1.join)(findPkgModulePathCore(root), '.cache');
 }
 /**
@@ -84,7 +79,7 @@ function findPkgModulePath(cwd) {
  * const cachePath = findPkgModuleCachePath();
  * console.log(cachePath); // '/path/to/project/node_modules/.cache'
  */
-function findPkgModuleCachePath(cwd) {
-    return findPkgModuleCachePathCore(findPkgPath(cwd));
+function findPkgModuleCachePath(cwd, processEnv = process.env, options) {
+    return findPkgModuleCachePathCore(findPkgPath(cwd), processEnv, options);
 }
 //# sourceMappingURL=findPkgModuleCachePath.js.map

@@ -2,13 +2,9 @@
  * npm 快取路徑尋找模組
  * npm Cache Path Finder Module
  *
- * 此模組提供尋找 npm 全域快取路徑的功能，
- * This module provides functionality to find npm global cache path,
- * 透過執行 npm config get cache 命令取得。
- * by executing npm config get cache command.
- *
  * @module cache-path/lib/finder/findNpmCachePath
  */
+import { IOptions } from '../types';
 /**
  * 嘗試取得 npm 全域快取路徑
  * Try to get npm global cache path
@@ -24,4 +20,4 @@
  * const npmCache = findNpmCachePath();
  * console.log(npmCache); // 例如: '/Users/user/.npm' / e.g.: '/Users/user/.npm'
  */
-export declare function findNpmCachePath(cwd?: string, processEnv?: NodeJS.ProcessEnv): string;
+export declare function findNpmCachePath(cwd?: string, processEnv?: NodeJS.ProcessEnv, options?: IOptions): string;

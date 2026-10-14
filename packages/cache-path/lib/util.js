@@ -33,27 +33,35 @@ function handleOptions(options) {
      * The argument may be omitted entirely; fall back to an empty object so later destructuring is safe
      */
     options !== null && options !== void 0 ? options : (options = {});
-    let { cwd = process.cwd(), fnOrder = finder_1.defaultOrder, } = options;
     /**
-     * 自訂順序找不到結果時仍需預設順序兜底，否則專案外的環境會直接失敗；
-     * disableDefaultFailback 可關閉這個行為
-     * Custom order still needs the default order as a fallback, otherwise non-project environments fail outright;
-     * disableDefaultFailback turns that behavior off
+     * 依 useGlobalDefaultFailback 挑選兜底順序：
+     * 預設為專案內優先的 defaultOrder，設為 true 時改用全域優先的 defaultOrderGlobal
+     * Pick the fallback order from useGlobalDefaultFailback:
+     * in-project-first defaultOrder by default, global-first defaultOrderGlobal when true
      */
-    if (!options.disableDefaultFailback && options.fnOrder && fnOrder !== finder_1.defaultOrder) {
+    const defaultOrderFailback = options.useGlobalDefaultFailback ? finder_1.defaultOrderGlobal : finder_1.defaultOrder;
+    let { cwd = process.cwd(), fnOrder = defaultOrderFailback, } = options;
+    /**
+     * 自訂順序找不到結果時仍需兜底順序（defaultOrderFailback），否則專案外的環境會直接失敗；
+     * disableDefaultFailback 可關閉這個兜底行為，
+     * 而兜底順序本身由 useGlobalDefaultFailback 決定（專案內優先或全域優先）
+     * Custom order still needs the fallback order (defaultOrderFailback), otherwise non-project environments fail outright;
+     * disableDefaultFailback turns that fallback off,
+     * while useGlobalDefaultFailback selects which order is used (in-project first or global first)
+     */
+    if (!options.disableDefaultFailback && options.fnOrder && fnOrder !== defaultOrderFailback) {
         /**
          * fnOrder 的型別為互斥的函式聯集，concat 會推導出不相容的陣列型別，
          * 此處執行期安全，故以 @ts-ignore 壓過
          * fnOrder is a union of mutually exclusive function types, so concat infers an incompatible array type;
          * it is safe at runtime, hence the @ts-ignore
          */
-        // @ts-ignore
-        fnOrder = fnOrder.concat(finder_1.defaultOrder);
+        fnOrder = fnOrder.concat(defaultOrderFailback);
         /**
          * 重複來源只會浪費 spawn 呼叫，去重後保留首次出現的順序
          * Duplicated sources only waste spawn calls; dedupe while keeping first-seen order
          */
-        (0, array_hyper_unique_1.array_unique_overwrite)(fnOrder);
+        fnOrder = (0, array_hyper_unique_1.array_unique_overwrite)(fnOrder);
     }
     /**
      * 統一轉為絕對路徑，避免各 finder 以相對路徑比較目錄

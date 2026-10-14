@@ -5,6 +5,7 @@ exports.getCache = getCache;
 const tslib_1 = require("tslib");
 const lru_cache_fs2_1 = tslib_1.__importDefault(require("lru-cache-fs2"));
 const cache_path_1 = require("cache-path");
+const finder_1 = require("cache-path/lib/finder");
 /**
  * 模組層級的快取單例 (Module-level Cache Singleton)；
  * 以 `??=` 延後初始化，確保只有第一次 getCache() 才會建立快取並產生磁碟 IO。
@@ -32,12 +33,7 @@ function initCache(options) {
      * avoids writing into a potentially read-only node_modules.
      */
     let cwd = (0, cache_path_1.getCachePath)(id, {
-        fnOrder: [
-            cache_path_1.findYarnCachePath,
-            cache_path_1.findNpmCachePath,
-            cache_path_1.findOSTempPath,
-            cache_path_1.findPkgModulePath,
-        ],
+        fnOrder: finder_1.defaultOrderGlobal,
     });
     let { cacheAgentOptions } = (options !== null && options !== void 0 ? options : (options = {}));
     /**

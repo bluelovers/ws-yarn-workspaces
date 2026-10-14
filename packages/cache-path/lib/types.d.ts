@@ -1,4 +1,5 @@
 import { DirOptions } from 'tmp';
+import { ITSArrayListMaybeReadonly } from 'ts-type';
 /**
  * 快取路徑 thunk 函數 (Thunk)：接收子路徑片段並回傳完整路徑
  * Cache path thunk: takes path segments and returns the joined full path
@@ -8,6 +9,7 @@ import { DirOptions } from 'tmp';
  * so callers decide the final file location later.
  */
 export type ICachePathThunk = ((p1?: string, ...args: string[]) => string);
+export type IFindCachePathFn = ((cwd?: string, processEnv?: NodeJS.ProcessEnv, options?: IOptions) => string) | ((cwd?: string, processEnv?: NodeJS.ProcessEnv, options?: IOptions) => any);
 /**
  * 快取路徑查詢選項，延伸 tmp 的 DirOptions（隨機目錄需透傳給 tmp）
  * Cache path options, extends tmp's DirOptions (random dir options must be forwarded to tmp)
@@ -35,7 +37,7 @@ export interface IOptions extends DirOptions {
      * 置於此處可自訂快取來源的優先順序，而不必修改套件原始碼。
      * Declared here so callers can reorder cache sources without patching the package.
      */
-    fnOrder?: Array<((cwd?: string) => string) | ((cwd?: string) => any)>;
+    fnOrder?: ITSArrayListMaybeReadonly<IFindCachePathFn>;
     /**
      * 目錄不存在時是否自動建立
      * Whether to create the directory automatically when it does not exist
@@ -64,6 +66,16 @@ export interface IOptions extends DirOptions {
      * which forces custom-only sources and surfaces the failure explicitly.
      */
     disableDefaultFailback?: boolean;
+    /**
+     * 兜底順序改用全域優先的 defaultOrderGlobal
+     * Use the global-first defaultOrderGlobal as the fallback order
+     *
+     * 僅在發生兜底時影響結果：未設定 fnOrder，或 fnOrder 失敗且未啟用 disableDefaultFailback。
+     * 為 true 時先嘗試 yarn / npm / tmp 等全域快取，最後才回到專案內的 node_modules。
+     * Only affects the run when a fallback happens: no fnOrder given, or fnOrder failed while disableDefaultFailback is off.
+     * When true it tries the global caches (yarn / npm / tmp) first and only falls back to the in-project node_modules last.
+     */
+    useGlobalDefaultFailback?: boolean;
     /**
      * 傳給各快取來源函式的環境變數，預設為 process.env
      * Environment variables passed to cache source finders, defaults to process.env

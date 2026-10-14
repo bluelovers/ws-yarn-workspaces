@@ -11,17 +11,19 @@
  * @packageDocumentation
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.findOSTempPath = exports.findNpmCachePath = exports.findYarnCachePath = exports.findPkgModulePath = exports.findPkgModuleCachePath = exports.normalizeName = exports.getCacheRootAsync = exports.getCacheRoot = exports.getCachePathAsync = exports.getCachePath = void 0;
+exports.normalizeName = exports.getCacheRootAsync = exports.getCacheRoot = exports.getCachePathAsync = exports.getCachePath = exports.findEnvCachePath = exports.findYarnCachePath = exports.findPkgModulePath = exports.findPkgModuleCachePath = exports.findOSTempPath = exports.findNpmCachePath = void 0;
 const tslib_1 = require("tslib");
-const findNpmCachePath_1 = require("./lib/finder/findNpmCachePath");
+var findNpmCachePath_1 = require("./lib/finder/findNpmCachePath");
 Object.defineProperty(exports, "findNpmCachePath", { enumerable: true, get: function () { return findNpmCachePath_1.findNpmCachePath; } });
-const findOSTempPath_1 = require("./lib/finder/findOSTempPath");
+var findOSTempPath_1 = require("./lib/finder/findOSTempPath");
 Object.defineProperty(exports, "findOSTempPath", { enumerable: true, get: function () { return findOSTempPath_1.findOSTempPath; } });
-const findPkgModuleCachePath_1 = require("./lib/finder/findPkgModuleCachePath");
+var findPkgModuleCachePath_1 = require("./lib/finder/findPkgModuleCachePath");
 Object.defineProperty(exports, "findPkgModuleCachePath", { enumerable: true, get: function () { return findPkgModuleCachePath_1.findPkgModuleCachePath; } });
 Object.defineProperty(exports, "findPkgModulePath", { enumerable: true, get: function () { return findPkgModuleCachePath_1.findPkgModulePath; } });
-const findYarnCachePath_1 = require("./lib/finder/findYarnCachePath");
+var findYarnCachePath_1 = require("./lib/finder/findYarnCachePath");
 Object.defineProperty(exports, "findYarnCachePath", { enumerable: true, get: function () { return findYarnCachePath_1.findYarnCachePath; } });
+var findEnvCachePath_1 = require("./lib/finder/findEnvCachePath");
+Object.defineProperty(exports, "findEnvCachePath", { enumerable: true, get: function () { return findEnvCachePath_1.findEnvCachePath; } });
 const getCachePath_1 = require("./lib/getCachePath");
 /**
  * 匯出主要的快取路徑取得函數（同步與非同步）

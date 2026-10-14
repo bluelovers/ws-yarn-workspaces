@@ -2,13 +2,9 @@
  * 作業系統暫存路徑尋找模組
  * OS Temp Path Finder Module
  *
- * 此模組提供取得作業系統暫存目錄的功能，
- * This module provides functionality to get the operating system's temporary directory,
- * 使用 Node.js 內建的 os.tmpdir() 函數。
- * using Node.js's built-in os.tmpdir() function.
- *
  * @module cache-path/lib/finder/findOSTempPath
  */
+import { IOptions } from "../types";
 /**
  * 取得作業系統暫存目錄
  * Get OS temporary directory
@@ -29,4 +25,4 @@
  * const tempPath = findOSTempPath();
  * console.log(tempPath); // '/tmp' (Linux) 或 '/var/folders/...' (macOS) / or '/var/folders/...' (macOS)
  */
-export declare function findOSTempPath(cwd?: string, processEnv?: NodeJS.ProcessEnv): string;
+export declare function findOSTempPath(cwd?: string, processEnv?: NodeJS.ProcessEnv, options?: IOptions): string;

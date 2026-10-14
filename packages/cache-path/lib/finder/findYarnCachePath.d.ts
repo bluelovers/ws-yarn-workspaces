@@ -1,14 +1,9 @@
 /**
  * Yarn 快取路徑尋找模組
- * Yarn Fast Cache Path Finder Module
- *
- * 此模組提供尋找 Yarn 快取路徑的功能，
- * This module provides functionality to find Yarn cache path,
- * 透過執行 yarn config current 指令或檢查環境變數取得。
- * by executing the yarn config current command or checking environment variables.
  *
  * @module cache-path/lib/finder/findYarnCachePath
  */
+import { IOptions } from '../types';
 /**
  * 嘗試取得 Yarn 快取路徑
  * Try to get Yarn cache path
@@ -26,4 +21,4 @@
  * const yarnCache = findYarnCachePath();
  * console.log(yarnCache); // 例如: '/Users/user/Library/Caches/Yarn' / e.g.: '/Users/user/Library/Caches/Yarn'
  */
-export declare function findYarnCachePath(cwd?: string, processEnv?: NodeJS.ProcessEnv): string;
+export declare function findYarnCachePath(cwd?: string, processEnv?: NodeJS.ProcessEnv, options?: IOptions): string;
