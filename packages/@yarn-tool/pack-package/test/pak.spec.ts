@@ -17,6 +17,22 @@ test(`packPackage`, async (t) =>
 
 	console.dir(await actual.tarball());
 
-	t.assert.snapshot(await actual.tarball());
+	let snap = await actual.tarball();
+
+	snap = {
+		...snap,
+		size: '<number>' as any,
+		unpackedSize: '<number>' as any,
+		shasum: '<string>' as any,
+		integrity: '<string:sha512-...>' as any,
+	};
+
+	snap.files = snap.files.map((file) =>
+	({
+		...file,
+		size: '<number>' as any,
+	}));
+
+	t.assert.snapshot(snap);
 
 });

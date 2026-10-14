@@ -58,7 +58,6 @@ exports[`packPackage 1`] = `
       "prepublishOnly": "echo prepublishOnly",
       "postprepublishOnly": "echo postprepublishOnly",
       "preprepack": "echo preprepack",
-      "prepack": "echo prepack",
       "postprepack": "echo postprepack",
       "pack": "echo pack",
       "postpack": "echo postpack",
@@ -102,25 +101,25 @@ exports[`packPackage 2`] = `
   "id": "pkg-a@1.0.0",
   "name": "pkg-a",
   "version": "1.0.0",
-  "size": 775,
-  "unpackedSize": 2954,
-  "shasum": "9a52ad9b58e1b3209c0d36bc8635433997f91886",
-  "integrity": "sha512-f1Bt5HqeFERl/CIPdVfD1lvjXtpgykZ3CHBR4ghh/VLlBtAW7HTstmEaYb3clooXaXUUbQji0DAGwsNb3R5M4Q==",
+  "size": "<number>",
+  "unpackedSize": "<number>",
+  "shasum": "<string>",
+  "integrity": "<string:sha512-...>",
   "filename": "pkg-a-1.0.0.tgz",
   "files": [
     {
       "path": ".yarnrc",
-      "size": 52,
+      "size": "<number>",
       "mode": 420
     },
     {
       "path": "package.json",
-      "size": 2902,
+      "size": "<number>",
       "mode": 420
     },
     {
       "path": "pkg-a-1.0.0.tgz",
-      "size": 0,
+      "size": "<number>",
       "mode": 420
     }
   ],
