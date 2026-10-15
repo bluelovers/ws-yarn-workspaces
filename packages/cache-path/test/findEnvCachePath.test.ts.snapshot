@@ -13,14 +13,6 @@ exports[`findEnvCachePath > 完全未設定時回傳 undefined / undefined when 
 }
 `;
 
-exports[`findEnvCachePath > 檢查順序宣告 / declared key order 1`] = `
-[
-  "CACHE_DIR_DEV",
-  "TEMP_DEV",
-  "CACHE_DIR"
-]
-`;
-
 exports[`findEnvCachePath > 空白值視為未設定 / blank values count as unset 1`] = `
 {
   "emptyDev": "/temp/dev",

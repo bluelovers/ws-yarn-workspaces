@@ -2108,6 +2108,9 @@ importers:
       '@yarn-tool/find-root':
         specifier: ^2.0.27
         version: link:../@yarn-tool/find-root
+      '@yarn-tool/fix-all':
+        specifier: ^3.0.25
+        version: link:../@yarn-tool/fix-all
       '@yarn-tool/pkg-entry-util':
         specifier: ^3.0.18
         version: link:../@yarn-tool/pkg-entry-util
