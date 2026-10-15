@@ -1,6 +1,6 @@
 {
   "name": "create-yarn-workspaces",
-  "version": "3.0.27",
+  "version": "3.0.28",
   "description": "Quickly initialize Yarn Workspaces project structure",
   "keywords": [
     "create",
