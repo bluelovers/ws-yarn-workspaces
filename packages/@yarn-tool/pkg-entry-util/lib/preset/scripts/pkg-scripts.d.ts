@@ -29,7 +29,10 @@ export declare function defaultPkgScripts(): {
     "test:jest": EnumScriptsEntry;
     "test:node": EnumScriptsEntry;
     "test:tsc": EnumScriptsEntry;
+    "test:tsc:sub": EnumScriptsEntry;
     "test:snapshot": string;
+    "test:node:bin": string;
+    "test:node:bin:coverage": string;
     "test:tsd": string;
     "tsc:showConfig": string;
 };
@@ -64,6 +67,7 @@ export declare function defaultPkgNotOldExists(): {
     "test:jest:snapshot": string;
     "test:jest:coverage": string;
     "test:tsdx": string;
+    "test:node:coverage": string;
     "build:dts:bundle": EnumScriptsEntry;
     "build:dts:copy": EnumScriptsEntry;
     "build:dts:tsc:emit": EnumScriptsEntry;
@@ -78,7 +82,10 @@ export declare function defaultPkgNotOldExists(): {
     "test:jest": EnumScriptsEntry;
     "test:node": EnumScriptsEntry;
     "test:tsc": EnumScriptsEntry;
+    "test:tsc:sub": EnumScriptsEntry;
     "test:snapshot": string;
+    "test:node:bin": string;
+    "test:node:bin:coverage": string;
     "test:tsd": string;
     "tsc:showConfig": string;
 };

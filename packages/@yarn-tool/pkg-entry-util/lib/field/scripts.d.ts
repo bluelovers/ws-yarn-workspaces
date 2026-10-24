@@ -11,14 +11,15 @@ export declare const enum EnumScriptsEntry {
     /** 以 Jest 執行測試，且在沒有測試檔時仍視為成功 / Run Jest tests, passing when no test files exist */
     JEST_TEST = "jest --passWithNoTests",
     /** 以 Node.js 原生 test runner（經 tsx）執行測試並更新快照 / Run tests via Node's native runner (through tsx) and update snapshots */
-    NODE_TEST = "tsx --test --test-update-snapshots **/*.node-spec.ts **/*.node-test.ts **/*.spec.ts **/*.test.ts",
+    NODE_TEST = "node --run test:node:bin -- **/*.node-spec.ts **/*.node-test.ts **/*.spec.ts **/*.test.ts",
     /** 預設測試命令 / Default test command */
     DEFAULT_TEST = "node --run test:node --",
     /**
      * TypeScript 型別檢查：以 `&` 連結 echo，讓檢查完成後仍有成功訊息
      * Type check: chained with `&` so a completion message is printed afterward
      */
-    TSC_TEST = "tsc --noEmit & echo typescript check done",
+    TSC_TEST = "tsc --noEmit & echo Type checking completed (main)",
+    TSC_TEST2 = "cd test && tsc --noEmit & echo Type checking completed (test)",
     /** 未指定測試的預設錯誤訊息（不中斷流程）/ Default "no test specified" message (does not abort) */
     NO_TEST_SPECIFIED = "echo \"Error: no test specified\"",
     /** 同上，但以 `exit 1` 讓腳本以失敗結束 / Same as above, but exits with code 1 to fail the script */
