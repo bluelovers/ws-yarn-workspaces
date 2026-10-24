@@ -22,7 +22,8 @@ export const enum EnumScriptsEntry
 	 * TypeScript 型別檢查：以 `&` 連結 echo，讓檢查完成後仍有成功訊息
 	 * Type check: chained with `&` so a completion message is printed afterward
 	 */
-	TSC_TEST = "tsc --noEmit & echo typescript check done",
+	TSC_TEST = "tsc --noEmit & echo Type checking completed (main)",
+	TSC_TEST2 = "cd test && tsc --noEmit & echo Type checking completed (test)",
 
 	/** 未指定測試的預設錯誤訊息（不中斷流程）/ Default "no test specified" message (does not abort) */
 	NO_TEST_SPECIFIED = "echo \"Error: no test specified\"",

@@ -33,6 +33,7 @@ export function defaultPkgScripts()
 		"test:jest": EnumScriptsEntry.JEST_TEST,
 		"test:node": EnumScriptsEntry.NODE_TEST,
 		"test:tsc": EnumScriptsEntry.TSC_TEST,
+		"test:tsc:sub": EnumScriptsEntry.TSC_TEST2,
 		"test:snapshot": "pnpm run test -u",
 
 		"test:node:bin": "tsx --test --test-update-snapshots --",
