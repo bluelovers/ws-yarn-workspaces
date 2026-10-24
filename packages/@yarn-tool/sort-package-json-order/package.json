@@ -88,7 +88,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "devDependencies": {
-    "sort-package-json": "^4.0.0"
+    "sort-package-json": "^4.1.0"
   },
   "publishConfig": {
     "access": "public"

@@ -76,7 +76,7 @@
     "fast-glob": "^3.3.3",
     "fs-extra": "^11.4.1",
     "fs-iconv": "^3.1.21",
-    "ignore": "^7.0.12",
+    "ignore": "^7.0.14",
     "split2": "^4.2.0",
     "ts-type": "^3.0.18",
     "ts-type-predicates": "^1.0.14",

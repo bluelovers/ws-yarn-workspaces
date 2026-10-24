@@ -5,7 +5,6 @@ import { updateYarnLockTag } from '../lib/updateYarnLockTag';
 import { readFileSync } from "fs";
 import { __TEST_YARNLOCK } from '../../../../__root_ws';
 import { printReport } from '../lib/printReport';
-import stripAnsi from 'strip-ansi';
 import { pathExistsSync } from 'fs-extra';
 import { _forEachVersionTags } from '../../../../test/lib/forEachVersionTags';
 

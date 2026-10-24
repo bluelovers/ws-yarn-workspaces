@@ -55,9 +55,6 @@
   "devDependencies": {
     "chalk": "<3 >=2"
   },
-  "peerDependencies": {
-    "debug-color2": "^1.3.2"
-  },
   "publishConfig": {
     "access": "public"
   }

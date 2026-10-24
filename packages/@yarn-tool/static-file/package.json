@@ -51,6 +51,7 @@
   },
   "dependencies": {
     "@yarn-tool/ignore": "^1.0.3",
+    "array-hyper-unique": "^2.1.10",
     "fs-extra": "^11.4.1",
     "tslib": ">=2.8.1"
   },

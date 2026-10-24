@@ -39,3 +39,4 @@ minimumReleaseAgeExclude:
   - array-hyper-unique
   - dotenv
   - sort-object-keys2
+  - ignore@7.0.14

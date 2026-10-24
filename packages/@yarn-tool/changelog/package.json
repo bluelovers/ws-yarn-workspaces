@@ -74,9 +74,6 @@
     "ws-pkg-list": "^3.0.13",
     "yargs": "<18 >=17.7.2"
   },
-  "peerDependencies": {
-    "@bluelovers/conventional-changelog-bluelovers": "*"
-  },
   "publishConfig": {
     "access": "public"
   },
