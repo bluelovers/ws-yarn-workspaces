@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.13](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/search-workspace-prefix-by-name@2.0.12...@yarn-tool/search-workspace-prefix-by-name@2.0.13) (2026-10-24)
+
+
+
+### ♻️　Chores
+
+* **deps:** 更新依賴項目與調整 package.json 配置 ([e082d18](https://github.com/bluelovers/ws-yarn-workspaces/commit/e082d188bc5a1bb34fc940317b6ae9f2c2c539b0))
+
+
+
 ## [2.0.12](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/search-workspace-prefix-by-name@2.0.11...@yarn-tool/search-workspace-prefix-by-name@2.0.12) (2026-10-12)
 
 

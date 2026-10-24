@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/search-workspace-prefix-by-name",
-  "version": "2.0.12",
+  "version": "2.0.13",
   "description": "search workspace prefix by package name",
   "keywords": [
     "workspace-prefix",

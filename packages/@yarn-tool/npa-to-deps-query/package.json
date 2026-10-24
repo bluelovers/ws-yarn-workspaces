@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/npa-to-deps-query",
-  "version": "3.0.14",
+  "version": "3.0.15",
   "description": "Resolve npm-package-arg specs to concrete versions by querying the npm registry / 透過查詢 npm registry 將 npm-package-arg 規格解析為具體版本",
   "keywords": [
     "npm-package-arg",
@@ -61,7 +61,7 @@
   "dependencies": {
     "@yarn-tool/npa-to-deps": "^3.0.11",
     "@yarn-tool/npm-package-arg-util": "^2.0.11",
-    "@yarn-tool/pkg-version-query": "^3.0.14",
+    "@yarn-tool/pkg-version-query": "^3.0.15",
     "bluebird": "^3.7.2",
     "package-json": "<7 >=6.5",
     "ts-type": "^3.0.18",

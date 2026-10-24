@@ -238,10 +238,10 @@ importers:
         specifier: ^4.0.12
         version: link:../require-resolve
       '@yarn-tool/semver-diff':
-        specifier: ^2.0.23
+        specifier: ^2.0.24
         version: link:../semver-diff
       '@yarn-tool/table':
-        specifier: ^2.0.24
+        specifier: ^2.0.25
         version: link:../table
       '@yarn-tool/types':
         specifier: ^1.0.23
@@ -286,7 +286,7 @@ importers:
         specifier: ^1.0.26
         version: link:../shebang
       '@yarn-tool/table':
-        specifier: ^2.0.24
+        specifier: ^2.0.25
         version: link:../table
       cli-table3:
         specifier: ^0.6.5
@@ -331,7 +331,7 @@ importers:
   packages/@yarn-tool/detect-yarnlock-version:
     dependencies:
       '@yarn-tool/yarnlock-parse-raw':
-        specifier: ^2.0.12
+        specifier: ^2.0.13
         version: link:../yarnlock-parse-raw
       '@yarn-tool/yarnlock-types':
         specifier: ^2.0.11
@@ -599,7 +599,7 @@ importers:
   packages/@yarn-tool/fix-ws-versions:
     dependencies:
       '@lazy-node/semver-ampersand':
-        specifier: ^3.0.13
+        specifier: ^3.0.14
         version: link:../../@lazy-node/semver-ampersand
       '@lazy-node/semver-simple-parse':
         specifier: ^4.0.10
@@ -727,7 +727,7 @@ importers:
   packages/@yarn-tool/init-path:
     dependencies:
       '@yarn-tool/search-workspace-prefix-by-name':
-        specifier: ^2.0.12
+        specifier: ^2.0.13
         version: link:../search-workspace-prefix-by-name
       '@yarn-tool/validate-npm-package-name':
         specifier: ^3.0.27
@@ -767,7 +767,7 @@ importers:
   packages/@yarn-tool/is-published:
     dependencies:
       '@yarn-tool/npa-to-deps-query':
-        specifier: ^3.0.14
+        specifier: ^3.0.15
         version: link:../npa-to-deps-query
       tslib:
         specifier: '>=2.8.1'
@@ -785,25 +785,25 @@ importers:
         specifier: ^2.0.11
         version: link:../npm-package-arg-util
       '@yarn-tool/pkg-version-query':
-        specifier: ^3.0.14
+        specifier: ^3.0.15
         version: link:../pkg-version-query
       '@yarn-tool/semver-diff':
-        specifier: ^2.0.23
+        specifier: ^2.0.24
         version: link:../semver-diff
       '@yarn-tool/table':
-        specifier: ^2.0.24
+        specifier: ^2.0.25
         version: link:../table
       '@yarn-tool/yargs-util':
         specifier: ^1.0.19
         version: link:../yargs-util
       '@yarn-tool/yarnlock':
-        specifier: ^3.0.13
+        specifier: ^3.0.14
         version: link:../yarnlock
       '@yarn-tool/yarnlock-parse':
-        specifier: ^3.0.14
+        specifier: ^3.0.15
         version: link:../yarnlock-parse
       '@yarn-tool/yarnlock-parsed-to-json':
-        specifier: ^2.0.14
+        specifier: ^2.0.15
         version: link:../yarnlock-parsed-to-json
       '@yarn-tool/yarnlock-types':
         specifier: ^2.0.11
@@ -947,7 +947,7 @@ importers:
   packages/@yarn-tool/normalize-deps-value:
     dependencies:
       '@lazy-node/semver-ampersand':
-        specifier: ^3.0.13
+        specifier: ^3.0.14
         version: link:../../@lazy-node/semver-ampersand
       '@yarn-tool/npm-package-arg-util':
         specifier: ^2.0.11
@@ -981,7 +981,7 @@ importers:
         specifier: ^2.0.11
         version: link:../npm-package-arg-util
       '@yarn-tool/pkg-version-query':
-        specifier: ^3.0.14
+        specifier: ^3.0.15
         version: link:../pkg-version-query
       bluebird:
         specifier: ^3.7.2
@@ -1093,19 +1093,19 @@ importers:
         specifier: ^3.0.12
         version: link:../pkg-deps-add
       '@yarn-tool/pkg-version-query':
-        specifier: ^3.0.14
+        specifier: ^3.0.15
         version: link:../pkg-version-query
       '@yarn-tool/yarnlock-fs':
-        specifier: ^3.0.14
+        specifier: ^3.0.15
         version: link:../yarnlock-fs
       '@yarn-tool/yarnlock-parse':
-        specifier: ^3.0.14
+        specifier: ^3.0.15
         version: link:../yarnlock-parse
       '@yarn-tool/yarnlock-types':
         specifier: ^2.0.11
         version: link:../yarnlock-types
       '@yarn-tool/yarnlock-util':
-        specifier: ^3.0.13
+        specifier: ^3.0.14
         version: link:../yarnlock-util
       array-hyper-unique:
         specifier: ^2.1.10
@@ -1234,7 +1234,7 @@ importers:
   packages/@yarn-tool/pkg-version-query:
     dependencies:
       '@lazy-node/semver-ampersand':
-        specifier: ^3.0.13
+        specifier: ^3.0.14
         version: link:../../@lazy-node/semver-ampersand
       '@yarn-tool/npm-package-arg-util':
         specifier: ^2.0.11
@@ -1261,7 +1261,7 @@ importers:
   packages/@yarn-tool/publish-retry:
     dependencies:
       '@yarn-tool/is-published':
-        specifier: ^2.0.14
+        specifier: ^2.0.15
         version: link:../is-published
       cross-spawn-extra:
         specifier: ^3.0.3
@@ -1370,10 +1370,10 @@ importers:
         specifier: ^2.0.27
         version: link:../find-root
       '@yarn-tool/pkg-entry-util':
-        specifier: ^3.0.18
+        specifier: ^3.0.19
         version: link:../pkg-entry-util
       '@yarn-tool/static-file':
-        specifier: ^3.0.23
+        specifier: ^3.0.24
         version: link:../static-file
       dot-values2:
         specifier: ^2.0.7
@@ -1430,7 +1430,7 @@ importers:
   packages/@yarn-tool/static-file:
     dependencies:
       '@yarn-tool/ignore':
-        specifier: ^1.0.3
+        specifier: ^1.0.4
         version: link:../ignore
       array-hyper-unique:
         specifier: ^2.1.10
@@ -1448,7 +1448,7 @@ importers:
         specifier: ^3.0.14
         version: 3.0.14(ts-toolbelt@9.6.0)
       '@yarn-tool/semver-diff':
-        specifier: ^2.0.23
+        specifier: ^2.0.24
         version: link:../semver-diff
       cli-table3:
         specifier: ^0.6.5
@@ -1532,7 +1532,7 @@ importers:
         specifier: ^1.0.23
         version: link:../types
       '@yarn-tool/workspaces-project':
-        specifier: ^3.0.17
+        specifier: ^3.0.18
         version: link:../workspaces-project
       semver:
         specifier: ^7.8.5
@@ -1571,7 +1571,7 @@ importers:
         specifier: '*'
         version: 6.1.4
       '@yarn-tool/changelog':
-        specifier: ^3.0.17
+        specifier: ^3.0.18
         version: link:../changelog
       find-yarn-workspace-root2:
         specifier: ^1.2.57
@@ -1703,7 +1703,7 @@ importers:
         specifier: ^1.0.15
         version: link:../pkg-name-util
       '@yarn-tool/yarnlock-parse-raw':
-        specifier: ^2.0.12
+        specifier: ^2.0.13
         version: link:../yarnlock-parse-raw
       '@yarnpkg/core':
         specifier: '>=4.9.1 <4.9.2 || >4.9.2'
@@ -1718,25 +1718,25 @@ importers:
         specifier: ^3.0.14
         version: 3.0.14(ts-toolbelt@9.6.0)
       '@yarn-tool/detect-yarnlock-version':
-        specifier: ^2.0.13
+        specifier: ^2.0.14
         version: link:../detect-yarnlock-version
       '@yarn-tool/find-root':
         specifier: ^2.0.27
         version: link:../find-root
       '@yarn-tool/table':
-        specifier: ^2.0.24
+        specifier: ^2.0.25
         version: link:../table
       '@yarn-tool/yarnlock-dedupe':
-        specifier: ^2.0.14
+        specifier: ^2.0.15
         version: link:../yarnlock-dedupe
       '@yarn-tool/yarnlock-diff':
-        specifier: ^3.0.13
+        specifier: ^3.0.14
         version: link:../yarnlock-diff
       '@yarn-tool/yarnlock-fs':
-        specifier: ^3.0.14
+        specifier: ^3.0.15
         version: link:../yarnlock-fs
       '@yarn-tool/yarnlock-stringify':
-        specifier: ^2.0.14
+        specifier: ^2.0.15
         version: link:../yarnlock-stringify
       '@yarn-tool/yarnlock-types':
         specifier: ^2.0.11
@@ -1772,13 +1772,13 @@ importers:
   packages/@yarn-tool/yarnlock-dedupe:
     dependencies:
       '@yarn-tool/detect-yarnlock-version':
-        specifier: ^2.0.13
+        specifier: ^2.0.14
         version: link:../detect-yarnlock-version
       '@yarn-tool/yarnlock-banner':
         specifier: ^2.0.8
         version: link:../yarnlock-banner
       '@yarn-tool/yarnlock-stringify':
-        specifier: ^2.0.14
+        specifier: ^2.0.15
         version: link:../yarnlock-stringify
       crlf-normalize:
         specifier: ^1.0.26
@@ -1803,22 +1803,22 @@ importers:
         specifier: ^2.0.1
         version: 2.0.1
       '@yarn-tool/semver-diff':
-        specifier: ^2.0.23
+        specifier: ^2.0.24
         version: link:../semver-diff
       '@yarn-tool/table':
-        specifier: ^2.0.24
+        specifier: ^2.0.25
         version: link:../table
       '@yarn-tool/yarnlock-parse':
-        specifier: ^3.0.14
+        specifier: ^3.0.15
         version: link:../yarnlock-parse
       '@yarn-tool/yarnlock-parse-assert':
-        specifier: ^2.0.14
+        specifier: ^2.0.15
         version: link:../yarnlock-parse-assert
       '@yarn-tool/yarnlock-types':
         specifier: ^2.0.11
         version: link:../yarnlock-types
       '@yarn-tool/yarnlock-util':
-        specifier: ^3.0.13
+        specifier: ^3.0.14
         version: link:../yarnlock-util
       array-hyper-unique:
         specifier: ^2.1.10
@@ -1843,28 +1843,28 @@ importers:
   packages/@yarn-tool/yarnlock-entries:
     dependencies:
       '@yarn-tool/detect-yarnlock-version':
-        specifier: ^2.0.13
+        specifier: ^2.0.14
         version: link:../detect-yarnlock-version
       '@yarn-tool/yarnlock-error':
         specifier: ^1.0.24
         version: link:../yarnlock-error
       '@yarn-tool/yarnlock-parse':
-        specifier: ^3.0.14
+        specifier: ^3.0.15
         version: link:../yarnlock-parse
       '@yarn-tool/yarnlock-parse-assert':
-        specifier: ^2.0.14
+        specifier: ^2.0.15
         version: link:../yarnlock-parse-assert
       '@yarn-tool/yarnlock-parsed-to-json':
-        specifier: ^2.0.14
+        specifier: ^2.0.15
         version: link:../yarnlock-parsed-to-json
       '@yarn-tool/yarnlock-stringify':
-        specifier: ^2.0.14
+        specifier: ^2.0.15
         version: link:../yarnlock-stringify
       '@yarn-tool/yarnlock-types':
         specifier: ^2.0.11
         version: link:../yarnlock-types
       '@yarn-tool/yarnlock-util':
-        specifier: ^3.0.13
+        specifier: ^3.0.14
         version: link:../yarnlock-util
       lodash:
         specifier: ^4.18.1
@@ -1885,10 +1885,10 @@ importers:
   packages/@yarn-tool/yarnlock-fs:
     dependencies:
       '@yarn-tool/yarnlock-parse':
-        specifier: ^3.0.14
+        specifier: ^3.0.15
         version: link:../yarnlock-parse
       '@yarn-tool/yarnlock-stringify':
-        specifier: ^2.0.14
+        specifier: ^2.0.15
         version: link:../yarnlock-stringify
       '@yarn-tool/yarnlock-types':
         specifier: ^2.0.11
@@ -1929,6 +1929,9 @@ importers:
       debug-color2:
         specifier: ^1.3.2
         version: 1.3.2(@types/bluebird@3.5.42)(@types/node@26.6.5)(debug@4.4.3(supports-color@8.1.1))(ts-toolbelt@9.6.0)
+      package-json:
+        specifier: <7 >=6.5
+        version: 6.5.0
       semver:
         specifier: ^7.8.5
         version: 7.8.5
@@ -1939,13 +1942,13 @@ importers:
   packages/@yarn-tool/yarnlock-parse:
     dependencies:
       '@yarn-tool/detect-yarnlock-version':
-        specifier: ^2.0.13
+        specifier: ^2.0.14
         version: link:../detect-yarnlock-version
       '@yarn-tool/yarnlock-error':
         specifier: ^1.0.24
         version: link:../yarnlock-error
       '@yarn-tool/yarnlock-parse-raw':
-        specifier: ^2.0.12
+        specifier: ^2.0.13
         version: link:../yarnlock-parse-raw
       '@yarn-tool/yarnlock-types':
         specifier: ^2.0.11
@@ -1954,7 +1957,7 @@ importers:
   packages/@yarn-tool/yarnlock-parse-assert:
     dependencies:
       '@yarn-tool/detect-yarnlock-version':
-        specifier: ^2.0.13
+        specifier: ^2.0.14
         version: link:../detect-yarnlock-version
       '@yarn-tool/yarnlock-error':
         specifier: ^1.0.24
@@ -1982,7 +1985,7 @@ importers:
         version: 1.0.26(ts-toolbelt@9.6.0)
     devDependencies:
       '@yarn-tool/detect-yarnlock-version':
-        specifier: ^2.0.13
+        specifier: ^2.0.14
         version: link:../detect-yarnlock-version
 
   packages/@yarn-tool/yarnlock-parsed-to-json:
@@ -1991,7 +1994,7 @@ importers:
         specifier: ^1.0.24
         version: link:../yarnlock-error
       '@yarn-tool/yarnlock-parse-assert':
-        specifier: ^2.0.14
+        specifier: ^2.0.15
         version: link:../yarnlock-parse-assert
       '@yarn-tool/yarnlock-types':
         specifier: ^2.0.11
@@ -2000,20 +2003,20 @@ importers:
   packages/@yarn-tool/yarnlock-stringify:
     dependencies:
       '@yarn-tool/detect-yarnlock-version':
-        specifier: ^2.0.13
+        specifier: ^2.0.14
         version: link:../detect-yarnlock-version
       '@yarn-tool/yarnlock-error':
         specifier: ^1.0.24
         version: link:../yarnlock-error
       '@yarn-tool/yarnlock-parse-raw':
-        specifier: ^2.0.12
+        specifier: ^2.0.13
         version: link:../yarnlock-parse-raw
       '@yarn-tool/yarnlock-parsed-to-json':
-        specifier: ^2.0.14
+        specifier: ^2.0.15
         version: link:../yarnlock-parsed-to-json
     devDependencies:
       '@yarn-tool/yarnlock-parse':
-        specifier: ^3.0.14
+        specifier: ^3.0.15
         version: link:../yarnlock-parse
       '@yarn-tool/yarnlock-types':
         specifier: ^2.0.11
@@ -2034,13 +2037,13 @@ importers:
         specifier: ^2.0.11
         version: link:../npm-package-arg-util
       '@yarn-tool/yarn-struct-utils':
-        specifier: ^2.0.13
+        specifier: ^2.0.14
         version: link:../yarn-struct-utils
       '@yarn-tool/yarnlock-parse-assert':
-        specifier: ^2.0.14
+        specifier: ^2.0.15
         version: link:../yarnlock-parse-assert
       '@yarn-tool/yarnlock-parse-raw':
-        specifier: ^2.0.12
+        specifier: ^2.0.13
         version: link:../yarnlock-parse-raw
       '@yarn-tool/yarnlock-types':
         specifier: ^2.0.11

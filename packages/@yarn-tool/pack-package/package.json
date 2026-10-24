@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/pack-package",
-  "version": "3.0.15",
+  "version": "3.0.16",
   "description": "pack package, and print information about packed tar",
   "keywords": [
     "pack",

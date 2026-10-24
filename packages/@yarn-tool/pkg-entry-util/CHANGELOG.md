@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-entry-util@3.0.18...@yarn-tool/pkg-entry-util@3.0.19) (2026-10-24)
+
+
+
+### 📦　Code Refactoring
+
+* **pkg-entry-util:** 新增子目錄 TypeScript 型別檢查指令 ([6621271](https://github.com/bluelovers/ws-yarn-workspaces/commit/6621271f32246a245b43888dccc0b0821652d99c))
+
+
+### 🛠　Build System
+
+* update build ([a369924](https://github.com/bluelovers/ws-yarn-workspaces/commit/a3699245990904a2a4dc4a3f9433d8d282baae8e))
+
+
+### ♻️　Chores
+
+* **deps:** 更新依賴項目與調整 package.json 配置 ([e082d18](https://github.com/bluelovers/ws-yarn-workspaces/commit/e082d188bc5a1bb34fc940317b6ae9f2c2c539b0))
+
+
+
 ## [3.0.18](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-entry-util@3.0.17...@yarn-tool/pkg-entry-util@3.0.18) (2026-10-14)
 
 
