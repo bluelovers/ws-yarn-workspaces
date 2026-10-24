@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.28](https://github.com/bluelovers/ws-yarn-workspaces/compare/npm-init2@3.0.27...npm-init2@3.0.28) (2026-10-24)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([cef8450](https://github.com/bluelovers/ws-yarn-workspaces/commit/cef8450b790e43ca29fc3d1b4d527ea3eef9ea9a))
+
+
+
 ## [3.0.27](https://github.com/bluelovers/ws-yarn-workspaces/compare/npm-init2@3.0.26...npm-init2@3.0.27) (2026-10-14)
 
 **Note:** Version bump only for package npm-init2

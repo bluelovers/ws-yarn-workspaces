@@ -1,6 +1,6 @@
 {
   "name": "yarn-cmd-module",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "create a yargs command module object with TypeScript typings - don't install this if you don't use TypeScript",
   "keywords": [
     "yargs",

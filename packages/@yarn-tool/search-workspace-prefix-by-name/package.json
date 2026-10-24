@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/search-workspace-prefix-by-name",
-  "version": "2.0.13",
+  "version": "2.0.14",
   "description": "search workspace prefix by package name",
   "keywords": [
     "workspace-prefix",
@@ -47,7 +47,7 @@
   "dependencies": {
     "micromatch": "^4.0.8",
     "tslib": ">=2.8.1",
-    "workspaces-config": "^2.0.13"
+    "workspaces-config": "^2.0.14"
   },
   "publishConfig": {
     "access": "public"

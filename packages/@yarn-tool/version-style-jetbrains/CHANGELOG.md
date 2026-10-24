@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.11](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/version-style-jetbrains@1.0.10...@yarn-tool/version-style-jetbrains@1.0.11) (2026-10-24)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([cef8450](https://github.com/bluelovers/ws-yarn-workspaces/commit/cef8450b790e43ca29fc3d1b4d527ea3eef9ea9a))
+
+
+
 ## [1.0.10](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/version-style-jetbrains@1.0.9...@yarn-tool/version-style-jetbrains@1.0.10) (2026-10-14)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/ignore",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "keywords": [
     "yarn-workspaces",
@@ -72,8 +72,8 @@
   },
   "dependencies": {
     "@ts-type/is-array": "^1.0.20",
-    "@yarn-tool/find-root": "^2.0.27",
-    "@yarn-tool/ws-find-up-paths": "^1.0.25",
+    "@yarn-tool/find-root": "^2.0.28",
+    "@yarn-tool/ws-find-up-paths": "^1.0.26",
     "array-hyper-unique": "^2.1.10",
     "crlf-normalize": "^1.0.26",
     "fast-glob": "^3.3.3",

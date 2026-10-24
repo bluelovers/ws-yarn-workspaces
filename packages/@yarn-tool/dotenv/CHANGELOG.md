@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.16](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/dotenv@3.0.14...@yarn-tool/dotenv@3.0.16) (2026-10-24)
+
+
+
+### ♻️　Chores
+
+* **deps:** 更新依賴項目與調整 package.json 配置 ([e082d18](https://github.com/bluelovers/ws-yarn-workspaces/commit/e082d188bc5a1bb34fc940317b6ae9f2c2c539b0))
+
+
+### 🔖　Miscellaneous
+
+* . ([cef8450](https://github.com/bluelovers/ws-yarn-workspaces/commit/cef8450b790e43ca29fc3d1b4d527ea3eef9ea9a))
+* . ([acaa8dd](https://github.com/bluelovers/ws-yarn-workspaces/commit/acaa8ddd7415c201ed2c7cc684327528db12463f))
+
+
+
 ## [3.0.15](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/dotenv@3.0.14...@yarn-tool/dotenv@3.0.15) (2026-10-24)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "yarn-list-link",
-  "version": "2.0.14",
+  "version": "2.0.15",
   "description": "show list of yarn link",
   "keywords": [
     "yarn",
@@ -49,7 +49,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "find-yarn-workspace-root2": "^1.2.57",
+    "find-yarn-workspace-root2": "^1.2.58",
     "fs-extra": "^11.4.1",
     "tslib": ">=2.8.1",
     "upath2": "^3.1.25"

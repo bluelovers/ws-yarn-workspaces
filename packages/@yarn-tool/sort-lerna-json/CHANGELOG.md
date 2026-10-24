@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.15](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/sort-lerna-json@3.0.14...@yarn-tool/sort-lerna-json@3.0.15) (2026-10-24)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([cef8450](https://github.com/bluelovers/ws-yarn-workspaces/commit/cef8450b790e43ca29fc3d1b4d527ea3eef9ea9a))
+
+
+
 ## [3.0.14](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/sort-lerna-json@3.0.13...@yarn-tool/sort-lerna-json@3.0.14) (2026-10-14)
 
 **Note:** Version bump only for package @yarn-tool/sort-lerna-json

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.20](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/script-lifecycle@2.0.19...@yarn-tool/script-lifecycle@2.0.20) (2026-10-24)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([cef8450](https://github.com/bluelovers/ws-yarn-workspaces/commit/cef8450b790e43ca29fc3d1b4d527ea3eef9ea9a))
+* . ([b7b2549](https://github.com/bluelovers/ws-yarn-workspaces/commit/b7b2549f6cb7d5ebe5fd5432d489d0076a6307cc))
+
+
+
 ## [2.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/script-lifecycle@2.0.18...@yarn-tool/script-lifecycle@2.0.19) (2026-10-12)
 
 

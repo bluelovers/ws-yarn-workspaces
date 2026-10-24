@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/pkg-name-util",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "Utilities for formatting, stripping, and validating npm package names with scope",
   "keywords": [
     "package-name",

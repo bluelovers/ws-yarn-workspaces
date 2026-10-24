@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.16](https://github.com/bluelovers/ws-yarn-workspaces/compare/cache-path@4.0.15...cache-path@4.0.16) (2026-10-24)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([cef8450](https://github.com/bluelovers/ws-yarn-workspaces/commit/cef8450b790e43ca29fc3d1b4d527ea3eef9ea9a))
+* . ([4be3991](https://github.com/bluelovers/ws-yarn-workspaces/commit/4be3991b52d52f283b8ec0aa419e6e913bee8018))
+
+
+
 ## [4.0.15](https://github.com/bluelovers/ws-yarn-workspaces/compare/cache-path@4.0.14...cache-path@4.0.15) (2026-10-14)
 
 

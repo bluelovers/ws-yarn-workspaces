@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.14](https://github.com/bluelovers/ws-yarn-workspaces/compare/workspaces-config@2.0.13...workspaces-config@2.0.14) (2026-10-24)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([cef8450](https://github.com/bluelovers/ws-yarn-workspaces/commit/cef8450b790e43ca29fc3d1b4d527ea3eef9ea9a))
+
+
+
 ## [2.0.13](https://github.com/bluelovers/ws-yarn-workspaces/compare/workspaces-config@2.0.12...workspaces-config@2.0.13) (2026-10-12)
 
 

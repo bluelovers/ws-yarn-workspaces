@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.10](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/sort-package-json-order@2.0.9...@yarn-tool/sort-package-json-order@2.0.10) (2026-10-24)
+
+
+
+### ♻️　Chores
+
+* **deps:** 更新依賴項目與調整 package.json 配置 ([e082d18](https://github.com/bluelovers/ws-yarn-workspaces/commit/e082d188bc5a1bb34fc940317b6ae9f2c2c539b0))
+
+
+### 🔖　Miscellaneous
+
+* . ([5ad8e80](https://github.com/bluelovers/ws-yarn-workspaces/commit/5ad8e80e42a37e545b3d1b83f0c34868fbcba7aa))
+* . ([cef8450](https://github.com/bluelovers/ws-yarn-workspaces/commit/cef8450b790e43ca29fc3d1b4d527ea3eef9ea9a))
+
+
+
 ## [2.0.9](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/sort-package-json-order@2.0.8...@yarn-tool/sort-package-json-order@2.0.9) (2026-10-14)
 
 
