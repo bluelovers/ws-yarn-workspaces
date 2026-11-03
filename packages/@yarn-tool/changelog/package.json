@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/changelog",
-  "version": "3.0.20",
+  "version": "3.0.21",
   "description": "Generate and update CHANGELOG.md using conventional commits for monorepo workspaces",
   "keywords": [
     "changelog",
@@ -66,7 +66,7 @@
     "@bluelovers/conventional-changelog-bluelovers": "*",
     "@lerna/conventional-commits": "^6.4.1",
     "@yarn-tool/find-root": "^2.0.29",
-    "@yarn-tool/require-resolve": "^4.0.14",
+    "@yarn-tool/require-resolve": "^4.0.15",
     "@yarn-tool/semver-diff": "^2.0.26",
     "@yarn-tool/table": "^2.0.27",
     "@yarn-tool/types": "^1.0.25",

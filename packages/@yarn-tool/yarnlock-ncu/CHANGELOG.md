@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-ncu@3.0.18...@yarn-tool/yarnlock-ncu@3.0.19) (2026-11-03)
+
+
+
+### ♻️　Chores
+
+* **pkg:** 優化測試快照管理與版本偵測邏輯 ([3fed30d](https://github.com/bluelovers/ws-yarn-workspaces/commit/3fed30d047204f771a8b278ed3026fcb5f56a4c5))
+
+
+
 ## [3.0.18](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-ncu@3.0.17...@yarn-tool/yarnlock-ncu@3.0.18) (2026-11-03)
 
 

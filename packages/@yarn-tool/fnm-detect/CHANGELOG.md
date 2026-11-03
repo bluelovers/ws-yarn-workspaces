@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.14](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fnm-detect@1.0.13...@yarn-tool/fnm-detect@1.0.14) (2026-11-03)
+
+
+
+### ♻️　Chores
+
+* **pkg:** 優化測試快照管理與版本偵測邏輯 ([3fed30d](https://github.com/bluelovers/ws-yarn-workspaces/commit/3fed30d047204f771a8b278ed3026fcb5f56a4c5))
+
+
+
 ## [1.0.13](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fnm-detect@1.0.12...@yarn-tool/fnm-detect@1.0.13) (2026-11-03)
 
 
