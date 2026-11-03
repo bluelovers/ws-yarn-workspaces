@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/workspaces-project",
-  "version": "3.0.21",
+  "version": "3.0.22",
   "description": "mixin yarn/lerna workspaces",
   "keywords": [
     "yarn",
@@ -49,7 +49,7 @@
     "@lerna/project": "^6.4.1",
     "@ts-type/package-dts": "^3.0.14",
     "@types/npm-package-arg": "*",
-    "@yarn-tool/changelog": "^3.0.21",
+    "@yarn-tool/changelog": "^3.0.22",
     "find-yarn-workspace-root2": "^1.2.59",
     "fs-extra": "^11.4.1",
     "lodash": "^4.18.1",

@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.8](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ignore@1.0.7...@yarn-tool/ignore@1.0.8) (2026-11-03)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([1be2304](https://github.com/bluelovers/ws-yarn-workspaces/commit/1be2304b656717382ffb81e12545e450d3767893))
+
+
+
 ## [1.0.7](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ignore@1.0.6...@yarn-tool/ignore@1.0.7) (2026-11-03)
 
 **Note:** Version bump only for package @yarn-tool/ignore

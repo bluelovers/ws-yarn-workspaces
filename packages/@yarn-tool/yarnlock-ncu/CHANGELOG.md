@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.20](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-ncu@3.0.19...@yarn-tool/yarnlock-ncu@3.0.20) (2026-11-03)
+
+
+
+### ♻️　Chores
+
+* update snapshot ([b513a59](https://github.com/bluelovers/ws-yarn-workspaces/commit/b513a59f2aa0dfc405f7209d83b7d866fabf27ba))
+
+
+### 🔖　Miscellaneous
+
+* . ([1be2304](https://github.com/bluelovers/ws-yarn-workspaces/commit/1be2304b656717382ffb81e12545e450d3767893))
+
+
+
 ## [3.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-ncu@3.0.18...@yarn-tool/yarnlock-ncu@3.0.19) (2026-11-03)
 
 

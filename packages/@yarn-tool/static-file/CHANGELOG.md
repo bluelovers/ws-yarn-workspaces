@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.29](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.28...@yarn-tool/static-file@3.0.29) (2026-11-03)
+
+**Note:** Version bump only for package @yarn-tool/static-file
+
+
+
+
+
 ## [3.0.28](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.27...@yarn-tool/static-file@3.0.28) (2026-11-03)
 
 
