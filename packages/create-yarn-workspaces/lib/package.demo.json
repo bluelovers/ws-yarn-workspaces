@@ -4,13 +4,11 @@
     "tslib": ">=2.8.1"
   },
   "devDependencies": {
+    "@bluelovers/conventional-changelog-bluelovers": "*",
     "@bluelovers/tsconfig": "^2.0.3",
     "@types/jest": "^30.0.0",
     "@types/node": "^26.6.5",
     "@yarn-tool/require-resolve": "^4.0.12",
     "@yarn-tool/ws-find-up-paths": "^1.0.25"
-  },
-  "peerDependencies": {
-    "@bluelovers/conventional-changelog-bluelovers": "*"
   }
 }
