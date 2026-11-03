@@ -469,7 +469,7 @@ if (!cp.error)
 			 */
 			if (_findDeps(wsProject?.manifest, '@types/jest') || _findDeps(wsProject?.manifest, 'jest') || _findDeps(wsProject?.manifest, 'ts-jest'))
 			{
-				sharedScript.test = EnumScriptsEntry.JEST_TEST;
+				// sharedScript.test = EnumScriptsEntry.JEST_TEST;
 			}
 
 			/**

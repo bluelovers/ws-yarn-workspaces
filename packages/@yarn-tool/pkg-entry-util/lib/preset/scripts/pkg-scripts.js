@@ -34,6 +34,7 @@ function defaultPkgScripts() {
         "test:node": "node --run test:node:bin -- **/*.node-spec.ts **/*.node-test.ts **/*.spec.ts **/*.test.ts" /* EnumScriptsEntry.NODE_TEST */,
         "test:tsc": "tsc --noEmit & echo Type checking completed (main)" /* EnumScriptsEntry.TSC_TEST */,
         "test:tsc:sub": "cd test && tsc --noEmit & echo Type checking completed (test)" /* EnumScriptsEntry.TSC_TEST2 */,
+        "test:tsc:all": "node --run test:tsc && node --run test:tsc:sub",
         "test:snapshot": "pnpm run test -u",
         "test:node:bin": "tsx --test --test-update-snapshots --",
         "test:node:bin:coverage": "node --run test:node:bin -- --experimental-test-coverage --",

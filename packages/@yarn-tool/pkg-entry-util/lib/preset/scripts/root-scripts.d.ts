@@ -62,6 +62,7 @@ export declare function defaultRootScripts(): {
     "test:node": import("../../field/scripts").EnumScriptsEntry;
     "test:tsc": import("../../field/scripts").EnumScriptsEntry;
     "test:tsc:sub": import("../../field/scripts").EnumScriptsEntry;
+    "test:tsc:all": string;
     "test:snapshot": string;
     "test:node:bin": string;
     "test:node:bin:coverage": string;

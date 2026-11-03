@@ -30,6 +30,7 @@ export declare function defaultPkgScripts(): {
     "test:node": EnumScriptsEntry;
     "test:tsc": EnumScriptsEntry;
     "test:tsc:sub": EnumScriptsEntry;
+    "test:tsc:all": string;
     "test:snapshot": string;
     "test:node:bin": string;
     "test:node:bin:coverage": string;
@@ -83,6 +84,7 @@ export declare function defaultPkgNotOldExists(): {
     "test:node": EnumScriptsEntry;
     "test:tsc": EnumScriptsEntry;
     "test:tsc:sub": EnumScriptsEntry;
+    "test:tsc:all": string;
     "test:snapshot": string;
     "test:node:bin": string;
     "test:node:bin:coverage": string;

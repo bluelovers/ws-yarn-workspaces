@@ -344,5 +344,5 @@ export declare class IgnoreFile implements ignore.Ignore {
      * const keep = file.createFilter()
      * ['a.log', 'keep.log', 'a.js'].filter(keep) // ['keep.log', 'a.js'] —— 同 file.filter()
      */
-    createFilter(): (pathname: string) => boolean;
+    createFilter(): (pathname: ignore.Pathname) => boolean;
 }

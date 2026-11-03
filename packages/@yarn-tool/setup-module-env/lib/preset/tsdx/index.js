@@ -60,8 +60,8 @@ function updatePackageJson(pkg, config) {
     if ((0, scripts_1.scriptsEntryIsNoTestSpecified)(pkg.scripts["test"])) {
         pkg.scripts["test"] = void 0;
     }
-    (_b = (_r = pkg.scripts)["test"]) !== null && _b !== void 0 ? _b : (_r["test"] = "tsx --test --test-update-snapshots **/*.node-spec.ts **/*.node-test.ts **/*.spec.ts **/*.test.ts" /* EnumScriptsEntry.NODE_TEST */);
-    (_c = (_s = pkg.scripts)["test:node"]) !== null && _c !== void 0 ? _c : (_s["test:node"] = "tsx --test --test-update-snapshots **/*.node-spec.ts **/*.node-test.ts **/*.spec.ts **/*.test.ts" /* EnumScriptsEntry.NODE_TEST */);
+    (_b = (_r = pkg.scripts)["test"]) !== null && _b !== void 0 ? _b : (_r["test"] = "node --run test:node:bin -- **/*.node-spec.ts **/*.node-test.ts **/*.spec.ts **/*.test.ts" /* EnumScriptsEntry.NODE_TEST */);
+    (_c = (_s = pkg.scripts)["test:node"]) !== null && _c !== void 0 ? _c : (_s["test:node"] = "node --run test:node:bin -- **/*.node-spec.ts **/*.node-test.ts **/*.spec.ts **/*.test.ts" /* EnumScriptsEntry.NODE_TEST */);
     /**
      * 設定 posttest 腳本，在測試後執行 build
      * Set posttest script to run build after tests

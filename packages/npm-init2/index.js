@@ -394,7 +394,7 @@ if (!cp.error) {
              * If root project uses Jest, set corresponding test script
              */
             if (_findDeps(wsProject === null || wsProject === void 0 ? void 0 : wsProject.manifest, '@types/jest') || _findDeps(wsProject === null || wsProject === void 0 ? void 0 : wsProject.manifest, 'jest') || _findDeps(wsProject === null || wsProject === void 0 ? void 0 : wsProject.manifest, 'ts-jest')) {
-                sharedScript.test = "jest --passWithNoTests" /* EnumScriptsEntry.JEST_TEST */;
+                // sharedScript.test = EnumScriptsEntry.JEST_TEST;
             }
             /**
              * 合併預設腳本到新 Package
