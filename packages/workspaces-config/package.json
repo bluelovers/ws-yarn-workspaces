@@ -1,6 +1,6 @@
 {
   "name": "workspaces-config",
-  "version": "2.0.14",
+  "version": "2.0.15",
   "description": "Parse and classify the `workspaces` config in package.json (static paths vs glob prefixes)",
   "keywords": [
     "workspaces-config",
@@ -52,7 +52,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "find-pkg-ws": "^1.0.57",
+    "find-pkg-ws": "^1.0.58",
     "fs-extra": "^11.4.1",
     "tslib": ">=2.8.1"
   },

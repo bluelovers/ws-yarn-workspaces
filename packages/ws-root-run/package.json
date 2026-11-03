@@ -1,6 +1,6 @@
 {
   "name": "ws-root-spawn",
-  "version": "1.0.59",
+  "version": "1.0.60",
   "description": "run/exec a command in the workspaces root directory (yarn / npm / lerna)",
   "keywords": [
     "workspaces",
@@ -54,7 +54,7 @@
   },
   "dependencies": {
     "cross-spawn-extra": "^3.0.3",
-    "find-yarn-workspace-root2": "^1.2.58",
+    "find-yarn-workspace-root2": "^1.2.59",
     "tslib": ">=2.8.1"
   },
   "gitHead": "40676553ac196265d354e537459d4c78d67f0a8c"
