@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.30](https://github.com/bluelovers/ws-yarn-workspaces/compare/create-yarn-workspaces@3.0.29...create-yarn-workspaces@3.0.30) (2026-11-03)
+
+
+
+### 📚　Documentation
+
+* **demo:** 將 conventional-changelog 依賴從 peerDependencies 移至 devDependencies ([7c1b405](https://github.com/bluelovers/ws-yarn-workspaces/commit/7c1b40581e0a2d89988e7b9f36c01ebf5eee2c26))
+
+
+
 ## [3.0.29](https://github.com/bluelovers/ws-yarn-workspaces/compare/create-yarn-workspaces@3.0.28...create-yarn-workspaces@3.0.29) (2026-10-24)
 
 
