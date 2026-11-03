@@ -3,6 +3,11 @@ import { describe, test, type TestContext } from 'node:test';
 import { dirname } from "upath2";
 import { detectFnmByAll, detectFnmByEnv, detectFnmByExecPath, IDetectFnmByAllInput } from "..";
 
+function _replaceVersion(path: string)
+{
+	return path.replace(/v\d+\.\d+\.\d+/g, 'v26.x.x');
+}
+
 describe('fnm', () =>
 {
 	const FNM_DIR = 'C:/Users/zzzzzzz/AppData/Roaming/fnm';
@@ -23,7 +28,7 @@ describe('fnm', () =>
 
 			let env = {
 				FNM_DIR,
-				FNM_MULTISHELL_PATH: execPath.replace('xxxxxxx', 'yyyyyyy'),
+				FNM_MULTISHELL_PATH: _replaceVersion(execPath.replace('xxxxxxx', 'yyyyyyy')),
 			};
 
 			_lazyTest001({
@@ -71,6 +76,9 @@ function _lazyTest002<T extends Record<string, any>>(result: T, t: TestContext, 
 				assert.strictEqual(typeof result.fnmPath, 'string');
 				assert.strictEqual(typeof result.installationPath, 'string');
 				assert.strictEqual(typeof result.version, 'string');
+
+				(result as any).installationPath = _replaceVersion(result.installationPath);
+				(result as any).version = _replaceVersion(result.version);
 
 				t.assert.snapshot(result);
 			}

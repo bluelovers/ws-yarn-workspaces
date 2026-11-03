@@ -45,7 +45,7 @@
     "test:tsc:sub": "cd test && tsc --noEmit & echo Type checking completed (test)",
     "test:tsd": "ynpx tsd",
     "preversion": "pnpm run test",
-    "prepublishOnly": "echo prepublishOnly",
+    "prepublishOnly": "git commit -m 'chore: update snapshot' ./test/tag.spec.ts.snapshot & echo prepublishOnly",
     "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
     "prepublishOnly:update": "pnpm run ncu && pnpm run sort-package-json",
     "ncu": "yarn-tool ncu -u",

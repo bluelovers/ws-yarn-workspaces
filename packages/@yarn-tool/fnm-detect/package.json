@@ -66,7 +66,7 @@
     "version": "echo version",
     "postversion": "echo postversion",
     "prepublish": "echo prepublish",
-    "prepublishOnly": "echo prepublishOnly",
+    "prepublishOnly": "git commit -m 'chore: update snapshot' ./test/test.spec.ts.snapshot & echo prepublishOnly",
     "pack": "echo pack",
     "postpack": "echo postpack",
     "publish": "echo publish",
