@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.29](https://github.com/bluelovers/ws-yarn-workspaces/compare/npm-init2@3.0.28...npm-init2@3.0.29) (2026-11-03)
+
+
+
+### ♻️　Chores
+
+* **npm-init2:** 新增 @yarn-tool/fix-all 依賴項 ([a82b46c](https://github.com/bluelovers/ws-yarn-workspaces/commit/a82b46cd6b82b57585b54dac6a62e28acbb20a31))
+
+
+
 ## [3.0.28](https://github.com/bluelovers/ws-yarn-workspaces/compare/npm-init2@3.0.27...npm-init2@3.0.28) (2026-10-24)
 
 
