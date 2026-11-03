@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.24](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/setup-module-env@3.0.23...@yarn-tool/setup-module-env@3.0.24) (2026-11-03)
+
+
+
+### ✨　Features
+
+* **pkg:** 更新測試腳本與類型定義 ([e82f671](https://github.com/bluelovers/ws-yarn-workspaces/commit/e82f671a516c744c6109375121b3bf3dfd112c4a))
+
+
+
 ## [3.0.23](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/setup-module-env@3.0.21...@yarn-tool/setup-module-env@3.0.23) (2026-10-24)
 
 

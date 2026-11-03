@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.6](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ignore@1.0.5...@yarn-tool/ignore@1.0.6) (2026-11-03)
+
+
+
+### ✨　Features
+
+* **pkg:** 更新測試腳本與類型定義 ([e82f671](https://github.com/bluelovers/ws-yarn-workspaces/commit/e82f671a516c744c6109375121b3bf3dfd112c4a))
+
+
+
 ## [1.0.5](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ignore@1.0.3...@yarn-tool/ignore@1.0.5) (2026-10-24)
 
 

@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.30](https://github.com/bluelovers/ws-yarn-workspaces/compare/npm-init2@3.0.29...npm-init2@3.0.30) (2026-11-03)
+
+
+
+### ✨　Features
+
+* **pkg:** 更新測試腳本與類型定義 ([e82f671](https://github.com/bluelovers/ws-yarn-workspaces/commit/e82f671a516c744c6109375121b3bf3dfd112c4a))
+
+
+
 ## [3.0.29](https://github.com/bluelovers/ws-yarn-workspaces/compare/npm-init2@3.0.28...npm-init2@3.0.29) (2026-11-03)
 
 
