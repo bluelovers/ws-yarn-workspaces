@@ -53,7 +53,7 @@
     "npm:publish:lerna": "lerna publish --yes",
     "preversion": "pnpm run test",
     "prepublish:lockfile": "npx sync-lockfile .",
-    "prepublishOnly": "git commit -m 'chore: update snapshot' ./test/resolutions.spec.ts.snapshot & echo prepublishOnly",
+    "prepublishOnly": "git commit -m \"chore: update snapshot\" ./test/resolutions.spec.ts.snapshot & echo prepublishOnly",
     "postpublish_": "git commit -m \"chore(release): publish\" .",
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort",
