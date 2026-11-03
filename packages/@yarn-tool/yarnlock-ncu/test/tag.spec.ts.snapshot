@@ -7,7 +7,7 @@ exports[`fixYarnLockTagUpdate > v1 > should update tag in yarn.lock 1`] = `
     "removed": {
       "next@canary": {
         "from": "9.5.2-canary.1",
-        "to": "16.5.0-canary.38"
+        "to": "16.5.0-canary.39"
       },
       "typescript@next": {
         "from": "4.0.0-dev.20200731",
@@ -31,7 +31,7 @@ exports[`fixYarnLockTagUpdate > v3 > should update tag in yarn.lock 1`] = `
     "removed": {
       "next@canary": {
         "from": "9.5.2-canary.1",
-        "to": "16.5.0-canary.38"
+        "to": "16.5.0-canary.39"
       },
       "typescript@next": {
         "from": "4.0.0-dev.20200731",
