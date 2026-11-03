@@ -2,6 +2,11 @@
   "extends": "@bluelovers/tsconfig/esm/mapfile.json",
   "compilerOptions": {
     "importHelpers": true,
+    "ignoreDeprecations": "6.0",
+    "baseUrl": ".",
+    "paths": {
+      "#/*": ["./*"]
+    },
     "types": [
       "jest",
       "node"

@@ -1,8 +1,8 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "noEmit": true,
     "declaration": false,
     "noUnusedParameters": false,
@@ -15,7 +15,8 @@
     ]
   },
   "include": [
-    "test"
+    "../**/*.ts",
+    "**/*.ts"
   ],
   "exclude": [
     "node_modules",
