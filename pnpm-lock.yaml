@@ -2239,6 +2239,9 @@ importers:
       '@yarn-tool/find-root':
         specifier: ^2.0.28
         version: link:../@yarn-tool/find-root
+      '@yarn-tool/fix-all':
+        specifier: ^3.0.26
+        version: link:../@yarn-tool/fix-all
       '@yarn-tool/init-path':
         specifier: ^2.0.14
         version: link:../@yarn-tool/init-path
@@ -8327,8 +8330,8 @@ snapshots:
 
   '@lazy-node/types-path@1.0.3(ts-toolbelt@9.6.0)':
     dependencies:
-      '@types/node': 26.4.1
-      ts-type: 3.0.13(ts-toolbelt@9.6.0)
+      '@types/node': 26.6.5
+      ts-type: 3.0.18(ts-toolbelt@9.6.0)
       tslib: 2.8.1
     transitivePeerDependencies:
       - ts-toolbelt
@@ -13404,7 +13407,7 @@ snapshots:
 
   ts-type@3.0.18(ts-toolbelt@9.6.0):
     dependencies:
-      '@types/node': 26.6.4
+      '@types/node': 26.6.5
       ts-toolbelt: 9.6.0
       tslib: 2.8.1
       typedarray-dts: 1.0.0
@@ -13560,7 +13563,7 @@ snapshots:
   upath2@3.1.25(ts-toolbelt@9.6.0):
     dependencies:
       '@lazy-node/types-path': 1.0.3(ts-toolbelt@9.6.0)
-      '@types/node': 26.4.1
+      '@types/node': 26.6.5
       path-is-network-drive: 1.0.24
       path-strip-sep: 1.0.21
       tslib: 2.8.1
