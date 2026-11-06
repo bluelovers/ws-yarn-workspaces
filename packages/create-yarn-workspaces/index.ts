@@ -7,9 +7,7 @@
  * 目錄創建與靜態檔案複製等功能。
  */
 
-import findYarnWorkspaceRoot from 'find-yarn-workspace-root2/core';
 import { resolve, join, basename } from 'upath2';
-import pkgDir from 'pkg-dir';
 import { consoleLogger as console } from 'debug-color2/logger';
 import { copyStaticFiles } from '@yarn-tool/static-file';
 import { existsSync, readFileSync, mkdirSync, writeFileSync } from 'fs-extra';
