@@ -35,7 +35,11 @@ export function getDefaultPackageJson(name?: string): IPackageJson
 	/** 以本套件自身的依賴版本覆寫範本版本，確保產生的專案與工具列版本一致。 */
 	for (const deps of ['dependencies', 'devDependencies', 'peerDependencies'] as const)
 	{
-		let keys = Object.keys(json[deps]);
+		if (!json[deps])
+		{
+			continue;
+		}
+		const keys = Object.keys(json[deps]);
 
 		/** 範本沒有該依賴欄位、或本套件也未宣告時略過，避免憑空新增空的依賴區塊。 */
 		if (!keys.length || !_pkg[deps])
