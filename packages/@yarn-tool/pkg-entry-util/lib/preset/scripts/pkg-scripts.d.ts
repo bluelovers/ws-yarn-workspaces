@@ -77,7 +77,6 @@ export declare function defaultPkgNotOldExists(): {
     "build:microbundle": string;
     "sort-package-json": string;
     "tsc:default": string;
-    "tsc:esm": string;
     test: EnumScriptsEntry;
     coverage: string;
     "test:jest": EnumScriptsEntry;

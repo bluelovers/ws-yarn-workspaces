@@ -89,7 +89,7 @@ function defaultPkgNotOldExists() {
         // "review:coverage": "yarn run lint && yarn run coverage",
         "sort-package-json": "yarn-tool sort",
         "tsc:default": "tsc -p tsconfig.json",
-        "tsc:esm": "tsc -p tsconfig.esm.json",
+        // "tsc:esm": "tsc -p tsconfig.esm.json",
     };
 }
 //# sourceMappingURL=pkg-scripts.js.map
