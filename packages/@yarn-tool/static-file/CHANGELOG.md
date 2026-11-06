@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.31](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.29...@yarn-tool/static-file@3.0.31) (2026-11-06)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([4e1950f](https://github.com/bluelovers/ws-yarn-workspaces/commit/4e1950f08133bcba3043b1d0175f6e23ffb4954a))
+* . ([bea7cb7](https://github.com/bluelovers/ws-yarn-workspaces/commit/bea7cb7d1965217aaecfcd7e63c5c6813ad9aba4))
+
+
+
 ## [3.0.30](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.29...@yarn-tool/static-file@3.0.30) (2026-11-06)
 
 

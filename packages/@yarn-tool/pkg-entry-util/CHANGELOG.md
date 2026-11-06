@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.26](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-entry-util@3.0.24...@yarn-tool/pkg-entry-util@3.0.26) (2026-11-06)
+
+
+
+### 📦　Code Refactoring
+
+* **pkg-entry-util:** 註解掉 tsc:esm 腳本指令 ([b20b195](https://github.com/bluelovers/ws-yarn-workspaces/commit/b20b19506657340fa54695d3df5106faf54d7ce8))
+
+
+### 🔖　Miscellaneous
+
+* . ([4e1950f](https://github.com/bluelovers/ws-yarn-workspaces/commit/4e1950f08133bcba3043b1d0175f6e23ffb4954a))
+* . ([bea7cb7](https://github.com/bluelovers/ws-yarn-workspaces/commit/bea7cb7d1965217aaecfcd7e63c5c6813ad9aba4))
+
+
+
 ## [3.0.25](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-entry-util@3.0.24...@yarn-tool/pkg-entry-util@3.0.25) (2026-11-06)
 
 
