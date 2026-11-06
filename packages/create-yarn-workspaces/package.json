@@ -1,13 +1,16 @@
 {
   "name": "create-yarn-workspaces",
   "version": "3.0.35",
-  "description": "Quickly initialize Yarn Workspaces project structure",
+  "description": "Quickly initialize a Workspaces project structure compatible with both Yarn and pnpm And Lerna",
   "keywords": [
     "create",
     "yarn-workspaces",
     "cli",
     "init",
+    "lerna",
+    "monorepo",
     "npm",
+    "pnpm",
     "workspace",
     "workspaces",
     "ws",
