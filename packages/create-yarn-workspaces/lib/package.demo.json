@@ -8,7 +8,7 @@
     "@bluelovers/tsconfig": "^2.0.3",
     "@types/jest": "^30.0.0",
     "@types/node": "^26.6.6",
-    "@yarn-tool/require-resolve": "^4.0.15",
+    "@yarn-tool/require-resolve": "^4.0.16",
     "@yarn-tool/ws-find-up-paths": "^1.0.27"
   }
 }
