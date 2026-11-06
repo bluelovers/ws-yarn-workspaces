@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.36](https://github.com/bluelovers/ws-yarn-workspaces/compare/create-yarn-workspaces@3.0.35...create-yarn-workspaces@3.0.36) (2026-11-06)
+
+
+### BREAKING CHANGES
+
+* **create-yarn-workspaces:** 重構核心邏輯並支援非同步互動式介面
+
+
+
+### 🐛　Bug Fixes
+
+* **create-yarn-workspaces:** 增加對依賴欄位存在性的檢查 ([c5d6f10](https://github.com/bluelovers/ws-yarn-workspaces/commit/c5d6f10cdfd5cd5bc4d8111b365ec567a9a03ea0))
+
+
+### 📦　Code Refactoring
+
+* **create-yarn-workspaces:** 重構核心邏輯並支援非同步互動式介面 ([633c02b](https://github.com/bluelovers/ws-yarn-workspaces/commit/633c02b4e217001186e3db897621977c815bac44))
+
+
+### 📚　Documentation
+
+* **create-yarn-workspaces:** 更新文件以反映支援 pnpm 與非同步 API ([d3824db](https://github.com/bluelovers/ws-yarn-workspaces/commit/d3824db408860e0c8d4f1933361ab95a2e90451d))
+
+
+### 🛠　Build System
+
+* update build ([1e395f4](https://github.com/bluelovers/ws-yarn-workspaces/commit/1e395f4228f1464fb1acd2efd6f7dc59972f76a0))
+* **cache:** update cache-versions ([798cb57](https://github.com/bluelovers/ws-yarn-workspaces/commit/798cb57268e8cf4c795056a4fe603be0b4234216))
+* **create-yarn-workspaces:** 模組化核心邏輯並實作非同步互動式 CLI ([369a841](https://github.com/bluelovers/ws-yarn-workspaces/commit/369a841963fccc62e3397a0952f0a5aa7246b2c6))
+
+
+### 🔖　Miscellaneous
+
+* . ([c7d0081](https://github.com/bluelovers/ws-yarn-workspaces/commit/c7d00810006d688b18c2eb18f9324356fc40a19b))
+* . ([74f772c](https://github.com/bluelovers/ws-yarn-workspaces/commit/74f772ca4b956e32cb9e7f04a6ba186f0ab5127a))
+
+
+
 ## [3.0.35](https://github.com/bluelovers/ws-yarn-workspaces/compare/create-yarn-workspaces@3.0.34...create-yarn-workspaces@3.0.35) (2026-11-03)
 
 

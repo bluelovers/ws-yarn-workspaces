@@ -1,6 +1,6 @@
 {
   "name": "create-yarn-workspaces",
-  "version": "3.0.35",
+  "version": "3.0.36",
   "description": "Quickly initialize a Workspaces project structure compatible with both Yarn and pnpm And Lerna",
   "keywords": [
     "create",
