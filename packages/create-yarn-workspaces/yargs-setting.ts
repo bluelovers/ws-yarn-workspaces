@@ -72,6 +72,16 @@ export function setupWorkspacesInitToYargs<T extends any>(yargs: Argv<T>)
 		.option('debug', {
 			boolean: true,
 		})
+		/**
+		 * 互動介面選項
+		 *
+		 * 預設啟用，可用 --no-interactive 關閉；
+		 * 環境不具備 TTY 時自動退回警告並繼續執行。
+		 */
+		.option('interactive', {
+			boolean: true,
+			default: true,
+		})
 	;
 
 	return _return;
