@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.30](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ws-find-up-paths@1.0.29...@yarn-tool/ws-find-up-paths@1.0.30) (2026-11-16)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([7f07dd6](https://github.com/bluelovers/ws-yarn-workspaces/commit/7f07dd6b94220e6d61769175e7b482de3a8cb1e6))
+
+
 ## [1.0.29](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/ws-find-up-paths@1.0.28...@yarn-tool/ws-find-up-paths@1.0.29) (2026-11-16)
 
 **Note:** Version bump only for package @yarn-tool/ws-find-up-paths

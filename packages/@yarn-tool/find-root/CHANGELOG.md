@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.32](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-root@2.0.31...@yarn-tool/find-root@2.0.32) (2026-11-16)
+
+
+
+### ✨　Features
+
+* **core:** 引入 isPkg 屬性以支援套件層級靜態檔案自動複製 ([f6c6c0c](https://github.com/bluelovers/ws-yarn-workspaces/commit/f6c6c0c274e6225efcec6fc09f8fdd369972a600))
+
+
+### 🛠　Build System
+
+* update build ([3447c44](https://github.com/bluelovers/ws-yarn-workspaces/commit/3447c445e579a66158ff10fc5ce4a09f8b7bd701))
+
+
 ## [2.0.31](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-root@2.0.30...@yarn-tool/find-root@2.0.31) (2026-11-16)
 
 

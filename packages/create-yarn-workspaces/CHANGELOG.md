@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.42](https://github.com/bluelovers/ws-yarn-workspaces/compare/create-yarn-workspaces@3.0.41...create-yarn-workspaces@3.0.42) (2026-11-16)
+
+
+
+### 🛠　Build System
+
+* **cache:** update cache-versions ([b5f28c8](https://github.com/bluelovers/ws-yarn-workspaces/commit/b5f28c8427408c917e855883640a211f3903c0ed))
+
+
 ## [3.0.41](https://github.com/bluelovers/ws-yarn-workspaces/compare/create-yarn-workspaces@3.0.40...create-yarn-workspaces@3.0.41) (2026-11-16)
 
 
