@@ -132,6 +132,21 @@ exports[`_copyStaticFilesCoreListGenerator > 預設值 + 必填參數 / defaults
   },
   {
     "entry": [
+      "playwright.config.ts",
+      "file/playwright.config.ts",
+      "playwright.config.js"
+    ],
+    "runtime": {
+      "targetFile": "playwright.config.ts",
+      "staticFile": "file/playwright.config.ts",
+      "targetFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/test/playwright.config.ts",
+      "staticFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/file/playwright.config.ts",
+      "overwrite": false
+    },
+    "copy": "function"
+  },
+  {
+    "entry": [
       "README.md",
       "file/README.md"
     ],
@@ -375,6 +390,11 @@ exports[`_handleCopyStaticFilesOptions > 預設值 + 必填參數 / defaults wit
       ".eslintrc.json.tpl",
       "file/eslintrc.json.tpl",
       ".eslintrc.json"
+    ],
+    [
+      "playwright.config.ts",
+      "file/playwright.config.ts",
+      "playwright.config.js"
     ],
     [
       "README.md",
