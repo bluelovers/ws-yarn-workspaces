@@ -14,6 +14,7 @@ import { IgnoreFile } from '@yarn-tool/ignore/lib/IgnoreFile';
 import { __ROOT } from '../__root';
 import {
 	defaultCopyStaticFiles,
+	defaultCopyStaticFilesPkgOnly,
 	defaultCopyStaticFilesRootOnly,
 	defaultCopyStaticFilesWsRootOnly,
 } from '../../lib/const';
@@ -52,6 +53,7 @@ function extractStaticFiles(): string[]
 	 */
 	const allArrays = [
 		...defaultCopyStaticFiles,
+		...defaultCopyStaticFilesPkgOnly,
 		...defaultCopyStaticFilesRootOnly,
 		...defaultCopyStaticFilesWsRootOnly,
 		...defaultCopyStaticFilesTsdx,
