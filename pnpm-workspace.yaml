@@ -30,6 +30,7 @@ allowBuilds:
   '@parcel/watcher': true
   classic-level: true
   core-js-pure: true
+  nx: true
   unrs-resolver: true
 minimumReleaseAgeExclude:
   - '@bluelovers/string-natural-compare'
@@ -40,3 +41,5 @@ minimumReleaseAgeExclude:
   - dotenv
   - sort-object-keys2
   - ignore@7.0.14
+  - '@bluelovers/jest-config'
+  - node-test-maybe
