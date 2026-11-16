@@ -10,7 +10,7 @@
 import { describe, test } from 'node:test';
 
 import { _copyStaticFilesCoreListGenerator, _handleCopyStaticFilesOptions } from '../lib/copyStaticFiles';
-import { _isPathForSnapshot, _normalizePathForSnapshot } from '../../require-resolve/test/lib/test-helper';
+import { _isPathForSnapshot, _normalizePathForSnapshot } from '../../../../test/lib/normalizePathForSnapshot';
 
 /**
  * 以測試檔所在目錄作為唯一必填的 cwd

@@ -12,7 +12,7 @@ import { resolve } from 'upath2';
 import type { IOptions } from '../lib/types';
 import { handleOptions } from '../lib/util';
 import { findEnvCachePath } from '../lib/finder/findEnvCachePath';
-import { _isPathForSnapshot, _normalizePathForSnapshot } from '../../@yarn-tool/require-resolve/test/lib/test-helper';
+import { _isPathForSnapshot, _normalizePathForSnapshot } from '../../../test/lib/normalizePathForSnapshot';
 
 /**
  * 自訂快取來源 A / custom cache source A

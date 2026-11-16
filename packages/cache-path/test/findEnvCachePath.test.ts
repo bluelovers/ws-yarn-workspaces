@@ -11,7 +11,7 @@ import { join } from 'path';
 import { describe, test } from 'node:test';
 
 import { envCacheKeys, findEnvCachePath } from '../lib/finder/findEnvCachePath';
-import { _isPathForSnapshot, _normalizePathForSnapshot } from '../../@yarn-tool/require-resolve/test/lib/test-helper';
+import { _isPathForSnapshot, _normalizePathForSnapshot } from '../../../test/lib/normalizePathForSnapshot';
 
 /**
  * 快照前標準化路徑 / Normalize paths before snapshotting

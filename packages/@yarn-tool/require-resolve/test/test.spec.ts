@@ -4,7 +4,8 @@ import {
 } from '../index';
 import assert from 'node:assert/strict';
 import { describe, test } from 'node:test';
-import { _normalizePathForSnapshot } from './lib/test-helper';
+
+import { _normalizePathForSnapshot } from '../../../../test/lib/normalizePathForSnapshot';
 
 describe('整合測試', () =>
 {

@@ -4,7 +4,6 @@
  */
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
-import { _isPathForSnapshot, _normalizePathForSnapshot } from '../../require-resolve/test/lib/test-helper';
 
 import {
 	isNpx,
@@ -13,6 +12,7 @@ import {
 	handleOptionsDetectNpx,
 	IOptionsDetectNpx,
 } from '../index';
+import { _isPathForSnapshot, _normalizePathForSnapshot } from '../../../../test/lib/normalizePathForSnapshot';
 
 describe('@yarn-tool/is-npx', () => {
 	/**
