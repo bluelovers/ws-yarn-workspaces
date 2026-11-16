@@ -20,7 +20,7 @@ import { ITSPartialPick } from 'ts-type';
  *
  * @template K - 目標檔案路徑類型
  */
-export interface ICopyStaticFilesByRootDataOptions<K extends string = string> extends Partial<ICopyStaticFilesOptions<K>>, ITSPartialPick<IFindRootReturnType, 'hasWorkspace' | 'isRoot'> {
+export interface ICopyStaticFilesByRootDataOptions<K extends string = string> extends Partial<ICopyStaticFilesOptions<K>>, ITSPartialPick<IFindRootReturnType, 'hasWorkspace' | 'isRoot' | 'isPkg'> {
     /**
      * 覆寫複製目標目錄；未提供時 workspace 專案取 ws、其餘取 root
      *

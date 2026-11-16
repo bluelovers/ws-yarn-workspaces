@@ -131,7 +131,7 @@ function findRoot(options, _throwError) {
  * 建立虛擬的根目錄資料物件
  *
  * 此函數用於基於現有的 rootData 建立新的資料物件，
- * 可覆寫部分屬性並自動重新計算 isRoot 和 isWorkspace。
+ * 可覆寫部分屬性並自動重新計算 isRoot、isWorkspace 和 isPkg。
  *
  * @param {IFindRootReturnType} rootData - 原始的根目錄資料
  * @param {ITSPickExtra<IFindRootReturnType, 'pkg'>} input - 要覆寫的屬性
@@ -141,17 +141,20 @@ function findRoot(options, _throwError) {
  * const newRootData = newFakeRootData(rootData, { pkg: '/new/pkg/path' });
  */
 function newFakeRootData(rootData, input) {
-    var _a, _b;
+    var _a, _b, _c, _d;
     /** 計算是否為根目錄（若未提供則自動計算） */
     const isRoot = (_a = input.isRoot) !== null && _a !== void 0 ? _a : (0, path_is_same_1.pathIsSame)(input.pkg, rootData.root);
     /** 計算是否為 workspace 根目錄（若未提供則自動計算） */
     const isWorkspace = (_b = input.isWorkspace) !== null && _b !== void 0 ? _b : (0, path_is_same_1.pathIsSame)(input.pkg, rootData.ws);
+    /** 計算是否為套件根目錄（若未提供則自動計算，規則與 findRoot 一致） */
+    const isPkg = (_c = input.isPkg) !== null && _c !== void 0 ? _c : (!isWorkspace && ((_d = input.pkg) === null || _d === void 0 ? void 0 : _d.length) > 0);
     /** 合併原始資料和輸入資料 */
     const _rootDataFake = {
         ...rootData,
         ...input,
         isRoot,
         isWorkspace,
+        isPkg,
     };
     return _rootDataFake;
 }

@@ -25,7 +25,7 @@ const getRootCopyStaticFiles_1 = require("./root/getRootCopyStaticFiles");
  * copyStaticFiles(options);
  */
 function getCopyStaticFilesOptionsByRootData(rootData, opts) {
-    const { cwd, file_map, ignoreFilesSnapshot, hasWorkspace = rootData.hasWorkspace, isRoot = rootData.isRoot, ...rest } = opts !== null && opts !== void 0 ? opts : {};
+    const { cwd, file_map, ignoreFilesSnapshot, hasWorkspace = rootData.hasWorkspace, isRoot = rootData.isRoot, isPkg = rootData.isPkg, ...rest } = opts !== null && opts !== void 0 ? opts : {};
     /**
      * 是否由呼叫端指定目標目錄；
      * true 代表複製目標是呼叫端自己的目錄（npm-init2 的 targetDir），
@@ -41,7 +41,7 @@ function getCopyStaticFilesOptionsByRootData(rootData, opts) {
      */
     const map = file_map !== null && file_map !== void 0 ? file_map : (!cwdOverridden && rootData.hasWorkspace
         ? (0, wsCopyStaticFiles_1.getWsCopyStaticFiles)()
-        : (0, getRootCopyStaticFiles_1.getRootCopyStaticFilesAuto)({ hasWorkspace, isRoot }));
+        : (0, getRootCopyStaticFiles_1.getRootCopyStaticFilesAuto)({ hasWorkspace, isRoot, isPkg }));
     const options = {
         ...rest,
         cwd: target,

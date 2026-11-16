@@ -138,6 +138,7 @@ function _runFixPackagesCore(row, options, cache, err) {
     if (_addStaticFiles) {
         /**
          * 覆寫 cwd 為套件目錄，file_map 依 _rootDataFake 的旗標以套件模式判定
+         * （newFakeRootData 已依 pkg 重算 isPkg）
          */
         (0, static_file_1.copyStaticFiles)((0, copyStaticFilesByRootData_1.getCopyStaticFilesOptionsByRootData)(_rootDataFake, {
             cwd: row.location,

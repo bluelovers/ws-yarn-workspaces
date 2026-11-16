@@ -19,6 +19,7 @@ import { IStaticFilesMapArray } from '../types';
  * @param rootData - Information about the project root / 關於專案根目錄的資訊
  * @param rootData.isRoot - Whether the current directory is the workspace root / 當前目錄是否為工作區根目錄
  * @param rootData.hasWorkspace - Whether the project has workspaces / 專案是否具有工作區
+ * @param rootData.isPkg - Whether to append package-only extra files / 是否附加套件專用的額外檔案
  *
  * @returns An array of static file entries to copy / 要複製的靜態檔案條目陣列
  *
@@ -54,4 +55,4 @@ import { IStaticFilesMapArray } from '../types';
  * // 僅返回 defaultCopyStaticFiles
  * ```
  */
-export declare function getRootCopyStaticFilesAuto(rootData: Pick<IFindRootReturnType, 'isRoot' | 'hasWorkspace'>): IStaticFilesMapArray<string>;
+export declare function getRootCopyStaticFilesAuto(rootData: Pick<IFindRootReturnType, 'isRoot' | 'hasWorkspace'> & Partial<Pick<IFindRootReturnType, 'isPkg'>>): IStaticFilesMapArray<string>;

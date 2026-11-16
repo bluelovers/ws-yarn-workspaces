@@ -73,7 +73,7 @@ export declare function findRoot(options: IFindRootOptions, _throwError?: boolea
  * 建立虛擬的根目錄資料物件
  *
  * 此函數用於基於現有的 rootData 建立新的資料物件，
- * 可覆寫部分屬性並自動重新計算 isRoot 和 isWorkspace。
+ * 可覆寫部分屬性並自動重新計算 isRoot、isWorkspace 和 isPkg。
  *
  * @param {IFindRootReturnType} rootData - 原始的根目錄資料
  * @param {ITSPickExtra<IFindRootReturnType, 'pkg'>} input - 要覆寫的屬性
