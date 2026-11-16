@@ -1,4 +1,4 @@
-# 環境設定 / environment settings · 兩類共用 / shared
+# environment settings · shared
 # local env files
 .env.local
 # vercel

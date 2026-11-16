@@ -1,4 +1,4 @@
-# IDE 與編輯器設定 / IDE & editor settings · 兩類共用 / shared
+# IDE & editor settings · shared
 .idea
 .vscode
 *.suo

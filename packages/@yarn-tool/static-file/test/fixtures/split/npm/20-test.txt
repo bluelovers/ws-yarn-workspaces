@@ -1,4 +1,4 @@
-# 測試檔 / test files · npm 發布專用 / npm publish only
+# test files · npm publish only
 test
 .gitkeep
 tests
@@ -18,3 +18,5 @@ __fixtures__
 /fixture/
 *.stories.*
 ./stories/
+
+/playwright.config.ts

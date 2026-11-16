@@ -1,4 +1,4 @@
-# 測試檔 / test files · git 專用 / git only
+# test files · git only
 # %gen:test-build-artifacts%
 .nycrc
 #jest.config.js

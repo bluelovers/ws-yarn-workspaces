@@ -1,4 +1,4 @@
-# 專案檔 / project files · npm 發布專用 / npm publish only
+# project files · npm publish only
 tsconfig.json
 .github
 /src/**/*.jsx

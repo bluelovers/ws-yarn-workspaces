@@ -1,4 +1,4 @@
-# 白名單例外 / whitelist exceptions · git 專用 / git only
+# whitelist exceptions · git only
 !test/tsconfig.json
 !tsconfig.json
 !.eslintrc.json

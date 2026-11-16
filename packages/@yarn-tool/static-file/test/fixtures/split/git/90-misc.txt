@@ -1,4 +1,4 @@
-# 未分類 / unclassified · git 專用 / git only
+# unclassified · git only
 # misc
 .DS_Store
 .opt-in

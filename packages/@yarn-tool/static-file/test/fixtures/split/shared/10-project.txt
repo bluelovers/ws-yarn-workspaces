@@ -1,4 +1,4 @@
-# 專案檔 / project files · 兩類共用 / shared
+# project files · shared
 # dependencies
 node_modules
 /.pnp

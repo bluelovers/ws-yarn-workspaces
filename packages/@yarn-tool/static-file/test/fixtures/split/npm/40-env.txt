@@ -1,2 +1,2 @@
-# 環境設定 / environment settings · npm 發布專用 / npm publish only
+# environment settings · npm publish only
 now.json

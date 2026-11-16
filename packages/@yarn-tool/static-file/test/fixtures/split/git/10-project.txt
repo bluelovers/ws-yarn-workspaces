@@ -1,4 +1,4 @@
-# 專案檔 / project files · git 專用 / git only
+# project files · git only
 # next.js
 # production
 /build

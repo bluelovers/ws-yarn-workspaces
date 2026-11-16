@@ -1,4 +1,4 @@
-# 環境設定 / environment settings · git 專用 / git only
+# environment settings · git only
 *.pem
 .env.development.local
 .env.test.local

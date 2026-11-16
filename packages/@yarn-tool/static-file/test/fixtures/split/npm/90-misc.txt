@@ -1,4 +1,4 @@
-# 未分類 / unclassified · npm 發布專用 / npm publish only
+# unclassified · npm publish only
 /~*
 cz-adapter
 openspec/

@@ -14,7 +14,7 @@ test/temp*/
 **/node_modules/
 jest.config.js
 
-# git 專用檔中重複出現 / duplicated in the gitignore source
+# duplicated in the gitignore source
 node_modules
 .env.local
 npm-debug.log*
@@ -26,7 +26,7 @@ yarn-error.log*
 /*.tpl
 /build
 
-# npm 發布專用檔中重複出現 / duplicated in the npmignore source
+# duplicated in the npmignore source
 .git
 jest.config.js
 __tests__
