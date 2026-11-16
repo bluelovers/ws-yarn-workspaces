@@ -13,7 +13,7 @@ import {
 	findWorkspaceRoot as findYarnWorkspaceRoot,
 } from 'find-yarn-workspace-root2/core';
 import errcode from 'err-code';
-import { pathIsSame, pathIsSame as pathEqual } from 'path-is-same';
+import { pathIsSame } from 'path-is-same';
 
 import { sync as pkgDir } from 'pkg-dir';
 import { ITSPickExtra } from 'ts-type/lib/type/record';
@@ -25,21 +25,21 @@ import { ITSPickExtra } from 'ts-type/lib/type/record';
  */
 export interface IFindRootReturnType
 {
-	/** Current working directory */
+	/** Current working directory (the given input path) */
 	cwd: string,
-	/** Current package root directory */
+	/** Nearest package root directory found above cwd */
 	pkg: string;
-	/** Workspace root directory */
+	/** Workspace root directory found from cwd */
 	ws: string;
-	/** Whether inside workspace */
+	/** Whether cwd is located inside a workspace */
 	hasWorkspace: boolean;
-	/** Whether current directory is workspace root */
+	/** Whether the nearest package root is the workspace root */
 	isWorkspace: boolean;
-	/** Project root (could be workspace or package directory) */
+	/** Project root (workspace root if present, otherwise package root) */
 	root: string;
-	/** Whether current directory is project root */
+	/** Whether the nearest package root is the project root */
 	isRoot: boolean;
-	/** Whether current directory is package directory and not workspace root */
+	/** Whether the nearest package root exists and is not the workspace root */
 	isPkg: boolean;
 }
 
@@ -57,7 +57,7 @@ export interface IFindRootOptions
 
 	/** 是否要求必須位於 workspace */
 	shouldHasWorkspaces?: boolean;
-	/** 是否要求當前目錄不能是 workspace 根目錄 */
+	/** 是否要求最近的套件根目錄不能是 workspace 根目錄 */
 	shouldNotWorkspacesRoot?: boolean;
 }
 
@@ -152,15 +152,15 @@ export function findRoot(options: IFindRootOptions, _throwError?: boolean): IFin
 	pkg ??= void 0;
 	ws ??= void 0;
 
-	/** 判斷是否位於 workspace */
+	/** 判斷 cwd 是否位於 workspace 內（有找到 workspace 根目錄） */
 	const hasWorkspace = ws?.length > 0;
-	/** 判斷當前目錄是否為 workspace 根目錄 */
-	const isWorkspace = hasWorkspace && pathEqual(ws, pkg);
-	/** 決定專案根目錄（優先使用 workspace 根目錄） */
+	/** 判斷最近的套件根目錄是否為 workspace 根目錄（比較 pkg 與 ws，非 cwd） */
+	const isWorkspace = hasWorkspace && pathIsSame(ws, pkg);
+	/** 決定專案根目錄（優先使用 workspace 根目錄，否則為最近的套件根目錄） */
 	const root = hasWorkspace ? ws : pkg;
-	/** 判斷當前目錄是否為專案根目錄 */
-	const isRoot = pathEqual(root, pkg);
-	/** 判斷當前目錄是否為套件目錄 並且 不是 workspace 根目錄 */
+	/** 判斷最近的套件根目錄是否為專案根目錄（比較 pkg 與 root，非 cwd） */
+	const isRoot = pathIsSame(root, pkg);
+	/** 判斷最近的套件根目錄存在 且 不是 workspace 根目錄 */
 	const isPkg = !isWorkspace && pkg?.length > 0;
 
 	/** 若根目錄無效，返回 null */
@@ -250,19 +250,19 @@ export function assertHasWorkspaces<T extends IFindRootReturnType>(rootData: T):
 }
 
 /**
- * 斷言當前目錄不是 workspace 根目錄
+ * 斷言最近的套件根目錄不是 workspace 根目錄
  *
  * 若 isWorkspace 為 true，則拋出錯誤。
  *
  * @template T - IFindRootReturnType 的子類型
  * @param {T} rootData - 要檢查的根目錄資料
- * @throws {RangeError} 當前目錄為 workspace 根目錄時
+ * @throws {RangeError} 最近的套件根目錄為 workspace 根目錄時
  */
 export function assertNotWorkspacesRoot<T extends IFindRootReturnType>(rootData: T): asserts rootData is T & {
 	isWorkspace: false
 }
 {
-	/** 若位於 workspace，檢查是否為 workspace 根目錄 */
+	/** 若位於 workspace，檢查最近的套件根目錄是否為 workspace 根目錄 */
 	if (rootData.hasWorkspace === true)
 	{
 		if (rootData.isWorkspace === true)
@@ -275,13 +275,13 @@ export function assertNotWorkspacesRoot<T extends IFindRootReturnType>(rootData:
 }
 
 /**
- * 斷言當前目錄位於 workspace 內但不是 workspace 根目錄
+ * 斷言 cwd 位於 workspace 內，且最近的套件根目錄不是 workspace 根目錄
  *
  * 組合 assertHasWorkspaces 和 assertNotWorkspacesRoot 的檢查。
  *
  * @template T - IFindRootReturnType 的子類型
  * @param {T} rootData - 要檢查的根目錄資料
- * @throws {RangeError} 當不在 workspace 內或為 workspace 根目錄時
+ * @throws {RangeError} 當不在 workspace 內或最近的套件根目錄為 workspace 根目錄時
  */
 export function assertHasAndNotWorkspacesRoot<T extends IFindRootReturnType>(rootData: T): asserts rootData is T & {
 	hasWorkspace: true,
@@ -294,7 +294,7 @@ export function assertHasAndNotWorkspacesRoot<T extends IFindRootReturnType>(roo
 }
 
 /** 匯出路徑處理工具函數 */
-export { pathNormalize, pathEqual }
+export { pathNormalize, pathIsSame }
 
 /**
  * 列出符合指定路徑的 workspace 模式
