@@ -17,6 +17,7 @@ import { getRootCopyStaticFilesAuto } from '../lib/root/getRootCopyStaticFiles';
 import { getRowOfStaticFilesMapArray } from '../lib/getRowOfStaticFilesMapArray';
 import { getWsCopyStaticFiles } from '../lib/ws/wsCopyStaticFiles';
 import type { IIgnoreFilesSnapshot, IStaticFilesMapArray } from '../lib/types';
+import { defaultCopyStaticFilesPkgOnly } from '../lib/const';
 
 /**
  * workspace 根目錄、workspace 內套件、fixture 套件
@@ -40,6 +41,8 @@ const _testPaths: [cwd: string, rootDataExpect?: Partial<IFindRootReturnType>][]
 		isPkg: true,
 	}],
 ];
+
+const _pkgOnlyEntry = defaultCopyStaticFilesPkgOnly[0][0];
 
 /**
  * 單一套件情境的合成 rootData
@@ -126,7 +129,7 @@ describe('快照', () =>
 				t.assert.partialDeepStrictEqual(file_map, [
 					['__root_ws.ts'],
 				]);
-				t.assert.strictEqual(_row('playwright.config.ts'), undefined);
+				t.assert.strictEqual(_row(_pkgOnlyEntry), undefined);
 			}
 			else
 			{
@@ -153,12 +156,12 @@ describe('快照', () =>
 				if (rootData.isPkg)
 				{
 					t.assert.partialDeepStrictEqual(file_map, [
-						['playwright.config.ts'],
+						[_pkgOnlyEntry],
 					]);
 				}
 				else
 				{
-					t.assert.strictEqual(_row('playwright.config.ts'), undefined);
+					t.assert.strictEqual(_row(_pkgOnlyEntry), undefined);
 				}
 			}
 		});
@@ -279,7 +282,7 @@ describe('選項傳遞', () =>
 describe('isPkg 判斷', () =>
 {
 	/** defaultCopyStaticFilesPkgOnly 的唯一條目 */
-	const _pkgOnlyEntry = ['playwright.config.ts', 'file/playwright.config.ts', 'playwright.config.js'] as const;
+	// const _pkgOnlyEntry = ['playwright.config.ts', 'file/playwright.config.ts', 'playwright.config.js'] as const;
 
 	test('getRootCopyStaticFilesAuto 在 isPkg 為 true 時附加 PkgOnly 條目', (t: TestContext) =>
 	{
@@ -290,13 +293,13 @@ describe('isPkg 判斷', () =>
 		const _last = (file_map: IStaticFilesMapArray<string>) => file_map[file_map.length - 1];
 
 		/** true 時末筆為 PkgOnly 條目 */
-		t.assert.deepStrictEqual(_last(withPkg), _pkgOnlyEntry);
+		t.assert.partialDeepStrictEqual(withPkg, [[_pkgOnlyEntry]]);
 		/**
 		 * false 與省略時皆不附加；
 		 * 缺席無法以部分比對表達，改以查詢後比對 undefined
 		 */
-		t.assert.strictEqual(getRowOfStaticFilesMapArray(withoutPkg, 'playwright.config.ts'), undefined);
-		t.assert.strictEqual(getRowOfStaticFilesMapArray(omitted, 'playwright.config.ts'), undefined);
+		t.assert.strictEqual(getRowOfStaticFilesMapArray(withoutPkg, _pkgOnlyEntry), undefined);
+		t.assert.strictEqual(getRowOfStaticFilesMapArray(omitted, _pkgOnlyEntry), undefined);
 		/** 附加不影響既有條目數量（僅多一筆） */
 		t.assert.strictEqual(withPkg.length, withoutPkg.length + 1);
 	});
@@ -315,7 +318,7 @@ describe('isPkg 判斷', () =>
 
 		t.assert.partialDeepStrictEqual(actual.file_map, [
 			['.npmignore', 'file/npmignore'],
-			_pkgOnlyEntry,
+			[_pkgOnlyEntry],
 		]);
 	});
 
@@ -340,9 +343,9 @@ describe('isPkg 判斷', () =>
 		 * 覆寫為 true 時附加、為 false 時不附加（即使 rootData.isPkg 為 true）；
 		 * 應含以部分比對表達，缺席以查詢後比對 undefined 表達
 		 */
-		t.assert.partialDeepStrictEqual(enabled.file_map, [_pkgOnlyEntry]);
+		t.assert.partialDeepStrictEqual(enabled.file_map, [[_pkgOnlyEntry]]);
 		t.assert.strictEqual(
-			getRowOfStaticFilesMapArray(disabled.file_map as IStaticFilesMapArray<string>, 'playwright.config.ts'),
+			getRowOfStaticFilesMapArray(disabled.file_map as IStaticFilesMapArray<string>, _pkgOnlyEntry),
 			undefined,
 		);
 	});

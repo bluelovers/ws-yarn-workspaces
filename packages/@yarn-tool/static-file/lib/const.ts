@@ -122,7 +122,7 @@ const _defaultCopyStaticFiles = [
  */
 const _defaultCopyStaticFilesPkgOnly = [
 
-	['playwright.config.ts', 'file/playwright.config.ts', 'playwright.config.js'],
+	['playwright.config.ts.tpl', 'file/playwright.config.ts', 'playwright.config.ts'],
 
 ] as const satisfies IStaticFilesMapArray<string>;
 
