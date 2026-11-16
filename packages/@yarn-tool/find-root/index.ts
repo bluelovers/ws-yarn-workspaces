@@ -293,9 +293,6 @@ export function assertHasAndNotWorkspacesRoot<T extends IFindRootReturnType>(roo
 	assertNotWorkspacesRoot(rootData)
 }
 
-/** 匯出路徑處理工具函數 */
-export { pathNormalize, pathIsSame }
-
 /**
  * 列出符合指定路徑的 workspace 模式
  *
