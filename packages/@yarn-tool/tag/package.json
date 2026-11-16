@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/tag",
-  "version": "3.0.17",
+  "version": "3.0.18",
   "description": "git tag a package",
   "keywords": [
     "git-tag",
@@ -70,7 +70,7 @@
   "dependencies": {
     "@git-lazy/spawn": "^2.0.3",
     "@git-lazy/tag": "^2.0.3",
-    "@yarn-tool/find-root": "^2.0.29",
+    "@yarn-tool/find-root": "^2.0.30",
     "@yarn-tool/types": "^1.0.25",
     "path-dir-normalize": "^1.0.33",
     "path-is-same": "^1.0.29",

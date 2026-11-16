@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.18](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/dotenv@3.0.17...@yarn-tool/dotenv@3.0.18) (2026-11-16)
+
+
+
+### 🛠　Build System
+
+* **deps:** 升級全域與各套件依賴版本 ([0a9d622](https://github.com/bluelovers/ws-yarn-workspaces/commit/0a9d62215ff38dc47bae00e54cbe7b2bfa356a27))
+
+
+
 ## [3.0.17](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/dotenv@3.0.16...@yarn-tool/dotenv@3.0.17) (2026-11-03)
 
 

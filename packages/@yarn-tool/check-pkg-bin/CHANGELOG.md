@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.20](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/check-pkg-bin@4.0.19...@yarn-tool/check-pkg-bin@4.0.20) (2026-11-16)
+
+
+
+### 🛠　Build System
+
+* **deps:** 升級全域與各套件依賴版本 ([0a9d622](https://github.com/bluelovers/ws-yarn-workspaces/commit/0a9d62215ff38dc47bae00e54cbe7b2bfa356a27))
+
+
+
 ## [4.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/check-pkg-bin@4.0.18...@yarn-tool/check-pkg-bin@4.0.19) (2026-11-03)
 
 **Note:** Version bump only for package @yarn-tool/check-pkg-bin

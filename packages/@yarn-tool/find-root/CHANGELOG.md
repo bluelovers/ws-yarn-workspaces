@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.30](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-root@2.0.29...@yarn-tool/find-root@2.0.30) (2026-11-16)
+
+
+
+### 🛠　Build System
+
+* **deps:** 升級全域與各套件依賴版本 ([0a9d622](https://github.com/bluelovers/ws-yarn-workspaces/commit/0a9d62215ff38dc47bae00e54cbe7b2bfa356a27))
+
+
+
 ## [2.0.29](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-root@2.0.28...@yarn-tool/find-root@2.0.29) (2026-11-03)
 
 

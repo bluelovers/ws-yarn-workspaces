@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.32](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.31...@yarn-tool/static-file@3.0.32) (2026-11-16)
+
+
+
+### ♻️　Chores
+
+* update ignore files ([1d16f08](https://github.com/bluelovers/ws-yarn-workspaces/commit/1d16f0870ada8b29b3ff8131074c5fd2bb6f4ada))
+* **deps:** 更新依賴項目並優化靜態檔案發佈流程 ([5e9eb81](https://github.com/bluelovers/ws-yarn-workspaces/commit/5e9eb819a8526c55a34b4d95d7fb2b331ce1617b))
+
+
+
 ## [3.0.31](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.29...@yarn-tool/static-file@3.0.31) (2026-11-06)
 
 

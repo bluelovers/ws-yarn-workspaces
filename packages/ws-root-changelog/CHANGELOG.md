@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.17](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-root-changelog@3.0.16...ws-root-changelog@3.0.17) (2026-11-16)
+
+**Note:** Version bump only for package ws-root-changelog
+
+
+
+
+
 ## [3.0.16](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-root-changelog@3.0.15...ws-root-changelog@3.0.16) (2026-11-03)
 
 
