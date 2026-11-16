@@ -82,7 +82,7 @@ export function getCopyStaticFilesOptionsByRootData(rootData: IFindRootReturnTyp
 	/**
 	 * 目標為 workspace 根目錄時才使用 workspace 清單，否則用套件清單
 	 */
-	const map = file_map ?? (!cwdOverridden && rootData.hasWorkspace
+	const map = file_map ?? (!cwdOverridden && rootData.isWorkspace
 		? getWsCopyStaticFiles()
 		: getRootCopyStaticFilesAuto({ hasWorkspace, isRoot, isPkg }));
 

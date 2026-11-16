@@ -97,7 +97,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@bluelovers/conventional-changelog-bluelovers": "^5.0.27",
+    "@bluelovers/conventional-changelog-bluelovers": "^5.0.28",
     "@lerna/conventional-commits": "^6.4.1",
     "bluebird": "^3.7.2",
     "chalk": "< 3 >= 2",

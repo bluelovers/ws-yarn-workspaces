@@ -18,6 +18,7 @@ import { getRowOfStaticFilesMapArray } from '../lib/getRowOfStaticFilesMapArray'
 import { getWsCopyStaticFiles } from '../lib/ws/wsCopyStaticFiles';
 import type { IIgnoreFilesSnapshot, IStaticFilesMapArray } from '../lib/types';
 import { defaultCopyStaticFilesPkgOnly } from '../lib/const';
+import { _copyStaticFilesCoreListGenerator } from '../lib/copyStaticFiles';
 
 /**
  * workspace 根目錄、workspace 內套件、fixture 套件
@@ -90,66 +91,75 @@ describe('快照', () =>
 	{
 		test(_normalizePathForSnapshot(cwd), (t: TestContext) =>
 		{
-			const rootData = findRootLazy({
-				cwd,
-			});
 
-			t.assert.partialDeepStrictEqual(rootData, rootDataExpect);
-
-			const actual = getCopyStaticFilesOptionsByRootData(rootData);
-
-			t.assert.snapshot({
-				rootData: _sanitizationFindRootReturn(rootData),
-				options: {
-					...actual,
-					cwd: _normalizePathForSnapshot(actual.cwd),
-				},
-			});
-
-			t.assert.partialDeepStrictEqual(actual, {
-				cwd: rootData.hasWorkspace ? rootData.ws : rootData.root,
-			});
-
-			/**
-			 * 依旗標組合驗證清單內容（快照守護全貌，此處只鎖定條件式判定）
-			 *
-			 * 「應含某條目」以 partialDeepStrictEqual 部分比對表達；
-			 * 「不應含某條目」部分比對無法表達缺席，改以 getRowOfStaticFilesMapArray 查詢後 strictEqual undefined
-			 */
-			const file_map = actual.file_map as IStaticFilesMapArray<string>;
-
-			const _row = (targetFile: string) => getRowOfStaticFilesMapArray(file_map, targetFile as never);
-
-			if (rootData.hasWorkspace)
+			test('getCopyStaticFilesOptionsByRootData', (t: TestContext) =>
 			{
-				/**
-				 * workspace 分支：目標為 ws 根目錄，使用 workspace 清單
-				 * （含 ws-root-only 條目；isPkg 不套用於 ws 根目錄）
-				 */
-				t.assert.partialDeepStrictEqual(file_map, [
-					['__root_ws.ts'],
-				]);
-				t.assert.strictEqual(_row(_pkgOnlyEntry), undefined);
-			}
-			else
-			{
-				/** 套件清單分支：不含 ws-root-only 條目 */
-				t.assert.strictEqual(_row('__root_ws.ts'), undefined);
+				const rootData = findRootLazy({
+					cwd,
+				});
+
+				t.assert.partialDeepStrictEqual(rootData, rootDataExpect);
+
+				const actual = getCopyStaticFilesOptionsByRootData(rootData);
+
+				t.assert.snapshot({
+					rootData: _sanitizationFindRootReturn(rootData),
+					options: {
+						...actual,
+						cwd: _normalizePathForSnapshot(actual.cwd),
+					},
+				});
+
+				t.assert.partialDeepStrictEqual(actual, {
+					cwd: rootData.hasWorkspace ? rootData.ws : rootData.root,
+				});
 
 				/**
-				 * root-only 條目僅在「獨立根目錄」加入；
-				 * 這裡以 lerna.json.tpl 的 detectFile（root-only 獨有）判定
+				 * 依旗標組合驗證清單內容（快照守護全貌，此處只鎖定條件式判定）
+				 *
+				 * 「應含某條目」以 partialDeepStrictEqual 部分比對表達；
+				 * 「不應含某條目」部分比對無法表達缺席，改以 getRowOfStaticFilesMapArray 查詢後 strictEqual undefined
 				 */
-				if (rootData.isRoot)
+				const file_map = actual.file_map as IStaticFilesMapArray<string>;
+
+				const _row = (targetFile: string) => getRowOfStaticFilesMapArray(file_map, targetFile as never);
+
+				if (rootData.isWorkspace)
 				{
+					/**
+					 * workspace 分支：目標為 ws 根目錄，使用 workspace 清單
+					 * （含 ws-root-only 條目；isPkg 不套用於 ws 根目錄）
+					 */
 					t.assert.partialDeepStrictEqual(file_map, [
-						// ['lerna.json.tpl', 'file/lerna.json.tpl', 'lerna.json'],
-						['lerna.json.tpl'],
+						['__root_ws.ts'],
+					]);
+					t.assert.strictEqual(_row(_pkgOnlyEntry), undefined);
+
+					t.assert.deepStrictEqual(_row('jest.config.js'), [
+						'jest.config.js',
+						'file/ws-root/jest.config.js',
 					]);
 				}
 				else
 				{
-					t.assert.strictEqual(_row('lerna.json.tpl'), undefined);
+					/** 套件清單分支：不含 ws-root-only 條目 */
+					t.assert.strictEqual(_row('__root_ws.ts'), undefined);
+
+					/**
+					 * root-only 條目僅在「獨立根目錄」加入；
+					 * 這裡以 lerna.json.tpl 的 detectFile（root-only 獨有）判定
+					 */
+					if (rootData.isRoot)
+					{
+						t.assert.partialDeepStrictEqual(file_map, [
+							// ['lerna.json.tpl', 'file/lerna.json.tpl', 'lerna.json'],
+							['lerna.json.tpl'],
+						]);
+					}
+					else
+					{
+						t.assert.strictEqual(_row('lerna.json.tpl'), undefined);
+					}
 				}
 
 				/** PkgOnly 條目僅在 isPkg 為 true 時附加 */
@@ -163,8 +173,26 @@ describe('快照', () =>
 				{
 					t.assert.strictEqual(_row(_pkgOnlyEntry), undefined);
 				}
-			}
+			});
+
+			test('_copyStaticFilesCoreListGenerator', (t: TestContext) =>
+			{
+				const snapshot = [..._copyStaticFilesCoreListGenerator({ cwd })]
+					.map((item) => ({
+						...item,
+						runtime: {
+							...item.runtime,
+							targetFileFull: _normalizePathForSnapshot(item.runtime.targetFileFull),
+							staticFileFull: _normalizePathForSnapshot(item.runtime.staticFileFull),
+						},
+						copy: typeof item.copy,
+					}));
+
+				t.assert.snapshot(snapshot);
+			});
+
 		});
+
 	});
 });
 
@@ -175,7 +203,7 @@ describe('workspace 內套件（未覆寫 cwd）', () =>
 		/**
 		 * 對應 fix-all 的分支：複製前已 refind，hasWorkspace 蘊含目標為 ws 根目錄
 		 */
-		const rootData = findRootLazy({ cwd: __dirname });
+		const rootData = findRootLazy({ cwd: __ROOT_WS });
 
 		t.assert.ok(rootData?.hasWorkspace);
 

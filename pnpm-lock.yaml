@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@bluelovers/conventional-changelog-bluelovers':
-        specifier: ^5.0.27
-        version: 5.0.27(@types/bluebird@3.5.42)(@types/node@26.6.6)(ts-toolbelt@9.6.0)
+        specifier: ^5.0.28
+        version: 5.0.28(ts-toolbelt@9.6.0)
       '@lerna/conventional-commits':
         specifier: ^6.4.1
         version: 6.4.1
@@ -2683,6 +2683,10 @@ packages:
 
   '@bluelovers/conventional-changelog-bluelovers@5.0.27':
     resolution: {integrity: sha512-brOWuZDYEcYB4FWE+kvO3NgAidoAcIA/mPyeOqiOkGxXYZHU4ngEMLF6lrbAm6Tjhe+DkxhfFLzNrFbr/j3r/A==}
+    engines: {node: '>=10'}
+
+  '@bluelovers/conventional-changelog-bluelovers@5.0.28':
+    resolution: {integrity: sha512-RVrB9Yd7FEWO1gm/XP/76z2gWXZk3Ya61rHGXqZ4mtUA15NOfP5mObYYJLvfzJwI8Qcy5RlYYiVaBPxd0SrbLg==}
     engines: {node: '>=10'}
 
   '@bluelovers/deep-diff@2.0.1':
@@ -7713,6 +7717,15 @@ snapshots:
     transitivePeerDependencies:
       - '@types/bluebird'
       - '@types/node'
+      - ts-toolbelt
+
+  '@bluelovers/conventional-changelog-bluelovers@5.0.28(ts-toolbelt@9.6.0)':
+    dependencies:
+      compare-func: 2.0.0
+      emoji-regex: 10.6.0
+      q: 1.5.1
+      ts-type: 3.0.19(ts-toolbelt@9.6.0)
+    transitivePeerDependencies:
       - ts-toolbelt
 
   '@bluelovers/deep-diff@2.0.1': {}
