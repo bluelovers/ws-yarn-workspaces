@@ -13,6 +13,8 @@ import { _sanitizationFindRootReturn } from '@yarn-tool/find-root/test/lib/sanit
 import { findRootLazy, IFindRootReturnType } from '@yarn-tool/find-root';
 
 import { getCopyStaticFilesOptionsByRootData } from '../lib/copyStaticFilesByRootData';
+import { getRootCopyStaticFilesAuto } from '../lib/root/getRootCopyStaticFiles';
+import { getRowOfStaticFilesMapArray } from '../lib/getRowOfStaticFilesMapArray';
 import { getWsCopyStaticFiles } from '../lib/ws/wsCopyStaticFiles';
 import type { IIgnoreFilesSnapshot, IStaticFilesMapArray } from '../lib/types';
 
@@ -104,6 +106,61 @@ describe('快照', () =>
 			t.assert.partialDeepStrictEqual(actual, {
 				cwd: rootData.hasWorkspace ? rootData.ws : rootData.root,
 			});
+
+			/**
+			 * 依旗標組合驗證清單內容（快照守護全貌，此處只鎖定條件式判定）
+			 *
+			 * 「應含某條目」以 partialDeepStrictEqual 部分比對表達；
+			 * 「不應含某條目」部分比對無法表達缺席，改以 getRowOfStaticFilesMapArray 查詢後 strictEqual undefined
+			 */
+			const file_map = actual.file_map as IStaticFilesMapArray<string>;
+
+			const _row = (targetFile: string) => getRowOfStaticFilesMapArray(file_map, targetFile as never);
+
+			if (rootData.hasWorkspace)
+			{
+				/**
+				 * workspace 分支：目標為 ws 根目錄，使用 workspace 清單
+				 * （含 ws-root-only 條目；isPkg 不套用於 ws 根目錄）
+				 */
+				t.assert.partialDeepStrictEqual(file_map, [
+					['__root_ws.ts'],
+				]);
+				t.assert.strictEqual(_row('playwright.config.ts'), undefined);
+			}
+			else
+			{
+				/** 套件清單分支：不含 ws-root-only 條目 */
+				t.assert.strictEqual(_row('__root_ws.ts'), undefined);
+
+				/**
+				 * root-only 條目僅在「獨立根目錄」加入；
+				 * 這裡以 lerna.json.tpl 的 detectFile（root-only 獨有）判定
+				 */
+				if (rootData.isRoot)
+				{
+					t.assert.partialDeepStrictEqual(file_map, [
+						// ['lerna.json.tpl', 'file/lerna.json.tpl', 'lerna.json'],
+						['lerna.json.tpl'],
+					]);
+				}
+				else
+				{
+					t.assert.strictEqual(_row('lerna.json.tpl'), undefined);
+				}
+
+				/** PkgOnly 條目僅在 isPkg 為 true 時附加 */
+				if (rootData.isPkg)
+				{
+					t.assert.partialDeepStrictEqual(file_map, [
+						['playwright.config.ts'],
+					]);
+				}
+				else
+				{
+					t.assert.strictEqual(_row('playwright.config.ts'), undefined);
+				}
+			}
 		});
 	});
 });
@@ -216,5 +273,77 @@ describe('選項傳遞', () =>
 		});
 
 		t.assert.strictEqual(actual.file_map, file_map);
+	});
+});
+
+describe('isPkg 判斷', () =>
+{
+	/** defaultCopyStaticFilesPkgOnly 的唯一條目 */
+	const _pkgOnlyEntry = ['playwright.config.ts', 'file/playwright.config.ts', 'playwright.config.js'] as const;
+
+	test('getRootCopyStaticFilesAuto 在 isPkg 為 true 時附加 PkgOnly 條目', (t: TestContext) =>
+	{
+		const withPkg = getRootCopyStaticFilesAuto({ isRoot: false, hasWorkspace: true, isPkg: true });
+		const withoutPkg = getRootCopyStaticFilesAuto({ isRoot: false, hasWorkspace: true, isPkg: false });
+		const omitted = getRootCopyStaticFilesAuto({ isRoot: false, hasWorkspace: true });
+
+		const _last = (file_map: IStaticFilesMapArray<string>) => file_map[file_map.length - 1];
+
+		/** true 時末筆為 PkgOnly 條目 */
+		t.assert.deepStrictEqual(_last(withPkg), _pkgOnlyEntry);
+		/**
+		 * false 與省略時皆不附加；
+		 * 缺席無法以部分比對表達，改以查詢後比對 undefined
+		 */
+		t.assert.strictEqual(getRowOfStaticFilesMapArray(withoutPkg, 'playwright.config.ts'), undefined);
+		t.assert.strictEqual(getRowOfStaticFilesMapArray(omitted, 'playwright.config.ts'), undefined);
+		/** 附加不影響既有條目數量（僅多一筆） */
+		t.assert.strictEqual(withPkg.length, withoutPkg.length + 1);
+	});
+
+	test('getCopyStaticFilesOptionsByRootData 預設沿用 rootData.isPkg', (t: TestContext) =>
+	{
+		const rootData = findRootLazy({ cwd: __dirname });
+
+		/** workspace 內套件：isPkg 為 true */
+		t.assert.strictEqual(rootData?.isPkg, true);
+
+		/** 覆寫 cwd 走套件模式清單，才能觀察 isPkg 的傳遞（未覆寫 cwd 時走 workspace 清單） */
+		const actual = getCopyStaticFilesOptionsByRootData(rootData, {
+			cwd: '/new/package',
+		});
+
+		t.assert.partialDeepStrictEqual(actual.file_map, [
+			['.npmignore', 'file/npmignore'],
+			_pkgOnlyEntry,
+		]);
+	});
+
+	test('選項 isPkg 可覆寫 rootData 的值', (t: TestContext) =>
+	{
+		const rootData = findRootLazy({ cwd: __dirname });
+
+		const enabled = getCopyStaticFilesOptionsByRootData(rootData, {
+			cwd: '/new/package',
+			hasWorkspace: false,
+			isRoot: true,
+			isPkg: true,
+		});
+		const disabled = getCopyStaticFilesOptionsByRootData(rootData, {
+			cwd: '/new/package',
+			hasWorkspace: false,
+			isRoot: true,
+			isPkg: false,
+		});
+
+		/**
+		 * 覆寫為 true 時附加、為 false 時不附加（即使 rootData.isPkg 為 true）；
+		 * 應含以部分比對表達，缺席以查詢後比對 undefined 表達
+		 */
+		t.assert.partialDeepStrictEqual(enabled.file_map, [_pkgOnlyEntry]);
+		t.assert.strictEqual(
+			getRowOfStaticFilesMapArray(disabled.file_map as IStaticFilesMapArray<string>, 'playwright.config.ts'),
+			undefined,
+		);
 	});
 });

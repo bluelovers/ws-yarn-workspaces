@@ -627,6 +627,11 @@ exports[`快照 > <ws-yarn-workspaces>/packages/@yarn-tool/static-file/test/fixt
       [
         ".browserslistrc",
         "file/ws-root/browserslistrc"
+      ],
+      [
+        "playwright.config.ts",
+        "file/playwright.config.ts",
+        "playwright.config.js"
       ]
     ]
   }

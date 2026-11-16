@@ -98,7 +98,7 @@ console.dir(getWsCopyStaticFiles());
 
 | 函式 | 子路徑 | 說明 |
 | --- | --- | --- |
-| `getRootCopyStaticFilesAuto(rootData)` | `lib/root/getRootCopyStaticFiles` | 依 `isRoot` / `hasWorkspace` 決定要複製的清單 |
+| `getRootCopyStaticFilesAuto(rootData)` | `lib/root/getRootCopyStaticFiles` | 依 `isRoot` / `hasWorkspace` 決定要複製的清單，`isPkg` 為 true 時附加 `defaultCopyStaticFilesPkgOnly` |
 | `getWsCopyStaticFiles()` | `lib/ws/wsCopyStaticFiles` | 合併三套清單並重新映射 `.tpl` 樣板檔名 |
 | `parseStaticMap(file_map)` | `lib/parseStaticMap` | 將陣列或記錄 (Record) 格式統一成條目陣列 |
 | `getRowOfStaticFilesMapArray(file_map, key)` | `lib/getRowOfStaticFilesMapArray` | 依目標檔名查詢條目 |
@@ -120,5 +120,5 @@ console.dir(getWsCopyStaticFiles());
 
 - **樣板來源**：以 `staticRoot` 覆寫預設的 `file/` 目錄，即可使用自備的樣板集。
 - **覆寫策略**：`overwrite` 為 `false` 時，已存在的目標檔案維持原狀（`errorOnExist: false`，不會中斷批次）。
-- **情境選擇**：一般套件用 `defaultCopyStaticFiles`；獨立專案根目錄用 `getRootCopyStaticFilesAuto({ isRoot: true, hasWorkspace: false })`；工作區根目錄用 `getWsCopyStaticFiles()`。
+- **情境選擇**：一般套件用 `defaultCopyStaticFiles`；獨立專案根目錄用 `getRootCopyStaticFilesAuto({ isRoot: true, hasWorkspace: false })`；工作區根目錄用 `getWsCopyStaticFiles()`；`isPkg` 為 true 時（`getRootCopyStaticFilesAuto` 與 `getCopyStaticFilesOptionsByRootData`）附加 `defaultCopyStaticFilesPkgOnly`。
 - **忽略清單**：`.npmignore` / `.gitignore` 中的 `!file/` 白名單由 `test/scripts/update-npmignore-static-files.ts` 依 `lib/const.ts` 自動產生。

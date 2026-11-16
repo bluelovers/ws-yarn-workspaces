@@ -178,6 +178,7 @@ export function _runFixPackagesCore(row: IEntry, options: IOptionsRunEachPackage
 	{
 		/**
 		 * 覆寫 cwd 為套件目錄，file_map 依 _rootDataFake 的旗標以套件模式判定
+		 * （newFakeRootData 已依 pkg 重算 isPkg）
 		 */
 		copyStaticFiles(getCopyStaticFilesOptionsByRootData(_rootDataFake, {
 			cwd: row.location,

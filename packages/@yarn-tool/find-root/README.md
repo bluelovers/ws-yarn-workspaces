@@ -145,8 +145,8 @@ Lazy initialization version with all options being optional.
 
 ### `newFakeRootData(rootData, input)`
 
-建立虛擬的根目錄資料物件。
-Create a fake root data object.
+建立虛擬的根目錄資料物件；可覆寫部分屬性，並自動重新計算 `isRoot`、`isWorkspace`、`isPkg`。
+Create a fake root data object; partial properties can be overridden, and `isRoot`, `isWorkspace`, `isPkg` are recomputed automatically.
 
 ### `assertHasWorkspaces(rootData)`
 

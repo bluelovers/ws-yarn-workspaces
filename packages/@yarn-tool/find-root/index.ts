@@ -200,7 +200,7 @@ export function findRoot(options: IFindRootOptions, _throwError?: boolean): IFin
  * 建立虛擬的根目錄資料物件
  *
  * 此函數用於基於現有的 rootData 建立新的資料物件，
- * 可覆寫部分屬性並自動重新計算 isRoot 和 isWorkspace。
+ * 可覆寫部分屬性並自動重新計算 isRoot、isWorkspace 和 isPkg。
  *
  * @param {IFindRootReturnType} rootData - 原始的根目錄資料
  * @param {ITSPickExtra<IFindRootReturnType, 'pkg'>} input - 要覆寫的屬性
@@ -215,14 +215,17 @@ export function newFakeRootData(rootData: IFindRootReturnType, input: ITSPickExt
 	const isRoot = input.isRoot ?? pathIsSame(input.pkg, rootData.root);
 	/** 計算是否為 workspace 根目錄（若未提供則自動計算） */
 	const isWorkspace = input.isWorkspace ?? pathIsSame(input.pkg, rootData.ws);
+	/** 計算是否為套件根目錄（若未提供則自動計算，規則與 findRoot 一致） */
+	const isPkg = input.isPkg ?? (!isWorkspace && input.pkg?.length > 0);
 
 	/** 合併原始資料和輸入資料 */
-	const _rootDataFake: IFindRootReturnType = {
+	const _rootDataFake = {
 		...rootData,
 		...input,
 		isRoot,
 		isWorkspace,
-	};
+		isPkg,
+	} satisfies IFindRootReturnType;
 
 	return _rootDataFake
 }

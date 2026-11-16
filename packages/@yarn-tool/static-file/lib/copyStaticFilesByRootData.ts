@@ -24,7 +24,7 @@ import { ITSPartialPick } from 'ts-type';
  * @template K - 目標檔案路徑類型
  */
 export interface ICopyStaticFilesByRootDataOptions<K extends string = string>
-	extends Partial<ICopyStaticFilesOptions<K>>, ITSPartialPick<IFindRootReturnType, 'hasWorkspace' | 'isRoot'>
+	extends Partial<ICopyStaticFilesOptions<K>>, ITSPartialPick<IFindRootReturnType, 'hasWorkspace' | 'isRoot' | 'isPkg'>
 {
 	/**
 	 * 覆寫複製目標目錄；未提供時 workspace 專案取 ws、其餘取 root
@@ -63,6 +63,7 @@ export function getCopyStaticFilesOptionsByRootData(rootData: IFindRootReturnTyp
 		ignoreFilesSnapshot,
 		hasWorkspace = rootData.hasWorkspace,
 		isRoot = rootData.isRoot,
+		isPkg = rootData.isPkg,
 		...rest
 	} = opts ?? {};
 
@@ -83,7 +84,7 @@ export function getCopyStaticFilesOptionsByRootData(rootData: IFindRootReturnTyp
 	 */
 	const map = file_map ?? (!cwdOverridden && rootData.hasWorkspace
 		? getWsCopyStaticFiles()
-		: getRootCopyStaticFilesAuto({ hasWorkspace, isRoot }));
+		: getRootCopyStaticFilesAuto({ hasWorkspace, isRoot, isPkg }));
 
 	const options = {
 		...rest,
