@@ -49,6 +49,8 @@ const _defaultCopyStaticFiles = [
 	 */
 	['.eslintrc.json.tpl', 'file/eslintrc.json.tpl', '.eslintrc.json'],
 
+	['playwright.config.ts', 'file/playwright.config.ts', 'playwright.config.js'],
+
 	/**
 	 * 文件
 	 * Documentation

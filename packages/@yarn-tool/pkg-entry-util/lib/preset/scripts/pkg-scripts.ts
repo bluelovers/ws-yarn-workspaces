@@ -82,6 +82,10 @@ export function defaultPkgNotOldExists()
 
 		"test:node:coverage": "node --run test:node:bin:coverage -- **/*.node-spec.ts **/*.node-test.ts **/*.spec.ts **/*.test.ts",
 
+		"test:playwright": "playwright test playwright-spec.ts",
+		"test:playwright:headed": "node --run test:playwright -- --headed",
+		"test:playwright:ui": "node --run test:playwright -- --ui",
+
 		"build:dts:bundle": EnumScriptsEntry.BUILD_DTS_BUNDLE,
 		"build:dts:copy": EnumScriptsEntry.BUILD_DTS_COPY,
 		"build:dts:tsc:emit": EnumScriptsEntry.BUILD_DTS_TSC_EMIT,
