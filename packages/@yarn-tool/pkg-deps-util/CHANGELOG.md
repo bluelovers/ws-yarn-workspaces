@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-deps-util@3.0.18...@yarn-tool/pkg-deps-util@3.0.19) (2026-11-16)
+
+
+
+### ✨　Features
+
+* **static-file:** 實作基於 rootData 的靜態檔案複製參數產生器 ([ed756de](https://github.com/bluelovers/ws-yarn-workspaces/commit/ed756de7fd12e978330e1ccc9492da408c93dd24))
+
+
 ## [3.0.18](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-deps-util@3.0.17...@yarn-tool/pkg-deps-util@3.0.18) (2026-11-16)
 
 

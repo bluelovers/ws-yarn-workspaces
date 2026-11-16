@@ -3,6 +3,43 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.34](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.33...@yarn-tool/static-file@3.0.34) (2026-11-16)
+
+
+
+### ✨　Features
+
+* **@yarn-tool/fix-all:** 新增 CLI 入口點並重構執行腳本 ([09b56fe](https://github.com/bluelovers/ws-yarn-workspaces/commit/09b56fe92e8de174a892f20ad3483df0cbe90e54))
+* **static-file:** 實作基於 rootData 的靜態檔案複製參數產生器 ([ed756de](https://github.com/bluelovers/ws-yarn-workspaces/commit/ed756de7fd12e978330e1ccc9492da408c93dd24))
+
+
+### 📦　Code Refactoring
+
+* **static-file:** 整合靜態檔案複製邏輯至 rootData 驅動的工具函數 ([de7a526](https://github.com/bluelovers/ws-yarn-workspaces/commit/de7a526bea2ffa7eded6d67f0f84a124a997cc3d))
+
+
+### 🚨　Tests
+
+* 重構測試路徑引用並提取路徑標準化工具 ([1380fcc](https://github.com/bluelovers/ws-yarn-workspaces/commit/1380fcc8830a48fc68d8ba2853c11b6563124317))
+* **static-file:** 優化忽略規則分割腳本並移除英文註解 ([4ecce6b](https://github.com/bluelovers/ws-yarn-workspaces/commit/4ecce6bc32ca6470de226afced3b207b2b934a51))
+* **test:** 重構測試工具函數並新增測試案例 ([5a572b5](https://github.com/bluelovers/ws-yarn-workspaces/commit/5a572b5e38e18ec39bd7f70f33cab9e55023aa2a))
+
+
+### 🛠　Build System
+
+* **static-file:** 新增 @yarn-tool/find-root 為運行時依賴 ([4e9d0df](https://github.com/bluelovers/ws-yarn-workspaces/commit/4e9d0dfeeb42ab6facfd152ee04765fa6f52a3cf))
+
+
+### ⚙️　Continuous Integration
+
+* **static-file:** 更新忽略檔案清單以包含新增的靜態檔案 ([4f8d801](https://github.com/bluelovers/ws-yarn-workspaces/commit/4f8d801c03d9881b8e01b289a1b0be8ee19a99b6))
+
+
+### ♻️　Chores
+
+* update ignore files ([e87c676](https://github.com/bluelovers/ws-yarn-workspaces/commit/e87c676a10dca83b9004bbf7cda645e505131e93))
+
+
 ## [3.0.33](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.32...@yarn-tool/static-file@3.0.33) (2026-11-16)
 
 

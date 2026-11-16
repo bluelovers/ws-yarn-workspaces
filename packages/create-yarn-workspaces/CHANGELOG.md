@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.40](https://github.com/bluelovers/ws-yarn-workspaces/compare/create-yarn-workspaces@3.0.39...create-yarn-workspaces@3.0.40) (2026-11-16)
+
+
+
+### ✨　Features
+
+* **static-file:** 實作基於 rootData 的靜態檔案複製參數產生器 ([ed756de](https://github.com/bluelovers/ws-yarn-workspaces/commit/ed756de7fd12e978330e1ccc9492da408c93dd24))
+
+
+### 📦　Code Refactoring
+
+* **static-file:** 整合靜態檔案複製邏輯至 rootData 驅動的工具函數 ([de7a526](https://github.com/bluelovers/ws-yarn-workspaces/commit/de7a526bea2ffa7eded6d67f0f84a124a997cc3d))
+
+
 ## [3.0.39](https://github.com/bluelovers/ws-yarn-workspaces/compare/create-yarn-workspaces@3.0.38...create-yarn-workspaces@3.0.39) (2026-11-16)
 
 **Note:** Version bump only for package create-yarn-workspaces

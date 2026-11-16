@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.17](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-parse-raw@2.0.16...@yarn-tool/yarnlock-parse-raw@2.0.17) (2026-11-16)
+
+
+
+### ♻️　Chores
+
+* **@yarnlock-parse-raw:** 移除開發依賴並修正測試路徑引用 ([edb96f7](https://github.com/bluelovers/ws-yarn-workspaces/commit/edb96f70daec4cf2208a2ffda3287366f69cc407))
+
+
 ## [2.0.16](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-parse-raw@2.0.15...@yarn-tool/yarnlock-parse-raw@2.0.16) (2026-11-16)
 
 **Note:** Version bump only for package @yarn-tool/yarnlock-parse-raw

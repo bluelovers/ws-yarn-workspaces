@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.31](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-root@2.0.30...@yarn-tool/find-root@2.0.31) (2026-11-16)
+
+
+
+### ✨　Features
+
+* **static-file:** 實作基於 rootData 的靜態檔案複製參數產生器 ([ed756de](https://github.com/bluelovers/ws-yarn-workspaces/commit/ed756de7fd12e978330e1ccc9492da408c93dd24))
+
+
+### 📦　Code Refactoring
+
+* **find-root:** 移除未使用的路徑處理工具函數匯出 ([1adbef1](https://github.com/bluelovers/ws-yarn-workspaces/commit/1adbef10fb48a0b6c6961761a14b9b085dd2c127))
+* **find-root:** 優化 &#x60;isPkg&#x60; 判斷邏輯並重構測試案例 ([ce800bb](https://github.com/bluelovers/ws-yarn-workspaces/commit/ce800bb8fc8035bdd9de864f9ecf2bf59aa2a0fa))
+
+
+### 📚　Documentation
+
+* **find-root:** 更新文件說明與 API 註解以更精確描述功能 ([5e22bc4](https://github.com/bluelovers/ws-yarn-workspaces/commit/5e22bc4e43ad35522701a5244e59f7dd5f8e57b1))
+
+
+### 🚨　Tests
+
+* **find-root:** 新增 findRootLazy 的快照測試 ([75673a8](https://github.com/bluelovers/ws-yarn-workspaces/commit/75673a8c9947cc4058ae9ffa62dc16cf23cbd82c))
+* **test:** 重構測試工具函數並新增測試案例 ([5a572b5](https://github.com/bluelovers/ws-yarn-workspaces/commit/5a572b5e38e18ec39bd7f70f33cab9e55023aa2a))
+
+
+### 🔖　Miscellaneous
+
+* . ([98a9c4b](https://github.com/bluelovers/ws-yarn-workspaces/commit/98a9c4ba3f4828051d09d0c735a29edaa66378be))
+
+
 ## [2.0.30](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/find-root@2.0.29...@yarn-tool/find-root@2.0.30) (2026-11-16)
 
 

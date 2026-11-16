@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/cache-path@4.0.18...cache-path@4.0.19) (2026-11-16)
+
+
+
+### 🚨　Tests
+
+* 重構測試路徑引用並提取路徑標準化工具 ([1380fcc](https://github.com/bluelovers/ws-yarn-workspaces/commit/1380fcc8830a48fc68d8ba2853c11b6563124317))
+
+
 ## [4.0.18](https://github.com/bluelovers/ws-yarn-workspaces/compare/cache-path@4.0.17...cache-path@4.0.18) (2026-11-16)
 
 **Note:** Version bump only for package cache-path
