@@ -220,9 +220,25 @@ test/temp*/
 !test/fixtures/out
 !test/fixtures/split
 
-file/tsdx/index.d.ts
-file/tsdx/index.js
 # Static files from const.ts
+file/playwright.config.d.ts
+file/playwright.config.js
+file/playwright.config.js.map
+file/ws-root/__root_ws.d.ts
+file/ws-root/__root_ws.js
+file/ws-root/__root_ws.js.map
+file/tsdx/index.cjs
+file/tsdx/index.cjs.map
+file/tsdx/index.d.cts
+file/tsdx/index.js
+file/tsdx/index.js.map
+file/tsdx/index.d.ts
+file/test/__root.d.ts
+file/test/__root.js
+file/test/__root.js.map
+file/test/temp.d.ts
+file/test/temp.js
+file/test/temp.js.map
 !file/README.md
 !file/env
 !file/eslintignore

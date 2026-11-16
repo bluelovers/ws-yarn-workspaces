@@ -127,10 +127,43 @@ function main(): void
 
 	console.log(`Found ${staticFiles.length} static files:`);
 
-	const entries = staticFiles.sort().map(f => {
+	const entries: string[] = [];
+
+		[
+
+		'file/playwright.config.d.ts',
+		'file/playwright.config.js',
+		'file/playwright.config.js.map',
+
+		'file/ws-root/__root_ws.d.ts',
+		'file/ws-root/__root_ws.js',
+		'file/ws-root/__root_ws.js.map',
+
+		'file/tsdx/index.cjs',
+		'file/tsdx/index.cjs.map',
+
+		'file/tsdx/index.d.cts',
+
+		'file/tsdx/index.js',
+		'file/tsdx/index.js.map',
+		'file/tsdx/index.d.ts',
+
+		'file/test/__root.d.ts',
+		'file/test/__root.js',
+		'file/test/__root.js.map',
+
+		'file/test/temp.d.ts',
+		'file/test/temp.js',
+		'file/test/temp.js.map',
+
+	].forEach(entry => {
+		entries.push(entry);
+	});
+
+	staticFiles.sort().forEach(f => {
 		const entry = `!${f}`
 		console.log(`  ${entry}`)
-		return entry
+		entries.push(entry)
 	});
 
 	const npmIgnore = path.join(__ROOT, '.npmignore');
