@@ -94,7 +94,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@ts-type/package-dts": "^3.0.14",
+    "@ts-type/package-dts": "^3.0.15",
     "is-plain-obj": "<4 >=3",
     "sort-object-keys2": "^3.0.10"
   },

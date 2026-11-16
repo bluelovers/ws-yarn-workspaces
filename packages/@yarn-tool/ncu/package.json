@@ -63,7 +63,7 @@
   },
   "dependencies": {
     "@lazy-node/semver-simple-parse": "^4.0.12",
-    "@ts-type/package-dts": "^3.0.14",
+    "@ts-type/package-dts": "^3.0.15",
     "@yarn-tool/npm-package-arg-util": "^2.0.13",
     "@yarn-tool/pkg-version-query": "^3.0.17",
     "@yarn-tool/semver-diff": "^2.0.26",
@@ -76,8 +76,8 @@
     "bluebird": "^3.7.2",
     "npm-check-updates": "<12 >=11.8.5",
     "package-json": "<7 >=6.5",
-    "semver": "^7.8.5",
-    "ts-type": "^3.0.18",
+    "semver": "^7.8.6",
+    "ts-type": "^3.0.19",
     "tslib": ">=2.8.1"
   },
   "publishConfig": {

@@ -58,14 +58,14 @@
   "config": {},
   "dependencies": {
     "@bluelovers/fs-json": "^1.0.17",
-    "@ts-type/package-dts": "^3.0.14",
+    "@ts-type/package-dts": "^3.0.15",
     "@yarn-tool/pkg-entry-util": "^3.0.26",
     "@yarn-tool/require-resolve": "^4.0.16",
     "@yarn-tool/write-package-json": "^1.0.22",
     "bind-decorator": "^1.0.11",
     "fs-extra": "^11.4.1",
     "sort-package-json3": "^3.0.17",
-    "ts-type": "^3.0.18",
+    "ts-type": "^3.0.19",
     "tslib": ">=2.8.1"
   },
   "preferGlobal": true,

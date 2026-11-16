@@ -99,7 +99,7 @@
   "dependencies": {
     "@bluelovers/conventional-changelog-bluelovers": "^5.0.27",
     "@lerna/conventional-commits": "^6.4.1",
-    "@yarn-tool/fix-all": "^3.0.30",
+    "@yarn-tool/fix-all": "^3.0.31",
     "@yarn-tool/get-global-dirs": "^1.0.11",
     "bluebird": "^3.7.2",
     "chalk": "< 3 >= 2",
@@ -107,7 +107,7 @@
     "expect": "^30.5.2",
     "fs-extra": "^11.4.1",
     "level": "^10.0.0",
-    "node-test-maybe": "^1.0.1",
+    "node-test-maybe": "^1.0.4",
     "semver": "^7.8.6",
     "ts-node": "^10.9.2",
     "ts-type": "^3.0.19",
@@ -117,7 +117,7 @@
   },
   "devDependencies": {
     "@bluelovers/fast-glob": "^3.0.4",
-    "@bluelovers/jest-config": "^1.1.15",
+    "@bluelovers/jest-config": "^1.1.19",
     "@bluelovers/tsconfig": "^2.0.3",
     "@types/bluebird": "^3.5.42",
     "@types/chai": "^5.2.3",

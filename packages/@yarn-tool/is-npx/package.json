@@ -44,7 +44,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "ts-type": "^3.0.18",
+    "ts-type": "^3.0.19",
     "tslib": ">=2.8.1"
   },
   "devDependencies": {
