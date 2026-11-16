@@ -91,6 +91,10 @@ tsc-multi.json.tpl
 .turbo
 .next
 
+/api-extractor.json
+
+/src/index.ts.tpl
+
 # 測試檔 / test files · npm 發布專用 / npm publish only
 test
 .gitkeep
@@ -176,6 +180,8 @@ coverage
 .mocharc.yml
 *.spec.d.ts
 *.spec.js
+
+test-results/.last-run.json
 
 # IDE 與編輯器設定 / IDE & editor settings · npm 發布專用 / npm publish only
 intellij-style-guide.xml

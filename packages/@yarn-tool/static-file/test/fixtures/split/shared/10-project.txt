@@ -36,3 +36,7 @@ web_modules
 tsc-multi.json.tpl
 .turbo
 .next
+
+/api-extractor.json
+
+/src/index.ts.tpl

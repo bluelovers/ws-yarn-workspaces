@@ -5,3 +5,5 @@ coverage
 .mocharc.yml
 *.spec.d.ts
 *.spec.js
+
+test-results/.last-run.json
