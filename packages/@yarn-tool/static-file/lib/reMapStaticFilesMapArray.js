@@ -72,6 +72,9 @@ function reMapStaticFilesMapArray(file_map, replaceMap) {
      * 重新映射的條目排在原始條目之前，去重結果決定同鍵條目的保留者
      * Remapped entries come before the originals; dedup decides which entry survives for the same key
      */
-    return (0, array_hyper_unique_1.array_unique_overwrite)(arr.concat(ls));
+    return (0, array_hyper_unique_1.array_unique_overwrite)(arr.concat(ls), {
+        removeFromFirst: true,
+        checker: (a, b) => a[0] === b[0],
+    });
 }
 //# sourceMappingURL=reMapStaticFilesMapArray.js.map

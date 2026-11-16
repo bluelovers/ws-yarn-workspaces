@@ -39,7 +39,7 @@ function getCopyStaticFilesOptionsByRootData(rootData, opts) {
     /**
      * 目標為 workspace 根目錄時才使用 workspace 清單，否則用套件清單
      */
-    const map = file_map !== null && file_map !== void 0 ? file_map : (!cwdOverridden && rootData.hasWorkspace
+    const map = file_map !== null && file_map !== void 0 ? file_map : (!cwdOverridden && rootData.isWorkspace
         ? (0, wsCopyStaticFiles_1.getWsCopyStaticFiles)()
         : (0, getRootCopyStaticFiles_1.getRootCopyStaticFilesAuto)({ hasWorkspace, isRoot, isPkg }));
     const options = {
