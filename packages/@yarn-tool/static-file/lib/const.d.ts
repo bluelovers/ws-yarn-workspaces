@@ -20,7 +20,17 @@ import { _Key, IStaticFilesMapArray } from './types';
  * - staticFile: The source static file path (relative to static root) / 來源靜態檔案路徑（相對於靜態根目錄）
  * - detectFile: Optional file to check for existence before copying / 可選的檢測檔案，複製前檢查是否存在
  */
-declare const _defaultCopyStaticFiles: [[".npmignore", "file/npmignore"], [".gitignore", "file/gitignore"], [".eslintignore", "file/eslintignore"], ["tsconfig.json", "file/tsconfig.json.tpl"], ["tsconfig.json.tpl", "file/tsconfig.json.tpl"], ["test/tsconfig.json.tpl", "file/test/tsconfig.json.tpl", "test/tsconfig.json"], ["tsconfig.esm.json.tpl", "file/tsconfig.esm.json.tpl", "tsconfig.esm.json"], ["tsconfig.tsdx.json.tpl", "file/tsconfig.tsdx.json.tpl", "tsconfig.tsdx.json"], [".eslintrc.json.tpl", "file/eslintrc.json.tpl", ".eslintrc.json"], ["playwright.config.ts", "file/playwright.config.ts", "playwright.config.js"], ["README.md", "file/README.md"], [".mocharc.yml.tpl", "file/mocharc.yml"], ["jest.config.js", "file/jest.config.auto.js"], [".nowignore", "file/nowignore"], ["now.json.tpl", "file/now.json.tpl", "now.json"], ["tsdx.config.js.tpl", "file/tsdx.config.js", "tsdx.config.js"], ...["test/temp.ts" | "test/__root.ts" | "test/__root-core.cjs" | "test/__root-core.mjs" | "test/__root-core.d.cts" | "test/__root-core.d.mts" | "test/__root-core.d.ts" | "test/fixtures/.gitkeep", "file/test/temp.ts" | "file/test/__root.ts" | "file/test/__root-core.cjs" | "file/test/__root-core.mjs" | "file/test/__root-core.d.cts" | "file/test/__root-core.d.mts" | "file/test/__root-core.d.ts" | "file/test/fixtures/.gitkeep"][]];
+declare const _defaultCopyStaticFiles: [[".npmignore", "file/npmignore"], [".gitignore", "file/gitignore"], [".eslintignore", "file/eslintignore"], ["tsconfig.json", "file/tsconfig.json.tpl"], ["tsconfig.json.tpl", "file/tsconfig.json.tpl"], ["test/tsconfig.json.tpl", "file/test/tsconfig.json.tpl", "test/tsconfig.json"], ["tsconfig.esm.json.tpl", "file/tsconfig.esm.json.tpl", "tsconfig.esm.json"], ["tsconfig.tsdx.json.tpl", "file/tsconfig.tsdx.json.tpl", "tsconfig.tsdx.json"], [".eslintrc.json.tpl", "file/eslintrc.json.tpl", ".eslintrc.json"], ["README.md", "file/README.md"], [".mocharc.yml.tpl", "file/mocharc.yml"], ["jest.config.js", "file/jest.config.auto.js"], [".nowignore", "file/nowignore"], ["now.json.tpl", "file/now.json.tpl", "now.json"], ["tsdx.config.js.tpl", "file/tsdx.config.js", "tsdx.config.js"], ...["test/temp.ts" | "test/__root.ts" | "test/__root-core.cjs" | "test/__root-core.mjs" | "test/__root-core.d.cts" | "test/__root-core.d.mts" | "test/__root-core.d.ts" | "test/fixtures/.gitkeep", "file/test/temp.ts" | "file/test/__root.ts" | "file/test/__root-core.cjs" | "file/test/__root-core.mjs" | "file/test/__root-core.d.cts" | "file/test/__root-core.d.mts" | "file/test/__root-core.d.ts" | "file/test/fixtures/.gitkeep"][]];
+/**
+ * Default static files for package-level only copying / 僅套件層級複製的預設靜態檔案
+ *
+ * Contains configuration files that should only be copied to individual packages. not workspace root.
+ * 包含僅應複製到各個套件的配置檔案。不複製到工作區根目錄。
+ *
+ * These files are typically unique to each package.
+ * 這些檔案通常僅屬於單個套件。
+ */
+declare const _defaultCopyStaticFilesPkgOnly: [["playwright.config.ts", "file/playwright.config.ts", "playwright.config.js"]];
 /**
  * Default static files for root-level only copying / 僅根目錄層級複製的預設靜態檔案
  *
@@ -45,6 +55,13 @@ declare const _defaultCopyStaticFilesWsRootOnly: [["lerna.json.tpl", "file/lerna
  * 用於將靜態檔案複製到各個套件。
  */
 export declare const defaultCopyStaticFiles: IStaticFilesMapArray<_Key<typeof _defaultCopyStaticFiles>>;
+/**
+ * Frozen default static files for package-level only / 凍結的僅套件層級預設靜態檔案
+ *
+ * Use this for copying static files to individual packages only and not workspace root.
+ * 用於將靜態檔案僅複製到各個套件，不複製到工作區根目錄。
+ */
+export declare const defaultCopyStaticFilesPkgOnly: IStaticFilesMapArray<_Key<typeof _defaultCopyStaticFilesPkgOnly>>;
 /**
  * Frozen default static files for root-level only / 凍結的僅根目錄層級預設靜態檔案
  *

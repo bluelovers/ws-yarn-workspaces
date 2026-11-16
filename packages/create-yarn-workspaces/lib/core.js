@@ -12,7 +12,7 @@ const staticFiles_1 = require("@yarn-tool/fix-all/lib/file/staticFiles");
 const static_file_1 = require("@yarn-tool/static-file");
 const sort_package_json3_1 = require("sort-package-json3");
 const logger_1 = require("debug-color2/logger");
-const wsCopyStaticFiles_1 = require("@yarn-tool/static-file/lib/ws/wsCopyStaticFiles");
+const copyStaticFilesByRootData_1 = require("@yarn-tool/static-file/lib/copyStaticFilesByRootData");
 /**
  * 創建 Workspaces 的核心前置檢查邏輯
  *
@@ -222,18 +222,18 @@ function _createYarnWorkspaces(targetPath, options = {}) {
     }
     /**
      * 複製靜態範本檔案
-     */
-    const file_map = (0, wsCopyStaticFiles_1.getWsCopyStaticFiles)();
-    /**
-     * 複製靜態範本檔案
      *
      * 此呼叫點 addStaticFiles 預設為 true，可用 noStaticFiles 關閉
      */
     if ((0, staticFiles_1._isAddStaticFilesOrReset)(options, true)) {
-        (0, static_file_1.copyStaticFiles)({
+        /**
+         * 剛寫入的 package.json 已含 workspaces，重新尋找即可取得新 workspace 的 rootData，
+         * 由 getCopyStaticFilesOptionsByRootData 決定目標與 workspace 清單
+         */
+        const rootData = (0, find_root_1.findRootLazy)({
             cwd: targetPath,
-            file_map,
         });
+        (0, static_file_1.copyStaticFiles)((0, copyStaticFilesByRootData_1.getCopyStaticFilesOptionsByRootData)(rootData));
     }
     /**
      * 根據 packages 模式創建目錄

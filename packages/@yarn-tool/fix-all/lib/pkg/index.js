@@ -29,7 +29,7 @@ const sort_package_json3_1 = require("sort-package-json3");
 const fix_ws_versions_1 = require("@yarn-tool/fix-ws-versions");
 const types_1 = require("@ts-type/package-dts/lib/package-json/types");
 const normalize_deps_value_1 = require("@yarn-tool/normalize-deps-value");
-const getRootCopyStaticFiles_1 = require("@yarn-tool/static-file/lib/root/getRootCopyStaticFiles");
+const copyStaticFilesByRootData_1 = require("@yarn-tool/static-file/lib/copyStaticFilesByRootData");
 const static_file_1 = require("@yarn-tool/static-file");
 const mergeIgnoreFiles_1 = require("@yarn-tool/static-file/lib/mergeIgnoreFiles");
 const pkg_scripts_1 = require("@yarn-tool/pkg-entry-util/lib/preset/scripts/pkg-scripts");
@@ -136,11 +136,13 @@ function _runFixPackagesCore(row, options, cache, err) {
      * Only auto-detect and add when the result is true
      */
     if (_addStaticFiles) {
-        (0, static_file_1.copyStaticFiles)({
+        /**
+         * 覆寫 cwd 為套件目錄，file_map 依 _rootDataFake 的旗標以套件模式判定
+         */
+        (0, static_file_1.copyStaticFiles)((0, copyStaticFilesByRootData_1.getCopyStaticFilesOptionsByRootData)(_rootDataFake, {
             cwd: row.location,
-            file_map: (0, getRootCopyStaticFiles_1.getRootCopyStaticFilesAuto)(_rootDataFake),
             ignoreFilesSnapshot,
-        });
+        }));
     }
     // 若 README.md 不存在或小於 1KB 則自動生成 / Auto-generate README.md if it doesn't exist or is smaller than 1KB
     if (shouldWriteReadme) {

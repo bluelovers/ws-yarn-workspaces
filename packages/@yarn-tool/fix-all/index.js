@@ -19,8 +19,7 @@ const logger_1 = require("debug-color2/logger");
 const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
 const static_file_1 = require("@yarn-tool/static-file");
 const mergeIgnoreFiles_1 = require("@yarn-tool/static-file/lib/mergeIgnoreFiles");
-const wsCopyStaticFiles_1 = require("@yarn-tool/static-file/lib/ws/wsCopyStaticFiles");
-const getRootCopyStaticFiles_1 = require("@yarn-tool/static-file/lib/root/getRootCopyStaticFiles");
+const copyStaticFilesByRootData_1 = require("@yarn-tool/static-file/lib/copyStaticFilesByRootData");
 const lerna_1 = require("./lib/ws/lerna");
 const reset_1 = require("./lib/file/reset");
 const staticFiles_1 = require("./lib/file/staticFiles");
@@ -138,33 +137,13 @@ function npmAutoFixAll(cwd, options) {
          * Copy corresponding template files based on project type
          */
         if (_addStaticFiles) {
-            if (rootData.hasWorkspace) {
-                /**
-                 * Workspace 模式：複製 workspace 靜態檔案（.gitignore, .npmignore 等）
-                 * Workspace mode: copy workspace static files
-                 */
-                const file_map = (0, wsCopyStaticFiles_1.getWsCopyStaticFiles)();
-                (0, static_file_1.copyStaticFiles)({
-                    cwd: rootData.ws,
-                    file_map,
-                    ignoreFilesSnapshot,
-                });
-            }
-            else if (rootData.root) {
-                /**
-                 * 單一套件模式：複製根目錄靜態檔案
-                 * Single package mode: copy root static files
-                 */
-                const file_map = (0, getRootCopyStaticFiles_1.getRootCopyStaticFilesAuto)({
-                    ...rootData,
-                    isRoot: true,
-                });
-                (0, static_file_1.copyStaticFiles)({
-                    cwd: rootData.root,
-                    file_map,
-                    ignoreFilesSnapshot,
-                });
-            }
+            /**
+             * 依 rootData 決定目標與清單：workspace 取 ws 與 workspace 清單，單一套件取 root 與套件清單
+             */
+            (0, static_file_1.copyStaticFiles)((0, copyStaticFilesByRootData_1.getCopyStaticFilesOptionsByRootData)(rootData, {
+                ignoreFilesSnapshot,
+                isRoot: true,
+            }));
         }
         logger_1.consoleLogger.info(`check git info`);
         // 取得 hosted git 資訊 / Get hosted git info

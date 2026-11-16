@@ -47,6 +47,7 @@ const root_scripts_1 = require("@yarn-tool/pkg-entry-util/lib/preset/scripts/roo
 const pkg_scripts_1 = require("@yarn-tool/pkg-entry-util/lib/preset/scripts/pkg-scripts");
 const write_package_json_1 = require("@yarn-tool/write-package-json");
 const getRootCopyStaticFiles_1 = require("@yarn-tool/static-file/lib/root/getRootCopyStaticFiles");
+const copyStaticFilesByRootData_1 = require("@yarn-tool/static-file/lib/copyStaticFilesByRootData");
 const scripts_1 = require("@yarn-tool/pkg-entry-util/lib/field/scripts");
 const staticFiles_1 = require("@yarn-tool/fix-all/lib/file/staticFiles");
 /**
@@ -585,10 +586,10 @@ if (!cp.error) {
          * addStaticFiles defaults to true at this call site; disable it with --noStaticFiles
          */
         if ((0, staticFiles_1._isAddStaticFilesOrReset)(cli.argv, true)) {
-            (0, static_file_1.copyStaticFiles)({
+            (0, static_file_1.copyStaticFiles)((0, copyStaticFilesByRootData_1.getCopyStaticFilesOptionsByRootData)(rootData, {
                 cwd: targetDir,
                 file_map,
-            });
+            }));
         }
         /**
          * 生成 README.md（如果需要）

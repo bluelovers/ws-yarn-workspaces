@@ -14,12 +14,6 @@ importers:
       '@lerna/conventional-commits':
         specifier: ^6.4.1
         version: 6.4.1
-      '@yarn-tool/fix-all':
-        specifier: ^3.0.31
-        version: link:packages/@yarn-tool/fix-all
-      '@yarn-tool/get-global-dirs':
-        specifier: ^1.0.11
-        version: link:packages/@yarn-tool/get-global-dirs
       bluebird:
         specifier: ^3.7.2
         version: 3.7.2
@@ -39,8 +33,8 @@ importers:
         specifier: ^10.0.0
         version: 10.0.0
       node-test-maybe:
-        specifier: ^1.0.4
-        version: 1.0.4
+        specifier: ^1.0.5
+        version: 1.0.5(ts-toolbelt@9.6.0)
       semver:
         specifier: ^7.8.6
         version: 7.8.6
@@ -64,8 +58,8 @@ importers:
         specifier: ^3.0.4
         version: 3.0.4
       '@bluelovers/jest-config':
-        specifier: ^1.1.19
-        version: 1.1.19(@jest/transform@30.5.2(supports-color@8.1.1))(@types/bluebird@3.5.42)(@types/node@26.6.6)(debug@4.4.3(supports-color@8.1.1))(ts-toolbelt@9.6.0)
+        specifier: ^1.1.20
+        version: 1.1.20(@jest/transform@30.5.2(supports-color@8.1.1))(@types/bluebird@3.5.42)(@types/node@26.6.6)(debug@4.4.3(supports-color@8.1.1))(ts-toolbelt@9.6.0)
       '@bluelovers/tsconfig':
         specifier: ^2.0.3
         version: 2.0.3
@@ -163,7 +157,7 @@ importers:
         specifier: '*'
         version: link:packages/@yarn-tool/require-resolve
       '@yarn-tool/ws-find-up-paths':
-        specifier: ^1.0.27
+        specifier: '*'
         version: link:packages/@yarn-tool/ws-find-up-paths
       chai:
         specifier: <5 >=4.4.1
@@ -1107,6 +1101,9 @@ importers:
       array-hyper-unique:
         specifier: ^2.1.10
         version: 2.1.10(ts-toolbelt@9.6.0)
+      bluebird:
+        specifier: ^3.7.2
+        version: 3.7.2
       cross-spawn-extra:
         specifier: ^3.0.3
         version: 3.0.3
@@ -1119,6 +1116,9 @@ importers:
       lodash:
         specifier: ^4.18.1
         version: 4.18.1
+      package-json:
+        specifier: <7 >=6.5
+        version: 6.5.0
       sort-object-keys2:
         specifier: ^3.0.10
         version: 3.0.10
@@ -1131,6 +1131,10 @@ importers:
       yargs:
         specifier: <18 >=17.7.2
         version: 17.7.3
+    devDependencies:
+      '@types/bluebird':
+        specifier: ^3.5.42
+        version: 3.5.42
 
   packages/@yarn-tool/pkg-entry-util:
     dependencies:
@@ -1430,6 +1434,9 @@ importers:
 
   packages/@yarn-tool/static-file:
     dependencies:
+      '@yarn-tool/find-root':
+        specifier: ^2.0.30
+        version: link:../find-root
       '@yarn-tool/ignore':
         specifier: ^1.0.9
         version: link:../ignore
@@ -1984,10 +1991,6 @@ importers:
       crlf-normalize:
         specifier: ^1.0.26
         version: 1.0.26(ts-toolbelt@9.6.0)
-    devDependencies:
-      '@yarn-tool/detect-yarnlock-version':
-        specifier: ^2.0.17
-        version: link:../detect-yarnlock-version
 
   packages/@yarn-tool/yarnlock-parsed-to-json:
     dependencies:
@@ -2694,8 +2697,8 @@ packages:
   '@bluelovers/fs-json@1.0.17':
     resolution: {integrity: sha512-u19tW+kliz3ny/fLm/lS3VxCyEmFhZKZ7dX3ZsSELjEEYuvezUaZqPZ6vCgOvLSY7Eue+abi1pf5X5IpYPjFAg==}
 
-  '@bluelovers/jest-config@1.1.19':
-    resolution: {integrity: sha512-5YSim5pObIXY8scmI6ohX3p1k0NLV6dhZQ7guT8P7XBK1nKrXDk+bMQyK3WWjLreML7FoN849LfJSvLZCUOjFw==}
+  '@bluelovers/jest-config@1.1.20':
+    resolution: {integrity: sha512-i170FgGeP3Qakt9K0+5SpBmGV9Mmt5Z5mMQm3u50s47qsJzq2hH+GJfcvXVwra3K1+Eld4FIYVJIuVAHn7/dJg==}
 
   '@bluelovers/string-natural-compare@2.0.15':
     resolution: {integrity: sha512-k+VLJzFdcB2tM0N5l/NS9Ruy8JlOMLbTEJW0hIpVDZyB3YRKMtHDPYDNPooR18vJNSiKk60TdHcEvK1IjYg3Bw==}
@@ -3291,9 +3294,6 @@ packages:
 
   '@ts-type/is-array@1.0.21':
     resolution: {integrity: sha512-/Zg+EoLOcd/GDCPBDPJ66gsTa+KzKB6lE1JOU4pRjmK21MFp2Dcxfg2I3U0rylk44IKXmVaifamPhnKtFEc0HQ==}
-
-  '@ts-type/package-dts@3.0.14':
-    resolution: {integrity: sha512-I+w4Yi/Rh1RI8+dR+xzwoJX89w7+Atz8ciyAoH7x0DlEXw1/iJyFz/py8H1N0qO0mxKETxsi6iJ14mMT8toSxQ==}
 
   '@ts-type/package-dts@3.0.15':
     resolution: {integrity: sha512-vVg30eMjHmn1syUwDnALyHsvxKwGYG2X+HtbkYodfik+9fbcUE0zM+CSqMxwUMI7Q7Gsr9i2iROg03Nca7OVtA==}
@@ -6086,8 +6086,8 @@ packages:
     resolution: {integrity: sha512-YHs7BmmcsdAI5Ozuf8JZo6PT0mv2GIWC9vMfvUC3dp65M8hn7Ux8CPL+2oBI7juNuj9d0ndhTcznq2ODBps9cQ==}
     engines: {node: '>=18'}
 
-  node-test-maybe@1.0.4:
-    resolution: {integrity: sha512-93KevZxxvdDw7ZMFoRpH576iu7kustqnOpSTtSzX44hhRcrELGQNoeHQUehzRmrKjUokwJwXSce/koMwLtYBZg==}
+  node-test-maybe@1.0.5:
+    resolution: {integrity: sha512-ExIQQf0s72zvGIamjNDux8PXiDIC1I5gP90u7c/byeL20uhTF6vPeOw/ZlyeeWrmusoTXQwUhe0G4hulQ8d09Q==}
 
   nopt@10.0.1:
     resolution: {integrity: sha512-df3sBr/6ax9hSGuC3CspvLlbnX8cP5L5nZwXF8cGN8l0zSWR6BvzmQ6jPUKjvo6+/xdpkNvEcucBNUdBeeV13g==}
@@ -7735,7 +7735,7 @@ snapshots:
       jsonfile: 6.2.1
       tslib: 2.8.1
 
-  '@bluelovers/jest-config@1.1.19(@jest/transform@30.5.2(supports-color@8.1.1))(@types/bluebird@3.5.42)(@types/node@26.6.6)(debug@4.4.3(supports-color@8.1.1))(ts-toolbelt@9.6.0)':
+  '@bluelovers/jest-config@1.1.20(@jest/transform@30.5.2(supports-color@8.1.1))(@types/bluebird@3.5.42)(@types/node@26.6.6)(debug@4.4.3(supports-color@8.1.1))(ts-toolbelt@9.6.0)':
     dependencies:
       '@yarn-tool/require-resolve': 4.0.9(ts-toolbelt@9.6.0)
       '@yarn-tool/table': 2.0.22(debug-color2@1.3.2(@types/bluebird@3.5.42)(@types/node@26.6.6)(debug@4.4.3(supports-color@8.1.1))(ts-toolbelt@9.6.0))(ts-toolbelt@9.6.0)
@@ -8708,14 +8708,6 @@ snapshots:
     transitivePeerDependencies:
       - ts-toolbelt
 
-  '@ts-type/package-dts@3.0.14(ts-toolbelt@9.6.0)':
-    dependencies:
-      '@types/semver': 7.8.0
-      ts-type: 3.0.19(ts-toolbelt@9.6.0)
-      tslib: 2.8.1
-    transitivePeerDependencies:
-      - ts-toolbelt
-
   '@ts-type/package-dts@3.0.15(ts-toolbelt@9.6.0)':
     dependencies:
       '@types/semver': 7.8.0
@@ -9144,7 +9136,7 @@ snapshots:
 
   '@yarn-tool/require-resolve@4.0.9(ts-toolbelt@9.6.0)':
     dependencies:
-      '@ts-type/package-dts': 3.0.14(ts-toolbelt@9.6.0)
+      '@ts-type/package-dts': 3.0.15(ts-toolbelt@9.6.0)
       '@yarn-tool/get-paths-by-type': 2.0.19(ts-toolbelt@9.6.0)
       pkg-dir: 5.0.0
       tslib: 2.8.1
@@ -9163,7 +9155,7 @@ snapshots:
 
   '@yarn-tool/table@2.0.22(debug-color2@1.3.2(@types/bluebird@3.5.42)(@types/node@26.6.6)(debug@4.4.3(supports-color@8.1.1))(ts-toolbelt@9.6.0))(ts-toolbelt@9.6.0)':
     dependencies:
-      '@ts-type/package-dts': 3.0.14(ts-toolbelt@9.6.0)
+      '@ts-type/package-dts': 3.0.15(ts-toolbelt@9.6.0)
       '@yarn-tool/semver-diff': 2.0.21(debug-color2@1.3.2(@types/bluebird@3.5.42)(@types/node@26.6.6)(debug@4.4.3(supports-color@8.1.1))(ts-toolbelt@9.6.0))(ts-toolbelt@9.6.0)
       cli-table3: 0.6.5
       tslib: 2.8.1
@@ -12057,10 +12049,13 @@ snapshots:
 
   node-releases@2.0.54: {}
 
-  node-test-maybe@1.0.4:
+  node-test-maybe@1.0.5(ts-toolbelt@9.6.0):
     dependencies:
       cross-spawn: 7.0.6
+      ts-type: 3.0.19(ts-toolbelt@9.6.0)
       tslib: 2.8.1
+    transitivePeerDependencies:
+      - ts-toolbelt
 
   nopt@10.0.1:
     dependencies:
