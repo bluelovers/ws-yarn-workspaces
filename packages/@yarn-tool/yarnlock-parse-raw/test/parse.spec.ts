@@ -9,7 +9,7 @@ import { pathExistsSync } from 'fs-extra';
 import { readFileSync } from 'fs';
 import { parseYarnLockRawV1Root, stringifyYarnLockRawV1 } from '../lib/v1';
 import { parseYarnLockRawV2Root, stringifyYarnLockRawV2 } from '../lib/v2';
-import { detectYarnLockVersionByObject } from '@yarn-tool/detect-yarnlock-version/lib/detectYarnLockVersionByObject';
+import { detectYarnLockVersionByObject } from '../../detect-yarnlock-version/lib/detectYarnLockVersionByObject';
 import { _forEachVersionTags } from '../../../../test/lib/forEachVersionTags';
 
 before(async () =>
