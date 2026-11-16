@@ -1,0 +1,75 @@
+exports[`findRootLazy > <tmpdir> 1`] = `
+null
+`;
+
+exports[`findRootLazy > <ws-yarn-workspaces> 1`] = `
+{
+  "cwd": "<ws-yarn-workspaces>",
+  "pkg": "<ws-yarn-workspaces>",
+  "ws": "<ws-yarn-workspaces>",
+  "hasWorkspace": true,
+  "isWorkspace": true,
+  "root": "<ws-yarn-workspaces>",
+  "isRoot": true
+}
+`;
+
+exports[`findRootLazy > <ws-yarn-workspaces>/packages 1`] = `
+{
+  "cwd": "<ws-yarn-workspaces>/packages",
+  "pkg": "<ws-yarn-workspaces>",
+  "ws": "<ws-yarn-workspaces>",
+  "hasWorkspace": true,
+  "isWorkspace": true,
+  "root": "<ws-yarn-workspaces>",
+  "isRoot": true
+}
+`;
+
+exports[`findRootLazy > <ws-yarn-workspaces>/packages/@yarn-tool 1`] = `
+{
+  "cwd": "<ws-yarn-workspaces>/packages/@yarn-tool",
+  "pkg": "<ws-yarn-workspaces>",
+  "ws": "<ws-yarn-workspaces>",
+  "hasWorkspace": true,
+  "isWorkspace": true,
+  "root": "<ws-yarn-workspaces>",
+  "isRoot": true
+}
+`;
+
+exports[`findRootLazy > <ws-yarn-workspaces>/packages/@yarn-tool/find-root 1`] = `
+{
+  "cwd": "<ws-yarn-workspaces>/packages/@yarn-tool/find-root",
+  "pkg": "<ws-yarn-workspaces>/packages/@yarn-tool/find-root",
+  "ws": "<ws-yarn-workspaces>",
+  "hasWorkspace": true,
+  "isWorkspace": false,
+  "root": "<ws-yarn-workspaces>",
+  "isRoot": false
+}
+`;
+
+exports[`findRootLazy > <ws-yarn-workspaces>/packages/@yarn-tool/find-root/test 1`] = `
+{
+  "cwd": "<ws-yarn-workspaces>/packages/@yarn-tool/find-root/test",
+  "pkg": "<ws-yarn-workspaces>/packages/@yarn-tool/find-root",
+  "ws": "<ws-yarn-workspaces>",
+  "hasWorkspace": true,
+  "isWorkspace": false,
+  "root": "<ws-yarn-workspaces>",
+  "isRoot": false
+}
+`;
+
+exports[`findRootLazy > <ws-yarn-workspaces>/packages/@yarn-tool/find-root/test/fixtures 1`] = `
+{
+  "cwd": "<ws-yarn-workspaces>/packages/@yarn-tool/find-root/test/fixtures",
+  "pkg": "<ws-yarn-workspaces>/packages/@yarn-tool/find-root",
+  "ws": "<ws-yarn-workspaces>",
+  "hasWorkspace": true,
+  "isWorkspace": false,
+  "root": "<ws-yarn-workspaces>",
+  "isRoot": false
+}
+`;
