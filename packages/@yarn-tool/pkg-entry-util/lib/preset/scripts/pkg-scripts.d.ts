@@ -69,6 +69,9 @@ export declare function defaultPkgNotOldExists(): {
     "test:jest:coverage": string;
     "test:tsdx": string;
     "test:node:coverage": string;
+    "test:playwright": string;
+    "test:playwright:headed": string;
+    "test:playwright:ui": string;
     "build:dts:bundle": EnumScriptsEntry;
     "build:dts:copy": EnumScriptsEntry;
     "build:dts:tsc:emit": EnumScriptsEntry;
