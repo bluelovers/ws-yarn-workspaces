@@ -94,7 +94,7 @@ const _defaultCopyStaticFiles = [
  * 這些檔案通常僅屬於單個套件。
  */
 const _defaultCopyStaticFilesPkgOnly = [
-    ['playwright.config.ts', 'file/playwright.config.ts', 'playwright.config.js'],
+    ['playwright.config.ts.tpl', 'file/playwright.config.ts', 'playwright.config.ts'],
 ];
 /**
  * Default static files for root-level only copying / 僅根目錄層級複製的預設靜態檔案

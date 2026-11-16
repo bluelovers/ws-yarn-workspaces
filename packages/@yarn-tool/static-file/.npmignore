@@ -186,6 +186,7 @@ file/test/temp.js.map
 !file/npmignore
 !file/npmrc
 !file/nvmrc
+!file/playwright.config.ts
 !file/pnpm-workspace.yaml
 !file/root/global.tsdx.d.ts
 !file/root/yarnrc.yml

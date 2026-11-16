@@ -30,7 +30,7 @@ declare const _defaultCopyStaticFiles: [[".npmignore", "file/npmignore"], [".git
  * These files are typically unique to each package.
  * 這些檔案通常僅屬於單個套件。
  */
-declare const _defaultCopyStaticFilesPkgOnly: [["playwright.config.ts", "file/playwright.config.ts", "playwright.config.js"]];
+declare const _defaultCopyStaticFilesPkgOnly: [["playwright.config.ts.tpl", "file/playwright.config.ts", "playwright.config.ts"]];
 /**
  * Default static files for root-level only copying / 僅根目錄層級複製的預設靜態檔案
  *
