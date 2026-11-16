@@ -56,6 +56,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
+    "@yarn-tool/find-root": "^2.0.30",
     "@yarn-tool/ignore": "^1.0.9",
     "array-hyper-unique": "^2.1.10",
     "fs-extra": "^11.4.1",
