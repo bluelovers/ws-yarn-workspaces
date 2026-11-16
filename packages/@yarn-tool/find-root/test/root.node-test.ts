@@ -5,22 +5,7 @@ import { join } from "upath2";
 import { findRootLazy, IFindRootReturnType } from "../index";
 import { _normalizePathForSnapshot } from "../../../../test/lib/normalizePathForSnapshot";
 import { test, TestContext } from "node:test";
-
-function _sanitizationFindRootReturn(result: IFindRootReturnType)
-{
-	if (!result)
-	{
-		return result;
-	}
-
-	return {
-		...result,
-		cwd: _normalizePathForSnapshot(result.cwd),
-		pkg: _normalizePathForSnapshot(result.pkg),
-		ws: _normalizePathForSnapshot(result.ws),
-		root: _normalizePathForSnapshot(result.root),
-	};
-}
+import { _sanitizationFindRootReturn } from './lib/sanitization';
 
 test('findRootLazy', () =>
 {

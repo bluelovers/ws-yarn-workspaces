@@ -23,27 +23,16 @@ import { _isPathForSnapshot, _normalizePathForSnapshot } from '../../../../test/
  */
 const cwd = __dirname;
 
-/**
- * 快照前標準化路徑 / Normalize paths before snapshotting
- *
- * 僅改寫含 workspace 特徵的絕對路徑；entry 內的相對路徑保持原樣
- * Only absolute paths carrying a workspace marker are rewritten; relative paths inside entry stay untouched
- */
-function _toSnapshotPath(path: string)
-{
-	return _isPathForSnapshot(path) ? _normalizePathForSnapshot(path, undefined) : path;
-}
-
 describe('_handleCopyStaticFilesOptions', () =>
 {
-	test('預設值 + 必填參數 / defaults with only the required param', (t) =>
+	test('預設值 + 必填參數', (t) =>
 	{
 		const actual = _handleCopyStaticFilesOptions({ cwd });
 
 		const snapshot = {
 			...actual,
-			cwd: _toSnapshotPath(actual.cwd),
-			staticRoot: _toSnapshotPath(actual.staticRoot),
+			cwd: _normalizePathForSnapshot(actual.cwd),
+			staticRoot: _normalizePathForSnapshot(actual.staticRoot),
 		};
 
 		t.assert.snapshot(snapshot);
@@ -52,7 +41,7 @@ describe('_handleCopyStaticFilesOptions', () =>
 
 describe('_copyStaticFilesCoreListGenerator', () =>
 {
-	test('預設值 + 必填參數 / defaults with only the required param', (t) =>
+	test('預設值 + 必填參數', (t) =>
 	{
 		/**
 		 * 保留實際產出的結構（entry / runtime / copy），只標準化 runtime 內的絕對路徑；
@@ -67,8 +56,8 @@ describe('_copyStaticFilesCoreListGenerator', () =>
 				...item,
 				runtime: {
 					...item.runtime,
-					targetFileFull: _toSnapshotPath(item.runtime.targetFileFull),
-					staticFileFull: _toSnapshotPath(item.runtime.staticFileFull),
+					targetFileFull: _normalizePathForSnapshot(item.runtime.targetFileFull),
+					staticFileFull: _normalizePathForSnapshot(item.runtime.staticFileFull),
 				},
 				copy: typeof item.copy,
 			}));
