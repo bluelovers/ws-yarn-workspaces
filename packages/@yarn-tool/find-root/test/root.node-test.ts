@@ -25,22 +25,49 @@ function _sanitizationFindRootReturn(result: IFindRootReturnType)
 test('findRootLazy', () =>
 {
 
-	[
-		__ROOT_WS,
-		join(__ROOT_WS, 'packages'),
-		join(__ROOT_WS, 'packages', '@yarn-tool'),
-		join(__ROOT_WS, 'packages', '@yarn-tool', 'find-root'),
-		join(__ROOT_WS, 'packages', '@yarn-tool', 'find-root', 'test'),
-		join(__ROOT_WS, 'packages', '@yarn-tool', 'find-root', 'test', 'fixtures'),
-		tmpdir(),
-	].forEach((path) => {
+	const _testPaths: [cwd: string, rootData?: Partial<IFindRootReturnType>][] = [
+		[__ROOT_WS, {
+			isRoot: true,
+			isWorkspace: true,
+			isPkg: false,
+		}],
+		[join(__ROOT_WS, 'packages'), {
+			hasWorkspace: true,
+		}],
+		[join(__ROOT_WS, 'packages', '@yarn-tool'), {
+			hasWorkspace: true,
+		}],
+		[join(__ROOT_WS, 'packages', '@yarn-tool', 'find-root'), {
+			isRoot: false,
+			isWorkspace: false,
+			isPkg: true,
+		}],
+		[join(__ROOT_WS, 'packages', '@yarn-tool', 'find-root', 'test'), {
+			hasWorkspace: true,
+		}],
+		[join(__ROOT_WS, 'packages', '@yarn-tool', 'find-root', 'test', 'fixtures'), {
+			hasWorkspace: true,
+		}],
+		[tmpdir(), null],
+	];
 
-		const pathSanitization = _normalizePathForSnapshot(path);
+	_testPaths.forEach(([cwd, rootData]) => {
+
+		const pathSanitization = _normalizePathForSnapshot(cwd);
 
 		test(pathSanitization, (t: TestContext) => {
 			const result = findRootLazy({
-				cwd: path
+				cwd
 			});
+
+			if (rootData)
+			{
+				t.assert.partialDeepStrictEqual(result, rootData);
+			}
+			else if (rootData === null)
+			{
+				t.assert.equal(result, null);
+			}
 
 			t.assert.snapshot(_sanitizationFindRootReturn(result));
 		});

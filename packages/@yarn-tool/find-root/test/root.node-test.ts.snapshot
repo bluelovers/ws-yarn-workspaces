@@ -10,7 +10,8 @@ exports[`findRootLazy > <ws-yarn-workspaces> 1`] = `
   "hasWorkspace": true,
   "isWorkspace": true,
   "root": "<ws-yarn-workspaces>",
-  "isRoot": true
+  "isRoot": true,
+  "isPkg": false
 }
 `;
 
@@ -22,7 +23,8 @@ exports[`findRootLazy > <ws-yarn-workspaces>/packages 1`] = `
   "hasWorkspace": true,
   "isWorkspace": true,
   "root": "<ws-yarn-workspaces>",
-  "isRoot": true
+  "isRoot": true,
+  "isPkg": false
 }
 `;
 
@@ -34,7 +36,8 @@ exports[`findRootLazy > <ws-yarn-workspaces>/packages/@yarn-tool 1`] = `
   "hasWorkspace": true,
   "isWorkspace": true,
   "root": "<ws-yarn-workspaces>",
-  "isRoot": true
+  "isRoot": true,
+  "isPkg": false
 }
 `;
 
@@ -46,7 +49,8 @@ exports[`findRootLazy > <ws-yarn-workspaces>/packages/@yarn-tool/find-root 1`] =
   "hasWorkspace": true,
   "isWorkspace": false,
   "root": "<ws-yarn-workspaces>",
-  "isRoot": false
+  "isRoot": false,
+  "isPkg": true
 }
 `;
 
@@ -58,7 +62,8 @@ exports[`findRootLazy > <ws-yarn-workspaces>/packages/@yarn-tool/find-root/test 
   "hasWorkspace": true,
   "isWorkspace": false,
   "root": "<ws-yarn-workspaces>",
-  "isRoot": false
+  "isRoot": false,
+  "isPkg": true
 }
 `;
 
@@ -70,6 +75,7 @@ exports[`findRootLazy > <ws-yarn-workspaces>/packages/@yarn-tool/find-root/test/
   "hasWorkspace": true,
   "isWorkspace": false,
   "root": "<ws-yarn-workspaces>",
-  "isRoot": false
+  "isRoot": false,
+  "isPkg": true
 }
 `;

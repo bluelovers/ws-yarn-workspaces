@@ -39,8 +39,7 @@ export interface IFindRootReturnType
 	root: string;
 	/** Whether current directory is project root */
 	isRoot: boolean;
-
-	/** Whether current directory is package directory */
+	/** Whether current directory is package directory and not workspace root */
 	isPkg: boolean;
 }
 
@@ -161,6 +160,8 @@ export function findRoot(options: IFindRootOptions, _throwError?: boolean): IFin
 	const root = hasWorkspace ? ws : pkg;
 	/** 判斷當前目錄是否為專案根目錄 */
 	const isRoot = pathEqual(root, pkg);
+	/** 判斷當前目錄是否為套件目錄 並且 不是 workspace 根目錄 */
+	const isPkg = !isWorkspace && pkg?.length > 0;
 
 	/** 若根目錄無效，返回 null */
 	if (!root?.length)
@@ -177,6 +178,7 @@ export function findRoot(options: IFindRootOptions, _throwError?: boolean): IFin
 		isWorkspace,
 		root,
 		isRoot,
+		isPkg,
 	} satisfies IFindRootReturnType;
 
 	/** 若要求必須有 workspace 配置，執行斷言檢查 */
