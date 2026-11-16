@@ -1,4 +1,4 @@
-exports[`_copyStaticFilesCoreListGenerator > 預設值 + 必填參數 / defaults with only the required param 1`] = `
+exports[`_copyStaticFilesCoreListGenerator > 預設值 + 必填參數 1`] = `
 [
   {
     "entry": [
@@ -126,21 +126,6 @@ exports[`_copyStaticFilesCoreListGenerator > 預設值 + 必填參數 / defaults
       "staticFile": "file/eslintrc.json.tpl",
       "targetFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/test/.eslintrc.json.tpl",
       "staticFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/file/eslintrc.json.tpl",
-      "overwrite": false
-    },
-    "copy": "function"
-  },
-  {
-    "entry": [
-      "playwright.config.ts",
-      "file/playwright.config.ts",
-      "playwright.config.js"
-    ],
-    "runtime": {
-      "targetFile": "playwright.config.ts",
-      "staticFile": "file/playwright.config.ts",
-      "targetFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/test/playwright.config.ts",
-      "staticFileFull": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/file/playwright.config.ts",
       "overwrite": false
     },
     "copy": "function"
@@ -346,7 +331,7 @@ exports[`_copyStaticFilesCoreListGenerator > 預設值 + 必填參數 / defaults
 ]
 `;
 
-exports[`_handleCopyStaticFilesOptions > 預設值 + 必填參數 / defaults with only the required param 1`] = `
+exports[`_handleCopyStaticFilesOptions > 預設值 + 必填參數 1`] = `
 {
   "cwd": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file/test",
   "staticRoot": "<ws-yarn-workspaces>/packages/@yarn-tool/static-file",
@@ -390,11 +375,6 @@ exports[`_handleCopyStaticFilesOptions > 預設值 + 必填參數 / defaults wit
       ".eslintrc.json.tpl",
       "file/eslintrc.json.tpl",
       ".eslintrc.json"
-    ],
-    [
-      "playwright.config.ts",
-      "file/playwright.config.ts",
-      "playwright.config.js"
     ],
     [
       "README.md",

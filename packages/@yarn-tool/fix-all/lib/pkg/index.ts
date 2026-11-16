@@ -24,7 +24,7 @@ import { sortPackageJson } from 'sort-package-json3';
 import { fixPkgDepsVersionsCore, ICache, ICacheInput } from '@yarn-tool/fix-ws-versions';
 import { packageJsonDependenciesFields } from '@ts-type/package-dts/lib/package-json/types';
 import { normalizeDepsValue } from '@yarn-tool/normalize-deps-value';
-import { getRootCopyStaticFilesAuto } from '@yarn-tool/static-file/lib/root/getRootCopyStaticFiles';
+import { getCopyStaticFilesOptionsByRootData } from '@yarn-tool/static-file/lib/copyStaticFilesByRootData';
 import { copyStaticFiles } from '@yarn-tool/static-file';
 import { _readIgnoreFilesSnapshot } from '@yarn-tool/static-file/lib/mergeIgnoreFiles';
 import { defaultPkgScripts } from '@yarn-tool/pkg-entry-util/lib/preset/scripts/pkg-scripts';
@@ -176,11 +176,13 @@ export function _runFixPackagesCore(row: IEntry, options: IOptionsRunEachPackage
 	 */
 	if (_addStaticFiles)
 	{
-		copyStaticFiles({
+		/**
+		 * 覆寫 cwd 為套件目錄，file_map 依 _rootDataFake 的旗標以套件模式判定
+		 */
+		copyStaticFiles(getCopyStaticFilesOptionsByRootData(_rootDataFake, {
 			cwd: row.location,
-			file_map: getRootCopyStaticFilesAuto(_rootDataFake),
 			ignoreFilesSnapshot,
-		});
+		}));
 	}
 
 	// 若 README.md 不存在或小於 1KB 則自動生成 / Auto-generate README.md if it doesn't exist or is smaller than 1KB

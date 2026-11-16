@@ -15,8 +15,7 @@ import { consoleLogger } from 'debug-color2/logger';
 import Bluebird from 'bluebird';
 import { copyStaticFiles } from '@yarn-tool/static-file';
 import { _readIgnoreFilesSnapshot } from '@yarn-tool/static-file/lib/mergeIgnoreFiles';
-import { getWsCopyStaticFiles } from '@yarn-tool/static-file/lib/ws/wsCopyStaticFiles';
-import { getRootCopyStaticFilesAuto } from '@yarn-tool/static-file/lib/root/getRootCopyStaticFiles';
+import { getCopyStaticFilesOptionsByRootData } from '@yarn-tool/static-file/lib/copyStaticFilesByRootData';
 import { _fixLernaJson } from './lib/ws/lerna';
 import { _resetStaticFiles } from './lib/file/reset';
 import { _isAddStaticFilesOrReset } from './lib/file/staticFiles';
@@ -225,37 +224,13 @@ export function npmAutoFixAll(cwd: string, options?: INpmAutoFixAll)
 		 */
 		if (_addStaticFiles)
 		{
-			if (rootData.hasWorkspace)
-			{
-				/**
-				 * Workspace 模式：複製 workspace 靜態檔案（.gitignore, .npmignore 等）
-				 * Workspace mode: copy workspace static files
-				 */
-				const file_map = getWsCopyStaticFiles();
-
-				copyStaticFiles({
-					cwd: rootData.ws,
-					file_map,
-					ignoreFilesSnapshot,
-				});
-			}
-			else if (rootData.root)
-			{
-				/**
-				 * 單一套件模式：複製根目錄靜態檔案
-				 * Single package mode: copy root static files
-				 */
-				const file_map = getRootCopyStaticFilesAuto({
-					...rootData,
-					isRoot: true,
-				});
-
-				copyStaticFiles({
-					cwd: rootData.root,
-					file_map,
-					ignoreFilesSnapshot,
-				});
-			}
+			/**
+			 * 依 rootData 決定目標與清單：workspace 取 ws 與 workspace 清單，單一套件取 root 與套件清單
+			 */
+			copyStaticFiles(getCopyStaticFilesOptionsByRootData(rootData, {
+				ignoreFilesSnapshot,
+				isRoot: true,
+			}));
 		}
 
 		consoleLogger.info(`check git info`);

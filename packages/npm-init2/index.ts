@@ -47,6 +47,7 @@ import { defaultRootScripts } from '@yarn-tool/pkg-entry-util/lib/preset/scripts
 import { defaultPkgNotOldExists } from '@yarn-tool/pkg-entry-util/lib/preset/scripts/pkg-scripts';
 import { outputPackageJSONSync } from '@yarn-tool/write-package-json';
 import { getRootCopyStaticFilesAuto } from '@yarn-tool/static-file/lib/root/getRootCopyStaticFiles';
+import { getCopyStaticFilesOptionsByRootData } from '@yarn-tool/static-file/lib/copyStaticFilesByRootData';
 import { EnumScriptsEntry, scriptsEntryIsNoTestSpecified } from '@yarn-tool/pkg-entry-util/lib/field/scripts';
 import { _isAddStaticFilesOrReset } from '@yarn-tool/fix-all/lib/file/staticFiles';
 
@@ -702,10 +703,10 @@ if (!cp.error)
 		 */
 		if (_isAddStaticFilesOrReset(cli.argv, true))
 		{
-			copyStaticFiles({
+			copyStaticFiles(getCopyStaticFilesOptionsByRootData(rootData, {
 				cwd: targetDir,
 				file_map,
-			})
+			}))
 		}
 
 		/**

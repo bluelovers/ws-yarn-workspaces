@@ -49,8 +49,6 @@ const _defaultCopyStaticFiles = [
 	 */
 	['.eslintrc.json.tpl', 'file/eslintrc.json.tpl', '.eslintrc.json'],
 
-	['playwright.config.ts', 'file/playwright.config.ts', 'playwright.config.js'],
-
 	/**
 	 * 文件
 	 * Documentation
@@ -110,6 +108,21 @@ const _defaultCopyStaticFiles = [
 	] as const satisfies IStaticFilesMapArrayEntry<string>)),
 
 	//['changelog-option.js.tpl', 'file/changelog-option.js', 'changelog-option.js'],
+
+] as const satisfies IStaticFilesMapArray<string>;
+
+/**
+ * Default static files for package-level only copying / 僅套件層級複製的預設靜態檔案
+ *
+ * Contains configuration files that should only be copied to individual packages. not workspace root.
+ * 包含僅應複製到各個套件的配置檔案。不複製到工作區根目錄。
+ *
+ * These files are typically unique to each package.
+ * 這些檔案通常僅屬於單個套件。
+ */
+const _defaultCopyStaticFilesPkgOnly = [
+
+	['playwright.config.ts', 'file/playwright.config.ts', 'playwright.config.js'],
 
 ] as const satisfies IStaticFilesMapArray<string>;
 
@@ -289,6 +302,14 @@ const _defaultCopyStaticFilesWsRootOnly = [
  * 用於將靜態檔案複製到各個套件。
  */
 export const defaultCopyStaticFiles = Object.freeze(_defaultCopyStaticFiles) as any as IStaticFilesMapArray<_Key<typeof _defaultCopyStaticFiles>>;
+
+/**
+ * Frozen default static files for package-level only / 凍結的僅套件層級預設靜態檔案
+ *
+ * Use this for copying static files to individual packages only and not workspace root.
+ * 用於將靜態檔案僅複製到各個套件，不複製到工作區根目錄。
+ */
+export const defaultCopyStaticFilesPkgOnly = Object.freeze(_defaultCopyStaticFilesPkgOnly) as any as IStaticFilesMapArray<_Key<typeof _defaultCopyStaticFilesPkgOnly>>;
 
 /**
  * Frozen default static files for root-level only / 凍結的僅根目錄層級預設靜態檔案

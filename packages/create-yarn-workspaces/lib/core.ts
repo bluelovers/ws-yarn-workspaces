@@ -10,7 +10,7 @@ import { _isAddStaticFilesOrReset } from '@yarn-tool/fix-all/lib/file/staticFile
 import { copyStaticFiles } from '@yarn-tool/static-file';
 import { sortPackageJson } from 'sort-package-json3';
 import { consoleLogger as console } from 'debug-color2/logger';
-import { getWsCopyStaticFiles } from '@yarn-tool/static-file/lib/ws/wsCopyStaticFiles';
+import { getCopyStaticFilesOptionsByRootData } from '@yarn-tool/static-file/lib/copyStaticFilesByRootData';
 
 /**
  * 創建 Workspaces 的選項介面
@@ -341,20 +341,20 @@ export function _createYarnWorkspaces(targetPath: string, options: IOptions = {}
 
 	/**
 	 * 複製靜態範本檔案
-	 */
-	const file_map = getWsCopyStaticFiles();
-
-	/**
-	 * 複製靜態範本檔案
 	 *
 	 * 此呼叫點 addStaticFiles 預設為 true，可用 noStaticFiles 關閉
 	 */
 	if (_isAddStaticFilesOrReset(options, true))
 	{
-		copyStaticFiles({
+		/**
+		 * 剛寫入的 package.json 已含 workspaces，重新尋找即可取得新 workspace 的 rootData，
+		 * 由 getCopyStaticFilesOptionsByRootData 決定目標與 workspace 清單
+		 */
+		const rootData = findRootLazy({
 			cwd: targetPath,
-			file_map,
 		});
+
+		copyStaticFiles(getCopyStaticFilesOptionsByRootData(rootData));
 	}
 
 	/**
