@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.36](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.35...@yarn-tool/static-file@3.0.36) (2026-11-16)
+
+
+
+### 📦　Code Refactoring
+
+* **static-file:** 優化靜態檔案映射邏輯與測試覆蓋率 ([b781405](https://github.com/bluelovers/ws-yarn-workspaces/commit/b78140548f2030af06b2f6438a1a3ee491348011))
+* **static-file:** 更新套件專用靜態檔案的模板與測試比對邏輯 ([0b89ac1](https://github.com/bluelovers/ws-yarn-workspaces/commit/0b89ac11375c60c48ff224dabe4b5d1e8560d1b2))
+
+
+### 🚨　Tests
+
+* **static-file:** 更新 npmignore 靜態檔案更新腳本 ([2e7c28f](https://github.com/bluelovers/ws-yarn-workspaces/commit/2e7c28f37e6f812fe1b66ccd0a1b2c79c03d4421))
+
+
+### 🔖　Miscellaneous
+
+* . ([ba4fbbb](https://github.com/bluelovers/ws-yarn-workspaces/commit/ba4fbbb60ac9aa8e7952355c8fcd8d8adf7c788e))
+* . ([9c136b7](https://github.com/bluelovers/ws-yarn-workspaces/commit/9c136b7d1704a72671ece305c9ba2b7f57a2a688))
+
+
 ## [3.0.35](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.34...@yarn-tool/static-file@3.0.35) (2026-11-16)
 
 
