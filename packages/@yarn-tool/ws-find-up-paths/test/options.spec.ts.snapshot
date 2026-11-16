@@ -21,7 +21,8 @@ exports[`ignoreCurrentPackage 1`] = `
     "hasWorkspace": true,
     "isWorkspace": false,
     "root": "D:/Users/WebstormProjects/nodejs-yarn/ws-yarn-workspaces",
-    "isRoot": false
+    "isRoot": false,
+    "isPkg": true
   }
 }
 `;
