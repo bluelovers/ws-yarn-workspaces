@@ -45,6 +45,7 @@
     "npm:publish": "npm publish",
     "preversion": "pnpm run test",
     "prepublishOnly": "node --run fix:ignore && node --run fix:ignore:commit",
+    "bin:self": "node --run prepublishOnly",
     "fix:ignore": "node --run fix:ignore:build && node --run fix:ignore:copy && node --run fix:ignore:merge",
     "fix:ignore:build": "tsx test/scripts/compose-split-ignore-files.ts",
     "fix:ignore:commit": "git commit -m \"chore: update ignore files\" ./test/fixtures/split ./test/fixtures/out ./file/gitignore ./file/npmignore & echo fix:ignore:commit done",

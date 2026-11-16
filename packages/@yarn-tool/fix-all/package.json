@@ -33,6 +33,9 @@
   "license": "ISC",
   "author": "bluelovers",
   "main": "index.js",
+  "bin": {
+    "fix-all": "./bin/fix-all.js"
+  },
   "scripts": {
     "coverage": "pnpm run test -- --coverage",
     "lint": "ynpx --quiet eslint -- **/*.ts",
@@ -64,6 +67,7 @@
     "publish": "echo publish",
     "postpublish": "echo postpublish",
     "postpublishOnly": "echo postpublishOnly",
+    "bin:self": "pnpm run --filter @yarn-tool/static-file bin:self && tsx ./bin/fix-all.ts",
     "ncu": "yarn-tool ncu -u",
     "sort-package-json": "yarn-tool sort",
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
