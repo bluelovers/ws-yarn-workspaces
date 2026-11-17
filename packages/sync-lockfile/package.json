@@ -1,6 +1,6 @@
 {
   "name": "sync-lockfile",
-  "version": "3.0.18",
+  "version": "3.0.19",
   "description": "sync yarn.lock to each packages in yarn workspaces",
   "keywords": [
     "sync",
