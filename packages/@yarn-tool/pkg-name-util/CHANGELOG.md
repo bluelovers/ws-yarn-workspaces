@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.18](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-name-util@1.0.17...@yarn-tool/pkg-name-util@1.0.18) (2026-11-17)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([9562e17](https://github.com/bluelovers/ws-yarn-workspaces/commit/9562e17a66fd1f97b655ced8f2488240a582ec5c))
+
+
 ## [1.0.17](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-name-util@1.0.16...@yarn-tool/pkg-name-util@1.0.17) (2026-11-03)
 
 

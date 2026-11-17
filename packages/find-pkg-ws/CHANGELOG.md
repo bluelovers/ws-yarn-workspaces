@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.59](https://github.com/bluelovers/ws-yarn-workspaces/compare/find-pkg-ws@1.0.58...find-pkg-ws@1.0.59) (2026-11-17)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([9562e17](https://github.com/bluelovers/ws-yarn-workspaces/commit/9562e17a66fd1f97b655ced8f2488240a582ec5c))
+
+
 ## [1.0.58](https://github.com/bluelovers/ws-yarn-workspaces/compare/find-pkg-ws@1.0.57...find-pkg-ws@1.0.58) (2026-11-03)
 
 

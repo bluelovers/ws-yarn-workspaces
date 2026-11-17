@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/pack-package",
-  "version": "3.0.21",
+  "version": "3.0.22",
   "description": "pack package, and print information about packed tar",
   "keywords": [
     "pack",
@@ -53,8 +53,8 @@
     "tslib": ">=2.8.1"
   },
   "devDependencies": {
-    "@yarn-tool/require-resolve": "^4.0.17",
-    "@yarn-tool/script-lifecycle": "^2.0.22"
+    "@yarn-tool/require-resolve": "^4.0.18",
+    "@yarn-tool/script-lifecycle": "^2.0.23"
   },
   "engines": {
     "node": ">=16.14.0"

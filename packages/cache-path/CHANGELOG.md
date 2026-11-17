@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.22](https://github.com/bluelovers/ws-yarn-workspaces/compare/cache-path@4.0.21...cache-path@4.0.22) (2026-11-17)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([9562e17](https://github.com/bluelovers/ws-yarn-workspaces/commit/9562e17a66fd1f97b655ced8f2488240a582ec5c))
+
+
 ## [4.0.21](https://github.com/bluelovers/ws-yarn-workspaces/compare/cache-path@4.0.20...cache-path@4.0.21) (2026-11-17)
 
 **Note:** Version bump only for package cache-path

@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/node-modules-link",
-  "version": "3.0.22",
+  "version": "3.0.23",
   "description": "link package to node_modules",
   "keywords": [
     "node_modules",
@@ -53,9 +53,9 @@
   },
   "dependencies": {
     "@ts-type/package-dts": "^3.0.15",
-    "@yarn-tool/find-root": "^2.0.33",
-    "@yarn-tool/node-modules": "^3.0.22",
-    "find-yarn-workspace-root2": "^1.2.59",
+    "@yarn-tool/find-root": "^2.0.34",
+    "@yarn-tool/node-modules": "^3.0.23",
+    "find-yarn-workspace-root2": "^1.2.60",
     "fs-extra": "^11.4.1",
     "fs-symlink-extra": "^1.0.26",
     "tslib": ">=2.8.1",

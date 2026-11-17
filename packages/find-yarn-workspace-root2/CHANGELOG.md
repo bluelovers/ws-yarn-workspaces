@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.60](https://github.com/bluelovers/ws-yarn-workspaces/compare/find-yarn-workspace-root2@1.2.59...find-yarn-workspace-root2@1.2.60) (2026-11-17)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([9562e17](https://github.com/bluelovers/ws-yarn-workspaces/commit/9562e17a66fd1f97b655ced8f2488240a582ec5c))
+
+
 ## [1.2.59](https://github.com/bluelovers/ws-yarn-workspaces/compare/find-yarn-workspace-root2@1.2.58...find-yarn-workspace-root2@1.2.59) (2026-11-03)
 
 
