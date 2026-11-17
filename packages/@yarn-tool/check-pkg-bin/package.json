@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/check-pkg-bin",
-  "version": "4.0.23",
+  "version": "4.0.24",
   "description": "check pkg bin has shebang",
   "keywords": [
     "shebang",
@@ -64,7 +64,7 @@
     "string-natural-compare2": "^3.0.1",
     "tslib": ">=2.8.1",
     "upath2": "^3.1.25",
-    "ws-pkg-list": "^3.0.18",
+    "ws-pkg-list": "^3.0.19",
     "yargs": "<18 >=17.7.2"
   },
   "publishConfig": {

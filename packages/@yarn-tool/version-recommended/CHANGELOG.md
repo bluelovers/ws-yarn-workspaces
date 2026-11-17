@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.28](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/version-recommended@3.0.27...@yarn-tool/version-recommended@3.0.28) (2026-11-17)
+
+**Note:** Version bump only for package @yarn-tool/version-recommended
+
+
+
+
+
 ## [3.0.27](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/version-recommended@3.0.26...@yarn-tool/version-recommended@3.0.27) (2026-11-17)
 
 **Note:** Version bump only for package @yarn-tool/version-recommended

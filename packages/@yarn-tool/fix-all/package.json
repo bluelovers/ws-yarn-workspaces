@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/fix-all",
-  "version": "3.0.37",
+  "version": "3.0.38",
   "description": "一站式自動修復工具，支援 git 資訊更新、靜態檔案同步、版本修正與 workspace 管理 (All-in-one auto-fix tool for git info update, static file sync, version fix, and workspace management)",
   "keywords": [
     "fix-all",
@@ -75,7 +75,7 @@
   "dependencies": {
     "@ts-type/package-dts": "^3.0.15",
     "@yarn-tool/find-root": "^2.0.32",
-    "@yarn-tool/fix-ws-versions": "^3.0.21",
+    "@yarn-tool/fix-ws-versions": "^3.0.22",
     "@yarn-tool/normalize-deps-value": "^2.0.17",
     "@yarn-tool/pkg-deps-add": "^3.0.17",
     "@yarn-tool/pkg-entry-util": "^3.0.30",
@@ -104,7 +104,7 @@
     "ts-type": "^3.0.19",
     "tslib": ">=2.8.1",
     "upath2": "^3.1.25",
-    "ws-pkg-list": "^3.0.18",
+    "ws-pkg-list": "^3.0.19",
     "yargs": "<18 >=17.7.2"
   },
   "publishConfig": {

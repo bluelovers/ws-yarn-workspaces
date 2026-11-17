@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-pkg-list@3.0.18...ws-pkg-list@3.0.19) (2026-11-17)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([a83156b](https://github.com/bluelovers/ws-yarn-workspaces/commit/a83156b150e4ff613f1d3b202e2285769c0c4479))
+
+
 ## [3.0.18](https://github.com/bluelovers/ws-yarn-workspaces/compare/ws-pkg-list@3.0.17...ws-pkg-list@3.0.18) (2026-11-16)
 
 **Note:** Version bump only for package ws-pkg-list
