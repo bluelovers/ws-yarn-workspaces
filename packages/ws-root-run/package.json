@@ -1,6 +1,6 @@
 {
   "name": "ws-root-spawn",
-  "version": "1.0.60",
+  "version": "1.0.61",
   "description": "run/exec a command in the workspaces root directory (yarn / npm / lerna)",
   "keywords": [
     "workspaces",

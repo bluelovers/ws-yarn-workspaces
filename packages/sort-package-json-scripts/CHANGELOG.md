@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.40](https://github.com/bluelovers/ws-yarn-workspaces/compare/sort-package-json-scripts@1.1.39...sort-package-json-scripts@1.1.40) (2026-11-17)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([92bd5c9](https://github.com/bluelovers/ws-yarn-workspaces/commit/92bd5c9ca30da6900a650b833afcb0ade485b06a))
+
+
 ## [1.1.39](https://github.com/bluelovers/ws-yarn-workspaces/compare/sort-package-json-scripts@1.1.38...sort-package-json-scripts@1.1.39) (2026-11-03)
 
 

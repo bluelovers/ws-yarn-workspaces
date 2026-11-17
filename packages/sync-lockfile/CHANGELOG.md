@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.21](https://github.com/bluelovers/ws-yarn-workspaces/compare/sync-lockfile@3.0.20...sync-lockfile@3.0.21) (2026-11-17)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([92bd5c9](https://github.com/bluelovers/ws-yarn-workspaces/commit/92bd5c9ca30da6900a650b833afcb0ade485b06a))
+
+
 ## [3.0.20](https://github.com/bluelovers/ws-yarn-workspaces/compare/sync-lockfile@3.0.19...sync-lockfile@3.0.20) (2026-11-17)
 
 **Note:** Version bump only for package sync-lockfile

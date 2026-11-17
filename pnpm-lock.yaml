@@ -253,7 +253,7 @@ importers:
         specifier: ^3.1.25
         version: 3.1.25(ts-toolbelt@9.6.0)
       ws-pkg-list:
-        specifier: ^3.0.19
+        specifier: ^3.0.20
         version: link:../../ws-pkg-list
       yargs:
         specifier: <18 >=17.7.2
@@ -301,7 +301,7 @@ importers:
         specifier: ^3.1.25
         version: 3.1.25(ts-toolbelt@9.6.0)
       ws-pkg-list:
-        specifier: ^3.0.19
+        specifier: ^3.0.20
         version: link:../../ws-pkg-list
       yargs:
         specifier: <18 >=17.7.2
@@ -377,7 +377,7 @@ importers:
         specifier: '>=2.8.1'
         version: 2.8.1
       ws-pkg-list:
-        specifier: ^3.0.19
+        specifier: ^3.0.20
         version: link:../../ws-pkg-list
 
   packages/@yarn-tool/find-root:
@@ -425,7 +425,7 @@ importers:
         specifier: ^2.0.32
         version: link:../find-root
       '@yarn-tool/fix-ws-versions':
-        specifier: ^3.0.22
+        specifier: ^3.0.23
         version: link:../fix-ws-versions
       '@yarn-tool/normalize-deps-value':
         specifier: ^2.0.17
@@ -488,7 +488,7 @@ importers:
         specifier: ^4.18.1
         version: 4.18.1
       npm-package-json-loader:
-        specifier: ^3.0.29
+        specifier: ^3.0.30
         version: link:../../node-package-json-loader
       path-is-same:
         specifier: ^1.0.29
@@ -500,7 +500,7 @@ importers:
         specifier: ^7.8.6
         version: 7.8.6
       sort-package-json3:
-        specifier: ^3.0.18
+        specifier: ^3.0.19
         version: link:../../sort-package-json3
       ts-type:
         specifier: ^3.0.19
@@ -512,7 +512,7 @@ importers:
         specifier: ^3.1.25
         version: 3.1.25(ts-toolbelt@9.6.0)
       ws-pkg-list:
-        specifier: ^3.0.19
+        specifier: ^3.0.20
         version: link:../../ws-pkg-list
       yargs:
         specifier: <18 >=17.7.2
@@ -524,13 +524,13 @@ importers:
         specifier: ^2.0.32
         version: link:../find-root
       '@yarn-tool/fix-ws-pkgs-link':
-        specifier: ^3.0.21
+        specifier: ^3.0.22
         version: link:../fix-ws-pkgs-link
       '@yarn-tool/node-modules':
-        specifier: ^3.0.20
+        specifier: ^3.0.21
         version: link:../node-modules
       '@yarn-tool/node-modules-link':
-        specifier: ^3.0.20
+        specifier: ^3.0.21
         version: link:../node-modules-link
       cross-spawn-extra:
         specifier: ^3.0.3
@@ -554,10 +554,10 @@ importers:
         specifier: '>=2.8.1'
         version: 2.8.1
       ws-pkg-list:
-        specifier: ^3.0.19
+        specifier: ^3.0.20
         version: link:../../ws-pkg-list
       yarn-list-link:
-        specifier: ^2.0.17
+        specifier: ^2.0.18
         version: link:../../yarn-list-link
 
   packages/@yarn-tool/fix-ws-pkgs-link:
@@ -566,7 +566,7 @@ importers:
         specifier: ^2.0.32
         version: link:../find-root
       '@yarn-tool/node-modules':
-        specifier: ^3.0.20
+        specifier: ^3.0.21
         version: link:../node-modules
       fs-extra:
         specifier: ^11.4.1
@@ -584,7 +584,7 @@ importers:
         specifier: '>=2.8.1'
         version: 2.8.1
       ws-pkg-list:
-        specifier: ^3.0.19
+        specifier: ^3.0.20
         version: link:../../ws-pkg-list
 
   packages/@yarn-tool/fix-ws-versions:
@@ -602,7 +602,7 @@ importers:
         specifier: '>=2.8.1'
         version: 2.8.1
       ws-pkg-list:
-        specifier: ^3.0.19
+        specifier: ^3.0.20
         version: link:../../ws-pkg-list
 
   packages/@yarn-tool/fnm-detect:
@@ -718,7 +718,7 @@ importers:
   packages/@yarn-tool/init-path:
     dependencies:
       '@yarn-tool/search-workspace-prefix-by-name':
-        specifier: ^2.0.15
+        specifier: ^2.0.16
         version: link:../search-workspace-prefix-by-name
       '@yarn-tool/validate-npm-package-name':
         specifier: ^3.0.29
@@ -730,7 +730,7 @@ importers:
         specifier: '>=2.8.1'
         version: 2.8.1
       workspaces-config:
-        specifier: ^2.0.15
+        specifier: ^2.0.16
         version: link:../../workspaces-config
 
   packages/@yarn-tool/is-builtin-module:
@@ -860,7 +860,7 @@ importers:
         specifier: ^3.1.25
         version: 3.1.25(ts-toolbelt@9.6.0)
       ws-pkg-list:
-        specifier: ^3.0.19
+        specifier: ^3.0.20
         version: link:../../ws-pkg-list
 
   packages/@yarn-tool/node-modules:
@@ -881,7 +881,7 @@ importers:
         specifier: ^3.1.25
         version: 3.1.25(ts-toolbelt@9.6.0)
       ws-pkg-list:
-        specifier: ^3.0.19
+        specifier: ^3.0.20
         version: link:../../ws-pkg-list
 
   packages/@yarn-tool/node-modules-is-alias:
@@ -914,7 +914,7 @@ importers:
         specifier: ^2.0.32
         version: link:../find-root
       '@yarn-tool/node-modules':
-        specifier: ^3.0.20
+        specifier: ^3.0.21
         version: link:../node-modules
       find-yarn-workspace-root2:
         specifier: ^1.2.59
@@ -1126,7 +1126,7 @@ importers:
         specifier: '>=2.8.1'
         version: 2.8.1
       ws-pkg-list:
-        specifier: ^3.0.19
+        specifier: ^3.0.20
         version: link:../../ws-pkg-list
       yargs:
         specifier: <18 >=17.7.2
@@ -1274,7 +1274,7 @@ importers:
         specifier: '>=2.8.1'
         version: 2.8.1
       ws-pkg-list:
-        specifier: ^3.0.19
+        specifier: ^3.0.20
         version: link:../../ws-pkg-list
 
   packages/@yarn-tool/require-resolve:
@@ -1340,7 +1340,7 @@ importers:
         specifier: '>=2.8.1'
         version: 2.8.1
       workspaces-config:
-        specifier: ^2.0.15
+        specifier: ^2.0.16
         version: link:../../workspaces-config
 
   packages/@yarn-tool/semver-diff:
@@ -1540,7 +1540,7 @@ importers:
         specifier: ^1.0.25
         version: link:../types
       '@yarn-tool/workspaces-project':
-        specifier: ^3.0.27
+        specifier: ^3.0.28
         version: link:../workspaces-project
       semver:
         specifier: ^7.8.6
@@ -1579,7 +1579,7 @@ importers:
         specifier: '*'
         version: 6.1.4
       '@yarn-tool/changelog':
-        specifier: ^3.0.27
+        specifier: ^3.0.28
         version: link:../changelog
       find-yarn-workspace-root2:
         specifier: ^1.2.59
@@ -1645,10 +1645,10 @@ importers:
         specifier: '>=2.8.1'
         version: 2.8.1
       workspaces-config:
-        specifier: ^2.0.15
+        specifier: ^2.0.16
         version: link:../../workspaces-config
       ws-pkg-list:
-        specifier: ^3.0.19
+        specifier: ^3.0.20
         version: link:../../ws-pkg-list
 
   packages/@yarn-tool/ws-find-up-paths:
@@ -2113,7 +2113,7 @@ importers:
         specifier: ^2.0.32
         version: link:../@yarn-tool/find-root
       '@yarn-tool/fix-all':
-        specifier: ^3.0.38
+        specifier: ^3.0.39
         version: link:../@yarn-tool/fix-all
       '@yarn-tool/pkg-entry-util':
         specifier: ^3.0.30
@@ -2146,7 +2146,7 @@ importers:
         specifier: <6 >=5
         version: 5.0.0
       sort-package-json3:
-        specifier: ^3.0.18
+        specifier: ^3.0.19
         version: link:../sort-package-json3
       ts-type:
         specifier: ^3.0.19
@@ -2228,7 +2228,7 @@ importers:
         specifier: ^11.4.1
         version: 11.4.1
       sort-package-json3:
-        specifier: ^3.0.18
+        specifier: ^3.0.19
         version: link:../sort-package-json3
       ts-type:
         specifier: ^3.0.19
@@ -2246,16 +2246,16 @@ importers:
         specifier: ^2.0.32
         version: link:../@yarn-tool/find-root
       '@yarn-tool/fix-all':
-        specifier: ^3.0.38
+        specifier: ^3.0.39
         version: link:../@yarn-tool/fix-all
       '@yarn-tool/init-path':
-        specifier: ^2.0.15
+        specifier: ^2.0.16
         version: link:../@yarn-tool/init-path
       '@yarn-tool/is-builtin-module':
         specifier: ^1.0.32
         version: link:../@yarn-tool/is-builtin-module
       '@yarn-tool/node-modules-link':
-        specifier: ^3.0.20
+        specifier: ^3.0.21
         version: link:../@yarn-tool/node-modules-link
       '@yarn-tool/pkg-entry-util':
         specifier: ^3.0.30
@@ -2282,7 +2282,7 @@ importers:
         specifier: ^1.0.53
         version: link:../@yarn-tool/update-notifier
       '@yarn-tool/workspaces-project':
-        specifier: ^3.0.27
+        specifier: ^3.0.28
         version: link:../@yarn-tool/workspaces-project
       '@yarn-tool/write-package-json':
         specifier: ^1.0.22
@@ -2309,13 +2309,13 @@ importers:
         specifier: ^4.0.8
         version: 4.0.8
       npm-package-json-loader:
-        specifier: ^3.0.29
+        specifier: ^3.0.30
         version: link:../node-package-json-loader
       path-is-same:
         specifier: ^1.0.29
         version: 1.0.29(ts-toolbelt@9.6.0)
       sort-package-json-scripts:
-        specifier: ^1.1.39
+        specifier: ^1.1.40
         version: link:../sort-package-json-scripts
       tslib:
         specifier: '>=2.8.1'
@@ -2327,10 +2327,10 @@ importers:
         specifier: ^8.0.0
         version: 8.0.0
       workspaces-config:
-        specifier: ^2.0.15
+        specifier: ^2.0.16
         version: link:../workspaces-config
       ws-pkg-list:
-        specifier: ^3.0.19
+        specifier: ^3.0.20
         version: link:../ws-pkg-list
       yargs:
         specifier: <18 >=17.7.2
@@ -2379,7 +2379,7 @@ importers:
         specifier: <2 >=1.57.0
         version: 1.57.0
       sort-package-json-scripts:
-        specifier: ^1.1.39
+        specifier: ^1.1.40
         version: link:../sort-package-json-scripts
       tslib:
         specifier: '>=2.8.1'
@@ -2397,7 +2397,7 @@ importers:
         specifier: '>=2.8.1'
         version: 2.8.1
       ws-pkg-list:
-        specifier: ^3.0.19
+        specifier: ^3.0.20
         version: link:../ws-pkg-list
       yargs:
         specifier: <18 >=17.7.2
@@ -2454,7 +2454,7 @@ importers:
         specifier: ^3.1.25
         version: 3.1.25(ts-toolbelt@9.6.0)
       workspaces-config:
-        specifier: ^2.0.15
+        specifier: ^2.0.16
         version: link:../workspaces-config
     devDependencies:
       cross-spawn-extra:
@@ -2473,7 +2473,7 @@ importers:
         specifier: ^3.1.25
         version: 3.1.25(ts-toolbelt@9.6.0)
       ws-pkg-list:
-        specifier: ^3.0.19
+        specifier: ^3.0.20
         version: link:../ws-pkg-list
 
   packages/ws-root-run:

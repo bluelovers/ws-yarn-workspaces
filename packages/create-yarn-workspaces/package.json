@@ -1,6 +1,6 @@
 {
   "name": "create-yarn-workspaces",
-  "version": "3.0.46",
+  "version": "3.0.47",
   "description": "Quickly initialize a Workspaces project structure compatible with both Yarn and pnpm And Lerna",
   "keywords": [
     "create",
@@ -69,7 +69,7 @@
     "@types/jest": "^30.0.0",
     "@types/node": "^26.6.6",
     "@yarn-tool/find-root": "^2.0.32",
-    "@yarn-tool/fix-all": "^3.0.38",
+    "@yarn-tool/fix-all": "^3.0.39",
     "@yarn-tool/pkg-entry-util": "^3.0.30",
     "@yarn-tool/require-resolve": "^4.0.17",
     "@yarn-tool/static-file": "^3.0.36",
@@ -80,7 +80,7 @@
     "fs-extra": "^11.4.1",
     "path-is-same": "^1.0.29",
     "pkg-dir": "<6 >=5",
-    "sort-package-json3": "^3.0.18",
+    "sort-package-json3": "^3.0.19",
     "ts-type": "^3.0.19",
     "tslib": "^2.9.1",
     "upath2": "^3.1.25",
