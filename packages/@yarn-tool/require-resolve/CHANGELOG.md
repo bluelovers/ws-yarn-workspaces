@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.19](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/require-resolve@4.0.18...@yarn-tool/require-resolve@4.0.19) (2026-11-17)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([a2300c0](https://github.com/bluelovers/ws-yarn-workspaces/commit/a2300c00ad5bbf6f35cae1a9887309b423c0291b))
+
+
 ## [4.0.18](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/require-resolve@4.0.17...@yarn-tool/require-resolve@4.0.18) (2026-11-17)
 
 

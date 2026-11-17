@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.39](https://github.com/bluelovers/ws-yarn-workspaces/compare/env-run-path@2.0.38...env-run-path@2.0.39) (2026-11-17)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([a2300c0](https://github.com/bluelovers/ws-yarn-workspaces/commit/a2300c00ad5bbf6f35cae1a9887309b423c0291b))
+
+
 ## [2.0.38](https://github.com/bluelovers/ws-yarn-workspaces/compare/env-run-path@2.0.37...env-run-path@2.0.38) (2026-11-17)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/yarnlock-util",
-  "version": "3.0.21",
+  "version": "3.0.22",
   "description": "parse yarn.lock row into name, version and semver for v1 and berry",
   "keywords": [
     "yarnlock",
@@ -54,8 +54,8 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@yarn-tool/npm-package-arg-util": "^2.0.15",
-    "@yarn-tool/yarn-struct-utils": "^2.0.21",
+    "@yarn-tool/npm-package-arg-util": "^2.0.16",
+    "@yarn-tool/yarn-struct-utils": "^2.0.22",
     "@yarn-tool/yarnlock-parse-assert": "^2.0.21",
     "@yarn-tool/yarnlock-parse-raw": "^2.0.19",
     "@yarn-tool/yarnlock-types": "^2.0.16",

@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/semver-diff",
-  "version": "2.0.29",
+  "version": "2.0.30",
   "description": "Colorize semver version differences with semantic colors for CLI output",
   "keywords": [
     "semver-diff",

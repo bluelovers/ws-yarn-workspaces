@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/find-deps",
-  "version": "3.0.22",
+  "version": "3.0.23",
   "description": "find deps tree in workspaces",
   "keywords": [
     "find",
@@ -57,7 +57,7 @@
     "@ts-type/package-dts": "^3.0.15",
     "array-hyper-unique": "^2.1.10",
     "tslib": ">=2.8.1",
-    "ws-pkg-list": "^3.0.22"
+    "ws-pkg-list": "^3.0.23"
   },
   "publishConfig": {
     "access": "public"

@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.14](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-git-info@2.0.13...@yarn-tool/pkg-git-info@2.0.14) (2026-11-17)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([a2300c0](https://github.com/bluelovers/ws-yarn-workspaces/commit/a2300c00ad5bbf6f35cae1a9887309b423c0291b))
+
+
 ## [2.0.13](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-git-info@2.0.12...@yarn-tool/pkg-git-info@2.0.13) (2026-11-17)
 
 
