@@ -2456,6 +2456,10 @@ importers:
       workspaces-config:
         specifier: ^2.0.15
         version: link:../workspaces-config
+    devDependencies:
+      cross-spawn-extra:
+        specifier: ^3.0.3
+        version: 3.0.3
 
   packages/ws-root-changelog:
     dependencies:

@@ -1,0 +1,71 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      '@yarn-tool/get-global-dirs':
+        specifier: ^1.0.11
+        version: 1.0.11
+      global-directory:
+        specifier: ^5.0.0
+        version: 5.0.0
+      global-dirs:
+        specifier: ^4.0.0
+        version: 4.0.0
+
+packages:
+
+  '@yarn-tool/get-global-dirs@1.0.11':
+    resolution: {integrity: sha512-TIHwPPpfQoO51dDpMdiUGT4cPqjkjwf1npoxRJIN/RazdOY6II6RgCKbgH4tJW0GuLX0+P5fYQ8g5tEb/c4ziw==}
+
+  global-directory@5.0.0:
+    resolution: {integrity: sha512-1pgFdhK3J2LeM+dVf2Pd424yHx2ou338lC0ErNP2hPx4j8eW1Sp0XqSjNxtk6Tc4Kr5wlWtSvz8cn2yb7/SG/w==}
+    engines: {node: '>=20'}
+
+  global-dirs@4.0.0:
+    resolution: {integrity: sha512-PJ0OjGf/kVuu9gh5IPgAyssfJne5PsU9+ICxfWiRYDUnYq8ob+Y2nSWAEUNEHRj+gowyzI+wg5/nWkvcjcyLwg==}
+    engines: {node: '>=10'}
+    deprecated: Renamed to global-directory
+
+  ini@2.0.0:
+    resolution: {integrity: sha512-7PnF4oN3CvZF23ADhA5wRaYEQpJ8qygSkbtTXWBeXWXmEVRXK+1ITciHWwHhsjv1TmW0MgacIv6hEi5pX5NQdA==}
+    engines: {node: '>=10'}
+
+  ini@6.0.0:
+    resolution: {integrity: sha512-IBTdIkzZNOpqm7q3dRqJvMaldXjDHWkEDfrwGEQTs5eaQMWV+djAhR+wahyNNMAa+qpbDUhBMVt4ZKNwpPm7xQ==}
+    engines: {node: ^20.17.0 || >=22.9.0}
+
+  ini@7.0.0:
+    resolution: {integrity: sha512-ifK0CgjALofS5bkrcTy4RaQ9Vx2Knf/eLeIO+NaswQEpH1UblrtTSCIvN71qQDMq0PeQ/SSPojvEJp9vvvfr+w==}
+    engines: {node: ^22.22.2 || ^24.15.0 || >=26.0.0}
+
+  tslib@2.9.1:
+    resolution: {integrity: sha512-a4Ux9VKuIMHsOS7ENbEq6hK2ZGYIT27Rtl0E4eD9KqwxhKiQeMZE/9xb3IdYwWaSOyIBQLExhQgXDTYoiCxnWA==}
+
+snapshots:
+
+  '@yarn-tool/get-global-dirs@1.0.11':
+    dependencies:
+      ini: 7.0.0
+      tslib: 2.9.1
+
+  global-directory@5.0.0:
+    dependencies:
+      ini: 6.0.0
+
+  global-dirs@4.0.0:
+    dependencies:
+      ini: 2.0.0
+
+  ini@2.0.0: {}
+
+  ini@6.0.0: {}
+
+  ini@7.0.0: {}
+
+  tslib@2.9.1: {}
