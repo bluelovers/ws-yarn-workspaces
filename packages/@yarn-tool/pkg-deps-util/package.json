@@ -1,6 +1,6 @@
 {
   "name": "@yarn-tool/pkg-deps-util",
-  "version": "3.0.20",
+  "version": "3.0.21",
   "description": "Utilities for checking, filtering and installing package dependencies with yarn.lock and yarn workspaces support",
   "keywords": [
     "install",
@@ -59,10 +59,10 @@
     "@yarn-tool/npm-package-arg-util": "^2.0.14",
     "@yarn-tool/pkg-deps-add": "^3.0.17",
     "@yarn-tool/pkg-version-query": "^3.0.20",
-    "@yarn-tool/yarnlock-fs": "^3.0.19",
-    "@yarn-tool/yarnlock-parse": "^3.0.19",
-    "@yarn-tool/yarnlock-types": "^2.0.14",
-    "@yarn-tool/yarnlock-util": "^3.0.18",
+    "@yarn-tool/yarnlock-fs": "^3.0.20",
+    "@yarn-tool/yarnlock-parse": "^3.0.20",
+    "@yarn-tool/yarnlock-types": "^2.0.15",
+    "@yarn-tool/yarnlock-util": "^3.0.19",
     "array-hyper-unique": "^2.1.10",
     "bluebird": "^3.7.2",
     "cross-spawn-extra": "^3.0.3",

@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.11](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-banner@2.0.10...@yarn-tool/yarnlock-banner@2.0.11) (2026-11-17)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([fafb528](https://github.com/bluelovers/ws-yarn-workspaces/commit/fafb528c60afe8a879679ddfeaed579211ab6e18))
+
+
 ## [2.0.10](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-banner@2.0.9...@yarn-tool/yarnlock-banner@2.0.10) (2026-11-03)
 
 

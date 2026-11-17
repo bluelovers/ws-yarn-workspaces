@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.27](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-error@1.0.26...@yarn-tool/yarnlock-error@1.0.27) (2026-11-17)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([fafb528](https://github.com/bluelovers/ws-yarn-workspaces/commit/fafb528c60afe8a879679ddfeaed579211ab6e18))
+
+
 ## [1.0.26](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-error@1.0.25...@yarn-tool/yarnlock-error@1.0.26) (2026-11-03)
 
 

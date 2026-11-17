@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.24](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-ncu@3.0.23...@yarn-tool/yarnlock-ncu@3.0.24) (2026-11-17)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([fafb528](https://github.com/bluelovers/ws-yarn-workspaces/commit/fafb528c60afe8a879679ddfeaed579211ab6e18))
+
+
 ## [3.0.23](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/yarnlock-ncu@3.0.22...@yarn-tool/yarnlock-ncu@3.0.23) (2026-11-16)
 
 
