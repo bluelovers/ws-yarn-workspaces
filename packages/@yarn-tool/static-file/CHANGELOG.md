@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.40](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.39...@yarn-tool/static-file@3.0.40) (2026-11-18)
+
+
+
+### 🚨　Tests
+
+* **@yarn-tool/static-file:** 更新 playwright 測試檔匹配正則表達式 ([23952e9](https://github.com/bluelovers/ws-yarn-workspaces/commit/23952e975ccf705244d8118ab7e3cf36e6ce7c22))
+
+
 ## [3.0.39](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.38...@yarn-tool/static-file@3.0.39) (2026-11-17)
 
 

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.43](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-all@3.0.42...@yarn-tool/fix-all@3.0.43) (2026-11-18)
+
+**Note:** Version bump only for package @yarn-tool/fix-all
+
+
+
+
+
 ## [3.0.42](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-all@3.0.41...@yarn-tool/fix-all@3.0.42) (2026-11-17)
 
 **Note:** Version bump only for package @yarn-tool/fix-all
