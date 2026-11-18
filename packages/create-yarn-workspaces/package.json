@@ -54,7 +54,7 @@
     "test:tsd": "ynpx tsd",
     "npm:publish": "npm publish",
     "preversion": "pnpm run test",
-    "postversion": "node --run prepublishOnly:commit",
+    "version": "node --run prepublishOnly:commit",
     "prepublishOnly:commit": "git commit -m \"build(cache): update cache-versions\" ./lib/package.demo.json & echo commit lib/package.demo.json done",
     "ncu": "yarn-tool ncu -u",
     "sort-package-json": "yarn-tool sort",
