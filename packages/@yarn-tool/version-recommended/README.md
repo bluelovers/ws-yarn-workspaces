@@ -4,7 +4,7 @@ Recommend the next semver version: auto-detect bump type and pre-release identif
 
 依舊版本號自動推薦下一個語意化版本 (Semantic Versioning)，可偵測預發行 (Pre-release) 識別字串，並支援 yarn workspaces / monorepo 專案。
 
-## 功能特色 (Features)
+## Features
 
 - **自動推薦 bump 類型**：根據舊版本是否為預發行版本，自動推斷應使用 `prerelease`、`premajor` 等預發行類型
 - **保留 preid**：舊版本如為 `1.0.0-beta.1`，遞增後仍會保留 `beta` 識別字串
@@ -13,27 +13,27 @@ Recommend the next semver version: auto-detect bump type and pre-release identif
 - **workspaces 支援**：透過 `WorkspacesProject` 取得 monorepo 的預設 bump 策略
 - **yargs 整合**：提供與 `yarn version` 相容的命令列選項設定
 
-## 安裝 (Installation)
+## Installation
 
 ```bash
-# 使用 yarn / Using yarn
+# Using yarn
 yarn add @yarn-tool/version-recommended
 
-# 使用 yarn-tool / Using yarn-tool
+# Using yarn-tool
 yarn-tool add @yarn-tool/version-recommended
-# yt 是 yarn-tool 的別名 / yt is an alias for yarn-tool
+# yt is an alias for yarn-tool
 yt add @yarn-tool/version-recommended
 
-# 使用 pnpm / Using pnpm
+# Using pnpm
 pnpm add @yarn-tool/version-recommended
 
-# 使用 npm / Using npm
+# Using npm
 npm install @yarn-tool/version-recommended
 ```
 
-## 使用方式 (Usage)
+## Usage
 
-### 由版本字串推薦 (From a version string)
+### 由版本字串推薦
 
 ```typescript
 import { nextVersionRecommended } from '@yarn-tool/version-recommended';
@@ -49,7 +49,7 @@ nextVersionRecommended('1.0.0-beta.1');
 // { bump: 'prerelease', oldVersion: '1.0.0-beta.1', newVersion: '1.0.0-beta.2' }
 ```
 
-### 由 package.json 推薦 (From package.json)
+### 由 package.json 推薦
 
 ```typescript
 import { nextVersionRecommendedByPackage } from '@yarn-tool/version-recommended';
@@ -65,12 +65,11 @@ nextVersionRecommendedByPackage(pkg);
 ```typescript
 import nextVersionRecommendedByPackageFindUp from '@yarn-tool/version-recommended';
 
-// 預設匯出即為此函式 / The default export is this function
 const result = nextVersionRecommendedByPackageFindUp({ cwd: process.cwd() });
-// 自動讀取最近的 package.json 並回傳推薦版本 / Reads the nearest package.json automatically
+// 自動讀取最近的 package.json 並回傳推薦版本
 ```
 
-### workspaces 專案 (Workspaces project)
+### workspaces 專案
 
 ```typescript
 import {
@@ -79,14 +78,14 @@ import {
 } from '@yarn-tool/version-recommended';
 import WorkspacesProject from '@yarn-tool/workspaces-project';
 
-// 已有 WorkspacesProject 實例 / When you already have a WorkspacesProject instance
+// 已有 WorkspacesProject 實例
 nextVersionRecommendedByWorkspacesProject('1.0.0', new WorkspacesProject(cwd));
 
-// 自動向上尋找並建立實例 / Find up and create the instance automatically
+// 自動向上尋找並建立實例
 nextVersionRecommendedByWorkspacesFindUp('1.0.0', { cwd });
 ```
 
-## API 文件 (API Documentation)
+## API Documentation
 
 ### `nextVersionRecommended(oldVersion, options?, wsProject?): INextVersionRecommended`
 
@@ -128,27 +127,27 @@ nextVersionRecommendedByWorkspacesFindUp('1.0.0', { cwd });
 
 ## Configuration
 
-### 選項 (Options)
+### Options
 
 ```typescript
 interface INextVersionRecommendedOptions extends ITSPartialRecord<ReleaseType, boolean>
 {
-	// 工作目錄 / Working directory
+	// 工作目錄
 	cwd?: string;
-	// 指定 bump 類型 / Explicit bump type
+	// 指Explicit bump type
 	bump?: ReleaseType;
-	// 預發行識別字串 / Pre-release identifier (e.g. "beta")
+	// Pre-release identifier (e.g. "beta")
 	preid?: string;
-	// 預發行數字基準，false 表示不自動重置 / Numeric base for pre-release; false disables reset
+	// Numeric base for pre-release; false disables reset
 	identifierBase?: IdentifierBase | 0 | 1 | false;
-	// 當舊版本為純數字預發行時採用的預設 preid / Fallback preid for numeric-only pre-releases
+	// Fallback preid for numeric-only pre-releases
 	defaultPreid?: string,
 }
 ```
 
 同時也可直接以布林旗標指定 bump 類型：`major`、`minor`、`patch`、`premajor`、`preminor`、`prepatch`、`prerelease`，例如 `{ minor: true }`。
 
-### 偵測規則 (Detection rules)
+### 偵測規則
 
 當舊版本含預發行資訊且未明確指定 `bump` 時：
 
@@ -157,7 +156,7 @@ interface INextVersionRecommendedOptions extends ITSPartialRecord<ReleaseType, b
 3. 其他（如 `1.0.0-beta`）→ 採用 `defaultPreid`
 4. 指定的 bump 非預發行類型時，自動加上 `pre` 前綴（`minor` → `preminor`）
 
-### 命令列選項 (Command Line Options)
+### 命令列選項
 
 `setupToYargs` 提供以下選項：
 
@@ -172,7 +171,3 @@ interface INextVersionRecommendedOptions extends ITSPartialRecord<ReleaseType, b
 | `--bump` | string | 指定 bump 類型 |
 | `--preid` | string | 預發行識別字串 |
 | `--default-preid` | string | 預設預發行識別字串 |
-
-## 版本 (Version)
-
-當前版本：3.0.15
