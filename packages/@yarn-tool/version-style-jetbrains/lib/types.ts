@@ -2,6 +2,7 @@ import { ITSOverwrite, ITSPickExtra, ITSRequiredPick, ITSRequiredWith } from 'ts
 import { Dayjs } from 'dayjs';
 import { IOptionsTzDayjsSafeParse } from 'dayjs-tz-helper';
 import { ITSTypeAndStringLiteral, ITSNumberValue2 } from 'ts-type';
+import { ISegDailyVersionIncrementNumber, ISegDayNumber, ISegMonthNumber, ISegYearNumber } from './types-seg';
 
 /**
  * 版本風格類型
@@ -33,7 +34,7 @@ export enum EnumVersionStyle
 	 */
 	StandardFullMD = 'standard-full-md',
 	/**
-	 * JetBrains 年份 + 月日 + 時間樣式
+	 * y2k 年份 + 月日 + 時間樣式
 	 *
 	 * 首段取年份 (2026) 的第一個 2 與年份後兩位，第二段為月日 (MMDD)，第三段為時分 (HHmm)
 	 * 2100 起不支援
@@ -41,7 +42,7 @@ export enum EnumVersionStyle
 	 * @example 226.1120.1744-1
 	 * @example 226.1120.1744 (disableDailyVersionSuffix)
 	 */
-	JetbrainsDateTime = 'jetbrains-date-time',
+	Y2KDateTime = 'y2k-date-time',
 }
 
 /**
@@ -57,7 +58,7 @@ export interface IVersionStyleOptions
 	/** 指定日期 (預設為現在) */
 	date?: IDateInput;
 	/** 當日版本號遞增 */
-	dailyIncrement?: number;
+	dailyIncrement?: ISegDailyVersionIncrementNumber;
 	/** 小時 (0-23)，僅 JetbrainsDateTime 樣式使用，預設取自 date */
 	hour?: number;
 	/** 分鐘 (0-59)，僅 JetbrainsDateTime 樣式使用，預設取自 date */
@@ -101,10 +102,10 @@ export type IRequiredOptionsRuntime<T extends IVersionStyleOptions = IVersionSty
  */
 export interface IDateInfo
 {
-	year: number;
+	year: ISegYearNumber;
 	/** Human-readable Month Number (1-12) */
-	month: number;
-	day: number;
+	month: ISegMonthNumber;
+	day: ISegDayNumber;
 }
 
 /**
@@ -134,7 +135,7 @@ export interface IParseVersionResultCore<JS extends boolean = boolean, MD extend
 export interface IParseVersionResult<JS extends boolean = boolean, MD extends boolean = boolean> extends IDateInfo, IParseVersionResultCore<JS, MD>
 {
 	/** 當日版本號 */
-	dailyVersion: number;
+	dailyVersion: ISegDailyVersionIncrementNumber;
 }
 
 /**

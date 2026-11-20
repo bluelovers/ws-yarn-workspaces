@@ -62,7 +62,7 @@ export const EXPECTED_DATE_TO_VERSION: Record<EnumVersionStyle, string> = {
 	[EnumVersionStyle.JetbrainsShortMD]: '261.101.1',
 	[EnumVersionStyle.StandardFull]: '2026.1.1-1',
 	[EnumVersionStyle.StandardFullMD]: '2026.101.1',
-	[EnumVersionStyle.JetbrainsDateTime]: '226.101.1744-1',
+	[EnumVersionStyle.Y2KDateTime]: '226.101.1744-1',
 };
 /**
  * Q2 dateToVersionByStyle 預期結果映射
@@ -73,7 +73,7 @@ export const EXPECTED_DATE_TO_VERSION_Q2: Record<EnumVersionStyle, string> = {
 	[EnumVersionStyle.JetbrainsShortMD]: '262.615.1',
 	[EnumVersionStyle.StandardFull]: '2026.6.15-1',
 	[EnumVersionStyle.StandardFullMD]: '2026.615.1',
-	[EnumVersionStyle.JetbrainsDateTime]: '226.615.1744-1',
+	[EnumVersionStyle.Y2KDateTime]: '226.615.1744-1',
 };
 /**
  * 解析 JetbrainsShort 格式的預期結果
@@ -239,17 +239,17 @@ export const DATE_TO_VERSION_STYLE_TEST_CASES: Array<{
 	 * 日期時間樣式
 	 */
 	{
-		style: EnumVersionStyle.JetbrainsDateTime,
+		style: EnumVersionStyle.Y2KDateTime,
 		dateInfo: TEST_BASE_OPTIONS,
 		expected: '226.101.1744-1',
 	},
 	{
-		style: EnumVersionStyle.JetbrainsDateTime,
+		style: EnumVersionStyle.Y2KDateTime,
 		dateInfo: { year: 2026, month: 11, day: 20, dailyIncrement: 1, hour: 17, minute: 44 },
 		expected: '226.1120.1744-1',
 	},
 	{
-		style: EnumVersionStyle.JetbrainsDateTime,
+		style: EnumVersionStyle.Y2KDateTime,
 		dateInfo: { year: 2026, month: 11, day: 20, dailyIncrement: 2, hour: 9, minute: 5 },
 		expected: '226.1120.0905-2',
 	},
@@ -290,7 +290,7 @@ export const DATE_TO_VERSION_DISABLE_SUFFIX_TEST_CASES: Array<{
 	 * 日期時間樣式可省略遞增後綴
 	 */
 	{
-		style: EnumVersionStyle.JetbrainsDateTime,
+		style: EnumVersionStyle.Y2KDateTime,
 		dateInfo: { ...TEST_BASE_OPTIONS, disableDailyVersionSuffix: true },
 		expected: '226.101.1744',
 	},

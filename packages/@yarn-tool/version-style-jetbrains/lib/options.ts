@@ -30,7 +30,7 @@ export function _getStyleFromFlags(isJetbrainsShort: boolean, isMDCombined: bool
 	 */
 	if (isDateTime)
 	{
-		return EnumVersionStyle.JetbrainsDateTime;
+		return EnumVersionStyle.Y2KDateTime;
 	}
 
 	/**

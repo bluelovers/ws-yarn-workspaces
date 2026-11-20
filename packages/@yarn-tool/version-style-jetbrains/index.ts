@@ -330,7 +330,7 @@ export function generateAllStyleVersions(options?: IVersionStyleOptions): Record
 			dailyIncrement,
 			disableDailyVersionSuffix,
 		}),
-		[EnumVersionStyle.JetbrainsDateTime]: _dateToVersionByStyleCore(EnumVersionStyle.JetbrainsDateTime, {
+		[EnumVersionStyle.Y2KDateTime]: _dateToVersionByStyleCore(EnumVersionStyle.Y2KDateTime, {
 			year,
 			month,
 			day,

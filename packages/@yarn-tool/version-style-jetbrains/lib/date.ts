@@ -12,6 +12,7 @@ import { ITSTypeAndStringLiteral } from 'ts-type';
 import { IOptionsTzDayjsSafeParse, tzDayjsSafeParse } from 'dayjs-tz-helper';
 import { isValidDateInfo } from './assert';
 import { _handleVersionStyleOptionsCore } from './options';
+import { ISeqNumberString } from './types-seg';
 
 /**
  * 從月份取得季度
@@ -70,7 +71,7 @@ function _getYearLeadingDigit(year: number): number
  * @param year - 年份
  * @returns 年份編碼 (如 226 表示 2026 年)
  */
-export function getJetbrainsDateTimeYearCode(year: number): number
+export function getY2KDateTimeYearCode(year: number): number
 {
 	return _getYearLeadingDigit(year) * DATETIME_YEAR_CODE_HUNDREDS + (year % DATETIME_YEAR_CODE_HUNDREDS);
 }
@@ -83,15 +84,15 @@ export function getJetbrainsDateTimeYearCode(year: number): number
  * @param yearCode - 年份編碼 (200-299)
  * @returns 年份 (2000-2099)
  */
-export function _parseJetbrainsDateTimeYear(yearCode: number): number
+export function _parseY2KDateTimeYear(yearCode: number): number
 {
 	return Math.floor(yearCode / DATETIME_YEAR_CODE_HUNDREDS) * YEAR_THOUSANDS + (yearCode % DATETIME_YEAR_CODE_HUNDREDS);
 }
 
 /** 支援年份範圍對應的年份編碼下界 (200)，由年份規則推導而非寫死 */
-export const JETBRAINS_DATETIME_YEAR_CODE_MIN = getJetbrainsDateTimeYearCode(JETBRAINS_DATETIME_YEAR_MIN);
+export const Y2K_DATETIME_YEAR_CODE_MIN = getY2KDateTimeYearCode(JETBRAINS_DATETIME_YEAR_MIN);
 /** 支援年份範圍對應的年份編碼上界 (299)，由年份規則推導而非寫死 */
-export const JETBRAINS_DATETIME_YEAR_CODE_MAX = getJetbrainsDateTimeYearCode(JETBRAINS_DATETIME_YEAR_MAX);
+export const Y2K_DATETIME_YEAR_CODE_MAX = getY2KDateTimeYearCode(JETBRAINS_DATETIME_YEAR_MAX);
 
 /**
  * 從 HHmm 四位數字解析時分
@@ -192,7 +193,7 @@ export function _detectIsMDCombined(monthOrMD: string)
  * @param increment - 遞增部分（可選）
  * @returns 解析後的月日資訊
  */
-export function _parseMonthDayInfo(monthOrMD: string, dayOrIncrement: string, increment?: string): IParseMonthDayResult
+export function _parseMonthDayInfo(monthOrMD: ISeqNumberString, dayOrIncrement: ISeqNumberString, increment?: ISeqNumberString): IParseMonthDayResult
 {
 	const { monthDay, isMDCombined } = _detectIsMDCombined(monthOrMD);
 

@@ -1,7 +1,7 @@
 import { EnumVersionStyle } from './types';
 import {
 	_formatTimeToHHmm,
-	getJetbrainsDateTimeYearCode,
+	getY2KDateTimeYearCode,
 	getJetbrainsYearCode,
 	getQuarterFromMonth,
 } from './date';
@@ -64,13 +64,13 @@ export function _dateToVersionByStyleCore(
 		case EnumVersionStyle.StandardFullMD:
 			return `${year}.${month * 100 + day}.${dailyIncrement}`;
 
-		case EnumVersionStyle.JetbrainsDateTime:
+		case EnumVersionStyle.Y2KDateTime:
 		{
 			/**
 			 * 時間以 HHmm 固定四碼取代其他樣式的遞增段位置，
 			 * 遞增號退回為可省略的 -x 後綴（與 JetbrainsShort 同規則）
 			 */
-			const timeVersion = `${getJetbrainsDateTimeYearCode(year)}.${month * 100 + day}.${_formatTimeToHHmm(hour, minute)}`;
+			const timeVersion = `${getY2KDateTimeYearCode(year)}.${month * 100 + day}.${_formatTimeToHHmm(hour, minute)}`;
 
 			if (disableDailyVersionSuffix)
 			{

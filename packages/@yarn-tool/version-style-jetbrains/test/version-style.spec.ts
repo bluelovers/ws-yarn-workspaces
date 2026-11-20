@@ -25,7 +25,7 @@ import {
 	PARSE_VERSION_TEST_CASES, QUARTER_TEST_CASES, TEST_BASE_OPTIONS, TEST_DATE_Q1,
 	TEST_DATE_Q2, TEST_Q2_OPTIONS, VALID_DATE_INFO_TEST_CASES,
 } from './fixtures/data';
-import { _getDateInfoFromDate, _parseJetbrainsDateTimeYear, getJetbrainsDateTimeYearCode, getJetbrainsYearCode, getQuarterFromMonth } from '../lib/date';
+import { _getDateInfoFromDate, _parseY2KDateTimeYear, getY2KDateTimeYearCode, getJetbrainsYearCode, getQuarterFromMonth } from '../lib/date';
 import { isValidDateInfo } from '../lib/assert';
 import { EnumVersionStyle } from '../lib/types';
 
@@ -55,13 +55,13 @@ describe('Version Style Generator', () => {
 
 		for (const { year, expected } of JETBRAINS_DATETIME_YEAR_CODE_TEST_CASES) {
 			it(`should return ${expected} for year ${year}`, () => {
-				assert.strictEqual(getJetbrainsDateTimeYearCode(year), expected);
+				assert.strictEqual(getY2KDateTimeYearCode(year), expected);
 			});
 		}
 
 		it('should round-trip year through year code', () => {
 			for (const { year } of JETBRAINS_DATETIME_YEAR_CODE_TEST_CASES) {
-				assert.strictEqual(_parseJetbrainsDateTimeYear(getJetbrainsDateTimeYearCode(year)), year);
+				assert.strictEqual(_parseY2KDateTimeYear(getY2KDateTimeYearCode(year)), year);
 			}
 		});
 
@@ -152,7 +152,7 @@ describe('Version Style Generator', () => {
 		const TEST_DATE_TIME = new Date(2026, 10, 20, 17, 44);
 
 		it('should generate version with date and time', () => {
-			const result = dateToVersion({ date: TEST_DATE_TIME, style: EnumVersionStyle.JetbrainsDateTime });
+			const result = dateToVersion({ date: TEST_DATE_TIME, style: EnumVersionStyle.Y2KDateTime });
 
 			assert.strictEqual(result, '226.1120.1744-1');
 		});
@@ -160,7 +160,7 @@ describe('Version Style Generator', () => {
 		it('should generate version without increment suffix', () => {
 			const result = dateToVersion({
 				date: TEST_DATE_TIME,
-				style: EnumVersionStyle.JetbrainsDateTime,
+				style: EnumVersionStyle.Y2KDateTime,
 				disableDailyVersionSuffix: true,
 			});
 
@@ -193,7 +193,7 @@ describe('Version Style Generator', () => {
 		});
 
 		it('should increment via getNextVersion', () => {
-			const result = getNextVersion({ date: TEST_DATE_TIME, style: EnumVersionStyle.JetbrainsDateTime });
+			const result = getNextVersion({ date: TEST_DATE_TIME, style: EnumVersionStyle.Y2KDateTime });
 
 			assert.strictEqual(result, '226.1120.1744-2');
 		});
@@ -341,7 +341,7 @@ describe('Version Style Generator', () => {
 				[EnumVersionStyle.JetbrainsShortMD]: '261.101.1',
 				[EnumVersionStyle.StandardFull]: '2026.1.1-1',
 				[EnumVersionStyle.StandardFullMD]: '2026.101.1',
-				[EnumVersionStyle.JetbrainsDateTime]: '226.101.0000-1',
+				[EnumVersionStyle.Y2KDateTime]: '226.101.0000-1',
 			});
 		});
 
@@ -356,7 +356,7 @@ describe('Version Style Generator', () => {
 				[EnumVersionStyle.JetbrainsShortMD]: '262.615.1',
 				[EnumVersionStyle.StandardFull]: '2026.6.15-1',
 				[EnumVersionStyle.StandardFullMD]: '2026.615.1',
-				[EnumVersionStyle.JetbrainsDateTime]: '226.615.0000-1',
+				[EnumVersionStyle.Y2KDateTime]: '226.615.0000-1',
 			});
 		});
 
