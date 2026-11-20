@@ -1,0 +1,353 @@
+exports[`default style (no versionStyle) > explicit major 1`] = `
+{
+  "old version": "1.2.3",
+  "bump": "major",
+  "new version": "2.0.0"
+}
+`;
+
+exports[`default style (no versionStyle) > minor flag 1`] = `
+{
+  "old version": "1.2.3",
+  "bump": "minor",
+  "new version": "1.3.0"
+}
+`;
+
+exports[`default style (no versionStyle) > numeric prerelease 1`] = `
+{
+  "old version": "1.2.3-1",
+  "bump": "prerelease",
+  "new version": "1.2.3-2"
+}
+`;
+
+exports[`default style (no versionStyle) > patch by default 1`] = `
+{
+  "old version": "1.2.3",
+  "bump": "patch",
+  "new version": "1.2.4"
+}
+`;
+
+exports[`default style (no versionStyle) > prerelease with preid 1`] = `
+{
+  "old version": "1.2.3-beta.1",
+  "bump": "prerelease",
+  "new version": "1.2.3-beta.2"
+}
+`;
+
+exports[`version style generation > jetbrains-date-time: bump does not change the style result 1`] = `
+{
+  "old version": "264.1120.1744-1",
+  "results": [
+    {
+      "bump": "major",
+      "newVersion": "264.1120.1744-2"
+    },
+    {
+      "bump": "minor",
+      "newVersion": "264.1120.1744-2"
+    },
+    {
+      "bump": "patch",
+      "newVersion": "264.1120.1744-2"
+    },
+    {
+      "bump": "premajor",
+      "newVersion": "264.1120.1744-2"
+    },
+    {
+      "bump": "preminor",
+      "newVersion": "264.1120.1744-2"
+    },
+    {
+      "bump": "prepatch",
+      "newVersion": "264.1120.1744-2"
+    },
+    {
+      "bump": "prerelease",
+      "newVersion": "264.1120.1744-2"
+    }
+  ]
+}
+`;
+
+exports[`version style generation > jetbrains-date-time: generate from a non-style version 1`] = `
+{
+  "old version": "1.2.3",
+  "new version": "264.1120.1744-1"
+}
+`;
+
+exports[`version style generation > jetbrains-date-time: increment the same style 1`] = `
+{
+  "old version": "264.1120.1744-1",
+  "new version": "264.1120.1744-2"
+}
+`;
+
+exports[`version style generation > jetbrains-short-md: bump does not change the style result 1`] = `
+{
+  "old version": "264.1120.1",
+  "results": [
+    {
+      "bump": "major",
+      "newVersion": "264.1120.2"
+    },
+    {
+      "bump": "minor",
+      "newVersion": "264.1120.2"
+    },
+    {
+      "bump": "patch",
+      "newVersion": "264.1120.2"
+    },
+    {
+      "bump": "premajor",
+      "newVersion": "264.1120.2"
+    },
+    {
+      "bump": "preminor",
+      "newVersion": "264.1120.2"
+    },
+    {
+      "bump": "prepatch",
+      "newVersion": "264.1120.2"
+    },
+    {
+      "bump": "prerelease",
+      "newVersion": "264.1120.2"
+    }
+  ]
+}
+`;
+
+exports[`version style generation > jetbrains-short-md: generate from a non-style version 1`] = `
+{
+  "old version": "1.2.3",
+  "new version": "264.1120.1"
+}
+`;
+
+exports[`version style generation > jetbrains-short-md: increment the same style 1`] = `
+{
+  "old version": "264.1120.1",
+  "new version": "264.1120.2"
+}
+`;
+
+exports[`version style generation > jetbrains-short: bump does not change the style result 1`] = `
+{
+  "old version": "264.11.20-1",
+  "results": [
+    {
+      "bump": "major",
+      "newVersion": "264.11.20-2"
+    },
+    {
+      "bump": "minor",
+      "newVersion": "264.11.20-2"
+    },
+    {
+      "bump": "patch",
+      "newVersion": "264.11.20-2"
+    },
+    {
+      "bump": "premajor",
+      "newVersion": "264.11.20-2"
+    },
+    {
+      "bump": "preminor",
+      "newVersion": "264.11.20-2"
+    },
+    {
+      "bump": "prepatch",
+      "newVersion": "264.11.20-2"
+    },
+    {
+      "bump": "prerelease",
+      "newVersion": "264.11.20-2"
+    }
+  ]
+}
+`;
+
+exports[`version style generation > jetbrains-short: generate from a non-style version 1`] = `
+{
+  "old version": "1.2.3",
+  "new version": "264.11.20-2"
+}
+`;
+
+exports[`version style generation > jetbrains-short: increment the same style 1`] = `
+{
+  "old version": "264.11.20-1",
+  "new version": "264.11.20-2"
+}
+`;
+
+exports[`version style generation > preid disables the daily version suffix 1`] = `
+{
+  "old version": "264.1120.1744-1",
+  "new version": "264.1120.1744-beta"
+}
+`;
+
+exports[`version style generation > resetDailyIncrement restarts the daily count 1`] = `
+{
+  "old version": "264.1120.1744-1",
+  "new version": "264.1120.1744-1"
+}
+`;
+
+exports[`version style generation > standard-full-md: bump does not change the style result 1`] = `
+{
+  "old version": "2026.1120.1",
+  "results": [
+    {
+      "bump": "major",
+      "newVersion": "2026.1120.2"
+    },
+    {
+      "bump": "minor",
+      "newVersion": "2026.1120.2"
+    },
+    {
+      "bump": "patch",
+      "newVersion": "2026.1120.2"
+    },
+    {
+      "bump": "premajor",
+      "newVersion": "2026.1120.2"
+    },
+    {
+      "bump": "preminor",
+      "newVersion": "2026.1120.2"
+    },
+    {
+      "bump": "prepatch",
+      "newVersion": "2026.1120.2"
+    },
+    {
+      "bump": "prerelease",
+      "newVersion": "2026.1120.2"
+    }
+  ]
+}
+`;
+
+exports[`version style generation > standard-full-md: generate from a non-style version 1`] = `
+{
+  "old version": "1.2.3",
+  "new version": "2026.1120.1"
+}
+`;
+
+exports[`version style generation > standard-full-md: increment the same style 1`] = `
+{
+  "old version": "2026.1120.1",
+  "new version": "2026.1120.2"
+}
+`;
+
+exports[`version style generation > standard-full: bump does not change the style result 1`] = `
+{
+  "old version": "2026.11.20-1",
+  "results": [
+    {
+      "bump": "major",
+      "newVersion": "2026.11.20-2"
+    },
+    {
+      "bump": "minor",
+      "newVersion": "2026.11.20-2"
+    },
+    {
+      "bump": "patch",
+      "newVersion": "2026.11.20-2"
+    },
+    {
+      "bump": "premajor",
+      "newVersion": "2026.11.20-2"
+    },
+    {
+      "bump": "preminor",
+      "newVersion": "2026.11.20-2"
+    },
+    {
+      "bump": "prepatch",
+      "newVersion": "2026.11.20-2"
+    },
+    {
+      "bump": "prerelease",
+      "newVersion": "2026.11.20-2"
+    }
+  ]
+}
+`;
+
+exports[`version style generation > standard-full: generate from a non-style version 1`] = `
+{
+  "old version": "1.2.3",
+  "new version": "2026.11.20-1"
+}
+`;
+
+exports[`version style generation > standard-full: increment the same style 1`] = `
+{
+  "old version": "2026.11.20-1",
+  "new version": "2026.11.20-2"
+}
+`;
+
+exports[`version style generation > y2k-date-time: bump does not change the style result 1`] = `
+{
+  "old version": "226.1120.1744-1",
+  "results": [
+    {
+      "bump": "major",
+      "newVersion": "226.1120.1744-2"
+    },
+    {
+      "bump": "minor",
+      "newVersion": "226.1120.1744-2"
+    },
+    {
+      "bump": "patch",
+      "newVersion": "226.1120.1744-2"
+    },
+    {
+      "bump": "premajor",
+      "newVersion": "226.1120.1744-2"
+    },
+    {
+      "bump": "preminor",
+      "newVersion": "226.1120.1744-2"
+    },
+    {
+      "bump": "prepatch",
+      "newVersion": "226.1120.1744-2"
+    },
+    {
+      "bump": "prerelease",
+      "newVersion": "226.1120.1744-2"
+    }
+  ]
+}
+`;
+
+exports[`version style generation > y2k-date-time: generate from a non-style version 1`] = `
+{
+  "old version": "1.2.3",
+  "new version": "226.1120.1744-1"
+}
+`;
+
+exports[`version style generation > y2k-date-time: increment the same style 1`] = `
+{
+  "old version": "226.1120.1744-1",
+  "new version": "226.1120.1744-2"
+}
+`;
