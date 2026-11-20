@@ -84,6 +84,14 @@ export interface INpmAutoFixAll
 	 * Note: the merge runs for both the resetStaticFiles and the plain addStaticFiles trigger.
 	 */
 	noMergeIgnoreFiles?: boolean;
+
+	/**
+	 * 是否略過（不補充）預設腳本
+	 *
+	 * 為 true 時不執行預設腳本補齊：套件略過 defaultPkgScripts，
+	 * workspace 根目錄略過 fillDummyScripts(defaultWorkspaceRootScripts())
+	 */
+	noScripts?: boolean;
 }
 
 /**
@@ -173,6 +181,7 @@ export function npmAutoFixAll(cwd: string, options?: INpmAutoFixAll)
 			addStaticFiles,
 			noStaticFiles,
 			noMergeIgnoreFiles,
+			noScripts,
 		} = options ?? {};
 
 		cwd = rootData.cwd;
@@ -261,6 +270,7 @@ export function npmAutoFixAll(cwd: string, options?: INpmAutoFixAll)
 				hostedGitInfo,
 				branch,
 				overwriteHostedGitInfo,
+				noScripts,
 			});
 		}
 		else
@@ -305,6 +315,7 @@ export function npmAutoFixAll(cwd: string, options?: INpmAutoFixAll)
 			addStaticFiles,
 			noStaticFiles,
 			noMergeIgnoreFiles,
+			noScripts,
 		})
 	}).then(() => void 0 as void)
 }

@@ -54,6 +54,10 @@ export function setupToYargs<T>(yargs: Argv<T>)
 			boolean: true,
 			describe: 'Disable auto-merging ignore files; when unset, existing rules are captured before the reset and merged back after the copy',
 		})
+		.option('noScripts', {
+			boolean: true,
+			describe: 'Skip filling default scripts (defaultPkgScripts / fillDummyScripts)',
+		})
 	;
 
 	/**

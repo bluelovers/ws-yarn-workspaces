@@ -19,6 +19,7 @@ import { sortPackageJson } from 'sort-package-json3';
 import { defaultWorkspaceRootScripts } from '@yarn-tool/pkg-entry-util/lib/preset/scripts/ws-root-scripts';
 import { fillDummyScripts } from '@yarn-tool/pkg-entry-util/lib/preset/scripts/dummy';
 import { _checkDependenciesExistsAll } from '@yarn-tool/pkg-deps-add';
+import type { INpmAutoFixAll } from '../../index';
 
 /**
  * 修復單一套件根目錄的 package.json
@@ -99,7 +100,7 @@ export function _fixRoot(options: Required<IFillPkgHostedInfoOptions>)
  * @param options - 需包含 rootData / hostedGitInfo / branch / overwriteHostedGitInfo
  * @returns 與 _fixRoot 相同的執行期資料 / Same runtime data as _fixRoot
  */
-export function _fixWsRoot(options: ITSRequiredPick<IFillPkgHostedInfoOptions, 'hostedGitInfo' | 'rootData' | 'overwriteHostedGitInfo' | 'branch'>)
+export function _fixWsRoot(options: ITSRequiredPick<IFillPkgHostedInfoOptions, 'hostedGitInfo' | 'rootData' | 'overwriteHostedGitInfo' | 'branch'> & Pick<INpmAutoFixAll, 'noScripts'>)
 {
 	/**
 	 * ws 為空代表這不是有效的 workspace 結構，
@@ -118,15 +119,16 @@ export function _fixWsRoot(options: ITSRequiredPick<IFillPkgHostedInfoOptions, '
 	});
 
 	/**
-	 * 只在腳本不存在（??=）時才填入預設值，
-	 * 避免覆蓋使用者自訂的同名腳本
-	 * Fill defaults only when the script is absent (??=),
-	 * so user-defined scripts with the same name are preserved
+	 * noScripts 時完全略過預設腳本補齊；
+	 * 否則只在腳本不存在（??=）時才填入預設值，避免覆蓋使用者自訂的同名腳本
 	 */
-	Object.entries(fillDummyScripts(defaultWorkspaceRootScripts())).forEach(([key, value]) =>
+	if (!options.noScripts)
 	{
-		runtime.root_pkg_json.data.scripts[key] ??= value;
-	});
+		Object.entries(fillDummyScripts(defaultWorkspaceRootScripts())).forEach(([key, value]) =>
+		{
+			runtime.root_pkg_json.data.scripts[key] ??= value;
+		});
+	}
 
 	/**
 	 * 這些是 workspace 根目錄常見的共用開發依賴，

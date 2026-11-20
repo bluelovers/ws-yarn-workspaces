@@ -71,7 +71,7 @@ export type IEntry = ReturnType<typeof _handler>
  *
  * @extends {ITSRequiredPick<IFillPkgHostedInfoOptions & INpmAutoFixAll, ...>}
  */
-export interface IOptionsRunEachPackages extends ITSPickExtra<IFillPkgHostedInfoOptions & INpmAutoFixAll, 'overwriteHostedGitInfo' | 'branch' | 'rootData' | 'hostedGitInfo' | 'resetStaticFiles' | 'addStaticFiles' | 'noStaticFiles' | 'noMergeIgnoreFiles'>
+export interface IOptionsRunEachPackages extends ITSPickExtra<IFillPkgHostedInfoOptions & INpmAutoFixAll, 'overwriteHostedGitInfo' | 'branch' | 'rootData' | 'hostedGitInfo' | 'resetStaticFiles' | 'addStaticFiles' | 'noStaticFiles' | 'noMergeIgnoreFiles' | 'noScripts'>
 {
 
 }
@@ -246,11 +246,21 @@ export function _runFixPackagesCore(row: IEntry, options: IOptionsRunEachPackage
 		})
 	;
 
-	// 設定預設腳本 / Set default scripts
-	pkg.data.scripts = {
-		...defaultPkgScripts(),
-		...(pkg.data.scripts ?? {}),
-	};
+	/**
+	 * 預設腳本補齊：noScripts 時略過 defaultPkgScripts()，僅確保 scripts 物件存在，
+	 * 避免後續 scripts 欄位存取落入 undefined；否則以預設腳本為底、既有腳本優先合併
+	 */
+	if (options.noScripts)
+	{
+		pkg.data.scripts ??= {};
+	}
+	else
+	{
+		pkg.data.scripts = {
+			...defaultPkgScripts(),
+			...(pkg.data.scripts ?? {}),
+		};
+	}
 
 	// 處理根套件與非根套件 / Handle root vs non-root packages
 	if (isRoot)
