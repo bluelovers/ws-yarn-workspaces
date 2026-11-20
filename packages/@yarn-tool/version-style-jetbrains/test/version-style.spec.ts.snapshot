@@ -61,6 +61,48 @@ exports[`Version Style Generator > parseVersion > should parse 2026.101.1 1`] = 
 }
 `;
 
+exports[`Version Style Generator > parseVersion > should parse 226.1120.1744 1`] = `
+{
+  "year": 2026,
+  "month": 11,
+  "day": 20,
+  "dailyVersion": 1,
+  "hour": 17,
+  "minute": 44,
+  "isJetbrainsShort": true,
+  "isMDCombined": true,
+  "isDateTime": true
+}
+`;
+
+exports[`Version Style Generator > parseVersion > should parse 226.1120.1744-1 1`] = `
+{
+  "year": 2026,
+  "month": 11,
+  "day": 20,
+  "dailyVersion": 1,
+  "hour": 17,
+  "minute": 44,
+  "isJetbrainsShort": true,
+  "isMDCombined": true,
+  "isDateTime": true
+}
+`;
+
+exports[`Version Style Generator > parseVersion > should parse 226.1120.1744-2 1`] = `
+{
+  "year": 2026,
+  "month": 11,
+  "day": 20,
+  "dailyVersion": 2,
+  "hour": 17,
+  "minute": 44,
+  "isJetbrainsShort": true,
+  "isMDCombined": true,
+  "isDateTime": true
+}
+`;
+
 exports[`Version Style Generator > parseVersion > should parse 261.1.1-1 1`] = `
 {
   "year": 2026,

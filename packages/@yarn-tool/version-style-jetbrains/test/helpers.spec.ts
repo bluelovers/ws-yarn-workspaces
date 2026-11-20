@@ -15,6 +15,7 @@ describe('Helper Functions', () => {
 		for (const { style, expected } of [
 			{ style: EnumVersionStyle.JetbrainsShort, expected: true },
 			{ style: EnumVersionStyle.JetbrainsShortMD, expected: true },
+			{ style: EnumVersionStyle.JetbrainsDateTime, expected: true },
 			{ style: EnumVersionStyle.StandardFull, expected: false },
 			{ style: EnumVersionStyle.StandardFullMD, expected: false },
 		]) {
@@ -30,6 +31,7 @@ describe('Helper Functions', () => {
 		for (const { style, expected } of [
 			{ style: EnumVersionStyle.JetbrainsShort, expected: false },
 			{ style: EnumVersionStyle.JetbrainsShortMD, expected: true },
+			{ style: EnumVersionStyle.JetbrainsDateTime, expected: true },
 			{ style: EnumVersionStyle.StandardFull, expected: false },
 			{ style: EnumVersionStyle.StandardFullMD, expected: true },
 		]) {
@@ -52,6 +54,13 @@ describe('Helper Functions', () => {
 				assert.strictEqual(_getStyleFromFlags(isJetbrainsShort, isMDCombined), expected);
 			});
 		}
+
+		/**
+		 * 日期時間樣式優先於短年份/月日合併旗標判斷
+		 */
+		it(`should return ${EnumVersionStyle.JetbrainsDateTime} for isDateTime=true`, () => {
+			assert.strictEqual(_getStyleFromFlags(true, true, true), EnumVersionStyle.JetbrainsDateTime);
+		});
 
 	});
 

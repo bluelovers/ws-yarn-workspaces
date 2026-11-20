@@ -7,7 +7,11 @@ import {
 	IVersionStyleOptions,
 } from './types';
 import { _getDateInfoFromDayjs, getDayjsFromInput } from './date';
-import { _isJetbrainsStyleFromStyle, _isMDCombinedFromStyle } from './assert';
+import {
+	_isDateTimeStyleFromStyle,
+	_isJetbrainsStyleFromStyle,
+	_isMDCombinedFromStyle,
+} from './assert';
 import { _parseVersion } from './helpers';
 
 /**
@@ -15,10 +19,20 @@ import { _parseVersion } from './helpers';
  *
  * @param isJetbrainsShort - 是否為 JetBrains 樣式
  * @param isMDCombined - 是否使用月日合併格式
+ * @param isDateTime - 是否為日期時間樣式
  * @returns 版本樣式
  */
-export function _getStyleFromFlags(isJetbrainsShort: boolean, isMDCombined: boolean): EnumVersionStyle
+export function _getStyleFromFlags(isJetbrainsShort: boolean, isMDCombined: boolean, isDateTime?: boolean): EnumVersionStyle
 {
+	/**
+	 * 日期時間樣式必然同時為短年份與月日合併，故需優先判斷，
+	 * 否則會被下方 2x2 矩陣誤判成 JetbrainsShortMD
+	 */
+	if (isDateTime)
+	{
+		return EnumVersionStyle.JetbrainsDateTime;
+	}
+
 	/**
 	 * 兩個布林旗標組成 2x2 矩陣，先判斷年份格式再判斷月日格式，
 	 * 可避免四種樣式各寫一個條件
@@ -142,8 +156,11 @@ export function _getParsedVersionFromOptions(processed: IRequiredOptionsRuntime)
 	return {
 		...dateInfo,
 		dailyVersion: processed.dailyIncrement,
+		hour: processed.hour,
+		minute: processed.minute,
 		isJetbrainsShort: _isJetbrainsStyleFromStyle(style),
 		isMDCombined: _isMDCombinedFromStyle(style),
+		isDateTime: _isDateTimeStyleFromStyle(style),
 	};
 }
 
@@ -162,12 +179,15 @@ export function _handleVersionStyleOptions<T extends IVersionStyleOptions = IVer
 
 	/**
 	 * 補上各選項的預設值：遞增號從 1 起算、預設不禁用後綴、
-	 * 樣式預設 JetbrainsShortMD（年份兩位 + 月日合併，最為緊湊）
+	 * 樣式預設 JetbrainsShortMD（年份兩位 + 月日合併，最為緊湊）、
+	 * 時分取自 date（僅日期時間樣式會用到）
 	 */
 	return {
 		...options,
 		dailyIncrement: options.dailyIncrement ?? 1,
 		disableDailyVersionSuffix: options.disableDailyVersionSuffix ?? false,
 		style: options.style ?? EnumVersionStyle.JetbrainsShortMD,
+		hour: options.hour ?? options.date.hour(),
+		minute: options.minute ?? options.date.minute(),
 	} as IRequiredOptionsRuntime<T>;
 }

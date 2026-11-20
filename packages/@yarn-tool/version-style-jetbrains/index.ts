@@ -6,6 +6,8 @@
  * - 261.101.1  => 2026年.一月一號.當日第一版 (年=26+235, 月日=101)
  * - 2026.101.1 => 2026年.一月一號.當日第一版 (年=2026, 月日=101)
  * - 2026.1.1-1  => 2026年.一月.一號 - 當日第一版 (年=2026, 月=1, 日=1)
+ * - 226.1120.1744-1 => 2026年.11月20號.17:44 - 當日第一版 (年=2026 首個 2 + 26, 月日=1120, 時分=1744, 2100 起不支援)
+ * - 226.1120.1744   => 同上但停用遞增後綴 (disableDailyVersionSuffix)
  */
 import {
 	EnumVersionStyle,
@@ -17,7 +19,7 @@ import {
 import { _getParsedVersionFromOptions, _getStyleFromFlags, _handleVersionStyleOptions } from './lib/options';
 import { _dateToVersionByStyleCore } from './lib/core';
 import { _getDateInfoFromDayjs } from './lib/date';
-import { _parseJetbrainsVersion, _parseStandardFullVersion } from './lib/helpers';
+import { _parseJetbrainsDateTime, _parseJetbrainsVersion, _parseStandardFullVersion } from './lib/helpers';
 import { _assertValidDateInfo } from './lib/assert';
 
 export * from './lib/types';
@@ -33,12 +35,20 @@ export { _handleVersionStyleOptions } from './lib/options';
 export function parseVersion(version: string): IParseVersionResult | null
 {
 	/**
-	 * 先嘗試解析標準格式: YYYY.M.D-increment 或 YYYY.MD.increment
+	 * 先嘗試解析日期時間格式: 2YY.MMDD.HHmm-increment
 	 */
-	let result: IParseVersionResult = _parseStandardFullVersion(version);
+	let result: IParseVersionResult = _parseJetbrainsDateTime(version);
 
 	/**
-	 * 標準格式失敗才退回 JetBrains 短年份格式: YY+OFFSET.M.D-increment 或 YY+OFFSET.MD.increment
+	 * 其次解析標準格式: YYYY.M.D-increment 或 YYYY.MD.increment
+	 */
+	if (!result)
+	{
+		result = _parseStandardFullVersion(version);
+	}
+
+	/**
+	 * 皆失敗才退回 JetBrains 短年份格式: YY+OFFSET.M.D-increment 或 YY+OFFSET.MD.increment
 	 */
 	if (!result)
 	{
@@ -56,7 +66,7 @@ export function parseVersion(version: string): IParseVersionResult | null
 	}
 
 	/**
-	 * 兩種格式皆不符：回傳 null 交由呼叫端決定容錯策略
+	 * 所有格式皆不符：回傳 null 交由呼叫端決定容錯策略
 	 */
 	return null;
 }
@@ -71,7 +81,7 @@ export function dateToVersion(options?: IVersionStyleOptions): string
 {
 	const processed = _handleVersionStyleOptions(options);
 	const { year, month, day } = _getDateInfoFromDayjs(processed.date);
-	const { dailyIncrement, disableDailyVersionSuffix, style } = processed;
+	const { dailyIncrement, disableDailyVersionSuffix, style, hour, minute } = processed;
 
 	return _dateToVersionByStyleCore(style, {
 		year,
@@ -79,6 +89,8 @@ export function dateToVersion(options?: IVersionStyleOptions): string
 		day,
 		dailyIncrement,
 		disableDailyVersionSuffix,
+		hour,
+		minute,
 	});
 }
 
@@ -118,7 +130,7 @@ export function getNextDayVersion(currentVersion: string): string
 		return dateToVersion({});
 	}
 
-	const { year, month, day, isJetbrainsShort, isMDCombined } = parsed;
+	const { year, month, day, isJetbrainsShort, isMDCombined, isDateTime, hour, minute } = parsed;
 
 	let nextDay = day + 1;
 	let nextMonth = month;
@@ -149,13 +161,15 @@ export function getNextDayVersion(currentVersion: string): string
 		}
 	}
 
-	const style = _getStyleFromFlags(isJetbrainsShort, isMDCombined);
+	const style = _getStyleFromFlags(isJetbrainsShort, isMDCombined, isDateTime);
 
 	return _dateToVersionByStyleCore(style, {
 		year: nextYear,
 		month: nextMonth,
 		day: nextDay,
 		dailyIncrement: 1,
+		hour,
+		minute,
 	});
 }
 
@@ -177,15 +191,17 @@ export function incrementVersion(currentVersion: string): string
 		return dateToVersion({});
 	}
 
-	const { year, month, day, dailyVersion, isJetbrainsShort, isMDCombined } = parsed;
+	const { year, month, day, dailyVersion, isJetbrainsShort, isMDCombined, isDateTime, hour, minute } = parsed;
 
-	const style = _getStyleFromFlags(isJetbrainsShort, isMDCombined);
+	const style = _getStyleFromFlags(isJetbrainsShort, isMDCombined, isDateTime);
 
 	return _dateToVersionByStyleCore(style, {
 		year,
 		month,
 		day,
 		dailyIncrement: dailyVersion + 1,
+		hour,
+		minute,
 	});
 }
 
@@ -260,6 +276,12 @@ export function getNextVersion(options?: IVersionStyleOptions): string
 		day: parsed.day,
 		dailyIncrement: parsed.dailyVersion + 1,
 		disableDailyVersionSuffix,
+		/**
+		 * 日期時間樣式需時分：既有版本號帶有時分時沿用，
+		 * 否則退回 options（已預設為 date 的時分）
+		 */
+		hour: parsed.hour ?? processed.hour,
+		minute: parsed.minute ?? processed.minute,
 	});
 }
 
@@ -273,10 +295,10 @@ export function generateAllStyleVersions(options?: IVersionStyleOptions): Record
 {
 	const processed = _handleVersionStyleOptions(options);
 	const { year, month, day } = _getDateInfoFromDayjs(processed.date);
-	const { dailyIncrement, disableDailyVersionSuffix } = processed;
+	const { dailyIncrement, disableDailyVersionSuffix, hour, minute } = processed;
 
 	/**
-	 * 四種樣式共用同一組年月日與遞增號，僅格式不同；
+	 * 各樣式共用同一組年月日與遞增號，僅格式不同；
 	 * 逐一展開比動態迭代列舉更明確，新增樣式時可在此編譯期被發現
 	 */
 	return {
@@ -307,6 +329,15 @@ export function generateAllStyleVersions(options?: IVersionStyleOptions): Record
 			day,
 			dailyIncrement,
 			disableDailyVersionSuffix,
+		}),
+		[EnumVersionStyle.JetbrainsDateTime]: _dateToVersionByStyleCore(EnumVersionStyle.JetbrainsDateTime, {
+			year,
+			month,
+			day,
+			dailyIncrement,
+			disableDailyVersionSuffix,
+			hour,
+			minute,
 		}),
 	};
 }

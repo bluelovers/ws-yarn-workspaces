@@ -20,11 +20,12 @@ import {
 } from './lib/test';
 import {
 	DATE_TO_VERSION_DISABLE_SUFFIX_TEST_CASES, DATE_TO_VERSION_STYLE_TEST_CASES,
-	INCREMENT_VERSION_TEST_CASES, JETBRAINS_YEAR_CODE_TEST_CASES,
+	INCREMENT_VERSION_TEST_CASES, JETBRAINS_DATETIME_YEAR_CODE_TEST_CASES,
+	JETBRAINS_YEAR_CODE_TEST_CASES,
 	PARSE_VERSION_TEST_CASES, QUARTER_TEST_CASES, TEST_BASE_OPTIONS, TEST_DATE_Q1,
 	TEST_DATE_Q2, TEST_Q2_OPTIONS, VALID_DATE_INFO_TEST_CASES,
 } from './fixtures/data';
-import { _getDateInfoFromDate, getJetbrainsYearCode, getQuarterFromMonth } from '../lib/date';
+import { _getDateInfoFromDate, getJetbrainsDateTimeYearCode, getJetbrainsYearCode, getQuarterFromMonth } from '../lib/date';
 import { isValidDateInfo } from '../lib/assert';
 import { EnumVersionStyle } from '../lib/types';
 
@@ -45,6 +46,16 @@ describe('Version Style Generator', () => {
 		for (const { year, quarter, expected } of JETBRAINS_YEAR_CODE_TEST_CASES) {
 			it(`should return ${expected} for year ${year}, quarter ${quarter}`, () => {
 				assert.strictEqual(getJetbrainsYearCode(year, quarter), expected);
+			});
+		}
+
+	});
+
+	describe('getJetbrainsDateTimeYearCode', () => {
+
+		for (const { year, expected } of JETBRAINS_DATETIME_YEAR_CODE_TEST_CASES) {
+			it(`should return ${expected} for year ${year}`, () => {
+				assert.strictEqual(getJetbrainsDateTimeYearCode(year), expected);
 			});
 		}
 
@@ -125,6 +136,65 @@ describe('Version Style Generator', () => {
 				isMDCombined: false,
 			});
 			t.assert.snapshot(result.parseVersion);
+		});
+
+	});
+
+	describe('JetbrainsDateTime style', () => {
+
+		/** 2026-11-20 17:44 */
+		const TEST_DATE_TIME = new Date(2026, 10, 20, 17, 44);
+
+		it('should generate version with date and time', () => {
+			const result = dateToVersion({ date: TEST_DATE_TIME, style: EnumVersionStyle.JetbrainsDateTime });
+
+			assert.strictEqual(result, '226.1120.1744-1');
+		});
+
+		it('should generate version without increment suffix', () => {
+			const result = dateToVersion({
+				date: TEST_DATE_TIME,
+				style: EnumVersionStyle.JetbrainsDateTime,
+				disableDailyVersionSuffix: true,
+			});
+
+			assert.strictEqual(result, '226.1120.1744');
+		});
+
+		it('should parse both with and without increment suffix', () => {
+			const expected = {
+				year: 2026,
+				month: 11,
+				day: 20,
+				dailyVersion: 1,
+				hour: 17,
+				minute: 44,
+				isJetbrainsShort: true,
+				isMDCombined: true,
+				isDateTime: true,
+			};
+
+			assert.deepStrictEqual(parseVersion('226.1120.1744-1'), expected);
+			assert.deepStrictEqual(parseVersion('226.1120.1744'), expected);
+		});
+
+		it('should keep time when incrementing', () => {
+			assert.strictEqual(incrementVersion('226.1120.1744-1'), '226.1120.1744-2');
+		});
+
+		it('should move to next day and keep time', () => {
+			assert.strictEqual(getNextDayVersion('226.1120.1744-1'), '226.1121.1744-1');
+		});
+
+		it('should increment via getNextVersion', () => {
+			const result = getNextVersion({ date: TEST_DATE_TIME, style: EnumVersionStyle.JetbrainsDateTime });
+
+			assert.strictEqual(result, '226.1120.1744-2');
+		});
+
+		it('should detect today version', () => {
+			assert.strictEqual(isTodayVersion('226.1120.1744-1', { date: TEST_DATE_TIME }), true);
+			assert.strictEqual(isTodayVersion('226.1121.1744-1', { date: TEST_DATE_TIME }), false);
 		});
 
 	});
@@ -265,6 +335,7 @@ describe('Version Style Generator', () => {
 				[EnumVersionStyle.JetbrainsShortMD]: '261.101.1',
 				[EnumVersionStyle.StandardFull]: '2026.1.1-1',
 				[EnumVersionStyle.StandardFullMD]: '2026.101.1',
+				[EnumVersionStyle.JetbrainsDateTime]: '226.101.0000-1',
 			});
 		});
 
@@ -279,6 +350,7 @@ describe('Version Style Generator', () => {
 				[EnumVersionStyle.JetbrainsShortMD]: '262.615.1',
 				[EnumVersionStyle.StandardFull]: '2026.6.15-1',
 				[EnumVersionStyle.StandardFullMD]: '2026.615.1',
+				[EnumVersionStyle.JetbrainsDateTime]: '226.615.0000-1',
 			});
 		});
 

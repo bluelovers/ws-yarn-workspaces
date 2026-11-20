@@ -32,6 +32,16 @@ export enum EnumVersionStyle
 	 * @example 2026.101.1
 	 */
 	StandardFullMD = 'standard-full-md',
+	/**
+	 * JetBrains 年份 + 月日 + 時間樣式
+	 *
+	 * 首段取年份 (2026) 的第一個 2 與年份後兩位，第二段為月日 (MMDD)，第三段為時分 (HHmm)
+	 * 2100 起不支援
+	 *
+	 * @example 226.1120.1744-1
+	 * @example 226.1120.1744 (disableDailyVersionSuffix)
+	 */
+	JetbrainsDateTime = 'jetbrains-date-time',
 }
 
 /**
@@ -48,7 +58,11 @@ export interface IVersionStyleOptions
 	date?: IDateInput;
 	/** 當日版本號遞增 */
 	dailyIncrement?: number;
-	/** 是否禁用結尾的 -x dailyVersion (僅對 JetbrainsShort 和 StandardFull 有效) */
+	/** 小時 (0-23)，僅 JetbrainsDateTime 樣式使用，預設取自 date */
+	hour?: number;
+	/** 分鐘 (0-59)，僅 JetbrainsDateTime 樣式使用，預設取自 date */
+	minute?: number;
+	/** 是否禁用結尾的 -x dailyVersion (對 JetbrainsShort / StandardFull / JetbrainsDateTime 有效) */
 	disableDailyVersionSuffix?: boolean;
 	/** 版本樣式 (default is JetbrainsShortMD) */
 	style?: EnumVersionStyle;
@@ -102,6 +116,16 @@ export interface IParseVersionResultCore<JS extends boolean = boolean, MD extend
 	isJetbrainsShort: JS;
 	/** 是否使用月日合併格式 */
 	isMDCombined: MD;
+	/**
+	 * 是否為日期時間樣式 (226.1120.1744)
+	 *
+	 * 僅日期時間樣式會帶此欄位，其餘樣式省略以維持既有解析結果形狀
+	 */
+	isDateTime?: boolean;
+	/** 小時 (0-23)，僅日期時間樣式提供 */
+	hour?: number;
+	/** 分鐘 (0-59)，僅日期時間樣式提供 */
+	minute?: number;
 }
 
 /**

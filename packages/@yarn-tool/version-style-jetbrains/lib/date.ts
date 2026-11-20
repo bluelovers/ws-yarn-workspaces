@@ -36,6 +36,73 @@ export function getJetbrainsYearCode(year: number, quarter: number): number
 }
 
 /**
+ * 根據年份取得日期時間樣式的年份編碼
+ *
+ * 編碼取年份字串 (如 "2026") 的第一個 2，再加上年份後兩位，故 2026 -> 226；
+ * 與 YYQ 季度編碼 (261) 分開，因為此樣式第三段已是時間，不再需要季度資訊
+ *
+ * 請注意：年份後兩位僅兩碼，故 2100 (會得到 200) 起不支援此模式
+ *
+ * @param year - 年份
+ * @returns 年份編碼 (如 226 表示 2026 年)
+ */
+export function getJetbrainsDateTimeYearCode(year: number): number
+{
+	return 200 + (year % 100);
+}
+
+/**
+ * 從年份編碼還原日期時間樣式的年份
+ *
+ * @param yearCode - 年份編碼 (200-299)
+ * @returns 年份 (2000-2099)
+ */
+export function _parseJetbrainsDateTimeYear(yearCode: number): number
+{
+	return 2000 + (yearCode - 200);
+}
+
+/**
+ * 從 HHmm 四位數字解析時分
+ *
+ * 例如: 1744 -> hour=17, minute=44; 0005 -> hour=0, minute=5
+ *
+ * @param timeStr - 時間字串 (HHmm)
+ * @returns 時分資訊，格式不合法時回傳 null
+ */
+export function _parseTimeFromHHmm(timeStr: string): { hour: number; minute: number } | null
+{
+	/** 嚴格限四碼，避免 "174" 這類殘缺數字被當成時間 */
+	if (!/^\d{4}$/.test(timeStr))
+	{
+		return null;
+	}
+
+	const hour = Math.floor(parseInt(timeStr, 10) / 100);
+	const minute = parseInt(timeStr, 10) % 100;
+
+	/** 時分超出範圍即非時間格式，交由呼叫端決定是否改用其他樣式解析 */
+	if (hour > 23 || minute > 59)
+	{
+		return null;
+	}
+
+	return { hour, minute };
+}
+
+/**
+ * 以兩位數補零格式化時分
+ *
+ * @param hour - 小時 (0-23)
+ * @param minute - 分鐘 (0-59)
+ * @returns HHmm 字串 (如 "1744")
+ */
+export function _formatTimeToHHmm(hour: number, minute: number): string
+{
+	return `${String(hour).padStart(2, '0')}${String(minute).padStart(2, '0')}`;
+}
+
+/**
  * 從月日合併數字解析月日資訊
  *
  * 將三位或四位數的月日合併數字解析為月份和日期

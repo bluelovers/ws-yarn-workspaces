@@ -19,15 +19,14 @@ export const TEST_DATE_Q2 = new Date(2026, 5, 15);
  * Test date: March 8, 2026 (Q1)
  */
 export const TEST_DATE_MARCH_8 = new Date(2026, 2, 8);
-/**
- * 測試用基礎選項 (含 year, month, day)
- * Test base options (with year, month, day)
- */
+/** 測試用基礎選項 */
 export const TEST_BASE_OPTIONS: IVersionStyleOptionsWithDateInfo = {
 	year: 2026,
 	month: 1,
 	day: 1,
 	dailyIncrement: 1,
+	hour: 17,
+	minute: 44,
 };
 /**
  * Q2 測試用選項
@@ -38,6 +37,8 @@ export const TEST_Q2_OPTIONS: IVersionStyleOptionsWithDateInfo = {
 	month: 6,
 	day: 15,
 	dailyIncrement: 1,
+	hour: 17,
+	minute: 44,
 };
 /**
  * 測試用日期資訊對應表
@@ -61,6 +62,7 @@ export const EXPECTED_DATE_TO_VERSION: Record<EnumVersionStyle, string> = {
 	[EnumVersionStyle.JetbrainsShortMD]: '261.101.1',
 	[EnumVersionStyle.StandardFull]: '2026.1.1-1',
 	[EnumVersionStyle.StandardFullMD]: '2026.101.1',
+	[EnumVersionStyle.JetbrainsDateTime]: '226.101.1744-1',
 };
 /**
  * Q2 dateToVersionByStyle 預期結果映射
@@ -71,6 +73,7 @@ export const EXPECTED_DATE_TO_VERSION_Q2: Record<EnumVersionStyle, string> = {
 	[EnumVersionStyle.JetbrainsShortMD]: '262.615.1',
 	[EnumVersionStyle.StandardFull]: '2026.6.15-1',
 	[EnumVersionStyle.StandardFullMD]: '2026.615.1',
+	[EnumVersionStyle.JetbrainsDateTime]: '226.615.1744-1',
 };
 /**
  * 解析 JetbrainsShort 格式的預期結果
@@ -121,6 +124,20 @@ export const PARSE_EXPECTED_STANDARD_FULL_MD = {
 	isMDCombined: true,
 };
 /**
+ * 解析 JetbrainsDateTime 格式的預期結果
+ */
+export const PARSE_EXPECTED_JETBRAINS_DATE_TIME = {
+	year: 2026,
+	month: 11,
+	day: 20,
+	dailyVersion: 1,
+	hour: 17,
+	minute: 44,
+	isJetbrainsShort: true,
+	isMDCombined: true,
+	isDateTime: true,
+};
+/**
  * 驗證 getQuarterFromMonth 的測試資料
  * Test data for getQuarterFromMonth
  */
@@ -148,6 +165,16 @@ export const JETBRAINS_YEAR_CODE_TEST_CASES = [
 	{ year: 2026, quarter: 3, expected: 263 },
 	{ year: 2026, quarter: 4, expected: 264 },
 	{ year: 2027, quarter: 1, expected: 271 },
+];
+/**
+ * 驗證 getJetbrainsDateTimeYearCode 的測試資料
+ */
+export const JETBRAINS_DATETIME_YEAR_CODE_TEST_CASES = [
+	{ year: 2026, expected: 226 },
+	{ year: 2025, expected: 225 },
+	{ year: 2030, expected: 230 },
+	{ year: 2001, expected: 201 },
+	{ year: 2099, expected: 299 },
 ];
 /**
  * isValidDateInfo 測試資料
@@ -181,24 +208,50 @@ export const DATE_TO_VERSION_STYLE_TEST_CASES: Array<{
 	dateInfo: IVersionStyleOptionsWithDateInfo;
 	expected: string;
 }> = [
-	// 基本樣式 / Basic styles
+	/**
+	 * 基本樣式 / Basic styles
+	 */
 	{ style: EnumVersionStyle.JetbrainsShort, dateInfo: TEST_BASE_OPTIONS, expected: '261.1.1-1' },
 	{ style: EnumVersionStyle.JetbrainsShortMD, dateInfo: TEST_BASE_OPTIONS, expected: '261.101.1' },
 	{ style: EnumVersionStyle.StandardFull, dateInfo: TEST_BASE_OPTIONS, expected: '2026.1.1-1' },
 	{ style: EnumVersionStyle.StandardFullMD, dateInfo: TEST_BASE_OPTIONS, expected: '2026.101.1' },
-	// 不同月份和日期 / Different months and days
+	/**
+	 * 不同月份和日期 / Different months and days
+	 */
 	{
 		style: EnumVersionStyle.StandardFullMD,
 		dateInfo: { year: 2026, month: 3, day: 8, dailyIncrement: 1 },
 		expected: '2026.308.1',
 	},
-	// 不同季度 / Different quarters
+	/**
+	 * 不同季度 / Different quarters
+	 */
 	{ style: EnumVersionStyle.JetbrainsShortMD, dateInfo: TEST_Q2_OPTIONS, expected: '262.615.1' },
-	// 遞增版本 / Increment version
+	/**
+	 * 遞增版本 / Increment version
+	 */
 	{
 		style: EnumVersionStyle.JetbrainsShort,
 		dateInfo: { year: 2026, month: 1, day: 1, dailyIncrement: 2 },
 		expected: '261.1.1-2',
+	},
+	/**
+	 * 日期時間樣式
+	 */
+	{
+		style: EnumVersionStyle.JetbrainsDateTime,
+		dateInfo: TEST_BASE_OPTIONS,
+		expected: '226.101.1744-1',
+	},
+	{
+		style: EnumVersionStyle.JetbrainsDateTime,
+		dateInfo: { year: 2026, month: 11, day: 20, dailyIncrement: 1, hour: 17, minute: 44 },
+		expected: '226.1120.1744-1',
+	},
+	{
+		style: EnumVersionStyle.JetbrainsDateTime,
+		dateInfo: { year: 2026, month: 11, day: 20, dailyIncrement: 2, hour: 9, minute: 5 },
+		expected: '226.1120.0905-2',
 	},
 ];
 /**
@@ -220,7 +273,9 @@ export const DATE_TO_VERSION_DISABLE_SUFFIX_TEST_CASES: Array<{
 		dateInfo: { ...TEST_BASE_OPTIONS, disableDailyVersionSuffix: true },
 		expected: '2026.1.1',
 	},
-	// MD 格式應該忽略 disableDailyVersionSuffix
+	/**
+	 * MD 格式應該忽略 disableDailyVersionSuffix
+	 */
 	{
 		style: EnumVersionStyle.JetbrainsShortMD,
 		dateInfo: { ...TEST_BASE_OPTIONS, disableDailyVersionSuffix: true },
@@ -230,6 +285,14 @@ export const DATE_TO_VERSION_DISABLE_SUFFIX_TEST_CASES: Array<{
 		style: EnumVersionStyle.StandardFullMD,
 		dateInfo: { ...TEST_BASE_OPTIONS, disableDailyVersionSuffix: true },
 		expected: '2026.101.1',
+	},
+	/**
+	 * 日期時間樣式可省略遞增後綴
+	 */
+	{
+		style: EnumVersionStyle.JetbrainsDateTime,
+		dateInfo: { ...TEST_BASE_OPTIONS, disableDailyVersionSuffix: true },
+		expected: '226.101.1744',
 	},
 ];
 /**
@@ -246,6 +309,12 @@ export const PARSE_VERSION_TEST_CASES = [
 	{ version: '2026.1.1-1', expected: PARSE_EXPECTED_STANDARD_FULL },
 	{ version: '2026.101.1', expected: PARSE_EXPECTED_STANDARD_FULL_MD },
 	{ version: '2026.1.1', expected: PARSE_EXPECTED_STANDARD_FULL },
+	{ version: '226.1120.1744-1', expected: PARSE_EXPECTED_JETBRAINS_DATE_TIME },
+	{ version: '226.1120.1744', expected: PARSE_EXPECTED_JETBRAINS_DATE_TIME },
+	{
+		version: '226.1120.1744-2',
+		expected: { ...PARSE_EXPECTED_JETBRAINS_DATE_TIME, dailyVersion: 2 },
+	},
 	{ version: 'invalid', expected: null },
 ];
 /**
@@ -256,4 +325,9 @@ export const INCREMENT_VERSION_TEST_CASES = [
 	{ version: '261.1.1-1', expected: '261.1.1-2' },
 	{ version: '261.101.1', expected: '261.101.2' },
 	{ version: '2026.101.1', expected: '2026.101.2' },
+	/**
+	 * 時間沿用原版本號，僅遞增 -x 後綴
+	 */
+	{ version: '226.1120.1744-1', expected: '226.1120.1744-2' },
+	{ version: '226.1120.1744', expected: '226.1120.1744-2' },
 ];

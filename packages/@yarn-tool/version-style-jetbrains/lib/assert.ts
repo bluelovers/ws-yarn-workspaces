@@ -87,9 +87,11 @@ export function assertValidQuarter(quarter: unknown): asserts quarter is number
  * @param style - 版本樣式
  * @returns 是否為 JetBrains 樣式
  */
-export function _isJetbrainsStyleFromStyle(style: EnumVersionStyle): style is EnumVersionStyle.JetbrainsShort | EnumVersionStyle.JetbrainsShortMD
+export function _isJetbrainsStyleFromStyle(style: EnumVersionStyle): style is EnumVersionStyle.JetbrainsShort | EnumVersionStyle.JetbrainsShortMD | EnumVersionStyle.JetbrainsDateTime
 {
-	return style === EnumVersionStyle.JetbrainsShort || style === EnumVersionStyle.JetbrainsShortMD;
+	return style === EnumVersionStyle.JetbrainsShort
+		|| style === EnumVersionStyle.JetbrainsShortMD
+		|| style === EnumVersionStyle.JetbrainsDateTime;
 }
 
 /**
@@ -98,7 +100,20 @@ export function _isJetbrainsStyleFromStyle(style: EnumVersionStyle): style is En
  * @param style - 版本樣式
  * @returns 是否使用 MD 格式
  */
-export function _isMDCombinedFromStyle(style: EnumVersionStyle): style is EnumVersionStyle.JetbrainsShortMD | EnumVersionStyle.StandardFullMD
+export function _isMDCombinedFromStyle(style: EnumVersionStyle): style is EnumVersionStyle.JetbrainsShortMD | EnumVersionStyle.StandardFullMD | EnumVersionStyle.JetbrainsDateTime
 {
-	return style === EnumVersionStyle.JetbrainsShortMD || style === EnumVersionStyle.StandardFullMD;
+	return style === EnumVersionStyle.JetbrainsShortMD
+		|| style === EnumVersionStyle.StandardFullMD
+		|| style === EnumVersionStyle.JetbrainsDateTime;
+}
+
+/**
+ * 從版本樣式判斷是否為日期時間樣式
+ *
+ * @param style - 版本樣式
+ * @returns 是否為 JetbrainsDateTime 樣式
+ */
+export function _isDateTimeStyleFromStyle(style: EnumVersionStyle): style is EnumVersionStyle.JetbrainsDateTime
+{
+	return style === EnumVersionStyle.JetbrainsDateTime;
 }

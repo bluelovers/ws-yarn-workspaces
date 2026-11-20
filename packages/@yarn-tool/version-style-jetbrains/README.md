@@ -8,7 +8,7 @@
 
 ## 功能特色 (Features)
 
-- **四種版本樣式 (Version Styles)**：JetBrains 短年份、短年份月日合併、標準完整年份、標準完整年份月日合併
+- **版本樣式 (Version Styles)**：JetBrains 短年份、短年份月日合併、標準完整年份、標準完整年份月日合併、日期時間
 - **雙向轉換**：日期可產生版本號 (`dateToVersion`)，版本號也可反向解析回日期資訊 (`parseVersion`)
 - **遞增與推進**：支援當日遞增 (`incrementVersion`) 與跨日推進 (`getNextDayVersion`)，含跨月、跨年進位
 - **時區安全 (Timezone-safe)**：透過 `dayjs-tz-helper` 安全解析時區，避免本地時間與 UTC 偏移造成日期偏移
@@ -47,7 +47,7 @@ const todayVersion = dateToVersion(); // 例如: 261.1.1-1
 const versionInfo = parseVersion('261.1.1-1');
 
 // 生成所有格式的版本號
-const allVersions = generateAllStyleVersions(); // 包含4種格式
+const allVersions = generateAllStyleVersions();
 ```
 
 ## 版本格式 (Version Formats)
@@ -75,6 +75,13 @@ const allVersions = generateAllStyleVersions(); // 包含4種格式
    - 格式：完整年份, 月日合併, 遞增
    - 示例：2026年1月1日，第一版
    - 計算方式：完整年份，月和日合併（例如101代表1月1日），遞增號
+
+5. **JetbrainsDateTime**: `226.1120.1744-1`（停用後綴時為 `226.1120.1744`）
+   - 格式：年=2026 的第一個 2 + 年份後兩位, 月日合併, 時分 [-遞增]
+   - 示例：2026年11月20日 17:44，第一版
+   - 計算方式：首段取年份（2026）的第一個 2 與年份後兩位（226），月和日合併（1120 代表 11 月 20 日），時分為 HHmm（1744 代表 17:44），遞增號為可省略的 `-x` 後綴
+   - 限制：年份後兩位僅兩碼，2100 起不支援此格式
+   - 解析：`parseVersion` 會優先嘗試此格式（需第三段為合法時分 0000-2359），再依序嘗試標準格式與 JetBrains 短年份格式
 
 ## API 參考 (API Reference)
 
@@ -145,6 +152,7 @@ enum EnumVersionStyle {
   JetbrainsShortMD,    // JetBrains 短格式（月日合併）
   StandardFull,        // 標準完整格式
   StandardFullMD,      // 標準完整格式（月日合併）
+  JetbrainsDateTime,   // JetBrains 日期時間格式（226.1120.1744）
 }
 ```
 

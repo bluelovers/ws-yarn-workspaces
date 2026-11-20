@@ -1,5 +1,10 @@
 import { EnumVersionStyle } from './types';
-import { getJetbrainsYearCode, getQuarterFromMonth } from './date';
+import {
+	_formatTimeToHHmm,
+	getJetbrainsDateTimeYearCode,
+	getJetbrainsYearCode,
+	getQuarterFromMonth,
+} from './date';
 
 /**
  * 根據樣式將日期轉換為版本字串（核心函數）
@@ -16,10 +21,12 @@ export function _dateToVersionByStyleCore(
 		day: number;
 		dailyIncrement: number;
 		disableDailyVersionSuffix?: boolean;
+		hour?: number;
+		minute?: number;
 	},
 ): string
 {
-	const { year, month, day, dailyIncrement, disableDailyVersionSuffix } = options;
+	const { year, month, day, dailyIncrement, disableDailyVersionSuffix, hour = 0, minute = 0 } = options;
 	const quarter = getQuarterFromMonth(month);
 
 	/**
@@ -56,6 +63,21 @@ export function _dateToVersionByStyleCore(
 
 		case EnumVersionStyle.StandardFullMD:
 			return `${year}.${month * 100 + day}.${dailyIncrement}`;
+
+		case EnumVersionStyle.JetbrainsDateTime:
+		{
+			/**
+			 * 時間以 HHmm 固定四碼取代其他樣式的遞增段位置，
+			 * 遞增號退回為可省略的 -x 後綴（與 JetbrainsShort 同規則）
+			 */
+			const timeVersion = `${getJetbrainsDateTimeYearCode(year)}.${month * 100 + day}.${_formatTimeToHHmm(hour, minute)}`;
+
+			if (disableDailyVersionSuffix)
+			{
+				return timeVersion;
+			}
+			return `${timeVersion}-${dailyIncrement}`;
+		}
 
 		default:
 			/**
