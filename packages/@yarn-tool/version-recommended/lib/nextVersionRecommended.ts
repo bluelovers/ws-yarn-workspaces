@@ -19,7 +19,7 @@ import { ITSRequiredWith } from 'ts-type';
  * 設計意圖：bump 類型若未明確指定，交給 handleOptions 依舊版本的
  * 預發行資訊與 workspaces 設定推斷，而非一律使用 patch。
  * 指定 versionStyle 時新版本改交給 version-style-jetbrains 產生，
- * 該路徑只看 versionStyle 與 resetDailyIncrement。
+ * 該路徑只看 versionStyle、resetDailyIncrement 與 preid 系列選項。
  *
  * @param oldVersion - 舊版本號
  * @param options - 推薦選項
@@ -30,12 +30,12 @@ export function nextVersionRecommended(oldVersion: string,
 	wsProject?: WorkspacesProject,
 ): INextVersionRecommended
 {
-	const { versionStyle, resetDailyIncrement } = options ?? {};
+	const { versionStyle, resetDailyIncrement, preid, defaultPreid } = options ?? {};
 
 	/**
 	 * 風格模式不依舊版本推斷 semver 預發行資訊：
 	 * 風格版本第三段可能是 0005 這類前導零數字，semver.parse 會回傳 null，
-	 * 且 preid / identifierBase 也不影響風格版本的產生
+	 * 且 identifierBase 也不影響風格版本的產生
 	 */
 	options = handleOptions(options, versionStyle ? void 0 : oldVersion, wsProject);
 
@@ -43,7 +43,7 @@ export function nextVersionRecommended(oldVersion: string,
 	let bump = options.bump ?? 'patch';
 
 	const newVersion = versionStyle
-		? nextVersionByStyle(oldVersion, { versionStyle, resetDailyIncrement })
+		? nextVersionByStyle(oldVersion, { versionStyle, resetDailyIncrement, preid, defaultPreid })
 		: semverIncrement(oldVersion, bump, options.preid, options.identifierBase as any);
 
 	return {
@@ -65,7 +65,25 @@ function nextVersionByStyle(
 	options: INextVersionRecommendedOptionsWithStyle,
 ): string
 {
-	const { versionStyle, resetDailyIncrement } = options;
+	const { versionStyle, resetDailyIncrement, preid, defaultPreid } = options;
+
+	/** 預發行識別：preid 優先，defaultPreid 作為缺省值 */
+	const preidValue = preid?.length ? preid : defaultPreid?.length ? defaultPreid : void 0;
+
+	/**
+	 * 預發行系列啟用時停用當日遞增後綴：
+	 * `-n` 與 preid 的 `-xxx` 同時存在會讓版本號帶兩段連字號後綴，
+	 * 停用後才能安全地附加 preid；此路徑一律以當日日期時間重新產生，
+	 * 讓時間推進成為預發行版本的進度來源
+	 */
+	if (preidValue)
+	{
+		return `${dateToVersion({
+			style: versionStyle,
+			dailyIncrement: 1,
+			disableDailyVersionSuffix: true,
+		})}-${preidValue}`;
+	}
 
 	/**
 	 * 舊版本已是同風格且未要求重設：沿用其日期與時間遞增當日計數，

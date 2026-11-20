@@ -10,6 +10,7 @@ import { detectPreidByVersion, handleOptions, releaseTypesIsPre } from '../lib/h
 import { parse, ReleaseType } from 'semver';
 import { inc as semverIncrement } from 'semver';
 import { nextVersionRecommendedByPackageFindUp } from '../lib/pkg';
+import { analyzeVersionStyles, EnumVersionStyle } from '@yarn-tool/version-style-jetbrains';
 
 describe('nextVersionRecommendedByPackageFindUp', () =>
 {
@@ -160,5 +161,81 @@ describe('version', () =>
 		})
 
 	}
+
+})
+
+describe('versionStyle', () =>
+{
+
+	const oldVersion = '264.1120.1744-1';
+
+	test('should keep semver increment when versionStyle is not set', () =>
+	{
+		const actual = nextVersionRecommended('1.2.3');
+
+		assert.strictEqual(actual.newVersion, '1.2.4');
+	});
+
+	test('should increment daily version when old version matches the style', () =>
+	{
+		const actual = nextVersionRecommended(oldVersion, {
+			versionStyle: EnumVersionStyle.JetbrainsDateTime,
+		});
+
+		assert.strictEqual(actual.newVersion, '264.1120.1744-2');
+	});
+
+	test('should reset daily increment when requested', () =>
+	{
+		const actual = nextVersionRecommended(oldVersion, {
+			versionStyle: EnumVersionStyle.JetbrainsDateTime,
+			resetDailyIncrement: true,
+		});
+
+		/** 重設後遞增號回到 1，且不再沿用舊版本的日期時間 */
+		assert.match(actual.newVersion, /^\d{3}\.\d{4}\.\d{4}-1$/);
+		assert.notStrictEqual(actual.newVersion, oldVersion);
+	});
+
+	test('should generate a fresh version when old version is not in the style', () =>
+	{
+		const actual = nextVersionRecommended('1.2.3', {
+			versionStyle: EnumVersionStyle.JetbrainsShortMD,
+		});
+
+		assert.strictEqual(analyzeVersionStyles(actual.newVersion).priorityStyle, EnumVersionStyle.JetbrainsShortMD);
+	});
+
+	test('should handle style versions that are not valid semver', () =>
+	{
+		/** 0005 為前導零數字，semver.parse 會回傳 null，風格模式不得依舊版本推斷預發行資訊 */
+		const actual = nextVersionRecommended('264.1120.0005-1', {
+			versionStyle: EnumVersionStyle.JetbrainsDateTime,
+		});
+
+		assert.strictEqual(actual.newVersion, '264.1120.0005-2');
+	});
+
+	test('should disable daily version suffix when preid is enabled', () =>
+	{
+		const actual = nextVersionRecommended(oldVersion, {
+			versionStyle: EnumVersionStyle.JetbrainsDateTime,
+			preid: 'beta',
+		});
+
+		/** 停用遞增後綴後只保留一段連字號：`-beta` 而非 `-1-beta` */
+		assert.match(actual.newVersion, /^\d{3}\.\d{3,4}\.\d{4}-beta$/);
+		assert.strictEqual(actual.newVersion.split('-').length, 2);
+	});
+
+	test('should fall back to defaultPreid when preid is not given', () =>
+	{
+		const actual = nextVersionRecommended(oldVersion, {
+			versionStyle: EnumVersionStyle.JetbrainsDateTime,
+			defaultPreid: 'dev',
+		});
+
+		assert.match(actual.newVersion, /^\d{3}\.\d{3,4}\.\d{4}-dev$/);
+	});
 
 })

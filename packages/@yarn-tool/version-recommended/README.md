@@ -151,7 +151,7 @@ interface INextVersionRecommendedOptions extends ITSPartialRecord<ReleaseType, b
 
 同時也可直接以布林旗標指定 bump 類型：`major`、`minor`、`patch`、`premajor`、`preminor`、`prepatch`、`prerelease`，例如 `{ minor: true }`。
 
-指定 `versionStyle` 時，`newVersion` 改由 `@yarn-tool/version-style-jetbrains` 產生，該路徑只看 `versionStyle` 與 `resetDailyIncrement`，不套用 `preid` / `identifierBase` 等 semver 遞增規則：
+指定 `versionStyle` 時，`newVersion` 改由 `@yarn-tool/version-style-jetbrains` 產生，該路徑只看 `versionStyle`、`resetDailyIncrement` 與 preid 系列（`preid` / `defaultPreid`），不套用 semver 遞增規則：
 
 ```typescript
 import { EnumVersionStyle } from '@yarn-tool/version-style-jetbrains';
@@ -165,6 +165,13 @@ nextVersionRecommended('264.1120.1744-1', { versionStyle: EnumVersionStyle.Jetbr
 
 // 舊版本非此風格（或非風格版本）→ 以指定風格產生當日新版本
 nextVersionRecommended('1.2.3', { versionStyle: EnumVersionStyle.JetbrainsShortMD });
+```
+
+指定 `preid`（或缺省的 `defaultPreid`）時會停用當日遞增後綴：`-n` 與 preid 的 `-xxx` 同時存在會讓版本號帶兩段連字號，停用後才能安全地附加 preid：
+
+```typescript
+nextVersionRecommended('264.1120.1744-1', { versionStyle: EnumVersionStyle.JetbrainsDateTime, preid: 'beta' });
+// { newVersion: '264.1120.1744-beta' } — 沒有 -1 後綴，只有一段連字號
 ```
 
 ### 偵測規則
