@@ -36,4 +36,6 @@ export declare function setupToYargs<T>(yargs: Argv<T>): IYargsSync<Argv<T & {
     noStaticFiles: boolean;
 } & {
     noMergeIgnoreFiles: boolean;
+} & {
+    noScripts: boolean;
 }>>;

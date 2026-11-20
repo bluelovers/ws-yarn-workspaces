@@ -78,7 +78,8 @@ function _handler(cwd, ...argv) {
  * @param {AggregateErrorExtra} err - 錯誤聚合器 / Error aggregator
  */
 function _runFixPackagesCore(row, options, cache, err) {
-    var _a, _b, _c;
+    var _a, _b, _c, _d;
+    var _e;
     const { rootData, overwriteHostedGitInfo, hostedGitInfo, branch, resetStaticFiles, } = options;
     /**
      * 是否自動偵測並加入靜態檔案
@@ -190,11 +191,19 @@ function _runFixPackagesCore(row, options, cache, err) {
             pkg.data[field][name] = _value;
         });
     });
-    // 設定預設腳本 / Set default scripts
-    pkg.data.scripts = {
-        ...(0, pkg_scripts_1.defaultPkgScripts)(),
-        ...((_b = pkg.data.scripts) !== null && _b !== void 0 ? _b : {}),
-    };
+    /**
+     * 預設腳本補齊：noScripts 時略過 defaultPkgScripts()，僅確保 scripts 物件存在，
+     * 避免後續 scripts 欄位存取落入 undefined；否則以預設腳本為底、既有腳本優先合併
+     */
+    if (options.noScripts) {
+        (_b = (_e = pkg.data).scripts) !== null && _b !== void 0 ? _b : (_e.scripts = {});
+    }
+    else {
+        pkg.data.scripts = {
+            ...(0, pkg_scripts_1.defaultPkgScripts)(),
+            ...((_c = pkg.data.scripts) !== null && _c !== void 0 ? _c : {}),
+        };
+    }
     // 處理根套件與非根套件 / Handle root vs non-root packages
     if (isRoot) {
         if (isWorkspace) {
@@ -207,7 +216,7 @@ function _runFixPackagesCore(row, options, cache, err) {
     else {
         // 非根套件：修復 preversion 腳本並移除 packageManager
         // Non-root package: fix preversion script and remove packageManager
-        if (!((_c = pkg.data.scripts['_preversion']) === null || _c === void 0 ? void 0 : _c.length) && (0, dummy_1.isDummyEchoMaybeOrEmpty)(pkg.data.scripts.preversion)) {
+        if (!((_d = pkg.data.scripts['_preversion']) === null || _d === void 0 ? void 0 : _d.length) && (0, dummy_1.isDummyEchoMaybeOrEmpty)(pkg.data.scripts.preversion)) {
             pkg.data.scripts.preversion = "pnpm run test" /* EnumScriptsEntry.preversion */;
         }
         // 從非根套件移除 packageManager 欄位

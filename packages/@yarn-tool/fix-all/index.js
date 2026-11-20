@@ -93,7 +93,7 @@ function npmAutoFixAll(cwd, options) {
         console.log(`root:`, rootData.root);
         console.log(`hasWorkspace:`, rootData.hasWorkspace);
         // 解構選項 / Destructure options
-        let { branch, overwriteHostedGitInfo, resetStaticFiles, addStaticFiles, noStaticFiles, noMergeIgnoreFiles, } = options !== null && options !== void 0 ? options : {};
+        let { branch, overwriteHostedGitInfo, resetStaticFiles, addStaticFiles, noStaticFiles, noMergeIgnoreFiles, noScripts, } = options !== null && options !== void 0 ? options : {};
         cwd = rootData.cwd;
         /**
          * 在 reset 之前讀取現有 ignore 檔案並建立快照
@@ -167,6 +167,7 @@ function npmAutoFixAll(cwd, options) {
                 hostedGitInfo,
                 branch,
                 overwriteHostedGitInfo,
+                noScripts,
             });
         }
         else {
@@ -207,6 +208,7 @@ function npmAutoFixAll(cwd, options) {
             addStaticFiles,
             noStaticFiles,
             noMergeIgnoreFiles,
+            noScripts,
         });
     }).then(() => void 0);
 }

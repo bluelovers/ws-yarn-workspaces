@@ -46,7 +46,7 @@ export type IEntry = ReturnType<typeof _handler>;
  *
  * @extends {ITSRequiredPick<IFillPkgHostedInfoOptions & INpmAutoFixAll, ...>}
  */
-export interface IOptionsRunEachPackages extends ITSPickExtra<IFillPkgHostedInfoOptions & INpmAutoFixAll, 'overwriteHostedGitInfo' | 'branch' | 'rootData' | 'hostedGitInfo' | 'resetStaticFiles' | 'addStaticFiles' | 'noStaticFiles' | 'noMergeIgnoreFiles'> {
+export interface IOptionsRunEachPackages extends ITSPickExtra<IFillPkgHostedInfoOptions & INpmAutoFixAll, 'overwriteHostedGitInfo' | 'branch' | 'rootData' | 'hostedGitInfo' | 'resetStaticFiles' | 'addStaticFiles' | 'noStaticFiles' | 'noMergeIgnoreFiles' | 'noScripts'> {
 }
 /**
  * 執行單一套件修復的核心函數

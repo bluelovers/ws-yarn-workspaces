@@ -57,6 +57,13 @@ export interface INpmAutoFixAll {
      * Note: the merge runs for both the resetStaticFiles and the plain addStaticFiles trigger.
      */
     noMergeIgnoreFiles?: boolean;
+    /**
+     * 是否略過（不補充）預設腳本
+     *
+     * 為 true 時不執行預設腳本補齊：套件略過 defaultPkgScripts，
+     * workspace 根目錄略過 fillDummyScripts(defaultWorkspaceRootScripts())
+     */
+    noScripts?: boolean;
 }
 /**
  * 自動修復 workspaces/package 的主要函數

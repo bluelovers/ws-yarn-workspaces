@@ -96,16 +96,16 @@ function _fixWsRoot(options) {
         targetDir: options.rootData.ws,
     });
     /**
-     * 只在腳本不存在（??=）時才填入預設值，
-     * 避免覆蓋使用者自訂的同名腳本
-     * Fill defaults only when the script is absent (??=),
-     * so user-defined scripts with the same name are preserved
+     * noScripts 時完全略過預設腳本補齊；
+     * 否則只在腳本不存在（??=）時才填入預設值，避免覆蓋使用者自訂的同名腳本
      */
-    Object.entries((0, dummy_1.fillDummyScripts)((0, ws_root_scripts_1.defaultWorkspaceRootScripts)())).forEach(([key, value]) => {
-        var _a;
-        var _b;
-        (_a = (_b = runtime.root_pkg_json.data.scripts)[key]) !== null && _a !== void 0 ? _a : (_b[key] = value);
-    });
+    if (!options.noScripts) {
+        Object.entries((0, dummy_1.fillDummyScripts)((0, ws_root_scripts_1.defaultWorkspaceRootScripts)())).forEach(([key, value]) => {
+            var _a;
+            var _b;
+            (_a = (_b = runtime.root_pkg_json.data.scripts)[key]) !== null && _a !== void 0 ? _a : (_b[key] = value);
+        });
+    }
     /**
      * 這些是 workspace 根目錄常見的共用開發依賴，
      * 逐一檢查 devDependencies / dependencies，皆不存在才補上，

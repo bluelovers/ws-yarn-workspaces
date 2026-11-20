@@ -87,19 +87,19 @@ function _fillDummyScriptsCore(scripts, prefix, fields) {
  */
 function fillDummyScripts(scripts, prefix) {
     return _fillDummyScriptsCore(scripts, prefix, [
-        'preversion',
-        'version',
-        'prepublishOnly',
+        // 'preversion',
+        // 'version',
+        // 'prepublishOnly',
         // 'postversion',
-        'publish',
+        // 'publish',
         // 'prepublish',
         // 'postpublish',
-        'postpublishOnly',
+        // 'postpublishOnly',
         // 'prepare',
         // 'prepack',
         // 'pack',
         // 'postpack',
-        'pretest',
+        // 'pretest',
         'ci:build',
         'ci:install',
     ]);

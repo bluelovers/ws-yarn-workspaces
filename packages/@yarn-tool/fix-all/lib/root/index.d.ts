@@ -12,6 +12,7 @@
 import { ITSRequiredPick } from 'ts-type/lib/type/record';
 import { IFillPkgHostedInfoOptions } from '@yarn-tool/pkg-hosted-info';
 import { PackageJsonLoader } from 'npm-package-json-loader';
+import type { INpmAutoFixAll } from '../../index';
 /**
  * 修復單一套件根目錄的 package.json
  * Fix package.json of a single package root
@@ -53,7 +54,7 @@ export declare function _fixRoot(options: Required<IFillPkgHostedInfoOptions>): 
  * @param options - 需包含 rootData / hostedGitInfo / branch / overwriteHostedGitInfo
  * @returns 與 _fixRoot 相同的執行期資料 / Same runtime data as _fixRoot
  */
-export declare function _fixWsRoot(options: ITSRequiredPick<IFillPkgHostedInfoOptions, 'hostedGitInfo' | 'rootData' | 'overwriteHostedGitInfo' | 'branch'>): {
+export declare function _fixWsRoot(options: ITSRequiredPick<IFillPkgHostedInfoOptions, 'hostedGitInfo' | 'rootData' | 'overwriteHostedGitInfo' | 'branch'> & Pick<INpmAutoFixAll, 'noScripts'>): {
     root_file_package_json: string;
     root_pkg_json: PackageJsonLoader<import("@ts-type/package-dts").IPackageJson<unknown>>;
     targetDir: string;

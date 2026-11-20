@@ -41,6 +41,10 @@ function setupToYargs(yargs) {
         .option('noMergeIgnoreFiles', {
         boolean: true,
         describe: 'Disable auto-merging ignore files; when unset, existing rules are captured before the reset and merged back after the copy',
+    })
+        .option('noScripts', {
+        boolean: true,
+        describe: 'Skip filling default scripts (defaultPkgScripts / fillDummyScripts)',
     });
     /**
      * 以雙重斷言繞過 yargs 泛型推導的限制，

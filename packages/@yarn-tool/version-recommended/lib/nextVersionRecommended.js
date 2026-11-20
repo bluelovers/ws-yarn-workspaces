@@ -3,36 +3,86 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.nextVersionRecommended = nextVersionRecommended;
 /**
  * 核心版本推薦邏輯
- * Core version recommendation logic
  */
 const semver_1 = require("semver");
+const version_style_jetbrains_1 = require("@yarn-tool/version-style-jetbrains");
 const handleOptions_1 = require("./handleOptions");
 /**
  * 依舊版本與選項計算推薦的新版本號
- * Recommend a new version from the old version and options
  *
  * 設計意圖：bump 類型若未明確指定，交給 handleOptions 依舊版本的
  * 預發行資訊與 workspaces 設定推斷，而非一律使用 patch。
+ * 指定 versionStyle 時新版本改交給 version-style-jetbrains 產生，
+ * 該路徑只看 versionStyle、resetDailyIncrement、date 與 preid 系列選項。
  *
- * Design intent: when bump is not given explicitly, handleOptions infers it
- * from the old version's pre-release info and the workspaces setting,
- * instead of always assuming patch.
- *
- * @param oldVersion - 舊版本號 / Old version string
- * @param options - 推薦選項 / Recommendation options
- * @param wsProject - workspaces 專案實例，提供預設 bump / Workspaces project instance providing the default bump
- * @returns 推薦結果（含實際使用的 bump）/ Recommendation result including the bump actually used
+ * @param oldVersion - 舊版本號
+ * @param options - 推薦選項
+ * @param wsProject - workspaces 專案實例，提供預設 bump
  */
 function nextVersionRecommended(oldVersion, options, wsProject) {
     var _a;
-    options = (0, handleOptions_1.handleOptions)(options, oldVersion, wsProject);
-    /** 未指定且無法從舊版本推斷時才退回 patch：這是語意化版本的最小變更類型 / Fall back to patch only when unspecified and underivable: the minimal semver change type */
+    const { versionStyle, resetDailyIncrement, preid, defaultPreid, date } = options !== null && options !== void 0 ? options : {};
+    /**
+     * 風格模式不依舊版本推斷 semver 預發行資訊：
+     * 風格版本第三段可能是 0005 這類前導零數字，semver.parse 會回傳 null，
+     * 且 identifierBase 也不影響風格版本的產生
+     */
+    options = (0, handleOptions_1.handleOptions)(options, versionStyle ? void 0 : oldVersion, wsProject);
+    /** 未指定且無法從舊版本推斷時才退回 patch：這是語意化版本的最小變更類型 */
     let bump = (_a = options.bump) !== null && _a !== void 0 ? _a : 'patch';
-    const newVersion = (0, semver_1.inc)(oldVersion, bump, options.preid, options.identifierBase);
+    const newVersion = versionStyle
+        ? nextVersionByStyle(oldVersion, { versionStyle, resetDailyIncrement, preid, defaultPreid, date })
+        : (0, semver_1.inc)(oldVersion, bump, options.preid, options.identifierBase);
     return {
         bump,
         oldVersion,
         newVersion,
     };
+}
+/**
+ * 以 version-style-jetbrains 風格產生新版本
+ *
+ * @param oldVersion - 舊版本號
+ * @param options - 風格選項（versionStyle 必填）
+ * @returns 風格版本字串
+ */
+function nextVersionByStyle(oldVersion, options) {
+    const { versionStyle, resetDailyIncrement, preid, defaultPreid, date } = options;
+    /** 預發行識別：preid 優先，defaultPreid 作為缺省值 */
+    const preidValue = (preid === null || preid === void 0 ? void 0 : preid.length) ? preid : (defaultPreid === null || defaultPreid === void 0 ? void 0 : defaultPreid.length) ? defaultPreid : void 0;
+    /**
+     * 以指定日期產生基準版本：每日遞增只在同一天計算，
+     * 必須先有基準版本才能判斷舊版本是否與它同日
+     */
+    const freshVersion = (0, version_style_jetbrains_1.dateToVersion)({
+        date,
+        style: versionStyle,
+        dailyIncrement: 1,
+        disableDailyVersionSuffix: !!preidValue,
+    });
+    /**
+     * 預發行系列啟用時停用當日遞增後綴：
+     * `-n` 與 preid 的 `-xxx` 同時存在會讓版本號帶兩段連字號後綴，
+     * 停用後才能安全地附加 preid
+     */
+    if (preidValue) {
+        return `${freshVersion}-${preidValue}`;
+    }
+    const { priorityStyle, priorityResult: oldResult } = (0, version_style_jetbrains_1.analyzeVersionStyles)(oldVersion);
+    const freshResult = (0, version_style_jetbrains_1.analyzeVersionStyles)(freshVersion).priorityResult;
+    /** 舊版本須為同風格，才可能是「同一天的上一版」 */
+    if (resetDailyIncrement || priorityStyle !== versionStyle) {
+        return freshVersion;
+    }
+    /**
+     * 每日遞增只計算同一天：舊版本日期與基準日期不同時一律重新開始，
+     * 與 resetDailyIncrement 無關；同一天才遞增其當日計數。
+     * 不同時間的版本編號必然不同，時間段已足以區分同一天的多次發版
+     */
+    const isSameDay = !!freshResult && !!oldResult
+        && freshResult.year === oldResult.year
+        && freshResult.month === oldResult.month
+        && freshResult.day === oldResult.day;
+    return isSameDay ? (0, version_style_jetbrains_1.incrementVersion)(oldVersion) : freshVersion;
 }
 //# sourceMappingURL=nextVersionRecommended.js.map
