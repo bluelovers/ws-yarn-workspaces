@@ -71,33 +71,44 @@ function nextVersionByStyle(
 	const preidValue = preid?.length ? preid : defaultPreid?.length ? defaultPreid : void 0;
 
 	/**
+	 * 以指定日期產生基準版本：每日遞增只在同一天計算，
+	 * 必須先有基準版本才能判斷舊版本是否與它同日
+	 */
+	const freshVersion = dateToVersion({
+		date,
+		style: versionStyle,
+		dailyIncrement: 1,
+		disableDailyVersionSuffix: !!preidValue,
+	});
+
+	/**
 	 * 預發行系列啟用時停用當日遞增後綴：
 	 * `-n` 與 preid 的 `-xxx` 同時存在會讓版本號帶兩段連字號後綴，
-	 * 停用後才能安全地附加 preid；此路徑一律以指定日期重新產生，
-	 * 讓時間推進成為預發行版本的進度來源
+	 * 停用後才能安全地附加 preid
 	 */
 	if (preidValue)
 	{
-		return `${dateToVersion({
-			date,
-			style: versionStyle,
-			dailyIncrement: 1,
-			disableDailyVersionSuffix: true,
-		})}-${preidValue}`;
+		return `${freshVersion}-${preidValue}`;
 	}
 
-	/**
-	 * 舊版本已是同風格且未要求重設：沿用其日期與時間遞增當日計數，
-	 * 讓同一天的多次發版持續累加
-	 */
-	if (!resetDailyIncrement && analyzeVersionStyles(oldVersion).priorityStyle === versionStyle)
+	const { priorityStyle, priorityResult: oldResult } = analyzeVersionStyles(oldVersion);
+	const freshResult = analyzeVersionStyles(freshVersion).priorityResult;
+
+	/** 舊版本須為同風格，才可能是「同一天的上一版」 */
+	if (resetDailyIncrement || priorityStyle !== versionStyle)
 	{
-		return incrementVersion(oldVersion);
+		return freshVersion;
 	}
 
 	/**
-	 * 舊版本非此風格、或要求重設遞增號：
-	 * 以指定日期產生新版本，遞增號從 1 重新開始
+	 * 每日遞增只計算同一天：舊版本日期與基準日期不同時一律重新開始，
+	 * 與 resetDailyIncrement 無關；同一天才遞增其當日計數。
+	 * 不同時間的版本編號必然不同，時間段已足以區分同一天的多次發版
 	 */
-	return dateToVersion({ date, style: versionStyle, dailyIncrement: 1 });
+	const isSameDay = !!freshResult && !!oldResult
+		&& freshResult.year === oldResult.year
+		&& freshResult.month === oldResult.month
+		&& freshResult.day === oldResult.day;
+
+	return isSameDay ? incrementVersion(oldVersion) : freshVersion;
 }

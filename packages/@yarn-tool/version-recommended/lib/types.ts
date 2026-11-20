@@ -57,7 +57,9 @@ export interface INextVersionRecommendedOptions extends ITSPartialRecord<Release
 	/**
 	 * 風格模式：重設當日遞增號，從 1 重新開始
 	 *
-	 * 預設 false — 舊版本為同風格時遞增其當日計數；僅在 versionStyle 指定時有效
+	 * 預設 false — 舊版本為同風格且同日時遞增其當日計數。
+	 * 每日遞增只計算同一天：舊版本與產生日期不同日時，不論此選項為何都會重新產生；
+	 * 僅在 versionStyle 指定時有效
 	 */
 	resetDailyIncrement?: boolean;
 	/**

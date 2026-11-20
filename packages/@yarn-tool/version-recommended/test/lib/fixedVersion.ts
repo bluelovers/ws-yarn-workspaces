@@ -14,6 +14,15 @@ export const FIXED_DATE = {
 	minute: 44,
 };
 
+/** `FIXED_DATE` 的 Date 形式，供 `date` 選項固定產生日期 */
+export const FIXED_DATE_TIME = new Date(
+	FIXED_DATE.year,
+	FIXED_DATE.month - 1,
+	FIXED_DATE.day,
+	FIXED_DATE.hour,
+	FIXED_DATE.minute,
+);
+
 /**
  * 確定不屬於任何風格的舊版本
  *

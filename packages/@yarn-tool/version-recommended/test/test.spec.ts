@@ -180,6 +180,8 @@ describe('versionStyle', () =>
 	{
 		const actual = nextVersionRecommended(oldVersion, {
 			versionStyle: EnumVersionStyle.JetbrainsDateTime,
+			/** 每日遞增只計算同一天：指定與舊版本同日才會遞增 */
+			date: new Date(2026, 10, 20, 17, 44),
 		});
 
 		assert.strictEqual(actual.newVersion, '264.1120.1744-2');
@@ -211,6 +213,8 @@ describe('versionStyle', () =>
 		/** 0005 為前導零數字，semver.parse 會回傳 null，風格模式不得依舊版本推斷預發行資訊 */
 		const actual = nextVersionRecommended('264.1120.0005-1', {
 			versionStyle: EnumVersionStyle.JetbrainsDateTime,
+			/** 每日遞增只計算同一天：指定與舊版本同日才會遞增 */
+			date: new Date(2026, 10, 20, 0, 5),
 		});
 
 		assert.strictEqual(actual.newVersion, '264.1120.0005-2');

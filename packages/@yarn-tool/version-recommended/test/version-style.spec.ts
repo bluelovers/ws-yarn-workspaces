@@ -5,7 +5,7 @@ import { describe, test, TestContext } from 'node:test';
 import { analyzeVersionStyles, dateToVersionByStyle, EnumVersionStyle } from '@yarn-tool/version-style-jetbrains';
 import { nextVersionRecommended } from '../lib/nextVersionRecommended';
 import { INextVersionRecommendedOptions } from '../lib/types';
-import { FIXED_DATE, NON_STYLE_VERSION, toFixedVersion } from './lib/fixedVersion';
+import { FIXED_DATE, FIXED_DATE_TIME, NON_STYLE_VERSION, toFixedVersion } from './lib/fixedVersion';
 
 describe('version style generation', () =>
 {
@@ -17,7 +17,10 @@ describe('version style generation', () =>
 
 		test(`${style}: increment the same style`, (t: TestContext) =>
 		{
-			const actual = nextVersionRecommended(sameStyleVersion, { versionStyle: style });
+			const actual = nextVersionRecommended(sameStyleVersion, {
+				versionStyle: style,
+				date: FIXED_DATE_TIME,
+			});
 
 			t.assert.snapshot({
 				['old version']: sameStyleVersion,
@@ -37,7 +40,11 @@ describe('version style generation', () =>
 
 			const results = bumps.map((bump) =>
 			{
-				const actual = nextVersionRecommended(sameStyleVersion, { versionStyle: style, bump });
+				const actual = nextVersionRecommended(sameStyleVersion, {
+					versionStyle: style,
+					date: FIXED_DATE_TIME,
+					bump,
+				});
 
 				/** 基本驗證：bump 欄位回報指定值，新版本仍屬指定風格且已推進 */
 				assert.strictEqual(actual.bump, bump);

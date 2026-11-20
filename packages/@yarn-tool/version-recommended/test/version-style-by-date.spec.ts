@@ -22,6 +22,16 @@ const SAMPLE_DATES: Array<{
 	{ label: '2027-03-08 09:05', date: { year: 2027, month: 3, day: 8, hour: 9, minute: 5, dailyIncrement: 1 } },
 ];
 
+/** 以指定日期建立同風格的舊版本 */
+const toVersionDateInfo = (date: Date): IVersionStyleOptionsWithDateInfo => ({
+	year: date.getFullYear(),
+	month: date.getMonth() + 1,
+	day: date.getDate(),
+	hour: date.getHours(),
+	minute: date.getMinutes(),
+	dailyIncrement: 1,
+});
+
 describe('style varies with date', () =>
 {
 
@@ -91,16 +101,6 @@ describe('same style old version with and without resetDailyIncrement', () =>
 	const BASE_DATE = new Date(2026, 10, 21, 17, 44);
 	const OTHER_DATE = new Date(2026, 0, 1, 9, 5);
 
-	/** 以指定日期建立同風格的舊版本 */
-	const toVersionDateInfo = (date: Date): IVersionStyleOptionsWithDateInfo => ({
-		year: date.getFullYear(),
-		month: date.getMonth() + 1,
-		day: date.getDate(),
-		hour: date.getHours(),
-		minute: date.getMinutes(),
-		dailyIncrement: 1,
-	});
-
 	const cases = [
 		{ label: 'same day', oldDate: BASE_DATE, resetDailyIncrement: false },
 		{ label: 'same day', oldDate: BASE_DATE, resetDailyIncrement: true },
@@ -133,20 +133,24 @@ describe('same style old version with and without resetDailyIncrement', () =>
 					resultAppend: diff.resultAppend,
 				};
 
-				if (!resetDailyIncrement)
+				/** 以基準日期重新產生的版本：不同日期一律重新開始，故與重設結果相同 */
+				const expectedFresh = dateToVersionByStyle(style, toVersionDateInfo(BASE_DATE));
+
+				if (label === 'other day')
 				{
-					/** 未重設只遞增當日計數，日期段不變 → 差異落在最後一段 */
-					assert.strictEqual(changed.index, 2);
+					/** 每日遞增只計算同一天：不同日期不論有無 resetDailyIncrement 都重新產生 */
+					assert.strictEqual(actual.newVersion, expectedFresh);
+					assert.ok(changed.index < 2);
 				}
-				else if (label === 'same day')
+				else if (resetDailyIncrement)
 				{
 					/** 同日重設：遞增號回到 1，與原版本相同 */
 					assert.strictEqual(changed.comp, 0);
 				}
 				else
 				{
-					/** 不同日重設：改以基準日期產生，日期段變動 */
-					assert.ok(changed.index < 2);
+					/** 同日未重設：只遞增當日計數，日期段不變 → 差異落在最後一段 */
+					assert.strictEqual(changed.index, 2);
 				}
 
 				t.assert.snapshot({
@@ -156,6 +160,37 @@ describe('same style old version with and without resetDailyIncrement', () =>
 				});
 			});
 		}
+	}
+
+});
+
+/**
+ * 不同時間的版本編號必然不同：只有時間樣式帶時分段
+ */
+describe('style varies with time', () =>
+{
+
+	const MORNING = new Date(2026, 10, 21, 9, 5);
+	const EVENING = new Date(2026, 10, 21, 17, 44);
+
+	for (const style of Object.values(EnumVersionStyle))
+	{
+		test(`${style}: same day with different times`, () =>
+		{
+			const morning = dateToVersionByStyle(style, toVersionDateInfo(MORNING));
+			const evening = dateToVersionByStyle(style, toVersionDateInfo(EVENING));
+
+			if (parseVersion(evening)?.hour !== undefined)
+			{
+				/** 時間樣式：同一天不同時間必然產生不同版本 */
+				assert.notStrictEqual(morning, evening);
+			}
+			else
+			{
+				/** 非時間樣式不帶時分段，同一天不同時間結果相同 */
+				assert.strictEqual(morning, evening);
+			}
+		});
 	}
 
 });

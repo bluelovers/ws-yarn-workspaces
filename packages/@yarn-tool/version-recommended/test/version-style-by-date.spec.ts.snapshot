@@ -1,12 +1,13 @@
 exports[`same style old version with and without resetDailyIncrement > jetbrains-date-time: other day, resetDailyIncrement=false 1`] = `
 {
   "old version": "261.101.0905-1",
-  "new version": "261.101.0905-2",
+  "new version": "264.1121.1744-1",
   "changed": {
-    "index": 2,
-    "color": "green",
-    "result": "261.101",
-    "resultAppend": "0905-2"
+    "index": 0,
+    "comp": -1,
+    "color": "red",
+    "result": "",
+    "resultAppend": "264.1121.1744-1"
   }
 }
 `;
@@ -55,13 +56,13 @@ exports[`same style old version with and without resetDailyIncrement > jetbrains
 exports[`same style old version with and without resetDailyIncrement > jetbrains-short-md: other day, resetDailyIncrement=false 1`] = `
 {
   "old version": "261.101.1",
-  "new version": "261.101.2",
+  "new version": "264.1121.1",
   "changed": {
-    "index": 2,
+    "index": 0,
     "comp": -1,
-    "color": "green",
-    "result": "261.101",
-    "resultAppend": "2"
+    "color": "red",
+    "result": "",
+    "resultAppend": "264.1121.1"
   }
 }
 `;
@@ -110,13 +111,13 @@ exports[`same style old version with and without resetDailyIncrement > jetbrains
 exports[`same style old version with and without resetDailyIncrement > jetbrains-short: other day, resetDailyIncrement=false 1`] = `
 {
   "old version": "261.1.1-1",
-  "new version": "261.1.1-2",
+  "new version": "264.11.21-1",
   "changed": {
-    "index": 2,
+    "index": 0,
     "comp": -1,
-    "color": "green",
-    "result": "261.1",
-    "resultAppend": "1-2"
+    "color": "red",
+    "result": "",
+    "resultAppend": "264.11.21-1"
   }
 }
 `;
@@ -165,13 +166,13 @@ exports[`same style old version with and without resetDailyIncrement > jetbrains
 exports[`same style old version with and without resetDailyIncrement > standard-full-md: other day, resetDailyIncrement=false 1`] = `
 {
   "old version": "2026.101.1",
-  "new version": "2026.101.2",
+  "new version": "2026.1121.1",
   "changed": {
-    "index": 2,
+    "index": 1,
     "comp": -1,
-    "color": "green",
-    "result": "2026.101",
-    "resultAppend": "2"
+    "color": "cyan",
+    "result": "2026",
+    "resultAppend": "1121.1"
   }
 }
 `;
@@ -220,13 +221,13 @@ exports[`same style old version with and without resetDailyIncrement > standard-
 exports[`same style old version with and without resetDailyIncrement > standard-full: other day, resetDailyIncrement=false 1`] = `
 {
   "old version": "2026.1.1-1",
-  "new version": "2026.1.1-2",
+  "new version": "2026.11.21-1",
   "changed": {
-    "index": 2,
+    "index": 1,
     "comp": -1,
-    "color": "green",
-    "result": "2026.1",
-    "resultAppend": "1-2"
+    "color": "cyan",
+    "result": "2026",
+    "resultAppend": "11.21-1"
   }
 }
 `;
@@ -275,12 +276,13 @@ exports[`same style old version with and without resetDailyIncrement > standard-
 exports[`same style old version with and without resetDailyIncrement > y2k-date-time: other day, resetDailyIncrement=false 1`] = `
 {
   "old version": "226.101.0905-1",
-  "new version": "226.101.0905-2",
+  "new version": "226.1121.1744-1",
   "changed": {
-    "index": 2,
-    "color": "green",
-    "result": "226.101",
-    "resultAppend": "0905-2"
+    "index": 1,
+    "comp": -1,
+    "color": "cyan",
+    "result": "226",
+    "resultAppend": "1121.1744-1"
   }
 }
 `;

@@ -145,27 +145,41 @@ interface INextVersionRecommendedOptions extends ITSPartialRecord<ReleaseType, b
 	// 以 @yarn-tool/version-style-jetbrains 風格產生新版本
 	versionStyle?: EnumVersionStyle;
 	// 風格模式：重設當日遞增號，從 1 重新開始
+	// （每日遞增只算同一天：不同日時不論此值為何都會重新產生）
 	resetDailyIncrement?: boolean;
+	// 風格模式：產生新版本所用的日期（預設為執行當下，內部／測試用途）
+	date?: IDateInput;
 }
 ```
 
 同時也可直接以布林旗標指定 bump 類型：`major`、`minor`、`patch`、`premajor`、`preminor`、`prepatch`、`prerelease`，例如 `{ minor: true }`。
 
-指定 `versionStyle` 時，`newVersion` 改由 `@yarn-tool/version-style-jetbrains` 產生，該路徑只看 `versionStyle`、`resetDailyIncrement` 與 preid 系列（`preid` / `defaultPreid`），不套用 semver 遞增規則：
+指定 `versionStyle` 時，`newVersion` 改由 `@yarn-tool/version-style-jetbrains` 產生，該路徑只看 `versionStyle`、`resetDailyIncrement`、`date` 與 preid 系列（`preid` / `defaultPreid`），不套用 semver 遞增規則：
+
+**每日遞增只計算同一天**：舊版本與產生日期不同日時，不論 `resetDailyIncrement` 為何都會以產生日期重新產生（遞增號回到 1）；同日才遞增舊版本的當日計數。不同時間的版本編號必然不同，時間段已足以區分同一天的多次發版。
 
 ```typescript
 import { EnumVersionStyle } from '@yarn-tool/version-style-jetbrains';
 
-// 舊版本已是同風格 → 沿用其日期時間，遞增當日計數
-nextVersionRecommended('264.1120.1744-1', { versionStyle: EnumVersionStyle.JetbrainsDateTime });
+// 同日未重設 → 沿用舊版本日期時間，遞增當日計數
+nextVersionRecommended('264.1120.1744-1', {
+	versionStyle: EnumVersionStyle.JetbrainsDateTime,
+	date: new Date(2026, 10, 20, 17, 44),
+});
 // { newVersion: '264.1120.1744-2' }
 
-// resetDailyIncrement → 以當日日期時間產生，遞增號重設為 1
-nextVersionRecommended('264.1120.1744-1', { versionStyle: EnumVersionStyle.JetbrainsDateTime, resetDailyIncrement: true });
+// 同日重設 → 以 date 產生，遞增號重設為 1
+nextVersionRecommended('264.1120.1744-1', {
+	versionStyle: EnumVersionStyle.JetbrainsDateTime,
+	date: new Date(2026, 10, 20, 17, 44),
+	resetDailyIncrement: true,
+});
 
-// 舊版本非此風格（或非風格版本）→ 以指定風格產生當日新版本
-nextVersionRecommended('1.2.3', { versionStyle: EnumVersionStyle.JetbrainsShortMD });
+// 舊版本非此風格（或非風格版本）→ 以指定風格產生新版本
+nextVersionRecommended('5.5.0', { versionStyle: EnumVersionStyle.JetbrainsShortMD });
 ```
+
+`date` 為內部／測試用途：指定產生新版本所用的日期，預設為執行當下。
 
 指定 `preid`（或缺省的 `defaultPreid`）時會停用當日遞增後綴：`-n` 與 preid 的 `-xxx` 同時存在會讓版本號帶兩段連字號，停用後才能安全地附加 preid：
 
