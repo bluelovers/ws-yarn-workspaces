@@ -1,11 +1,3 @@
-/**
- * 驗證器測試
- *
- * @example
- * // 執行測試
- * yarn workspace @yarn-tool/version-style-jetbrains test
- */
-
 /// <reference types="jest" />
 /// <reference types="node" />
 
@@ -27,18 +19,18 @@ describe('Validators', () => {
 			{ input: { year: 2026, month: 0, day: 1 }, expected: false },
 			{ input: { year: 2026, month: 13, day: 1 }, expected: false },
 			{ input: { year: 2026, month: -1, day: 1 }, expected: false },
-			// 無效日期 / Invalid days
+			// 無效日期
 			{ input: { year: 2026, month: 1, day: 0 }, expected: false },
 			{ input: { year: 2026, month: 1, day: 32 }, expected: false },
 			{ input: { year: 2026, month: 1, day: -1 }, expected: false },
-			// 無效年份 / Invalid years
+			// 無效年份
 			{ input: { year: 0, month: 1, day: 1 }, expected: false },
 			{ input: { year: -1, month: 1, day: 1 }, expected: false },
-			// 缺少欄位 / Missing fields
+			// 缺少欄位
 			{ input: { month: 1, day: 1 }, expected: false },
 			{ input: { year: 2026, day: 1 }, expected: false },
 			{ input: { year: 2026, month: 1 }, expected: false },
-			// 類型錯誤 / Type errors
+			// 類型錯誤
 			{ input: { year: '2026', month: 1, day: 1 }, expected: false },
 			{ input: { year: 2026, month: '1', day: 1 }, expected: false },
 			{ input: { year: 2026, month: 1, day: '1' }, expected: false },
@@ -53,18 +45,18 @@ describe('Validators', () => {
 	describe('isValidQuarter', () => {
 
 		for (const { input, expected } of [
-			// 有效季度 / Valid quarters
+			// 有效季度
 			{ input: 1, expected: true },
 			{ input: 2, expected: true },
 			{ input: 3, expected: true },
 			{ input: 4, expected: true },
-			// 無效季度 / Invalid quarters
+			// 無效季度
 			{ input: 0, expected: false },
 			{ input: 5, expected: false },
 			{ input: -1, expected: false },
-			// 浮點數會通過，因為 1 <= 1.5 <= 4 / Float passes because 1 <= 1.5 <= 4
+			// 浮點數會通過，因為 1 <= 1.5 <= 4
 			{ input: 1.5, expected: true },
-			// 類型錯誤 / Type errors
+			// 類型錯誤
 			{ input: '1', expected: false },
 			{ input: 'Q1', expected: false },
 			{ input: null, expected: false },

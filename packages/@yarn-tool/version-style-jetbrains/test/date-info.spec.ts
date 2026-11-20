@@ -1,11 +1,3 @@
-/**
- * 日期資訊測試
- *
- * @example
- * // 執行測試
- * yarn workspace @yarn-tool/version-style-jetbrains test
- */
-
 /// <reference types="jest" />
 /// <reference types="node" />
 

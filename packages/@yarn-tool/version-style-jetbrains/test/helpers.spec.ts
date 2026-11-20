@@ -1,15 +1,5 @@
-/**
- * 輔助函數測試
- *
- * @example
- * // 執行測試
- * yarn workspace @yarn-tool/version-style-jetbrains test
- */
-
 /// <reference types="jest" />
 /// <reference types="node" />
-
-
 
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';

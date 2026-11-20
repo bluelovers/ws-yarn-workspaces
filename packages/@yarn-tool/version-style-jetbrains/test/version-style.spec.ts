@@ -1,11 +1,3 @@
-/**
- * 基於日期版本生成器的測試
- *
- * @example
- * // 執行測試
- * yarn workspace @yarn-tool/version-style-jetbrains test
- */
-
 /// <reference types="jest" />
 /// <reference types="node" />
 
