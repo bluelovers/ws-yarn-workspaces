@@ -12,29 +12,21 @@ import { join } from 'path';
 import { findRoot } from '@yarn-tool/find-root';
 import { chalkByConsoleMaybe } from 'debug-color2';
 import { colorizeDiff } from '@yarn-tool/semver-diff';
-import { setupToYargs } from '../lib/argv';
+import { setupToYargs, toNextVersionRecommendedOptions } from '../lib/argv';
 import { nextVersionRecommendedByPackageFindUp } from '..';
-import { INextVersionRecommendedOptions } from '../lib/types';
 
 /**
- * setupToYargs 已註冊 bump / preid 等選項；
- * 此處補上 cwd 與 dry-run、no-color 讓它們顯示於 --help
+ * 所有選項統一由 setupToYargs 註冊（含 --help 顯示），
+ * 此處只負責解析與執行，避免兩處維護造成選項缺漏
  */
 const argv = setupToYargs(yargs)
-	.option('cwd', {
-		default: process.cwd(),
-		normalize: true,
-		desc: 'path of the package.json to update',
-	})
 	.option('dry-run', {
-		type: 'boolean',
-		default: false,
 		desc: 'print the result without writing package.json',
+		boolean: true,
 	})
 	.option('no-color', {
-		type: 'boolean',
-		default: false,
 		desc: 'disable colors',
+		boolean: true,
 	})
 	/** 失敗時顯示說明，避免使用者只看到裸錯誤訊息 */
 	.showHelpOnFail(true)
@@ -52,15 +44,11 @@ const pkgPath = join(rootData.pkg, 'package.json');
 const text = readFileSync(pkgPath, 'utf8');
 
 /**
- * yargs 選項名稱與 INextVersionRecommendedOptions 欄位一一對應，直接轉交；
- * --new-version 明確指定時優先，否則依 bump / preid 推薦
+ * yargs 選項由 toNextVersionRecommendedOptions 一併轉交；
+ * --new-version 明確指定時優先，否則依 bump / preid 推薦，
+ * 指定 --version-style 時改以風格產生（bump 不影響結果）
  */
-const result = nextVersionRecommendedByPackageFindUp({
-	cwd: argv.cwd,
-	bump: argv.bump as INextVersionRecommendedOptions['bump'],
-	preid: argv.preid,
-	defaultPreid: argv.defaultPreid,
-});
+const result = nextVersionRecommendedByPackageFindUp(toNextVersionRecommendedOptions(argv));
 
 const pkg = result.pkg;
 const oldVersion = String(pkg.version ?? '');

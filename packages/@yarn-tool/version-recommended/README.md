@@ -93,6 +93,10 @@ nextVersionRecommendedByWorkspacesFindUp('1.0.0', { cwd });
 # 依 bump / preid 推薦並寫回 package.json
 version-recommended --cwd ./packages/my-pkg --bump minor
 
+# 以 @yarn-tool/version-style-jetbrains 風格產生新版本
+version-recommended --version-style jetbrains-date-time
+version-recommended --version-style y2k-date-time --reset-daily-increment
+
 # 只輸出不寫入
 version-recommended --dry-run
 
