@@ -15,6 +15,14 @@ export const FIXED_DATE = {
 };
 
 /**
+ * 確定不屬於任何風格的舊版本
+ *
+ * 首段 5 的末碼非季度 (1-4)，不會被 JetBrains 短樣式認領；
+ * `1.2.3` 則會被解析成 2000 年 Q1 的短樣式而走錯路徑
+ */
+export const NON_STYLE_VERSION = '5.5.0';
+
+/**
  * 將產生結果中的變動日期時間換成固定基準，保留樣式、遞增號與 preid
  *
  * 作法：拆出 preid 尾段（風格解析不支援 preid）→ 以 `analyzeVersionStyles`

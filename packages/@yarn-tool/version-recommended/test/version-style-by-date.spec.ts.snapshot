@@ -1,0 +1,89 @@
+exports[`style varies with date > jetbrains-date-time: version changes with the date 1`] = `
+{
+  "dates": [
+    "2026-01-01 00:00",
+    "2026-11-20 17:44",
+    "2027-03-08 09:05"
+  ],
+  "versions": [
+    "261.101.0000-1",
+    "264.1120.1744-1",
+    "271.308.0905-1"
+  ]
+}
+`;
+
+exports[`style varies with date > jetbrains-short-md: version changes with the date 1`] = `
+{
+  "dates": [
+    "2026-01-01 00:00",
+    "2026-11-20 17:44",
+    "2027-03-08 09:05"
+  ],
+  "versions": [
+    "261.101.1",
+    "264.1120.1",
+    "271.308.1"
+  ]
+}
+`;
+
+exports[`style varies with date > jetbrains-short: version changes with the date 1`] = `
+{
+  "dates": [
+    "2026-01-01 00:00",
+    "2026-11-20 17:44",
+    "2027-03-08 09:05"
+  ],
+  "versions": [
+    "261.1.1-1",
+    "264.11.20-1",
+    "271.3.8-1"
+  ]
+}
+`;
+
+exports[`style varies with date > standard-full-md: version changes with the date 1`] = `
+{
+  "dates": [
+    "2026-01-01 00:00",
+    "2026-11-20 17:44",
+    "2027-03-08 09:05"
+  ],
+  "versions": [
+    "2026.101.1",
+    "2026.1120.1",
+    "2027.308.1"
+  ]
+}
+`;
+
+exports[`style varies with date > standard-full: version changes with the date 1`] = `
+{
+  "dates": [
+    "2026-01-01 00:00",
+    "2026-11-20 17:44",
+    "2027-03-08 09:05"
+  ],
+  "versions": [
+    "2026.1.1-1",
+    "2026.11.20-1",
+    "2027.3.8-1"
+  ]
+}
+`;
+
+exports[`style varies with date > y2k-date-time: version changes with the date 1`] = `
+{
+  "dates": [
+    "2026-01-01 00:00",
+    "2026-11-20 17:44",
+    "2027-03-08 09:05"
+  ],
+  "versions": [
+    "226.101.0000-1",
+    "226.1120.1744-1",
+    "227.308.0905-1"
+  ]
+}
+`;

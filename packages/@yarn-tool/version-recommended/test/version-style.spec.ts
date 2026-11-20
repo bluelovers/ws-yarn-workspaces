@@ -5,7 +5,7 @@ import { describe, test, TestContext } from 'node:test';
 import { analyzeVersionStyles, dateToVersionByStyle, EnumVersionStyle } from '@yarn-tool/version-style-jetbrains';
 import { nextVersionRecommended } from '../lib/nextVersionRecommended';
 import { INextVersionRecommendedOptions } from '../lib/types';
-import { FIXED_DATE, toFixedVersion } from './lib/fixedVersion';
+import { FIXED_DATE, NON_STYLE_VERSION, toFixedVersion } from './lib/fixedVersion';
 
 describe('version style generation', () =>
 {
@@ -61,11 +61,11 @@ describe('version style generation', () =>
 
 		test(`${style}: generate from a non-style version`, (t: TestContext) =>
 		{
-			const actual = nextVersionRecommended('1.2.3', { versionStyle: style });
+			const actual = nextVersionRecommended(NON_STYLE_VERSION, { versionStyle: style });
 
 			/** 此路徑以當日日期時間產生，先固定化再快照 */
 			t.assert.snapshot({
-				['old version']: '1.2.3',
+				['old version']: NON_STYLE_VERSION,
 				['new version']: toFixedVersion(actual.newVersion),
 			});
 		});

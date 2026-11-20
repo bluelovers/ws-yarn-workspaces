@@ -76,7 +76,7 @@ exports[`version style generation > jetbrains-date-time: bump does not change th
 
 exports[`version style generation > jetbrains-date-time: generate from a non-style version 1`] = `
 {
-  "old version": "1.2.3",
+  "old version": "5.5.0",
   "new version": "264.1120.1744-1"
 }
 `;
@@ -126,7 +126,7 @@ exports[`version style generation > jetbrains-short-md: bump does not change the
 
 exports[`version style generation > jetbrains-short-md: generate from a non-style version 1`] = `
 {
-  "old version": "1.2.3",
+  "old version": "5.5.0",
   "new version": "264.1120.1"
 }
 `;
@@ -176,8 +176,8 @@ exports[`version style generation > jetbrains-short: bump does not change the st
 
 exports[`version style generation > jetbrains-short: generate from a non-style version 1`] = `
 {
-  "old version": "1.2.3",
-  "new version": "264.11.20-2"
+  "old version": "5.5.0",
+  "new version": "264.11.20-1"
 }
 `;
 
@@ -240,7 +240,7 @@ exports[`version style generation > standard-full-md: bump does not change the s
 
 exports[`version style generation > standard-full-md: generate from a non-style version 1`] = `
 {
-  "old version": "1.2.3",
+  "old version": "5.5.0",
   "new version": "2026.1120.1"
 }
 `;
@@ -290,7 +290,7 @@ exports[`version style generation > standard-full: bump does not change the styl
 
 exports[`version style generation > standard-full: generate from a non-style version 1`] = `
 {
-  "old version": "1.2.3",
+  "old version": "5.5.0",
   "new version": "2026.11.20-1"
 }
 `;
@@ -340,7 +340,7 @@ exports[`version style generation > y2k-date-time: bump does not change the styl
 
 exports[`version style generation > y2k-date-time: generate from a non-style version 1`] = `
 {
-  "old version": "1.2.3",
+  "old version": "5.5.0",
   "new version": "226.1120.1744-1"
 }
 `;
