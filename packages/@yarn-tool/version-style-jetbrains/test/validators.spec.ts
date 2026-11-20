@@ -1,6 +1,5 @@
 /**
  * 驗證器測試
- * Validator tests
  *
  * @example
  * // 執行測試
@@ -19,12 +18,12 @@ describe('Validators', () => {
 	describe('isValidDateInfo', () => {
 
 		for (const { input, expected } of [
-			// 有效日期 / Valid dates
+			// 有效日期
 			{ input: { year: 2026, month: 1, day: 1 }, expected: true },
 			{ input: { year: 2026, month: 1, day: 31 }, expected: true },
 			{ input: { year: 2026, month: 12, day: 31 }, expected: true },
 			{ input: { year: 2026, month: 2, day: 28 }, expected: true },
-			// 無效月份 / Invalid months
+			// 無效月份
 			{ input: { year: 2026, month: 0, day: 1 }, expected: false },
 			{ input: { year: 2026, month: 13, day: 1 }, expected: false },
 			{ input: { year: 2026, month: -1, day: 1 }, expected: false },

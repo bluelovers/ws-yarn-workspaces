@@ -1,6 +1,5 @@
 /**
  * 基於日期版本生成器的測試
- * Date-based version generator tests
  *
  * @example
  * // 執行測試

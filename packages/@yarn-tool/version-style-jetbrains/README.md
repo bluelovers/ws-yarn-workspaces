@@ -18,18 +18,18 @@
 ## 安裝 (Installation)
 
 ```bash
-# 使用 yarn / Using yarn
+# Using yarn
 yarn add @yarn-tool/version-style-jetbrains
 
-# 使用 yarn-tool / Using yarn-tool
+# Using yarn-tool
 yarn-tool add @yarn-tool/version-style-jetbrains
-# yt 是 yarn-tool 的別名 / yt is an alias for yarn-tool
+# yt is an alias for yarn-tool
 yt add @yarn-tool/version-style-jetbrains
 
-# 使用 pnpm / Using pnpm
+# Using pnpm
 pnpm add @yarn-tool/version-style-jetbrains
 
-# 使用 npm / Using npm
+# Using npm
 npm install @yarn-tool/version-style-jetbrains
 ```
 
@@ -154,21 +154,3 @@ enum EnumVersionStyle {
 - **軟體發布**：基於日期的版本號管理
 - **日誌追蹤**：透過版本號快速識別發布日期
 - **CI/CD 集成**：自動化版本號生成
-
-## 相關連結 (Related Links)
-
-- [GitHub 倉庫](https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/version-style-jetbrains)
-- [API 文檔](https://github.com/bluelovers/ws-yarn-workspaces/tree/master/packages/@yarn-tool/version-style-jetbrains)
-- [JetBrains 版本號風格](https://www.jetbrains.com/)
-
-## 授權 (License)
-
-ISC
-
-## 貢獻 (Contributing)
-
-歡迎提交 issue 和 pull request。
-
-## 版本 (Version)
-
-當前版本：1.0.7

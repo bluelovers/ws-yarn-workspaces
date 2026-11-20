@@ -1,6 +1,5 @@
 /**
  * 測試工具函數
- * Test utility functions
  *
  * @packageDocumentation
  */
@@ -10,14 +9,6 @@ import { IVersionStyleOptions } from '../../lib/types';
 import { _handleVersionStyleOptions } from '../../lib/options';
 import { _parseJetbrainsVersion, _parseStandardFullVersion } from '../../lib/helpers';
 import { parseVersion } from '../../index';
-
-// ==================== 測試常數 / Test Constants ====================
-
-// ==================== 預期結果映射表 / Expected Result Maps ====================
-
-// ==================== 解析測試預期結果 / Parse Test Expected Results ====================
-
-// ==================== 輔助函數 / Helper Functions ====================
 
 /**
  * Lazy parse version - parses a version string using all available parsers

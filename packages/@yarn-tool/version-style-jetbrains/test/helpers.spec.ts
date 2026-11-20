@@ -1,6 +1,5 @@
 /**
  * 輔助函數測試
- * Helper functions tests
  *
  * @example
  * // 執行測試
