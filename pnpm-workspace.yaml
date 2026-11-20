@@ -43,4 +43,4 @@ minimumReleaseAgeExclude:
   - ignore@7.0.14
   - '@bluelovers/jest-config'
   - node-test-maybe
-  - '@bluelovers/conventional-changelog-bluelovers@5.0.28'
+  - '@bluelovers/conventional-changelog-bluelovers'
