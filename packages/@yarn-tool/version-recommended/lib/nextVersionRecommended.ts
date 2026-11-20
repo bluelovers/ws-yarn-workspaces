@@ -2,15 +2,24 @@
  * 核心版本推薦邏輯
  */
 import { inc as semverIncrement, ReleaseType } from 'semver';
-import { INextVersionRecommended, INextVersionRecommendedOptions } from './types';
+import {
+	analyzeVersionStyles,
+	dateToVersion,
+	EnumVersionStyle,
+	incrementVersion,
+} from '@yarn-tool/version-style-jetbrains';
+import { INextVersionRecommended, INextVersionRecommendedOptions, INextVersionRecommendedOptionsWithStyle } from './types';
 import { handleOptions } from './handleOptions';
-import WorkspacesProject from '@yarn-tool/workspaces-project';
+import { WorkspacesProject } from '@yarn-tool/workspaces-project';
+import { ITSRequiredWith } from 'ts-type';
 
 /**
  * 依舊版本與選項計算推薦的新版本號
  *
  * 設計意圖：bump 類型若未明確指定，交給 handleOptions 依舊版本的
  * 預發行資訊與 workspaces 設定推斷，而非一律使用 patch。
+ * 指定 versionStyle 時新版本改交給 version-style-jetbrains 產生，
+ * 該路徑只看 versionStyle 與 resetDailyIncrement。
  *
  * @param oldVersion - 舊版本號
  * @param options - 推薦選項
@@ -21,16 +30,55 @@ export function nextVersionRecommended(oldVersion: string,
 	wsProject?: WorkspacesProject,
 ): INextVersionRecommended
 {
-	options = handleOptions(options, oldVersion, wsProject);
+	const { versionStyle, resetDailyIncrement } = options ?? {};
+
+	/**
+	 * 風格模式不依舊版本推斷 semver 預發行資訊：
+	 * 風格版本第三段可能是 0005 這類前導零數字，semver.parse 會回傳 null，
+	 * 且 preid / identifierBase 也不影響風格版本的產生
+	 */
+	options = handleOptions(options, versionStyle ? void 0 : oldVersion, wsProject);
 
 	/** 未指定且無法從舊版本推斷時才退回 patch：這是語意化版本的最小變更類型 */
 	let bump = options.bump ?? 'patch';
 
-	const newVersion = semverIncrement(oldVersion, bump, options.preid, options.identifierBase as any);
+	const newVersion = versionStyle
+		? nextVersionByStyle(oldVersion, { versionStyle, resetDailyIncrement })
+		: semverIncrement(oldVersion, bump, options.preid, options.identifierBase as any);
 
 	return {
 		bump,
 		oldVersion,
 		newVersion,
 	}
+}
+
+/**
+ * 以 version-style-jetbrains 風格產生新版本
+ *
+ * @param oldVersion - 舊版本號
+ * @param options - 風格選項（versionStyle 必填）
+ * @returns 風格版本字串
+ */
+function nextVersionByStyle(
+	oldVersion: string,
+	options: INextVersionRecommendedOptionsWithStyle,
+): string
+{
+	const { versionStyle, resetDailyIncrement } = options;
+
+	/**
+	 * 舊版本已是同風格且未要求重設：沿用其日期與時間遞增當日計數，
+	 * 讓同一天的多次發版持續累加
+	 */
+	if (!resetDailyIncrement && analyzeVersionStyles(oldVersion).priorityStyle === versionStyle)
+	{
+		return incrementVersion(oldVersion);
+	}
+
+	/**
+	 * 舊版本非此風格、或要求重設遞增號：
+	 * 以指定風格產生當日新版本，遞增號從 1 重新開始
+	 */
+	return dateToVersion({ style: versionStyle, dailyIncrement: 1 });
 }

@@ -1,6 +1,7 @@
 import { ReleaseType } from 'semver';
-import { ITSPartialRecord } from 'ts-type/lib/type/record';
+import { ITSPartialRecord, ITSRequiredWith } from 'ts-type/lib/type/record';
 import { IdentifierBase } from 'semver/functions/inc';
+import { EnumVersionStyle } from '@yarn-tool/version-style-jetbrains';
 
 /**
  * 版本推薦的回傳結果
@@ -46,7 +47,22 @@ export interface INextVersionRecommendedOptions extends ITSPartialRecord<Release
 	identifierBase?: IdentifierBase | 0 | 1 | false
 	/** 純數字 preid 時採用的預設值 */
 	defaultPreid?: string,
+	/**
+	 * 以 @yarn-tool/version-style-jetbrains 風格產生新版本
+	 *
+	 * 未指定時維持 semver 遞增；指定後 newVersion 交給風格產生器決定，
+	 * 只看此欄位與 resetDailyIncrement，不套用 semver 遞增規則
+	 */
+	versionStyle?: EnumVersionStyle;
+	/**
+	 * 風格模式：重設當日遞增號，從 1 重新開始
+	 *
+	 * 預設 false — 舊版本為同風格時遞增其當日計數；僅在 versionStyle 指定時有效
+	 */
+	resetDailyIncrement?: boolean;
 }
+
+export type INextVersionRecommendedOptionsWithStyle = ITSRequiredWith<INextVersionRecommendedOptions, 'versionStyle'>
 
 /** 非預發行的 bump 類型 */
 export type IBaseReleaseType<T extends ReleaseType = ReleaseType> = Exclude<T, `pre${string}`>

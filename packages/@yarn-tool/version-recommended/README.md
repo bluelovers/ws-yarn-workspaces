@@ -142,10 +142,30 @@ interface INextVersionRecommendedOptions extends ITSPartialRecord<ReleaseType, b
 	identifierBase?: IdentifierBase | 0 | 1 | false;
 	// Fallback preid for numeric-only pre-releases
 	defaultPreid?: string,
+	// 以 @yarn-tool/version-style-jetbrains 風格產生新版本
+	versionStyle?: EnumVersionStyle;
+	// 風格模式：重設當日遞增號，從 1 重新開始
+	resetDailyIncrement?: boolean;
 }
 ```
 
 同時也可直接以布林旗標指定 bump 類型：`major`、`minor`、`patch`、`premajor`、`preminor`、`prepatch`、`prerelease`，例如 `{ minor: true }`。
+
+指定 `versionStyle` 時，`newVersion` 改由 `@yarn-tool/version-style-jetbrains` 產生，該路徑只看 `versionStyle` 與 `resetDailyIncrement`，不套用 `preid` / `identifierBase` 等 semver 遞增規則：
+
+```typescript
+import { EnumVersionStyle } from '@yarn-tool/version-style-jetbrains';
+
+// 舊版本已是同風格 → 沿用其日期時間，遞增當日計數
+nextVersionRecommended('264.1120.1744-1', { versionStyle: EnumVersionStyle.JetbrainsDateTime });
+// { newVersion: '264.1120.1744-2' }
+
+// resetDailyIncrement → 以當日日期時間產生，遞增號重設為 1
+nextVersionRecommended('264.1120.1744-1', { versionStyle: EnumVersionStyle.JetbrainsDateTime, resetDailyIncrement: true });
+
+// 舊版本非此風格（或非風格版本）→ 以指定風格產生當日新版本
+nextVersionRecommended('1.2.3', { versionStyle: EnumVersionStyle.JetbrainsShortMD });
+```
 
 ### 偵測規則
 
@@ -171,3 +191,5 @@ interface INextVersionRecommendedOptions extends ITSPartialRecord<ReleaseType, b
 | `--bump` | string | 指定 bump 類型 |
 | `--preid` | string | 預發行識別字串 |
 | `--default-preid` | string | 預設預發行識別字串 |
+| `--version-style` | string | 以 `@yarn-tool/version-style-jetbrains` 風格產生新版本（如 `jetbrains-date-time`） |
+| `--reset-daily-increment` | boolean | 風格模式下將當日遞增號重設為 1 |

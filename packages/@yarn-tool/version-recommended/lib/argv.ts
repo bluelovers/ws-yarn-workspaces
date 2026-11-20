@@ -84,6 +84,23 @@ export function setupToYargs<T>(yargs: Argv<T>)
 			desc: 'Adds an identifier specified by <pre-identifier> to be used to prefix premajor, preminor, prepatch or prerelease version increments.',
 			string: true,
 		})
+		/**
+		 * --version-style 對應 INextVersionRecommendedOptions.versionStyle：
+		 * 指定後新版本改由 @yarn-tool/version-style-jetbrains 產生，
+		 * 此時只看 --version-style 與 --reset-daily-increment，
+		 * 不套用 --preid / --default-preid 等 semver 遞增規則
+		 */
+		.option('version-style', {
+			desc: 'use @yarn-tool/version-style-jetbrains style for the new version',
+			string: true,
+		})
+		/**
+		 * 風格模式下把當日遞增號重設為 1（預設為沿用舊版本遞增）
+		 */
+		.option('reset-daily-increment', {
+			desc: 'reset daily increment to 1 when version style is enabled',
+			boolean: true,
+		})
 	;
 
 	return _return as any as IYargsSync<typeof _return>
