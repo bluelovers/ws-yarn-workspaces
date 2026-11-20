@@ -71,16 +71,13 @@ export type IDateInput = Dayjs | Date | number | string | IDateInfo;
 /**
  * 版本樣式配置選項
  */
-export interface IVersionStyleOptions
+export interface IVersionStyleOptions extends Partial<IHourAndMinute>
 {
 	/** 指定日期 (預設為現在) */
 	date?: IDateInput;
 	/** 當日版本號遞增 */
 	dailyIncrement?: ISegVerDailyVersionIncrementNumber;
-	/** 小時 (0-23)，僅 Y2KDateTime 樣式使用，預設取自 date */
-	hour?: ISegTimeHourNumber;
-	/** 分鐘 (0-59)，僅 Y2KDateTime 樣式使用，預設取自 date */
-	minute?: ISegTimeMinuteNumber;
+
 	/** 是否禁用結尾的 -x dailyVersion (對 JetbrainsShort / StandardFull / Y2KDateTime 有效) */
 	disableDailyVersionSuffix?: boolean;
 	/** 版本樣式 (default is JetbrainsShortMD) */
@@ -129,7 +126,7 @@ export interface IDateInfo
 /**
  * 解析版本結果核心類型
  */
-export interface IParseVersionResultCore<JS extends boolean = boolean, MD extends boolean = boolean>
+export interface IParseVersionResultCore<JS extends boolean = boolean, MD extends boolean = boolean> extends Partial<IHourAndMinute>
 {
 	/** 是否為 JetBrains 短年份樣式 */
 	isJetbrainsShort: JS;
@@ -147,10 +144,6 @@ export interface IParseVersionResultCore<JS extends boolean = boolean, MD extend
 	 * 僅 y2k 樣式會帶此欄位；缺此欄位的時間樣式即 JetBrains 樣式 (264.1120.1744)
 	 */
 	isY2KDateTime?: boolean;
-	/** 小時 (0-23)，僅日期時間樣式提供 */
-	hour?: ISegTimeHourNumber;
-	/** 分鐘 (0-59)，僅日期時間樣式提供 */
-	minute?: ISegTimeMinuteNumber;
 }
 
 /**
