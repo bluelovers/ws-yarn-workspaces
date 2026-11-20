@@ -434,7 +434,7 @@ importers:
         specifier: ^3.0.20
         version: link:../pkg-deps-add
       '@yarn-tool/pkg-entry-util':
-        specifier: ^3.0.33
+        specifier: ^3.0.34
         version: link:../pkg-entry-util
       '@yarn-tool/pkg-git-info':
         specifier: ^2.0.14
@@ -449,10 +449,10 @@ importers:
         specifier: ^4.0.19
         version: link:../require-resolve
       '@yarn-tool/setup-module-env':
-        specifier: ^3.0.38
+        specifier: ^3.0.39
         version: link:../setup-module-env
       '@yarn-tool/static-file':
-        specifier: ^3.0.40
+        specifier: ^3.0.41
         version: link:../static-file
       '@yarn-tool/types':
         specifier: ^1.0.27
@@ -488,7 +488,7 @@ importers:
         specifier: ^4.18.1
         version: 4.18.1
       npm-package-json-loader:
-        specifier: ^3.0.33
+        specifier: ^3.0.34
         version: link:../../node-package-json-loader
       path-is-same:
         specifier: ^1.0.29
@@ -1371,10 +1371,10 @@ importers:
         specifier: ^2.0.35
         version: link:../find-root
       '@yarn-tool/pkg-entry-util':
-        specifier: ^3.0.33
+        specifier: ^3.0.34
         version: link:../pkg-entry-util
       '@yarn-tool/static-file':
-        specifier: ^3.0.40
+        specifier: ^3.0.41
         version: link:../static-file
       dot-values2:
         specifier: ^2.0.7
@@ -1438,7 +1438,7 @@ importers:
         specifier: ^2.0.35
         version: link:../find-root
       '@yarn-tool/ignore':
-        specifier: ^1.0.14
+        specifier: ^1.0.15
         version: link:../ignore
       array-hyper-unique:
         specifier: ^2.1.10
@@ -1546,7 +1546,7 @@ importers:
         specifier: ^1.0.27
         version: link:../types
       '@yarn-tool/version-style-jetbrains':
-        specifier: ^1.0.15
+        specifier: ^1.0.16
         version: link:../version-style-jetbrains
       '@yarn-tool/workspaces-project':
         specifier: ^3.0.31
@@ -2128,16 +2128,16 @@ importers:
         specifier: ^2.0.35
         version: link:../@yarn-tool/find-root
       '@yarn-tool/fix-all':
-        specifier: ^3.0.43
+        specifier: ^3.0.44
         version: link:../@yarn-tool/fix-all
       '@yarn-tool/pkg-entry-util':
-        specifier: ^3.0.33
+        specifier: ^3.0.34
         version: link:../@yarn-tool/pkg-entry-util
       '@yarn-tool/require-resolve':
         specifier: ^4.0.19
         version: link:../@yarn-tool/require-resolve
       '@yarn-tool/static-file':
-        specifier: ^3.0.40
+        specifier: ^3.0.41
         version: link:../@yarn-tool/static-file
       '@yarn-tool/ws-find-up-paths':
         specifier: ^1.0.33
@@ -2228,7 +2228,7 @@ importers:
         specifier: ^3.0.15
         version: 3.0.15(ts-toolbelt@9.6.0)
       '@yarn-tool/pkg-entry-util':
-        specifier: ^3.0.33
+        specifier: ^3.0.34
         version: link:../@yarn-tool/pkg-entry-util
       '@yarn-tool/require-resolve':
         specifier: ^4.0.19
@@ -2261,7 +2261,7 @@ importers:
         specifier: ^2.0.35
         version: link:../@yarn-tool/find-root
       '@yarn-tool/fix-all':
-        specifier: ^3.0.43
+        specifier: ^3.0.44
         version: link:../@yarn-tool/fix-all
       '@yarn-tool/init-path':
         specifier: ^2.0.18
@@ -2273,7 +2273,7 @@ importers:
         specifier: ^3.0.24
         version: link:../@yarn-tool/node-modules-link
       '@yarn-tool/pkg-entry-util':
-        specifier: ^3.0.33
+        specifier: ^3.0.34
         version: link:../@yarn-tool/pkg-entry-util
       '@yarn-tool/pkg-git-info':
         specifier: ^2.0.14
@@ -2285,10 +2285,10 @@ importers:
         specifier: ^1.0.16
         version: link:../@yarn-tool/pkg-readme-tpl
       '@yarn-tool/setup-module-env':
-        specifier: ^3.0.38
+        specifier: ^3.0.39
         version: link:../@yarn-tool/setup-module-env
       '@yarn-tool/static-file':
-        specifier: ^3.0.40
+        specifier: ^3.0.41
         version: link:../@yarn-tool/static-file
       '@yarn-tool/types':
         specifier: ^1.0.27
@@ -2324,7 +2324,7 @@ importers:
         specifier: ^4.0.8
         version: 4.0.8
       npm-package-json-loader:
-        specifier: ^3.0.33
+        specifier: ^3.0.34
         version: link:../node-package-json-loader
       path-is-same:
         specifier: ^1.0.29

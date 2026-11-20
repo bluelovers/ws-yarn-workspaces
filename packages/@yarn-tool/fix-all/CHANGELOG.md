@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.44](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-all@3.0.43...@yarn-tool/fix-all@3.0.44) (2026-11-20)
+
+
+
+### ✨　Features
+
+* **@yarn-tool/fix-all:** 新增 noScripts 選項以略過預設腳本補齊 ([0493cf1](https://github.com/bluelovers/ws-yarn-workspaces/commit/0493cf10b5c36b5ae5546a47784e246356cb4740))
+
+
+### 🛠　Build System
+
+* update build ([c1caad5](https://github.com/bluelovers/ws-yarn-workspaces/commit/c1caad5305f852eb0f8b544da6f88e862d89c72a))
+
+
 ## [3.0.43](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/fix-all@3.0.42...@yarn-tool/fix-all@3.0.43) (2026-11-18)
 
 **Note:** Version bump only for package @yarn-tool/fix-all

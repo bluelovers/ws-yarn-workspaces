@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.34](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-entry-util@3.0.33...@yarn-tool/pkg-entry-util@3.0.34) (2026-11-20)
+
+
+
+### 📦　Code Refactoring
+
+* **@yarn-tool/pkg-entry-util:** 註解掉預設的 dummy scripts 列表 ([05ba8aa](https://github.com/bluelovers/ws-yarn-workspaces/commit/05ba8aad2dc4d258e28ab765941bf77cff3039d3))
+
+
+### 🛠　Build System
+
+* update build ([c1caad5](https://github.com/bluelovers/ws-yarn-workspaces/commit/c1caad5305f852eb0f8b544da6f88e862d89c72a))
+
+
 ## [3.0.33](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/pkg-entry-util@3.0.32...@yarn-tool/pkg-entry-util@3.0.33) (2026-11-17)
 
 

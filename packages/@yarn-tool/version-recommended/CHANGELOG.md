@@ -3,6 +3,50 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.33](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/version-recommended@3.0.32...@yarn-tool/version-recommended@3.0.33) (2026-11-20)
+
+
+### BREAKING CHANGES
+
+* **@yarn-tool/version-recommended:** 優化版本風格模式下的日期處理邏輯
+
+
+
+### 🐛　Bug Fixes
+
+* **@yarn-tool/version-recommended:** 優化版本風格模式下的日期處理邏輯 ([3da439b](https://github.com/bluelovers/ws-yarn-workspaces/commit/3da439b0c97c2cf62069954cd298070e41a5a102))
+* **@yarn-tool/version-recommended:** 修正版本風格模式下 preid 的處理邏輯 ([46c3dd7](https://github.com/bluelovers/ws-yarn-workspaces/commit/46c3dd7d5ff03044193813a42cbe75b16e777322))
+
+
+### ✨　Features
+
+* **@yarn-tool/version-recommended:** 新增 CLI 工具以支援命令列操作 ([78002bc](https://github.com/bluelovers/ws-yarn-workspaces/commit/78002bcc54633aea3f706f493c515a5ed1141b8b))
+* **@yarn-tool/version-recommended:** 支援透過版本風格產生新版本 ([7804982](https://github.com/bluelovers/ws-yarn-workspaces/commit/780498265ddc8ed0f9f43b4398222ab924ef1b34))
+
+
+### 📦　Code Refactoring
+
+* **@yarn-tool/version-recommended:** 優化 CLI 選項註冊與參數轉換邏輯 ([31be8c9](https://github.com/bluelovers/ws-yarn-workspaces/commit/31be8c91c32649ed1c27ed9ade1c3bc391d51b97))
+
+
+### 📚　Documentation
+
+* **@yarn-tool/version-recommended:** 移除程式碼註釋中的英文說明 ([e87359e](https://github.com/bluelovers/ws-yarn-workspaces/commit/e87359e3780f728a8b504167d7d730f42f8b393d))
+
+
+### 🚨　Tests
+
+* **@yarn-tool/version-recommended:** 支援在版本風格模式下指定日期 ([725c71f](https://github.com/bluelovers/ws-yarn-workspaces/commit/725c71fabca9ec9049551b82f1e8c083be6cf4d0))
+* **version-recommended:** 強化版本風格隨日期變化的測試驗證 ([076a9fd](https://github.com/bluelovers/ws-yarn-workspaces/commit/076a9fdd8c6c29cec64d1d1e867d05dac3109d5c))
+* **version-recommended:** 新增版本風格模式的單元測試 ([7f03d03](https://github.com/bluelovers/ws-yarn-workspaces/commit/7f03d03a1d93ee241bfdb54f4ee2eb1affdafcc8))
+
+
+### 🛠　Build System
+
+* update build ([3a100a3](https://github.com/bluelovers/ws-yarn-workspaces/commit/3a100a329b2fd0435b36f5a1bf7e78a354a93c11))
+* update build ([c1caad5](https://github.com/bluelovers/ws-yarn-workspaces/commit/c1caad5305f852eb0f8b544da6f88e862d89c72a))
+
+
 ## [3.0.32](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/version-recommended@3.0.31...@yarn-tool/version-recommended@3.0.32) (2026-11-17)
 
 

@@ -3,6 +3,43 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.16](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/version-style-jetbrains@1.0.15...@yarn-tool/version-style-jetbrains@1.0.16) (2026-11-20)
+
+
+
+### ✨　Features
+
+* **@yarn-tool/version-style-jetbrains:** 新增版本風格篩選與重排功能 ([a23aa26](https://github.com/bluelovers/ws-yarn-workspaces/commit/a23aa2647b4ac8e05bf3011eea38d2c9fde1910e))
+* **@yarn-tool/version-style-jetbrains:** 新增版本風格分析功能並重構解析流程 ([7f5fe2e](https://github.com/bluelovers/ws-yarn-workspaces/commit/7f5fe2ec43fc4b0a6561de76f1d1f90091441007))
+* **@yarn-tool/version-style-jetbrains:** 新增 JetbrainsDateTime 樣式支援並優化解析邏輯 ([8c53ef8](https://github.com/bluelovers/ws-yarn-workspaces/commit/8c53ef8dc9fe3d523804015f86c4f98b287e58a5))
+* **@yarn-tool/version-style-jetbrains:** 將 JetbrainsDateTime 重命名為 Y2KDateTime 並強化型別定義 ([cf837c9](https://github.com/bluelovers/ws-yarn-workspaces/commit/cf837c9b21e1bd0ac90a714c3afebe542aefd80d))
+* **@yarn-tool/version-style-jetbrains:** 新增 JetbrainsDateTime 版本樣式支援 ([a0f38f8](https://github.com/bluelovers/ws-yarn-workspaces/commit/a0f38f86ee7342fdea60a66e2c9cf89dd96982b5))
+
+
+### 📦　Code Refactoring
+
+* **@yarn-tool/version-style-jetbrains:** 簡化版本樣式配置與解析結果的型別定義 ([00095c1](https://github.com/bluelovers/ws-yarn-workspaces/commit/00095c13633f480711dece93b53c423378f41838))
+* **@yarn-tool/version-style-jetbrains:** 更新命名規範並擴展細分型別輸出 ([8147545](https://github.com/bluelovers/ws-yarn-workspaces/commit/8147545a8ffbf5328d64d34bf37f26aa115cf88a))
+* **@yarn-tool/version-style-jetbrains:** 整合月日編碼邏輯並全面更新細分型別應用 ([742e81a](https://github.com/bluelovers/ws-yarn-workspaces/commit/742e81af47ec0c9a0ae724b55e948348de72f8f5))
+* **@yarn-tool/version-style-jetbrains:** 優化 JetbrainsDateTime 年份編碼邏輯與型別定義 ([6bc7631](https://github.com/bluelovers/ws-yarn-workspaces/commit/6bc7631be3d535f2f6f12119d0fed0035128cb84))
+* **@yarn-tool/version-style-jetbrains:** 移除程式碼與文件中的英文註解與說明 ([955a4f1](https://github.com/bluelovers/ws-yarn-workspaces/commit/955a4f1c05925a1f95e04f4ae9a36dadefbbe13c))
+
+
+### 💎　Styles
+
+* **@yarn-tool/version-style-jetbrains:** 清理測試檔案中的冗餘註解與雙語說明 ([02a00a2](https://github.com/bluelovers/ws-yarn-workspaces/commit/02a00a213e352affc6acb994154a1da6c8d368b5))
+
+
+### 🚨　Tests
+
+* **@yarn-tool/version-recommended:** 支援在版本風格模式下指定日期 ([725c71f](https://github.com/bluelovers/ws-yarn-workspaces/commit/725c71fabca9ec9049551b82f1e8c083be6cf4d0))
+
+
+### 🛠　Build System
+
+* update build ([c1caad5](https://github.com/bluelovers/ws-yarn-workspaces/commit/c1caad5305f852eb0f8b544da6f88e862d89c72a))
+
+
 ## [1.0.15](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/version-style-jetbrains@1.0.14...@yarn-tool/version-style-jetbrains@1.0.15) (2026-11-17)
 
 

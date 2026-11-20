@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.41](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.40...@yarn-tool/static-file@3.0.41) (2026-11-20)
+
+
+
+### 📚　Documentation
+
+* **@yarn-tool/static-file:** 將 README 中的安裝說明翻譯為英文 ([bd49104](https://github.com/bluelovers/ws-yarn-workspaces/commit/bd4910404ba653c96e75d44ed2f328ff1119afd8))
+
+
 ## [3.0.40](https://github.com/bluelovers/ws-yarn-workspaces/compare/@yarn-tool/static-file@3.0.39...@yarn-tool/static-file@3.0.40) (2026-11-18)
 
 

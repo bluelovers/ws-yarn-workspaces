@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.34](https://github.com/bluelovers/ws-yarn-workspaces/compare/npm-package-json-loader@3.0.33...npm-package-json-loader@3.0.34) (2026-11-20)
+
+**Note:** Version bump only for package npm-package-json-loader
+
+
+
+
+
 ## [3.0.33](https://github.com/bluelovers/ws-yarn-workspaces/compare/npm-package-json-loader@3.0.32...npm-package-json-loader@3.0.33) (2026-11-17)
 
 
