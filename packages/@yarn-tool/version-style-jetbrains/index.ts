@@ -16,6 +16,7 @@ import {
 	IVersionStyleOptions,
 	IVersionStyleOptionsWithDateInfo,
 } from './lib/types';
+import { ISeqVersionAny } from './lib/types-seg';
 import { _getParsedVersionFromOptions, _getStyleFromFlags, _handleVersionStyleOptions } from './lib/options';
 import { _dateToVersionByStyleCore } from './lib/core';
 import { _getDateInfoFromDayjs } from './lib/date';
@@ -23,6 +24,7 @@ import { _parseJetbrainsDateTime, _parseJetbrainsVersion, _parseStandardFullVers
 import { _assertValidDateInfo } from './lib/assert';
 
 export * from './lib/types';
+export * from './lib/types-seg';
 
 export { _handleVersionStyleOptions } from './lib/options';
 
@@ -32,7 +34,7 @@ export { _handleVersionStyleOptions } from './lib/options';
  * @param version - 版本號字串
  * @returns 解析結果
  */
-export function parseVersion(version: string): IParseVersionResult | null
+export function parseVersion(version: ISeqVersionAny): IParseVersionResult | null
 {
 	/**
 	 * 先嘗試解析日期時間格式: 2YY.MMDD.HHmm-increment
@@ -117,7 +119,7 @@ export function dateToVersionByStyle(
  * @param currentVersion - 目前版本號
  * @returns 新版本號
  */
-export function getNextDayVersion(currentVersion: string): string
+export function getNextDayVersion(currentVersion: ISeqVersionAny): string
 {
 	const parsed = parseVersion(currentVersion);
 
@@ -179,7 +181,7 @@ export function getNextDayVersion(currentVersion: string): string
  * @param currentVersion - 目前版本號
  * @returns 遞增後的版本號
  */
-export function incrementVersion(currentVersion: string): string
+export function incrementVersion(currentVersion: ISeqVersionAny): string
 {
 	const parsed = parseVersion(currentVersion);
 
@@ -212,7 +214,7 @@ export function incrementVersion(currentVersion: string): string
  * @param optionsOrDate - 選項或日期
  * @returns 是否為今天的版本
  */
-export function isTodayVersion(version: string, optionsOrDate?: IVersionStyleOptions | IDateInput): boolean
+export function isTodayVersion(version: ISeqVersionAny, optionsOrDate?: IVersionStyleOptions | IDateInput): boolean
 {
 	const parsed = parseVersion(version);
 

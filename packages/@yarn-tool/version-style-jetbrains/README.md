@@ -76,7 +76,7 @@ const allVersions = generateAllStyleVersions();
    - 示例：2026年1月1日，第一版
    - 計算方式：完整年份，月和日合併（例如101代表1月1日），遞增號
 
-5. **JetbrainsDateTime**: `226.1120.1744-1`（停用後綴時為 `226.1120.1744`）
+5. **Y2KDateTime**: `226.1120.1744-1`（停用後綴時為 `226.1120.1744`）
    - 格式：年=2026 的第一個 2 + 年份後兩位, 月日合併, 時分 [-遞增]
    - 示例：2026年11月20日 17:44，第一版
    - 計算方式：首段取年份（2026）的第一個 2 與年份後兩位（226），月和日合併（1120 代表 11 月 20 日），時分為 HHmm（1744 代表 17:44），遞增號為可省略的 `-x` 後綴
@@ -152,7 +152,7 @@ enum EnumVersionStyle {
   JetbrainsShortMD,    // JetBrains 短格式（月日合併）
   StandardFull,        // 標準完整格式
   StandardFullMD,      // 標準完整格式（月日合併）
-  JetbrainsDateTime,   // JetBrains 日期時間格式（226.1120.1744）
+  Y2KDateTime,       // y2k 日期時間格式（226.1120.1744）
 }
 ```
 

@@ -20,12 +20,12 @@ import {
 } from './lib/test';
 import {
 	DATE_TO_VERSION_DISABLE_SUFFIX_TEST_CASES, DATE_TO_VERSION_STYLE_TEST_CASES,
-	INCREMENT_VERSION_TEST_CASES, JETBRAINS_DATETIME_YEAR_CODE_TEST_CASES,
+	INCREMENT_VERSION_TEST_CASES, Y2K_DATETIME_YEAR_CODE_TEST_CASES,
 	JETBRAINS_YEAR_CODE_TEST_CASES,
 	PARSE_VERSION_TEST_CASES, QUARTER_TEST_CASES, TEST_BASE_OPTIONS, TEST_DATE_Q1,
 	TEST_DATE_Q2, TEST_Q2_OPTIONS, VALID_DATE_INFO_TEST_CASES,
 } from './fixtures/data';
-import { _getDateInfoFromDate, _parseY2KDateTimeYear, getY2KDateTimeYearCode, getJetbrainsYearCode, getQuarterFromMonth } from '../lib/date';
+import { _getDateInfoFromDate, _parseY2KDateTimeYear, getMonthCode, getMonthDayCode, getY2KDateTimeYearCode, getJetbrainsYearCode, getQuarterFromMonth } from '../lib/date';
 import { isValidDateInfo } from '../lib/assert';
 import { EnumVersionStyle } from '../lib/types';
 
@@ -51,18 +51,38 @@ describe('Version Style Generator', () => {
 
 	});
 
-	describe('getJetbrainsDateTimeYearCode', () => {
+	describe('getY2KDateTimeYearCode', () => {
 
-		for (const { year, expected } of JETBRAINS_DATETIME_YEAR_CODE_TEST_CASES) {
+		for (const { year, expected } of Y2K_DATETIME_YEAR_CODE_TEST_CASES) {
 			it(`should return ${expected} for year ${year}`, () => {
 				assert.strictEqual(getY2KDateTimeYearCode(year), expected);
 			});
 		}
 
 		it('should round-trip year through year code', () => {
-			for (const { year } of JETBRAINS_DATETIME_YEAR_CODE_TEST_CASES) {
+			for (const { year } of Y2K_DATETIME_YEAR_CODE_TEST_CASES) {
 				assert.strictEqual(_parseY2KDateTimeYear(getY2KDateTimeYearCode(year)), year);
 			}
+		});
+
+	});
+
+	describe('getMonthDayCode', () => {
+
+		for (const { month, day, expected } of [
+			{ month: 1, day: 1, expected: 101 },
+			{ month: 6, day: 15, expected: 615 },
+			{ month: 11, day: 20, expected: 1120 },
+			{ month: 12, day: 31, expected: 1231 },
+		]) {
+			it(`should return ${expected} for month ${month}, day ${day}`, () => {
+				assert.strictEqual(getMonthDayCode(month, day), expected);
+			});
+		}
+
+		it('should compose month segment and day', () => {
+			assert.strictEqual(getMonthCode(11), 1100);
+			assert.strictEqual(getMonthDayCode(11, 20), getMonthCode(11) + 20);
 		});
 
 	});
@@ -96,7 +116,7 @@ describe('Version Style Generator', () => {
 			const result = dateToVersion({});
 
 			// 預設使用 JetbrainsShortMD 格式
-			const expectedMonthDay = (today.getMonth() + 1) * 100 + today.getDate();
+			const expectedMonthDay = getMonthDayCode(today.getMonth() + 1, today.getDate());
 			const expectedYearCode = getJetbrainsYearCode(today.getFullYear(), getQuarterFromMonth(today.getMonth() + 1));
 
 			assert.match(result, new RegExp(`^${expectedYearCode}\\.${expectedMonthDay}\\.1$`));
@@ -146,7 +166,7 @@ describe('Version Style Generator', () => {
 
 	});
 
-	describe('JetbrainsDateTime style', () => {
+	describe('Y2KDateTime style', () => {
 
 		/** 2026-11-20 17:44 */
 		const TEST_DATE_TIME = new Date(2026, 10, 20, 17, 44);
@@ -222,7 +242,7 @@ describe('Version Style Generator', () => {
 			const today = new Date();
 			const { year, month, day } = _getDateInfoFromDate(today);
 
-			const version = `${year}.${month * 100 + day}.1`;
+			const version = `${year}.${getMonthDayCode(month, day)}.1`;
 			const result = isTodayVersion(version, { date: today });
 
 			assert.strictEqual(result, true);
@@ -247,7 +267,7 @@ describe('Version Style Generator', () => {
 
 			// 應該是今天的版本 + 遞增
 			const expectedYearCode = getJetbrainsYearCode(year, getQuarterFromMonth(month));
-			const expected = `${expectedYearCode}.${month * 100 + day}.2`;
+			const expected = `${expectedYearCode}.${getMonthDayCode(month, day)}.2`;
 			assert.strictEqual(result, expected);
 		});
 
@@ -259,7 +279,7 @@ describe('Version Style Generator', () => {
 
 			// 使用 JetBrains Short MD 格式
 			const expectedYearCode = getJetbrainsYearCode(year, getQuarterFromMonth(month));
-			const expected = `${expectedYearCode}.${month * 100 + day}.2`;
+			const expected = `${expectedYearCode}.${getMonthDayCode(month, day)}.2`;
 			assert.strictEqual(result, expected);
 		});
 

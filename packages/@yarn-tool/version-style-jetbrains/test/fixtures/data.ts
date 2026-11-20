@@ -124,7 +124,7 @@ export const PARSE_EXPECTED_STANDARD_FULL_MD = {
 	isMDCombined: true,
 };
 /**
- * 解析 JetbrainsDateTime 格式的預期結果
+ * 解析 Y2KDateTime 格式的預期結果
  */
 export const PARSE_EXPECTED_JETBRAINS_DATE_TIME = {
 	year: 2026,
@@ -167,9 +167,9 @@ export const JETBRAINS_YEAR_CODE_TEST_CASES = [
 	{ year: 2027, quarter: 1, expected: 271 },
 ];
 /**
- * 驗證 getJetbrainsDateTimeYearCode 的測試資料
+ * 驗證 getY2KDateTimeYearCode 的測試資料
  */
-export const JETBRAINS_DATETIME_YEAR_CODE_TEST_CASES = [
+export const Y2K_DATETIME_YEAR_CODE_TEST_CASES = [
 	{ year: 2026, expected: 226 },
 	{ year: 2025, expected: 225 },
 	{ year: 2030, expected: 230 },
