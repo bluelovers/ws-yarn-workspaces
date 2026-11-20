@@ -85,6 +85,34 @@ nextVersionRecommendedByWorkspacesProject('1.0.0', new WorkspacesProject(cwd));
 nextVersionRecommendedByWorkspacesFindUp('1.0.0', { cwd });
 ```
 
+## CLI
+
+以 CLI 對 `package.json` 更新版本，新舊版本以 diff 著色（major 紅、minor 青、patch 綠），選項與 `setupToYargs` 一致：
+
+```bash
+# 依 bump / preid 推薦並寫回 package.json
+version-recommended --cwd ./packages/my-pkg --bump minor
+
+# 只輸出不寫入
+version-recommended --dry-run
+
+# 純文字輸出（剝除 ANSI）
+version-recommended --no-color
+
+# 直接指定新版本
+version-recommended --new-version 2.0.0
+```
+
+輸出格式：
+
+```
+@my-scope/my-pkg
+  1.2.3 → 1.2.4
+  /path/to/package.json
+```
+
+本地開發可改用 `node --run bin:self -- [args]`（等同 `tsx ./bin/version-recommended.ts`）。
+
 ## API Documentation
 
 ### `nextVersionRecommended(oldVersion, options?, wsProject?): INextVersionRecommended`

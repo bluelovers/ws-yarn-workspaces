@@ -30,6 +30,9 @@
   "license": "ISC",
   "author": "bluelovers",
   "main": "index.js",
+  "bin": {
+    "version-recommended": "./bin/version-recommended.js"
+  },
   "scripts": {
     "coverage": "pnpm run test -- --coverage",
     "lint": "ynpx --quiet eslint -- **/*.ts",
@@ -50,24 +53,27 @@
     "prepublishOnly": "echo prepublishOnly",
     "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
     "prepublishOnly:update": "pnpm run ncu && pnpm run sort-package-json",
+    "bin:self": "tsx ./bin/version-recommended.ts",
     "ncu": "ynpx --quiet yarn-tool -- ncu -u",
     "sort-package-json": "ynpx --quiet yarn-tool -- sort",
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
+    "@bluelovers/fs-json": "^1.0.17",
     "@ts-type/package-dts": "^3.0.15",
     "@types/semver": "*",
     "@yarn-tool/find-root": "^2.0.35",
+    "@yarn-tool/semver-diff": "^2.0.30",
     "@yarn-tool/types": "^1.0.27",
     "@yarn-tool/version-style-jetbrains": "^1.0.15",
     "@yarn-tool/workspaces-project": "^3.0.31",
+    "@yarn-tool/write-package-json": "^1.0.24",
+    "debug-color2": "^1.3.2",
     "semver": "^7.8.6",
     "ts-type": "^3.0.19",
     "tslib": ">=2.8.1"
   },
-  "devDependencies": {
-    "@yarn-tool/semver-diff": "^2.0.30"
-  },
+  "devDependencies": {},
   "publishConfig": {
     "access": "public"
   },
