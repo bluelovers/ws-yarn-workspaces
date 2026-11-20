@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.setupToYargs = setupToYargs;
+exports.toNextVersionRecommendedOptions = toNextVersionRecommendedOptions;
 /**
  * 註冊與 `yarn version` 相容的命令列選項
  *
@@ -84,6 +85,14 @@ function setupToYargs(yargs) {
         string: true,
     })
         /**
+         * 以下為 CLI 執行選項：cwd 決定向上尋找 package.json 的起點，
+         * dry-run / no-color 控制輸出與是否寫回
+         */
+        .option('cwd', {
+        desc: 'path of the package.json to update',
+        string: true,
+    })
+        /**
          * --version-style 對應 INextVersionRecommendedOptions.versionStyle：
          * 指定後新版本改由 @yarn-tool/version-style-jetbrains 產生，
          * 此時只看 --version-style 與 --reset-daily-increment，
@@ -101,5 +110,24 @@ function setupToYargs(yargs) {
         boolean: true,
     });
     return _return;
+}
+/**
+ * 從 yargs 解析結果取出版本推薦選項
+ *
+ * 與 setupToYargs 註冊的選項同處維護，
+ * 新增選項時不會因為 bin 端逐一轉交而漏掉
+ *
+ * @param argv - yargs 解析結果
+ * @returns 傳給 nextVersionRecommended 系列的選項
+ */
+function toNextVersionRecommendedOptions(argv) {
+    return {
+        cwd: argv.cwd,
+        bump: argv.bump,
+        preid: argv.preid,
+        defaultPreid: argv.defaultPreid,
+        versionStyle: argv['version-style'],
+        resetDailyIncrement: argv['reset-daily-increment'],
+    };
 }
 //# sourceMappingURL=argv.js.map
