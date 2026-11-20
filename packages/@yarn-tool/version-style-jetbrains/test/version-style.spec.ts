@@ -25,7 +25,7 @@ import {
 	PARSE_VERSION_TEST_CASES, QUARTER_TEST_CASES, TEST_BASE_OPTIONS, TEST_DATE_Q1,
 	TEST_DATE_Q2, TEST_Q2_OPTIONS, VALID_DATE_INFO_TEST_CASES,
 } from './fixtures/data';
-import { _getDateInfoFromDate, getJetbrainsDateTimeYearCode, getJetbrainsYearCode, getQuarterFromMonth } from '../lib/date';
+import { _getDateInfoFromDate, _parseJetbrainsDateTimeYear, getJetbrainsDateTimeYearCode, getJetbrainsYearCode, getQuarterFromMonth } from '../lib/date';
 import { isValidDateInfo } from '../lib/assert';
 import { EnumVersionStyle } from '../lib/types';
 
@@ -58,6 +58,12 @@ describe('Version Style Generator', () => {
 				assert.strictEqual(getJetbrainsDateTimeYearCode(year), expected);
 			});
 		}
+
+		it('should round-trip year through year code', () => {
+			for (const { year } of JETBRAINS_DATETIME_YEAR_CODE_TEST_CASES) {
+				assert.strictEqual(_parseJetbrainsDateTimeYear(getJetbrainsDateTimeYearCode(year)), year);
+			}
+		});
 
 	});
 

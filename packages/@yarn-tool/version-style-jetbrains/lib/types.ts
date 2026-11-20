@@ -1,7 +1,7 @@
 import { ITSOverwrite, ITSPickExtra, ITSRequiredPick, ITSRequiredWith } from 'ts-type/lib/type/record';
 import { Dayjs } from 'dayjs';
 import { IOptionsTzDayjsSafeParse } from 'dayjs-tz-helper';
-import { ITSTypeAndStringLiteral } from 'ts-type';
+import { ITSTypeAndStringLiteral, ITSNumberValue2 } from 'ts-type';
 
 /**
  * 版本風格類型
@@ -162,4 +162,12 @@ export interface IParseJetbrainsYearResult
 	year: number;
 	/** 季度 (1-4) */
 	quarter: number;
+}
+
+export interface IHourAndMinute
+{
+	/** 小時 (0-23) */
+	hour: number;
+	/** 分鐘 (0-59) */
+	minute: number;
 }

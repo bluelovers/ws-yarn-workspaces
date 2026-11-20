@@ -3,6 +3,7 @@ import {
 	IDateInfo,
 	IDateInfoMonthDay,
 	IDateInput,
+	IHourAndMinute,
 	IParseJetbrainsYearResult,
 	IParseMonthDayResult,
 	IVersionStyleOptions,
@@ -35,32 +36,62 @@ export function getJetbrainsYearCode(year: number, quarter: number): number
 	return (year % 100) * 10 + quarter;
 }
 
+/** 此模式僅支援的年份下界 */
+export const JETBRAINS_DATETIME_YEAR_MIN = 2000;
+/**
+ * 此模式僅支援的年份上界
+ *
+ * 編碼只保留年份後兩位，2100 年代會與 2000 年代產生相同編碼，故止於 2099
+ */
+export const JETBRAINS_DATETIME_YEAR_MAX = 2099;
+
+/** 四位年份的千位權重，用於取出年份首位數字 */
+const YEAR_THOUSANDS = 1000;
+/** 年份編碼的百位權重，編碼由年份首位數字與年份後兩位組成 */
+const DATETIME_YEAR_CODE_HUNDREDS = 100;
+
+/**
+ * 取出四位年份的首位數字 (2026 -> 2)
+ *
+ * @param year - 年份
+ * @returns 年份首位數字
+ */
+function _getYearLeadingDigit(year: number): number
+{
+	return Math.floor(year / YEAR_THOUSANDS);
+}
+
 /**
  * 根據年份取得日期時間樣式的年份編碼
  *
- * 編碼取年份字串 (如 "2026") 的第一個 2，再加上年份後兩位，故 2026 -> 226；
+ * 編碼由年份首位數字 (2026 的 2) 與年份後兩位組成，故 2026 -> 226；
  * 與 YYQ 季度編碼 (261) 分開，因為此樣式第三段已是時間，不再需要季度資訊
- *
- * 請注意：年份後兩位僅兩碼，故 2100 (會得到 200) 起不支援此模式
  *
  * @param year - 年份
  * @returns 年份編碼 (如 226 表示 2026 年)
  */
 export function getJetbrainsDateTimeYearCode(year: number): number
 {
-	return 200 + (year % 100);
+	return _getYearLeadingDigit(year) * DATETIME_YEAR_CODE_HUNDREDS + (year % DATETIME_YEAR_CODE_HUNDREDS);
 }
 
 /**
  * 從年份編碼還原日期時間樣式的年份
+ *
+ * 組碼時被捨棄的百位數以 0 還原 (226 -> 2026)，故僅於支援年份範圍內成立
  *
  * @param yearCode - 年份編碼 (200-299)
  * @returns 年份 (2000-2099)
  */
 export function _parseJetbrainsDateTimeYear(yearCode: number): number
 {
-	return 2000 + (yearCode - 200);
+	return Math.floor(yearCode / DATETIME_YEAR_CODE_HUNDREDS) * YEAR_THOUSANDS + (yearCode % DATETIME_YEAR_CODE_HUNDREDS);
 }
+
+/** 支援年份範圍對應的年份編碼下界 (200)，由年份規則推導而非寫死 */
+export const JETBRAINS_DATETIME_YEAR_CODE_MIN = getJetbrainsDateTimeYearCode(JETBRAINS_DATETIME_YEAR_MIN);
+/** 支援年份範圍對應的年份編碼上界 (299)，由年份規則推導而非寫死 */
+export const JETBRAINS_DATETIME_YEAR_CODE_MAX = getJetbrainsDateTimeYearCode(JETBRAINS_DATETIME_YEAR_MAX);
 
 /**
  * 從 HHmm 四位數字解析時分
@@ -70,7 +101,7 @@ export function _parseJetbrainsDateTimeYear(yearCode: number): number
  * @param timeStr - 時間字串 (HHmm)
  * @returns 時分資訊，格式不合法時回傳 null
  */
-export function _parseTimeFromHHmm(timeStr: string): { hour: number; minute: number } | null
+export function _parseTimeFromHHmm(timeStr: string): IHourAndMinute | null
 {
 	/** 嚴格限四碼，避免 "174" 這類殘缺數字被當成時間 */
 	if (!/^\d{4}$/.test(timeStr))

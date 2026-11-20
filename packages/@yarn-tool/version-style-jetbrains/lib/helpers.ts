@@ -1,12 +1,15 @@
 import { IParseVersionResult } from './types';
 import { _assertValidDateInfo } from './assert';
 import {
+	JETBRAINS_DATETIME_YEAR_CODE_MAX,
+	JETBRAINS_DATETIME_YEAR_CODE_MIN,
 	_parseJetbrainsDateTimeYear,
 	_parseJetbrainsYearQuarter,
 	_parseMonthDayFromMD,
 	_parseMonthDayInfo,
 	_parseTimeFromHHmm,
 } from './date';
+import { ITSNumberValue2 } from 'ts-type';
 
 /**
  * 解析日期時間樣式版本號
@@ -31,8 +34,8 @@ export function _parseJetbrainsDateTime(version: string): IParseVersionResult<tr
 	const [, yearCodeStr, monthDayStr, timeStr, increment] = dateTimeMatch;
 	const yearCode = parseInt(yearCodeStr, 10);
 
-	/** 年份編碼限 200-299（年份首個 2 + 年份後兩位），其餘數值不屬於日期時間樣式 */
-	if (yearCode < 200 || yearCode > 299)
+	/** 年份編碼須落在支援年份範圍推導出的區間內，其餘數值不屬於日期時間樣式 */
+	if (yearCode < JETBRAINS_DATETIME_YEAR_CODE_MIN || yearCode > JETBRAINS_DATETIME_YEAR_CODE_MAX)
 	{
 		return null;
 	}
@@ -49,7 +52,7 @@ export function _parseJetbrainsDateTime(version: string): IParseVersionResult<tr
 	}
 
 	/** 第二段固定為四位月日 (MMDD)，如 1120 表示 11 月 20 日 */
-	const { month, day } = _parseMonthDayFromMD(monthDayStr);
+	const { month, day } = _parseMonthDayFromMD(monthDayStr as ITSNumberValue2);
 
 	return {
 		year: _parseJetbrainsDateTimeYear(yearCode),

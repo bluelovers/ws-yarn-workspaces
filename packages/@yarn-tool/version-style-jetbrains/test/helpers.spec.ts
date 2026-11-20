@@ -7,6 +7,7 @@ import { EnumVersionStyle } from '../lib/types';
 import { _isJetbrainsStyleFromStyle, _isMDCombinedFromStyle } from '../lib/assert';
 import { _getStyleFromFlags } from '../lib/options';
 import { _parseJetbrainsYearQuarter, _parseMonthDayInfo } from '../lib/date';
+import { _parseJetbrainsDateTime } from '../lib/helpers';
 
 describe('Helper Functions', () => {
 
@@ -61,6 +62,40 @@ describe('Helper Functions', () => {
 		it(`should return ${EnumVersionStyle.JetbrainsDateTime} for isDateTime=true`, () => {
 			assert.strictEqual(_getStyleFromFlags(true, true, true), EnumVersionStyle.JetbrainsDateTime);
 		});
+
+	});
+
+	describe('_parseJetbrainsDateTime', () => {
+
+		for (const { version, expected } of [
+			{
+				version: '226.1120.1744-1',
+				expected: {
+					year: 2026, month: 11, day: 20, dailyVersion: 1, hour: 17, minute: 44,
+					isJetbrainsShort: true, isMDCombined: true, isDateTime: true,
+				},
+			},
+			{
+				version: '226.1120.1744',
+				expected: {
+					year: 2026, month: 11, day: 20, dailyVersion: 1, hour: 17, minute: 44,
+					isJetbrainsShort: true, isMDCombined: true, isDateTime: true,
+				},
+			},
+			/**
+			 * 年份編碼須落在支援範圍推導出的區間 (200-299) 內
+			 */
+			{ version: '199.1120.1744', expected: null },
+			{ version: '300.1120.1744', expected: null },
+			/**
+			 * 第三段非合法時分時不屬於日期時間樣式
+			 */
+			{ version: '226.1120.9999', expected: null },
+			{ version: '226.112.1744', expected: null },		]) {
+			it(`should parse ${version}`, () => {
+				assert.deepStrictEqual(_parseJetbrainsDateTime(version), expected);
+			});
+		}
 
 	});
 
