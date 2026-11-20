@@ -1,7 +1,7 @@
 import { ReleaseType } from 'semver';
 import { ITSPartialRecord, ITSRequiredWith } from 'ts-type/lib/type/record';
 import { IdentifierBase } from 'semver/functions/inc';
-import { EnumVersionStyle } from '@yarn-tool/version-style-jetbrains';
+import { EnumVersionStyle, IDateInput, IVersionStyleOptions } from '@yarn-tool/version-style-jetbrains';
 
 /**
  * 版本推薦的回傳結果
@@ -60,6 +60,12 @@ export interface INextVersionRecommendedOptions extends ITSPartialRecord<Release
 	 * 預設 false — 舊版本為同風格時遞增其當日計數；僅在 versionStyle 指定時有效
 	 */
 	resetDailyIncrement?: boolean;
+	/**
+	 * 風格模式：產生新版本所用的日期（預設為執行當下）
+	 *
+	 * 內部／測試用途：指定後風格產生結果可固定，不隨執行時間變動
+	 */
+	date?: IVersionStyleOptions['date'];
 }
 
 export type INextVersionRecommendedOptionsWithStyle = ITSRequiredWith<INextVersionRecommendedOptions, 'versionStyle'>

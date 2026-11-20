@@ -25,7 +25,7 @@ import { ITSNumberValue2 } from 'ts-type';
  */
 export function _parseJetbrainsDateTime(version: string): IParseVersionResult<true, true> | null
 {
-	const dateTimeMatch = version.match(/^(\d{3})\.(\d{4})\.(\d{4})(?:-(\d+))?$/);
+	const dateTimeMatch = version.match(/^(\d{3})\.(\d{3,4})\.(\d{4})(?:-(\d+))?$/);
 
 	/** 格式不符即回傳 null，交由上層改嘗試其他格式 */
 	if (!dateTimeMatch)
@@ -55,7 +55,7 @@ export function _parseJetbrainsDateTime(version: string): IParseVersionResult<tr
 		return null;
 	}
 
-	/** 第二段固定為四位月日 (MMDD)，如 1120 表示 11 月 20 日 */
+	/** 第二段為月日合併 (月*100+日)：1120 表示 11 月 20 日、101 表示 1 月 1 日 */
 	const { month, day } = _parseMonthDayFromMD(monthDayStr as ITSNumberValue2);
 
 	return {
@@ -85,7 +85,7 @@ export function _parseJetbrainsDateTime(version: string): IParseVersionResult<tr
  */
 export function _parseY2KDateTime(version: string): IParseVersionResult<true, true> | null
 {
-	const dateTimeMatch = version.match(/^(\d{3})\.(\d{4})\.(\d{4})(?:-(\d+))?$/);
+	const dateTimeMatch = version.match(/^(\d{3})\.(\d{3,4})\.(\d{4})(?:-(\d+))?$/);
 
 	/** 格式不符即回傳 null，交由上層改嘗試其他格式 */
 	if (!dateTimeMatch)
@@ -113,7 +113,7 @@ export function _parseY2KDateTime(version: string): IParseVersionResult<true, tr
 		return null;
 	}
 
-	/** 第二段固定為四位月日 (MMDD)，如 1120 表示 11 月 20 日 */
+	/** 第二段為月日合併 (月*100+日)：1120 表示 11 月 20 日、101 表示 1 月 1 日 */
 	const { month, day } = _parseMonthDayFromMD(monthDayStr as ITSNumberValue2);
 
 	return {

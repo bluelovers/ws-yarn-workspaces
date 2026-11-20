@@ -88,7 +88,20 @@ describe('Helper Functions', () => {
 			 * 第三段非合法時分時不屬於日期時間樣式
 			 */
 			{ version: '226.1120.9999', expected: null },
-			{ version: '226.112.1744', expected: null },
+			/**
+			 * 第二段須為月日合併 (月*100+日)，僅兩碼不成立
+			 */
+			{ version: '226.12.1744', expected: null },
+			/**
+			 * 月日合併為三碼時仍屬日期時間樣式 (112 = 1 月 12 日)
+			 */
+			{
+				version: '226.112.1744',
+				expected: {
+					year: 2026, month: 1, day: 12, dailyVersion: 1, hour: 17, minute: 44,
+					isJetbrainsShort: true, isMDCombined: true, isDateTime: true, isY2KDateTime: true,
+				},
+			},
 		]) {
 			it(`should parse ${version}`, () => {
 				assert.deepStrictEqual(_parseY2KDateTime(version), expected);

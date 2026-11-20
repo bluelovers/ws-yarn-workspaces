@@ -1,3 +1,331 @@
+exports[`same style old version with and without resetDailyIncrement > jetbrains-date-time: other day, resetDailyIncrement=false 1`] = `
+{
+  "old version": "261.101.0905-1",
+  "new version": "261.101.0905-2",
+  "changed": {
+    "index": 2,
+    "color": "green",
+    "result": "261.101",
+    "resultAppend": "0905-2"
+  }
+}
+`;
+
+exports[`same style old version with and without resetDailyIncrement > jetbrains-date-time: other day, resetDailyIncrement=true 1`] = `
+{
+  "old version": "261.101.0905-1",
+  "new version": "264.1121.1744-1",
+  "changed": {
+    "index": 0,
+    "comp": -1,
+    "color": "red",
+    "result": "",
+    "resultAppend": "264.1121.1744-1"
+  }
+}
+`;
+
+exports[`same style old version with and without resetDailyIncrement > jetbrains-date-time: same day, resetDailyIncrement=false 1`] = `
+{
+  "old version": "264.1121.1744-1",
+  "new version": "264.1121.1744-2",
+  "changed": {
+    "index": 2,
+    "comp": -1,
+    "color": "green",
+    "result": "264.1121",
+    "resultAppend": "1744-2"
+  }
+}
+`;
+
+exports[`same style old version with and without resetDailyIncrement > jetbrains-date-time: same day, resetDailyIncrement=true 1`] = `
+{
+  "old version": "264.1121.1744-1",
+  "new version": "264.1121.1744-1",
+  "changed": {
+    "index": 3,
+    "comp": 0,
+    "result": "264.1121.1744-1",
+    "resultAppend": ""
+  }
+}
+`;
+
+exports[`same style old version with and without resetDailyIncrement > jetbrains-short-md: other day, resetDailyIncrement=false 1`] = `
+{
+  "old version": "261.101.1",
+  "new version": "261.101.2",
+  "changed": {
+    "index": 2,
+    "comp": -1,
+    "color": "green",
+    "result": "261.101",
+    "resultAppend": "2"
+  }
+}
+`;
+
+exports[`same style old version with and without resetDailyIncrement > jetbrains-short-md: other day, resetDailyIncrement=true 1`] = `
+{
+  "old version": "261.101.1",
+  "new version": "264.1121.1",
+  "changed": {
+    "index": 0,
+    "comp": -1,
+    "color": "red",
+    "result": "",
+    "resultAppend": "264.1121.1"
+  }
+}
+`;
+
+exports[`same style old version with and without resetDailyIncrement > jetbrains-short-md: same day, resetDailyIncrement=false 1`] = `
+{
+  "old version": "264.1121.1",
+  "new version": "264.1121.2",
+  "changed": {
+    "index": 2,
+    "comp": -1,
+    "color": "green",
+    "result": "264.1121",
+    "resultAppend": "2"
+  }
+}
+`;
+
+exports[`same style old version with and without resetDailyIncrement > jetbrains-short-md: same day, resetDailyIncrement=true 1`] = `
+{
+  "old version": "264.1121.1",
+  "new version": "264.1121.1",
+  "changed": {
+    "index": 3,
+    "comp": 0,
+    "result": "264.1121.1",
+    "resultAppend": ""
+  }
+}
+`;
+
+exports[`same style old version with and without resetDailyIncrement > jetbrains-short: other day, resetDailyIncrement=false 1`] = `
+{
+  "old version": "261.1.1-1",
+  "new version": "261.1.1-2",
+  "changed": {
+    "index": 2,
+    "comp": -1,
+    "color": "green",
+    "result": "261.1",
+    "resultAppend": "1-2"
+  }
+}
+`;
+
+exports[`same style old version with and without resetDailyIncrement > jetbrains-short: other day, resetDailyIncrement=true 1`] = `
+{
+  "old version": "261.1.1-1",
+  "new version": "264.11.21-1",
+  "changed": {
+    "index": 0,
+    "comp": -1,
+    "color": "red",
+    "result": "",
+    "resultAppend": "264.11.21-1"
+  }
+}
+`;
+
+exports[`same style old version with and without resetDailyIncrement > jetbrains-short: same day, resetDailyIncrement=false 1`] = `
+{
+  "old version": "264.11.21-1",
+  "new version": "264.11.21-2",
+  "changed": {
+    "index": 2,
+    "comp": -1,
+    "color": "green",
+    "result": "264.11",
+    "resultAppend": "21-2"
+  }
+}
+`;
+
+exports[`same style old version with and without resetDailyIncrement > jetbrains-short: same day, resetDailyIncrement=true 1`] = `
+{
+  "old version": "264.11.21-1",
+  "new version": "264.11.21-1",
+  "changed": {
+    "index": 3,
+    "comp": 0,
+    "result": "264.11.21-1",
+    "resultAppend": ""
+  }
+}
+`;
+
+exports[`same style old version with and without resetDailyIncrement > standard-full-md: other day, resetDailyIncrement=false 1`] = `
+{
+  "old version": "2026.101.1",
+  "new version": "2026.101.2",
+  "changed": {
+    "index": 2,
+    "comp": -1,
+    "color": "green",
+    "result": "2026.101",
+    "resultAppend": "2"
+  }
+}
+`;
+
+exports[`same style old version with and without resetDailyIncrement > standard-full-md: other day, resetDailyIncrement=true 1`] = `
+{
+  "old version": "2026.101.1",
+  "new version": "2026.1121.1",
+  "changed": {
+    "index": 1,
+    "comp": -1,
+    "color": "cyan",
+    "result": "2026",
+    "resultAppend": "1121.1"
+  }
+}
+`;
+
+exports[`same style old version with and without resetDailyIncrement > standard-full-md: same day, resetDailyIncrement=false 1`] = `
+{
+  "old version": "2026.1121.1",
+  "new version": "2026.1121.2",
+  "changed": {
+    "index": 2,
+    "comp": -1,
+    "color": "green",
+    "result": "2026.1121",
+    "resultAppend": "2"
+  }
+}
+`;
+
+exports[`same style old version with and without resetDailyIncrement > standard-full-md: same day, resetDailyIncrement=true 1`] = `
+{
+  "old version": "2026.1121.1",
+  "new version": "2026.1121.1",
+  "changed": {
+    "index": 3,
+    "comp": 0,
+    "result": "2026.1121.1",
+    "resultAppend": ""
+  }
+}
+`;
+
+exports[`same style old version with and without resetDailyIncrement > standard-full: other day, resetDailyIncrement=false 1`] = `
+{
+  "old version": "2026.1.1-1",
+  "new version": "2026.1.1-2",
+  "changed": {
+    "index": 2,
+    "comp": -1,
+    "color": "green",
+    "result": "2026.1",
+    "resultAppend": "1-2"
+  }
+}
+`;
+
+exports[`same style old version with and without resetDailyIncrement > standard-full: other day, resetDailyIncrement=true 1`] = `
+{
+  "old version": "2026.1.1-1",
+  "new version": "2026.11.21-1",
+  "changed": {
+    "index": 1,
+    "comp": -1,
+    "color": "cyan",
+    "result": "2026",
+    "resultAppend": "11.21-1"
+  }
+}
+`;
+
+exports[`same style old version with and without resetDailyIncrement > standard-full: same day, resetDailyIncrement=false 1`] = `
+{
+  "old version": "2026.11.21-1",
+  "new version": "2026.11.21-2",
+  "changed": {
+    "index": 2,
+    "comp": -1,
+    "color": "green",
+    "result": "2026.11",
+    "resultAppend": "21-2"
+  }
+}
+`;
+
+exports[`same style old version with and without resetDailyIncrement > standard-full: same day, resetDailyIncrement=true 1`] = `
+{
+  "old version": "2026.11.21-1",
+  "new version": "2026.11.21-1",
+  "changed": {
+    "index": 3,
+    "comp": 0,
+    "result": "2026.11.21-1",
+    "resultAppend": ""
+  }
+}
+`;
+
+exports[`same style old version with and without resetDailyIncrement > y2k-date-time: other day, resetDailyIncrement=false 1`] = `
+{
+  "old version": "226.101.0905-1",
+  "new version": "226.101.0905-2",
+  "changed": {
+    "index": 2,
+    "color": "green",
+    "result": "226.101",
+    "resultAppend": "0905-2"
+  }
+}
+`;
+
+exports[`same style old version with and without resetDailyIncrement > y2k-date-time: other day, resetDailyIncrement=true 1`] = `
+{
+  "old version": "226.101.0905-1",
+  "new version": "226.1121.1744-1",
+  "changed": {
+    "index": 1,
+    "comp": -1,
+    "color": "cyan",
+    "result": "226",
+    "resultAppend": "1121.1744-1"
+  }
+}
+`;
+
+exports[`same style old version with and without resetDailyIncrement > y2k-date-time: same day, resetDailyIncrement=false 1`] = `
+{
+  "old version": "226.1121.1744-1",
+  "new version": "226.1121.1744-2",
+  "changed": {
+    "index": 2,
+    "comp": -1,
+    "color": "green",
+    "result": "226.1121",
+    "resultAppend": "1744-2"
+  }
+}
+`;
+
+exports[`same style old version with and without resetDailyIncrement > y2k-date-time: same day, resetDailyIncrement=true 1`] = `
+{
+  "old version": "226.1121.1744-1",
+  "new version": "226.1121.1744-1",
+  "changed": {
+    "index": 3,
+    "comp": 0,
+    "result": "226.1121.1744-1",
+    "resultAppend": ""
+  }
+}
+`;
+
 exports[`style varies with date > jetbrains-date-time: version changes with the date 1`] = `
 {
   "dates": [
