@@ -4,7 +4,6 @@ import {
 	IOptionsRuntime,
 	IParseVersionResult,
 	IRequiredOptionsRuntime,
-	IVersionStyleFlags,
 	IVersionStyleOptions,
 } from './types';
 import { _getDateInfoFromDayjs, getDayjsFromInput } from './date';
@@ -14,38 +13,7 @@ import {
 	_isMDCombinedFromStyle,
 	_isY2KDateTimeStyleFromStyle,
 } from './assert';
-import { _parseVersion } from './helpers';
-
-/**
- * 從解析旗標取得對應的版本樣式
- *
- * @param flags - 解析結果旗標
- * @returns 版本樣式
- */
-export function _getStyleFromFlags(flags: IVersionStyleFlags): EnumVersionStyle
-{
-	const { isJetbrainsShort, isMDCombined, isDateTime, isY2KDateTime } = flags;
-
-	/**
-	 * 日期時間樣式必然同時為短年份與月日合併，故需優先判斷，
-	 * 否則會被下方 2x2 矩陣誤判成 JetbrainsShortMD；
-	 * 兩種時間樣式再以 isY2KDateTime 區分年份編碼 (2YY 與 YYQ)
-	 */
-	if (isDateTime)
-	{
-		return isY2KDateTime ? EnumVersionStyle.Y2KDateTime : EnumVersionStyle.JetbrainsDateTime;
-	}
-
-	/**
-	 * 兩個布林旗標組成 2x2 矩陣，先判斷年份格式再判斷月日格式，
-	 * 可避免四種樣式各寫一個條件
-	 */
-	if (isJetbrainsShort)
-	{
-		return isMDCombined ? EnumVersionStyle.JetbrainsShortMD : EnumVersionStyle.JetbrainsShort;
-	}
-	return isMDCombined ? EnumVersionStyle.StandardFullMD : EnumVersionStyle.StandardFull;
-}
+import { analyzeVersionStyles } from './analyze';
 
 /**
  * 處理版本樣式選項（核心函數）
@@ -129,7 +97,7 @@ export function _getParsedVersionFromOptions(processed: IRequiredOptionsRuntime)
 	 */
 	if (processed.currentVersion)
 	{
-		const parsed = _parseVersion(processed.currentVersion);
+		const parsed = analyzeVersionStyles(processed.currentVersion).priorityResult;
 
 		/** 解析成功即為最終結果，無需再走日期推導路徑 */
 		if (parsed)

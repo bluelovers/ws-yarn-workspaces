@@ -114,6 +114,23 @@ const allVersions = generateAllStyleVersions();
 
 **返回：** 解析結果物件
 
+### `analyzeVersionStyles(version: string): IVersionStyleAnalysis`
+
+分析版本號符合的風格，回傳所有符合的風格與同時符合時採用的優先風格；`parseVersion` 即以優先風格的解析結果為準。
+
+**參數：**
+- `version`: 版本號字串
+
+**返回：** `IVersionStyleAnalysis`
+
+```typescript
+const { matchedStyles, matchedResults, priorityStyle, priorityResult } = analyzeVersionStyles('264.1120.1744-1');
+// matchedStyles: ['jetbrains-date-time', 'y2k-date-time', 'jetbrains-short-md']（依優先序）
+// matchedResults['y2k-date-time'].year: 2064（同一位址在不同風格下的解讀）
+// priorityStyle: 'jetbrains-date-time'
+// priorityResult: { year: 2026, month: 11, day: 20, dailyVersion: 1, hour: 17, minute: 44, ... }
+```
+
 ### `generateAllStyleVersions(options?: IVersionStyleOptions): Record<EnumVersionStyle, string>`
 
 生成所有支援的版本格式。

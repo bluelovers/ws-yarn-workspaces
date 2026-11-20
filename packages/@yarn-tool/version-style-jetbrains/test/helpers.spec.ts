@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
 import { EnumVersionStyle } from '../lib/types';
 import { _isJetbrainsStyleFromStyle, _isMDCombinedFromStyle } from '../lib/assert';
-import { _getStyleFromFlags } from '../lib/options';
+import { _getStyleFromFlags } from '../lib/analyze';
 import { _parseJetbrainsYearQuarter, _parseMonthDayInfo } from '../lib/date';
 import { _parseJetbrainsDateTime, _parseY2KDateTime } from '../lib/helpers';
 

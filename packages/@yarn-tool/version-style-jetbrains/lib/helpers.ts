@@ -1,5 +1,5 @@
 import { IParseVersionResult } from './types';
-import { _assertValidDateInfo, isValidQuarter } from './assert';
+import { isValidQuarter } from './assert';
 import {
 	Y2K_DATETIME_YEAR_CODE_MAX,
 	Y2K_DATETIME_YEAR_CODE_MIN,
@@ -202,56 +202,32 @@ export function _parseJetbrainsVersion(version: string): IParseVersionResult<tru
 }
 
 /**
- * 解析版本號
+ * 解析 JetBrains 短樣式，並要求首段為合法 YYQ 編碼
+ *
+ * `_parseJetbrainsVersion` 的正則允許任意位數首段，4 位年份 (2026.101.1)
+ * 與非季度末碼 (266.1.1-1) 會被誤判成短樣式，分析時先擋下才能給出正確的符合風格
  *
  * @param version - 版本號字串
- * @returns 解析結果
+ * @returns 解析結果，首段非合法 YYQ 編碼時回傳 null
  */
-export function _parseVersion(version: string): IParseVersionResult | null
+export function _parseJetbrainsShort(version: string): IParseVersionResult | null
 {
-	/**
-	 * 先嘗試 JetBrains 日期時間樣式: YYQ.MMDD.HHmm-increment
-	 * 與 y2k 樣式同時符合時以此優先
-	 */
-	let result: IParseVersionResult = _parseJetbrainsDateTime(version);
+	const yearQuarterMatch = version.match(/^(\d+)\./);
 
-	/**
-	 * 其次嘗試 y2k 日期時間樣式: 2YY.MMDD.HHmm-increment
-	 */
-	if (!result)
+	/** 首段不存在即非三段式版本 */
+	if (!yearQuarterMatch)
 	{
-		result = _parseY2KDateTime(version);
+		return null;
 	}
 
-	/**
-	 * 再嘗試標準格式: YYYY.M.D-increment 或 YYYY.MD.increment
-	 */
-	if (!result)
+	const { quarter } = _parseJetbrainsYearQuarter(yearQuarterMatch[1]);
+
+	/** 末位非季度 (1-4) 即非 YYQ 編碼，交由其他風格接手 */
+	if (!isValidQuarter(quarter))
 	{
-		result = _parseStandardFullVersion(version);
+		return null;
 	}
 
-	/**
-	 * 皆失敗才退回 JetBrains 短年份格式: YY+OFFSET.M.D-increment 或 YY+OFFSET.MD.increment
-	 */
-	if (!result)
-	{
-		result = _parseJetbrainsVersion(version);
-	}
-
-	/**
-	 * 解析成功仍需驗證日期合法性（如月份 1-12），
-	 * 不合法會在此拋出 RangeError 而非回傳錯誤結果
-	 */
-	if (result)
-	{
-		_assertValidDateInfo(result);
-		return result;
-	}
-
-	/**
-	 * 所有格式皆不符：回傳 null 交由呼叫端決定容錯策略
-	 */
-	return null;
+	return _parseJetbrainsVersion(version);
 }
 

@@ -20,63 +20,39 @@ import {
 	IVersionStyleOptionsWithDateInfo,
 } from './lib/types';
 import { ISeqVersionAny } from './lib/types-seg';
-import { _getParsedVersionFromOptions, _getStyleFromFlags, _handleVersionStyleOptions } from './lib/options';
+import { _getParsedVersionFromOptions, _handleVersionStyleOptions } from './lib/options';
 import { _dateToVersionByStyleCore } from './lib/core';
 import { _getDateInfoFromDayjs } from './lib/date';
-import { _parseJetbrainsDateTime, _parseJetbrainsVersion, _parseStandardFullVersion, _parseY2KDateTime } from './lib/helpers';
 import { _assertValidDateInfo } from './lib/assert';
+import { _getStyleFromFlags, analyzeVersionStyles } from './lib/analyze';
 
 export * from './lib/types';
 export * from './lib/types-seg';
 
 export { _handleVersionStyleOptions } from './lib/options';
+export { analyzeVersionStyles } from './lib/analyze';
+export type { IVersionStyleAnalysis } from './lib/analyze';
 
 /**
  * 解析版本號
+ *
+ * 以 `analyzeVersionStyles` 的優先風格為準；優先序同時符合時的規則由該核心決定
  *
  * @param version - 版本號字串
  * @returns 解析結果
  */
 export function parseVersion(version: ISeqVersionAny): IParseVersionResult | null
 {
-	/**
-	 * 先嘗試解析 JetBrains 日期時間格式: YYQ.MMDD.HHmm-increment
-	 * 與 y2k 格式同時符合時以此優先
-	 */
-	let result: IParseVersionResult = _parseJetbrainsDateTime(version);
-
-	/**
-	 * 其次解析 y2k 日期時間格式: 2YY.MMDD.HHmm-increment
-	 */
-	if (!result)
-	{
-		result = _parseY2KDateTime(version);
-	}
-
-	/**
-	 * 再解析標準格式: YYYY.M.D-increment 或 YYYY.MD.increment
-	 */
-	if (!result)
-	{
-		result = _parseStandardFullVersion(version);
-	}
-
-	/**
-	 * 皆失敗才退回 JetBrains 短年份格式: YY+OFFSET.M.D-increment 或 YY+OFFSET.MD.increment
-	 */
-	if (!result)
-	{
-		result = _parseJetbrainsVersion(version);
-	}
+	const { priorityResult } = analyzeVersionStyles(version);
 
 	/**
 	 * 解析成功仍需驗證日期合法性（如月份 1-12），
 	 * 不合法會在此拋出 RangeError 而非回傳錯誤結果
 	 */
-	if (result)
+	if (priorityResult)
 	{
-		_assertValidDateInfo(result);
-		return result;
+		_assertValidDateInfo(priorityResult);
+		return priorityResult;
 	}
 
 	/**
