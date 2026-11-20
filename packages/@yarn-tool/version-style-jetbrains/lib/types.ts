@@ -52,6 +52,15 @@ export enum EnumVersionStyle
 	 * @example 226.1120.1744 (disableDailyVersionSuffix)
 	 */
 	Y2KDateTime = 'y2k-date-time',
+	/**
+	 * JetBrains 年份季度 + 月日 + 時間樣式
+	 *
+	 * 首段為 YYQ (如 264 = 2026年Q4)，第二段為月日 (MMDD)，第三段為時分 (HHmm)
+	 *
+	 * @example 264.1120.1744-1
+	 * @example 264.1120.1744 (disableDailyVersionSuffix)
+	 */
+	JetbrainsDateTime = 'jetbrains-date-time',
 }
 
 /**
@@ -127,11 +136,17 @@ export interface IParseVersionResultCore<JS extends boolean = boolean, MD extend
 	/** 是否使用月日合併格式 */
 	isMDCombined: MD;
 	/**
-	 * 是否為日期時間樣式 (226.1120.1744)
+	 * 是否為日期時間樣式 (264.1120.1744 / 226.1120.1744)
 	 *
 	 * 僅日期時間樣式會帶此欄位，其餘樣式省略以維持既有解析結果形狀
 	 */
 	isDateTime?: boolean;
+	/**
+	 * 是否為 y2k 日期時間樣式 (226.1120.1744)
+	 *
+	 * 僅 y2k 樣式會帶此欄位；缺此欄位的時間樣式即 JetBrains 樣式 (264.1120.1744)
+	 */
+	isY2KDateTime?: boolean;
 	/** 小時 (0-23)，僅日期時間樣式提供 */
 	hour?: ISegTimeHourNumber;
 	/** 分鐘 (0-59)，僅日期時間樣式提供 */
@@ -146,6 +161,13 @@ export interface IParseVersionResult<JS extends boolean = boolean, MD extends bo
 	/** 當日版本號 */
 	dailyVersion: ISegVerDailyVersionIncrementNumber;
 }
+
+/**
+ * 判斷版本樣式所需的旗標
+ *
+ * 由解析結果提供，以單一物件傳遞避免位置參數持續增加
+ */
+export type IVersionStyleFlags = Pick<IParseVersionResult, 'isJetbrainsShort' | 'isMDCombined' | 'isDateTime' | 'isY2KDateTime'>;
 
 /**
  * 月日資訊類型

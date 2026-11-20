@@ -71,7 +71,8 @@ exports[`Version Style Generator > parseVersion > should parse 226.1120.1744 1`]
   "minute": 44,
   "isJetbrainsShort": true,
   "isMDCombined": true,
-  "isDateTime": true
+  "isDateTime": true,
+  "isY2KDateTime": true
 }
 `;
 
@@ -85,7 +86,8 @@ exports[`Version Style Generator > parseVersion > should parse 226.1120.1744-1 1
   "minute": 44,
   "isJetbrainsShort": true,
   "isMDCombined": true,
-  "isDateTime": true
+  "isDateTime": true,
+  "isY2KDateTime": true
 }
 `;
 
@@ -99,7 +101,8 @@ exports[`Version Style Generator > parseVersion > should parse 226.1120.1744-2 1
   "minute": 44,
   "isJetbrainsShort": true,
   "isMDCombined": true,
-  "isDateTime": true
+  "isDateTime": true,
+  "isY2KDateTime": true
 }
 `;
 
@@ -133,6 +136,34 @@ exports[`Version Style Generator > parseVersion > should parse 262.615.1 1`] = `
   "dailyVersion": 1,
   "isJetbrainsShort": true,
   "isMDCombined": true
+}
+`;
+
+exports[`Version Style Generator > parseVersion > should parse 264.1120.1744 1`] = `
+{
+  "year": 2026,
+  "month": 11,
+  "day": 20,
+  "dailyVersion": 1,
+  "hour": 17,
+  "minute": 44,
+  "isJetbrainsShort": true,
+  "isMDCombined": true,
+  "isDateTime": true
+}
+`;
+
+exports[`Version Style Generator > parseVersion > should parse 264.1120.1744-1 1`] = `
+{
+  "year": 2026,
+  "month": 11,
+  "day": 20,
+  "dailyVersion": 1,
+  "hour": 17,
+  "minute": 44,
+  "isJetbrainsShort": true,
+  "isMDCombined": true,
+  "isDateTime": true
 }
 `;
 

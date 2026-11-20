@@ -7,7 +7,7 @@ import { EnumVersionStyle } from '../lib/types';
 import { _isJetbrainsStyleFromStyle, _isMDCombinedFromStyle } from '../lib/assert';
 import { _getStyleFromFlags } from '../lib/options';
 import { _parseJetbrainsYearQuarter, _parseMonthDayInfo } from '../lib/date';
-import { _parseJetbrainsDateTime } from '../lib/helpers';
+import { _parseJetbrainsDateTime, _parseY2KDateTime } from '../lib/helpers';
 
 describe('Helper Functions', () => {
 
@@ -17,6 +17,7 @@ describe('Helper Functions', () => {
 			{ style: EnumVersionStyle.JetbrainsShort, expected: true },
 			{ style: EnumVersionStyle.JetbrainsShortMD, expected: true },
 			{ style: EnumVersionStyle.Y2KDateTime, expected: true },
+			{ style: EnumVersionStyle.JetbrainsDateTime, expected: true },
 			{ style: EnumVersionStyle.StandardFull, expected: false },
 			{ style: EnumVersionStyle.StandardFullMD, expected: false },
 		]) {
@@ -33,6 +34,7 @@ describe('Helper Functions', () => {
 			{ style: EnumVersionStyle.JetbrainsShort, expected: false },
 			{ style: EnumVersionStyle.JetbrainsShortMD, expected: true },
 			{ style: EnumVersionStyle.Y2KDateTime, expected: true },
+			{ style: EnumVersionStyle.JetbrainsDateTime, expected: true },
 			{ style: EnumVersionStyle.StandardFull, expected: false },
 			{ style: EnumVersionStyle.StandardFullMD, expected: true },
 		]) {
@@ -45,41 +47,36 @@ describe('Helper Functions', () => {
 
 	describe('_getStyleFromFlags', () => {
 
-		for (const { isJetbrainsShort, isMDCombined, expected } of [
-			{ isJetbrainsShort: true, isMDCombined: false, expected: EnumVersionStyle.JetbrainsShort },
-			{ isJetbrainsShort: true, isMDCombined: true, expected: EnumVersionStyle.JetbrainsShortMD },
-			{ isJetbrainsShort: false, isMDCombined: false, expected: EnumVersionStyle.StandardFull },
-			{ isJetbrainsShort: false, isMDCombined: true, expected: EnumVersionStyle.StandardFullMD },
+		for (const { flags, expected } of [
+			{ flags: { isJetbrainsShort: true, isMDCombined: false }, expected: EnumVersionStyle.JetbrainsShort },
+			{ flags: { isJetbrainsShort: true, isMDCombined: true }, expected: EnumVersionStyle.JetbrainsShortMD },
+			{ flags: { isJetbrainsShort: false, isMDCombined: false }, expected: EnumVersionStyle.StandardFull },
+			{ flags: { isJetbrainsShort: false, isMDCombined: true }, expected: EnumVersionStyle.StandardFullMD },
+			{ flags: { isJetbrainsShort: true, isMDCombined: true, isDateTime: true }, expected: EnumVersionStyle.JetbrainsDateTime },
+			{ flags: { isJetbrainsShort: true, isMDCombined: true, isDateTime: true, isY2KDateTime: true }, expected: EnumVersionStyle.Y2KDateTime },
 		]) {
-			it(`should return ${expected} for isJetbrainsShort=${isJetbrainsShort}, isMDCombined=${isMDCombined}`, () => {
-				assert.strictEqual(_getStyleFromFlags(isJetbrainsShort, isMDCombined), expected);
+			it(`should return ${expected} for ${JSON.stringify(flags)}`, () => {
+				assert.strictEqual(_getStyleFromFlags(flags), expected);
 			});
 		}
 
-		/**
-		 * 日期時間樣式優先於短年份/月日合併旗標判斷
-		 */
-		it(`should return ${EnumVersionStyle.Y2KDateTime} for isDateTime=true`, () => {
-			assert.strictEqual(_getStyleFromFlags(true, true, true), EnumVersionStyle.Y2KDateTime);
-		});
-
 	});
 
-	describe('_parseJetbrainsDateTime', () => {
+	describe('_parseY2KDateTime', () => {
 
 		for (const { version, expected } of [
 			{
 				version: '226.1120.1744-1',
 				expected: {
 					year: 2026, month: 11, day: 20, dailyVersion: 1, hour: 17, minute: 44,
-					isJetbrainsShort: true, isMDCombined: true, isDateTime: true,
+					isJetbrainsShort: true, isMDCombined: true, isDateTime: true, isY2KDateTime: true,
 				},
 			},
 			{
 				version: '226.1120.1744',
 				expected: {
 					year: 2026, month: 11, day: 20, dailyVersion: 1, hour: 17, minute: 44,
-					isJetbrainsShort: true, isMDCombined: true, isDateTime: true,
+					isJetbrainsShort: true, isMDCombined: true, isDateTime: true, isY2KDateTime: true,
 				},
 			},
 			/**
@@ -91,7 +88,42 @@ describe('Helper Functions', () => {
 			 * 第三段非合法時分時不屬於日期時間樣式
 			 */
 			{ version: '226.1120.9999', expected: null },
-			{ version: '226.112.1744', expected: null },		]) {
+			{ version: '226.112.1744', expected: null },
+		]) {
+			it(`should parse ${version}`, () => {
+				assert.deepStrictEqual(_parseY2KDateTime(version), expected);
+			});
+		}
+
+	});
+
+	describe('_parseJetbrainsDateTime', () => {
+
+		for (const { version, expected } of [
+			{
+				version: '264.1120.1744-1',
+				expected: {
+					year: 2026, month: 11, day: 20, dailyVersion: 1, hour: 17, minute: 44,
+					isJetbrainsShort: true, isMDCombined: true, isDateTime: true,
+				},
+			},
+			{
+				version: '261.1120.1744',
+				expected: {
+					year: 2026, month: 11, day: 20, dailyVersion: 1, hour: 17, minute: 44,
+					isJetbrainsShort: true, isMDCombined: true, isDateTime: true,
+				},
+			},
+			/**
+			 * 末位非季度 (1-4) 即非 YYQ 編碼，交由 y2k 樣式接手
+			 */
+			{ version: '226.1120.1744', expected: null },
+			{ version: '265.1120.1744', expected: null },
+			/**
+			 * 第三段非合法時分時不屬於日期時間樣式
+			 */
+			{ version: '264.1120.9999', expected: null },
+		]) {
 			it(`should parse ${version}`, () => {
 				assert.deepStrictEqual(_parseJetbrainsDateTime(version), expected);
 			});

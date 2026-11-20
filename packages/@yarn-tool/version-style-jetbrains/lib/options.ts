@@ -4,6 +4,7 @@ import {
 	IOptionsRuntime,
 	IParseVersionResult,
 	IRequiredOptionsRuntime,
+	IVersionStyleFlags,
 	IVersionStyleOptions,
 } from './types';
 import { _getDateInfoFromDayjs, getDayjsFromInput } from './date';
@@ -11,26 +12,28 @@ import {
 	_isDateTimeStyleFromStyle,
 	_isJetbrainsStyleFromStyle,
 	_isMDCombinedFromStyle,
+	_isY2KDateTimeStyleFromStyle,
 } from './assert';
 import { _parseVersion } from './helpers';
 
 /**
- * 從 isJetbrainsShort 和 isMDCombined 取得對應的版本樣式
+ * 從解析旗標取得對應的版本樣式
  *
- * @param isJetbrainsShort - 是否為 JetBrains 樣式
- * @param isMDCombined - 是否使用月日合併格式
- * @param isDateTime - 是否為日期時間樣式
+ * @param flags - 解析結果旗標
  * @returns 版本樣式
  */
-export function _getStyleFromFlags(isJetbrainsShort: boolean, isMDCombined: boolean, isDateTime?: boolean): EnumVersionStyle
+export function _getStyleFromFlags(flags: IVersionStyleFlags): EnumVersionStyle
 {
+	const { isJetbrainsShort, isMDCombined, isDateTime, isY2KDateTime } = flags;
+
 	/**
 	 * 日期時間樣式必然同時為短年份與月日合併，故需優先判斷，
-	 * 否則會被下方 2x2 矩陣誤判成 JetbrainsShortMD
+	 * 否則會被下方 2x2 矩陣誤判成 JetbrainsShortMD；
+	 * 兩種時間樣式再以 isY2KDateTime 區分年份編碼 (2YY 與 YYQ)
 	 */
 	if (isDateTime)
 	{
-		return EnumVersionStyle.Y2KDateTime;
+		return isY2KDateTime ? EnumVersionStyle.Y2KDateTime : EnumVersionStyle.JetbrainsDateTime;
 	}
 
 	/**
@@ -161,6 +164,7 @@ export function _getParsedVersionFromOptions(processed: IRequiredOptionsRuntime)
 		isJetbrainsShort: _isJetbrainsStyleFromStyle(style),
 		isMDCombined: _isMDCombinedFromStyle(style),
 		isDateTime: _isDateTimeStyleFromStyle(style),
+		isY2KDateTime: _isY2KDateTimeStyleFromStyle(style),
 	};
 }
 

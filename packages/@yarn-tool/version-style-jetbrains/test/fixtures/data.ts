@@ -63,6 +63,7 @@ export const EXPECTED_DATE_TO_VERSION: Record<EnumVersionStyle, string> = {
 	[EnumVersionStyle.StandardFull]: '2026.1.1-1',
 	[EnumVersionStyle.StandardFullMD]: '2026.101.1',
 	[EnumVersionStyle.Y2KDateTime]: '226.101.1744-1',
+	[EnumVersionStyle.JetbrainsDateTime]: '261.101.1744-1',
 };
 /**
  * Q2 dateToVersionByStyle 預期結果映射
@@ -74,6 +75,7 @@ export const EXPECTED_DATE_TO_VERSION_Q2: Record<EnumVersionStyle, string> = {
 	[EnumVersionStyle.StandardFull]: '2026.6.15-1',
 	[EnumVersionStyle.StandardFullMD]: '2026.615.1',
 	[EnumVersionStyle.Y2KDateTime]: '226.615.1744-1',
+	[EnumVersionStyle.JetbrainsDateTime]: '262.615.1744-1',
 };
 /**
  * 解析 JetbrainsShort 格式的預期結果
@@ -125,6 +127,21 @@ export const PARSE_EXPECTED_STANDARD_FULL_MD = {
 };
 /**
  * 解析 Y2KDateTime 格式的預期結果
+ */
+export const PARSE_EXPECTED_Y2K_DATE_TIME = {
+	year: 2026,
+	month: 11,
+	day: 20,
+	dailyVersion: 1,
+	hour: 17,
+	minute: 44,
+	isJetbrainsShort: true,
+	isMDCombined: true,
+	isDateTime: true,
+	isY2KDateTime: true,
+};
+/**
+ * 解析 JetbrainsDateTime 格式的預期結果
  */
 export const PARSE_EXPECTED_JETBRAINS_DATE_TIME = {
 	year: 2026,
@@ -236,7 +253,7 @@ export const DATE_TO_VERSION_STYLE_TEST_CASES: Array<{
 		expected: '261.1.1-2',
 	},
 	/**
-	 * 日期時間樣式
+	 * y2k 日期時間樣式
 	 */
 	{
 		style: EnumVersionStyle.Y2KDateTime,
@@ -252,6 +269,24 @@ export const DATE_TO_VERSION_STYLE_TEST_CASES: Array<{
 		style: EnumVersionStyle.Y2KDateTime,
 		dateInfo: { year: 2026, month: 11, day: 20, dailyIncrement: 2, hour: 9, minute: 5 },
 		expected: '226.1120.0905-2',
+	},
+	/**
+	 * JetBrains 日期時間樣式
+	 */
+	{
+		style: EnumVersionStyle.JetbrainsDateTime,
+		dateInfo: TEST_BASE_OPTIONS,
+		expected: '261.101.1744-1',
+	},
+	{
+		style: EnumVersionStyle.JetbrainsDateTime,
+		dateInfo: { year: 2026, month: 11, day: 20, dailyIncrement: 1, hour: 17, minute: 44 },
+		expected: '264.1120.1744-1',
+	},
+	{
+		style: EnumVersionStyle.JetbrainsDateTime,
+		dateInfo: { year: 2026, month: 11, day: 20, dailyIncrement: 2, hour: 9, minute: 5 },
+		expected: '264.1120.0905-2',
 	},
 ];
 /**
@@ -294,6 +329,11 @@ export const DATE_TO_VERSION_DISABLE_SUFFIX_TEST_CASES: Array<{
 		dateInfo: { ...TEST_BASE_OPTIONS, disableDailyVersionSuffix: true },
 		expected: '226.101.1744',
 	},
+	{
+		style: EnumVersionStyle.JetbrainsDateTime,
+		dateInfo: { ...TEST_BASE_OPTIONS, disableDailyVersionSuffix: true },
+		expected: '261.101.1744',
+	},
 ];
 /**
  * parseVersion 測試資料
@@ -309,12 +349,14 @@ export const PARSE_VERSION_TEST_CASES = [
 	{ version: '2026.1.1-1', expected: PARSE_EXPECTED_STANDARD_FULL },
 	{ version: '2026.101.1', expected: PARSE_EXPECTED_STANDARD_FULL_MD },
 	{ version: '2026.1.1', expected: PARSE_EXPECTED_STANDARD_FULL },
-	{ version: '226.1120.1744-1', expected: PARSE_EXPECTED_JETBRAINS_DATE_TIME },
-	{ version: '226.1120.1744', expected: PARSE_EXPECTED_JETBRAINS_DATE_TIME },
+	{ version: '226.1120.1744-1', expected: PARSE_EXPECTED_Y2K_DATE_TIME },
+	{ version: '226.1120.1744', expected: PARSE_EXPECTED_Y2K_DATE_TIME },
 	{
 		version: '226.1120.1744-2',
-		expected: { ...PARSE_EXPECTED_JETBRAINS_DATE_TIME, dailyVersion: 2 },
+		expected: { ...PARSE_EXPECTED_Y2K_DATE_TIME, dailyVersion: 2 },
 	},
+	{ version: '264.1120.1744-1', expected: PARSE_EXPECTED_JETBRAINS_DATE_TIME },
+	{ version: '264.1120.1744', expected: PARSE_EXPECTED_JETBRAINS_DATE_TIME },
 	{ version: 'invalid', expected: null },
 ];
 /**
@@ -330,4 +372,6 @@ export const INCREMENT_VERSION_TEST_CASES = [
 	 */
 	{ version: '226.1120.1744-1', expected: '226.1120.1744-2' },
 	{ version: '226.1120.1744', expected: '226.1120.1744-2' },
+	{ version: '264.1120.1744-1', expected: '264.1120.1744-2' },
+	{ version: '264.1120.1744', expected: '264.1120.1744-2' },
 ];

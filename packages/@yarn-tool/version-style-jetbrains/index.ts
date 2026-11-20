@@ -8,6 +8,9 @@
  * - 2026.1.1-1  => 2026年.一月.一號 - 當日第一版 (年=2026, 月=1, 日=1)
  * - 226.1120.1744-1 => 2026年.11月20號.17:44 - 當日第一版 (年=2026 首個 2 + 26, 月日=1120, 時分=1744, 2100 起不支援)
  * - 226.1120.1744   => 同上但停用遞增後綴 (disableDailyVersionSuffix)
+ * - 264.1120.1744-1 => 2026年Q4.11月20號.17:44 - 當日第一版 (年=26+季度, 月日=1120, 時分=1744)
+ *
+ * 時間樣式解析優先序: 與 y2k 格式同時符合時，JetBrains (YYQ) 格式優先
  */
 import {
 	EnumVersionStyle,
@@ -20,7 +23,7 @@ import { ISeqVersionAny } from './lib/types-seg';
 import { _getParsedVersionFromOptions, _getStyleFromFlags, _handleVersionStyleOptions } from './lib/options';
 import { _dateToVersionByStyleCore } from './lib/core';
 import { _getDateInfoFromDayjs } from './lib/date';
-import { _parseJetbrainsDateTime, _parseJetbrainsVersion, _parseStandardFullVersion } from './lib/helpers';
+import { _parseJetbrainsDateTime, _parseJetbrainsVersion, _parseStandardFullVersion, _parseY2KDateTime } from './lib/helpers';
 import { _assertValidDateInfo } from './lib/assert';
 
 export * from './lib/types';
@@ -37,12 +40,21 @@ export { _handleVersionStyleOptions } from './lib/options';
 export function parseVersion(version: ISeqVersionAny): IParseVersionResult | null
 {
 	/**
-	 * 先嘗試解析日期時間格式: 2YY.MMDD.HHmm-increment
+	 * 先嘗試解析 JetBrains 日期時間格式: YYQ.MMDD.HHmm-increment
+	 * 與 y2k 格式同時符合時以此優先
 	 */
 	let result: IParseVersionResult = _parseJetbrainsDateTime(version);
 
 	/**
-	 * 其次解析標準格式: YYYY.M.D-increment 或 YYYY.MD.increment
+	 * 其次解析 y2k 日期時間格式: 2YY.MMDD.HHmm-increment
+	 */
+	if (!result)
+	{
+		result = _parseY2KDateTime(version);
+	}
+
+	/**
+	 * 再解析標準格式: YYYY.M.D-increment 或 YYYY.MD.increment
 	 */
 	if (!result)
 	{
@@ -132,7 +144,7 @@ export function getNextDayVersion(currentVersion: ISeqVersionAny): string
 		return dateToVersion({});
 	}
 
-	const { year, month, day, isJetbrainsShort, isMDCombined, isDateTime, hour, minute } = parsed;
+	const { year, month, day, hour, minute } = parsed;
 
 	let nextDay = day + 1;
 	let nextMonth = month;
@@ -163,7 +175,7 @@ export function getNextDayVersion(currentVersion: ISeqVersionAny): string
 		}
 	}
 
-	const style = _getStyleFromFlags(isJetbrainsShort, isMDCombined, isDateTime);
+	const style = _getStyleFromFlags(parsed);
 
 	return _dateToVersionByStyleCore(style, {
 		year: nextYear,
@@ -193,9 +205,9 @@ export function incrementVersion(currentVersion: ISeqVersionAny): string
 		return dateToVersion({});
 	}
 
-	const { year, month, day, dailyVersion, isJetbrainsShort, isMDCombined, isDateTime, hour, minute } = parsed;
+	const { year, month, day, dailyVersion, hour, minute } = parsed;
 
-	const style = _getStyleFromFlags(isJetbrainsShort, isMDCombined, isDateTime);
+	const style = _getStyleFromFlags(parsed);
 
 	return _dateToVersionByStyleCore(style, {
 		year,
@@ -333,6 +345,15 @@ export function generateAllStyleVersions(options?: IVersionStyleOptions): Record
 			disableDailyVersionSuffix,
 		}),
 		[EnumVersionStyle.Y2KDateTime]: _dateToVersionByStyleCore(EnumVersionStyle.Y2KDateTime, {
+			year,
+			month,
+			day,
+			dailyIncrement,
+			disableDailyVersionSuffix,
+			hour,
+			minute,
+		}),
+		[EnumVersionStyle.JetbrainsDateTime]: _dateToVersionByStyleCore(EnumVersionStyle.JetbrainsDateTime, {
 			year,
 			month,
 			day,

@@ -39,6 +39,21 @@ export function _dateToVersionByStyleCore(
 	const quarter = getQuarterFromMonth(month);
 
 	/**
+	 * 組出時間樣式版本字串：第三段以 HHmm 時分取代其他樣式的遞增段，
+	 * 遞增號退回為可省略的 -x 後綴（與 JetbrainsShort 同規則），
+	 * 集中避免兩種時間樣式各自實作而格式不一致
+	 *
+	 * @param yearCode - 各時間樣式自己的年份編碼 (YYQ 或 2YY)
+	 * @returns 版本字串
+	 */
+	function buildDateTimeVersion(yearCode: number): string
+	{
+		const timeVersion = `${yearCode}.${getMonthDayCode(month, day)}.${_formatTimeToHHmm(hour, minute)}`;
+
+		return disableDailyVersionSuffix ? timeVersion : `${timeVersion}-${dailyIncrement}`;
+	}
+
+	/**
 	 * 以 switch 而非查表：每種樣式的後綴規則不同（MD 樣式永不省略遞增號），
 	 * 集中在此可避免呼叫端各自實作而產生格式不一致
 	 */
@@ -74,19 +89,10 @@ export function _dateToVersionByStyleCore(
 			return `${year}.${getMonthDayCode(month, day)}.${dailyIncrement}`;
 
 		case EnumVersionStyle.Y2KDateTime:
-		{
-			/**
-			 * 時間以 HHmm 固定四碼取代其他樣式的遞增段位置，
-			 * 遞增號退回為可省略的 -x 後綴（與 JetbrainsShort 同規則）
-			 */
-			const timeVersion = `${getY2KDateTimeYearCode(year)}.${getMonthDayCode(month, day)}.${_formatTimeToHHmm(hour, minute)}`;
+			return buildDateTimeVersion(getY2KDateTimeYearCode(year));
 
-			if (disableDailyVersionSuffix)
-			{
-				return timeVersion;
-			}
-			return `${timeVersion}-${dailyIncrement}`;
-		}
+		case EnumVersionStyle.JetbrainsDateTime:
+			return buildDateTimeVersion(getJetbrainsYearCode(year, quarter));
 
 		default:
 			/**
