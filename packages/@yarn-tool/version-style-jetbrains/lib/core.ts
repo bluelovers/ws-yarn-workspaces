@@ -1,10 +1,19 @@
 import { EnumVersionStyle } from './types';
 import {
 	_formatTimeToHHmm,
+	getMonthDayCode,
 	getY2KDateTimeYearCode,
 	getJetbrainsYearCode,
 	getQuarterFromMonth,
 } from './date';
+import {
+	ISegVerDailyVersionIncrementNumber,
+	ISegDayNumber,
+	ISegMonthNumber,
+	ISegTimeHourNumber,
+	ISegTimeMinuteNumber,
+	ISegYearNumber,
+} from './types-seg';
 
 /**
  * 根據樣式將日期轉換為版本字串（核心函數）
@@ -16,13 +25,13 @@ import {
 export function _dateToVersionByStyleCore(
 	style: EnumVersionStyle,
 	options: {
-		year: number;
-		month: number;
-		day: number;
-		dailyIncrement: number;
+		year: ISegYearNumber;
+		month: ISegMonthNumber;
+		day: ISegDayNumber;
+		dailyIncrement: ISegVerDailyVersionIncrementNumber;
 		disableDailyVersionSuffix?: boolean;
-		hour?: number;
-		minute?: number;
+		hour?: ISegTimeHourNumber;
+		minute?: ISegTimeMinuteNumber;
 	},
 ): string
 {
@@ -49,7 +58,7 @@ export function _dateToVersionByStyleCore(
 			/**
 			 * MD 樣式以「月*100+日」壓縮月日，遞增號改用點分隔以避免與月日數字混淆
 			 */
-			return `${getJetbrainsYearCode(year, quarter)}.${month * 100 + day}.${dailyIncrement}`;
+			return `${getJetbrainsYearCode(year, quarter)}.${getMonthDayCode(month, day)}.${dailyIncrement}`;
 
 		case EnumVersionStyle.StandardFull:
 			/**
@@ -62,7 +71,7 @@ export function _dateToVersionByStyleCore(
 			return `${year}.${month}.${day}-${dailyIncrement}`;
 
 		case EnumVersionStyle.StandardFullMD:
-			return `${year}.${month * 100 + day}.${dailyIncrement}`;
+			return `${year}.${getMonthDayCode(month, day)}.${dailyIncrement}`;
 
 		case EnumVersionStyle.Y2KDateTime:
 		{
@@ -70,7 +79,7 @@ export function _dateToVersionByStyleCore(
 			 * 時間以 HHmm 固定四碼取代其他樣式的遞增段位置，
 			 * 遞增號退回為可省略的 -x 後綴（與 JetbrainsShort 同規則）
 			 */
-			const timeVersion = `${getY2KDateTimeYearCode(year)}.${month * 100 + day}.${_formatTimeToHHmm(hour, minute)}`;
+			const timeVersion = `${getY2KDateTimeYearCode(year)}.${getMonthDayCode(month, day)}.${_formatTimeToHHmm(hour, minute)}`;
 
 			if (disableDailyVersionSuffix)
 			{

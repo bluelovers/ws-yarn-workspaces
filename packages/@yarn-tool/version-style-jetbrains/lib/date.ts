@@ -12,7 +12,19 @@ import { ITSTypeAndStringLiteral } from 'ts-type';
 import { IOptionsTzDayjsSafeParse, tzDayjsSafeParse } from 'dayjs-tz-helper';
 import { isValidDateInfo } from './assert';
 import { _handleVersionStyleOptionsCore } from './options';
-import { ISeqNumberString } from './types-seg';
+import {
+	ISegDayNumber,
+	ISegVerMonthCodeNumber,
+	ISegVerMonthDayCodeNumber,
+	ISegMonthNumber,
+	ISegQuarterNumber,
+	ISegTimeHourNumber,
+	ISegTimeMinuteNumber,
+	ISegYearCodeNumber,
+	ISegYearNumber,
+	ISegVerYearQuarterCodeNumber,
+	ISeqNumberString,
+} from './types-seg';
 
 /**
  * 從月份取得季度
@@ -20,7 +32,7 @@ import { ISeqNumberString } from './types-seg';
  * @param month - 月份 (1-12)
  * @returns 季度 (1-4)
  */
-export function getQuarterFromMonth(month: number): number
+export function getQuarterFromMonth(month: ISegMonthNumber): ISegQuarterNumber
 {
 	return Math.ceil(month / 3);
 }
@@ -32,7 +44,7 @@ export function getQuarterFromMonth(month: number): number
  * @param quarter - 季度 (1-4)
  * @returns 年份編碼 (如 261 表示 2026年Q1)
  */
-export function getJetbrainsYearCode(year: number, quarter: number): number
+export function getJetbrainsYearCode(year: ISegYearNumber, quarter: ISegQuarterNumber): ISegVerYearQuarterCodeNumber
 {
 	return (year % 100) * 10 + quarter;
 }
@@ -57,7 +69,7 @@ const DATETIME_YEAR_CODE_HUNDREDS = 100;
  * @param year - 年份
  * @returns 年份首位數字
  */
-function _getYearLeadingDigit(year: number): number
+function _getYearLeadingDigit(year: ISegYearNumber): number
 {
 	return Math.floor(year / YEAR_THOUSANDS);
 }
@@ -71,7 +83,7 @@ function _getYearLeadingDigit(year: number): number
  * @param year - 年份
  * @returns 年份編碼 (如 226 表示 2026 年)
  */
-export function getY2KDateTimeYearCode(year: number): number
+export function getY2KDateTimeYearCode(year: ISegYearNumber): ISegYearCodeNumber
 {
 	return _getYearLeadingDigit(year) * DATETIME_YEAR_CODE_HUNDREDS + (year % DATETIME_YEAR_CODE_HUNDREDS);
 }
@@ -84,7 +96,7 @@ export function getY2KDateTimeYearCode(year: number): number
  * @param yearCode - 年份編碼 (200-299)
  * @returns 年份 (2000-2099)
  */
-export function _parseY2KDateTimeYear(yearCode: number): number
+export function _parseY2KDateTimeYear(yearCode: ISegYearCodeNumber): ISegYearNumber
 {
 	return Math.floor(yearCode / DATETIME_YEAR_CODE_HUNDREDS) * YEAR_THOUSANDS + (yearCode % DATETIME_YEAR_CODE_HUNDREDS);
 }
@@ -129,9 +141,39 @@ export function _parseTimeFromHHmm(timeStr: string): IHourAndMinute | null
  * @param minute - 分鐘 (0-59)
  * @returns HHmm 字串 (如 "1744")
  */
-export function _formatTimeToHHmm(hour: number, minute: number): string
+export function _formatTimeToHHmm(hour: ISegTimeHourNumber, minute: ISegTimeMinuteNumber): string
 {
 	return `${String(hour).padStart(2, '0')}${String(minute).padStart(2, '0')}`;
+}
+
+/** 月日合併編碼的百位權重：月 * 100 + 日 */
+const MONTH_DAY_HUNDREDS = 100;
+
+/**
+ * 取得月份區段編碼
+ *
+ * 為月日合併編碼的高位部分，供組合月日編碼時使用 (11 -> 1100)
+ *
+ * @param month - 月份 (1-12)
+ * @returns 月份區段編碼
+ */
+export function getMonthCode(month: ISegMonthNumber): ISegVerMonthCodeNumber
+{
+	return month * MONTH_DAY_HUNDREDS;
+}
+
+/**
+ * 取得月日合併編碼
+ *
+ * 以「月 * 100 + 日」壓縮月日 (11, 20 -> 1120)，與 _parseMonthDayFromMD 互為反運算
+ *
+ * @param month - 月份 (1-12)
+ * @param day - 日期 (1-31)
+ * @returns 月日合併編碼
+ */
+export function getMonthDayCode(month: ISegMonthNumber, day: ISegDayNumber): ISegVerMonthDayCodeNumber
+{
+	return getMonthCode(month) + day;
 }
 
 /**
@@ -152,8 +194,8 @@ export function _parseMonthDayFromMD(monthDay: ITSTypeAndStringLiteral<number>):
 	}
 
 	/** 以百位切分月與日：101 -> 1 月 1 日、615 -> 6 月 15 日 */
-	const month = Math.floor(monthDay / 100);
-	const day = monthDay % 100;
+	const month = Math.floor(monthDay / MONTH_DAY_HUNDREDS);
+	const day = monthDay % MONTH_DAY_HUNDREDS;
 
 	return {
 		month,

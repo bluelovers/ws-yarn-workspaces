@@ -2,7 +2,16 @@ import { ITSOverwrite, ITSPickExtra, ITSRequiredPick, ITSRequiredWith } from 'ts
 import { Dayjs } from 'dayjs';
 import { IOptionsTzDayjsSafeParse } from 'dayjs-tz-helper';
 import { ITSTypeAndStringLiteral, ITSNumberValue2 } from 'ts-type';
-import { ISegDailyVersionIncrementNumber, ISegDayNumber, ISegMonthNumber, ISegYearNumber } from './types-seg';
+import {
+	ISegVerDailyVersionIncrementNumber,
+	ISegDayNumber,
+	ISegMonthNumber,
+	ISegQuarterNumber,
+	ISegTimeHourNumber,
+	ISegTimeMinuteNumber,
+	ISegYearNumber,
+	ISeqVersionAny,
+} from './types-seg';
 
 /**
  * 版本風格類型
@@ -58,19 +67,19 @@ export interface IVersionStyleOptions
 	/** 指定日期 (預設為現在) */
 	date?: IDateInput;
 	/** 當日版本號遞增 */
-	dailyIncrement?: ISegDailyVersionIncrementNumber;
-	/** 小時 (0-23)，僅 JetbrainsDateTime 樣式使用，預設取自 date */
-	hour?: number;
-	/** 分鐘 (0-59)，僅 JetbrainsDateTime 樣式使用，預設取自 date */
-	minute?: number;
-	/** 是否禁用結尾的 -x dailyVersion (對 JetbrainsShort / StandardFull / JetbrainsDateTime 有效) */
+	dailyIncrement?: ISegVerDailyVersionIncrementNumber;
+	/** 小時 (0-23)，僅 Y2KDateTime 樣式使用，預設取自 date */
+	hour?: ISegTimeHourNumber;
+	/** 分鐘 (0-59)，僅 Y2KDateTime 樣式使用，預設取自 date */
+	minute?: ISegTimeMinuteNumber;
+	/** 是否禁用結尾的 -x dailyVersion (對 JetbrainsShort / StandardFull / Y2KDateTime 有效) */
 	disableDailyVersionSuffix?: boolean;
 	/** 版本樣式 (default is JetbrainsShortMD) */
 	style?: EnumVersionStyle;
 	/** 是否在解析失敗時拋出錯誤 */
 	throwOnError?: boolean;
 	/** 現有版本號 (用於遞增) */
-	currentVersion?: string;
+	currentVersion?: ISeqVersionAny;
 
 	/** 日期選項 */
 	dateOptions?: IOptionsTzDayjsSafeParse;
@@ -124,9 +133,9 @@ export interface IParseVersionResultCore<JS extends boolean = boolean, MD extend
 	 */
 	isDateTime?: boolean;
 	/** 小時 (0-23)，僅日期時間樣式提供 */
-	hour?: number;
+	hour?: ISegTimeHourNumber;
 	/** 分鐘 (0-59)，僅日期時間樣式提供 */
-	minute?: number;
+	minute?: ISegTimeMinuteNumber;
 }
 
 /**
@@ -135,7 +144,7 @@ export interface IParseVersionResultCore<JS extends boolean = boolean, MD extend
 export interface IParseVersionResult<JS extends boolean = boolean, MD extends boolean = boolean> extends IDateInfo, IParseVersionResultCore<JS, MD>
 {
 	/** 當日版本號 */
-	dailyVersion: ISegDailyVersionIncrementNumber;
+	dailyVersion: ISegVerDailyVersionIncrementNumber;
 }
 
 /**
@@ -160,15 +169,15 @@ export interface IParseMonthDayResult<MD extends boolean = boolean> extends ITSR
 export interface IParseJetbrainsYearResult
 {
 	/** 年份 */
-	year: number;
+	year: ISegYearNumber;
 	/** 季度 (1-4) */
-	quarter: number;
+	quarter: ISegQuarterNumber;
 }
 
 export interface IHourAndMinute
 {
 	/** 小時 (0-23) */
-	hour: number;
+	hour: ISegTimeHourNumber;
 	/** 分鐘 (0-59) */
-	minute: number;
+	minute: ISegTimeMinuteNumber;
 }
