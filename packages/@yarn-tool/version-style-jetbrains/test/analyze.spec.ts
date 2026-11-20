@@ -3,7 +3,7 @@
 
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
-import { analyzeVersionStyles } from '../index';
+import { analyzeVersionStyles, parseVersion, selectVersionStyles } from '../index';
 import { EnumVersionStyle } from '../lib/types';
 
 describe('analyzeVersionStyles', () => {
@@ -102,6 +102,78 @@ describe('analyzeVersionStyles', () => {
 		assert.deepStrictEqual(analysis.matchedResults[EnumVersionStyle.JetbrainsDateTime], analysis.priorityResult);
 		assert.strictEqual(analysis.matchedResults[EnumVersionStyle.Y2KDateTime]?.year, 2064);
 		assert.strictEqual(analysis.matchedResults[EnumVersionStyle.StandardFull], undefined);
+	});
+
+	describe('selectVersionStyles', () => {
+
+		it('should return the original analysis when no list is given', () => {
+			const analysis = analyzeVersionStyles('264.1120.1744-1');
+
+			assert.strictEqual(selectVersionStyles(analysis, undefined), analysis);
+			assert.strictEqual(selectVersionStyles(analysis, {}), analysis);
+		});
+
+		it('should prefer the given style as priority', () => {
+			const analysis = selectVersionStyles(analyzeVersionStyles('264.1120.1744-1'), {
+				prefer: [EnumVersionStyle.Y2KDateTime],
+			});
+
+			assert.deepStrictEqual(analysis.matchedStyles, [
+				EnumVersionStyle.Y2KDateTime,
+				EnumVersionStyle.JetbrainsDateTime,
+				EnumVersionStyle.JetbrainsShortMD,
+			]);
+			assert.strictEqual(analysis.priorityStyle, EnumVersionStyle.Y2KDateTime);
+			assert.strictEqual(analysis.priorityResult?.year, 2064);
+		});
+
+		it('should exclude the given styles even when they match', () => {
+			const analysis = selectVersionStyles(analyzeVersionStyles('264.1120.1744-1'), {
+				exclude: [EnumVersionStyle.Y2KDateTime, EnumVersionStyle.JetbrainsShortMD],
+			});
+
+			assert.deepStrictEqual(analysis.matchedStyles, [EnumVersionStyle.JetbrainsDateTime]);
+			assert.strictEqual(analysis.priorityStyle, EnumVersionStyle.JetbrainsDateTime);
+			assert.strictEqual(analysis.matchedResults[EnumVersionStyle.Y2KDateTime], undefined);
+		});
+
+		it('should let exclude win over prefer', () => {
+			const analysis = selectVersionStyles(analyzeVersionStyles('264.1120.1744-1'), {
+				prefer: [EnumVersionStyle.JetbrainsShortMD],
+				exclude: [EnumVersionStyle.JetbrainsShortMD],
+			});
+
+			assert.deepStrictEqual(analysis.matchedStyles, [
+				EnumVersionStyle.JetbrainsDateTime,
+				EnumVersionStyle.Y2KDateTime,
+			]);
+		});
+
+		it('should ignore a preferred style that does not match', () => {
+			const analysis = selectVersionStyles(analyzeVersionStyles('264.1120.1744-1'), {
+				prefer: [EnumVersionStyle.StandardFull],
+			});
+
+			assert.strictEqual(analysis.priorityStyle, EnumVersionStyle.JetbrainsDateTime);
+		});
+
+		it('should keep an empty analysis empty', () => {
+			const analysis = selectVersionStyles(analyzeVersionStyles('invalid'), {
+				prefer: [EnumVersionStyle.Y2KDateTime],
+			});
+
+			assert.deepStrictEqual(analysis.matchedStyles, []);
+			assert.strictEqual(analysis.priorityStyle, null);
+			assert.strictEqual(analysis.priorityResult, null);
+		});
+
+	});
+
+	it('should parse with the selected style', () => {
+		/** 預設以解析優先序取 JetBrains；指定 prefer / exclude 後改以 y2k 解讀同一位址 */
+		assert.strictEqual(parseVersion('264.1120.1744-1')?.year, 2026);
+		assert.strictEqual(parseVersion('264.1120.1744-1', { prefer: [EnumVersionStyle.Y2KDateTime] })?.year, 2064);
+		assert.strictEqual(parseVersion('264.1120.1744-1', { exclude: [EnumVersionStyle.JetbrainsDateTime] })?.year, 2064);
 	});
 
 });

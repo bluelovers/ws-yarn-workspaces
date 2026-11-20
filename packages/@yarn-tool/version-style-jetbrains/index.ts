@@ -24,26 +24,31 @@ import { _getParsedVersionFromOptions, _handleVersionStyleOptions } from './lib/
 import { _dateToVersionByStyleCore } from './lib/core';
 import { _getDateInfoFromDayjs } from './lib/date';
 import { _assertValidDateInfo } from './lib/assert';
-import { _getStyleFromFlags, analyzeVersionStyles } from './lib/analyze';
+import { _getStyleFromFlags, analyzeVersionStyles, IVersionStyleAnalysisOptions, selectVersionStyles } from './lib/analyze';
 
 export * from './lib/types';
 export * from './lib/types-seg';
 
 export { _handleVersionStyleOptions } from './lib/options';
-export { analyzeVersionStyles } from './lib/analyze';
-export type { IVersionStyleAnalysis } from './lib/analyze';
+export { analyzeVersionStyles, selectVersionStyles } from './lib/analyze';
+export type { IVersionStyleAnalysis, IVersionStyleAnalysisOptions } from './lib/analyze';
 
 /**
  * 解析版本號
  *
- * 以 `analyzeVersionStyles` 的優先風格為準；優先序同時符合時的規則由該核心決定
+ * 以 `analyzeVersionStyles` 的結果經 `selectVersionStyles` 整理後的優先風格為準；
+ * 優先序同時符合時的規則由分析核心決定，`prefer` / `exclude` 只重整其結果
  *
  * @param version - 版本號字串
+ * @param options - 分析選項（優先選用 / 排除特定風格）
  * @returns 解析結果
  */
-export function parseVersion(version: ISeqVersionAny): IParseVersionResult | null
+export function parseVersion(
+	version: ISeqVersionAny,
+	options?: IVersionStyleAnalysisOptions,
+): IParseVersionResult | null
 {
-	const { priorityResult } = analyzeVersionStyles(version);
+	const { priorityResult } = selectVersionStyles(analyzeVersionStyles(version), options);
 
 	/**
 	 * 解析成功仍需驗證日期合法性（如月份 1-12），

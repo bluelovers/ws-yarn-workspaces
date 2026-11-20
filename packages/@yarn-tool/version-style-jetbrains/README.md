@@ -105,12 +105,13 @@ const allVersions = generateAllStyleVersions();
 
 **返回：** 版本號字串
 
-### `parseVersion(version: string): IParseVersionResult`
+### `parseVersion(version: string, options?: IVersionStyleAnalysisOptions): IParseVersionResult`
 
 解析版本號字串，返回包含的日期資訊。
 
 **參數：**
 - `version`: 版本號字串
+- `options`: 可選的風格選擇（`prefer` / `exclude`），由 `selectVersionStyles` 整理分析結果後取優先風格
 
 **返回：** 解析結果物件
 
@@ -129,6 +130,25 @@ const { matchedStyles, matchedResults, priorityStyle, priorityResult } = analyze
 // matchedResults['y2k-date-time'].year: 2064（同一位址在不同風格下的解讀）
 // priorityStyle: 'jetbrains-date-time'
 // priorityResult: { year: 2026, month: 11, day: 20, dailyVersion: 1, hour: 17, minute: 44, ... }
+```
+
+### `selectVersionStyles(analysis: IVersionStyleAnalysis, options?: IVersionStyleAnalysisOptions): IVersionStyleAnalysis`
+
+整理 `analyzeVersionStyles` 的結果：以 `prefer` 選定優先風格、以 `exclude` 排除特定風格；只重整既有結果，不重新解析。
+
+**參數：**
+- `analysis`: `analyzeVersionStyles` 的分析結果
+- `options`:
+  - `prefer`: 優先選用的風格清單（符合者提到最前面，清單內依給定順序；未符合者不佔位）
+  - `exclude`: 排除的風格清單（即使符合也不列入，也不可能成為優先風格；與 `prefer` 同時出現時以 `exclude` 為準）
+
+**返回：** 整理後的 `IVersionStyleAnalysis`
+
+```typescript
+const analysis = analyzeVersionStyles('264.1120.1744-1');
+
+selectVersionStyles(analysis, { prefer: ['y2k-date-time'] }).priorityStyle; // 'y2k-date-time'
+selectVersionStyles(analysis, { exclude: ['y2k-date-time'] }).matchedStyles; // ['jetbrains-date-time', 'jetbrains-short-md']
 ```
 
 ### `generateAllStyleVersions(options?: IVersionStyleOptions): Record<EnumVersionStyle, string>`
