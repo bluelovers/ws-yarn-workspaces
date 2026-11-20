@@ -92,19 +92,19 @@ export function _fillDummyScriptsCore<T extends Record<string, string>>(scripts:
 export function fillDummyScripts<T extends Record<string, string>>(scripts?: T, prefix?: string)
 {
 	return _fillDummyScriptsCore(scripts, prefix, [
-		'preversion',
-		'version',
-		'prepublishOnly',
+		// 'preversion',
+		// 'version',
+		// 'prepublishOnly',
 		// 'postversion',
-		'publish',
+		// 'publish',
 		// 'prepublish',
 		// 'postpublish',
-		'postpublishOnly',
+		// 'postpublishOnly',
 		// 'prepare',
 		// 'prepack',
 		// 'pack',
 		// 'postpack',
-		'pretest',
+		// 'pretest',
 		'ci:build',
 		'ci:install',
 	] as const);
